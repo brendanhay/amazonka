@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.VpcConfigurationDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.VpcConfigurationDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The details of the VPC of the Amazon ES destination.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVpcConfigurationDescription' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679265831"><span id="local-6989586621679265832"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcConfigurationDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-var">VpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcConfigurationDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-var">VpcConfigurationDescription'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- the VPC of the Amazon ES destination. Make sure that the routing tables</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and inbound and outbound rules allow traffic to flow from the subnets</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- whose IDs are specified here to the subnets that have the destination</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- each of the subnets that are specified here. Do not delete or modify</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- these ENIs.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The number of ENIs that Kinesis Data Firehose creates in the subnets</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specified here scales up and down automatically based on throughput. To</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- enable Kinesis Data Firehose to scale up the number of ENIs to match</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- throughput, ensure that you have sufficient quota. To help you calculate</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the quota you need, assume that Kinesis Data Firehose can create up to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- three ENIs for this delivery stream for each of the subnets specified</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- here. For more information about ENI quota, see</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces&gt;</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- in the Amazon VPC Quotas topic.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVpcConfigurationDescription%27"><span class="annot"><span class="annottext">VpcConfigurationDescription -&gt; NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsubnetIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that the delivery stream uses to create</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- endpoints in the destination VPC. You can use your existing Kinesis Data</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Firehose delivery role or you can specify a new role. In either case,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- make sure that the role trusts the Kinesis Data Firehose service</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- principal and that it grants the following permissions:</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @ec2:DescribeVpcs@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @ec2:DescribeVpcAttribute@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @ec2:DescribeSubnets@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @ec2:DescribeSecurityGroups@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @ec2:DescribeNetworkInterfaces@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @ec2:CreateNetworkInterface@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @ec2:CreateNetworkInterfacePermission@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @ec2:DeleteNetworkInterface@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If you revoke these permissions after you create the delivery stream,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Kinesis Data Firehose can\'t scale out by creating more ENIs when</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- necessary. You might therefore see a degradation in performance.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AroleARN%3AVpcConfigurationDescription%27"><span class="annot"><span class="annottext">VpcConfigurationDescription -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AroleARN%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The IDs of the security groups that Kinesis Data Firehose uses when it</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- creates ENIs in the VPC of the Amazon ES destination. You can use the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- same security group that the Amazon ES domain uses or different ones. If</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- you specify different security groups, ensure that they allow outbound</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- HTTPS traffic to the Amazon ES domain\'s security group. Also ensure</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- that the Amazon ES domain\'s security group allows HTTPS traffic from</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the security groups specified here. If you use the same security group</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- for both your delivery stream and the Amazon ES domain, make sure the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- security group inbound rule allows HTTPS traffic. For more information</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- about security group rules, see</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules&gt;</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- in the Amazon VPC documentation.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVpcConfigurationDescription%27"><span class="annot"><span class="annottext">VpcConfigurationDescription -&gt; NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsecurityGroupIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon ES destination\'s VPC.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AvpcId%3AVpcConfigurationDescription%27"><span class="annot"><span class="annottext">VpcConfigurationDescription -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AvpcId%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265822"><span id="local-6989586621679265824"><span class="annot"><span class="annottext">VpcConfigurationDescription -&gt; VpcConfigurationDescription -&gt; Bool
+(VpcConfigurationDescription
+ -&gt; VpcConfigurationDescription -&gt; Bool)
+-&gt; (VpcConfigurationDescription
+    -&gt; VpcConfigurationDescription -&gt; Bool)
+-&gt; Eq VpcConfigurationDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VpcConfigurationDescription -&gt; VpcConfigurationDescription -&gt; Bool
+$c/= :: VpcConfigurationDescription -&gt; VpcConfigurationDescription -&gt; Bool
+== :: VpcConfigurationDescription -&gt; VpcConfigurationDescription -&gt; Bool
+$c== :: VpcConfigurationDescription -&gt; VpcConfigurationDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265813"><span id="local-6989586621679265815"><span id="local-6989586621679265817"><span id="local-6989586621679265819"><span class="annot"><span class="annottext">ReadPrec [VpcConfigurationDescription]
+ReadPrec VpcConfigurationDescription
+Int -&gt; ReadS VpcConfigurationDescription
+ReadS [VpcConfigurationDescription]
+(Int -&gt; ReadS VpcConfigurationDescription)
+-&gt; ReadS [VpcConfigurationDescription]
+-&gt; ReadPrec VpcConfigurationDescription
+-&gt; ReadPrec [VpcConfigurationDescription]
+-&gt; Read VpcConfigurationDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VpcConfigurationDescription]
+$creadListPrec :: ReadPrec [VpcConfigurationDescription]
+readPrec :: ReadPrec VpcConfigurationDescription
+$creadPrec :: ReadPrec VpcConfigurationDescription
+readList :: ReadS [VpcConfigurationDescription]
+$creadList :: ReadS [VpcConfigurationDescription]
+readsPrec :: Int -&gt; ReadS VpcConfigurationDescription
+$creadsPrec :: Int -&gt; ReadS VpcConfigurationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265806"><span id="local-6989586621679265808"><span id="local-6989586621679265810"><span class="annot"><span class="annottext">Int -&gt; VpcConfigurationDescription -&gt; ShowS
+[VpcConfigurationDescription] -&gt; ShowS
+VpcConfigurationDescription -&gt; String
+(Int -&gt; VpcConfigurationDescription -&gt; ShowS)
+-&gt; (VpcConfigurationDescription -&gt; String)
+-&gt; ([VpcConfigurationDescription] -&gt; ShowS)
+-&gt; Show VpcConfigurationDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VpcConfigurationDescription] -&gt; ShowS
+$cshowList :: [VpcConfigurationDescription] -&gt; ShowS
+show :: VpcConfigurationDescription -&gt; String
+$cshow :: VpcConfigurationDescription -&gt; String
+showsPrec :: Int -&gt; VpcConfigurationDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; VpcConfigurationDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VpcConfigurationDescription -&gt; Rep VpcConfigurationDescription x)
+-&gt; (forall x.
+    Rep VpcConfigurationDescription x -&gt; VpcConfigurationDescription)
+-&gt; Generic VpcConfigurationDescription
+forall x.
+Rep VpcConfigurationDescription x -&gt; VpcConfigurationDescription
+forall x.
+VpcConfigurationDescription -&gt; Rep VpcConfigurationDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VpcConfigurationDescription x -&gt; VpcConfigurationDescription
+$cfrom :: forall x.
+VpcConfigurationDescription -&gt; Rep VpcConfigurationDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'VpcConfigurationDescription' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'subnetIds', 'vpcConfigurationDescription_subnetIds' - The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the VPC of the Amazon ES destination. Make sure that the routing tables</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- and inbound and outbound rules allow traffic to flow from the subnets</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- whose IDs are specified here to the subnets that have the destination</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- each of the subnets that are specified here. Do not delete or modify</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- these ENIs.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- The number of ENIs that Kinesis Data Firehose creates in the subnets</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- specified here scales up and down automatically based on throughput. To</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- enable Kinesis Data Firehose to scale up the number of ENIs to match</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- throughput, ensure that you have sufficient quota. To help you calculate</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the quota you need, assume that Kinesis Data Firehose can create up to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- three ENIs for this delivery stream for each of the subnets specified</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- here. For more information about ENI quota, see</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces&gt;</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- in the Amazon VPC Quotas topic.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'roleARN', 'vpcConfigurationDescription_roleARN' - The ARN of the IAM role that the delivery stream uses to create</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- endpoints in the destination VPC. You can use your existing Kinesis Data</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Firehose delivery role or you can specify a new role. In either case,</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- make sure that the role trusts the Kinesis Data Firehose service</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- principal and that it grants the following permissions:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @ec2:DescribeVpcs@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @ec2:DescribeVpcAttribute@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @ec2:DescribeSubnets@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @ec2:DescribeSecurityGroups@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @ec2:DescribeNetworkInterfaces@</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @ec2:CreateNetworkInterface@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @ec2:CreateNetworkInterfacePermission@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @ec2:DeleteNetworkInterface@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If you revoke these permissions after you create the delivery stream,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Kinesis Data Firehose can\'t scale out by creating more ENIs when</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- necessary. You might therefore see a degradation in performance.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'securityGroupIds', 'vpcConfigurationDescription_securityGroupIds' - The IDs of the security groups that Kinesis Data Firehose uses when it</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- creates ENIs in the VPC of the Amazon ES destination. You can use the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- same security group that the Amazon ES domain uses or different ones. If</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- you specify different security groups, ensure that they allow outbound</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- HTTPS traffic to the Amazon ES domain\'s security group. Also ensure</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- that the Amazon ES domain\'s security group allows HTTPS traffic from</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the security groups specified here. If you use the same security group</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for both your delivery stream and the Amazon ES domain, make sure the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- security group inbound rule allows HTTPS traffic. For more information</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- about security group rules, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- in the Amazon VPC documentation.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'vpcId', 'vpcConfigurationDescription_vpcId' - The ID of the Amazon ES destination\'s VPC.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#newVpcConfigurationDescription"><span class="hs-identifier hs-type">newVpcConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'subnetIds'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'roleARN'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'securityGroupIds'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'vpcId'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span>
+</span><span id="line-168"></span><span id="newVpcConfigurationDescription"><span class="annot"><span class="annottext">newVpcConfigurationDescription :: NonEmpty Text
+-&gt; Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#newVpcConfigurationDescription"><span class="hs-identifier hs-var hs-var">newVpcConfigurationDescription</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679265800"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679265799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679265798"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265798"><span class="hs-identifier hs-var">pSecurityGroupIds_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679265797"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265797"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">VpcConfigurationDescription' :: NonEmpty Text
+-&gt; Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigurationDescription' :: NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsubnetIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265800"><span class="hs-identifier hs-var">pSubnetIds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:VpcConfigurationDescription' :: Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AroleARN%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265799"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigurationDescription' :: NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsecurityGroupIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265798"><span class="hs-identifier hs-var">pSecurityGroupIds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigurationDescription' :: Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AvpcId%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265797"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the VPC of the Amazon ES destination. Make sure that the routing tables</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- and inbound and outbound rules allow traffic to flow from the subnets</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- whose IDs are specified here to the subnets that have the destination</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- each of the subnets that are specified here. Do not delete or modify</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- these ENIs.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The number of ENIs that Kinesis Data Firehose creates in the subnets</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- specified here scales up and down automatically based on throughput. To</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- enable Kinesis Data Firehose to scale up the number of ENIs to match</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- throughput, ensure that you have sufficient quota. To help you calculate</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- the quota you need, assume that Kinesis Data Firehose can create up to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- three ENIs for this delivery stream for each of the subnets specified</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- here. For more information about ENI quota, see</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces&gt;</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- in the Amazon VPC Quotas topic.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_subnetIds"><span class="hs-identifier hs-type">vpcConfigurationDescription_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="vpcConfigurationDescription_subnetIds"><span class="annot"><span class="annottext">vpcConfigurationDescription_subnetIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_subnetIds"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigurationDescription -&gt; NonEmpty Text)
+-&gt; (VpcConfigurationDescription
+    -&gt; NonEmpty Text -&gt; VpcConfigurationDescription)
+-&gt; Lens
+     VpcConfigurationDescription
+     VpcConfigurationDescription
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265791"><span class="annot"><span class="annottext">NonEmpty Text
+subnetIds :: NonEmpty Text
+$sel:subnetIds:VpcConfigurationDescription' :: VpcConfigurationDescription -&gt; NonEmpty Text
+</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265791"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265790"><span class="annot"><span class="annottext">s :: VpcConfigurationDescription
+</span><a href="#local-6989586621679265790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265789"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigurationDescription
+</span><a href="#local-6989586621679265790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigurationDescription' :: NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsubnetIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; VpcConfigurationDescription
+-&gt; f VpcConfigurationDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The ARN of the IAM role that the delivery stream uses to create</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- endpoints in the destination VPC. You can use your existing Kinesis Data</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Firehose delivery role or you can specify a new role. In either case,</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- make sure that the role trusts the Kinesis Data Firehose service</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- principal and that it grants the following permissions:</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   @ec2:DescribeVpcs@</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @ec2:DescribeVpcAttribute@</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @ec2:DescribeSubnets@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   @ec2:DescribeSecurityGroups@</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   @ec2:DescribeNetworkInterfaces@</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   @ec2:CreateNetworkInterface@</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   @ec2:CreateNetworkInterfacePermission@</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   @ec2:DeleteNetworkInterface@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- If you revoke these permissions after you create the delivery stream,</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Kinesis Data Firehose can\'t scale out by creating more ENIs when</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- necessary. You might therefore see a degradation in performance.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_roleARN"><span class="hs-identifier hs-type">vpcConfigurationDescription_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="vpcConfigurationDescription_roleARN"><span class="annot"><span class="annottext">vpcConfigurationDescription_roleARN :: (Text -&gt; f Text)
+-&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_roleARN"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigurationDescription -&gt; Text)
+-&gt; (VpcConfigurationDescription
+    -&gt; Text -&gt; VpcConfigurationDescription)
+-&gt; Lens
+     VpcConfigurationDescription VpcConfigurationDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265786"><span class="annot"><span class="annottext">Text
+roleARN :: Text
+$sel:roleARN:VpcConfigurationDescription' :: VpcConfigurationDescription -&gt; Text
+</span><a href="#local-6989586621679265786"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265786"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265785"><span class="annot"><span class="annottext">s :: VpcConfigurationDescription
+</span><a href="#local-6989586621679265785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigurationDescription
+</span><a href="#local-6989586621679265785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:VpcConfigurationDescription' :: Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AroleARN%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The IDs of the security groups that Kinesis Data Firehose uses when it</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- creates ENIs in the VPC of the Amazon ES destination. You can use the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- same security group that the Amazon ES domain uses or different ones. If</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- you specify different security groups, ensure that they allow outbound</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- HTTPS traffic to the Amazon ES domain\'s security group. Also ensure</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- that the Amazon ES domain\'s security group allows HTTPS traffic from</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- the security groups specified here. If you use the same security group</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- for both your delivery stream and the Amazon ES domain, make sure the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- security group inbound rule allows HTTPS traffic. For more information</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- about security group rules, see</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules&gt;</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- in the Amazon VPC documentation.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_securityGroupIds"><span class="hs-identifier hs-type">vpcConfigurationDescription_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="vpcConfigurationDescription_securityGroupIds"><span class="annot"><span class="annottext">vpcConfigurationDescription_securityGroupIds :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_securityGroupIds"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigurationDescription -&gt; NonEmpty Text)
+-&gt; (VpcConfigurationDescription
+    -&gt; NonEmpty Text -&gt; VpcConfigurationDescription)
+-&gt; Lens
+     VpcConfigurationDescription
+     VpcConfigurationDescription
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265782"><span class="annot"><span class="annottext">NonEmpty Text
+securityGroupIds :: NonEmpty Text
+$sel:securityGroupIds:VpcConfigurationDescription' :: VpcConfigurationDescription -&gt; NonEmpty Text
+</span><a href="#local-6989586621679265782"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265782"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265781"><span class="annot"><span class="annottext">s :: VpcConfigurationDescription
+</span><a href="#local-6989586621679265781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265780"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigurationDescription
+</span><a href="#local-6989586621679265781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigurationDescription' :: NonEmpty Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AsecurityGroupIds%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679265780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; VpcConfigurationDescription
+-&gt; f VpcConfigurationDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The ID of the Amazon ES destination\'s VPC.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_vpcId"><span class="hs-identifier hs-type">vpcConfigurationDescription_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-247"></span><span id="vpcConfigurationDescription_vpcId"><span class="annot"><span class="annottext">vpcConfigurationDescription_vpcId :: (Text -&gt; f Text)
+-&gt; VpcConfigurationDescription -&gt; f VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#vpcConfigurationDescription_vpcId"><span class="hs-identifier hs-var hs-var">vpcConfigurationDescription_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigurationDescription -&gt; Text)
+-&gt; (VpcConfigurationDescription
+    -&gt; Text -&gt; VpcConfigurationDescription)
+-&gt; Lens
+     VpcConfigurationDescription VpcConfigurationDescription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265778"><span class="annot"><span class="annottext">Text
+vpcId :: Text
+$sel:vpcId:VpcConfigurationDescription' :: VpcConfigurationDescription -&gt; Text
+</span><a href="#local-6989586621679265778"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265778"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265777"><span class="annot"><span class="annottext">s :: VpcConfigurationDescription
+</span><a href="#local-6989586621679265777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-type">VpcConfigurationDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigurationDescription
+</span><a href="#local-6989586621679265777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigurationDescription' :: Text
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#%24sel%3AvpcId%3AVpcConfigurationDescription%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679265771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcConfigurationDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VpcConfigurationDescription)
+-&gt; Value
+-&gt; Parser VpcConfigurationDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VpcConfigurationDescription&quot;</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty Text
+-&gt; Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription
+</span><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription%27"><span class="hs-identifier hs-var">VpcConfigurationDescription'</span></a></span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty Text
+ -&gt; Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription)
+-&gt; Parser (NonEmpty Text)
+-&gt; Parser
+     (Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription)
+-&gt; Parser Text
+-&gt; Parser (NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty Text -&gt; Text -&gt; VpcConfigurationDescription)
+-&gt; Parser (NonEmpty Text)
+-&gt; Parser (Text -&gt; VpcConfigurationDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroupIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; VpcConfigurationDescription)
+-&gt; Parser Text -&gt; Parser VpcConfigurationDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265762"><span id="local-6989586621679265764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span></span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.VpcConfigurationDescription.html#VpcConfigurationDescription"><span class="hs-identifier hs-type">VpcConfigurationDescription</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

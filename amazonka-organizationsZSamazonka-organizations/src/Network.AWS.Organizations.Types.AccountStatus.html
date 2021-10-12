@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Organizations.Types.AccountStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Organizations.Types.AccountStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus"><span class="hs-identifier">AccountStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_ACTIVE"><span class="hs-identifier">AccountStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_SUSPENDED"><span class="hs-identifier">AccountStatus_SUSPENDED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679235175"><span id="local-6989586621679235176"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountStatus"><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus"><span class="hs-identifier hs-var">AccountStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountStatus%27"><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus%27"><span class="hs-identifier hs-var">AccountStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountStatus"><span class="annot"><span class="annottext">AccountStatus -&gt; Text
+</span><a href="Network.AWS.Organizations.Types.AccountStatus.html#fromAccountStatus"><span class="hs-identifier hs-var hs-var">fromAccountStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235167"><span id="local-6989586621679235169"><span id="local-6989586621679235171"><span class="annot"><span class="annottext">Int -&gt; AccountStatus -&gt; ShowS
+[AccountStatus] -&gt; ShowS
+AccountStatus -&gt; String
+(Int -&gt; AccountStatus -&gt; ShowS)
+-&gt; (AccountStatus -&gt; String)
+-&gt; ([AccountStatus] -&gt; ShowS)
+-&gt; Show AccountStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccountStatus] -&gt; ShowS
+$cshowList :: [AccountStatus] -&gt; ShowS
+show :: AccountStatus -&gt; String
+$cshow :: AccountStatus -&gt; String
+showsPrec :: Int -&gt; AccountStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccountStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679235158"><span id="local-6989586621679235160"><span id="local-6989586621679235162"><span id="local-6989586621679235164"><span class="annot"><span class="annottext">ReadPrec [AccountStatus]
+ReadPrec AccountStatus
+Int -&gt; ReadS AccountStatus
+ReadS [AccountStatus]
+(Int -&gt; ReadS AccountStatus)
+-&gt; ReadS [AccountStatus]
+-&gt; ReadPrec AccountStatus
+-&gt; ReadPrec [AccountStatus]
+-&gt; Read AccountStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccountStatus]
+$creadListPrec :: ReadPrec [AccountStatus]
+readPrec :: ReadPrec AccountStatus
+$creadPrec :: ReadPrec AccountStatus
+readList :: ReadS [AccountStatus]
+$creadList :: ReadS [AccountStatus]
+readsPrec :: Int -&gt; ReadS AccountStatus
+$creadsPrec :: Int -&gt; ReadS AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235153"><span id="local-6989586621679235155"><span class="annot"><span class="annottext">AccountStatus -&gt; AccountStatus -&gt; Bool
+(AccountStatus -&gt; AccountStatus -&gt; Bool)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Bool) -&gt; Eq AccountStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c/= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+== :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c== :: AccountStatus -&gt; AccountStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235137"><span id="local-6989586621679235139"><span id="local-6989586621679235141"><span id="local-6989586621679235143"><span id="local-6989586621679235145"><span id="local-6989586621679235147"><span id="local-6989586621679235149"><span class="annot"><span class="annottext">Eq AccountStatus
+Eq AccountStatus
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Ordering)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Bool)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Bool)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Bool)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; Bool)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; AccountStatus)
+-&gt; (AccountStatus -&gt; AccountStatus -&gt; AccountStatus)
+-&gt; Ord AccountStatus
+AccountStatus -&gt; AccountStatus -&gt; Bool
+AccountStatus -&gt; AccountStatus -&gt; Ordering
+AccountStatus -&gt; AccountStatus -&gt; AccountStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccountStatus -&gt; AccountStatus -&gt; AccountStatus
+$cmin :: AccountStatus -&gt; AccountStatus -&gt; AccountStatus
+max :: AccountStatus -&gt; AccountStatus -&gt; AccountStatus
+$cmax :: AccountStatus -&gt; AccountStatus -&gt; AccountStatus
+&gt;= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c&gt;= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+&gt; :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c&gt; :: AccountStatus -&gt; AccountStatus -&gt; Bool
+&lt;= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c&lt;= :: AccountStatus -&gt; AccountStatus -&gt; Bool
+&lt; :: AccountStatus -&gt; AccountStatus -&gt; Bool
+$c&lt; :: AccountStatus -&gt; AccountStatus -&gt; Bool
+compare :: AccountStatus -&gt; AccountStatus -&gt; Ordering
+$ccompare :: AccountStatus -&gt; AccountStatus -&gt; Ordering
+$cp1Ord :: Eq AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccountStatus -&gt; Rep AccountStatus x)
+-&gt; (forall x. Rep AccountStatus x -&gt; AccountStatus)
+-&gt; Generic AccountStatus
+forall x. Rep AccountStatus x -&gt; AccountStatus
+forall x. AccountStatus -&gt; Rep AccountStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccountStatus x -&gt; AccountStatus
+$cfrom :: forall x. AccountStatus -&gt; Rep AccountStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235129"><span id="local-6989586621679235131"><span class="annot"><span class="annottext">Int -&gt; AccountStatus -&gt; Int
+AccountStatus -&gt; Int
+(Int -&gt; AccountStatus -&gt; Int)
+-&gt; (AccountStatus -&gt; Int) -&gt; Hashable AccountStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccountStatus -&gt; Int
+$chash :: AccountStatus -&gt; Int
+hashWithSalt :: Int -&gt; AccountStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AccountStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235126"><span class="annot"><span class="annottext">AccountStatus -&gt; ()
+(AccountStatus -&gt; ()) -&gt; NFData AccountStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccountStatus -&gt; ()
+$crnf :: AccountStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235123"><span class="annot"><span class="annottext">Text -&gt; Either String AccountStatus
+(Text -&gt; Either String AccountStatus) -&gt; FromText AccountStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccountStatus
+$cfromText :: Text -&gt; Either String AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235120"><span class="annot"><span class="annottext">AccountStatus -&gt; Text
+(AccountStatus -&gt; Text) -&gt; ToText AccountStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccountStatus -&gt; Text
+$ctoText :: AccountStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235117"><span class="annot"><span class="annottext">AccountStatus -&gt; ByteString
+(AccountStatus -&gt; ByteString) -&gt; ToByteString AccountStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccountStatus -&gt; ByteString
+$ctoBS :: AccountStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235114"><span class="annot"><span class="annottext">AccountStatus -&gt; ByteStringBuilder
+(AccountStatus -&gt; ByteStringBuilder) -&gt; ToLog AccountStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccountStatus -&gt; ByteStringBuilder
+$cbuild :: AccountStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235111"><span class="annot"><span class="annottext">HeaderName -&gt; AccountStatus -&gt; [Header]
+(HeaderName -&gt; AccountStatus -&gt; [Header]) -&gt; ToHeader AccountStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccountStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccountStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235108"><span class="annot"><span class="annottext">AccountStatus -&gt; QueryString
+(AccountStatus -&gt; QueryString) -&gt; ToQuery AccountStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccountStatus -&gt; QueryString
+$ctoQuery :: AccountStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235103"><span id="local-6989586621679235105"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountStatus]
+Value -&gt; Parser AccountStatus
+(Value -&gt; Parser AccountStatus)
+-&gt; (Value -&gt; Parser [AccountStatus]) -&gt; FromJSON AccountStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccountStatus]
+$cparseJSONList :: Value -&gt; Parser [AccountStatus]
+parseJSON :: Value -&gt; Parser AccountStatus
+$cparseJSON :: Value -&gt; Parser AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235098"><span id="local-6989586621679235100"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountStatus]
+FromJSONKeyFunction AccountStatus
+FromJSONKeyFunction AccountStatus
+-&gt; FromJSONKeyFunction [AccountStatus] -&gt; FromJSONKey AccountStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccountStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccountStatus]
+fromJSONKey :: FromJSONKeyFunction AccountStatus
+$cfromJSONKey :: FromJSONKeyFunction AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235089"><span id="local-6989586621679235091"><span id="local-6989586621679235093"><span id="local-6989586621679235095"><span class="annot"><span class="annottext">[AccountStatus] -&gt; Encoding
+[AccountStatus] -&gt; Value
+AccountStatus -&gt; Encoding
+AccountStatus -&gt; Value
+(AccountStatus -&gt; Value)
+-&gt; (AccountStatus -&gt; Encoding)
+-&gt; ([AccountStatus] -&gt; Value)
+-&gt; ([AccountStatus] -&gt; Encoding)
+-&gt; ToJSON AccountStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccountStatus] -&gt; Encoding
+$ctoEncodingList :: [AccountStatus] -&gt; Encoding
+toJSONList :: [AccountStatus] -&gt; Value
+$ctoJSONList :: [AccountStatus] -&gt; Value
+toEncoding :: AccountStatus -&gt; Encoding
+$ctoEncoding :: AccountStatus -&gt; Encoding
+toJSON :: AccountStatus -&gt; Value
+$ctoJSON :: AccountStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235084"><span id="local-6989586621679235086"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountStatus]
+ToJSONKeyFunction AccountStatus
+ToJSONKeyFunction AccountStatus
+-&gt; ToJSONKeyFunction [AccountStatus] -&gt; ToJSONKey AccountStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccountStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccountStatus]
+toJSONKey :: ToJSONKeyFunction AccountStatus
+$ctoJSONKey :: ToJSONKeyFunction AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235081"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountStatus
+([Node] -&gt; Either String AccountStatus) -&gt; FromXML AccountStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccountStatus
+$cparseXML :: [Node] -&gt; Either String AccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235078"><span class="annot"><span class="annottext">AccountStatus -&gt; XML
+(AccountStatus -&gt; XML) -&gt; ToXML AccountStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccountStatus -&gt; XML
+$ctoXML :: AccountStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_ACTIVE"><span class="hs-identifier hs-type">AccountStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus"><span class="hs-identifier hs-type">AccountStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountStatus_ACTIVE"><span id="%24mAccountStatus_ACTIVE"><span id="AccountStatus_ACTIVE"><span class="annot"><span class="annottext">$bAccountStatus_ACTIVE :: AccountStatus
+$mAccountStatus_ACTIVE :: forall r. AccountStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.AccountStatus.html#%24bAccountStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">AccountStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus%27"><span class="hs-identifier hs-type">AccountStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_SUSPENDED"><span class="hs-identifier hs-type">AccountStatus_SUSPENDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus"><span class="hs-identifier hs-type">AccountStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountStatus_SUSPENDED"><span id="%24mAccountStatus_SUSPENDED"><span id="AccountStatus_SUSPENDED"><span class="annot"><span class="annottext">$bAccountStatus_SUSPENDED :: AccountStatus
+$mAccountStatus_SUSPENDED :: forall r. AccountStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.AccountStatus.html#%24bAccountStatus_SUSPENDED"><span class="hs-identifier hs-var hs-var hs-var">AccountStatus_SUSPENDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus%27"><span class="hs-identifier hs-type">AccountStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSPENDED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_ACTIVE"><span class="hs-pragma hs-type">AccountStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus_SUSPENDED"><span class="hs-pragma hs-type">AccountStatus_SUSPENDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountStatus.html#AccountStatus%27"><span class="hs-pragma hs-type">AccountStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

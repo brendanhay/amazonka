@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.TopicRuleDestinationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.TopicRuleDestinationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DELETING"><span class="hs-identifier">TopicRuleDestinationStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DISABLED"><span class="hs-identifier">TopicRuleDestinationStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ENABLED"><span class="hs-identifier">TopicRuleDestinationStatus_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ERROR"><span class="hs-identifier">TopicRuleDestinationStatus_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_IN_PROGRESS"><span class="hs-identifier">TopicRuleDestinationStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679804125"><span id="local-6989586621679804126"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TopicRuleDestinationStatus"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-var">TopicRuleDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicRuleDestinationStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-var">TopicRuleDestinationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTopicRuleDestinationStatus"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; Text
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#fromTopicRuleDestinationStatus"><span class="hs-identifier hs-var hs-var">fromTopicRuleDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679804117"><span id="local-6989586621679804119"><span id="local-6989586621679804121"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
+[TopicRuleDestinationStatus] -&gt; ShowS
+TopicRuleDestinationStatus -&gt; String
+(Int -&gt; TopicRuleDestinationStatus -&gt; ShowS)
+-&gt; (TopicRuleDestinationStatus -&gt; String)
+-&gt; ([TopicRuleDestinationStatus] -&gt; ShowS)
+-&gt; Show TopicRuleDestinationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TopicRuleDestinationStatus] -&gt; ShowS
+$cshowList :: [TopicRuleDestinationStatus] -&gt; ShowS
+show :: TopicRuleDestinationStatus -&gt; String
+$cshow :: TopicRuleDestinationStatus -&gt; String
+showsPrec :: Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TopicRuleDestinationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679804108"><span id="local-6989586621679804110"><span id="local-6989586621679804112"><span id="local-6989586621679804114"><span class="annot"><span class="annottext">ReadPrec [TopicRuleDestinationStatus]
+ReadPrec TopicRuleDestinationStatus
+Int -&gt; ReadS TopicRuleDestinationStatus
+ReadS [TopicRuleDestinationStatus]
+(Int -&gt; ReadS TopicRuleDestinationStatus)
+-&gt; ReadS [TopicRuleDestinationStatus]
+-&gt; ReadPrec TopicRuleDestinationStatus
+-&gt; ReadPrec [TopicRuleDestinationStatus]
+-&gt; Read TopicRuleDestinationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TopicRuleDestinationStatus]
+$creadListPrec :: ReadPrec [TopicRuleDestinationStatus]
+readPrec :: ReadPrec TopicRuleDestinationStatus
+$creadPrec :: ReadPrec TopicRuleDestinationStatus
+readList :: ReadS [TopicRuleDestinationStatus]
+$creadList :: ReadS [TopicRuleDestinationStatus]
+readsPrec :: Int -&gt; ReadS TopicRuleDestinationStatus
+$creadsPrec :: Int -&gt; ReadS TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679804103"><span id="local-6989586621679804105"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+(TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; Eq TopicRuleDestinationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c/= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+== :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c== :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679804087"><span id="local-6989586621679804089"><span id="local-6989586621679804091"><span id="local-6989586621679804093"><span id="local-6989586621679804095"><span id="local-6989586621679804097"><span id="local-6989586621679804099"><span class="annot"><span class="annottext">Eq TopicRuleDestinationStatus
+Eq TopicRuleDestinationStatus
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Ordering)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; Bool)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus)
+-&gt; (TopicRuleDestinationStatus
+    -&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus)
+-&gt; Ord TopicRuleDestinationStatus
+TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; Ordering
+TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus
+$cmin :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus
+max :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus
+$cmax :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus
+&gt;= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c&gt;= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+&gt; :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c&gt; :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+&lt;= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c&lt;= :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+&lt; :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+$c&lt; :: TopicRuleDestinationStatus -&gt; TopicRuleDestinationStatus -&gt; Bool
+compare :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; Ordering
+$ccompare :: TopicRuleDestinationStatus
+-&gt; TopicRuleDestinationStatus -&gt; Ordering
+$cp1Ord :: Eq TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TopicRuleDestinationStatus -&gt; Rep TopicRuleDestinationStatus x)
+-&gt; (forall x.
+    Rep TopicRuleDestinationStatus x -&gt; TopicRuleDestinationStatus)
+-&gt; Generic TopicRuleDestinationStatus
+forall x.
+Rep TopicRuleDestinationStatus x -&gt; TopicRuleDestinationStatus
+forall x.
+TopicRuleDestinationStatus -&gt; Rep TopicRuleDestinationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TopicRuleDestinationStatus x -&gt; TopicRuleDestinationStatus
+$cfrom :: forall x.
+TopicRuleDestinationStatus -&gt; Rep TopicRuleDestinationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679804079"><span id="local-6989586621679804081"><span class="annot"><span class="annottext">Int -&gt; TopicRuleDestinationStatus -&gt; Int
+TopicRuleDestinationStatus -&gt; Int
+(Int -&gt; TopicRuleDestinationStatus -&gt; Int)
+-&gt; (TopicRuleDestinationStatus -&gt; Int)
+-&gt; Hashable TopicRuleDestinationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TopicRuleDestinationStatus -&gt; Int
+$chash :: TopicRuleDestinationStatus -&gt; Int
+hashWithSalt :: Int -&gt; TopicRuleDestinationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TopicRuleDestinationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679804076"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ()
+(TopicRuleDestinationStatus -&gt; ())
+-&gt; NFData TopicRuleDestinationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TopicRuleDestinationStatus -&gt; ()
+$crnf :: TopicRuleDestinationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679804073"><span class="annot"><span class="annottext">Text -&gt; Either String TopicRuleDestinationStatus
+(Text -&gt; Either String TopicRuleDestinationStatus)
+-&gt; FromText TopicRuleDestinationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TopicRuleDestinationStatus
+$cfromText :: Text -&gt; Either String TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679804070"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; Text
+(TopicRuleDestinationStatus -&gt; Text)
+-&gt; ToText TopicRuleDestinationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TopicRuleDestinationStatus -&gt; Text
+$ctoText :: TopicRuleDestinationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679804067"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteString
+(TopicRuleDestinationStatus -&gt; ByteString)
+-&gt; ToByteString TopicRuleDestinationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TopicRuleDestinationStatus -&gt; ByteString
+$ctoBS :: TopicRuleDestinationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679804064"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; ByteStringBuilder
+(TopicRuleDestinationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog TopicRuleDestinationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TopicRuleDestinationStatus -&gt; ByteStringBuilder
+$cbuild :: TopicRuleDestinationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679804061"><span class="annot"><span class="annottext">HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
+(HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header])
+-&gt; ToHeader TopicRuleDestinationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TopicRuleDestinationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679804058"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; QueryString
+(TopicRuleDestinationStatus -&gt; QueryString)
+-&gt; ToQuery TopicRuleDestinationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TopicRuleDestinationStatus -&gt; QueryString
+$ctoQuery :: TopicRuleDestinationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679804053"><span id="local-6989586621679804055"><span class="annot"><span class="annottext">Value -&gt; Parser [TopicRuleDestinationStatus]
+Value -&gt; Parser TopicRuleDestinationStatus
+(Value -&gt; Parser TopicRuleDestinationStatus)
+-&gt; (Value -&gt; Parser [TopicRuleDestinationStatus])
+-&gt; FromJSON TopicRuleDestinationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TopicRuleDestinationStatus]
+$cparseJSONList :: Value -&gt; Parser [TopicRuleDestinationStatus]
+parseJSON :: Value -&gt; Parser TopicRuleDestinationStatus
+$cparseJSON :: Value -&gt; Parser TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679804048"><span id="local-6989586621679804050"><span class="annot"><span class="annottext">FromJSONKeyFunction [TopicRuleDestinationStatus]
+FromJSONKeyFunction TopicRuleDestinationStatus
+FromJSONKeyFunction TopicRuleDestinationStatus
+-&gt; FromJSONKeyFunction [TopicRuleDestinationStatus]
+-&gt; FromJSONKey TopicRuleDestinationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TopicRuleDestinationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TopicRuleDestinationStatus]
+fromJSONKey :: FromJSONKeyFunction TopicRuleDestinationStatus
+$cfromJSONKey :: FromJSONKeyFunction TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679804039"><span id="local-6989586621679804041"><span id="local-6989586621679804043"><span id="local-6989586621679804045"><span class="annot"><span class="annottext">[TopicRuleDestinationStatus] -&gt; Encoding
+[TopicRuleDestinationStatus] -&gt; Value
+TopicRuleDestinationStatus -&gt; Encoding
+TopicRuleDestinationStatus -&gt; Value
+(TopicRuleDestinationStatus -&gt; Value)
+-&gt; (TopicRuleDestinationStatus -&gt; Encoding)
+-&gt; ([TopicRuleDestinationStatus] -&gt; Value)
+-&gt; ([TopicRuleDestinationStatus] -&gt; Encoding)
+-&gt; ToJSON TopicRuleDestinationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TopicRuleDestinationStatus] -&gt; Encoding
+$ctoEncodingList :: [TopicRuleDestinationStatus] -&gt; Encoding
+toJSONList :: [TopicRuleDestinationStatus] -&gt; Value
+$ctoJSONList :: [TopicRuleDestinationStatus] -&gt; Value
+toEncoding :: TopicRuleDestinationStatus -&gt; Encoding
+$ctoEncoding :: TopicRuleDestinationStatus -&gt; Encoding
+toJSON :: TopicRuleDestinationStatus -&gt; Value
+$ctoJSON :: TopicRuleDestinationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679804034"><span id="local-6989586621679804036"><span class="annot"><span class="annottext">ToJSONKeyFunction [TopicRuleDestinationStatus]
+ToJSONKeyFunction TopicRuleDestinationStatus
+ToJSONKeyFunction TopicRuleDestinationStatus
+-&gt; ToJSONKeyFunction [TopicRuleDestinationStatus]
+-&gt; ToJSONKey TopicRuleDestinationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TopicRuleDestinationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TopicRuleDestinationStatus]
+toJSONKey :: ToJSONKeyFunction TopicRuleDestinationStatus
+$ctoJSONKey :: ToJSONKeyFunction TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679804031"><span class="annot"><span class="annottext">[Node] -&gt; Either String TopicRuleDestinationStatus
+([Node] -&gt; Either String TopicRuleDestinationStatus)
+-&gt; FromXML TopicRuleDestinationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TopicRuleDestinationStatus
+$cparseXML :: [Node] -&gt; Either String TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679804028"><span class="annot"><span class="annottext">TopicRuleDestinationStatus -&gt; XML
+(TopicRuleDestinationStatus -&gt; XML)
+-&gt; ToXML TopicRuleDestinationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TopicRuleDestinationStatus -&gt; XML
+$ctoXML :: TopicRuleDestinationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DELETING"><span class="hs-identifier hs-type">TopicRuleDestinationStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTopicRuleDestinationStatus_DELETING"><span id="%24mTopicRuleDestinationStatus_DELETING"><span id="TopicRuleDestinationStatus_DELETING"><span class="annot"><span class="annottext">$bTopicRuleDestinationStatus_DELETING :: TopicRuleDestinationStatus
+$mTopicRuleDestinationStatus_DELETING :: forall r.
+TopicRuleDestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#%24bTopicRuleDestinationStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">TopicRuleDestinationStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-type">TopicRuleDestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DISABLED"><span class="hs-identifier hs-type">TopicRuleDestinationStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTopicRuleDestinationStatus_DISABLED"><span id="%24mTopicRuleDestinationStatus_DISABLED"><span id="TopicRuleDestinationStatus_DISABLED"><span class="annot"><span class="annottext">$bTopicRuleDestinationStatus_DISABLED :: TopicRuleDestinationStatus
+$mTopicRuleDestinationStatus_DISABLED :: forall r.
+TopicRuleDestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#%24bTopicRuleDestinationStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">TopicRuleDestinationStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-type">TopicRuleDestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ENABLED"><span class="hs-identifier hs-type">TopicRuleDestinationStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTopicRuleDestinationStatus_ENABLED"><span id="%24mTopicRuleDestinationStatus_ENABLED"><span id="TopicRuleDestinationStatus_ENABLED"><span class="annot"><span class="annottext">$bTopicRuleDestinationStatus_ENABLED :: TopicRuleDestinationStatus
+$mTopicRuleDestinationStatus_ENABLED :: forall r.
+TopicRuleDestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#%24bTopicRuleDestinationStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">TopicRuleDestinationStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-type">TopicRuleDestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ERROR"><span class="hs-identifier hs-type">TopicRuleDestinationStatus_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTopicRuleDestinationStatus_ERROR"><span id="%24mTopicRuleDestinationStatus_ERROR"><span id="TopicRuleDestinationStatus_ERROR"><span class="annot"><span class="annottext">$bTopicRuleDestinationStatus_ERROR :: TopicRuleDestinationStatus
+$mTopicRuleDestinationStatus_ERROR :: forall r.
+TopicRuleDestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#%24bTopicRuleDestinationStatus_ERROR"><span class="hs-identifier hs-var hs-var hs-var">TopicRuleDestinationStatus_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-type">TopicRuleDestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_IN_PROGRESS"><span class="hs-identifier hs-type">TopicRuleDestinationStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTopicRuleDestinationStatus_IN_PROGRESS"><span id="%24mTopicRuleDestinationStatus_IN_PROGRESS"><span id="TopicRuleDestinationStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bTopicRuleDestinationStatus_IN_PROGRESS :: TopicRuleDestinationStatus
+$mTopicRuleDestinationStatus_IN_PROGRESS :: forall r.
+TopicRuleDestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#%24bTopicRuleDestinationStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">TopicRuleDestinationStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-identifier hs-type">TopicRuleDestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DELETING"><span class="hs-pragma hs-type">TopicRuleDestinationStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_DISABLED"><span class="hs-pragma hs-type">TopicRuleDestinationStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ENABLED"><span class="hs-pragma hs-type">TopicRuleDestinationStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_ERROR"><span class="hs-pragma hs-type">TopicRuleDestinationStatus_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus_IN_PROGRESS"><span class="hs-pragma hs-type">TopicRuleDestinationStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus%27"><span class="hs-pragma hs-type">TopicRuleDestinationStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

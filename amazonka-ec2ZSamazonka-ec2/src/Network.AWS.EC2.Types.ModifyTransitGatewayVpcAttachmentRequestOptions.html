@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ApplianceModeSupportValue.html"><span class="hs-identifier">Network.AWS.EC2.Types.ApplianceModeSupportValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html"><span class="hs-identifier">Network.AWS.EC2.Types.DnsSupportValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html"><span class="hs-identifier">Network.AWS.EC2.Types.Ipv6SupportValue</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes the options for a VPC attachment.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newModifyTransitGatewayVpcAttachmentRequestOptions' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681092766"><span id="local-6989586621681092767"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AapplianceModeSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">applianceModeSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ApplianceModeSupportValue.html#ApplianceModeSupportValue"><span class="hs-identifier hs-type">ApplianceModeSupportValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Enable or disable IPv6 support. The default is @enable@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aipv6Support%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">ipv6Support</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-type">Ipv6SupportValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdnsSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var hs-var">dnsSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-type">DnsSupportValue</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092758"><span id="local-6989586621681092760"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+(ModifyTransitGatewayVpcAttachmentRequestOptions
+ -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool)
+-&gt; (ModifyTransitGatewayVpcAttachmentRequestOptions
+    -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool)
+-&gt; Eq ModifyTransitGatewayVpcAttachmentRequestOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+$c/= :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+== :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+$c== :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092749"><span id="local-6989586621681092751"><span id="local-6989586621681092753"><span id="local-6989586621681092755"><span class="annot"><span class="annottext">ReadPrec [ModifyTransitGatewayVpcAttachmentRequestOptions]
+ReadPrec ModifyTransitGatewayVpcAttachmentRequestOptions
+Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentRequestOptions
+ReadS [ModifyTransitGatewayVpcAttachmentRequestOptions]
+(Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentRequestOptions)
+-&gt; ReadS [ModifyTransitGatewayVpcAttachmentRequestOptions]
+-&gt; ReadPrec ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; ReadPrec [ModifyTransitGatewayVpcAttachmentRequestOptions]
+-&gt; Read ModifyTransitGatewayVpcAttachmentRequestOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyTransitGatewayVpcAttachmentRequestOptions]
+$creadListPrec :: ReadPrec [ModifyTransitGatewayVpcAttachmentRequestOptions]
+readPrec :: ReadPrec ModifyTransitGatewayVpcAttachmentRequestOptions
+$creadPrec :: ReadPrec ModifyTransitGatewayVpcAttachmentRequestOptions
+readList :: ReadS [ModifyTransitGatewayVpcAttachmentRequestOptions]
+$creadList :: ReadS [ModifyTransitGatewayVpcAttachmentRequestOptions]
+readsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentRequestOptions
+$creadsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092742"><span id="local-6989586621681092744"><span id="local-6989586621681092746"><span class="annot"><span class="annottext">Int -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+[ModifyTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; String
+(Int -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS)
+-&gt; (ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; String)
+-&gt; ([ModifyTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS)
+-&gt; Show ModifyTransitGatewayVpcAttachmentRequestOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+$cshowList :: [ModifyTransitGatewayVpcAttachmentRequestOptions] -&gt; ShowS
+show :: ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; String
+$cshow :: ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; String
+showsPrec :: Int -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Rep ModifyTransitGatewayVpcAttachmentRequestOptions x)
+-&gt; (forall x.
+    Rep ModifyTransitGatewayVpcAttachmentRequestOptions x
+    -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Generic ModifyTransitGatewayVpcAttachmentRequestOptions
+forall x.
+Rep ModifyTransitGatewayVpcAttachmentRequestOptions x
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+forall x.
+ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Rep ModifyTransitGatewayVpcAttachmentRequestOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyTransitGatewayVpcAttachmentRequestOptions x
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+$cfrom :: forall x.
+ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Rep ModifyTransitGatewayVpcAttachmentRequestOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ModifyTransitGatewayVpcAttachmentRequestOptions' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'applianceModeSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'ipv6Support', 'modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @enable@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'dnsSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#newModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">newModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span>
+</span><span id="line-62"></span><span id="newModifyTransitGatewayVpcAttachmentRequestOptions"><span class="annot"><span class="annottext">newModifyTransitGatewayVpcAttachmentRequestOptions :: ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#newModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-var hs-var">newModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe ApplianceModeSupportValue
+-&gt; Maybe Ipv6SupportValue
+-&gt; Maybe DnsSupportValue
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applianceModeSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe ApplianceModeSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv6Support:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe Ipv6SupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe DnsSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Enable or disable support for appliance mode. If enabled, a traffic flow</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- between a source and destination uses the same Availability Zone for the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- VPC attachment for the lifetime of that flow. The default is @disable@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ApplianceModeSupportValue.html#ApplianceModeSupportValue"><span class="hs-identifier hs-type">ApplianceModeSupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="annot"><span class="annottext">modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: (Maybe ApplianceModeSupportValue
+ -&gt; f (Maybe ApplianceModeSupportValue))
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; f ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport"><span class="hs-identifier hs-var hs-var">modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe ApplianceModeSupportValue)
+-&gt; (ModifyTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe ApplianceModeSupportValue
+    -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     (Maybe ApplianceModeSupportValue)
+     (Maybe ApplianceModeSupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092733"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+applianceModeSupport :: Maybe ApplianceModeSupportValue
+$sel:applianceModeSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092733"><span class="hs-identifier hs-var hs-var">applianceModeSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092733"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092732"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092731"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applianceModeSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe ApplianceModeSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AapplianceModeSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Enable or disable IPv6 support. The default is @enable@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-type">Ipv6SupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="annot"><span class="annottext">modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: (Maybe Ipv6SupportValue -&gt; f (Maybe Ipv6SupportValue))
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; f ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support"><span class="hs-identifier hs-var hs-var">modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe Ipv6SupportValue)
+-&gt; (ModifyTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe Ipv6SupportValue
+    -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     (Maybe Ipv6SupportValue)
+     (Maybe Ipv6SupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092729"><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+ipv6Support :: Maybe Ipv6SupportValue
+$sel:ipv6Support:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681092729"><span class="hs-identifier hs-var hs-var">ipv6Support</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681092729"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092728"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092727"><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681092727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Support:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe Ipv6SupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3Aipv6Support%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681092727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Enable or disable DNS support. The default is @enable@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-type">DnsSupportValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="annot"><span class="annottext">modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: (Maybe DnsSupportValue -&gt; f (Maybe DnsSupportValue))
+-&gt; ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; f ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport"><span class="hs-identifier hs-var hs-var">modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTransitGatewayVpcAttachmentRequestOptions
+ -&gt; Maybe DnsSupportValue)
+-&gt; (ModifyTransitGatewayVpcAttachmentRequestOptions
+    -&gt; Maybe DnsSupportValue
+    -&gt; ModifyTransitGatewayVpcAttachmentRequestOptions)
+-&gt; Lens
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     ModifyTransitGatewayVpcAttachmentRequestOptions
+     (Maybe DnsSupportValue)
+     (Maybe DnsSupportValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092725"><span class="annot"><span class="annottext">Maybe DnsSupportValue
+dnsSupport :: Maybe DnsSupportValue
+$sel:dnsSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+</span><a href="#local-6989586621681092725"><span class="hs-identifier hs-var hs-var">dnsSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681092725"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092724"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092723"><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681092723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681092724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: Maybe DnsSupportValue
+</span><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#%24sel%3AdnsSupport%3AModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681092723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621681092719"><span id="local-6989586621681092721"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681092716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621681092712"><span class="annot"><span class="annottext">toQuery :: ModifyTransitGatewayVpcAttachmentRequestOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions.html#ModifyTransitGatewayVpcAttachmentRequestOptions%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentRequestOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092708"><span id="local-6989586621681092709"><span id="local-6989586621681092710"><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+Maybe DnsSupportValue
+Maybe Ipv6SupportValue
+dnsSupport :: Maybe DnsSupportValue
+ipv6Support :: Maybe Ipv6SupportValue
+applianceModeSupport :: Maybe ApplianceModeSupportValue
+$sel:dnsSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe DnsSupportValue
+$sel:ipv6Support:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe Ipv6SupportValue
+$sel:applianceModeSupport:ModifyTransitGatewayVpcAttachmentRequestOptions' :: ModifyTransitGatewayVpcAttachmentRequestOptions
+-&gt; Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092708"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplianceModeSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ApplianceModeSupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplianceModeSupportValue
+</span><a href="#local-6989586621681092710"><span class="hs-identifier hs-var">applianceModeSupport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Ipv6Support&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Ipv6SupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ipv6SupportValue
+</span><a href="#local-6989586621681092709"><span class="hs-identifier hs-var">ipv6Support</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DnsSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DnsSupportValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DnsSupportValue
+</span><a href="#local-6989586621681092708"><span class="hs-identifier hs-var">dnsSupport</span></a></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span></pre></body></html>

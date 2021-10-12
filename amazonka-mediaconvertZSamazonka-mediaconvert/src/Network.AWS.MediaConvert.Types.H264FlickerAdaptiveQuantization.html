@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization"><span class="hs-identifier">H264FlickerAdaptiveQuantization</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_DISABLED"><span class="hs-identifier">H264FlickerAdaptiveQuantization_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_ENABLED"><span class="hs-identifier">H264FlickerAdaptiveQuantization_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Only use this setting when you change the default value, AUTO, for the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- setting H264AdaptiveQuantization. When you keep all defaults, excluding</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- H264AdaptiveQuantization and all other adaptive quantization from your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- JSON job specification, MediaConvert automatically applies the best</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- types of quantization for your video content. When you set</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- H264AdaptiveQuantization to a value other than AUTO, the default value</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- a visual flicker that can arise when the encoder saves bits by copying</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- some macroblocks many times from frame to frame, and then refreshes them</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- at the I-frame. When you enable this setting, the encoder updates these</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- macroblocks slightly more often to smooth out the flicker. To manually</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- quantization (H264AdaptiveQuantization) to a value other than AUTO.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679961807"><span id="local-6989586621679961808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FlickerAdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization"><span class="hs-identifier hs-var">H264FlickerAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FlickerAdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization%27"><span class="hs-identifier hs-var">H264FlickerAdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264FlickerAdaptiveQuantization"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#fromH264FlickerAdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromH264FlickerAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961799"><span id="local-6989586621679961801"><span id="local-6989586621679961803"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAdaptiveQuantization -&gt; ShowS
+[H264FlickerAdaptiveQuantization] -&gt; ShowS
+H264FlickerAdaptiveQuantization -&gt; String
+(Int -&gt; H264FlickerAdaptiveQuantization -&gt; ShowS)
+-&gt; (H264FlickerAdaptiveQuantization -&gt; String)
+-&gt; ([H264FlickerAdaptiveQuantization] -&gt; ShowS)
+-&gt; Show H264FlickerAdaptiveQuantization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264FlickerAdaptiveQuantization] -&gt; ShowS
+$cshowList :: [H264FlickerAdaptiveQuantization] -&gt; ShowS
+show :: H264FlickerAdaptiveQuantization -&gt; String
+$cshow :: H264FlickerAdaptiveQuantization -&gt; String
+showsPrec :: Int -&gt; H264FlickerAdaptiveQuantization -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264FlickerAdaptiveQuantization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961790"><span id="local-6989586621679961792"><span id="local-6989586621679961794"><span id="local-6989586621679961796"><span class="annot"><span class="annottext">ReadPrec [H264FlickerAdaptiveQuantization]
+ReadPrec H264FlickerAdaptiveQuantization
+Int -&gt; ReadS H264FlickerAdaptiveQuantization
+ReadS [H264FlickerAdaptiveQuantization]
+(Int -&gt; ReadS H264FlickerAdaptiveQuantization)
+-&gt; ReadS [H264FlickerAdaptiveQuantization]
+-&gt; ReadPrec H264FlickerAdaptiveQuantization
+-&gt; ReadPrec [H264FlickerAdaptiveQuantization]
+-&gt; Read H264FlickerAdaptiveQuantization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264FlickerAdaptiveQuantization]
+$creadListPrec :: ReadPrec [H264FlickerAdaptiveQuantization]
+readPrec :: ReadPrec H264FlickerAdaptiveQuantization
+$creadPrec :: ReadPrec H264FlickerAdaptiveQuantization
+readList :: ReadS [H264FlickerAdaptiveQuantization]
+$creadList :: ReadS [H264FlickerAdaptiveQuantization]
+readsPrec :: Int -&gt; ReadS H264FlickerAdaptiveQuantization
+$creadsPrec :: Int -&gt; ReadS H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961785"><span id="local-6989586621679961787"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+(H264FlickerAdaptiveQuantization
+ -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; Eq H264FlickerAdaptiveQuantization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c/= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+== :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c== :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961769"><span id="local-6989586621679961771"><span id="local-6989586621679961773"><span id="local-6989586621679961775"><span id="local-6989586621679961777"><span id="local-6989586621679961779"><span id="local-6989586621679961781"><span class="annot"><span class="annottext">Eq H264FlickerAdaptiveQuantization
+Eq H264FlickerAdaptiveQuantization
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Ordering)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization -&gt; Bool)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization)
+-&gt; (H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization
+    -&gt; H264FlickerAdaptiveQuantization)
+-&gt; Ord H264FlickerAdaptiveQuantization
+H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Ordering
+H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+$cmin :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+max :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+$cmax :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization
+&gt;= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c&gt;= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+&gt; :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c&gt; :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+&lt;= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c&lt;= :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+&lt; :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+$c&lt; :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Bool
+compare :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Ordering
+$ccompare :: H264FlickerAdaptiveQuantization
+-&gt; H264FlickerAdaptiveQuantization -&gt; Ordering
+$cp1Ord :: Eq H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ H264FlickerAdaptiveQuantization
+ -&gt; Rep H264FlickerAdaptiveQuantization x)
+-&gt; (forall x.
+    Rep H264FlickerAdaptiveQuantization x
+    -&gt; H264FlickerAdaptiveQuantization)
+-&gt; Generic H264FlickerAdaptiveQuantization
+forall x.
+Rep H264FlickerAdaptiveQuantization x
+-&gt; H264FlickerAdaptiveQuantization
+forall x.
+H264FlickerAdaptiveQuantization
+-&gt; Rep H264FlickerAdaptiveQuantization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep H264FlickerAdaptiveQuantization x
+-&gt; H264FlickerAdaptiveQuantization
+$cfrom :: forall x.
+H264FlickerAdaptiveQuantization
+-&gt; Rep H264FlickerAdaptiveQuantization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961761"><span id="local-6989586621679961763"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAdaptiveQuantization -&gt; Int
+H264FlickerAdaptiveQuantization -&gt; Int
+(Int -&gt; H264FlickerAdaptiveQuantization -&gt; Int)
+-&gt; (H264FlickerAdaptiveQuantization -&gt; Int)
+-&gt; Hashable H264FlickerAdaptiveQuantization
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264FlickerAdaptiveQuantization -&gt; Int
+$chash :: H264FlickerAdaptiveQuantization -&gt; Int
+hashWithSalt :: Int -&gt; H264FlickerAdaptiveQuantization -&gt; Int
+$chashWithSalt :: Int -&gt; H264FlickerAdaptiveQuantization -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961758"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; ()
+(H264FlickerAdaptiveQuantization -&gt; ())
+-&gt; NFData H264FlickerAdaptiveQuantization
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264FlickerAdaptiveQuantization -&gt; ()
+$crnf :: H264FlickerAdaptiveQuantization -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679961755"><span class="annot"><span class="annottext">Text -&gt; Either String H264FlickerAdaptiveQuantization
+(Text -&gt; Either String H264FlickerAdaptiveQuantization)
+-&gt; FromText H264FlickerAdaptiveQuantization
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264FlickerAdaptiveQuantization
+$cfromText :: Text -&gt; Either String H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679961752"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; Text
+(H264FlickerAdaptiveQuantization -&gt; Text)
+-&gt; ToText H264FlickerAdaptiveQuantization
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264FlickerAdaptiveQuantization -&gt; Text
+$ctoText :: H264FlickerAdaptiveQuantization -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679961749"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; ByteString
+(H264FlickerAdaptiveQuantization -&gt; ByteString)
+-&gt; ToByteString H264FlickerAdaptiveQuantization
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264FlickerAdaptiveQuantization -&gt; ByteString
+$ctoBS :: H264FlickerAdaptiveQuantization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679961746"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; ByteStringBuilder
+(H264FlickerAdaptiveQuantization -&gt; ByteStringBuilder)
+-&gt; ToLog H264FlickerAdaptiveQuantization
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264FlickerAdaptiveQuantization -&gt; ByteStringBuilder
+$cbuild :: H264FlickerAdaptiveQuantization -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679961743"><span class="annot"><span class="annottext">HeaderName -&gt; H264FlickerAdaptiveQuantization -&gt; [Header]
+(HeaderName -&gt; H264FlickerAdaptiveQuantization -&gt; [Header])
+-&gt; ToHeader H264FlickerAdaptiveQuantization
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264FlickerAdaptiveQuantization -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264FlickerAdaptiveQuantization -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679961740"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; QueryString
+(H264FlickerAdaptiveQuantization -&gt; QueryString)
+-&gt; ToQuery H264FlickerAdaptiveQuantization
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264FlickerAdaptiveQuantization -&gt; QueryString
+$ctoQuery :: H264FlickerAdaptiveQuantization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679961735"><span id="local-6989586621679961737"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FlickerAdaptiveQuantization]
+Value -&gt; Parser H264FlickerAdaptiveQuantization
+(Value -&gt; Parser H264FlickerAdaptiveQuantization)
+-&gt; (Value -&gt; Parser [H264FlickerAdaptiveQuantization])
+-&gt; FromJSON H264FlickerAdaptiveQuantization
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264FlickerAdaptiveQuantization]
+$cparseJSONList :: Value -&gt; Parser [H264FlickerAdaptiveQuantization]
+parseJSON :: Value -&gt; Parser H264FlickerAdaptiveQuantization
+$cparseJSON :: Value -&gt; Parser H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679961730"><span id="local-6989586621679961732"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FlickerAdaptiveQuantization]
+FromJSONKeyFunction H264FlickerAdaptiveQuantization
+FromJSONKeyFunction H264FlickerAdaptiveQuantization
+-&gt; FromJSONKeyFunction [H264FlickerAdaptiveQuantization]
+-&gt; FromJSONKey H264FlickerAdaptiveQuantization
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264FlickerAdaptiveQuantization]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264FlickerAdaptiveQuantization]
+fromJSONKey :: FromJSONKeyFunction H264FlickerAdaptiveQuantization
+$cfromJSONKey :: FromJSONKeyFunction H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679961721"><span id="local-6989586621679961723"><span id="local-6989586621679961725"><span id="local-6989586621679961727"><span class="annot"><span class="annottext">[H264FlickerAdaptiveQuantization] -&gt; Encoding
+[H264FlickerAdaptiveQuantization] -&gt; Value
+H264FlickerAdaptiveQuantization -&gt; Encoding
+H264FlickerAdaptiveQuantization -&gt; Value
+(H264FlickerAdaptiveQuantization -&gt; Value)
+-&gt; (H264FlickerAdaptiveQuantization -&gt; Encoding)
+-&gt; ([H264FlickerAdaptiveQuantization] -&gt; Value)
+-&gt; ([H264FlickerAdaptiveQuantization] -&gt; Encoding)
+-&gt; ToJSON H264FlickerAdaptiveQuantization
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264FlickerAdaptiveQuantization] -&gt; Encoding
+$ctoEncodingList :: [H264FlickerAdaptiveQuantization] -&gt; Encoding
+toJSONList :: [H264FlickerAdaptiveQuantization] -&gt; Value
+$ctoJSONList :: [H264FlickerAdaptiveQuantization] -&gt; Value
+toEncoding :: H264FlickerAdaptiveQuantization -&gt; Encoding
+$ctoEncoding :: H264FlickerAdaptiveQuantization -&gt; Encoding
+toJSON :: H264FlickerAdaptiveQuantization -&gt; Value
+$ctoJSON :: H264FlickerAdaptiveQuantization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679961716"><span id="local-6989586621679961718"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FlickerAdaptiveQuantization]
+ToJSONKeyFunction H264FlickerAdaptiveQuantization
+ToJSONKeyFunction H264FlickerAdaptiveQuantization
+-&gt; ToJSONKeyFunction [H264FlickerAdaptiveQuantization]
+-&gt; ToJSONKey H264FlickerAdaptiveQuantization
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264FlickerAdaptiveQuantization]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264FlickerAdaptiveQuantization]
+toJSONKey :: ToJSONKeyFunction H264FlickerAdaptiveQuantization
+$ctoJSONKey :: ToJSONKeyFunction H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679961713"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FlickerAdaptiveQuantization
+([Node] -&gt; Either String H264FlickerAdaptiveQuantization)
+-&gt; FromXML H264FlickerAdaptiveQuantization
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264FlickerAdaptiveQuantization
+$cparseXML :: [Node] -&gt; Either String H264FlickerAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679961710"><span class="annot"><span class="annottext">H264FlickerAdaptiveQuantization -&gt; XML
+(H264FlickerAdaptiveQuantization -&gt; XML)
+-&gt; ToXML H264FlickerAdaptiveQuantization
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264FlickerAdaptiveQuantization -&gt; XML
+$ctoXML :: H264FlickerAdaptiveQuantization -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264FlickerAdaptiveQuantization_DISABLED"><span id="%24mH264FlickerAdaptiveQuantization_DISABLED"><span id="H264FlickerAdaptiveQuantization_DISABLED"><span class="annot"><span class="annottext">$bH264FlickerAdaptiveQuantization_DISABLED :: H264FlickerAdaptiveQuantization
+$mH264FlickerAdaptiveQuantization_DISABLED :: forall r.
+H264FlickerAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#%24bH264FlickerAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H264FlickerAdaptiveQuantization_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization%27"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264FlickerAdaptiveQuantization_ENABLED"><span id="%24mH264FlickerAdaptiveQuantization_ENABLED"><span id="H264FlickerAdaptiveQuantization_ENABLED"><span class="annot"><span class="annottext">$bH264FlickerAdaptiveQuantization_ENABLED :: H264FlickerAdaptiveQuantization
+$mH264FlickerAdaptiveQuantization_ENABLED :: forall r.
+H264FlickerAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#%24bH264FlickerAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H264FlickerAdaptiveQuantization_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization%27"><span class="hs-identifier hs-type">H264FlickerAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_DISABLED"><span class="hs-pragma hs-type">H264FlickerAdaptiveQuantization_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization_ENABLED"><span class="hs-pragma hs-type">H264FlickerAdaptiveQuantization_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization.html#H264FlickerAdaptiveQuantization%27"><span class="hs-pragma hs-type">H264FlickerAdaptiveQuantization'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

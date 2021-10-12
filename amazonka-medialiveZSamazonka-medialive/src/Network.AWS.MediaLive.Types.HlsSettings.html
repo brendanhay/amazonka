@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.HlsSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AudioOnlyHlsSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Fmp4HlsSettings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureHlsSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.FrameCaptureHlsSettings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StandardHlsSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.StandardHlsSettings</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Hls Settings</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHlsSettings' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679914828"><span id="local-6989586621679914829"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-var">HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-var">HlsSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstandardHlsSettings%3AHlsSettings%27"><span class="annot"><span class="annottext">HlsSettings -&gt; Maybe StandardHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AstandardHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var hs-var">standardHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StandardHlsSettings.html#StandardHlsSettings"><span class="hs-identifier hs-type">StandardHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AframeCaptureHlsSettings%3AHlsSettings%27"><span class="annot"><span class="annottext">HlsSettings -&gt; Maybe FrameCaptureHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AframeCaptureHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var hs-var">frameCaptureHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureHlsSettings.html#FrameCaptureHlsSettings"><span class="hs-identifier hs-type">FrameCaptureHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaudioOnlyHlsSettings%3AHlsSettings%27"><span class="annot"><span class="annottext">HlsSettings -&gt; Maybe AudioOnlyHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AaudioOnlyHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var hs-var">audioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Afmp4HlsSettings%3AHlsSettings%27"><span class="annot"><span class="annottext">HlsSettings -&gt; Maybe Fmp4HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3Afmp4HlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var hs-var">fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679914819"><span id="local-6989586621679914821"><span class="annot"><span class="annottext">HlsSettings -&gt; HlsSettings -&gt; Bool
+(HlsSettings -&gt; HlsSettings -&gt; Bool)
+-&gt; (HlsSettings -&gt; HlsSettings -&gt; Bool) -&gt; Eq HlsSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsSettings -&gt; HlsSettings -&gt; Bool
+$c/= :: HlsSettings -&gt; HlsSettings -&gt; Bool
+== :: HlsSettings -&gt; HlsSettings -&gt; Bool
+$c== :: HlsSettings -&gt; HlsSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679914810"><span id="local-6989586621679914812"><span id="local-6989586621679914814"><span id="local-6989586621679914816"><span class="annot"><span class="annottext">ReadPrec [HlsSettings]
+ReadPrec HlsSettings
+Int -&gt; ReadS HlsSettings
+ReadS [HlsSettings]
+(Int -&gt; ReadS HlsSettings)
+-&gt; ReadS [HlsSettings]
+-&gt; ReadPrec HlsSettings
+-&gt; ReadPrec [HlsSettings]
+-&gt; Read HlsSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsSettings]
+$creadListPrec :: ReadPrec [HlsSettings]
+readPrec :: ReadPrec HlsSettings
+$creadPrec :: ReadPrec HlsSettings
+readList :: ReadS [HlsSettings]
+$creadList :: ReadS [HlsSettings]
+readsPrec :: Int -&gt; ReadS HlsSettings
+$creadsPrec :: Int -&gt; ReadS HlsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679914803"><span id="local-6989586621679914805"><span id="local-6989586621679914807"><span class="annot"><span class="annottext">Int -&gt; HlsSettings -&gt; ShowS
+[HlsSettings] -&gt; ShowS
+HlsSettings -&gt; String
+(Int -&gt; HlsSettings -&gt; ShowS)
+-&gt; (HlsSettings -&gt; String)
+-&gt; ([HlsSettings] -&gt; ShowS)
+-&gt; Show HlsSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsSettings] -&gt; ShowS
+$cshowList :: [HlsSettings] -&gt; ShowS
+show :: HlsSettings -&gt; String
+$cshow :: HlsSettings -&gt; String
+showsPrec :: Int -&gt; HlsSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HlsSettings -&gt; Rep HlsSettings x)
+-&gt; (forall x. Rep HlsSettings x -&gt; HlsSettings)
+-&gt; Generic HlsSettings
+forall x. Rep HlsSettings x -&gt; HlsSettings
+forall x. HlsSettings -&gt; Rep HlsSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsSettings x -&gt; HlsSettings
+$cfrom :: forall x. HlsSettings -&gt; Rep HlsSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'HlsSettings' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'standardHlsSettings', 'hlsSettings_standardHlsSettings' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'frameCaptureHlsSettings', 'hlsSettings_frameCaptureHlsSettings' - Undocumented member.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'audioOnlyHlsSettings', 'hlsSettings_audioOnlyHlsSettings' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'fmp4HlsSettings', 'hlsSettings_fmp4HlsSettings' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#newHlsSettings"><span class="hs-identifier hs-type">newHlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span>
+</span><span id="line-58"></span><span id="newHlsSettings"><span class="annot"><span class="annottext">newHlsSettings :: HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#newHlsSettings"><span class="hs-identifier hs-var hs-var">newHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">HlsSettings' :: Maybe StandardHlsSettings
+-&gt; Maybe FrameCaptureHlsSettings
+-&gt; Maybe AudioOnlyHlsSettings
+-&gt; Maybe Fmp4HlsSettings
+-&gt; HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:standardHlsSettings:HlsSettings' :: Maybe StandardHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AstandardHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">standardHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameCaptureHlsSettings:HlsSettings' :: Maybe FrameCaptureHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AframeCaptureHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">frameCaptureHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioOnlyHlsSettings:HlsSettings' :: Maybe AudioOnlyHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AaudioOnlyHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">audioOnlyHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:fmp4HlsSettings:HlsSettings' :: Maybe Fmp4HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3Afmp4HlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">fmp4HlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_standardHlsSettings"><span class="hs-identifier hs-type">hlsSettings_standardHlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StandardHlsSettings.html#StandardHlsSettings"><span class="hs-identifier hs-type">StandardHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="hlsSettings_standardHlsSettings"><span class="annot"><span class="annottext">hlsSettings_standardHlsSettings :: (Maybe StandardHlsSettings -&gt; f (Maybe StandardHlsSettings))
+-&gt; HlsSettings -&gt; f HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_standardHlsSettings"><span class="hs-identifier hs-var hs-var">hlsSettings_standardHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsSettings -&gt; Maybe StandardHlsSettings)
+-&gt; (HlsSettings -&gt; Maybe StandardHlsSettings -&gt; HlsSettings)
+-&gt; Lens
+     HlsSettings
+     HlsSettings
+     (Maybe StandardHlsSettings)
+     (Maybe StandardHlsSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914794"><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+standardHlsSettings :: Maybe StandardHlsSettings
+$sel:standardHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914794"><span class="hs-identifier hs-var hs-var">standardHlsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914794"><span class="hs-identifier hs-var">standardHlsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914793"><span class="annot"><span class="annottext">s :: HlsSettings
+</span><a href="#local-6989586621679914793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914792"><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsSettings
+</span><a href="#local-6989586621679914793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standardHlsSettings:HlsSettings' :: Maybe StandardHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AstandardHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">standardHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_frameCaptureHlsSettings"><span class="hs-identifier hs-type">hlsSettings_frameCaptureHlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureHlsSettings.html#FrameCaptureHlsSettings"><span class="hs-identifier hs-type">FrameCaptureHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="hlsSettings_frameCaptureHlsSettings"><span class="annot"><span class="annottext">hlsSettings_frameCaptureHlsSettings :: (Maybe FrameCaptureHlsSettings
+ -&gt; f (Maybe FrameCaptureHlsSettings))
+-&gt; HlsSettings -&gt; f HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_frameCaptureHlsSettings"><span class="hs-identifier hs-var hs-var">hlsSettings_frameCaptureHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsSettings -&gt; Maybe FrameCaptureHlsSettings)
+-&gt; (HlsSettings -&gt; Maybe FrameCaptureHlsSettings -&gt; HlsSettings)
+-&gt; Lens
+     HlsSettings
+     HlsSettings
+     (Maybe FrameCaptureHlsSettings)
+     (Maybe FrameCaptureHlsSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914790"><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+frameCaptureHlsSettings :: Maybe FrameCaptureHlsSettings
+$sel:frameCaptureHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe FrameCaptureHlsSettings
+</span><a href="#local-6989586621679914790"><span class="hs-identifier hs-var hs-var">frameCaptureHlsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+</span><a href="#local-6989586621679914790"><span class="hs-identifier hs-var">frameCaptureHlsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914789"><span class="annot"><span class="annottext">s :: HlsSettings
+</span><a href="#local-6989586621679914789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914788"><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+</span><a href="#local-6989586621679914788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsSettings
+</span><a href="#local-6989586621679914789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameCaptureHlsSettings:HlsSettings' :: Maybe FrameCaptureHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AframeCaptureHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">frameCaptureHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+</span><a href="#local-6989586621679914788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_audioOnlyHlsSettings"><span class="hs-identifier hs-type">hlsSettings_audioOnlyHlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="hlsSettings_audioOnlyHlsSettings"><span class="annot"><span class="annottext">hlsSettings_audioOnlyHlsSettings :: (Maybe AudioOnlyHlsSettings -&gt; f (Maybe AudioOnlyHlsSettings))
+-&gt; HlsSettings -&gt; f HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_audioOnlyHlsSettings"><span class="hs-identifier hs-var hs-var">hlsSettings_audioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsSettings -&gt; Maybe AudioOnlyHlsSettings)
+-&gt; (HlsSettings -&gt; Maybe AudioOnlyHlsSettings -&gt; HlsSettings)
+-&gt; Lens
+     HlsSettings
+     HlsSettings
+     (Maybe AudioOnlyHlsSettings)
+     (Maybe AudioOnlyHlsSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914786"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+audioOnlyHlsSettings :: Maybe AudioOnlyHlsSettings
+$sel:audioOnlyHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe AudioOnlyHlsSettings
+</span><a href="#local-6989586621679914786"><span class="hs-identifier hs-var hs-var">audioOnlyHlsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+</span><a href="#local-6989586621679914786"><span class="hs-identifier hs-var">audioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914785"><span class="annot"><span class="annottext">s :: HlsSettings
+</span><a href="#local-6989586621679914785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914784"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+</span><a href="#local-6989586621679914784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsSettings
+</span><a href="#local-6989586621679914785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioOnlyHlsSettings:HlsSettings' :: Maybe AudioOnlyHlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3AaudioOnlyHlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">audioOnlyHlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+</span><a href="#local-6989586621679914784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_fmp4HlsSettings"><span class="hs-identifier hs-type">hlsSettings_fmp4HlsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4HlsSettings.html#Fmp4HlsSettings"><span class="hs-identifier hs-type">Fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="hlsSettings_fmp4HlsSettings"><span class="annot"><span class="annottext">hlsSettings_fmp4HlsSettings :: (Maybe Fmp4HlsSettings -&gt; f (Maybe Fmp4HlsSettings))
+-&gt; HlsSettings -&gt; f HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#hlsSettings_fmp4HlsSettings"><span class="hs-identifier hs-var hs-var">hlsSettings_fmp4HlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsSettings -&gt; Maybe Fmp4HlsSettings)
+-&gt; (HlsSettings -&gt; Maybe Fmp4HlsSettings -&gt; HlsSettings)
+-&gt; Lens
+     HlsSettings
+     HlsSettings
+     (Maybe Fmp4HlsSettings)
+     (Maybe Fmp4HlsSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914782"><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+fmp4HlsSettings :: Maybe Fmp4HlsSettings
+$sel:fmp4HlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe Fmp4HlsSettings
+</span><a href="#local-6989586621679914782"><span class="hs-identifier hs-var hs-var">fmp4HlsSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+</span><a href="#local-6989586621679914782"><span class="hs-identifier hs-var">fmp4HlsSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679914781"><span class="annot"><span class="annottext">s :: HlsSettings
+</span><a href="#local-6989586621679914781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679914780"><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+</span><a href="#local-6989586621679914780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsSettings
+</span><a href="#local-6989586621679914781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fmp4HlsSettings:HlsSettings' :: Maybe Fmp4HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#%24sel%3Afmp4HlsSettings%3AHlsSettings%27"><span class="hs-identifier hs-var">fmp4HlsSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+</span><a href="#local-6989586621679914780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914777"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679914775"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HlsSettings) -&gt; Value -&gt; Parser HlsSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HlsSettings&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679914772"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+-&gt; Maybe FrameCaptureHlsSettings
+-&gt; Maybe AudioOnlyHlsSettings
+-&gt; Maybe Fmp4HlsSettings
+-&gt; HlsSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-var">HlsSettings'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StandardHlsSettings
+ -&gt; Maybe FrameCaptureHlsSettings
+ -&gt; Maybe AudioOnlyHlsSettings
+ -&gt; Maybe Fmp4HlsSettings
+ -&gt; HlsSettings)
+-&gt; Parser (Maybe StandardHlsSettings)
+-&gt; Parser
+     (Maybe FrameCaptureHlsSettings
+      -&gt; Maybe AudioOnlyHlsSettings
+      -&gt; Maybe Fmp4HlsSettings
+      -&gt; HlsSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StandardHlsSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;standardHlsSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FrameCaptureHlsSettings
+   -&gt; Maybe AudioOnlyHlsSettings
+   -&gt; Maybe Fmp4HlsSettings
+   -&gt; HlsSettings)
+-&gt; Parser (Maybe FrameCaptureHlsSettings)
+-&gt; Parser
+     (Maybe AudioOnlyHlsSettings
+      -&gt; Maybe Fmp4HlsSettings -&gt; HlsSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameCaptureHlsSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameCaptureHlsSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AudioOnlyHlsSettings
+   -&gt; Maybe Fmp4HlsSettings -&gt; HlsSettings)
+-&gt; Parser (Maybe AudioOnlyHlsSettings)
+-&gt; Parser (Maybe Fmp4HlsSettings -&gt; HlsSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioOnlyHlsSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioOnlyHlsSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Fmp4HlsSettings -&gt; HlsSettings)
+-&gt; Parser (Maybe Fmp4HlsSettings) -&gt; Parser HlsSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679914772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Fmp4HlsSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fmp4HlsSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914766"><span id="local-6989586621679914768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679914755"><span id="local-6989586621679914757"><span id="local-6989586621679914759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings"><span class="hs-identifier hs-type">HlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679914753"><span class="annot"><span class="annottext">toJSON :: HlsSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsSettings.html#HlsSettings%27"><span class="hs-identifier hs-type">HlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679914748"><span id="local-6989586621679914749"><span id="local-6989586621679914750"><span id="local-6989586621679914751"><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+Maybe FrameCaptureHlsSettings
+Maybe AudioOnlyHlsSettings
+Maybe StandardHlsSettings
+fmp4HlsSettings :: Maybe Fmp4HlsSettings
+audioOnlyHlsSettings :: Maybe AudioOnlyHlsSettings
+frameCaptureHlsSettings :: Maybe FrameCaptureHlsSettings
+standardHlsSettings :: Maybe StandardHlsSettings
+$sel:fmp4HlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe Fmp4HlsSettings
+$sel:audioOnlyHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe AudioOnlyHlsSettings
+$sel:frameCaptureHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe FrameCaptureHlsSettings
+$sel:standardHlsSettings:HlsSettings' :: HlsSettings -&gt; Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914748"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;standardHlsSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StandardHlsSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(StandardHlsSettings -&gt; Pair)
+-&gt; Maybe StandardHlsSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StandardHlsSettings
+</span><a href="#local-6989586621679914751"><span class="hs-identifier hs-var">standardHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameCaptureHlsSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FrameCaptureHlsSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">(FrameCaptureHlsSettings -&gt; Pair)
+-&gt; Maybe FrameCaptureHlsSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureHlsSettings
+</span><a href="#local-6989586621679914750"><span class="hs-identifier hs-var">frameCaptureHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioOnlyHlsSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioOnlyHlsSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(AudioOnlyHlsSettings -&gt; Pair)
+-&gt; Maybe AudioOnlyHlsSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSettings
+</span><a href="#local-6989586621679914749"><span class="hs-identifier hs-var">audioOnlyHlsSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fmp4HlsSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Fmp4HlsSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Fmp4HlsSettings -&gt; Pair) -&gt; Maybe Fmp4HlsSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Fmp4HlsSettings
+</span><a href="#local-6989586621679914748"><span class="hs-identifier hs-var">fmp4HlsSettings</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span></pre></body></html>

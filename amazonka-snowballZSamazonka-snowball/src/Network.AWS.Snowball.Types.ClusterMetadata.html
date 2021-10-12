@@ -1,0 +1,1090 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Snowball.Types.ClusterMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Snowball.Types.ClusterMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterState.html"><span class="hs-identifier">Network.AWS.Snowball.Types.ClusterState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html"><span class="hs-identifier">Network.AWS.Snowball.Types.JobResource</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html"><span class="hs-identifier">Network.AWS.Snowball.Types.JobType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html"><span class="hs-identifier">Network.AWS.Snowball.Types.Notification</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html"><span class="hs-identifier">Network.AWS.Snowball.Types.OnDeviceServiceConfiguration</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ShippingOption.html"><span class="hs-identifier">Network.AWS.Snowball.Types.ShippingOption</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html"><span class="hs-identifier">Network.AWS.Snowball.Types.SnowballType</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html"><span class="hs-identifier">Network.AWS.Snowball.Types.TaxDocuments</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Contains metadata about a specific cluster.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newClusterMetadata' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679227045"><span id="local-6989586621679227046"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterMetadata"><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-var">ClusterMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterMetadata%27"><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-var">ClusterMetadata'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The automatically generated ID for a cluster.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AclusterId%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterId%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The role ARN associated with this cluster. This ARN was created using</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- API action in AWS Identity and Access Management (IAM).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AroleARN%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AroleARN%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The shipping speed for each node in this cluster. This speed doesn\'t</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- dictate how soon you\'ll get each device, rather it represents how</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- quickly each device moves to its destination while in transit. Regional</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- shipping speeds are as follows:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   In Australia, you have access to express shipping. Typically,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     devices shipped express are delivered in about a day.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   In the European Union (EU), you have access to express shipping.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     Typically, Snow devices shipped express are delivered in about a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     day. In addition, most countries in the EU have access to standard</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     shipping, which typically takes less than a week, one way.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   In India, Snow devices are delivered in one to seven days.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   In the US, you have access to one-day shipping and two-day shipping.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AshippingOption%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe ShippingOption
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AshippingOption%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">shippingOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ShippingOption.html#ShippingOption"><span class="hs-identifier hs-type">ShippingOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The creation date for this cluster.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcreationDate%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AcreationDate%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The type of job for this cluster. Currently, the only job type supported</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- for clusters is @LOCAL_USE@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AjobType%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe JobType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AjobType%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- This ARN was created using the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey&gt;</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- API action in AWS Key Management Service (AWS KMS).</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AkmsKeyARN%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AkmsKeyARN%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">kmsKeyARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Represents metadata and configuration settings for services on an AWS</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Snow Family device.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AonDeviceServiceConfiguration%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe OnDeviceServiceConfiguration
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AonDeviceServiceConfiguration%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">onDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The tax documents required in your AWS Region.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AtaxDocuments%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe TaxDocuments
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AtaxDocuments%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">taxDocuments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The arrays of JobResource objects that can include updated S3Resource</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- objects or LambdaResource objects.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aresources%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe JobResource
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Aresources%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The type of AWS Snow device to use for this cluster.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- For cluster jobs, AWS Snow Family currently supports only the @EDGE@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- device type.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AsnowballType%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe SnowballType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AsnowballType%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">snowballType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-type">SnowballType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The optional description of the cluster.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Adescription%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Adescription%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The automatically generated ID for a specific address.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AaddressId%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AaddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The ID of the address that you want a cluster shipped to, after it will</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- be shipped to its primary address. This field is not supported in most</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- regions.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AforwardingAddressId%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AforwardingAddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">forwardingAddressId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The current status of the cluster.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AclusterState%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe ClusterState
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterState%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">clusterState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The Amazon Simple Notification Service (Amazon SNS) notification</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- settings for this cluster.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Anotification%3AClusterMetadata%27"><span class="annot"><span class="annottext">ClusterMetadata -&gt; Maybe Notification
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Anotification%3AClusterMetadata%27"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227025"><span id="local-6989586621679227027"><span class="annot"><span class="annottext">ClusterMetadata -&gt; ClusterMetadata -&gt; Bool
+(ClusterMetadata -&gt; ClusterMetadata -&gt; Bool)
+-&gt; (ClusterMetadata -&gt; ClusterMetadata -&gt; Bool)
+-&gt; Eq ClusterMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClusterMetadata -&gt; ClusterMetadata -&gt; Bool
+$c/= :: ClusterMetadata -&gt; ClusterMetadata -&gt; Bool
+== :: ClusterMetadata -&gt; ClusterMetadata -&gt; Bool
+$c== :: ClusterMetadata -&gt; ClusterMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227016"><span id="local-6989586621679227018"><span id="local-6989586621679227020"><span id="local-6989586621679227022"><span class="annot"><span class="annottext">ReadPrec [ClusterMetadata]
+ReadPrec ClusterMetadata
+Int -&gt; ReadS ClusterMetadata
+ReadS [ClusterMetadata]
+(Int -&gt; ReadS ClusterMetadata)
+-&gt; ReadS [ClusterMetadata]
+-&gt; ReadPrec ClusterMetadata
+-&gt; ReadPrec [ClusterMetadata]
+-&gt; Read ClusterMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClusterMetadata]
+$creadListPrec :: ReadPrec [ClusterMetadata]
+readPrec :: ReadPrec ClusterMetadata
+$creadPrec :: ReadPrec ClusterMetadata
+readList :: ReadS [ClusterMetadata]
+$creadList :: ReadS [ClusterMetadata]
+readsPrec :: Int -&gt; ReadS ClusterMetadata
+$creadsPrec :: Int -&gt; ReadS ClusterMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227009"><span id="local-6989586621679227011"><span id="local-6989586621679227013"><span class="annot"><span class="annottext">Int -&gt; ClusterMetadata -&gt; ShowS
+[ClusterMetadata] -&gt; ShowS
+ClusterMetadata -&gt; String
+(Int -&gt; ClusterMetadata -&gt; ShowS)
+-&gt; (ClusterMetadata -&gt; String)
+-&gt; ([ClusterMetadata] -&gt; ShowS)
+-&gt; Show ClusterMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClusterMetadata] -&gt; ShowS
+$cshowList :: [ClusterMetadata] -&gt; ShowS
+show :: ClusterMetadata -&gt; String
+$cshow :: ClusterMetadata -&gt; String
+showsPrec :: Int -&gt; ClusterMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClusterMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ClusterMetadata -&gt; Rep ClusterMetadata x)
+-&gt; (forall x. Rep ClusterMetadata x -&gt; ClusterMetadata)
+-&gt; Generic ClusterMetadata
+forall x. Rep ClusterMetadata x -&gt; ClusterMetadata
+forall x. ClusterMetadata -&gt; Rep ClusterMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ClusterMetadata x -&gt; ClusterMetadata
+$cfrom :: forall x. ClusterMetadata -&gt; Rep ClusterMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'ClusterMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'clusterId', 'clusterMetadata_clusterId' - The automatically generated ID for a cluster.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'roleARN', 'clusterMetadata_roleARN' - The role ARN associated with this cluster. This ARN was created using</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole&gt;</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- API action in AWS Identity and Access Management (IAM).</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'shippingOption', 'clusterMetadata_shippingOption' - The shipping speed for each node in this cluster. This speed doesn\'t</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- dictate how soon you\'ll get each device, rather it represents how</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- quickly each device moves to its destination while in transit. Regional</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- shipping speeds are as follows:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   In Australia, you have access to express shipping. Typically,</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     devices shipped express are delivered in about a day.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   In the European Union (EU), you have access to express shipping.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     Typically, Snow devices shipped express are delivered in about a</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     day. In addition, most countries in the EU have access to standard</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     shipping, which typically takes less than a week, one way.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   In India, Snow devices are delivered in one to seven days.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   In the US, you have access to one-day shipping and two-day shipping.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'creationDate', 'clusterMetadata_creationDate' - The creation date for this cluster.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'jobType', 'clusterMetadata_jobType' - The type of job for this cluster. Currently, the only job type supported</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for clusters is @LOCAL_USE@.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'kmsKeyARN', 'clusterMetadata_kmsKeyARN' - The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- This ARN was created using the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- API action in AWS Key Management Service (AWS KMS).</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'onDeviceServiceConfiguration', 'clusterMetadata_onDeviceServiceConfiguration' - Represents metadata and configuration settings for services on an AWS</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Snow Family device.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'taxDocuments', 'clusterMetadata_taxDocuments' - The tax documents required in your AWS Region.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'resources', 'clusterMetadata_resources' - The arrays of JobResource objects that can include updated S3Resource</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- objects or LambdaResource objects.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'snowballType', 'clusterMetadata_snowballType' - The type of AWS Snow device to use for this cluster.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- For cluster jobs, AWS Snow Family currently supports only the @EDGE@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- device type.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'description', 'clusterMetadata_description' - The optional description of the cluster.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'addressId', 'clusterMetadata_addressId' - The automatically generated ID for a specific address.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'forwardingAddressId', 'clusterMetadata_forwardingAddressId' - The ID of the address that you want a cluster shipped to, after it will</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- be shipped to its primary address. This field is not supported in most</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- regions.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'clusterState', 'clusterMetadata_clusterState' - The current status of the cluster.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'notification', 'clusterMetadata_notification' - The Amazon Simple Notification Service (Amazon SNS) notification</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- settings for this cluster.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#newClusterMetadata"><span class="hs-identifier hs-type">newClusterMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span>
+</span><span id="line-170"></span><span id="newClusterMetadata"><span class="annot"><span class="annottext">newClusterMetadata :: ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#newClusterMetadata"><span class="hs-identifier hs-var hs-var">newClusterMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ClusterMetadata' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ShippingOption
+-&gt; Maybe POSIX
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe OnDeviceServiceConfiguration
+-&gt; Maybe TaxDocuments
+-&gt; Maybe JobResource
+-&gt; Maybe SnowballType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ClusterState
+-&gt; Maybe Notification
+-&gt; ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterId%3AClusterMetadata%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AroleARN%3AClusterMetadata%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:shippingOption:ClusterMetadata' :: Maybe ShippingOption
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AshippingOption%3AClusterMetadata%27"><span class="hs-identifier hs-var">shippingOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:ClusterMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AcreationDate%3AClusterMetadata%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobType:ClusterMetadata' :: Maybe JobType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AjobType%3AClusterMetadata%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyARN:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AkmsKeyARN%3AClusterMetadata%27"><span class="hs-identifier hs-var">kmsKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDeviceServiceConfiguration:ClusterMetadata' :: Maybe OnDeviceServiceConfiguration
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AonDeviceServiceConfiguration%3AClusterMetadata%27"><span class="hs-identifier hs-var">onDeviceServiceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnDeviceServiceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:taxDocuments:ClusterMetadata' :: Maybe TaxDocuments
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AtaxDocuments%3AClusterMetadata%27"><span class="hs-identifier hs-var">taxDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaxDocuments
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:resources:ClusterMetadata' :: Maybe JobResource
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Aresources%3AClusterMetadata%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:snowballType:ClusterMetadata' :: Maybe SnowballType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AsnowballType%3AClusterMetadata%27"><span class="hs-identifier hs-var">snowballType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Adescription%3AClusterMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AaddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var">addressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:forwardingAddressId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AforwardingAddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var">forwardingAddressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterState:ClusterMetadata' :: Maybe ClusterState
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterState%3AClusterMetadata%27"><span class="hs-identifier hs-var">clusterState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:notification:ClusterMetadata' :: Maybe Notification
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Anotification%3AClusterMetadata%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Notification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The automatically generated ID for a cluster.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_clusterId"><span class="hs-identifier hs-type">clusterMetadata_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="clusterMetadata_clusterId"><span class="annot"><span class="annottext">clusterMetadata_clusterId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_clusterId"><span class="hs-identifier hs-var hs-var">clusterMetadata_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227000"><span class="annot"><span class="annottext">Maybe Text
+clusterId :: Maybe Text
+$sel:clusterId:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679227000"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227000"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226999"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterId%3AClusterMetadata%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The role ARN associated with this cluster. This ARN was created using</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole&gt;</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- API action in AWS Identity and Access Management (IAM).</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_roleARN"><span class="hs-identifier hs-type">clusterMetadata_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="clusterMetadata_roleARN"><span class="annot"><span class="annottext">clusterMetadata_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_roleARN"><span class="hs-identifier hs-var hs-var">clusterMetadata_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226996"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679226996"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226996"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226995"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AroleARN%3AClusterMetadata%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The shipping speed for each node in this cluster. This speed doesn\'t</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- dictate how soon you\'ll get each device, rather it represents how</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- quickly each device moves to its destination while in transit. Regional</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- shipping speeds are as follows:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   In Australia, you have access to express shipping. Typically,</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     devices shipped express are delivered in about a day.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   In the European Union (EU), you have access to express shipping.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     Typically, Snow devices shipped express are delivered in about a</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     day. In addition, most countries in the EU have access to standard</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     shipping, which typically takes less than a week, one way.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   In India, Snow devices are delivered in one to seven days.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   In the US, you have access to one-day shipping and two-day shipping.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_shippingOption"><span class="hs-identifier hs-type">clusterMetadata_shippingOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ShippingOption.html#ShippingOption"><span class="hs-identifier hs-type">ShippingOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="clusterMetadata_shippingOption"><span class="annot"><span class="annottext">clusterMetadata_shippingOption :: (Maybe ShippingOption -&gt; f (Maybe ShippingOption))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_shippingOption"><span class="hs-identifier hs-var hs-var">clusterMetadata_shippingOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe ShippingOption)
+-&gt; (ClusterMetadata -&gt; Maybe ShippingOption -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe ShippingOption)
+     (Maybe ShippingOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226992"><span class="annot"><span class="annottext">Maybe ShippingOption
+shippingOption :: Maybe ShippingOption
+$sel:shippingOption:ClusterMetadata' :: ClusterMetadata -&gt; Maybe ShippingOption
+</span><a href="#local-6989586621679226992"><span class="hs-identifier hs-var hs-var">shippingOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679226992"><span class="hs-identifier hs-var">shippingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226991"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226990"><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679226990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shippingOption:ClusterMetadata' :: Maybe ShippingOption
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AshippingOption%3AClusterMetadata%27"><span class="hs-identifier hs-var">shippingOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShippingOption
+</span><a href="#local-6989586621679226990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The creation date for this cluster.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_creationDate"><span class="hs-identifier hs-type">clusterMetadata_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="clusterMetadata_creationDate"><span class="annot"><span class="annottext">clusterMetadata_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_creationDate"><span class="hs-identifier hs-var hs-var">clusterMetadata_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe POSIX)
+-&gt; (ClusterMetadata -&gt; Maybe POSIX -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226988"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:ClusterMetadata' :: ClusterMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679226988"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679226988"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226987"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226986"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679226986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ClusterMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AcreationDate%3AClusterMetadata%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679226986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ClusterMetadata -&gt; f ClusterMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterMetadata
+-&gt; f ClusterMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The type of job for this cluster. Currently, the only job type supported</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for clusters is @LOCAL_USE@.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_jobType"><span class="hs-identifier hs-type">clusterMetadata_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="clusterMetadata_jobType"><span class="annot"><span class="annottext">clusterMetadata_jobType :: (Maybe JobType -&gt; f (Maybe JobType))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_jobType"><span class="hs-identifier hs-var hs-var">clusterMetadata_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe JobType)
+-&gt; (ClusterMetadata -&gt; Maybe JobType -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata ClusterMetadata (Maybe JobType) (Maybe JobType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226981"><span class="annot"><span class="annottext">Maybe JobType
+jobType :: Maybe JobType
+$sel:jobType:ClusterMetadata' :: ClusterMetadata -&gt; Maybe JobType
+</span><a href="#local-6989586621679226981"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679226981"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226980"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226979"><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679226979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:ClusterMetadata' :: Maybe JobType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AjobType%3AClusterMetadata%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679226979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- This ARN was created using the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey&gt;</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- API action in AWS Key Management Service (AWS KMS).</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_kmsKeyARN"><span class="hs-identifier hs-type">clusterMetadata_kmsKeyARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="clusterMetadata_kmsKeyARN"><span class="annot"><span class="annottext">clusterMetadata_kmsKeyARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_kmsKeyARN"><span class="hs-identifier hs-var hs-var">clusterMetadata_kmsKeyARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226977"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyARN :: Maybe Text
+$sel:kmsKeyARN:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679226977"><span class="hs-identifier hs-var hs-var">kmsKeyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226977"><span class="hs-identifier hs-var">kmsKeyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226976"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyARN:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AkmsKeyARN%3AClusterMetadata%27"><span class="hs-identifier hs-var">kmsKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Represents metadata and configuration settings for services on an AWS</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Snow Family device.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_onDeviceServiceConfiguration"><span class="hs-identifier hs-type">clusterMetadata_onDeviceServiceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.OnDeviceServiceConfiguration.html#OnDeviceServiceConfiguration"><span class="hs-identifier hs-type">OnDeviceServiceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="clusterMetadata_onDeviceServiceConfiguration"><span class="annot"><span class="annottext">clusterMetadata_onDeviceServiceConfiguration :: (Maybe OnDeviceServiceConfiguration
+ -&gt; f (Maybe OnDeviceServiceConfiguration))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_onDeviceServiceConfiguration"><span class="hs-identifier hs-var hs-var">clusterMetadata_onDeviceServiceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe OnDeviceServiceConfiguration)
+-&gt; (ClusterMetadata
+    -&gt; Maybe OnDeviceServiceConfiguration -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe OnDeviceServiceConfiguration)
+     (Maybe OnDeviceServiceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226973"><span class="annot"><span class="annottext">Maybe OnDeviceServiceConfiguration
+onDeviceServiceConfiguration :: Maybe OnDeviceServiceConfiguration
+$sel:onDeviceServiceConfiguration:ClusterMetadata' :: ClusterMetadata -&gt; Maybe OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226973"><span class="hs-identifier hs-var hs-var">onDeviceServiceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226973"><span class="hs-identifier hs-var">onDeviceServiceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226972"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226971"><span class="annot"><span class="annottext">Maybe OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDeviceServiceConfiguration:ClusterMetadata' :: Maybe OnDeviceServiceConfiguration
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AonDeviceServiceConfiguration%3AClusterMetadata%27"><span class="hs-identifier hs-var">onDeviceServiceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnDeviceServiceConfiguration
+</span><a href="#local-6989586621679226971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The tax documents required in your AWS Region.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_taxDocuments"><span class="hs-identifier hs-type">clusterMetadata_taxDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="clusterMetadata_taxDocuments"><span class="annot"><span class="annottext">clusterMetadata_taxDocuments :: (Maybe TaxDocuments -&gt; f (Maybe TaxDocuments))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_taxDocuments"><span class="hs-identifier hs-var hs-var">clusterMetadata_taxDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe TaxDocuments)
+-&gt; (ClusterMetadata -&gt; Maybe TaxDocuments -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe TaxDocuments)
+     (Maybe TaxDocuments)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226969"><span class="annot"><span class="annottext">Maybe TaxDocuments
+taxDocuments :: Maybe TaxDocuments
+$sel:taxDocuments:ClusterMetadata' :: ClusterMetadata -&gt; Maybe TaxDocuments
+</span><a href="#local-6989586621679226969"><span class="hs-identifier hs-var hs-var">taxDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaxDocuments
+</span><a href="#local-6989586621679226969"><span class="hs-identifier hs-var">taxDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226968"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226967"><span class="annot"><span class="annottext">Maybe TaxDocuments
+</span><a href="#local-6989586621679226967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taxDocuments:ClusterMetadata' :: Maybe TaxDocuments
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AtaxDocuments%3AClusterMetadata%27"><span class="hs-identifier hs-var">taxDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaxDocuments
+</span><a href="#local-6989586621679226967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The arrays of JobResource objects that can include updated S3Resource</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- objects or LambdaResource objects.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_resources"><span class="hs-identifier hs-type">clusterMetadata_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="clusterMetadata_resources"><span class="annot"><span class="annottext">clusterMetadata_resources :: (Maybe JobResource -&gt; f (Maybe JobResource))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_resources"><span class="hs-identifier hs-var hs-var">clusterMetadata_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe JobResource)
+-&gt; (ClusterMetadata -&gt; Maybe JobResource -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe JobResource)
+     (Maybe JobResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226965"><span class="annot"><span class="annottext">Maybe JobResource
+resources :: Maybe JobResource
+$sel:resources:ClusterMetadata' :: ClusterMetadata -&gt; Maybe JobResource
+</span><a href="#local-6989586621679226965"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobResource
+</span><a href="#local-6989586621679226965"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226964"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226963"><span class="annot"><span class="annottext">Maybe JobResource
+</span><a href="#local-6989586621679226963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ClusterMetadata' :: Maybe JobResource
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Aresources%3AClusterMetadata%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobResource
+</span><a href="#local-6989586621679226963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The type of AWS Snow device to use for this cluster.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- For cluster jobs, AWS Snow Family currently supports only the @EDGE@</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- device type.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_snowballType"><span class="hs-identifier hs-type">clusterMetadata_snowballType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-type">SnowballType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="clusterMetadata_snowballType"><span class="annot"><span class="annottext">clusterMetadata_snowballType :: (Maybe SnowballType -&gt; f (Maybe SnowballType))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_snowballType"><span class="hs-identifier hs-var hs-var">clusterMetadata_snowballType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe SnowballType)
+-&gt; (ClusterMetadata -&gt; Maybe SnowballType -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe SnowballType)
+     (Maybe SnowballType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226961"><span class="annot"><span class="annottext">Maybe SnowballType
+snowballType :: Maybe SnowballType
+$sel:snowballType:ClusterMetadata' :: ClusterMetadata -&gt; Maybe SnowballType
+</span><a href="#local-6989586621679226961"><span class="hs-identifier hs-var hs-var">snowballType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679226961"><span class="hs-identifier hs-var">snowballType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226960"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226959"><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679226959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snowballType:ClusterMetadata' :: Maybe SnowballType
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AsnowballType%3AClusterMetadata%27"><span class="hs-identifier hs-var">snowballType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnowballType
+</span><a href="#local-6989586621679226959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The optional description of the cluster.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_description"><span class="hs-identifier hs-type">clusterMetadata_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="clusterMetadata_description"><span class="annot"><span class="annottext">clusterMetadata_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_description"><span class="hs-identifier hs-var hs-var">clusterMetadata_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226957"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226956"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Adescription%3AClusterMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The automatically generated ID for a specific address.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_addressId"><span class="hs-identifier hs-type">clusterMetadata_addressId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="clusterMetadata_addressId"><span class="annot"><span class="annottext">clusterMetadata_addressId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_addressId"><span class="hs-identifier hs-var hs-var">clusterMetadata_addressId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226953"><span class="annot"><span class="annottext">Maybe Text
+addressId :: Maybe Text
+$sel:addressId:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226952"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AaddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var">addressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The ID of the address that you want a cluster shipped to, after it will</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- be shipped to its primary address. This field is not supported in most</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- regions.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_forwardingAddressId"><span class="hs-identifier hs-type">clusterMetadata_forwardingAddressId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="clusterMetadata_forwardingAddressId"><span class="annot"><span class="annottext">clusterMetadata_forwardingAddressId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_forwardingAddressId"><span class="hs-identifier hs-var hs-var">clusterMetadata_forwardingAddressId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Text)
+-&gt; (ClusterMetadata -&gt; Maybe Text -&gt; ClusterMetadata)
+-&gt; Lens ClusterMetadata ClusterMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226949"><span class="annot"><span class="annottext">Maybe Text
+forwardingAddressId :: Maybe Text
+$sel:forwardingAddressId:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var hs-var">forwardingAddressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var">forwardingAddressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226948"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardingAddressId:ClusterMetadata' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AforwardingAddressId%3AClusterMetadata%27"><span class="hs-identifier hs-var">forwardingAddressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The current status of the cluster.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_clusterState"><span class="hs-identifier hs-type">clusterMetadata_clusterState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-type">ClusterState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="clusterMetadata_clusterState"><span class="annot"><span class="annottext">clusterMetadata_clusterState :: (Maybe ClusterState -&gt; f (Maybe ClusterState))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_clusterState"><span class="hs-identifier hs-var hs-var">clusterMetadata_clusterState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe ClusterState)
+-&gt; (ClusterMetadata -&gt; Maybe ClusterState -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe ClusterState)
+     (Maybe ClusterState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226945"><span class="annot"><span class="annottext">Maybe ClusterState
+clusterState :: Maybe ClusterState
+$sel:clusterState:ClusterMetadata' :: ClusterMetadata -&gt; Maybe ClusterState
+</span><a href="#local-6989586621679226945"><span class="hs-identifier hs-var hs-var">clusterState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679226945"><span class="hs-identifier hs-var">clusterState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226944"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226943"><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterState:ClusterMetadata' :: Maybe ClusterState
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3AclusterState%3AClusterMetadata%27"><span class="hs-identifier hs-var">clusterState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterState
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The Amazon Simple Notification Service (Amazon SNS) notification</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- settings for this cluster.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_notification"><span class="hs-identifier hs-type">clusterMetadata_notification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Notification.html#Notification"><span class="hs-identifier hs-type">Notification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="clusterMetadata_notification"><span class="annot"><span class="annottext">clusterMetadata_notification :: (Maybe Notification -&gt; f (Maybe Notification))
+-&gt; ClusterMetadata -&gt; f ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#clusterMetadata_notification"><span class="hs-identifier hs-var hs-var">clusterMetadata_notification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterMetadata -&gt; Maybe Notification)
+-&gt; (ClusterMetadata -&gt; Maybe Notification -&gt; ClusterMetadata)
+-&gt; Lens
+     ClusterMetadata
+     ClusterMetadata
+     (Maybe Notification)
+     (Maybe Notification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226941"><span class="annot"><span class="annottext">Maybe Notification
+notification :: Maybe Notification
+$sel:notification:ClusterMetadata' :: ClusterMetadata -&gt; Maybe Notification
+</span><a href="#local-6989586621679226941"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Notification
+</span><a href="#local-6989586621679226941"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226940"><span class="annot"><span class="annottext">s :: ClusterMetadata
+</span><a href="#local-6989586621679226940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-type">ClusterMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226939"><span class="annot"><span class="annottext">Maybe Notification
+</span><a href="#local-6989586621679226939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterMetadata
+</span><a href="#local-6989586621679226940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:ClusterMetadata' :: Maybe Notification
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#%24sel%3Anotification%3AClusterMetadata%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Notification
+</span><a href="#local-6989586621679226939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679226934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ClusterMetadata)
+-&gt; Value
+-&gt; Parser ClusterMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ClusterMetadata&quot;</span></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226931"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ShippingOption
+-&gt; Maybe POSIX
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe OnDeviceServiceConfiguration
+-&gt; Maybe TaxDocuments
+-&gt; Maybe JobResource
+-&gt; Maybe SnowballType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ClusterState
+-&gt; Maybe Notification
+-&gt; ClusterMetadata
+</span><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata%27"><span class="hs-identifier hs-var">ClusterMetadata'</span></a></span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ShippingOption
+ -&gt; Maybe POSIX
+ -&gt; Maybe JobType
+ -&gt; Maybe Text
+ -&gt; Maybe OnDeviceServiceConfiguration
+ -&gt; Maybe TaxDocuments
+ -&gt; Maybe JobResource
+ -&gt; Maybe SnowballType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ClusterState
+ -&gt; Maybe Notification
+ -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ShippingOption
+      -&gt; Maybe POSIX
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ShippingOption
+   -&gt; Maybe POSIX
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ShippingOption
+      -&gt; Maybe POSIX
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ShippingOption
+   -&gt; Maybe POSIX
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe ShippingOption)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShippingOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShippingOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe JobType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OnDeviceServiceConfiguration
+      -&gt; Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OnDeviceServiceConfiguration
+   -&gt; Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe OnDeviceServiceConfiguration)
+-&gt; Parser
+     (Maybe TaxDocuments
+      -&gt; Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnDeviceServiceConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDeviceServiceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TaxDocuments
+   -&gt; Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe TaxDocuments)
+-&gt; Parser
+     (Maybe JobResource
+      -&gt; Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TaxDocuments)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaxDocuments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobResource
+   -&gt; Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe JobResource)
+-&gt; Parser
+     (Maybe SnowballType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Resources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SnowballType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe SnowballType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnowballType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnowballType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ClusterState
+      -&gt; Maybe Notification
+      -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ClusterState
+   -&gt; Maybe Notification
+   -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ClusterState -&gt; Maybe Notification -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AddressId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ClusterState -&gt; Maybe Notification -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ClusterState -&gt; Maybe Notification -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ForwardingAddressId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ClusterState -&gt; Maybe Notification -&gt; ClusterMetadata)
+-&gt; Parser (Maybe ClusterState)
+-&gt; Parser (Maybe Notification -&gt; ClusterMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Notification -&gt; ClusterMetadata)
+-&gt; Parser (Maybe Notification) -&gt; Parser ClusterMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Notification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226925"><span id="local-6989586621679226927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span></span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.ClusterMetadata.html#ClusterMetadata"><span class="hs-identifier hs-type">ClusterMetadata</span></a></span></span><span>
+</span><span id="line-305"></span></pre></body></html>

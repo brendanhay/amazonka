@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DeinterlacerMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DeinterlacerMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode"><span class="hs-identifier">DeinterlacerMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_ADAPTIVE"><span class="hs-identifier">DeinterlacerMode_ADAPTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_DEINTERLACE"><span class="hs-identifier">DeinterlacerMode_DEINTERLACE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_INVERSE_TELECINE"><span class="hs-identifier">DeinterlacerMode_INVERSE_TELECINE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- to progressive. - Inverse telecine converts Hard Telecine 29.97i to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- progressive 23.976p. - Adaptive auto-detects and converts to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- progressive.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679950386"><span id="local-6989586621679950387"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeinterlacerMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode"><span class="hs-identifier hs-var">DeinterlacerMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeinterlacerMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode%27"><span class="hs-identifier hs-var">DeinterlacerMode'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeinterlacerMode"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#fromDeinterlacerMode"><span class="hs-identifier hs-var hs-var">fromDeinterlacerMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950378"><span id="local-6989586621679950380"><span id="local-6989586621679950382"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerMode -&gt; ShowS
+[DeinterlacerMode] -&gt; ShowS
+DeinterlacerMode -&gt; String
+(Int -&gt; DeinterlacerMode -&gt; ShowS)
+-&gt; (DeinterlacerMode -&gt; String)
+-&gt; ([DeinterlacerMode] -&gt; ShowS)
+-&gt; Show DeinterlacerMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeinterlacerMode] -&gt; ShowS
+$cshowList :: [DeinterlacerMode] -&gt; ShowS
+show :: DeinterlacerMode -&gt; String
+$cshow :: DeinterlacerMode -&gt; String
+showsPrec :: Int -&gt; DeinterlacerMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeinterlacerMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679950369"><span id="local-6989586621679950371"><span id="local-6989586621679950373"><span id="local-6989586621679950375"><span class="annot"><span class="annottext">ReadPrec [DeinterlacerMode]
+ReadPrec DeinterlacerMode
+Int -&gt; ReadS DeinterlacerMode
+ReadS [DeinterlacerMode]
+(Int -&gt; ReadS DeinterlacerMode)
+-&gt; ReadS [DeinterlacerMode]
+-&gt; ReadPrec DeinterlacerMode
+-&gt; ReadPrec [DeinterlacerMode]
+-&gt; Read DeinterlacerMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeinterlacerMode]
+$creadListPrec :: ReadPrec [DeinterlacerMode]
+readPrec :: ReadPrec DeinterlacerMode
+$creadPrec :: ReadPrec DeinterlacerMode
+readList :: ReadS [DeinterlacerMode]
+$creadList :: ReadS [DeinterlacerMode]
+readsPrec :: Int -&gt; ReadS DeinterlacerMode
+$creadsPrec :: Int -&gt; ReadS DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679950364"><span id="local-6989586621679950366"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+(DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; Eq DeinterlacerMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c/= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+== :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c== :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679950348"><span id="local-6989586621679950350"><span id="local-6989586621679950352"><span id="local-6989586621679950354"><span id="local-6989586621679950356"><span id="local-6989586621679950358"><span id="local-6989586621679950360"><span class="annot"><span class="annottext">Eq DeinterlacerMode
+Eq DeinterlacerMode
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Ordering)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode)
+-&gt; (DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode)
+-&gt; Ord DeinterlacerMode
+DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+DeinterlacerMode -&gt; DeinterlacerMode -&gt; Ordering
+DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode
+$cmin :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode
+max :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode
+$cmax :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; DeinterlacerMode
+&gt;= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c&gt;= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+&gt; :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c&gt; :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+&lt;= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c&lt;= :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+&lt; :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+$c&lt; :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Bool
+compare :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Ordering
+$ccompare :: DeinterlacerMode -&gt; DeinterlacerMode -&gt; Ordering
+$cp1Ord :: Eq DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeinterlacerMode -&gt; Rep DeinterlacerMode x)
+-&gt; (forall x. Rep DeinterlacerMode x -&gt; DeinterlacerMode)
+-&gt; Generic DeinterlacerMode
+forall x. Rep DeinterlacerMode x -&gt; DeinterlacerMode
+forall x. DeinterlacerMode -&gt; Rep DeinterlacerMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeinterlacerMode x -&gt; DeinterlacerMode
+$cfrom :: forall x. DeinterlacerMode -&gt; Rep DeinterlacerMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950340"><span id="local-6989586621679950342"><span class="annot"><span class="annottext">Int -&gt; DeinterlacerMode -&gt; Int
+DeinterlacerMode -&gt; Int
+(Int -&gt; DeinterlacerMode -&gt; Int)
+-&gt; (DeinterlacerMode -&gt; Int) -&gt; Hashable DeinterlacerMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeinterlacerMode -&gt; Int
+$chash :: DeinterlacerMode -&gt; Int
+hashWithSalt :: Int -&gt; DeinterlacerMode -&gt; Int
+$chashWithSalt :: Int -&gt; DeinterlacerMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950337"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; ()
+(DeinterlacerMode -&gt; ()) -&gt; NFData DeinterlacerMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeinterlacerMode -&gt; ()
+$crnf :: DeinterlacerMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950334"><span class="annot"><span class="annottext">Text -&gt; Either String DeinterlacerMode
+(Text -&gt; Either String DeinterlacerMode)
+-&gt; FromText DeinterlacerMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeinterlacerMode
+$cfromText :: Text -&gt; Either String DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950331"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; Text
+(DeinterlacerMode -&gt; Text) -&gt; ToText DeinterlacerMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeinterlacerMode -&gt; Text
+$ctoText :: DeinterlacerMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950328"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; ByteString
+(DeinterlacerMode -&gt; ByteString) -&gt; ToByteString DeinterlacerMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeinterlacerMode -&gt; ByteString
+$ctoBS :: DeinterlacerMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950325"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; ByteStringBuilder
+(DeinterlacerMode -&gt; ByteStringBuilder) -&gt; ToLog DeinterlacerMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeinterlacerMode -&gt; ByteStringBuilder
+$cbuild :: DeinterlacerMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950322"><span class="annot"><span class="annottext">HeaderName -&gt; DeinterlacerMode -&gt; [Header]
+(HeaderName -&gt; DeinterlacerMode -&gt; [Header])
+-&gt; ToHeader DeinterlacerMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeinterlacerMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeinterlacerMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950319"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; QueryString
+(DeinterlacerMode -&gt; QueryString) -&gt; ToQuery DeinterlacerMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeinterlacerMode -&gt; QueryString
+$ctoQuery :: DeinterlacerMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950314"><span id="local-6989586621679950316"><span class="annot"><span class="annottext">Value -&gt; Parser [DeinterlacerMode]
+Value -&gt; Parser DeinterlacerMode
+(Value -&gt; Parser DeinterlacerMode)
+-&gt; (Value -&gt; Parser [DeinterlacerMode])
+-&gt; FromJSON DeinterlacerMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeinterlacerMode]
+$cparseJSONList :: Value -&gt; Parser [DeinterlacerMode]
+parseJSON :: Value -&gt; Parser DeinterlacerMode
+$cparseJSON :: Value -&gt; Parser DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950309"><span id="local-6989586621679950311"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeinterlacerMode]
+FromJSONKeyFunction DeinterlacerMode
+FromJSONKeyFunction DeinterlacerMode
+-&gt; FromJSONKeyFunction [DeinterlacerMode]
+-&gt; FromJSONKey DeinterlacerMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeinterlacerMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeinterlacerMode]
+fromJSONKey :: FromJSONKeyFunction DeinterlacerMode
+$cfromJSONKey :: FromJSONKeyFunction DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950300"><span id="local-6989586621679950302"><span id="local-6989586621679950304"><span id="local-6989586621679950306"><span class="annot"><span class="annottext">[DeinterlacerMode] -&gt; Encoding
+[DeinterlacerMode] -&gt; Value
+DeinterlacerMode -&gt; Encoding
+DeinterlacerMode -&gt; Value
+(DeinterlacerMode -&gt; Value)
+-&gt; (DeinterlacerMode -&gt; Encoding)
+-&gt; ([DeinterlacerMode] -&gt; Value)
+-&gt; ([DeinterlacerMode] -&gt; Encoding)
+-&gt; ToJSON DeinterlacerMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeinterlacerMode] -&gt; Encoding
+$ctoEncodingList :: [DeinterlacerMode] -&gt; Encoding
+toJSONList :: [DeinterlacerMode] -&gt; Value
+$ctoJSONList :: [DeinterlacerMode] -&gt; Value
+toEncoding :: DeinterlacerMode -&gt; Encoding
+$ctoEncoding :: DeinterlacerMode -&gt; Encoding
+toJSON :: DeinterlacerMode -&gt; Value
+$ctoJSON :: DeinterlacerMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679950295"><span id="local-6989586621679950297"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeinterlacerMode]
+ToJSONKeyFunction DeinterlacerMode
+ToJSONKeyFunction DeinterlacerMode
+-&gt; ToJSONKeyFunction [DeinterlacerMode]
+-&gt; ToJSONKey DeinterlacerMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeinterlacerMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeinterlacerMode]
+toJSONKey :: ToJSONKeyFunction DeinterlacerMode
+$ctoJSONKey :: ToJSONKeyFunction DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679950292"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeinterlacerMode
+([Node] -&gt; Either String DeinterlacerMode)
+-&gt; FromXML DeinterlacerMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeinterlacerMode
+$cparseXML :: [Node] -&gt; Either String DeinterlacerMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679950289"><span class="annot"><span class="annottext">DeinterlacerMode -&gt; XML
+(DeinterlacerMode -&gt; XML) -&gt; ToXML DeinterlacerMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeinterlacerMode -&gt; XML
+$ctoXML :: DeinterlacerMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_ADAPTIVE"><span class="hs-identifier hs-type">DeinterlacerMode_ADAPTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode"><span class="hs-identifier hs-type">DeinterlacerMode</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeinterlacerMode_ADAPTIVE"><span id="%24mDeinterlacerMode_ADAPTIVE"><span id="DeinterlacerMode_ADAPTIVE"><span class="annot"><span class="annottext">$bDeinterlacerMode_ADAPTIVE :: DeinterlacerMode
+$mDeinterlacerMode_ADAPTIVE :: forall r. DeinterlacerMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#%24bDeinterlacerMode_ADAPTIVE"><span class="hs-identifier hs-var hs-var hs-var">DeinterlacerMode_ADAPTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode%27"><span class="hs-identifier hs-type">DeinterlacerMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADAPTIVE&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_DEINTERLACE"><span class="hs-identifier hs-type">DeinterlacerMode_DEINTERLACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode"><span class="hs-identifier hs-type">DeinterlacerMode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeinterlacerMode_DEINTERLACE"><span id="%24mDeinterlacerMode_DEINTERLACE"><span id="DeinterlacerMode_DEINTERLACE"><span class="annot"><span class="annottext">$bDeinterlacerMode_DEINTERLACE :: DeinterlacerMode
+$mDeinterlacerMode_DEINTERLACE :: forall r. DeinterlacerMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#%24bDeinterlacerMode_DEINTERLACE"><span class="hs-identifier hs-var hs-var hs-var">DeinterlacerMode_DEINTERLACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode%27"><span class="hs-identifier hs-type">DeinterlacerMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEINTERLACE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_INVERSE_TELECINE"><span class="hs-identifier hs-type">DeinterlacerMode_INVERSE_TELECINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode"><span class="hs-identifier hs-type">DeinterlacerMode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeinterlacerMode_INVERSE_TELECINE"><span id="%24mDeinterlacerMode_INVERSE_TELECINE"><span id="DeinterlacerMode_INVERSE_TELECINE"><span class="annot"><span class="annottext">$bDeinterlacerMode_INVERSE_TELECINE :: DeinterlacerMode
+$mDeinterlacerMode_INVERSE_TELECINE :: forall r. DeinterlacerMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#%24bDeinterlacerMode_INVERSE_TELECINE"><span class="hs-identifier hs-var hs-var hs-var">DeinterlacerMode_INVERSE_TELECINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode%27"><span class="hs-identifier hs-type">DeinterlacerMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVERSE_TELECINE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_ADAPTIVE"><span class="hs-pragma hs-type">DeinterlacerMode_ADAPTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_DEINTERLACE"><span class="hs-pragma hs-type">DeinterlacerMode_DEINTERLACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode_INVERSE_TELECINE"><span class="hs-pragma hs-type">DeinterlacerMode_INVERSE_TELECINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlacerMode.html#DeinterlacerMode%27"><span class="hs-pragma hs-type">DeinterlacerMode'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier">OriginRequestPolicyHeaderBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewer"><span class="hs-identifier">OriginRequestPolicyHeaderBehavior_AllViewer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span class="hs-identifier">OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_None"><span class="hs-identifier">OriginRequestPolicyHeaderBehavior_None</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_Whitelist"><span class="hs-identifier">OriginRequestPolicyHeaderBehavior_Whitelist</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679396339"><span id="local-6989586621679396340"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OriginRequestPolicyHeaderBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-var">OriginRequestPolicyHeaderBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginRequestPolicyHeaderBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-identifier hs-var">OriginRequestPolicyHeaderBehavior'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOriginRequestPolicyHeaderBehavior"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#fromOriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-var hs-var">fromOriginRequestPolicyHeaderBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396331"><span id="local-6989586621679396333"><span id="local-6989586621679396335"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; ShowS
+[OriginRequestPolicyHeaderBehavior] -&gt; ShowS
+OriginRequestPolicyHeaderBehavior -&gt; String
+(Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; ShowS)
+-&gt; (OriginRequestPolicyHeaderBehavior -&gt; String)
+-&gt; ([OriginRequestPolicyHeaderBehavior] -&gt; ShowS)
+-&gt; Show OriginRequestPolicyHeaderBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginRequestPolicyHeaderBehavior] -&gt; ShowS
+$cshowList :: [OriginRequestPolicyHeaderBehavior] -&gt; ShowS
+show :: OriginRequestPolicyHeaderBehavior -&gt; String
+$cshow :: OriginRequestPolicyHeaderBehavior -&gt; String
+showsPrec :: Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396322"><span id="local-6989586621679396324"><span id="local-6989586621679396326"><span id="local-6989586621679396328"><span class="annot"><span class="annottext">ReadPrec [OriginRequestPolicyHeaderBehavior]
+ReadPrec OriginRequestPolicyHeaderBehavior
+Int -&gt; ReadS OriginRequestPolicyHeaderBehavior
+ReadS [OriginRequestPolicyHeaderBehavior]
+(Int -&gt; ReadS OriginRequestPolicyHeaderBehavior)
+-&gt; ReadS [OriginRequestPolicyHeaderBehavior]
+-&gt; ReadPrec OriginRequestPolicyHeaderBehavior
+-&gt; ReadPrec [OriginRequestPolicyHeaderBehavior]
+-&gt; Read OriginRequestPolicyHeaderBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginRequestPolicyHeaderBehavior]
+$creadListPrec :: ReadPrec [OriginRequestPolicyHeaderBehavior]
+readPrec :: ReadPrec OriginRequestPolicyHeaderBehavior
+$creadPrec :: ReadPrec OriginRequestPolicyHeaderBehavior
+readList :: ReadS [OriginRequestPolicyHeaderBehavior]
+$creadList :: ReadS [OriginRequestPolicyHeaderBehavior]
+readsPrec :: Int -&gt; ReadS OriginRequestPolicyHeaderBehavior
+$creadsPrec :: Int -&gt; ReadS OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679396317"><span id="local-6989586621679396319"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+(OriginRequestPolicyHeaderBehavior
+ -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; Eq OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c/= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+== :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c== :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679396301"><span id="local-6989586621679396303"><span id="local-6989586621679396305"><span id="local-6989586621679396307"><span id="local-6989586621679396309"><span id="local-6989586621679396311"><span id="local-6989586621679396313"><span class="annot"><span class="annottext">Eq OriginRequestPolicyHeaderBehavior
+Eq OriginRequestPolicyHeaderBehavior
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Ordering)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior)
+-&gt; (OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior
+    -&gt; OriginRequestPolicyHeaderBehavior)
+-&gt; Ord OriginRequestPolicyHeaderBehavior
+OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Ordering
+OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+$cmin :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+max :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+$cmax :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior
+&gt;= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c&gt;= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+&gt; :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c&gt; :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+&lt;= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c&lt;= :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+&lt; :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+$c&lt; :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Bool
+compare :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Ordering
+$ccompare :: OriginRequestPolicyHeaderBehavior
+-&gt; OriginRequestPolicyHeaderBehavior -&gt; Ordering
+$cp1Ord :: Eq OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ OriginRequestPolicyHeaderBehavior
+ -&gt; Rep OriginRequestPolicyHeaderBehavior x)
+-&gt; (forall x.
+    Rep OriginRequestPolicyHeaderBehavior x
+    -&gt; OriginRequestPolicyHeaderBehavior)
+-&gt; Generic OriginRequestPolicyHeaderBehavior
+forall x.
+Rep OriginRequestPolicyHeaderBehavior x
+-&gt; OriginRequestPolicyHeaderBehavior
+forall x.
+OriginRequestPolicyHeaderBehavior
+-&gt; Rep OriginRequestPolicyHeaderBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep OriginRequestPolicyHeaderBehavior x
+-&gt; OriginRequestPolicyHeaderBehavior
+$cfrom :: forall x.
+OriginRequestPolicyHeaderBehavior
+-&gt; Rep OriginRequestPolicyHeaderBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396293"><span id="local-6989586621679396295"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; Int
+OriginRequestPolicyHeaderBehavior -&gt; Int
+(Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; Int)
+-&gt; (OriginRequestPolicyHeaderBehavior -&gt; Int)
+-&gt; Hashable OriginRequestPolicyHeaderBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OriginRequestPolicyHeaderBehavior -&gt; Int
+$chash :: OriginRequestPolicyHeaderBehavior -&gt; Int
+hashWithSalt :: Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; OriginRequestPolicyHeaderBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396290"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; ()
+(OriginRequestPolicyHeaderBehavior -&gt; ())
+-&gt; NFData OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OriginRequestPolicyHeaderBehavior -&gt; ()
+$crnf :: OriginRequestPolicyHeaderBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396287"><span class="annot"><span class="annottext">Text -&gt; Either String OriginRequestPolicyHeaderBehavior
+(Text -&gt; Either String OriginRequestPolicyHeaderBehavior)
+-&gt; FromText OriginRequestPolicyHeaderBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OriginRequestPolicyHeaderBehavior
+$cfromText :: Text -&gt; Either String OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396284"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; Text
+(OriginRequestPolicyHeaderBehavior -&gt; Text)
+-&gt; ToText OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OriginRequestPolicyHeaderBehavior -&gt; Text
+$ctoText :: OriginRequestPolicyHeaderBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396281"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; ByteString
+(OriginRequestPolicyHeaderBehavior -&gt; ByteString)
+-&gt; ToByteString OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OriginRequestPolicyHeaderBehavior -&gt; ByteString
+$ctoBS :: OriginRequestPolicyHeaderBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396278"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; ByteStringBuilder
+(OriginRequestPolicyHeaderBehavior -&gt; ByteStringBuilder)
+-&gt; ToLog OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OriginRequestPolicyHeaderBehavior -&gt; ByteStringBuilder
+$cbuild :: OriginRequestPolicyHeaderBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396275"><span class="annot"><span class="annottext">HeaderName -&gt; OriginRequestPolicyHeaderBehavior -&gt; [Header]
+(HeaderName -&gt; OriginRequestPolicyHeaderBehavior -&gt; [Header])
+-&gt; ToHeader OriginRequestPolicyHeaderBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OriginRequestPolicyHeaderBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OriginRequestPolicyHeaderBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396272"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; QueryString
+(OriginRequestPolicyHeaderBehavior -&gt; QueryString)
+-&gt; ToQuery OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OriginRequestPolicyHeaderBehavior -&gt; QueryString
+$ctoQuery :: OriginRequestPolicyHeaderBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396267"><span id="local-6989586621679396269"><span class="annot"><span class="annottext">Value -&gt; Parser [OriginRequestPolicyHeaderBehavior]
+Value -&gt; Parser OriginRequestPolicyHeaderBehavior
+(Value -&gt; Parser OriginRequestPolicyHeaderBehavior)
+-&gt; (Value -&gt; Parser [OriginRequestPolicyHeaderBehavior])
+-&gt; FromJSON OriginRequestPolicyHeaderBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OriginRequestPolicyHeaderBehavior]
+$cparseJSONList :: Value -&gt; Parser [OriginRequestPolicyHeaderBehavior]
+parseJSON :: Value -&gt; Parser OriginRequestPolicyHeaderBehavior
+$cparseJSON :: Value -&gt; Parser OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396262"><span id="local-6989586621679396264"><span class="annot"><span class="annottext">FromJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+FromJSONKeyFunction OriginRequestPolicyHeaderBehavior
+FromJSONKeyFunction OriginRequestPolicyHeaderBehavior
+-&gt; FromJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+-&gt; FromJSONKey OriginRequestPolicyHeaderBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+fromJSONKey :: FromJSONKeyFunction OriginRequestPolicyHeaderBehavior
+$cfromJSONKey :: FromJSONKeyFunction OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396253"><span id="local-6989586621679396255"><span id="local-6989586621679396257"><span id="local-6989586621679396259"><span class="annot"><span class="annottext">[OriginRequestPolicyHeaderBehavior] -&gt; Encoding
+[OriginRequestPolicyHeaderBehavior] -&gt; Value
+OriginRequestPolicyHeaderBehavior -&gt; Encoding
+OriginRequestPolicyHeaderBehavior -&gt; Value
+(OriginRequestPolicyHeaderBehavior -&gt; Value)
+-&gt; (OriginRequestPolicyHeaderBehavior -&gt; Encoding)
+-&gt; ([OriginRequestPolicyHeaderBehavior] -&gt; Value)
+-&gt; ([OriginRequestPolicyHeaderBehavior] -&gt; Encoding)
+-&gt; ToJSON OriginRequestPolicyHeaderBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OriginRequestPolicyHeaderBehavior] -&gt; Encoding
+$ctoEncodingList :: [OriginRequestPolicyHeaderBehavior] -&gt; Encoding
+toJSONList :: [OriginRequestPolicyHeaderBehavior] -&gt; Value
+$ctoJSONList :: [OriginRequestPolicyHeaderBehavior] -&gt; Value
+toEncoding :: OriginRequestPolicyHeaderBehavior -&gt; Encoding
+$ctoEncoding :: OriginRequestPolicyHeaderBehavior -&gt; Encoding
+toJSON :: OriginRequestPolicyHeaderBehavior -&gt; Value
+$ctoJSON :: OriginRequestPolicyHeaderBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396248"><span id="local-6989586621679396250"><span class="annot"><span class="annottext">ToJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+ToJSONKeyFunction OriginRequestPolicyHeaderBehavior
+ToJSONKeyFunction OriginRequestPolicyHeaderBehavior
+-&gt; ToJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+-&gt; ToJSONKey OriginRequestPolicyHeaderBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [OriginRequestPolicyHeaderBehavior]
+toJSONKey :: ToJSONKeyFunction OriginRequestPolicyHeaderBehavior
+$ctoJSONKey :: ToJSONKeyFunction OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679396245"><span class="annot"><span class="annottext">[Node] -&gt; Either String OriginRequestPolicyHeaderBehavior
+([Node] -&gt; Either String OriginRequestPolicyHeaderBehavior)
+-&gt; FromXML OriginRequestPolicyHeaderBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OriginRequestPolicyHeaderBehavior
+$cparseXML :: [Node] -&gt; Either String OriginRequestPolicyHeaderBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679396242"><span class="annot"><span class="annottext">OriginRequestPolicyHeaderBehavior -&gt; XML
+(OriginRequestPolicyHeaderBehavior -&gt; XML)
+-&gt; ToXML OriginRequestPolicyHeaderBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OriginRequestPolicyHeaderBehavior -&gt; XML
+$ctoXML :: OriginRequestPolicyHeaderBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewer"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior_AllViewer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginRequestPolicyHeaderBehavior_AllViewer"><span id="%24mOriginRequestPolicyHeaderBehavior_AllViewer"><span id="OriginRequestPolicyHeaderBehavior_AllViewer"><span class="annot"><span class="annottext">$bOriginRequestPolicyHeaderBehavior_AllViewer :: OriginRequestPolicyHeaderBehavior
+$mOriginRequestPolicyHeaderBehavior_AllViewer :: forall r.
+OriginRequestPolicyHeaderBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#%24bOriginRequestPolicyHeaderBehavior_AllViewer"><span class="hs-identifier hs-var hs-var hs-var">OriginRequestPolicyHeaderBehavior_AllViewer</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;allViewer&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span id="%24mOriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span id="OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span class="annot"><span class="annottext">$bOriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
+$mOriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront :: forall r.
+OriginRequestPolicyHeaderBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#%24bOriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span class="hs-identifier hs-var hs-var hs-var">OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;allViewerAndWhitelistCloudFront&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_None"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginRequestPolicyHeaderBehavior_None"><span id="%24mOriginRequestPolicyHeaderBehavior_None"><span id="OriginRequestPolicyHeaderBehavior_None"><span class="annot"><span class="annottext">$bOriginRequestPolicyHeaderBehavior_None :: OriginRequestPolicyHeaderBehavior
+$mOriginRequestPolicyHeaderBehavior_None :: forall r.
+OriginRequestPolicyHeaderBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#%24bOriginRequestPolicyHeaderBehavior_None"><span class="hs-identifier hs-var hs-var hs-var">OriginRequestPolicyHeaderBehavior_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;none&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_Whitelist"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior_Whitelist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginRequestPolicyHeaderBehavior_Whitelist"><span id="%24mOriginRequestPolicyHeaderBehavior_Whitelist"><span id="OriginRequestPolicyHeaderBehavior_Whitelist"><span class="annot"><span class="annottext">$bOriginRequestPolicyHeaderBehavior_Whitelist :: OriginRequestPolicyHeaderBehavior
+$mOriginRequestPolicyHeaderBehavior_Whitelist :: forall r.
+OriginRequestPolicyHeaderBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#%24bOriginRequestPolicyHeaderBehavior_Whitelist"><span class="hs-identifier hs-var hs-var hs-var">OriginRequestPolicyHeaderBehavior_Whitelist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-identifier hs-type">OriginRequestPolicyHeaderBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;whitelist&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewer"><span class="hs-pragma hs-type">OriginRequestPolicyHeaderBehavior_AllViewer</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront"><span class="hs-pragma hs-type">OriginRequestPolicyHeaderBehavior_AllViewerAndWhitelistCloudFront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_None"><span class="hs-pragma hs-type">OriginRequestPolicyHeaderBehavior_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior_Whitelist"><span class="hs-pragma hs-type">OriginRequestPolicyHeaderBehavior_Whitelist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior.html#OriginRequestPolicyHeaderBehavior%27"><span class="hs-pragma hs-type">OriginRequestPolicyHeaderBehavior'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

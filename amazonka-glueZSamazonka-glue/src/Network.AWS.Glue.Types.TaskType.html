@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.TaskType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.TaskType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier">TaskType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EVALUATION"><span class="hs-identifier">TaskType_EVALUATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EXPORT_LABELS"><span class="hs-identifier">TaskType_EXPORT_LABELS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_FIND_MATCHES"><span class="hs-identifier">TaskType_FIND_MATCHES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_IMPORT_LABELS"><span class="hs-identifier">TaskType_IMPORT_LABELS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_LABELING_SET_GENERATION"><span class="hs-identifier">TaskType_LABELING_SET_GENERATION</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679700155"><span id="local-6989586621679700156"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskType"><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-var">TaskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-var">TaskType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskType"><span class="annot"><span class="annottext">TaskType -&gt; Text
+</span><a href="Network.AWS.Glue.Types.TaskType.html#fromTaskType"><span class="hs-identifier hs-var hs-var">fromTaskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679700147"><span id="local-6989586621679700149"><span id="local-6989586621679700151"><span class="annot"><span class="annottext">Int -&gt; TaskType -&gt; ShowS
+[TaskType] -&gt; ShowS
+TaskType -&gt; String
+(Int -&gt; TaskType -&gt; ShowS)
+-&gt; (TaskType -&gt; String) -&gt; ([TaskType] -&gt; ShowS) -&gt; Show TaskType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaskType] -&gt; ShowS
+$cshowList :: [TaskType] -&gt; ShowS
+show :: TaskType -&gt; String
+$cshow :: TaskType -&gt; String
+showsPrec :: Int -&gt; TaskType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaskType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679700138"><span id="local-6989586621679700140"><span id="local-6989586621679700142"><span id="local-6989586621679700144"><span class="annot"><span class="annottext">ReadPrec [TaskType]
+ReadPrec TaskType
+Int -&gt; ReadS TaskType
+ReadS [TaskType]
+(Int -&gt; ReadS TaskType)
+-&gt; ReadS [TaskType]
+-&gt; ReadPrec TaskType
+-&gt; ReadPrec [TaskType]
+-&gt; Read TaskType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaskType]
+$creadListPrec :: ReadPrec [TaskType]
+readPrec :: ReadPrec TaskType
+$creadPrec :: ReadPrec TaskType
+readList :: ReadS [TaskType]
+$creadList :: ReadS [TaskType]
+readsPrec :: Int -&gt; ReadS TaskType
+$creadsPrec :: Int -&gt; ReadS TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679700133"><span id="local-6989586621679700135"><span class="annot"><span class="annottext">TaskType -&gt; TaskType -&gt; Bool
+(TaskType -&gt; TaskType -&gt; Bool)
+-&gt; (TaskType -&gt; TaskType -&gt; Bool) -&gt; Eq TaskType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaskType -&gt; TaskType -&gt; Bool
+$c/= :: TaskType -&gt; TaskType -&gt; Bool
+== :: TaskType -&gt; TaskType -&gt; Bool
+$c== :: TaskType -&gt; TaskType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679700117"><span id="local-6989586621679700119"><span id="local-6989586621679700121"><span id="local-6989586621679700123"><span id="local-6989586621679700125"><span id="local-6989586621679700127"><span id="local-6989586621679700129"><span class="annot"><span class="annottext">Eq TaskType
+Eq TaskType
+-&gt; (TaskType -&gt; TaskType -&gt; Ordering)
+-&gt; (TaskType -&gt; TaskType -&gt; Bool)
+-&gt; (TaskType -&gt; TaskType -&gt; Bool)
+-&gt; (TaskType -&gt; TaskType -&gt; Bool)
+-&gt; (TaskType -&gt; TaskType -&gt; Bool)
+-&gt; (TaskType -&gt; TaskType -&gt; TaskType)
+-&gt; (TaskType -&gt; TaskType -&gt; TaskType)
+-&gt; Ord TaskType
+TaskType -&gt; TaskType -&gt; Bool
+TaskType -&gt; TaskType -&gt; Ordering
+TaskType -&gt; TaskType -&gt; TaskType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaskType -&gt; TaskType -&gt; TaskType
+$cmin :: TaskType -&gt; TaskType -&gt; TaskType
+max :: TaskType -&gt; TaskType -&gt; TaskType
+$cmax :: TaskType -&gt; TaskType -&gt; TaskType
+&gt;= :: TaskType -&gt; TaskType -&gt; Bool
+$c&gt;= :: TaskType -&gt; TaskType -&gt; Bool
+&gt; :: TaskType -&gt; TaskType -&gt; Bool
+$c&gt; :: TaskType -&gt; TaskType -&gt; Bool
+&lt;= :: TaskType -&gt; TaskType -&gt; Bool
+$c&lt;= :: TaskType -&gt; TaskType -&gt; Bool
+&lt; :: TaskType -&gt; TaskType -&gt; Bool
+$c&lt; :: TaskType -&gt; TaskType -&gt; Bool
+compare :: TaskType -&gt; TaskType -&gt; Ordering
+$ccompare :: TaskType -&gt; TaskType -&gt; Ordering
+$cp1Ord :: Eq TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TaskType -&gt; Rep TaskType x)
+-&gt; (forall x. Rep TaskType x -&gt; TaskType) -&gt; Generic TaskType
+forall x. Rep TaskType x -&gt; TaskType
+forall x. TaskType -&gt; Rep TaskType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TaskType x -&gt; TaskType
+$cfrom :: forall x. TaskType -&gt; Rep TaskType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679700109"><span id="local-6989586621679700111"><span class="annot"><span class="annottext">Int -&gt; TaskType -&gt; Int
+TaskType -&gt; Int
+(Int -&gt; TaskType -&gt; Int) -&gt; (TaskType -&gt; Int) -&gt; Hashable TaskType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaskType -&gt; Int
+$chash :: TaskType -&gt; Int
+hashWithSalt :: Int -&gt; TaskType -&gt; Int
+$chashWithSalt :: Int -&gt; TaskType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679700106"><span class="annot"><span class="annottext">TaskType -&gt; ()
+(TaskType -&gt; ()) -&gt; NFData TaskType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaskType -&gt; ()
+$crnf :: TaskType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679700103"><span class="annot"><span class="annottext">Text -&gt; Either String TaskType
+(Text -&gt; Either String TaskType) -&gt; FromText TaskType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaskType
+$cfromText :: Text -&gt; Either String TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679700100"><span class="annot"><span class="annottext">TaskType -&gt; Text
+(TaskType -&gt; Text) -&gt; ToText TaskType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaskType -&gt; Text
+$ctoText :: TaskType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679700097"><span class="annot"><span class="annottext">TaskType -&gt; ByteString
+(TaskType -&gt; ByteString) -&gt; ToByteString TaskType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaskType -&gt; ByteString
+$ctoBS :: TaskType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679700094"><span class="annot"><span class="annottext">TaskType -&gt; ByteStringBuilder
+(TaskType -&gt; ByteStringBuilder) -&gt; ToLog TaskType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaskType -&gt; ByteStringBuilder
+$cbuild :: TaskType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679700091"><span class="annot"><span class="annottext">HeaderName -&gt; TaskType -&gt; [Header]
+(HeaderName -&gt; TaskType -&gt; [Header]) -&gt; ToHeader TaskType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaskType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaskType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679700088"><span class="annot"><span class="annottext">TaskType -&gt; QueryString
+(TaskType -&gt; QueryString) -&gt; ToQuery TaskType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaskType -&gt; QueryString
+$ctoQuery :: TaskType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679700083"><span id="local-6989586621679700085"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskType]
+Value -&gt; Parser TaskType
+(Value -&gt; Parser TaskType)
+-&gt; (Value -&gt; Parser [TaskType]) -&gt; FromJSON TaskType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaskType]
+$cparseJSONList :: Value -&gt; Parser [TaskType]
+parseJSON :: Value -&gt; Parser TaskType
+$cparseJSON :: Value -&gt; Parser TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679700078"><span id="local-6989586621679700080"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskType]
+FromJSONKeyFunction TaskType
+FromJSONKeyFunction TaskType
+-&gt; FromJSONKeyFunction [TaskType] -&gt; FromJSONKey TaskType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaskType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaskType]
+fromJSONKey :: FromJSONKeyFunction TaskType
+$cfromJSONKey :: FromJSONKeyFunction TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679700069"><span id="local-6989586621679700071"><span id="local-6989586621679700073"><span id="local-6989586621679700075"><span class="annot"><span class="annottext">[TaskType] -&gt; Encoding
+[TaskType] -&gt; Value
+TaskType -&gt; Encoding
+TaskType -&gt; Value
+(TaskType -&gt; Value)
+-&gt; (TaskType -&gt; Encoding)
+-&gt; ([TaskType] -&gt; Value)
+-&gt; ([TaskType] -&gt; Encoding)
+-&gt; ToJSON TaskType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaskType] -&gt; Encoding
+$ctoEncodingList :: [TaskType] -&gt; Encoding
+toJSONList :: [TaskType] -&gt; Value
+$ctoJSONList :: [TaskType] -&gt; Value
+toEncoding :: TaskType -&gt; Encoding
+$ctoEncoding :: TaskType -&gt; Encoding
+toJSON :: TaskType -&gt; Value
+$ctoJSON :: TaskType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679700064"><span id="local-6989586621679700066"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskType]
+ToJSONKeyFunction TaskType
+ToJSONKeyFunction TaskType
+-&gt; ToJSONKeyFunction [TaskType] -&gt; ToJSONKey TaskType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaskType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaskType]
+toJSONKey :: ToJSONKeyFunction TaskType
+$ctoJSONKey :: ToJSONKeyFunction TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679700061"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskType
+([Node] -&gt; Either String TaskType) -&gt; FromXML TaskType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaskType
+$cparseXML :: [Node] -&gt; Either String TaskType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679700058"><span class="annot"><span class="annottext">TaskType -&gt; XML
+(TaskType -&gt; XML) -&gt; ToXML TaskType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaskType -&gt; XML
+$ctoXML :: TaskType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EVALUATION"><span class="hs-identifier hs-type">TaskType_EVALUATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-type">TaskType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskType_EVALUATION"><span id="%24mTaskType_EVALUATION"><span id="TaskType_EVALUATION"><span class="annot"><span class="annottext">$bTaskType_EVALUATION :: TaskType
+$mTaskType_EVALUATION :: forall r. TaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.TaskType.html#%24bTaskType_EVALUATION"><span class="hs-identifier hs-var hs-var hs-var">TaskType_EVALUATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-type">TaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVALUATION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EXPORT_LABELS"><span class="hs-identifier hs-type">TaskType_EXPORT_LABELS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-type">TaskType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskType_EXPORT_LABELS"><span id="%24mTaskType_EXPORT_LABELS"><span id="TaskType_EXPORT_LABELS"><span class="annot"><span class="annottext">$bTaskType_EXPORT_LABELS :: TaskType
+$mTaskType_EXPORT_LABELS :: forall r. TaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.TaskType.html#%24bTaskType_EXPORT_LABELS"><span class="hs-identifier hs-var hs-var hs-var">TaskType_EXPORT_LABELS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-type">TaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPORT_LABELS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_FIND_MATCHES"><span class="hs-identifier hs-type">TaskType_FIND_MATCHES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-type">TaskType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskType_FIND_MATCHES"><span id="%24mTaskType_FIND_MATCHES"><span id="TaskType_FIND_MATCHES"><span class="annot"><span class="annottext">$bTaskType_FIND_MATCHES :: TaskType
+$mTaskType_FIND_MATCHES :: forall r. TaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.TaskType.html#%24bTaskType_FIND_MATCHES"><span class="hs-identifier hs-var hs-var hs-var">TaskType_FIND_MATCHES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-type">TaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIND_MATCHES&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_IMPORT_LABELS"><span class="hs-identifier hs-type">TaskType_IMPORT_LABELS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-type">TaskType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskType_IMPORT_LABELS"><span id="%24mTaskType_IMPORT_LABELS"><span id="TaskType_IMPORT_LABELS"><span class="annot"><span class="annottext">$bTaskType_IMPORT_LABELS :: TaskType
+$mTaskType_IMPORT_LABELS :: forall r. TaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.TaskType.html#%24bTaskType_IMPORT_LABELS"><span class="hs-identifier hs-var hs-var hs-var">TaskType_IMPORT_LABELS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-type">TaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORT_LABELS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_LABELING_SET_GENERATION"><span class="hs-identifier hs-type">TaskType_LABELING_SET_GENERATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType"><span class="hs-identifier hs-type">TaskType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskType_LABELING_SET_GENERATION"><span id="%24mTaskType_LABELING_SET_GENERATION"><span id="TaskType_LABELING_SET_GENERATION"><span class="annot"><span class="annottext">$bTaskType_LABELING_SET_GENERATION :: TaskType
+$mTaskType_LABELING_SET_GENERATION :: forall r. TaskType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.TaskType.html#%24bTaskType_LABELING_SET_GENERATION"><span class="hs-identifier hs-var hs-var hs-var">TaskType_LABELING_SET_GENERATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-identifier hs-type">TaskType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LABELING_SET_GENERATION&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EVALUATION"><span class="hs-pragma hs-type">TaskType_EVALUATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_EXPORT_LABELS"><span class="hs-pragma hs-type">TaskType_EXPORT_LABELS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_FIND_MATCHES"><span class="hs-pragma hs-type">TaskType_FIND_MATCHES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_IMPORT_LABELS"><span class="hs-pragma hs-type">TaskType_IMPORT_LABELS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType_LABELING_SET_GENERATION"><span class="hs-pragma hs-type">TaskType_LABELING_SET_GENERATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskType.html#TaskType%27"><span class="hs-pragma hs-type">TaskType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

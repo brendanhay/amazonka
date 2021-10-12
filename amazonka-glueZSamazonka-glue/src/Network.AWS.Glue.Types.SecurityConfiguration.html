@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.SecurityConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.SecurityConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.Glue.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies a security configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSecurityConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679696540"><span id="local-6989586621679696541"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityConfiguration"><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-var">SecurityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityConfiguration%27"><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-var">SecurityConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption configuration associated with this security</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3ASecurityConfiguration%27"><span class="annot"><span class="annottext">SecurityConfiguration -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AencryptionConfiguration%3ASecurityConfiguration%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time at which this security configuration was created.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedTimeStamp%3ASecurityConfiguration%27"><span class="annot"><span class="annottext">SecurityConfiguration -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AcreatedTimeStamp%3ASecurityConfiguration%27"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the security configuration.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3ASecurityConfiguration%27"><span class="annot"><span class="annottext">SecurityConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3Aname%3ASecurityConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696532"><span id="local-6989586621679696534"><span class="annot"><span class="annottext">SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool
+(SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool)
+-&gt; (SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool)
+-&gt; Eq SecurityConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool
+$c/= :: SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool
+== :: SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool
+$c== :: SecurityConfiguration -&gt; SecurityConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696523"><span id="local-6989586621679696525"><span id="local-6989586621679696527"><span id="local-6989586621679696529"><span class="annot"><span class="annottext">ReadPrec [SecurityConfiguration]
+ReadPrec SecurityConfiguration
+Int -&gt; ReadS SecurityConfiguration
+ReadS [SecurityConfiguration]
+(Int -&gt; ReadS SecurityConfiguration)
+-&gt; ReadS [SecurityConfiguration]
+-&gt; ReadPrec SecurityConfiguration
+-&gt; ReadPrec [SecurityConfiguration]
+-&gt; Read SecurityConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SecurityConfiguration]
+$creadListPrec :: ReadPrec [SecurityConfiguration]
+readPrec :: ReadPrec SecurityConfiguration
+$creadPrec :: ReadPrec SecurityConfiguration
+readList :: ReadS [SecurityConfiguration]
+$creadList :: ReadS [SecurityConfiguration]
+readsPrec :: Int -&gt; ReadS SecurityConfiguration
+$creadsPrec :: Int -&gt; ReadS SecurityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696516"><span id="local-6989586621679696518"><span id="local-6989586621679696520"><span class="annot"><span class="annottext">Int -&gt; SecurityConfiguration -&gt; ShowS
+[SecurityConfiguration] -&gt; ShowS
+SecurityConfiguration -&gt; String
+(Int -&gt; SecurityConfiguration -&gt; ShowS)
+-&gt; (SecurityConfiguration -&gt; String)
+-&gt; ([SecurityConfiguration] -&gt; ShowS)
+-&gt; Show SecurityConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SecurityConfiguration] -&gt; ShowS
+$cshowList :: [SecurityConfiguration] -&gt; ShowS
+show :: SecurityConfiguration -&gt; String
+$cshow :: SecurityConfiguration -&gt; String
+showsPrec :: Int -&gt; SecurityConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SecurityConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SecurityConfiguration -&gt; Rep SecurityConfiguration x)
+-&gt; (forall x. Rep SecurityConfiguration x -&gt; SecurityConfiguration)
+-&gt; Generic SecurityConfiguration
+forall x. Rep SecurityConfiguration x -&gt; SecurityConfiguration
+forall x. SecurityConfiguration -&gt; Rep SecurityConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SecurityConfiguration x -&gt; SecurityConfiguration
+$cfrom :: forall x. SecurityConfiguration -&gt; Rep SecurityConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'SecurityConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'encryptionConfiguration', 'securityConfiguration_encryptionConfiguration' - The encryption configuration associated with this security</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'createdTimeStamp', 'securityConfiguration_createdTimeStamp' - The time at which this security configuration was created.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'name', 'securityConfiguration_name' - The name of the security configuration.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#newSecurityConfiguration"><span class="hs-identifier hs-type">newSecurityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span>
+</span><span id="line-57"></span><span id="newSecurityConfiguration"><span class="annot"><span class="annottext">newSecurityConfiguration :: SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#newSecurityConfiguration"><span class="hs-identifier hs-var hs-var">newSecurityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">SecurityConfiguration' :: Maybe EncryptionConfiguration
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:SecurityConfiguration' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AencryptionConfiguration%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimeStamp:SecurityConfiguration' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AcreatedTimeStamp%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SecurityConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3Aname%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The encryption configuration associated with this security</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_encryptionConfiguration"><span class="hs-identifier hs-type">securityConfiguration_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="securityConfiguration_encryptionConfiguration"><span class="annot"><span class="annottext">securityConfiguration_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; SecurityConfiguration -&gt; f SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">securityConfiguration_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityConfiguration -&gt; Maybe EncryptionConfiguration)
+-&gt; (SecurityConfiguration
+    -&gt; Maybe EncryptionConfiguration -&gt; SecurityConfiguration)
+-&gt; Lens
+     SecurityConfiguration
+     SecurityConfiguration
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696507"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:SecurityConfiguration' :: SecurityConfiguration -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679696507"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679696507"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696506"><span class="annot"><span class="annottext">s :: SecurityConfiguration
+</span><a href="#local-6989586621679696506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696505"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679696505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityConfiguration
+</span><a href="#local-6989586621679696506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:SecurityConfiguration' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AencryptionConfiguration%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679696505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The time at which this security configuration was created.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_createdTimeStamp"><span class="hs-identifier hs-type">securityConfiguration_createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="securityConfiguration_createdTimeStamp"><span class="annot"><span class="annottext">securityConfiguration_createdTimeStamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SecurityConfiguration -&gt; f SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_createdTimeStamp"><span class="hs-identifier hs-var hs-var">securityConfiguration_createdTimeStamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityConfiguration -&gt; Maybe POSIX)
+-&gt; (SecurityConfiguration -&gt; Maybe POSIX -&gt; SecurityConfiguration)
+-&gt; Lens
+     SecurityConfiguration
+     SecurityConfiguration
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696503"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimeStamp :: Maybe POSIX
+$sel:createdTimeStamp:SecurityConfiguration' :: SecurityConfiguration -&gt; Maybe POSIX
+</span><a href="#local-6989586621679696503"><span class="hs-identifier hs-var hs-var">createdTimeStamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679696503"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696502"><span class="annot"><span class="annottext">s :: SecurityConfiguration
+</span><a href="#local-6989586621679696502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696501"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679696501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityConfiguration
+</span><a href="#local-6989586621679696502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimeStamp:SecurityConfiguration' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3AcreatedTimeStamp%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">createdTimeStamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679696501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SecurityConfiguration -&gt; f SecurityConfiguration)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SecurityConfiguration
+-&gt; f SecurityConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the security configuration.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_name"><span class="hs-identifier hs-type">securityConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="securityConfiguration_name"><span class="annot"><span class="annottext">securityConfiguration_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SecurityConfiguration -&gt; f SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#securityConfiguration_name"><span class="hs-identifier hs-var hs-var">securityConfiguration_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityConfiguration -&gt; Maybe Text)
+-&gt; (SecurityConfiguration -&gt; Maybe Text -&gt; SecurityConfiguration)
+-&gt; Lens
+     SecurityConfiguration
+     SecurityConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696496"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SecurityConfiguration' :: SecurityConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679696496"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696496"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696495"><span class="annot"><span class="annottext">s :: SecurityConfiguration
+</span><a href="#local-6989586621679696495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-type">SecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696494"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityConfiguration
+</span><a href="#local-6989586621679696495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SecurityConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#%24sel%3Aname%3ASecurityConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696491"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679696489"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SecurityConfiguration)
+-&gt; Value
+-&gt; Parser SecurityConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SecurityConfiguration&quot;</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696486"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; SecurityConfiguration
+</span><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration%27"><span class="hs-identifier hs-var">SecurityConfiguration'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfiguration
+ -&gt; Maybe POSIX -&gt; Maybe Text -&gt; SecurityConfiguration)
+-&gt; Parser (Maybe EncryptionConfiguration)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; SecurityConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; SecurityConfiguration)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; SecurityConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimeStamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SecurityConfiguration)
+-&gt; Parser (Maybe Text) -&gt; Parser SecurityConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696480"><span id="local-6989586621679696482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span></span><span>
+</span><span id="line-92"></span></pre></body></html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppSync.ListTypes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the types for a given API.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppSync.ListTypes</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier">ListTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#newListTypes"><span class="hs-identifier">newListTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_nextToken"><span class="hs-identifier">listTypes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_maxResults"><span class="hs-identifier">listTypes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_apiId"><span class="hs-identifier">listTypes_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_format"><span class="hs-identifier">listTypes_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier">ListTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#newListTypesResponse"><span class="hs-identifier">newListTypesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_nextToken"><span class="hs-identifier">listTypesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_types"><span class="hs-identifier">listTypesResponse_types</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_httpStatus"><span class="hs-identifier">listTypesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.html"><span class="hs-identifier">Network.AWS.AppSync.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListTypes' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679253999"><span id="local-6989586621679254000"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTypes"><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-var">ListTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTypes%27"><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-var">ListTypes'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListTypes%27"><span class="annot"><span class="annottext">ListTypes -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of results you want the request to return.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTypes%27"><span class="annot"><span class="annottext">ListTypes -&gt; Maybe Natural
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AmaxResults%3AListTypes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AapiId%3AListTypes%27"><span class="annot"><span class="annottext">ListTypes -&gt; Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AapiId%3AListTypes%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The type format: SDL or JSON.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aformat%3AListTypes%27"><span class="annot"><span class="annottext">ListTypes -&gt; TypeDefinitionFormat
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Aformat%3AListTypes%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.TypeDefinitionFormat.html#TypeDefinitionFormat"><span class="hs-identifier hs-type">TypeDefinitionFormat</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253990"><span id="local-6989586621679253992"><span class="annot"><span class="annottext">ListTypes -&gt; ListTypes -&gt; Bool
+(ListTypes -&gt; ListTypes -&gt; Bool)
+-&gt; (ListTypes -&gt; ListTypes -&gt; Bool) -&gt; Eq ListTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTypes -&gt; ListTypes -&gt; Bool
+$c/= :: ListTypes -&gt; ListTypes -&gt; Bool
+== :: ListTypes -&gt; ListTypes -&gt; Bool
+$c== :: ListTypes -&gt; ListTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253981"><span id="local-6989586621679253983"><span id="local-6989586621679253985"><span id="local-6989586621679253987"><span class="annot"><span class="annottext">ReadPrec [ListTypes]
+ReadPrec ListTypes
+Int -&gt; ReadS ListTypes
+ReadS [ListTypes]
+(Int -&gt; ReadS ListTypes)
+-&gt; ReadS [ListTypes]
+-&gt; ReadPrec ListTypes
+-&gt; ReadPrec [ListTypes]
+-&gt; Read ListTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTypes]
+$creadListPrec :: ReadPrec [ListTypes]
+readPrec :: ReadPrec ListTypes
+$creadPrec :: ReadPrec ListTypes
+readList :: ReadS [ListTypes]
+$creadList :: ReadS [ListTypes]
+readsPrec :: Int -&gt; ReadS ListTypes
+$creadsPrec :: Int -&gt; ReadS ListTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253974"><span id="local-6989586621679253976"><span id="local-6989586621679253978"><span class="annot"><span class="annottext">Int -&gt; ListTypes -&gt; ShowS
+[ListTypes] -&gt; ShowS
+ListTypes -&gt; String
+(Int -&gt; ListTypes -&gt; ShowS)
+-&gt; (ListTypes -&gt; String)
+-&gt; ([ListTypes] -&gt; ShowS)
+-&gt; Show ListTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTypes] -&gt; ShowS
+$cshowList :: [ListTypes] -&gt; ShowS
+show :: ListTypes -&gt; String
+$cshow :: ListTypes -&gt; String
+showsPrec :: Int -&gt; ListTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTypes -&gt; Rep ListTypes x)
+-&gt; (forall x. Rep ListTypes x -&gt; ListTypes) -&gt; Generic ListTypes
+forall x. Rep ListTypes x -&gt; ListTypes
+forall x. ListTypes -&gt; Rep ListTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTypes x -&gt; ListTypes
+$cfrom :: forall x. ListTypes -&gt; Rep ListTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ListTypes' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listTypes_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'listTypes_maxResults' - The maximum number of results you want the request to return.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'apiId', 'listTypes_apiId' - The API ID.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'format', 'listTypes_format' - The type format: SDL or JSON.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#newListTypes"><span class="hs-identifier hs-type">newListTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.TypeDefinitionFormat.html#TypeDefinitionFormat"><span class="hs-identifier hs-type">TypeDefinitionFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span>
+</span><span id="line-93"></span><span id="newListTypes"><span class="annot"><span class="annottext">newListTypes :: Text -&gt; TypeDefinitionFormat -&gt; ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#newListTypes"><span class="hs-identifier hs-var hs-var">newListTypes</span></a></span></span><span> </span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span id="local-6989586621679253968"><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ListTypes' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; TypeDefinitionFormat -&gt; ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTypes' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTypes' :: Maybe Natural
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AmaxResults%3AListTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:ListTypes' :: Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AapiId%3AListTypes%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:ListTypes' :: TypeDefinitionFormat
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Aformat%3AListTypes%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">pFormat_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_nextToken"><span class="hs-identifier hs-type">listTypes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listTypes_nextToken"><span class="annot"><span class="annottext">listTypes_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListTypes -&gt; f ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypes_nextToken"><span class="hs-identifier hs-var hs-var">listTypes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypes -&gt; Maybe Text)
+-&gt; (ListTypes -&gt; Maybe Text -&gt; ListTypes)
+-&gt; Lens ListTypes ListTypes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253966"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTypes' :: ListTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253965"><span class="annot"><span class="annottext">s :: ListTypes
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTypes' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The maximum number of results you want the request to return.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_maxResults"><span class="hs-identifier hs-type">listTypes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="listTypes_maxResults"><span class="annot"><span class="annottext">listTypes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListTypes -&gt; f ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypes_maxResults"><span class="hs-identifier hs-var hs-var">listTypes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypes -&gt; Maybe Natural)
+-&gt; (ListTypes -&gt; Maybe Natural -&gt; ListTypes)
+-&gt; Lens ListTypes ListTypes (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253963"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTypes' :: ListTypes -&gt; Maybe Natural
+</span><a href="#local-6989586621679253963"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253963"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253962"><span class="annot"><span class="annottext">s :: ListTypes
+</span><a href="#local-6989586621679253962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253961"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTypes' :: Maybe Natural
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AmaxResults%3AListTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_apiId"><span class="hs-identifier hs-type">listTypes_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="listTypes_apiId"><span class="annot"><span class="annottext">listTypes_apiId :: (Text -&gt; f Text) -&gt; ListTypes -&gt; f ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypes_apiId"><span class="hs-identifier hs-var hs-var">listTypes_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypes -&gt; Text)
+-&gt; (ListTypes -&gt; Text -&gt; ListTypes)
+-&gt; Lens ListTypes ListTypes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253960"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:ListTypes' :: ListTypes -&gt; Text
+</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253959"><span class="annot"><span class="annottext">s :: ListTypes
+</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:ListTypes' :: Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AapiId%3AListTypes%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type format: SDL or JSON.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypes_format"><span class="hs-identifier hs-type">listTypes_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.TypeDefinitionFormat.html#TypeDefinitionFormat"><span class="hs-identifier hs-type">TypeDefinitionFormat</span></a></span><span>
+</span><span id="line-117"></span><span id="listTypes_format"><span class="annot"><span class="annottext">listTypes_format :: (TypeDefinitionFormat -&gt; f TypeDefinitionFormat)
+-&gt; ListTypes -&gt; f ListTypes
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypes_format"><span class="hs-identifier hs-var hs-var">listTypes_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypes -&gt; TypeDefinitionFormat)
+-&gt; (ListTypes -&gt; TypeDefinitionFormat -&gt; ListTypes)
+-&gt; Lens
+     ListTypes ListTypes TypeDefinitionFormat TypeDefinitionFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253957"><span class="annot"><span class="annottext">TypeDefinitionFormat
+format :: TypeDefinitionFormat
+$sel:format:ListTypes' :: ListTypes -&gt; TypeDefinitionFormat
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253956"><span class="annot"><span class="annottext">s :: ListTypes
+</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253955"><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ListTypes' :: TypeDefinitionFormat
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Aformat%3AListTypes%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679253951"><span class="annot"><span class="annottext">page :: ListTypes -&gt; AWSResponse ListTypes -&gt; Maybe ListTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679253949"><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679253948"><span class="annot"><span class="annottext">AWSResponse ListTypes
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTypes
+ListTypesResponse
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListTypesResponse
+-&gt; Getting (First Text) ListTypesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTypesResponse -&gt; Const (First Text) ListTypesResponse
+Lens' ListTypesResponse (Maybe Text)
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_nextToken"><span class="hs-identifier hs-var">listTypesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTypesResponse -&gt; Const (First Text) ListTypesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTypesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Type] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTypes
+ListTypesResponse
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListTypesResponse
+-&gt; Getting (First [Type]) ListTypesResponse [Type] -&gt; Maybe [Type]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Type] -&gt; Const (First [Type]) (Maybe [Type]))
+-&gt; ListTypesResponse -&gt; Const (First [Type]) ListTypesResponse
+Lens' ListTypesResponse (Maybe [Type])
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_types"><span class="hs-identifier hs-var">listTypesResponse_types</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Type] -&gt; Const (First [Type]) (Maybe [Type]))
+ -&gt; ListTypesResponse -&gt; Const (First [Type]) ListTypesResponse)
+-&gt; (([Type] -&gt; Const (First [Type]) [Type])
+    -&gt; Maybe [Type] -&gt; Const (First [Type]) (Maybe [Type]))
+-&gt; Getting (First [Type]) ListTypesResponse [Type]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Type] -&gt; Const (First [Type]) [Type])
+-&gt; Maybe [Type] -&gt; Const (First [Type]) (Maybe [Type])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">ListTypes -&gt; Maybe ListTypes
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListTypes -&gt; Maybe ListTypes) -&gt; ListTypes -&gt; Maybe ListTypes
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListTypes
+</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListTypes -&gt; (ListTypes -&gt; ListTypes) -&gt; ListTypes
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListTypes -&gt; Identity ListTypes
+Lens ListTypes ListTypes (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypes_nextToken"><span class="hs-identifier hs-var">listTypes_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListTypes -&gt; Identity ListTypes)
+-&gt; Maybe Text -&gt; ListTypes -&gt; ListTypes
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTypes
+ListTypesResponse
+</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListTypesResponse
+-&gt; Getting (First Text) ListTypesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTypesResponse -&gt; Const (First Text) ListTypesResponse
+Lens' ListTypesResponse (Maybe Text)
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_nextToken"><span class="hs-identifier hs-var">listTypesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTypesResponse -&gt; Const (First Text) ListTypesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTypesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679253938"><span class="annot"><span class="annottext">request :: ListTypes -&gt; Request ListTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTypes -&gt; Request ListTypes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679253934"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListTypes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTypes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTypes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListTypes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253931"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253930"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253930"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253929"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Type] -&gt; Int -&gt; ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-var">ListTypesResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Type] -&gt; Int -&gt; ListTypesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Type] -&gt; Int -&gt; ListTypesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Type] -&gt; Int -&gt; ListTypesResponse)
+-&gt; Either String (Maybe [Type])
+-&gt; Either String (Int -&gt; ListTypesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Type]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;types&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Type]))
+-&gt; Maybe [Type] -&gt; Either String (Maybe [Type])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Type]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTypesResponse)
+-&gt; Either String Int -&gt; Either String ListTypesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253931"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253920"><span id="local-6989586621679253922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679253913"><span class="annot"><span class="annottext">toHeaders :: ListTypes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTypes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679253907"><span class="annot"><span class="annottext">toPath :: ListTypes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253902"><span id="local-6989586621679253903"><span id="local-6989586621679253904"><span id="local-6989586621679253905"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+TypeDefinitionFormat
+format :: TypeDefinitionFormat
+apiId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:format:ListTypes' :: ListTypes -&gt; TypeDefinitionFormat
+$sel:apiId:ListTypes' :: ListTypes -&gt; Text
+$sel:maxResults:ListTypes' :: ListTypes -&gt; Maybe Natural
+$sel:nextToken:ListTypes' :: ListTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679253902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/types&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes"><span class="hs-identifier hs-type">ListTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679253898"><span class="annot"><span class="annottext">toQuery :: ListTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypes%27"><span class="hs-identifier hs-type">ListTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253893"><span id="local-6989586621679253894"><span id="local-6989586621679253895"><span id="local-6989586621679253896"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+TypeDefinitionFormat
+format :: TypeDefinitionFormat
+apiId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:format:ListTypes' :: ListTypes -&gt; TypeDefinitionFormat
+$sel:apiId:ListTypes' :: ListTypes -&gt; Text
+$sel:maxResults:ListTypes' :: ListTypes -&gt; Maybe Natural
+$sel:nextToken:ListTypes' :: ListTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679253893"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253896"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253895"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TypeDefinitionFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">TypeDefinitionFormat
+</span><a href="#local-6989586621679253893"><span class="hs-identifier hs-var">format</span></a></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newListTypesResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679253890"><span id="local-6989586621679253891"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTypesResponse"><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-var">ListTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTypesResponse%27"><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-var">ListTypesResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AnextToken%3AListTypesResponse%27"><span class="annot"><span class="annottext">ListTypesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The @Type@ objects.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3Atypes%3AListTypesResponse%27"><span class="annot"><span class="annottext">ListTypesResponse -&gt; Maybe [Type]
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Atypes%3AListTypesResponse%27"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTypesResponse%27"><span class="annot"><span class="annottext">ListTypesResponse -&gt; Int
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AhttpStatus%3AListTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253883"><span id="local-6989586621679253885"><span class="annot"><span class="annottext">ListTypesResponse -&gt; ListTypesResponse -&gt; Bool
+(ListTypesResponse -&gt; ListTypesResponse -&gt; Bool)
+-&gt; (ListTypesResponse -&gt; ListTypesResponse -&gt; Bool)
+-&gt; Eq ListTypesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTypesResponse -&gt; ListTypesResponse -&gt; Bool
+$c/= :: ListTypesResponse -&gt; ListTypesResponse -&gt; Bool
+== :: ListTypesResponse -&gt; ListTypesResponse -&gt; Bool
+$c== :: ListTypesResponse -&gt; ListTypesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253875"><span id="local-6989586621679253877"><span id="local-6989586621679253879"><span id="local-6989586621679253881"><span class="annot"><span class="annottext">ReadPrec [ListTypesResponse]
+ReadPrec ListTypesResponse
+Int -&gt; ReadS ListTypesResponse
+ReadS [ListTypesResponse]
+(Int -&gt; ReadS ListTypesResponse)
+-&gt; ReadS [ListTypesResponse]
+-&gt; ReadPrec ListTypesResponse
+-&gt; ReadPrec [ListTypesResponse]
+-&gt; Read ListTypesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTypesResponse]
+$creadListPrec :: ReadPrec [ListTypesResponse]
+readPrec :: ReadPrec ListTypesResponse
+$creadPrec :: ReadPrec ListTypesResponse
+readList :: ReadS [ListTypesResponse]
+$creadList :: ReadS [ListTypesResponse]
+readsPrec :: Int -&gt; ReadS ListTypesResponse
+$creadsPrec :: Int -&gt; ReadS ListTypesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253869"><span id="local-6989586621679253871"><span id="local-6989586621679253873"><span class="annot"><span class="annottext">Int -&gt; ListTypesResponse -&gt; ShowS
+[ListTypesResponse] -&gt; ShowS
+ListTypesResponse -&gt; String
+(Int -&gt; ListTypesResponse -&gt; ShowS)
+-&gt; (ListTypesResponse -&gt; String)
+-&gt; ([ListTypesResponse] -&gt; ShowS)
+-&gt; Show ListTypesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTypesResponse] -&gt; ShowS
+$cshowList :: [ListTypesResponse] -&gt; ShowS
+show :: ListTypesResponse -&gt; String
+$cshow :: ListTypesResponse -&gt; String
+showsPrec :: Int -&gt; ListTypesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTypesResponse -&gt; Rep ListTypesResponse x)
+-&gt; (forall x. Rep ListTypesResponse x -&gt; ListTypesResponse)
+-&gt; Generic ListTypesResponse
+forall x. Rep ListTypesResponse x -&gt; ListTypesResponse
+forall x. ListTypesResponse -&gt; Rep ListTypesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTypesResponse x -&gt; ListTypesResponse
+$cfrom :: forall x. ListTypesResponse -&gt; Rep ListTypesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'ListTypesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'nextToken', 'listTypesResponse_nextToken' - An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'types', 'listTypesResponse_types' - The @Type@ objects.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'httpStatus', 'listTypesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#newListTypesResponse"><span class="hs-identifier hs-type">newListTypesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newListTypesResponse"><span class="annot"><span class="annottext">newListTypesResponse :: Int -&gt; ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#newListTypesResponse"><span class="hs-identifier hs-var hs-var">newListTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679253866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">ListTypesResponse' :: Maybe Text -&gt; Maybe [Type] -&gt; Int -&gt; ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTypesResponse' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:types:ListTypesResponse' :: Maybe [Type]
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Atypes%3AListTypesResponse%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Type]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTypesResponse' :: Int
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AhttpStatus%3AListTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_nextToken"><span class="hs-identifier hs-type">listTypesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="listTypesResponse_nextToken"><span class="annot"><span class="annottext">listTypesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTypesResponse -&gt; f ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTypesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypesResponse -&gt; Maybe Text)
+-&gt; (ListTypesResponse -&gt; Maybe Text -&gt; ListTypesResponse)
+-&gt; Lens' ListTypesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253865"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTypesResponse' :: ListTypesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679253865"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253865"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253864"><span class="annot"><span class="annottext">s :: ListTypesResponse
+</span><a href="#local-6989586621679253864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypesResponse
+</span><a href="#local-6989586621679253864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTypesResponse' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AnextToken%3AListTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The @Type@ objects.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_types"><span class="hs-identifier hs-type">listTypesResponse_types</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listTypesResponse_types"><span class="annot"><span class="annottext">listTypesResponse_types :: (Maybe [Type] -&gt; f (Maybe [Type]))
+-&gt; ListTypesResponse -&gt; f ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_types"><span class="hs-identifier hs-var hs-var">listTypesResponse_types</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypesResponse -&gt; Maybe [Type])
+-&gt; (ListTypesResponse -&gt; Maybe [Type] -&gt; ListTypesResponse)
+-&gt; Lens' ListTypesResponse (Maybe [Type])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253862"><span class="annot"><span class="annottext">Maybe [Type]
+types :: Maybe [Type]
+$sel:types:ListTypesResponse' :: ListTypesResponse -&gt; Maybe [Type]
+</span><a href="#local-6989586621679253862"><span class="hs-identifier hs-var hs-var">types</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Type]
+</span><a href="#local-6989586621679253862"><span class="hs-identifier hs-var">types</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253861"><span class="annot"><span class="annottext">s :: ListTypesResponse
+</span><a href="#local-6989586621679253861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253860"><span class="annot"><span class="annottext">Maybe [Type]
+</span><a href="#local-6989586621679253860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypesResponse
+</span><a href="#local-6989586621679253861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:types:ListTypesResponse' :: Maybe [Type]
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3Atypes%3AListTypesResponse%27"><span class="hs-identifier hs-var">types</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Type]
+</span><a href="#local-6989586621679253860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Type] -&gt; f (Maybe [Type]))
+ -&gt; ListTypesResponse -&gt; f ListTypesResponse)
+-&gt; ((Maybe [Type] -&gt; f (Maybe [Type]))
+    -&gt; Maybe [Type] -&gt; f (Maybe [Type]))
+-&gt; (Maybe [Type] -&gt; f (Maybe [Type]))
+-&gt; ListTypesResponse
+-&gt; f ListTypesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Type] [Type] [Type] [Type]
+-&gt; Iso (Maybe [Type]) (Maybe [Type]) (Maybe [Type]) (Maybe [Type])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Type] [Type] [Type] [Type]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_httpStatus"><span class="hs-identifier hs-type">listTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="listTypesResponse_httpStatus"><span class="annot"><span class="annottext">listTypesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListTypesResponse -&gt; f ListTypesResponse
+</span><a href="Network.AWS.AppSync.ListTypes.html#listTypesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTypesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTypesResponse -&gt; Int)
+-&gt; (ListTypesResponse -&gt; Int -&gt; ListTypesResponse)
+-&gt; Lens ListTypesResponse ListTypesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253857"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTypesResponse' :: ListTypesResponse -&gt; Int
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253856"><span class="annot"><span class="annottext">s :: ListTypesResponse
+</span><a href="#local-6989586621679253856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse%27"><span class="hs-identifier hs-type">ListTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253855"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTypesResponse
+</span><a href="#local-6989586621679253856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTypesResponse' :: Int
+</span><a href="Network.AWS.AppSync.ListTypes.html#%24sel%3AhttpStatus%3AListTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListTypes.html#ListTypesResponse"><span class="hs-identifier hs-type">ListTypesResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

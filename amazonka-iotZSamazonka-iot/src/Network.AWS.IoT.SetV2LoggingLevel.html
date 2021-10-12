@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.SetV2LoggingLevel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the logging level.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetV2LoggingLevel&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.SetV2LoggingLevel</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevel"><span class="hs-identifier">newSetV2LoggingLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logTarget"><span class="hs-identifier">setV2LoggingLevel_logTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logLevel"><span class="hs-identifier">setV2LoggingLevel_logLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse"><span class="hs-identifier">SetV2LoggingLevelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevelResponse"><span class="hs-identifier">newSetV2LoggingLevelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newSetV2LoggingLevel' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679812276"><span id="local-6989586621679812277"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetV2LoggingLevel"><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-var">SetV2LoggingLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetV2LoggingLevel%27"><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-var">SetV2LoggingLevel'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The log target.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlogTarget%3ASetV2LoggingLevel%27"><span class="annot"><span class="annottext">SetV2LoggingLevel -&gt; LogTarget
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogTarget%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var hs-var">logTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The log level.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AlogLevel%3ASetV2LoggingLevel%27"><span class="annot"><span class="annottext">SetV2LoggingLevel -&gt; LogLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogLevel%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812269"><span id="local-6989586621679812271"><span class="annot"><span class="annottext">SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool
+(SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool)
+-&gt; (SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool)
+-&gt; Eq SetV2LoggingLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool
+$c/= :: SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool
+== :: SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool
+$c== :: SetV2LoggingLevel -&gt; SetV2LoggingLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812260"><span id="local-6989586621679812262"><span id="local-6989586621679812264"><span id="local-6989586621679812266"><span class="annot"><span class="annottext">ReadPrec [SetV2LoggingLevel]
+ReadPrec SetV2LoggingLevel
+Int -&gt; ReadS SetV2LoggingLevel
+ReadS [SetV2LoggingLevel]
+(Int -&gt; ReadS SetV2LoggingLevel)
+-&gt; ReadS [SetV2LoggingLevel]
+-&gt; ReadPrec SetV2LoggingLevel
+-&gt; ReadPrec [SetV2LoggingLevel]
+-&gt; Read SetV2LoggingLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetV2LoggingLevel]
+$creadListPrec :: ReadPrec [SetV2LoggingLevel]
+readPrec :: ReadPrec SetV2LoggingLevel
+$creadPrec :: ReadPrec SetV2LoggingLevel
+readList :: ReadS [SetV2LoggingLevel]
+$creadList :: ReadS [SetV2LoggingLevel]
+readsPrec :: Int -&gt; ReadS SetV2LoggingLevel
+$creadsPrec :: Int -&gt; ReadS SetV2LoggingLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812253"><span id="local-6989586621679812255"><span id="local-6989586621679812257"><span class="annot"><span class="annottext">Int -&gt; SetV2LoggingLevel -&gt; ShowS
+[SetV2LoggingLevel] -&gt; ShowS
+SetV2LoggingLevel -&gt; String
+(Int -&gt; SetV2LoggingLevel -&gt; ShowS)
+-&gt; (SetV2LoggingLevel -&gt; String)
+-&gt; ([SetV2LoggingLevel] -&gt; ShowS)
+-&gt; Show SetV2LoggingLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetV2LoggingLevel] -&gt; ShowS
+$cshowList :: [SetV2LoggingLevel] -&gt; ShowS
+show :: SetV2LoggingLevel -&gt; String
+$cshow :: SetV2LoggingLevel -&gt; String
+showsPrec :: Int -&gt; SetV2LoggingLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetV2LoggingLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetV2LoggingLevel -&gt; Rep SetV2LoggingLevel x)
+-&gt; (forall x. Rep SetV2LoggingLevel x -&gt; SetV2LoggingLevel)
+-&gt; Generic SetV2LoggingLevel
+forall x. Rep SetV2LoggingLevel x -&gt; SetV2LoggingLevel
+forall x. SetV2LoggingLevel -&gt; Rep SetV2LoggingLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetV2LoggingLevel x -&gt; SetV2LoggingLevel
+$cfrom :: forall x. SetV2LoggingLevel -&gt; Rep SetV2LoggingLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'SetV2LoggingLevel' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'logTarget', 'setV2LoggingLevel_logTarget' - The log target.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'logLevel', 'setV2LoggingLevel_logLevel' - The log level.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevel"><span class="hs-identifier hs-type">newSetV2LoggingLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'logTarget'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'logLevel'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span>
+</span><span id="line-76"></span><span id="newSetV2LoggingLevel"><span class="annot"><span class="annottext">newSetV2LoggingLevel :: LogTarget -&gt; LogLevel -&gt; SetV2LoggingLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevel"><span class="hs-identifier hs-var hs-var">newSetV2LoggingLevel</span></a></span></span><span> </span><span id="local-6989586621679812248"><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812248"><span class="hs-identifier hs-var">pLogTarget_</span></a></span></span><span> </span><span id="local-6989586621679812247"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812247"><span class="hs-identifier hs-var">pLogLevel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">SetV2LoggingLevel' :: LogTarget -&gt; LogLevel -&gt; SetV2LoggingLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logTarget:SetV2LoggingLevel' :: LogTarget
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogTarget%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var">logTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812248"><span class="hs-identifier hs-var">pLogTarget_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:logLevel:SetV2LoggingLevel' :: LogLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogLevel%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812247"><span class="hs-identifier hs-var">pLogLevel_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The log target.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logTarget"><span class="hs-identifier hs-type">setV2LoggingLevel_logTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span>
+</span><span id="line-84"></span><span id="setV2LoggingLevel_logTarget"><span class="annot"><span class="annottext">setV2LoggingLevel_logTarget :: (LogTarget -&gt; f LogTarget)
+-&gt; SetV2LoggingLevel -&gt; f SetV2LoggingLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logTarget"><span class="hs-identifier hs-var hs-var">setV2LoggingLevel_logTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetV2LoggingLevel -&gt; LogTarget)
+-&gt; (SetV2LoggingLevel -&gt; LogTarget -&gt; SetV2LoggingLevel)
+-&gt; Lens SetV2LoggingLevel SetV2LoggingLevel LogTarget LogTarget
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812244"><span class="annot"><span class="annottext">LogTarget
+logTarget :: LogTarget
+$sel:logTarget:SetV2LoggingLevel' :: SetV2LoggingLevel -&gt; LogTarget
+</span><a href="#local-6989586621679812244"><span class="hs-identifier hs-var hs-var">logTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812244"><span class="hs-identifier hs-var">logTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812243"><span class="annot"><span class="annottext">s :: SetV2LoggingLevel
+</span><a href="#local-6989586621679812243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812242"><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetV2LoggingLevel
+</span><a href="#local-6989586621679812243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTarget:SetV2LoggingLevel' :: LogTarget
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogTarget%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var">logTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The log level.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logLevel"><span class="hs-identifier hs-type">setV2LoggingLevel_logLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
+</span><span id="line-88"></span><span id="setV2LoggingLevel_logLevel"><span class="annot"><span class="annottext">setV2LoggingLevel_logLevel :: (LogLevel -&gt; f LogLevel)
+-&gt; SetV2LoggingLevel -&gt; f SetV2LoggingLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#setV2LoggingLevel_logLevel"><span class="hs-identifier hs-var hs-var">setV2LoggingLevel_logLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetV2LoggingLevel -&gt; LogLevel)
+-&gt; (SetV2LoggingLevel -&gt; LogLevel -&gt; SetV2LoggingLevel)
+-&gt; Lens SetV2LoggingLevel SetV2LoggingLevel LogLevel LogLevel
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812241"><span class="annot"><span class="annottext">LogLevel
+logLevel :: LogLevel
+$sel:logLevel:SetV2LoggingLevel' :: SetV2LoggingLevel -&gt; LogLevel
+</span><a href="#local-6989586621679812241"><span class="hs-identifier hs-var hs-var">logLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812241"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812240"><span class="annot"><span class="annottext">s :: SetV2LoggingLevel
+</span><a href="#local-6989586621679812240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812239"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetV2LoggingLevel
+</span><a href="#local-6989586621679812240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logLevel:SetV2LoggingLevel' :: LogLevel
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#%24sel%3AlogLevel%3ASetV2LoggingLevel%27"><span class="hs-identifier hs-var">logLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse"><span class="hs-identifier hs-type">SetV2LoggingLevelResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679812235"><span class="annot"><span class="annottext">request :: SetV2LoggingLevel -&gt; Request SetV2LoggingLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetV2LoggingLevel -&gt; Request SetV2LoggingLevel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679812231"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetV2LoggingLevel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetV2LoggingLevel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse SetV2LoggingLevel
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetV2LoggingLevel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetV2LoggingLevel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SetV2LoggingLevel
+SetV2LoggingLevelResponse
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse%27"><span class="hs-identifier hs-var">SetV2LoggingLevelResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812224"><span id="local-6989586621679812226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679812217"><span class="annot"><span class="annottext">toHeaders :: SetV2LoggingLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetV2LoggingLevel -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812208"><span id="local-6989586621679812210"><span id="local-6989586621679812212"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679812206"><span class="annot"><span class="annottext">toJSON :: SetV2LoggingLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel%27"><span class="hs-identifier hs-type">SetV2LoggingLevel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812203"><span id="local-6989586621679812204"><span class="annot"><span class="annottext">LogLevel
+LogTarget
+logLevel :: LogLevel
+logTarget :: LogTarget
+$sel:logLevel:SetV2LoggingLevel' :: SetV2LoggingLevel -&gt; LogLevel
+$sel:logTarget:SetV2LoggingLevel' :: SetV2LoggingLevel -&gt; LogTarget
+</span><a href="#local-6989586621679812203"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogTarget -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679812204"><span class="hs-identifier hs-var">logTarget</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogLevel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679812203"><span class="hs-identifier hs-var">logLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679812197"><span class="annot"><span class="annottext">toPath :: SetV2LoggingLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetV2LoggingLevel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2LoggingLevel&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevel"><span class="hs-identifier hs-type">SetV2LoggingLevel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679812193"><span class="annot"><span class="annottext">toQuery :: SetV2LoggingLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetV2LoggingLevel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newSetV2LoggingLevelResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679812190"><span id="local-6989586621679812191"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetV2LoggingLevelResponse"><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse"><span class="hs-identifier hs-var">SetV2LoggingLevelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetV2LoggingLevelResponse%27"><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse%27"><span class="hs-identifier hs-var">SetV2LoggingLevelResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812186"><span id="local-6989586621679812188"><span class="annot"><span class="annottext">SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool
+(SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool)
+-&gt; (SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool)
+-&gt; Eq SetV2LoggingLevelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool
+$c/= :: SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool
+== :: SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool
+$c== :: SetV2LoggingLevelResponse -&gt; SetV2LoggingLevelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812178"><span id="local-6989586621679812180"><span id="local-6989586621679812182"><span id="local-6989586621679812184"><span class="annot"><span class="annottext">ReadPrec [SetV2LoggingLevelResponse]
+ReadPrec SetV2LoggingLevelResponse
+Int -&gt; ReadS SetV2LoggingLevelResponse
+ReadS [SetV2LoggingLevelResponse]
+(Int -&gt; ReadS SetV2LoggingLevelResponse)
+-&gt; ReadS [SetV2LoggingLevelResponse]
+-&gt; ReadPrec SetV2LoggingLevelResponse
+-&gt; ReadPrec [SetV2LoggingLevelResponse]
+-&gt; Read SetV2LoggingLevelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetV2LoggingLevelResponse]
+$creadListPrec :: ReadPrec [SetV2LoggingLevelResponse]
+readPrec :: ReadPrec SetV2LoggingLevelResponse
+$creadPrec :: ReadPrec SetV2LoggingLevelResponse
+readList :: ReadS [SetV2LoggingLevelResponse]
+$creadList :: ReadS [SetV2LoggingLevelResponse]
+readsPrec :: Int -&gt; ReadS SetV2LoggingLevelResponse
+$creadsPrec :: Int -&gt; ReadS SetV2LoggingLevelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812172"><span id="local-6989586621679812174"><span id="local-6989586621679812176"><span class="annot"><span class="annottext">Int -&gt; SetV2LoggingLevelResponse -&gt; ShowS
+[SetV2LoggingLevelResponse] -&gt; ShowS
+SetV2LoggingLevelResponse -&gt; String
+(Int -&gt; SetV2LoggingLevelResponse -&gt; ShowS)
+-&gt; (SetV2LoggingLevelResponse -&gt; String)
+-&gt; ([SetV2LoggingLevelResponse] -&gt; ShowS)
+-&gt; Show SetV2LoggingLevelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetV2LoggingLevelResponse] -&gt; ShowS
+$cshowList :: [SetV2LoggingLevelResponse] -&gt; ShowS
+show :: SetV2LoggingLevelResponse -&gt; String
+$cshow :: SetV2LoggingLevelResponse -&gt; String
+showsPrec :: Int -&gt; SetV2LoggingLevelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetV2LoggingLevelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetV2LoggingLevelResponse -&gt; Rep SetV2LoggingLevelResponse x)
+-&gt; (forall x.
+    Rep SetV2LoggingLevelResponse x -&gt; SetV2LoggingLevelResponse)
+-&gt; Generic SetV2LoggingLevelResponse
+forall x.
+Rep SetV2LoggingLevelResponse x -&gt; SetV2LoggingLevelResponse
+forall x.
+SetV2LoggingLevelResponse -&gt; Rep SetV2LoggingLevelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetV2LoggingLevelResponse x -&gt; SetV2LoggingLevelResponse
+$cfrom :: forall x.
+SetV2LoggingLevelResponse -&gt; Rep SetV2LoggingLevelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'SetV2LoggingLevelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevelResponse"><span class="hs-identifier hs-type">newSetV2LoggingLevelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse"><span class="hs-identifier hs-type">SetV2LoggingLevelResponse</span></a></span><span>
+</span><span id="line-132"></span><span id="newSetV2LoggingLevelResponse"><span class="annot"><span class="annottext">newSetV2LoggingLevelResponse :: SetV2LoggingLevelResponse
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#newSetV2LoggingLevelResponse"><span class="hs-identifier hs-var hs-var">newSetV2LoggingLevelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">SetV2LoggingLevelResponse
+</span><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse%27"><span class="hs-identifier hs-var">SetV2LoggingLevelResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetV2LoggingLevel.html#SetV2LoggingLevelResponse"><span class="hs-identifier hs-type">SetV2LoggingLevelResponse</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

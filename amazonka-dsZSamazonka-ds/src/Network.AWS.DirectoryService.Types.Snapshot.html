@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.Types.Snapshot</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.Types.Snapshot</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types.SnapshotStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotType.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types.SnapshotType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a directory snapshot.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSnapshot' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679300576"><span id="local-6989586621679300577"></span></span><span class="hs-keyword">data</span><span> </span><span id="Snapshot"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-var">Snapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Snapshot%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-var">Snapshot'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The snapshot status.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe SnapshotStatus
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Astatus%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus"><span class="hs-identifier hs-type">SnapshotStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time that the snapshot was taken.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartTime%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AstartTime%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The descriptive name of the snapshot.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Aname%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The directory identifier.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdirectoryId%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AdirectoryId%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The snapshot identifier.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsnapshotId%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AsnapshotId%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The snapshot type.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe SnapshotType
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Atype%27%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotType.html#SnapshotType"><span class="hs-identifier hs-type">SnapshotType</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300565"><span id="local-6989586621679300567"><span class="annot"><span class="annottext">Snapshot -&gt; Snapshot -&gt; Bool
+(Snapshot -&gt; Snapshot -&gt; Bool)
+-&gt; (Snapshot -&gt; Snapshot -&gt; Bool) -&gt; Eq Snapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Snapshot -&gt; Snapshot -&gt; Bool
+$c/= :: Snapshot -&gt; Snapshot -&gt; Bool
+== :: Snapshot -&gt; Snapshot -&gt; Bool
+$c== :: Snapshot -&gt; Snapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300556"><span id="local-6989586621679300558"><span id="local-6989586621679300560"><span id="local-6989586621679300562"><span class="annot"><span class="annottext">ReadPrec [Snapshot]
+ReadPrec Snapshot
+Int -&gt; ReadS Snapshot
+ReadS [Snapshot]
+(Int -&gt; ReadS Snapshot)
+-&gt; ReadS [Snapshot]
+-&gt; ReadPrec Snapshot
+-&gt; ReadPrec [Snapshot]
+-&gt; Read Snapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Snapshot]
+$creadListPrec :: ReadPrec [Snapshot]
+readPrec :: ReadPrec Snapshot
+$creadPrec :: ReadPrec Snapshot
+readList :: ReadS [Snapshot]
+$creadList :: ReadS [Snapshot]
+readsPrec :: Int -&gt; ReadS Snapshot
+$creadsPrec :: Int -&gt; ReadS Snapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300549"><span id="local-6989586621679300551"><span id="local-6989586621679300553"><span class="annot"><span class="annottext">Int -&gt; Snapshot -&gt; ShowS
+[Snapshot] -&gt; ShowS
+Snapshot -&gt; String
+(Int -&gt; Snapshot -&gt; ShowS)
+-&gt; (Snapshot -&gt; String) -&gt; ([Snapshot] -&gt; ShowS) -&gt; Show Snapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Snapshot] -&gt; ShowS
+$cshowList :: [Snapshot] -&gt; ShowS
+show :: Snapshot -&gt; String
+$cshow :: Snapshot -&gt; String
+showsPrec :: Int -&gt; Snapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; Snapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Snapshot -&gt; Rep Snapshot x)
+-&gt; (forall x. Rep Snapshot x -&gt; Snapshot) -&gt; Generic Snapshot
+forall x. Rep Snapshot x -&gt; Snapshot
+forall x. Snapshot -&gt; Rep Snapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Snapshot x -&gt; Snapshot
+$cfrom :: forall x. Snapshot -&gt; Rep Snapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'Snapshot' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'snapshot_status' - The snapshot status.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'startTime', 'snapshot_startTime' - The date and time that the snapshot was taken.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'name', 'snapshot_name' - The descriptive name of the snapshot.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'directoryId', 'snapshot_directoryId' - The directory identifier.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'snapshotId', 'snapshot_snapshotId' - The snapshot identifier.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'snapshot_type' - The snapshot type.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#newSnapshot"><span class="hs-identifier hs-type">newSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span>
+</span><span id="line-68"></span><span id="newSnapshot"><span class="annot"><span class="annottext">newSnapshot :: Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#newSnapshot"><span class="hs-identifier hs-var hs-var">newSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">Snapshot' :: Maybe SnapshotStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SnapshotType
+-&gt; Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Snapshot' :: Maybe SnapshotStatus
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Astatus%3ASnapshot%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:Snapshot' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AstartTime%3ASnapshot%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Aname%3ASnapshot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AdirectoryId%3ASnapshot%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AsnapshotId%3ASnapshot%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Snapshot' :: Maybe SnapshotType
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Atype%27%3ASnapshot%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The snapshot status.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_status"><span class="hs-identifier hs-type">snapshot_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus"><span class="hs-identifier hs-type">SnapshotStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="snapshot_status"><span class="annot"><span class="annottext">snapshot_status :: (Maybe SnapshotStatus -&gt; f (Maybe SnapshotStatus))
+-&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_status"><span class="hs-identifier hs-var hs-var">snapshot_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe SnapshotStatus)
+-&gt; (Snapshot -&gt; Maybe SnapshotStatus -&gt; Snapshot)
+-&gt; Lens
+     Snapshot Snapshot (Maybe SnapshotStatus) (Maybe SnapshotStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300540"><span class="annot"><span class="annottext">Maybe SnapshotStatus
+status :: Maybe SnapshotStatus
+$sel:status:Snapshot' :: Snapshot -&gt; Maybe SnapshotStatus
+</span><a href="#local-6989586621679300540"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotStatus
+</span><a href="#local-6989586621679300540"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300539"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300538"><span class="annot"><span class="annottext">Maybe SnapshotStatus
+</span><a href="#local-6989586621679300538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Snapshot' :: Maybe SnapshotStatus
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Astatus%3ASnapshot%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotStatus
+</span><a href="#local-6989586621679300538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The date and time that the snapshot was taken.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_startTime"><span class="hs-identifier hs-type">snapshot_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="snapshot_startTime"><span class="annot"><span class="annottext">snapshot_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_startTime"><span class="hs-identifier hs-var hs-var">snapshot_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe POSIX)
+-&gt; (Snapshot -&gt; Maybe POSIX -&gt; Snapshot)
+-&gt; Lens Snapshot Snapshot (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300536"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:Snapshot' :: Snapshot -&gt; Maybe POSIX
+</span><a href="#local-6989586621679300536"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300536"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300535"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300534"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Snapshot' :: Maybe POSIX
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AstartTime%3ASnapshot%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679300534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Snapshot -&gt; f Snapshot)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Snapshot
+-&gt; f Snapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The descriptive name of the snapshot.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_name"><span class="hs-identifier hs-type">snapshot_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="snapshot_name"><span class="annot"><span class="annottext">snapshot_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_name"><span class="hs-identifier hs-var hs-var">snapshot_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe Text)
+-&gt; (Snapshot -&gt; Maybe Text -&gt; Snapshot)
+-&gt; Lens Snapshot Snapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300529"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Snapshot' :: Snapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679300529"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300529"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300528"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Aname%3ASnapshot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The directory identifier.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_directoryId"><span class="hs-identifier hs-type">snapshot_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="snapshot_directoryId"><span class="annot"><span class="annottext">snapshot_directoryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_directoryId"><span class="hs-identifier hs-var hs-var">snapshot_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe Text)
+-&gt; (Snapshot -&gt; Maybe Text -&gt; Snapshot)
+-&gt; Lens Snapshot Snapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300525"><span class="annot"><span class="annottext">Maybe Text
+directoryId :: Maybe Text
+$sel:directoryId:Snapshot' :: Snapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679300525"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300525"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300524"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AdirectoryId%3ASnapshot%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The snapshot identifier.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_snapshotId"><span class="hs-identifier hs-type">snapshot_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="snapshot_snapshotId"><span class="annot"><span class="annottext">snapshot_snapshotId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_snapshotId"><span class="hs-identifier hs-var hs-var">snapshot_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe Text)
+-&gt; (Snapshot -&gt; Maybe Text -&gt; Snapshot)
+-&gt; Lens Snapshot Snapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300521"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:Snapshot' :: Snapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679300521"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300521"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300520"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:Snapshot' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3AsnapshotId%3ASnapshot%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The snapshot type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_type"><span class="hs-identifier hs-type">snapshot_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotType.html#SnapshotType"><span class="hs-identifier hs-type">SnapshotType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="snapshot_type"><span class="annot"><span class="annottext">snapshot_type :: (Maybe SnapshotType -&gt; f (Maybe SnapshotType))
+-&gt; Snapshot -&gt; f Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#snapshot_type"><span class="hs-identifier hs-var hs-var">snapshot_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Snapshot -&gt; Maybe SnapshotType)
+-&gt; (Snapshot -&gt; Maybe SnapshotType -&gt; Snapshot)
+-&gt; Lens Snapshot Snapshot (Maybe SnapshotType) (Maybe SnapshotType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300517"><span class="annot"><span class="annottext">Maybe SnapshotType
+type' :: Maybe SnapshotType
+$sel:type':Snapshot' :: Snapshot -&gt; Maybe SnapshotType
+</span><a href="#local-6989586621679300517"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotType
+</span><a href="#local-6989586621679300517"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300516"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679300516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300515"><span class="annot"><span class="annottext">Maybe SnapshotType
+</span><a href="#local-6989586621679300515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679300516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Snapshot' :: Maybe SnapshotType
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#%24sel%3Atype%27%3ASnapshot%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnapshotType
+</span><a href="#local-6989586621679300515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679300510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Snapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Snapshot) -&gt; Value -&gt; Parser Snapshot
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Snapshot&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300507"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe SnapshotStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SnapshotType
+-&gt; Snapshot
+</span><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-var">Snapshot'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SnapshotStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe SnapshotType
+ -&gt; Snapshot)
+-&gt; Parser (Maybe SnapshotStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SnapshotType
+      -&gt; Snapshot)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnapshotStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SnapshotType
+   -&gt; Snapshot)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe SnapshotType -&gt; Snapshot)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe SnapshotType -&gt; Snapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SnapshotType -&gt; Snapshot)
+-&gt; Parser (Maybe SnapshotType) -&gt; Parser Snapshot
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnapshotType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300501"><span id="local-6989586621679300503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

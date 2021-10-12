@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideo.GetDataEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets an endpoint for a specified stream for either reading or writing.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Use this endpoint in your application to read from the specified stream</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- (using the @GetMedia@ or @GetMediaForFragmentList@ operations) or write</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- to it (using the @PutMedia@ operation).</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- The returned endpoint does not have the API name appended. The client</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- needs to add the API name to the returned endpoint.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- In the request, specify the stream either by @StreamName@ or</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @StreamARN@.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideo.GetDataEndpoint</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier">GetDataEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpoint"><span class="hs-identifier">newGetDataEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamARN"><span class="hs-identifier">getDataEndpoint_streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamName"><span class="hs-identifier">getDataEndpoint_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_aPIName"><span class="hs-identifier">getDataEndpoint_aPIName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier">GetDataEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpointResponse"><span class="hs-identifier">newGetDataEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_dataEndpoint"><span class="hs-identifier">getDataEndpointResponse_dataEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_httpStatus"><span class="hs-identifier">getDataEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.html"><span class="hs-identifier">Network.AWS.KinesisVideo.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetDataEndpoint' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679179085"><span id="local-6989586621679179086"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataEndpoint"><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-var">GetDataEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataEndpoint%27"><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-var">GetDataEndpoint'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream that you want to get the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- endpoint for. You must specify either this parameter or a @StreamName@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- in the request.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AstreamARN%3AGetDataEndpoint%27"><span class="annot"><span class="annottext">GetDataEndpoint -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamARN%3AGetDataEndpoint%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the stream that you want to get the endpoint for. You must</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specify either this parameter or a @StreamARN@ in the request.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstreamName%3AGetDataEndpoint%27"><span class="annot"><span class="annottext">GetDataEndpoint -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the API action for which to get an endpoint.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AaPIName%3AGetDataEndpoint%27"><span class="annot"><span class="annottext">GetDataEndpoint -&gt; APIName
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AaPIName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var hs-var">aPIName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.APIName.html#APIName"><span class="hs-identifier hs-type">APIName</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179077"><span id="local-6989586621679179079"><span class="annot"><span class="annottext">GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool
+(GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool)
+-&gt; (GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool)
+-&gt; Eq GetDataEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool
+$c/= :: GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool
+== :: GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool
+$c== :: GetDataEndpoint -&gt; GetDataEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179068"><span id="local-6989586621679179070"><span id="local-6989586621679179072"><span id="local-6989586621679179074"><span class="annot"><span class="annottext">ReadPrec [GetDataEndpoint]
+ReadPrec GetDataEndpoint
+Int -&gt; ReadS GetDataEndpoint
+ReadS [GetDataEndpoint]
+(Int -&gt; ReadS GetDataEndpoint)
+-&gt; ReadS [GetDataEndpoint]
+-&gt; ReadPrec GetDataEndpoint
+-&gt; ReadPrec [GetDataEndpoint]
+-&gt; Read GetDataEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDataEndpoint]
+$creadListPrec :: ReadPrec [GetDataEndpoint]
+readPrec :: ReadPrec GetDataEndpoint
+$creadPrec :: ReadPrec GetDataEndpoint
+readList :: ReadS [GetDataEndpoint]
+$creadList :: ReadS [GetDataEndpoint]
+readsPrec :: Int -&gt; ReadS GetDataEndpoint
+$creadsPrec :: Int -&gt; ReadS GetDataEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179061"><span id="local-6989586621679179063"><span id="local-6989586621679179065"><span class="annot"><span class="annottext">Int -&gt; GetDataEndpoint -&gt; ShowS
+[GetDataEndpoint] -&gt; ShowS
+GetDataEndpoint -&gt; String
+(Int -&gt; GetDataEndpoint -&gt; ShowS)
+-&gt; (GetDataEndpoint -&gt; String)
+-&gt; ([GetDataEndpoint] -&gt; ShowS)
+-&gt; Show GetDataEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDataEndpoint] -&gt; ShowS
+$cshowList :: [GetDataEndpoint] -&gt; ShowS
+show :: GetDataEndpoint -&gt; String
+$cshow :: GetDataEndpoint -&gt; String
+showsPrec :: Int -&gt; GetDataEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDataEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDataEndpoint -&gt; Rep GetDataEndpoint x)
+-&gt; (forall x. Rep GetDataEndpoint x -&gt; GetDataEndpoint)
+-&gt; Generic GetDataEndpoint
+forall x. Rep GetDataEndpoint x -&gt; GetDataEndpoint
+forall x. GetDataEndpoint -&gt; Rep GetDataEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDataEndpoint x -&gt; GetDataEndpoint
+$cfrom :: forall x. GetDataEndpoint -&gt; Rep GetDataEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'GetDataEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'streamARN', 'getDataEndpoint_streamARN' - The Amazon Resource Name (ARN) of the stream that you want to get the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- endpoint for. You must specify either this parameter or a @StreamName@</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- in the request.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'streamName', 'getDataEndpoint_streamName' - The name of the stream that you want to get the endpoint for. You must</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- specify either this parameter or a @StreamARN@ in the request.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'aPIName', 'getDataEndpoint_aPIName' - The name of the API action for which to get an endpoint.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpoint"><span class="hs-identifier hs-type">newGetDataEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'aPIName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.APIName.html#APIName"><span class="hs-identifier hs-type">APIName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span>
+</span><span id="line-94"></span><span id="newGetDataEndpoint"><span class="annot"><span class="annottext">newGetDataEndpoint :: APIName -&gt; GetDataEndpoint
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpoint"><span class="hs-identifier hs-var hs-var">newGetDataEndpoint</span></a></span></span><span> </span><span id="local-6989586621679179056"><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179056"><span class="hs-identifier hs-var">pAPIName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">GetDataEndpoint' :: Maybe Text -&gt; Maybe Text -&gt; APIName -&gt; GetDataEndpoint
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamARN:GetDataEndpoint' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamARN%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamName:GetDataEndpoint' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:aPIName:GetDataEndpoint' :: APIName
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AaPIName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">aPIName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179056"><span class="hs-identifier hs-var">pAPIName_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream that you want to get the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- endpoint for. You must specify either this parameter or a @StreamName@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- in the request.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamARN"><span class="hs-identifier hs-type">getDataEndpoint_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getDataEndpoint_streamARN"><span class="annot"><span class="annottext">getDataEndpoint_streamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDataEndpoint -&gt; f GetDataEndpoint
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamARN"><span class="hs-identifier hs-var hs-var">getDataEndpoint_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataEndpoint -&gt; Maybe Text)
+-&gt; (GetDataEndpoint -&gt; Maybe Text -&gt; GetDataEndpoint)
+-&gt; Lens GetDataEndpoint GetDataEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179053"><span class="annot"><span class="annottext">Maybe Text
+streamARN :: Maybe Text
+$sel:streamARN:GetDataEndpoint' :: GetDataEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679179053"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179053"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179052"><span class="annot"><span class="annottext">s :: GetDataEndpoint
+</span><a href="#local-6989586621679179052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataEndpoint
+</span><a href="#local-6989586621679179052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:GetDataEndpoint' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamARN%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the stream that you want to get the endpoint for. You must</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- specify either this parameter or a @StreamARN@ in the request.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamName"><span class="hs-identifier hs-type">getDataEndpoint_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="getDataEndpoint_streamName"><span class="annot"><span class="annottext">getDataEndpoint_streamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDataEndpoint -&gt; f GetDataEndpoint
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_streamName"><span class="hs-identifier hs-var hs-var">getDataEndpoint_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataEndpoint -&gt; Maybe Text)
+-&gt; (GetDataEndpoint -&gt; Maybe Text -&gt; GetDataEndpoint)
+-&gt; Lens GetDataEndpoint GetDataEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179050"><span class="annot"><span class="annottext">Maybe Text
+streamName :: Maybe Text
+$sel:streamName:GetDataEndpoint' :: GetDataEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679179050"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179050"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179049"><span class="annot"><span class="annottext">s :: GetDataEndpoint
+</span><a href="#local-6989586621679179049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataEndpoint
+</span><a href="#local-6989586621679179049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:GetDataEndpoint' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AstreamName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the API action for which to get an endpoint.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_aPIName"><span class="hs-identifier hs-type">getDataEndpoint_aPIName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.APIName.html#APIName"><span class="hs-identifier hs-type">APIName</span></a></span><span>
+</span><span id="line-114"></span><span id="getDataEndpoint_aPIName"><span class="annot"><span class="annottext">getDataEndpoint_aPIName :: (APIName -&gt; f APIName) -&gt; GetDataEndpoint -&gt; f GetDataEndpoint
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpoint_aPIName"><span class="hs-identifier hs-var hs-var">getDataEndpoint_aPIName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataEndpoint -&gt; APIName)
+-&gt; (GetDataEndpoint -&gt; APIName -&gt; GetDataEndpoint)
+-&gt; Lens GetDataEndpoint GetDataEndpoint APIName APIName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179047"><span class="annot"><span class="annottext">APIName
+aPIName :: APIName
+$sel:aPIName:GetDataEndpoint' :: GetDataEndpoint -&gt; APIName
+</span><a href="#local-6989586621679179047"><span class="hs-identifier hs-var hs-var">aPIName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179047"><span class="hs-identifier hs-var">aPIName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179046"><span class="annot"><span class="annottext">s :: GetDataEndpoint
+</span><a href="#local-6989586621679179046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179045"><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataEndpoint
+</span><a href="#local-6989586621679179046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aPIName:GetDataEndpoint' :: APIName
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AaPIName%3AGetDataEndpoint%27"><span class="hs-identifier hs-var">aPIName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679179041"><span class="annot"><span class="annottext">request :: GetDataEndpoint -&gt; Request GetDataEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDataEndpoint -&gt; Request GetDataEndpoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679179037"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDataEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDataEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDataEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDataEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDataEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179033"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179032"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetDataEndpointResponse
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-var">GetDataEndpointResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetDataEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetDataEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDataEndpointResponse)
+-&gt; Either String Int -&gt; Either String GetDataEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179024"><span id="local-6989586621679179026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679179017"><span class="annot"><span class="annottext">toHeaders :: GetDataEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDataEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179008"><span id="local-6989586621679179010"><span id="local-6989586621679179012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679179006"><span class="annot"><span class="annottext">toJSON :: GetDataEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint%27"><span class="hs-identifier hs-type">GetDataEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179002"><span id="local-6989586621679179003"><span id="local-6989586621679179004"><span class="annot"><span class="annottext">Maybe Text
+APIName
+aPIName :: APIName
+streamName :: Maybe Text
+streamARN :: Maybe Text
+$sel:aPIName:GetDataEndpoint' :: GetDataEndpoint -&gt; APIName
+$sel:streamName:GetDataEndpoint' :: GetDataEndpoint -&gt; Maybe Text
+$sel:streamARN:GetDataEndpoint' :: GetDataEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679179002"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179004"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179003"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;APIName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; APIName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">APIName
+</span><a href="#local-6989586621679179002"><span class="hs-identifier hs-var">aPIName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679178996"><span class="annot"><span class="annottext">toPath :: GetDataEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDataEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/getDataEndpoint&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpoint"><span class="hs-identifier hs-type">GetDataEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679178992"><span class="annot"><span class="annottext">toQuery :: GetDataEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDataEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newGetDataEndpointResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679178989"><span id="local-6989586621679178990"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataEndpointResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-var">GetDataEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataEndpointResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-var">GetDataEndpointResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint value. To read data from the stream or to write data to it,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- specify this endpoint in your application.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AdataEndpoint%3AGetDataEndpointResponse%27"><span class="annot"><span class="annottext">GetDataEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AdataEndpoint%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dataEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDataEndpointResponse%27"><span class="annot"><span class="annottext">GetDataEndpointResponse -&gt; Int
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AhttpStatus%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178983"><span id="local-6989586621679178985"><span class="annot"><span class="annottext">GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool
+(GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool)
+-&gt; (GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool)
+-&gt; Eq GetDataEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool
+$c/= :: GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool
+== :: GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool
+$c== :: GetDataEndpointResponse -&gt; GetDataEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178975"><span id="local-6989586621679178977"><span id="local-6989586621679178979"><span id="local-6989586621679178981"><span class="annot"><span class="annottext">ReadPrec [GetDataEndpointResponse]
+ReadPrec GetDataEndpointResponse
+Int -&gt; ReadS GetDataEndpointResponse
+ReadS [GetDataEndpointResponse]
+(Int -&gt; ReadS GetDataEndpointResponse)
+-&gt; ReadS [GetDataEndpointResponse]
+-&gt; ReadPrec GetDataEndpointResponse
+-&gt; ReadPrec [GetDataEndpointResponse]
+-&gt; Read GetDataEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDataEndpointResponse]
+$creadListPrec :: ReadPrec [GetDataEndpointResponse]
+readPrec :: ReadPrec GetDataEndpointResponse
+$creadPrec :: ReadPrec GetDataEndpointResponse
+readList :: ReadS [GetDataEndpointResponse]
+$creadList :: ReadS [GetDataEndpointResponse]
+readsPrec :: Int -&gt; ReadS GetDataEndpointResponse
+$creadsPrec :: Int -&gt; ReadS GetDataEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178969"><span id="local-6989586621679178971"><span id="local-6989586621679178973"><span class="annot"><span class="annottext">Int -&gt; GetDataEndpointResponse -&gt; ShowS
+[GetDataEndpointResponse] -&gt; ShowS
+GetDataEndpointResponse -&gt; String
+(Int -&gt; GetDataEndpointResponse -&gt; ShowS)
+-&gt; (GetDataEndpointResponse -&gt; String)
+-&gt; ([GetDataEndpointResponse] -&gt; ShowS)
+-&gt; Show GetDataEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDataEndpointResponse] -&gt; ShowS
+$cshowList :: [GetDataEndpointResponse] -&gt; ShowS
+show :: GetDataEndpointResponse -&gt; String
+$cshow :: GetDataEndpointResponse -&gt; String
+showsPrec :: Int -&gt; GetDataEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDataEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDataEndpointResponse -&gt; Rep GetDataEndpointResponse x)
+-&gt; (forall x.
+    Rep GetDataEndpointResponse x -&gt; GetDataEndpointResponse)
+-&gt; Generic GetDataEndpointResponse
+forall x. Rep GetDataEndpointResponse x -&gt; GetDataEndpointResponse
+forall x. GetDataEndpointResponse -&gt; Rep GetDataEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDataEndpointResponse x -&gt; GetDataEndpointResponse
+$cfrom :: forall x. GetDataEndpointResponse -&gt; Rep GetDataEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'GetDataEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'dataEndpoint', 'getDataEndpointResponse_dataEndpoint' - The endpoint value. To read data from the stream or to write data to it,</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- specify this endpoint in your application.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'getDataEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpointResponse"><span class="hs-identifier hs-type">newGetDataEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newGetDataEndpointResponse"><span class="annot"><span class="annottext">newGetDataEndpointResponse :: Int -&gt; GetDataEndpointResponse
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#newGetDataEndpointResponse"><span class="hs-identifier hs-var hs-var">newGetDataEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679178966"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">GetDataEndpointResponse' :: Maybe Text -&gt; Int -&gt; GetDataEndpointResponse
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-type">GetDataEndpointResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataEndpoint:GetDataEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AdataEndpoint%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var">dataEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataEndpointResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AhttpStatus%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The endpoint value. To read data from the stream or to write data to it,</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- specify this endpoint in your application.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_dataEndpoint"><span class="hs-identifier hs-type">getDataEndpointResponse_dataEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="getDataEndpointResponse_dataEndpoint"><span class="annot"><span class="annottext">getDataEndpointResponse_dataEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDataEndpointResponse -&gt; f GetDataEndpointResponse
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_dataEndpoint"><span class="hs-identifier hs-var hs-var">getDataEndpointResponse_dataEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataEndpointResponse -&gt; Maybe Text)
+-&gt; (GetDataEndpointResponse
+    -&gt; Maybe Text -&gt; GetDataEndpointResponse)
+-&gt; Lens
+     GetDataEndpointResponse
+     GetDataEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-type">GetDataEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178965"><span class="annot"><span class="annottext">Maybe Text
+dataEndpoint :: Maybe Text
+$sel:dataEndpoint:GetDataEndpointResponse' :: GetDataEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679178965"><span class="hs-identifier hs-var hs-var">dataEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178965"><span class="hs-identifier hs-var">dataEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178964"><span class="annot"><span class="annottext">s :: GetDataEndpointResponse
+</span><a href="#local-6989586621679178964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-type">GetDataEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178963"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataEndpointResponse
+</span><a href="#local-6989586621679178964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataEndpoint:GetDataEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AdataEndpoint%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var">dataEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_httpStatus"><span class="hs-identifier hs-type">getDataEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="getDataEndpointResponse_httpStatus"><span class="annot"><span class="annottext">getDataEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDataEndpointResponse -&gt; f GetDataEndpointResponse
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#getDataEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDataEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataEndpointResponse -&gt; Int)
+-&gt; (GetDataEndpointResponse -&gt; Int -&gt; GetDataEndpointResponse)
+-&gt; Lens GetDataEndpointResponse GetDataEndpointResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-type">GetDataEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178962"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDataEndpointResponse' :: GetDataEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679178962"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178962"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178961"><span class="annot"><span class="annottext">s :: GetDataEndpointResponse
+</span><a href="#local-6989586621679178961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse%27"><span class="hs-identifier hs-type">GetDataEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178960"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataEndpointResponse
+</span><a href="#local-6989586621679178961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataEndpointResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#%24sel%3AhttpStatus%3AGetDataEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.GetDataEndpoint.html#GetDataEndpointResponse"><span class="hs-identifier hs-type">GetDataEndpointResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

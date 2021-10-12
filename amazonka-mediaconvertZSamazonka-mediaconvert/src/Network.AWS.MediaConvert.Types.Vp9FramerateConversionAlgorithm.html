@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier">Vp9FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier">Vp9FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier">Vp9FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier">Vp9FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621680008863"><span id="local-6989586621680008864"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Vp9FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp9FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#fromVp9FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromVp9FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680008855"><span id="local-6989586621680008857"><span id="local-6989586621680008859"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
+[Vp9FramerateConversionAlgorithm] -&gt; ShowS
+Vp9FramerateConversionAlgorithm -&gt; String
+(Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS)
+-&gt; (Vp9FramerateConversionAlgorithm -&gt; String)
+-&gt; ([Vp9FramerateConversionAlgorithm] -&gt; ShowS)
+-&gt; Show Vp9FramerateConversionAlgorithm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vp9FramerateConversionAlgorithm] -&gt; ShowS
+$cshowList :: [Vp9FramerateConversionAlgorithm] -&gt; ShowS
+show :: Vp9FramerateConversionAlgorithm -&gt; String
+$cshow :: Vp9FramerateConversionAlgorithm -&gt; String
+showsPrec :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680008846"><span id="local-6989586621680008848"><span id="local-6989586621680008850"><span id="local-6989586621680008852"><span class="annot"><span class="annottext">ReadPrec [Vp9FramerateConversionAlgorithm]
+ReadPrec Vp9FramerateConversionAlgorithm
+Int -&gt; ReadS Vp9FramerateConversionAlgorithm
+ReadS [Vp9FramerateConversionAlgorithm]
+(Int -&gt; ReadS Vp9FramerateConversionAlgorithm)
+-&gt; ReadS [Vp9FramerateConversionAlgorithm]
+-&gt; ReadPrec Vp9FramerateConversionAlgorithm
+-&gt; ReadPrec [Vp9FramerateConversionAlgorithm]
+-&gt; Read Vp9FramerateConversionAlgorithm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vp9FramerateConversionAlgorithm]
+$creadListPrec :: ReadPrec [Vp9FramerateConversionAlgorithm]
+readPrec :: ReadPrec Vp9FramerateConversionAlgorithm
+$creadPrec :: ReadPrec Vp9FramerateConversionAlgorithm
+readList :: ReadS [Vp9FramerateConversionAlgorithm]
+$creadList :: ReadS [Vp9FramerateConversionAlgorithm]
+readsPrec :: Int -&gt; ReadS Vp9FramerateConversionAlgorithm
+$creadsPrec :: Int -&gt; ReadS Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680008841"><span id="local-6989586621680008843"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+(Vp9FramerateConversionAlgorithm
+ -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; Eq Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c/= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+== :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c== :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680008825"><span id="local-6989586621680008827"><span id="local-6989586621680008829"><span id="local-6989586621680008831"><span id="local-6989586621680008833"><span id="local-6989586621680008835"><span id="local-6989586621680008837"><span class="annot"><span class="annottext">Eq Vp9FramerateConversionAlgorithm
+Eq Vp9FramerateConversionAlgorithm
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Ordering)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm)
+-&gt; (Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm
+    -&gt; Vp9FramerateConversionAlgorithm)
+-&gt; Ord Vp9FramerateConversionAlgorithm
+Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Ordering
+Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+$cmin :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+max :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+$cmax :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm
+&gt;= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c&gt;= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+&gt; :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c&gt; :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+&lt;= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c&lt;= :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+&lt; :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+$c&lt; :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Bool
+compare :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Ordering
+$ccompare :: Vp9FramerateConversionAlgorithm
+-&gt; Vp9FramerateConversionAlgorithm -&gt; Ordering
+$cp1Ord :: Eq Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Vp9FramerateConversionAlgorithm
+ -&gt; Rep Vp9FramerateConversionAlgorithm x)
+-&gt; (forall x.
+    Rep Vp9FramerateConversionAlgorithm x
+    -&gt; Vp9FramerateConversionAlgorithm)
+-&gt; Generic Vp9FramerateConversionAlgorithm
+forall x.
+Rep Vp9FramerateConversionAlgorithm x
+-&gt; Vp9FramerateConversionAlgorithm
+forall x.
+Vp9FramerateConversionAlgorithm
+-&gt; Rep Vp9FramerateConversionAlgorithm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Vp9FramerateConversionAlgorithm x
+-&gt; Vp9FramerateConversionAlgorithm
+$cfrom :: forall x.
+Vp9FramerateConversionAlgorithm
+-&gt; Rep Vp9FramerateConversionAlgorithm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680008817"><span id="local-6989586621680008819"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
+Vp9FramerateConversionAlgorithm -&gt; Int
+(Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int)
+-&gt; (Vp9FramerateConversionAlgorithm -&gt; Int)
+-&gt; Hashable Vp9FramerateConversionAlgorithm
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Vp9FramerateConversionAlgorithm -&gt; Int
+$chash :: Vp9FramerateConversionAlgorithm -&gt; Int
+hashWithSalt :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
+$chashWithSalt :: Int -&gt; Vp9FramerateConversionAlgorithm -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680008814"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ()
+(Vp9FramerateConversionAlgorithm -&gt; ())
+-&gt; NFData Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Vp9FramerateConversionAlgorithm -&gt; ()
+$crnf :: Vp9FramerateConversionAlgorithm -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680008811"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9FramerateConversionAlgorithm
+(Text -&gt; Either String Vp9FramerateConversionAlgorithm)
+-&gt; FromText Vp9FramerateConversionAlgorithm
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Vp9FramerateConversionAlgorithm
+$cfromText :: Text -&gt; Either String Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680008808"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; Text
+(Vp9FramerateConversionAlgorithm -&gt; Text)
+-&gt; ToText Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Vp9FramerateConversionAlgorithm -&gt; Text
+$ctoText :: Vp9FramerateConversionAlgorithm -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680008805"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteString
+(Vp9FramerateConversionAlgorithm -&gt; ByteString)
+-&gt; ToByteString Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Vp9FramerateConversionAlgorithm -&gt; ByteString
+$ctoBS :: Vp9FramerateConversionAlgorithm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680008802"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
+(Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder)
+-&gt; ToLog Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
+$cbuild :: Vp9FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680008799"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
+(HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header])
+-&gt; ToHeader Vp9FramerateConversionAlgorithm
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Vp9FramerateConversionAlgorithm -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680008796"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; QueryString
+(Vp9FramerateConversionAlgorithm -&gt; QueryString)
+-&gt; ToQuery Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Vp9FramerateConversionAlgorithm -&gt; QueryString
+$ctoQuery :: Vp9FramerateConversionAlgorithm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680008791"><span id="local-6989586621680008793"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
+Value -&gt; Parser Vp9FramerateConversionAlgorithm
+(Value -&gt; Parser Vp9FramerateConversionAlgorithm)
+-&gt; (Value -&gt; Parser [Vp9FramerateConversionAlgorithm])
+-&gt; FromJSON Vp9FramerateConversionAlgorithm
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
+$cparseJSONList :: Value -&gt; Parser [Vp9FramerateConversionAlgorithm]
+parseJSON :: Value -&gt; Parser Vp9FramerateConversionAlgorithm
+$cparseJSON :: Value -&gt; Parser Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680008786"><span id="local-6989586621680008788"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+FromJSONKeyFunction Vp9FramerateConversionAlgorithm
+FromJSONKeyFunction Vp9FramerateConversionAlgorithm
+-&gt; FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+-&gt; FromJSONKey Vp9FramerateConversionAlgorithm
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+$cfromJSONKeyList :: FromJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+fromJSONKey :: FromJSONKeyFunction Vp9FramerateConversionAlgorithm
+$cfromJSONKey :: FromJSONKeyFunction Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680008777"><span id="local-6989586621680008779"><span id="local-6989586621680008781"><span id="local-6989586621680008783"><span class="annot"><span class="annottext">[Vp9FramerateConversionAlgorithm] -&gt; Encoding
+[Vp9FramerateConversionAlgorithm] -&gt; Value
+Vp9FramerateConversionAlgorithm -&gt; Encoding
+Vp9FramerateConversionAlgorithm -&gt; Value
+(Vp9FramerateConversionAlgorithm -&gt; Value)
+-&gt; (Vp9FramerateConversionAlgorithm -&gt; Encoding)
+-&gt; ([Vp9FramerateConversionAlgorithm] -&gt; Value)
+-&gt; ([Vp9FramerateConversionAlgorithm] -&gt; Encoding)
+-&gt; ToJSON Vp9FramerateConversionAlgorithm
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Vp9FramerateConversionAlgorithm] -&gt; Encoding
+$ctoEncodingList :: [Vp9FramerateConversionAlgorithm] -&gt; Encoding
+toJSONList :: [Vp9FramerateConversionAlgorithm] -&gt; Value
+$ctoJSONList :: [Vp9FramerateConversionAlgorithm] -&gt; Value
+toEncoding :: Vp9FramerateConversionAlgorithm -&gt; Encoding
+$ctoEncoding :: Vp9FramerateConversionAlgorithm -&gt; Encoding
+toJSON :: Vp9FramerateConversionAlgorithm -&gt; Value
+$ctoJSON :: Vp9FramerateConversionAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680008772"><span id="local-6989586621680008774"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+ToJSONKeyFunction Vp9FramerateConversionAlgorithm
+ToJSONKeyFunction Vp9FramerateConversionAlgorithm
+-&gt; ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+-&gt; ToJSONKey Vp9FramerateConversionAlgorithm
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+$ctoJSONKeyList :: ToJSONKeyFunction [Vp9FramerateConversionAlgorithm]
+toJSONKey :: ToJSONKeyFunction Vp9FramerateConversionAlgorithm
+$ctoJSONKey :: ToJSONKeyFunction Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680008769"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9FramerateConversionAlgorithm
+([Node] -&gt; Either String Vp9FramerateConversionAlgorithm)
+-&gt; FromXML Vp9FramerateConversionAlgorithm
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Vp9FramerateConversionAlgorithm
+$cparseXML :: [Node] -&gt; Either String Vp9FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680008766"><span class="annot"><span class="annottext">Vp9FramerateConversionAlgorithm -&gt; XML
+(Vp9FramerateConversionAlgorithm -&gt; XML)
+-&gt; ToXML Vp9FramerateConversionAlgorithm
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Vp9FramerateConversionAlgorithm -&gt; XML
+$ctoXML :: Vp9FramerateConversionAlgorithm -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span id="%24mVp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span id="Vp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="annot"><span class="annottext">$bVp9FramerateConversionAlgorithm_DUPLICATE_DROP :: Vp9FramerateConversionAlgorithm
+$mVp9FramerateConversionAlgorithm_DUPLICATE_DROP :: forall r.
+Vp9FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#%24bVp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-var hs-var hs-var">Vp9FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUPLICATE_DROP&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVp9FramerateConversionAlgorithm_FRAMEFORMER"><span id="%24mVp9FramerateConversionAlgorithm_FRAMEFORMER"><span id="Vp9FramerateConversionAlgorithm_FRAMEFORMER"><span class="annot"><span class="annottext">$bVp9FramerateConversionAlgorithm_FRAMEFORMER :: Vp9FramerateConversionAlgorithm
+$mVp9FramerateConversionAlgorithm_FRAMEFORMER :: forall r.
+Vp9FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#%24bVp9FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-var hs-var hs-var">Vp9FramerateConversionAlgorithm_FRAMEFORMER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAMEFORMER&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVp9FramerateConversionAlgorithm_INTERPOLATE"><span id="%24mVp9FramerateConversionAlgorithm_INTERPOLATE"><span id="Vp9FramerateConversionAlgorithm_INTERPOLATE"><span class="annot"><span class="annottext">$bVp9FramerateConversionAlgorithm_INTERPOLATE :: Vp9FramerateConversionAlgorithm
+$mVp9FramerateConversionAlgorithm_INTERPOLATE :: forall r.
+Vp9FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#%24bVp9FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-var hs-var hs-var">Vp9FramerateConversionAlgorithm_INTERPOLATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERPOLATE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-pragma hs-type">Vp9FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-pragma hs-type">Vp9FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-pragma hs-type">Vp9FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm%27"><span class="hs-pragma hs-type">Vp9FramerateConversionAlgorithm'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Athena.GetDataCatalog</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the specified data catalog.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Athena.GetDataCatalog</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier">GetDataCatalog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalog"><span class="hs-identifier">newGetDataCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalog_name"><span class="hs-identifier">getDataCatalog_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier">GetDataCatalogResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalogResponse"><span class="hs-identifier">newGetDataCatalogResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_dataCatalog"><span class="hs-identifier">getDataCatalogResponse_dataCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_httpStatus"><span class="hs-identifier">getDataCatalogResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.html"><span class="hs-identifier">Network.AWS.Athena.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDataCatalog' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679225130"><span id="local-6989586621679225131"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataCatalog"><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-var">GetDataCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataCatalog%27"><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog%27"><span class="hs-identifier hs-var">GetDataCatalog'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the data catalog to return.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AGetDataCatalog%27"><span class="annot"><span class="annottext">GetDataCatalog -&gt; Text
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3Aname%3AGetDataCatalog%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225124"><span id="local-6989586621679225126"><span class="annot"><span class="annottext">GetDataCatalog -&gt; GetDataCatalog -&gt; Bool
+(GetDataCatalog -&gt; GetDataCatalog -&gt; Bool)
+-&gt; (GetDataCatalog -&gt; GetDataCatalog -&gt; Bool) -&gt; Eq GetDataCatalog
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDataCatalog -&gt; GetDataCatalog -&gt; Bool
+$c/= :: GetDataCatalog -&gt; GetDataCatalog -&gt; Bool
+== :: GetDataCatalog -&gt; GetDataCatalog -&gt; Bool
+$c== :: GetDataCatalog -&gt; GetDataCatalog -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225115"><span id="local-6989586621679225117"><span id="local-6989586621679225119"><span id="local-6989586621679225121"><span class="annot"><span class="annottext">ReadPrec [GetDataCatalog]
+ReadPrec GetDataCatalog
+Int -&gt; ReadS GetDataCatalog
+ReadS [GetDataCatalog]
+(Int -&gt; ReadS GetDataCatalog)
+-&gt; ReadS [GetDataCatalog]
+-&gt; ReadPrec GetDataCatalog
+-&gt; ReadPrec [GetDataCatalog]
+-&gt; Read GetDataCatalog
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDataCatalog]
+$creadListPrec :: ReadPrec [GetDataCatalog]
+readPrec :: ReadPrec GetDataCatalog
+$creadPrec :: ReadPrec GetDataCatalog
+readList :: ReadS [GetDataCatalog]
+$creadList :: ReadS [GetDataCatalog]
+readsPrec :: Int -&gt; ReadS GetDataCatalog
+$creadsPrec :: Int -&gt; ReadS GetDataCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225108"><span id="local-6989586621679225110"><span id="local-6989586621679225112"><span class="annot"><span class="annottext">Int -&gt; GetDataCatalog -&gt; ShowS
+[GetDataCatalog] -&gt; ShowS
+GetDataCatalog -&gt; String
+(Int -&gt; GetDataCatalog -&gt; ShowS)
+-&gt; (GetDataCatalog -&gt; String)
+-&gt; ([GetDataCatalog] -&gt; ShowS)
+-&gt; Show GetDataCatalog
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDataCatalog] -&gt; ShowS
+$cshowList :: [GetDataCatalog] -&gt; ShowS
+show :: GetDataCatalog -&gt; String
+$cshow :: GetDataCatalog -&gt; String
+showsPrec :: Int -&gt; GetDataCatalog -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDataCatalog -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDataCatalog -&gt; Rep GetDataCatalog x)
+-&gt; (forall x. Rep GetDataCatalog x -&gt; GetDataCatalog)
+-&gt; Generic GetDataCatalog
+forall x. Rep GetDataCatalog x -&gt; GetDataCatalog
+forall x. GetDataCatalog -&gt; Rep GetDataCatalog x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDataCatalog x -&gt; GetDataCatalog
+$cfrom :: forall x. GetDataCatalog -&gt; Rep GetDataCatalog x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetDataCatalog' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'name', 'getDataCatalog_name' - The name of the data catalog to return.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalog"><span class="hs-identifier hs-type">newGetDataCatalog</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetDataCatalog"><span class="annot"><span class="annottext">newGetDataCatalog :: Text -&gt; GetDataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalog"><span class="hs-identifier hs-var hs-var">newGetDataCatalog</span></a></span></span><span> </span><span id="local-6989586621679225103"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225103"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetDataCatalog' :: Text -&gt; GetDataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog%27"><span class="hs-identifier hs-type">GetDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDataCatalog' :: Text
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3Aname%3AGetDataCatalog%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225103"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the data catalog to return.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalog_name"><span class="hs-identifier hs-type">getDataCatalog_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getDataCatalog_name"><span class="annot"><span class="annottext">getDataCatalog_name :: (Text -&gt; f Text) -&gt; GetDataCatalog -&gt; f GetDataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalog_name"><span class="hs-identifier hs-var hs-var">getDataCatalog_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataCatalog -&gt; Text)
+-&gt; (GetDataCatalog -&gt; Text -&gt; GetDataCatalog)
+-&gt; Lens GetDataCatalog GetDataCatalog Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog%27"><span class="hs-identifier hs-type">GetDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225100"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetDataCatalog' :: GetDataCatalog -&gt; Text
+</span><a href="#local-6989586621679225100"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225100"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225099"><span class="annot"><span class="annottext">s :: GetDataCatalog
+</span><a href="#local-6989586621679225099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog%27"><span class="hs-identifier hs-type">GetDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataCatalog
+</span><a href="#local-6989586621679225099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDataCatalog' :: Text
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3Aname%3AGetDataCatalog%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679225094"><span class="annot"><span class="annottext">request :: GetDataCatalog -&gt; Request GetDataCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDataCatalog -&gt; Request GetDataCatalog
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679225090"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDataCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDataCatalog)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDataCatalog))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDataCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDataCatalog)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225087"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225086"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225086"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225085"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataCatalog -&gt; Int -&gt; GetDataCatalogResponse
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-var">GetDataCatalogResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DataCatalog -&gt; Int -&gt; GetDataCatalogResponse)
+-&gt; Either String (Maybe DataCatalog)
+-&gt; Either String (Int -&gt; GetDataCatalogResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataCatalog)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataCatalog&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDataCatalogResponse)
+-&gt; Either String Int -&gt; Either String GetDataCatalogResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225087"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225077"><span id="local-6989586621679225079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679225070"><span class="annot"><span class="annottext">toHeaders :: GetDataCatalog -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDataCatalog -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.GetDataCatalog&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225060"><span id="local-6989586621679225062"><span id="local-6989586621679225064"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679225058"><span class="annot"><span class="annottext">toJSON :: GetDataCatalog -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog%27"><span class="hs-identifier hs-type">GetDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225056"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetDataCatalog' :: GetDataCatalog -&gt; Text
+</span><a href="#local-6989586621679225056"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225056"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679225050"><span class="annot"><span class="annottext">toPath :: GetDataCatalog -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDataCatalog -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalog"><span class="hs-identifier hs-type">GetDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679225046"><span class="annot"><span class="annottext">toQuery :: GetDataCatalog -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDataCatalog -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetDataCatalogResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679225043"><span id="local-6989586621679225044"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataCatalogResponse"><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-var">GetDataCatalogResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataCatalogResponse%27"><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-var">GetDataCatalogResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data catalog returned.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AdataCatalog%3AGetDataCatalogResponse%27"><span class="annot"><span class="annottext">GetDataCatalogResponse -&gt; Maybe DataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AdataCatalog%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var hs-var">dataCatalog</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.DataCatalog.html#DataCatalog"><span class="hs-identifier hs-type">DataCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDataCatalogResponse%27"><span class="annot"><span class="annottext">GetDataCatalogResponse -&gt; Int
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AhttpStatus%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225037"><span id="local-6989586621679225039"><span class="annot"><span class="annottext">GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool
+(GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool)
+-&gt; (GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool)
+-&gt; Eq GetDataCatalogResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool
+$c/= :: GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool
+== :: GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool
+$c== :: GetDataCatalogResponse -&gt; GetDataCatalogResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225029"><span id="local-6989586621679225031"><span id="local-6989586621679225033"><span id="local-6989586621679225035"><span class="annot"><span class="annottext">ReadPrec [GetDataCatalogResponse]
+ReadPrec GetDataCatalogResponse
+Int -&gt; ReadS GetDataCatalogResponse
+ReadS [GetDataCatalogResponse]
+(Int -&gt; ReadS GetDataCatalogResponse)
+-&gt; ReadS [GetDataCatalogResponse]
+-&gt; ReadPrec GetDataCatalogResponse
+-&gt; ReadPrec [GetDataCatalogResponse]
+-&gt; Read GetDataCatalogResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDataCatalogResponse]
+$creadListPrec :: ReadPrec [GetDataCatalogResponse]
+readPrec :: ReadPrec GetDataCatalogResponse
+$creadPrec :: ReadPrec GetDataCatalogResponse
+readList :: ReadS [GetDataCatalogResponse]
+$creadList :: ReadS [GetDataCatalogResponse]
+readsPrec :: Int -&gt; ReadS GetDataCatalogResponse
+$creadsPrec :: Int -&gt; ReadS GetDataCatalogResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225023"><span id="local-6989586621679225025"><span id="local-6989586621679225027"><span class="annot"><span class="annottext">Int -&gt; GetDataCatalogResponse -&gt; ShowS
+[GetDataCatalogResponse] -&gt; ShowS
+GetDataCatalogResponse -&gt; String
+(Int -&gt; GetDataCatalogResponse -&gt; ShowS)
+-&gt; (GetDataCatalogResponse -&gt; String)
+-&gt; ([GetDataCatalogResponse] -&gt; ShowS)
+-&gt; Show GetDataCatalogResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDataCatalogResponse] -&gt; ShowS
+$cshowList :: [GetDataCatalogResponse] -&gt; ShowS
+show :: GetDataCatalogResponse -&gt; String
+$cshow :: GetDataCatalogResponse -&gt; String
+showsPrec :: Int -&gt; GetDataCatalogResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDataCatalogResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDataCatalogResponse -&gt; Rep GetDataCatalogResponse x)
+-&gt; (forall x.
+    Rep GetDataCatalogResponse x -&gt; GetDataCatalogResponse)
+-&gt; Generic GetDataCatalogResponse
+forall x. Rep GetDataCatalogResponse x -&gt; GetDataCatalogResponse
+forall x. GetDataCatalogResponse -&gt; Rep GetDataCatalogResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDataCatalogResponse x -&gt; GetDataCatalogResponse
+$cfrom :: forall x. GetDataCatalogResponse -&gt; Rep GetDataCatalogResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'GetDataCatalogResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'dataCatalog', 'getDataCatalogResponse_dataCatalog' - The data catalog returned.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'httpStatus', 'getDataCatalogResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalogResponse"><span class="hs-identifier hs-type">newGetDataCatalogResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span>
+</span><span id="line-145"></span><span id="newGetDataCatalogResponse"><span class="annot"><span class="annottext">newGetDataCatalogResponse :: Int -&gt; GetDataCatalogResponse
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#newGetDataCatalogResponse"><span class="hs-identifier hs-var hs-var">newGetDataCatalogResponse</span></a></span></span><span> </span><span id="local-6989586621679225020"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetDataCatalogResponse' :: Maybe DataCatalog -&gt; Int -&gt; GetDataCatalogResponse
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-type">GetDataCatalogResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataCatalog:GetDataCatalogResponse' :: Maybe DataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AdataCatalog%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var">dataCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Maybe DataCatalog
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataCatalogResponse' :: Int
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AhttpStatus%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The data catalog returned.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_dataCatalog"><span class="hs-identifier hs-type">getDataCatalogResponse_dataCatalog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.DataCatalog.html#DataCatalog"><span class="hs-identifier hs-type">DataCatalog</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="getDataCatalogResponse_dataCatalog"><span class="annot"><span class="annottext">getDataCatalogResponse_dataCatalog :: (Maybe DataCatalog -&gt; f (Maybe DataCatalog))
+-&gt; GetDataCatalogResponse -&gt; f GetDataCatalogResponse
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_dataCatalog"><span class="hs-identifier hs-var hs-var">getDataCatalogResponse_dataCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataCatalogResponse -&gt; Maybe DataCatalog)
+-&gt; (GetDataCatalogResponse
+    -&gt; Maybe DataCatalog -&gt; GetDataCatalogResponse)
+-&gt; Lens
+     GetDataCatalogResponse
+     GetDataCatalogResponse
+     (Maybe DataCatalog)
+     (Maybe DataCatalog)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-type">GetDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225019"><span class="annot"><span class="annottext">Maybe DataCatalog
+dataCatalog :: Maybe DataCatalog
+$sel:dataCatalog:GetDataCatalogResponse' :: GetDataCatalogResponse -&gt; Maybe DataCatalog
+</span><a href="#local-6989586621679225019"><span class="hs-identifier hs-var hs-var">dataCatalog</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataCatalog
+</span><a href="#local-6989586621679225019"><span class="hs-identifier hs-var">dataCatalog</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225018"><span class="annot"><span class="annottext">s :: GetDataCatalogResponse
+</span><a href="#local-6989586621679225018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-type">GetDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225017"><span class="annot"><span class="annottext">Maybe DataCatalog
+</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataCatalogResponse
+</span><a href="#local-6989586621679225018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCatalog:GetDataCatalogResponse' :: Maybe DataCatalog
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AdataCatalog%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var">dataCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataCatalog
+</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_httpStatus"><span class="hs-identifier hs-type">getDataCatalogResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="getDataCatalogResponse_httpStatus"><span class="annot"><span class="annottext">getDataCatalogResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDataCatalogResponse -&gt; f GetDataCatalogResponse
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#getDataCatalogResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDataCatalogResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataCatalogResponse -&gt; Int)
+-&gt; (GetDataCatalogResponse -&gt; Int -&gt; GetDataCatalogResponse)
+-&gt; Lens GetDataCatalogResponse GetDataCatalogResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-type">GetDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225016"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDataCatalogResponse' :: GetDataCatalogResponse -&gt; Int
+</span><a href="#local-6989586621679225016"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225016"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225015"><span class="annot"><span class="annottext">s :: GetDataCatalogResponse
+</span><a href="#local-6989586621679225015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse%27"><span class="hs-identifier hs-type">GetDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataCatalogResponse
+</span><a href="#local-6989586621679225015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataCatalogResponse' :: Int
+</span><a href="Network.AWS.Athena.GetDataCatalog.html#%24sel%3AhttpStatus%3AGetDataCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetDataCatalog.html#GetDataCatalogResponse"><span class="hs-identifier hs-type">GetDataCatalogResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

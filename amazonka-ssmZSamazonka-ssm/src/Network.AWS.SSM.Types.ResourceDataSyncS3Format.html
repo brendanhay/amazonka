@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.ResourceDataSyncS3Format</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.ResourceDataSyncS3Format</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier">ResourceDataSyncS3Format</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format_JsonSerDe"><span class="hs-identifier">ResourceDataSyncS3Format_JsonSerDe</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679810590"><span id="local-6989586621679810591"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceDataSyncS3Format"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier hs-var">ResourceDataSyncS3Format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDataSyncS3Format%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format%27"><span class="hs-identifier hs-var">ResourceDataSyncS3Format'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceDataSyncS3Format"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; Text
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#fromResourceDataSyncS3Format"><span class="hs-identifier hs-var hs-var">fromResourceDataSyncS3Format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810582"><span id="local-6989586621679810584"><span id="local-6989586621679810586"><span class="annot"><span class="annottext">Int -&gt; ResourceDataSyncS3Format -&gt; ShowS
+[ResourceDataSyncS3Format] -&gt; ShowS
+ResourceDataSyncS3Format -&gt; String
+(Int -&gt; ResourceDataSyncS3Format -&gt; ShowS)
+-&gt; (ResourceDataSyncS3Format -&gt; String)
+-&gt; ([ResourceDataSyncS3Format] -&gt; ShowS)
+-&gt; Show ResourceDataSyncS3Format
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceDataSyncS3Format] -&gt; ShowS
+$cshowList :: [ResourceDataSyncS3Format] -&gt; ShowS
+show :: ResourceDataSyncS3Format -&gt; String
+$cshow :: ResourceDataSyncS3Format -&gt; String
+showsPrec :: Int -&gt; ResourceDataSyncS3Format -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceDataSyncS3Format -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679810573"><span id="local-6989586621679810575"><span id="local-6989586621679810577"><span id="local-6989586621679810579"><span class="annot"><span class="annottext">ReadPrec [ResourceDataSyncS3Format]
+ReadPrec ResourceDataSyncS3Format
+Int -&gt; ReadS ResourceDataSyncS3Format
+ReadS [ResourceDataSyncS3Format]
+(Int -&gt; ReadS ResourceDataSyncS3Format)
+-&gt; ReadS [ResourceDataSyncS3Format]
+-&gt; ReadPrec ResourceDataSyncS3Format
+-&gt; ReadPrec [ResourceDataSyncS3Format]
+-&gt; Read ResourceDataSyncS3Format
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceDataSyncS3Format]
+$creadListPrec :: ReadPrec [ResourceDataSyncS3Format]
+readPrec :: ReadPrec ResourceDataSyncS3Format
+$creadPrec :: ReadPrec ResourceDataSyncS3Format
+readList :: ReadS [ResourceDataSyncS3Format]
+$creadList :: ReadS [ResourceDataSyncS3Format]
+readsPrec :: Int -&gt; ReadS ResourceDataSyncS3Format
+$creadsPrec :: Int -&gt; ReadS ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679810568"><span id="local-6989586621679810570"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+(ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; (ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; Eq ResourceDataSyncS3Format
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c/= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+== :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c== :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679810552"><span id="local-6989586621679810554"><span id="local-6989586621679810556"><span id="local-6989586621679810558"><span id="local-6989586621679810560"><span id="local-6989586621679810562"><span id="local-6989586621679810564"><span class="annot"><span class="annottext">Eq ResourceDataSyncS3Format
+Eq ResourceDataSyncS3Format
+-&gt; (ResourceDataSyncS3Format
+    -&gt; ResourceDataSyncS3Format -&gt; Ordering)
+-&gt; (ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; (ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; (ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; (ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool)
+-&gt; (ResourceDataSyncS3Format
+    -&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format)
+-&gt; (ResourceDataSyncS3Format
+    -&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format)
+-&gt; Ord ResourceDataSyncS3Format
+ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Ordering
+ResourceDataSyncS3Format
+-&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceDataSyncS3Format
+-&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format
+$cmin :: ResourceDataSyncS3Format
+-&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format
+max :: ResourceDataSyncS3Format
+-&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format
+$cmax :: ResourceDataSyncS3Format
+-&gt; ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format
+&gt;= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c&gt;= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+&gt; :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c&gt; :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+&lt;= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c&lt;= :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+&lt; :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+$c&lt; :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Bool
+compare :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Ordering
+$ccompare :: ResourceDataSyncS3Format -&gt; ResourceDataSyncS3Format -&gt; Ordering
+$cp1Ord :: Eq ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ResourceDataSyncS3Format -&gt; Rep ResourceDataSyncS3Format x)
+-&gt; (forall x.
+    Rep ResourceDataSyncS3Format x -&gt; ResourceDataSyncS3Format)
+-&gt; Generic ResourceDataSyncS3Format
+forall x.
+Rep ResourceDataSyncS3Format x -&gt; ResourceDataSyncS3Format
+forall x.
+ResourceDataSyncS3Format -&gt; Rep ResourceDataSyncS3Format x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResourceDataSyncS3Format x -&gt; ResourceDataSyncS3Format
+$cfrom :: forall x.
+ResourceDataSyncS3Format -&gt; Rep ResourceDataSyncS3Format x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810544"><span id="local-6989586621679810546"><span class="annot"><span class="annottext">Int -&gt; ResourceDataSyncS3Format -&gt; Int
+ResourceDataSyncS3Format -&gt; Int
+(Int -&gt; ResourceDataSyncS3Format -&gt; Int)
+-&gt; (ResourceDataSyncS3Format -&gt; Int)
+-&gt; Hashable ResourceDataSyncS3Format
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceDataSyncS3Format -&gt; Int
+$chash :: ResourceDataSyncS3Format -&gt; Int
+hashWithSalt :: Int -&gt; ResourceDataSyncS3Format -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceDataSyncS3Format -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679810541"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; ()
+(ResourceDataSyncS3Format -&gt; ()) -&gt; NFData ResourceDataSyncS3Format
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceDataSyncS3Format -&gt; ()
+$crnf :: ResourceDataSyncS3Format -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679810538"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceDataSyncS3Format
+(Text -&gt; Either String ResourceDataSyncS3Format)
+-&gt; FromText ResourceDataSyncS3Format
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceDataSyncS3Format
+$cfromText :: Text -&gt; Either String ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679810535"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; Text
+(ResourceDataSyncS3Format -&gt; Text)
+-&gt; ToText ResourceDataSyncS3Format
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceDataSyncS3Format -&gt; Text
+$ctoText :: ResourceDataSyncS3Format -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679810532"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; ByteString
+(ResourceDataSyncS3Format -&gt; ByteString)
+-&gt; ToByteString ResourceDataSyncS3Format
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceDataSyncS3Format -&gt; ByteString
+$ctoBS :: ResourceDataSyncS3Format -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679810529"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; ByteStringBuilder
+(ResourceDataSyncS3Format -&gt; ByteStringBuilder)
+-&gt; ToLog ResourceDataSyncS3Format
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceDataSyncS3Format -&gt; ByteStringBuilder
+$cbuild :: ResourceDataSyncS3Format -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679810526"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceDataSyncS3Format -&gt; [Header]
+(HeaderName -&gt; ResourceDataSyncS3Format -&gt; [Header])
+-&gt; ToHeader ResourceDataSyncS3Format
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceDataSyncS3Format -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceDataSyncS3Format -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679810523"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; QueryString
+(ResourceDataSyncS3Format -&gt; QueryString)
+-&gt; ToQuery ResourceDataSyncS3Format
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceDataSyncS3Format -&gt; QueryString
+$ctoQuery :: ResourceDataSyncS3Format -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679810518"><span id="local-6989586621679810520"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceDataSyncS3Format]
+Value -&gt; Parser ResourceDataSyncS3Format
+(Value -&gt; Parser ResourceDataSyncS3Format)
+-&gt; (Value -&gt; Parser [ResourceDataSyncS3Format])
+-&gt; FromJSON ResourceDataSyncS3Format
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceDataSyncS3Format]
+$cparseJSONList :: Value -&gt; Parser [ResourceDataSyncS3Format]
+parseJSON :: Value -&gt; Parser ResourceDataSyncS3Format
+$cparseJSON :: Value -&gt; Parser ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679810513"><span id="local-6989586621679810515"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceDataSyncS3Format]
+FromJSONKeyFunction ResourceDataSyncS3Format
+FromJSONKeyFunction ResourceDataSyncS3Format
+-&gt; FromJSONKeyFunction [ResourceDataSyncS3Format]
+-&gt; FromJSONKey ResourceDataSyncS3Format
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceDataSyncS3Format]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceDataSyncS3Format]
+fromJSONKey :: FromJSONKeyFunction ResourceDataSyncS3Format
+$cfromJSONKey :: FromJSONKeyFunction ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679810504"><span id="local-6989586621679810506"><span id="local-6989586621679810508"><span id="local-6989586621679810510"><span class="annot"><span class="annottext">[ResourceDataSyncS3Format] -&gt; Encoding
+[ResourceDataSyncS3Format] -&gt; Value
+ResourceDataSyncS3Format -&gt; Encoding
+ResourceDataSyncS3Format -&gt; Value
+(ResourceDataSyncS3Format -&gt; Value)
+-&gt; (ResourceDataSyncS3Format -&gt; Encoding)
+-&gt; ([ResourceDataSyncS3Format] -&gt; Value)
+-&gt; ([ResourceDataSyncS3Format] -&gt; Encoding)
+-&gt; ToJSON ResourceDataSyncS3Format
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceDataSyncS3Format] -&gt; Encoding
+$ctoEncodingList :: [ResourceDataSyncS3Format] -&gt; Encoding
+toJSONList :: [ResourceDataSyncS3Format] -&gt; Value
+$ctoJSONList :: [ResourceDataSyncS3Format] -&gt; Value
+toEncoding :: ResourceDataSyncS3Format -&gt; Encoding
+$ctoEncoding :: ResourceDataSyncS3Format -&gt; Encoding
+toJSON :: ResourceDataSyncS3Format -&gt; Value
+$ctoJSON :: ResourceDataSyncS3Format -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679810499"><span id="local-6989586621679810501"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceDataSyncS3Format]
+ToJSONKeyFunction ResourceDataSyncS3Format
+ToJSONKeyFunction ResourceDataSyncS3Format
+-&gt; ToJSONKeyFunction [ResourceDataSyncS3Format]
+-&gt; ToJSONKey ResourceDataSyncS3Format
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceDataSyncS3Format]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceDataSyncS3Format]
+toJSONKey :: ToJSONKeyFunction ResourceDataSyncS3Format
+$ctoJSONKey :: ToJSONKeyFunction ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679810496"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceDataSyncS3Format
+([Node] -&gt; Either String ResourceDataSyncS3Format)
+-&gt; FromXML ResourceDataSyncS3Format
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceDataSyncS3Format
+$cparseXML :: [Node] -&gt; Either String ResourceDataSyncS3Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679810493"><span class="annot"><span class="annottext">ResourceDataSyncS3Format -&gt; XML
+(ResourceDataSyncS3Format -&gt; XML) -&gt; ToXML ResourceDataSyncS3Format
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceDataSyncS3Format -&gt; XML
+$ctoXML :: ResourceDataSyncS3Format -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format_JsonSerDe"><span class="hs-identifier hs-type">ResourceDataSyncS3Format_JsonSerDe</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format"><span class="hs-identifier hs-type">ResourceDataSyncS3Format</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceDataSyncS3Format_JsonSerDe"><span id="%24mResourceDataSyncS3Format_JsonSerDe"><span id="ResourceDataSyncS3Format_JsonSerDe"><span class="annot"><span class="annottext">$bResourceDataSyncS3Format_JsonSerDe :: ResourceDataSyncS3Format
+$mResourceDataSyncS3Format_JsonSerDe :: forall r.
+ResourceDataSyncS3Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#%24bResourceDataSyncS3Format_JsonSerDe"><span class="hs-identifier hs-var hs-var hs-var">ResourceDataSyncS3Format_JsonSerDe</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format%27"><span class="hs-identifier hs-type">ResourceDataSyncS3Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JsonSerDe&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format_JsonSerDe"><span class="hs-pragma hs-type">ResourceDataSyncS3Format_JsonSerDe</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncS3Format.html#ResourceDataSyncS3Format%27"><span class="hs-pragma hs-type">ResourceDataSyncS3Format'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

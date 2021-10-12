@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkDocs.Types.SubscriptionProtocolType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkDocs.Types.SubscriptionProtocolType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType"><span class="hs-identifier">SubscriptionProtocolType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType_HTTPS"><span class="hs-identifier">SubscriptionProtocolType_HTTPS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679264162"><span id="local-6989586621679264163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriptionProtocolType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType"><span class="hs-identifier hs-var">SubscriptionProtocolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionProtocolType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType%27"><span class="hs-identifier hs-var">SubscriptionProtocolType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubscriptionProtocolType"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; Text
+</span><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#fromSubscriptionProtocolType"><span class="hs-identifier hs-var hs-var">fromSubscriptionProtocolType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264154"><span id="local-6989586621679264156"><span id="local-6989586621679264158"><span class="annot"><span class="annottext">Int -&gt; SubscriptionProtocolType -&gt; ShowS
+[SubscriptionProtocolType] -&gt; ShowS
+SubscriptionProtocolType -&gt; String
+(Int -&gt; SubscriptionProtocolType -&gt; ShowS)
+-&gt; (SubscriptionProtocolType -&gt; String)
+-&gt; ([SubscriptionProtocolType] -&gt; ShowS)
+-&gt; Show SubscriptionProtocolType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscriptionProtocolType] -&gt; ShowS
+$cshowList :: [SubscriptionProtocolType] -&gt; ShowS
+show :: SubscriptionProtocolType -&gt; String
+$cshow :: SubscriptionProtocolType -&gt; String
+showsPrec :: Int -&gt; SubscriptionProtocolType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscriptionProtocolType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679264145"><span id="local-6989586621679264147"><span id="local-6989586621679264149"><span id="local-6989586621679264151"><span class="annot"><span class="annottext">ReadPrec [SubscriptionProtocolType]
+ReadPrec SubscriptionProtocolType
+Int -&gt; ReadS SubscriptionProtocolType
+ReadS [SubscriptionProtocolType]
+(Int -&gt; ReadS SubscriptionProtocolType)
+-&gt; ReadS [SubscriptionProtocolType]
+-&gt; ReadPrec SubscriptionProtocolType
+-&gt; ReadPrec [SubscriptionProtocolType]
+-&gt; Read SubscriptionProtocolType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscriptionProtocolType]
+$creadListPrec :: ReadPrec [SubscriptionProtocolType]
+readPrec :: ReadPrec SubscriptionProtocolType
+$creadPrec :: ReadPrec SubscriptionProtocolType
+readList :: ReadS [SubscriptionProtocolType]
+$creadList :: ReadS [SubscriptionProtocolType]
+readsPrec :: Int -&gt; ReadS SubscriptionProtocolType
+$creadsPrec :: Int -&gt; ReadS SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679264140"><span id="local-6989586621679264142"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+(SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; (SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; Eq SubscriptionProtocolType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c/= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+== :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c== :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679264124"><span id="local-6989586621679264126"><span id="local-6989586621679264128"><span id="local-6989586621679264130"><span id="local-6989586621679264132"><span id="local-6989586621679264134"><span id="local-6989586621679264136"><span class="annot"><span class="annottext">Eq SubscriptionProtocolType
+Eq SubscriptionProtocolType
+-&gt; (SubscriptionProtocolType
+    -&gt; SubscriptionProtocolType -&gt; Ordering)
+-&gt; (SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; (SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; (SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; (SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool)
+-&gt; (SubscriptionProtocolType
+    -&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType)
+-&gt; (SubscriptionProtocolType
+    -&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType)
+-&gt; Ord SubscriptionProtocolType
+SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Ordering
+SubscriptionProtocolType
+-&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SubscriptionProtocolType
+-&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType
+$cmin :: SubscriptionProtocolType
+-&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType
+max :: SubscriptionProtocolType
+-&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType
+$cmax :: SubscriptionProtocolType
+-&gt; SubscriptionProtocolType -&gt; SubscriptionProtocolType
+&gt;= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c&gt;= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+&gt; :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c&gt; :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+&lt;= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c&lt;= :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+&lt; :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+$c&lt; :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Bool
+compare :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Ordering
+$ccompare :: SubscriptionProtocolType -&gt; SubscriptionProtocolType -&gt; Ordering
+$cp1Ord :: Eq SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SubscriptionProtocolType -&gt; Rep SubscriptionProtocolType x)
+-&gt; (forall x.
+    Rep SubscriptionProtocolType x -&gt; SubscriptionProtocolType)
+-&gt; Generic SubscriptionProtocolType
+forall x.
+Rep SubscriptionProtocolType x -&gt; SubscriptionProtocolType
+forall x.
+SubscriptionProtocolType -&gt; Rep SubscriptionProtocolType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SubscriptionProtocolType x -&gt; SubscriptionProtocolType
+$cfrom :: forall x.
+SubscriptionProtocolType -&gt; Rep SubscriptionProtocolType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264116"><span id="local-6989586621679264118"><span class="annot"><span class="annottext">Int -&gt; SubscriptionProtocolType -&gt; Int
+SubscriptionProtocolType -&gt; Int
+(Int -&gt; SubscriptionProtocolType -&gt; Int)
+-&gt; (SubscriptionProtocolType -&gt; Int)
+-&gt; Hashable SubscriptionProtocolType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SubscriptionProtocolType -&gt; Int
+$chash :: SubscriptionProtocolType -&gt; Int
+hashWithSalt :: Int -&gt; SubscriptionProtocolType -&gt; Int
+$chashWithSalt :: Int -&gt; SubscriptionProtocolType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679264113"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; ()
+(SubscriptionProtocolType -&gt; ()) -&gt; NFData SubscriptionProtocolType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SubscriptionProtocolType -&gt; ()
+$crnf :: SubscriptionProtocolType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679264110"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriptionProtocolType
+(Text -&gt; Either String SubscriptionProtocolType)
+-&gt; FromText SubscriptionProtocolType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SubscriptionProtocolType
+$cfromText :: Text -&gt; Either String SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679264107"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; Text
+(SubscriptionProtocolType -&gt; Text)
+-&gt; ToText SubscriptionProtocolType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SubscriptionProtocolType -&gt; Text
+$ctoText :: SubscriptionProtocolType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679264104"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; ByteString
+(SubscriptionProtocolType -&gt; ByteString)
+-&gt; ToByteString SubscriptionProtocolType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SubscriptionProtocolType -&gt; ByteString
+$ctoBS :: SubscriptionProtocolType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679264101"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; ByteStringBuilder
+(SubscriptionProtocolType -&gt; ByteStringBuilder)
+-&gt; ToLog SubscriptionProtocolType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SubscriptionProtocolType -&gt; ByteStringBuilder
+$cbuild :: SubscriptionProtocolType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679264098"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriptionProtocolType -&gt; [Header]
+(HeaderName -&gt; SubscriptionProtocolType -&gt; [Header])
+-&gt; ToHeader SubscriptionProtocolType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SubscriptionProtocolType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SubscriptionProtocolType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679264095"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; QueryString
+(SubscriptionProtocolType -&gt; QueryString)
+-&gt; ToQuery SubscriptionProtocolType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SubscriptionProtocolType -&gt; QueryString
+$ctoQuery :: SubscriptionProtocolType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679264090"><span id="local-6989586621679264092"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriptionProtocolType]
+Value -&gt; Parser SubscriptionProtocolType
+(Value -&gt; Parser SubscriptionProtocolType)
+-&gt; (Value -&gt; Parser [SubscriptionProtocolType])
+-&gt; FromJSON SubscriptionProtocolType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SubscriptionProtocolType]
+$cparseJSONList :: Value -&gt; Parser [SubscriptionProtocolType]
+parseJSON :: Value -&gt; Parser SubscriptionProtocolType
+$cparseJSON :: Value -&gt; Parser SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679264085"><span id="local-6989586621679264087"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriptionProtocolType]
+FromJSONKeyFunction SubscriptionProtocolType
+FromJSONKeyFunction SubscriptionProtocolType
+-&gt; FromJSONKeyFunction [SubscriptionProtocolType]
+-&gt; FromJSONKey SubscriptionProtocolType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SubscriptionProtocolType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SubscriptionProtocolType]
+fromJSONKey :: FromJSONKeyFunction SubscriptionProtocolType
+$cfromJSONKey :: FromJSONKeyFunction SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679264076"><span id="local-6989586621679264078"><span id="local-6989586621679264080"><span id="local-6989586621679264082"><span class="annot"><span class="annottext">[SubscriptionProtocolType] -&gt; Encoding
+[SubscriptionProtocolType] -&gt; Value
+SubscriptionProtocolType -&gt; Encoding
+SubscriptionProtocolType -&gt; Value
+(SubscriptionProtocolType -&gt; Value)
+-&gt; (SubscriptionProtocolType -&gt; Encoding)
+-&gt; ([SubscriptionProtocolType] -&gt; Value)
+-&gt; ([SubscriptionProtocolType] -&gt; Encoding)
+-&gt; ToJSON SubscriptionProtocolType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SubscriptionProtocolType] -&gt; Encoding
+$ctoEncodingList :: [SubscriptionProtocolType] -&gt; Encoding
+toJSONList :: [SubscriptionProtocolType] -&gt; Value
+$ctoJSONList :: [SubscriptionProtocolType] -&gt; Value
+toEncoding :: SubscriptionProtocolType -&gt; Encoding
+$ctoEncoding :: SubscriptionProtocolType -&gt; Encoding
+toJSON :: SubscriptionProtocolType -&gt; Value
+$ctoJSON :: SubscriptionProtocolType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679264071"><span id="local-6989586621679264073"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriptionProtocolType]
+ToJSONKeyFunction SubscriptionProtocolType
+ToJSONKeyFunction SubscriptionProtocolType
+-&gt; ToJSONKeyFunction [SubscriptionProtocolType]
+-&gt; ToJSONKey SubscriptionProtocolType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SubscriptionProtocolType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SubscriptionProtocolType]
+toJSONKey :: ToJSONKeyFunction SubscriptionProtocolType
+$ctoJSONKey :: ToJSONKeyFunction SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679264068"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriptionProtocolType
+([Node] -&gt; Either String SubscriptionProtocolType)
+-&gt; FromXML SubscriptionProtocolType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SubscriptionProtocolType
+$cparseXML :: [Node] -&gt; Either String SubscriptionProtocolType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679264065"><span class="annot"><span class="annottext">SubscriptionProtocolType -&gt; XML
+(SubscriptionProtocolType -&gt; XML) -&gt; ToXML SubscriptionProtocolType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SubscriptionProtocolType -&gt; XML
+$ctoXML :: SubscriptionProtocolType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType_HTTPS"><span class="hs-identifier hs-type">SubscriptionProtocolType_HTTPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType"><span class="hs-identifier hs-type">SubscriptionProtocolType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSubscriptionProtocolType_HTTPS"><span id="%24mSubscriptionProtocolType_HTTPS"><span id="SubscriptionProtocolType_HTTPS"><span class="annot"><span class="annottext">$bSubscriptionProtocolType_HTTPS :: SubscriptionProtocolType
+$mSubscriptionProtocolType_HTTPS :: forall r.
+SubscriptionProtocolType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#%24bSubscriptionProtocolType_HTTPS"><span class="hs-identifier hs-var hs-var hs-var">SubscriptionProtocolType_HTTPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType%27"><span class="hs-identifier hs-type">SubscriptionProtocolType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTPS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType_HTTPS"><span class="hs-pragma hs-type">SubscriptionProtocolType_HTTPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.SubscriptionProtocolType.html#SubscriptionProtocolType%27"><span class="hs-pragma hs-type">SubscriptionProtocolType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

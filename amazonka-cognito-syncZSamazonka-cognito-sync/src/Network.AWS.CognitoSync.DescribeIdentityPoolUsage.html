@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoSync.DescribeIdentityPoolUsage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets usage details (for example, data storage) about a particular</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- identity pool.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API can only be called with developer credentials. You cannot call</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- this API with the temporary user credentials provided by Cognito</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Identity.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoSync.DescribeIdentityPoolUsage</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsage"><span class="hs-identifier">newDescribeIdentityPoolUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsage_identityPoolId"><span class="hs-identifier">describeIdentityPoolUsage_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier">DescribeIdentityPoolUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsageResponse"><span class="hs-identifier">newDescribeIdentityPoolUsageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_identityPoolUsage"><span class="hs-identifier">describeIdentityPoolUsageResponse_identityPoolUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_httpStatus"><span class="hs-identifier">describeIdentityPoolUsageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.html"><span class="hs-identifier">Network.AWS.CognitoSync.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | A request for usage information about the identity pool.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityPoolUsage' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679178149"><span id="local-6989586621679178150"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityPoolUsage"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-var">DescribeIdentityPoolUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityPoolUsage%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage%27"><span class="hs-identifier hs-var">DescribeIdentityPoolUsage'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ADescribeIdentityPoolUsage%27"><span class="annot"><span class="annottext">DescribeIdentityPoolUsage -&gt; Text
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityPoolUsage%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178143"><span id="local-6989586621679178145"><span class="annot"><span class="annottext">DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool
+(DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool)
+-&gt; (DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool)
+-&gt; Eq DescribeIdentityPoolUsage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool
+$c/= :: DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool
+== :: DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool
+$c== :: DescribeIdentityPoolUsage -&gt; DescribeIdentityPoolUsage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178134"><span id="local-6989586621679178136"><span id="local-6989586621679178138"><span id="local-6989586621679178140"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityPoolUsage]
+ReadPrec DescribeIdentityPoolUsage
+Int -&gt; ReadS DescribeIdentityPoolUsage
+ReadS [DescribeIdentityPoolUsage]
+(Int -&gt; ReadS DescribeIdentityPoolUsage)
+-&gt; ReadS [DescribeIdentityPoolUsage]
+-&gt; ReadPrec DescribeIdentityPoolUsage
+-&gt; ReadPrec [DescribeIdentityPoolUsage]
+-&gt; Read DescribeIdentityPoolUsage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityPoolUsage]
+$creadListPrec :: ReadPrec [DescribeIdentityPoolUsage]
+readPrec :: ReadPrec DescribeIdentityPoolUsage
+$creadPrec :: ReadPrec DescribeIdentityPoolUsage
+readList :: ReadS [DescribeIdentityPoolUsage]
+$creadList :: ReadS [DescribeIdentityPoolUsage]
+readsPrec :: Int -&gt; ReadS DescribeIdentityPoolUsage
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityPoolUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178127"><span id="local-6989586621679178129"><span id="local-6989586621679178131"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityPoolUsage -&gt; ShowS
+[DescribeIdentityPoolUsage] -&gt; ShowS
+DescribeIdentityPoolUsage -&gt; String
+(Int -&gt; DescribeIdentityPoolUsage -&gt; ShowS)
+-&gt; (DescribeIdentityPoolUsage -&gt; String)
+-&gt; ([DescribeIdentityPoolUsage] -&gt; ShowS)
+-&gt; Show DescribeIdentityPoolUsage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityPoolUsage] -&gt; ShowS
+$cshowList :: [DescribeIdentityPoolUsage] -&gt; ShowS
+show :: DescribeIdentityPoolUsage -&gt; String
+$cshow :: DescribeIdentityPoolUsage -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityPoolUsage -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityPoolUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIdentityPoolUsage -&gt; Rep DescribeIdentityPoolUsage x)
+-&gt; (forall x.
+    Rep DescribeIdentityPoolUsage x -&gt; DescribeIdentityPoolUsage)
+-&gt; Generic DescribeIdentityPoolUsage
+forall x.
+Rep DescribeIdentityPoolUsage x -&gt; DescribeIdentityPoolUsage
+forall x.
+DescribeIdentityPoolUsage -&gt; Rep DescribeIdentityPoolUsage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIdentityPoolUsage x -&gt; DescribeIdentityPoolUsage
+$cfrom :: forall x.
+DescribeIdentityPoolUsage -&gt; Rep DescribeIdentityPoolUsage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityPoolUsage' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'identityPoolId', 'describeIdentityPoolUsage_identityPoolId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsage"><span class="hs-identifier hs-type">newDescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span>
+</span><span id="line-80"></span><span id="newDescribeIdentityPoolUsage"><span class="annot"><span class="annottext">newDescribeIdentityPoolUsage :: Text -&gt; DescribeIdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsage"><span class="hs-identifier hs-var hs-var">newDescribeIdentityPoolUsage</span></a></span></span><span> </span><span id="local-6989586621679178122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178122"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityPoolUsage' :: Text -&gt; DescribeIdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityPoolUsage' :: Text
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityPoolUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178122"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsage_identityPoolId"><span class="hs-identifier hs-type">describeIdentityPoolUsage_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="describeIdentityPoolUsage_identityPoolId"><span class="annot"><span class="annottext">describeIdentityPoolUsage_identityPoolId :: (Text -&gt; f Text)
+-&gt; DescribeIdentityPoolUsage -&gt; f DescribeIdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsage_identityPoolId"><span class="hs-identifier hs-var hs-var">describeIdentityPoolUsage_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityPoolUsage -&gt; Text)
+-&gt; (DescribeIdentityPoolUsage -&gt; Text -&gt; DescribeIdentityPoolUsage)
+-&gt; Lens
+     DescribeIdentityPoolUsage DescribeIdentityPoolUsage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178119"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:DescribeIdentityPoolUsage' :: DescribeIdentityPoolUsage -&gt; Text
+</span><a href="#local-6989586621679178119"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178119"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178118"><span class="annot"><span class="annottext">s :: DescribeIdentityPoolUsage
+</span><a href="#local-6989586621679178118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityPoolUsage
+</span><a href="#local-6989586621679178118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityPoolUsage' :: Text
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityPoolUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679178113"><span class="annot"><span class="annottext">request :: DescribeIdentityPoolUsage -&gt; Request DescribeIdentityPoolUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeIdentityPoolUsage -&gt; Request DescribeIdentityPoolUsage
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679178109"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityPoolUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIdentityPoolUsage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeIdentityPoolUsage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityPoolUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIdentityPoolUsage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178106"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178105"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178105"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178104"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe IdentityPoolUsage -&gt; Int -&gt; DescribeIdentityPoolUsageResponse
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityPoolUsageResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IdentityPoolUsage
+ -&gt; Int -&gt; DescribeIdentityPoolUsageResponse)
+-&gt; Either String (Maybe IdentityPoolUsage)
+-&gt; Either String (Int -&gt; DescribeIdentityPoolUsageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityPoolUsage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityPoolUsage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeIdentityPoolUsageResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeIdentityPoolUsageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178106"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178096"><span id="local-6989586621679178098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679178089"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityPoolUsage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIdentityPoolUsage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679178083"><span class="annot"><span class="annottext">toPath :: DescribeIdentityPoolUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178081"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:DescribeIdentityPoolUsage' :: DescribeIdentityPoolUsage -&gt; Text
+</span><a href="#local-6989586621679178081"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178081"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsage"><span class="hs-identifier hs-type">DescribeIdentityPoolUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679178077"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityPoolUsage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIdentityPoolUsage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Response to a successful DescribeIdentityPoolUsage request.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityPoolUsageResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679178074"><span id="local-6989586621679178075"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityPoolUsageResponse"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-var">DescribeIdentityPoolUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityPoolUsageResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityPoolUsageResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the usage of the identity pool.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AidentityPoolUsage%3ADescribeIdentityPoolUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse -&gt; Maybe IdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolUsage%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var hs-var">identityPoolUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.IdentityPoolUsage.html#IdentityPoolUsage"><span class="hs-identifier hs-type">IdentityPoolUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityPoolUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse -&gt; Int
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178068"><span id="local-6989586621679178070"><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse
+-&gt; DescribeIdentityPoolUsageResponse -&gt; Bool
+(DescribeIdentityPoolUsageResponse
+ -&gt; DescribeIdentityPoolUsageResponse -&gt; Bool)
+-&gt; (DescribeIdentityPoolUsageResponse
+    -&gt; DescribeIdentityPoolUsageResponse -&gt; Bool)
+-&gt; Eq DescribeIdentityPoolUsageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityPoolUsageResponse
+-&gt; DescribeIdentityPoolUsageResponse -&gt; Bool
+$c/= :: DescribeIdentityPoolUsageResponse
+-&gt; DescribeIdentityPoolUsageResponse -&gt; Bool
+== :: DescribeIdentityPoolUsageResponse
+-&gt; DescribeIdentityPoolUsageResponse -&gt; Bool
+$c== :: DescribeIdentityPoolUsageResponse
+-&gt; DescribeIdentityPoolUsageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178060"><span id="local-6989586621679178062"><span id="local-6989586621679178064"><span id="local-6989586621679178066"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityPoolUsageResponse]
+ReadPrec DescribeIdentityPoolUsageResponse
+Int -&gt; ReadS DescribeIdentityPoolUsageResponse
+ReadS [DescribeIdentityPoolUsageResponse]
+(Int -&gt; ReadS DescribeIdentityPoolUsageResponse)
+-&gt; ReadS [DescribeIdentityPoolUsageResponse]
+-&gt; ReadPrec DescribeIdentityPoolUsageResponse
+-&gt; ReadPrec [DescribeIdentityPoolUsageResponse]
+-&gt; Read DescribeIdentityPoolUsageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityPoolUsageResponse]
+$creadListPrec :: ReadPrec [DescribeIdentityPoolUsageResponse]
+readPrec :: ReadPrec DescribeIdentityPoolUsageResponse
+$creadPrec :: ReadPrec DescribeIdentityPoolUsageResponse
+readList :: ReadS [DescribeIdentityPoolUsageResponse]
+$creadList :: ReadS [DescribeIdentityPoolUsageResponse]
+readsPrec :: Int -&gt; ReadS DescribeIdentityPoolUsageResponse
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityPoolUsageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178054"><span id="local-6989586621679178056"><span id="local-6989586621679178058"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityPoolUsageResponse -&gt; ShowS
+[DescribeIdentityPoolUsageResponse] -&gt; ShowS
+DescribeIdentityPoolUsageResponse -&gt; String
+(Int -&gt; DescribeIdentityPoolUsageResponse -&gt; ShowS)
+-&gt; (DescribeIdentityPoolUsageResponse -&gt; String)
+-&gt; ([DescribeIdentityPoolUsageResponse] -&gt; ShowS)
+-&gt; Show DescribeIdentityPoolUsageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityPoolUsageResponse] -&gt; ShowS
+$cshowList :: [DescribeIdentityPoolUsageResponse] -&gt; ShowS
+show :: DescribeIdentityPoolUsageResponse -&gt; String
+$cshow :: DescribeIdentityPoolUsageResponse -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityPoolUsageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityPoolUsageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIdentityPoolUsageResponse
+ -&gt; Rep DescribeIdentityPoolUsageResponse x)
+-&gt; (forall x.
+    Rep DescribeIdentityPoolUsageResponse x
+    -&gt; DescribeIdentityPoolUsageResponse)
+-&gt; Generic DescribeIdentityPoolUsageResponse
+forall x.
+Rep DescribeIdentityPoolUsageResponse x
+-&gt; DescribeIdentityPoolUsageResponse
+forall x.
+DescribeIdentityPoolUsageResponse
+-&gt; Rep DescribeIdentityPoolUsageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIdentityPoolUsageResponse x
+-&gt; DescribeIdentityPoolUsageResponse
+$cfrom :: forall x.
+DescribeIdentityPoolUsageResponse
+-&gt; Rep DescribeIdentityPoolUsageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityPoolUsageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'identityPoolUsage', 'describeIdentityPoolUsageResponse_identityPoolUsage' - Information about the usage of the identity pool.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'describeIdentityPoolUsageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">newDescribeIdentityPoolUsageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newDescribeIdentityPoolUsageResponse"><span class="annot"><span class="annottext">newDescribeIdentityPoolUsageResponse :: Int -&gt; DescribeIdentityPoolUsageResponse
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#newDescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityPoolUsageResponse</span></a></span></span><span> </span><span id="local-6989586621679178051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse' :: Maybe IdentityPoolUsage -&gt; Int -&gt; DescribeIdentityPoolUsageResponse
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolUsage:DescribeIdentityPoolUsageResponse' :: Maybe IdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolUsage%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">identityPoolUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe IdentityPoolUsage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityPoolUsageResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Information about the usage of the identity pool.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_identityPoolUsage"><span class="hs-identifier hs-type">describeIdentityPoolUsageResponse_identityPoolUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.IdentityPoolUsage.html#IdentityPoolUsage"><span class="hs-identifier hs-type">IdentityPoolUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="describeIdentityPoolUsageResponse_identityPoolUsage"><span class="annot"><span class="annottext">describeIdentityPoolUsageResponse_identityPoolUsage :: (Maybe IdentityPoolUsage -&gt; f (Maybe IdentityPoolUsage))
+-&gt; DescribeIdentityPoolUsageResponse
+-&gt; f DescribeIdentityPoolUsageResponse
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_identityPoolUsage"><span class="hs-identifier hs-var hs-var">describeIdentityPoolUsageResponse_identityPoolUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityPoolUsageResponse -&gt; Maybe IdentityPoolUsage)
+-&gt; (DescribeIdentityPoolUsageResponse
+    -&gt; Maybe IdentityPoolUsage -&gt; DescribeIdentityPoolUsageResponse)
+-&gt; Lens
+     DescribeIdentityPoolUsageResponse
+     DescribeIdentityPoolUsageResponse
+     (Maybe IdentityPoolUsage)
+     (Maybe IdentityPoolUsage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178050"><span class="annot"><span class="annottext">Maybe IdentityPoolUsage
+identityPoolUsage :: Maybe IdentityPoolUsage
+$sel:identityPoolUsage:DescribeIdentityPoolUsageResponse' :: DescribeIdentityPoolUsageResponse -&gt; Maybe IdentityPoolUsage
+</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var hs-var">identityPoolUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityPoolUsage
+</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var">identityPoolUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178049"><span class="annot"><span class="annottext">s :: DescribeIdentityPoolUsageResponse
+</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178048"><span class="annot"><span class="annottext">Maybe IdentityPoolUsage
+</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse
+</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolUsage:DescribeIdentityPoolUsageResponse' :: Maybe IdentityPoolUsage
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AidentityPoolUsage%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">identityPoolUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityPoolUsage
+</span><a href="#local-6989586621679178048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_httpStatus"><span class="hs-identifier hs-type">describeIdentityPoolUsageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="describeIdentityPoolUsageResponse_httpStatus"><span class="annot"><span class="annottext">describeIdentityPoolUsageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeIdentityPoolUsageResponse
+-&gt; f DescribeIdentityPoolUsageResponse
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#describeIdentityPoolUsageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeIdentityPoolUsageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityPoolUsageResponse -&gt; Int)
+-&gt; (DescribeIdentityPoolUsageResponse
+    -&gt; Int -&gt; DescribeIdentityPoolUsageResponse)
+-&gt; Lens
+     DescribeIdentityPoolUsageResponse
+     DescribeIdentityPoolUsageResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178047"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeIdentityPoolUsageResponse' :: DescribeIdentityPoolUsageResponse -&gt; Int
+</span><a href="#local-6989586621679178047"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178047"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178046"><span class="annot"><span class="annottext">s :: DescribeIdentityPoolUsageResponse
+</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178045"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityPoolUsageResponse
+</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityPoolUsageResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityPoolUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679178043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityPoolUsage.html#DescribeIdentityPoolUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityPoolUsageResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

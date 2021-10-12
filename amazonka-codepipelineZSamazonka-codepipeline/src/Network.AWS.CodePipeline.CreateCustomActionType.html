@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodePipeline.CreateCustomActionType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new custom action that can be used in all pipelines associated</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with the AWS account. Only used for custom actions.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodePipeline.CreateCustomActionType</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier">CreateCustomActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionType"><span class="hs-identifier">newCreateCustomActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_configurationProperties"><span class="hs-identifier">createCustomActionType_configurationProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_tags"><span class="hs-identifier">createCustomActionType_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_settings"><span class="hs-identifier">createCustomActionType_settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_category"><span class="hs-identifier">createCustomActionType_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_provider"><span class="hs-identifier">createCustomActionType_provider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_version"><span class="hs-identifier">createCustomActionType_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_inputArtifactDetails"><span class="hs-identifier">createCustomActionType_inputArtifactDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_outputArtifactDetails"><span class="hs-identifier">createCustomActionType_outputArtifactDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier">CreateCustomActionTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionTypeResponse"><span class="hs-identifier">newCreateCustomActionTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_tags"><span class="hs-identifier">createCustomActionTypeResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_httpStatus"><span class="hs-identifier">createCustomActionTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_actionType"><span class="hs-identifier">createCustomActionTypeResponse_actionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.html"><span class="hs-identifier">Network.AWS.CodePipeline.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Represents the input of a CreateCustomActionType operation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newCreateCustomActionType' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679293169"><span id="local-6989586621679293170"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomActionType"><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-var">CreateCustomActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomActionType%27"><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-var">CreateCustomActionType'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration properties for the custom action.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- You can refer to a name in the configuration properties of the custom</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- action within the URL templates by following the format of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- {Config:name}, as long as the configuration property is both required</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- and not secret. For more information, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline&gt;.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AconfigurationProperties%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; Maybe [ActionConfigurationProperty]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AconfigurationProperties%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">configurationProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationProperty.html#ActionConfigurationProperty"><span class="hs-identifier hs-type">ActionConfigurationProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The tags for the custom action.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Atags%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | URLs that provide users information about this custom action.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Asettings%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; Maybe ActionTypeSettings
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Asettings%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeSettings.html#ActionTypeSettings"><span class="hs-identifier hs-type">ActionTypeSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The category of the custom action, such as a build action or a test</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Acategory%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; ActionCategory
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Acategory%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The provider of the service used in the custom action, such as AWS</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- CodeDeploy.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aprovider%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aprovider%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The version identifier of the custom action.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aversion%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aversion%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The details of the input artifact for the action, such as its commit ID.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AinputArtifactDetails%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AinputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">inputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The details of the output artifact of the action, such as its commit ID.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AoutputArtifactDetails%3ACreateCustomActionType%27"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AoutputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var hs-var">outputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293156"><span id="local-6989586621679293158"><span class="annot"><span class="annottext">CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool
+(CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool)
+-&gt; (CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool)
+-&gt; Eq CreateCustomActionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool
+$c/= :: CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool
+== :: CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool
+$c== :: CreateCustomActionType -&gt; CreateCustomActionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293147"><span id="local-6989586621679293149"><span id="local-6989586621679293151"><span id="local-6989586621679293153"><span class="annot"><span class="annottext">ReadPrec [CreateCustomActionType]
+ReadPrec CreateCustomActionType
+Int -&gt; ReadS CreateCustomActionType
+ReadS [CreateCustomActionType]
+(Int -&gt; ReadS CreateCustomActionType)
+-&gt; ReadS [CreateCustomActionType]
+-&gt; ReadPrec CreateCustomActionType
+-&gt; ReadPrec [CreateCustomActionType]
+-&gt; Read CreateCustomActionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomActionType]
+$creadListPrec :: ReadPrec [CreateCustomActionType]
+readPrec :: ReadPrec CreateCustomActionType
+$creadPrec :: ReadPrec CreateCustomActionType
+readList :: ReadS [CreateCustomActionType]
+$creadList :: ReadS [CreateCustomActionType]
+readsPrec :: Int -&gt; ReadS CreateCustomActionType
+$creadsPrec :: Int -&gt; ReadS CreateCustomActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293140"><span id="local-6989586621679293142"><span id="local-6989586621679293144"><span class="annot"><span class="annottext">Int -&gt; CreateCustomActionType -&gt; ShowS
+[CreateCustomActionType] -&gt; ShowS
+CreateCustomActionType -&gt; String
+(Int -&gt; CreateCustomActionType -&gt; ShowS)
+-&gt; (CreateCustomActionType -&gt; String)
+-&gt; ([CreateCustomActionType] -&gt; ShowS)
+-&gt; Show CreateCustomActionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomActionType] -&gt; ShowS
+$cshowList :: [CreateCustomActionType] -&gt; ShowS
+show :: CreateCustomActionType -&gt; String
+$cshow :: CreateCustomActionType -&gt; String
+showsPrec :: Int -&gt; CreateCustomActionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomActionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCustomActionType -&gt; Rep CreateCustomActionType x)
+-&gt; (forall x.
+    Rep CreateCustomActionType x -&gt; CreateCustomActionType)
+-&gt; Generic CreateCustomActionType
+forall x. Rep CreateCustomActionType x -&gt; CreateCustomActionType
+forall x. CreateCustomActionType -&gt; Rep CreateCustomActionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCustomActionType x -&gt; CreateCustomActionType
+$cfrom :: forall x. CreateCustomActionType -&gt; Rep CreateCustomActionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'CreateCustomActionType' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'configurationProperties', 'createCustomActionType_configurationProperties' - The configuration properties for the custom action.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- You can refer to a name in the configuration properties of the custom</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- action within the URL templates by following the format of</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- {Config:name}, as long as the configuration property is both required</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- and not secret. For more information, see</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline&gt;.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'tags', 'createCustomActionType_tags' - The tags for the custom action.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'settings', 'createCustomActionType_settings' - URLs that provide users information about this custom action.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'category', 'createCustomActionType_category' - The category of the custom action, such as a build action or a test</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'provider', 'createCustomActionType_provider' - The provider of the service used in the custom action, such as AWS</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- CodeDeploy.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'version', 'createCustomActionType_version' - The version identifier of the custom action.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'inputArtifactDetails', 'createCustomActionType_inputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'outputArtifactDetails', 'createCustomActionType_outputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionType"><span class="hs-identifier hs-type">newCreateCustomActionType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'category'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'provider'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'inputArtifactDetails'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'outputArtifactDetails'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span>
+</span><span id="line-132"></span><span id="newCreateCustomActionType"><span class="annot"><span class="annottext">newCreateCustomActionType :: ActionCategory
+-&gt; Text
+-&gt; Text
+-&gt; ArtifactDetails
+-&gt; ArtifactDetails
+-&gt; CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionType"><span class="hs-identifier hs-var hs-var">newCreateCustomActionType</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679293135"><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293135"><span class="hs-identifier hs-var">pCategory_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679293134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293134"><span class="hs-identifier hs-var">pProvider_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679293133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293133"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679293132"><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293132"><span class="hs-identifier hs-var">pInputArtifactDetails_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679293131"><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293131"><span class="hs-identifier hs-var">pOutputArtifactDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">CreateCustomActionType' :: Maybe [ActionConfigurationProperty]
+-&gt; Maybe [Tag]
+-&gt; Maybe ActionTypeSettings
+-&gt; ActionCategory
+-&gt; Text
+-&gt; Text
+-&gt; ArtifactDetails
+-&gt; ArtifactDetails
+-&gt; CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationProperties:CreateCustomActionType' :: Maybe [ActionConfigurationProperty]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AconfigurationProperties%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateCustomActionType' :: Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:settings:CreateCustomActionType' :: Maybe ActionTypeSettings
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Asettings%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:category:CreateCustomActionType' :: ActionCategory
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Acategory%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293135"><span class="hs-identifier hs-var">pCategory_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:provider:CreateCustomActionType' :: Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aprovider%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293134"><span class="hs-identifier hs-var">pProvider_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:CreateCustomActionType' :: Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aversion%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293133"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputArtifactDetails:CreateCustomActionType' :: ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AinputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293132"><span class="hs-identifier hs-var">pInputArtifactDetails_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputArtifactDetails:CreateCustomActionType' :: ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AoutputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293131"><span class="hs-identifier hs-var">pOutputArtifactDetails_</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The configuration properties for the custom action.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- You can refer to a name in the configuration properties of the custom</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- action within the URL templates by following the format of</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- {Config:name}, as long as the configuration property is both required</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- and not secret. For more information, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline&gt;.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_configurationProperties"><span class="hs-identifier hs-type">createCustomActionType_configurationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationProperty.html#ActionConfigurationProperty"><span class="hs-identifier hs-type">ActionConfigurationProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="createCustomActionType_configurationProperties"><span class="annot"><span class="annottext">createCustomActionType_configurationProperties :: (Maybe [ActionConfigurationProperty]
+ -&gt; f (Maybe [ActionConfigurationProperty]))
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_configurationProperties"><span class="hs-identifier hs-var hs-var">createCustomActionType_configurationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; Maybe [ActionConfigurationProperty])
+-&gt; (CreateCustomActionType
+    -&gt; Maybe [ActionConfigurationProperty] -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     (Maybe [ActionConfigurationProperty])
+     (Maybe [ActionConfigurationProperty])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293128"><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+configurationProperties :: Maybe [ActionConfigurationProperty]
+$sel:configurationProperties:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293128"><span class="hs-identifier hs-var hs-var">configurationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293128"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293127"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293126"><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationProperties:CreateCustomActionType' :: Maybe [ActionConfigurationProperty]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AconfigurationProperties%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ActionConfigurationProperty]
+  -&gt; f (Maybe [ActionConfigurationProperty]))
+ -&gt; CreateCustomActionType -&gt; f CreateCustomActionType)
+-&gt; ((Maybe [ActionConfigurationProperty]
+     -&gt; f (Maybe [ActionConfigurationProperty]))
+    -&gt; Maybe [ActionConfigurationProperty]
+    -&gt; f (Maybe [ActionConfigurationProperty]))
+-&gt; (Maybe [ActionConfigurationProperty]
+    -&gt; f (Maybe [ActionConfigurationProperty]))
+-&gt; CreateCustomActionType
+-&gt; f CreateCustomActionType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+-&gt; Iso
+     (Maybe [ActionConfigurationProperty])
+     (Maybe [ActionConfigurationProperty])
+     (Maybe [ActionConfigurationProperty])
+     (Maybe [ActionConfigurationProperty])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+  [ActionConfigurationProperty]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The tags for the custom action.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_tags"><span class="hs-identifier hs-type">createCustomActionType_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createCustomActionType_tags"><span class="annot"><span class="annottext">createCustomActionType_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_tags"><span class="hs-identifier hs-var hs-var">createCustomActionType_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; Maybe [Tag])
+-&gt; (CreateCustomActionType
+    -&gt; Maybe [Tag] -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293122"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679293122"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293122"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293121"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293120"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCustomActionType' :: Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCustomActionType -&gt; f CreateCustomActionType)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomActionType
+-&gt; f CreateCustomActionType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | URLs that provide users information about this custom action.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_settings"><span class="hs-identifier hs-type">createCustomActionType_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeSettings.html#ActionTypeSettings"><span class="hs-identifier hs-type">ActionTypeSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="createCustomActionType_settings"><span class="annot"><span class="annottext">createCustomActionType_settings :: (Maybe ActionTypeSettings -&gt; f (Maybe ActionTypeSettings))
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_settings"><span class="hs-identifier hs-var hs-var">createCustomActionType_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; Maybe ActionTypeSettings)
+-&gt; (CreateCustomActionType
+    -&gt; Maybe ActionTypeSettings -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     (Maybe ActionTypeSettings)
+     (Maybe ActionTypeSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293119"><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+settings :: Maybe ActionTypeSettings
+$sel:settings:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe ActionTypeSettings
+</span><a href="#local-6989586621679293119"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+</span><a href="#local-6989586621679293119"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293118"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293117"><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+</span><a href="#local-6989586621679293117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:CreateCustomActionType' :: Maybe ActionTypeSettings
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Asettings%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+</span><a href="#local-6989586621679293117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The category of the custom action, such as a build action or a test</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_category"><span class="hs-identifier hs-type">createCustomActionType_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-type">ActionCategory</span></a></span><span>
+</span><span id="line-171"></span><span id="createCustomActionType_category"><span class="annot"><span class="annottext">createCustomActionType_category :: (ActionCategory -&gt; f ActionCategory)
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_category"><span class="hs-identifier hs-var hs-var">createCustomActionType_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; ActionCategory)
+-&gt; (CreateCustomActionType
+    -&gt; ActionCategory -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     ActionCategory
+     ActionCategory
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293116"><span class="annot"><span class="annottext">ActionCategory
+category :: ActionCategory
+$sel:category:CreateCustomActionType' :: CreateCustomActionType -&gt; ActionCategory
+</span><a href="#local-6989586621679293116"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293116"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293115"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293114"><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:CreateCustomActionType' :: ActionCategory
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Acategory%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The provider of the service used in the custom action, such as AWS</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- CodeDeploy.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_provider"><span class="hs-identifier hs-type">createCustomActionType_provider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="createCustomActionType_provider"><span class="annot"><span class="annottext">createCustomActionType_provider :: (Text -&gt; f Text)
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_provider"><span class="hs-identifier hs-var hs-var">createCustomActionType_provider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; Text)
+-&gt; (CreateCustomActionType -&gt; Text -&gt; CreateCustomActionType)
+-&gt; Lens CreateCustomActionType CreateCustomActionType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293113"><span class="annot"><span class="annottext">Text
+provider :: Text
+$sel:provider:CreateCustomActionType' :: CreateCustomActionType -&gt; Text
+</span><a href="#local-6989586621679293113"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293113"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293112"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:CreateCustomActionType' :: Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aprovider%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The version identifier of the custom action.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_version"><span class="hs-identifier hs-type">createCustomActionType_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="createCustomActionType_version"><span class="annot"><span class="annottext">createCustomActionType_version :: (Text -&gt; f Text)
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_version"><span class="hs-identifier hs-var hs-var">createCustomActionType_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; Text)
+-&gt; (CreateCustomActionType -&gt; Text -&gt; CreateCustomActionType)
+-&gt; Lens CreateCustomActionType CreateCustomActionType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293110"><span class="annot"><span class="annottext">Text
+version :: Text
+$sel:version:CreateCustomActionType' :: CreateCustomActionType -&gt; Text
+</span><a href="#local-6989586621679293110"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293110"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293109"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CreateCustomActionType' :: Text
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Aversion%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The details of the input artifact for the action, such as its commit ID.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_inputArtifactDetails"><span class="hs-identifier hs-type">createCustomActionType_inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span>
+</span><span id="line-184"></span><span id="createCustomActionType_inputArtifactDetails"><span class="annot"><span class="annottext">createCustomActionType_inputArtifactDetails :: (ArtifactDetails -&gt; f ArtifactDetails)
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_inputArtifactDetails"><span class="hs-identifier hs-var hs-var">createCustomActionType_inputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; ArtifactDetails)
+-&gt; (CreateCustomActionType
+    -&gt; ArtifactDetails -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     ArtifactDetails
+     ArtifactDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293107"><span class="annot"><span class="annottext">ArtifactDetails
+inputArtifactDetails :: ArtifactDetails
+$sel:inputArtifactDetails:CreateCustomActionType' :: CreateCustomActionType -&gt; ArtifactDetails
+</span><a href="#local-6989586621679293107"><span class="hs-identifier hs-var hs-var">inputArtifactDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293107"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293106"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293105"><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputArtifactDetails:CreateCustomActionType' :: ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AinputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The details of the output artifact of the action, such as its commit ID.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_outputArtifactDetails"><span class="hs-identifier hs-type">createCustomActionType_outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span>
+</span><span id="line-188"></span><span id="createCustomActionType_outputArtifactDetails"><span class="annot"><span class="annottext">createCustomActionType_outputArtifactDetails :: (ArtifactDetails -&gt; f ArtifactDetails)
+-&gt; CreateCustomActionType -&gt; f CreateCustomActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionType_outputArtifactDetails"><span class="hs-identifier hs-var hs-var">createCustomActionType_outputArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionType -&gt; ArtifactDetails)
+-&gt; (CreateCustomActionType
+    -&gt; ArtifactDetails -&gt; CreateCustomActionType)
+-&gt; Lens
+     CreateCustomActionType
+     CreateCustomActionType
+     ArtifactDetails
+     ArtifactDetails
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293104"><span class="annot"><span class="annottext">ArtifactDetails
+outputArtifactDetails :: ArtifactDetails
+$sel:outputArtifactDetails:CreateCustomActionType' :: CreateCustomActionType -&gt; ArtifactDetails
+</span><a href="#local-6989586621679293104"><span class="hs-identifier hs-var hs-var">outputArtifactDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293104"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293103"><span class="annot"><span class="annottext">s :: CreateCustomActionType
+</span><a href="#local-6989586621679293103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293102"><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionType
+</span><a href="#local-6989586621679293103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputArtifactDetails:CreateCustomActionType' :: ArtifactDetails
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AoutputArtifactDetails%3ACreateCustomActionType%27"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-192"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679293098"><span class="annot"><span class="annottext">request :: CreateCustomActionType -&gt; Request CreateCustomActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCustomActionType -&gt; Request CreateCustomActionType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679293094"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCustomActionType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomActionType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCustomActionType))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCustomActionType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomActionType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293091"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293090"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293090"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">CreateCustomActionTypeResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Tag]
+ -&gt; Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either
+     String (Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
+-&gt; Maybe [Tag] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse)
+-&gt; Either String Int
+-&gt; Either String (ActionType -&gt; CreateCustomActionTypeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293091"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (ActionType -&gt; CreateCustomActionTypeResponse)
+-&gt; Either String ActionType
+-&gt; Either String CreateCustomActionTypeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ActionType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293079"><span id="local-6989586621679293081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679293072"><span class="annot"><span class="annottext">toHeaders :: CreateCustomActionType -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCustomActionType -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodePipeline_20150709.CreateCustomActionType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293062"><span id="local-6989586621679293064"><span id="local-6989586621679293066"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679293060"><span class="annot"><span class="annottext">toJSON :: CreateCustomActionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType%27"><span class="hs-identifier hs-type">CreateCustomActionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293051"><span id="local-6989586621679293052"><span id="local-6989586621679293053"><span id="local-6989586621679293054"><span id="local-6989586621679293055"><span id="local-6989586621679293056"><span id="local-6989586621679293057"><span id="local-6989586621679293058"><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+Maybe [Tag]
+Maybe ActionTypeSettings
+Text
+ActionCategory
+ArtifactDetails
+outputArtifactDetails :: ArtifactDetails
+inputArtifactDetails :: ArtifactDetails
+version :: Text
+provider :: Text
+category :: ActionCategory
+settings :: Maybe ActionTypeSettings
+tags :: Maybe [Tag]
+configurationProperties :: Maybe [ActionConfigurationProperty]
+$sel:outputArtifactDetails:CreateCustomActionType' :: CreateCustomActionType -&gt; ArtifactDetails
+$sel:inputArtifactDetails:CreateCustomActionType' :: CreateCustomActionType -&gt; ArtifactDetails
+$sel:version:CreateCustomActionType' :: CreateCustomActionType -&gt; Text
+$sel:provider:CreateCustomActionType' :: CreateCustomActionType -&gt; Text
+$sel:category:CreateCustomActionType' :: CreateCustomActionType -&gt; ActionCategory
+$sel:settings:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe ActionTypeSettings
+$sel:tags:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe [Tag]
+$sel:configurationProperties:CreateCustomActionType' :: CreateCustomActionType -&gt; Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293051"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ActionConfigurationProperty] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">([ActionConfigurationProperty] -&gt; Pair)
+-&gt; Maybe [ActionConfigurationProperty] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActionConfigurationProperty]
+</span><a href="#local-6989586621679293058"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293057"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ActionTypeSettings -&gt; Pair)
+-&gt; Maybe ActionTypeSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionTypeSettings
+</span><a href="#local-6989586621679293056"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;category&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionCategory -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionCategory
+</span><a href="#local-6989586621679293055"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;provider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293054"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293053"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-235"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputArtifactDetails&quot;</span></span><span>
+</span><span id="line-236"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ArtifactDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293052"><span class="hs-identifier hs-var">inputArtifactDetails</span></a></span><span>
+</span><span id="line-237"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-239"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputArtifactDetails&quot;</span></span><span>
+</span><span id="line-240"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ArtifactDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679293051"><span class="hs-identifier hs-var">outputArtifactDetails</span></a></span><span>
+</span><span id="line-241"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679293045"><span class="annot"><span class="annottext">toPath :: CreateCustomActionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCustomActionType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionType"><span class="hs-identifier hs-type">CreateCustomActionType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679293041"><span class="annot"><span class="annottext">toQuery :: CreateCustomActionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCustomActionType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | Represents the output of a @CreateCustomActionType@ operation.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- /See:/ 'newCreateCustomActionTypeResponse' smart constructor.</span><span>
+</span><span id="line-254"></span><span id="local-6989586621679293038"><span id="local-6989586621679293039"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomActionTypeResponse"><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-var">CreateCustomActionTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomActionTypeResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">CreateCustomActionTypeResponse'</span></a></span></span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the tags applied to the custom action.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3Atags%3ACreateCustomActionTypeResponse%27"><span class="annot"><span class="annottext">CreateCustomActionTypeResponse -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCustomActionTypeResponse%27"><span class="annot"><span class="annottext">CreateCustomActionTypeResponse -&gt; Int
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AhttpStatus%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- | Returns information about the details of an action type.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3AactionType%3ACreateCustomActionTypeResponse%27"><span class="annot"><span class="annottext">CreateCustomActionTypeResponse -&gt; ActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AactionType%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293031"><span id="local-6989586621679293033"><span class="annot"><span class="annottext">CreateCustomActionTypeResponse
+-&gt; CreateCustomActionTypeResponse -&gt; Bool
+(CreateCustomActionTypeResponse
+ -&gt; CreateCustomActionTypeResponse -&gt; Bool)
+-&gt; (CreateCustomActionTypeResponse
+    -&gt; CreateCustomActionTypeResponse -&gt; Bool)
+-&gt; Eq CreateCustomActionTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomActionTypeResponse
+-&gt; CreateCustomActionTypeResponse -&gt; Bool
+$c/= :: CreateCustomActionTypeResponse
+-&gt; CreateCustomActionTypeResponse -&gt; Bool
+== :: CreateCustomActionTypeResponse
+-&gt; CreateCustomActionTypeResponse -&gt; Bool
+$c== :: CreateCustomActionTypeResponse
+-&gt; CreateCustomActionTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293023"><span id="local-6989586621679293025"><span id="local-6989586621679293027"><span id="local-6989586621679293029"><span class="annot"><span class="annottext">ReadPrec [CreateCustomActionTypeResponse]
+ReadPrec CreateCustomActionTypeResponse
+Int -&gt; ReadS CreateCustomActionTypeResponse
+ReadS [CreateCustomActionTypeResponse]
+(Int -&gt; ReadS CreateCustomActionTypeResponse)
+-&gt; ReadS [CreateCustomActionTypeResponse]
+-&gt; ReadPrec CreateCustomActionTypeResponse
+-&gt; ReadPrec [CreateCustomActionTypeResponse]
+-&gt; Read CreateCustomActionTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomActionTypeResponse]
+$creadListPrec :: ReadPrec [CreateCustomActionTypeResponse]
+readPrec :: ReadPrec CreateCustomActionTypeResponse
+$creadPrec :: ReadPrec CreateCustomActionTypeResponse
+readList :: ReadS [CreateCustomActionTypeResponse]
+$creadList :: ReadS [CreateCustomActionTypeResponse]
+readsPrec :: Int -&gt; ReadS CreateCustomActionTypeResponse
+$creadsPrec :: Int -&gt; ReadS CreateCustomActionTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293017"><span id="local-6989586621679293019"><span id="local-6989586621679293021"><span class="annot"><span class="annottext">Int -&gt; CreateCustomActionTypeResponse -&gt; ShowS
+[CreateCustomActionTypeResponse] -&gt; ShowS
+CreateCustomActionTypeResponse -&gt; String
+(Int -&gt; CreateCustomActionTypeResponse -&gt; ShowS)
+-&gt; (CreateCustomActionTypeResponse -&gt; String)
+-&gt; ([CreateCustomActionTypeResponse] -&gt; ShowS)
+-&gt; Show CreateCustomActionTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomActionTypeResponse] -&gt; ShowS
+$cshowList :: [CreateCustomActionTypeResponse] -&gt; ShowS
+show :: CreateCustomActionTypeResponse -&gt; String
+$cshow :: CreateCustomActionTypeResponse -&gt; String
+showsPrec :: Int -&gt; CreateCustomActionTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomActionTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomActionTypeResponse
+ -&gt; Rep CreateCustomActionTypeResponse x)
+-&gt; (forall x.
+    Rep CreateCustomActionTypeResponse x
+    -&gt; CreateCustomActionTypeResponse)
+-&gt; Generic CreateCustomActionTypeResponse
+forall x.
+Rep CreateCustomActionTypeResponse x
+-&gt; CreateCustomActionTypeResponse
+forall x.
+CreateCustomActionTypeResponse
+-&gt; Rep CreateCustomActionTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomActionTypeResponse x
+-&gt; CreateCustomActionTypeResponse
+$cfrom :: forall x.
+CreateCustomActionTypeResponse
+-&gt; Rep CreateCustomActionTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Create a value of 'CreateCustomActionTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'tags', 'createCustomActionTypeResponse_tags' - Specifies the tags applied to the custom action.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'httpStatus', 'createCustomActionTypeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'actionType', 'createCustomActionTypeResponse_actionType' - Returns information about the details of an action type.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionTypeResponse"><span class="hs-identifier hs-type">newCreateCustomActionTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-comment">-- | 'actionType'</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span>
+</span><span id="line-283"></span><span id="newCreateCustomActionTypeResponse"><span class="annot"><span class="annottext">newCreateCustomActionTypeResponse :: Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#newCreateCustomActionTypeResponse"><span class="hs-identifier hs-var hs-var">newCreateCustomActionTypeResponse</span></a></span></span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679293014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679293013"><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679293013"><span class="hs-identifier hs-var">pActionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">CreateCustomActionTypeResponse' :: Maybe [Tag] -&gt; Int -&gt; ActionType -&gt; CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateCustomActionTypeResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-288"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomActionTypeResponse' :: Int
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AhttpStatus%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionType:CreateCustomActionTypeResponse' :: ActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AactionType%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679293013"><span class="hs-identifier hs-var">pActionType_</span></a></span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | Specifies the tags applied to the custom action.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_tags"><span class="hs-identifier hs-type">createCustomActionTypeResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="createCustomActionTypeResponse_tags"><span class="annot"><span class="annottext">createCustomActionTypeResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomActionTypeResponse
+-&gt; f CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_tags"><span class="hs-identifier hs-var hs-var">createCustomActionTypeResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionTypeResponse -&gt; Maybe [Tag])
+-&gt; (CreateCustomActionTypeResponse
+    -&gt; Maybe [Tag] -&gt; CreateCustomActionTypeResponse)
+-&gt; Lens
+     CreateCustomActionTypeResponse
+     CreateCustomActionTypeResponse
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293012"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateCustomActionTypeResponse' :: CreateCustomActionTypeResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679293012"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293012"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293011"><span class="annot"><span class="annottext">s :: CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293010"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCustomActionTypeResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3Atags%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679293010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateCustomActionTypeResponse
+ -&gt; f CreateCustomActionTypeResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateCustomActionTypeResponse
+-&gt; f CreateCustomActionTypeResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_httpStatus"><span class="hs-identifier hs-type">createCustomActionTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-299"></span><span id="createCustomActionTypeResponse_httpStatus"><span class="annot"><span class="annottext">createCustomActionTypeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCustomActionTypeResponse
+-&gt; f CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCustomActionTypeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionTypeResponse -&gt; Int)
+-&gt; (CreateCustomActionTypeResponse
+    -&gt; Int -&gt; CreateCustomActionTypeResponse)
+-&gt; Lens
+     CreateCustomActionTypeResponse
+     CreateCustomActionTypeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293009"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCustomActionTypeResponse' :: CreateCustomActionTypeResponse -&gt; Int
+</span><a href="#local-6989586621679293009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293008"><span class="annot"><span class="annottext">s :: CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomActionTypeResponse' :: Int
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AhttpStatus%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | Returns information about the details of an action type.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_actionType"><span class="hs-identifier hs-type">createCustomActionTypeResponse_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
+</span><span id="line-303"></span><span id="createCustomActionTypeResponse_actionType"><span class="annot"><span class="annottext">createCustomActionTypeResponse_actionType :: (ActionType -&gt; f ActionType)
+-&gt; CreateCustomActionTypeResponse
+-&gt; f CreateCustomActionTypeResponse
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#createCustomActionTypeResponse_actionType"><span class="hs-identifier hs-var hs-var">createCustomActionTypeResponse_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomActionTypeResponse -&gt; ActionType)
+-&gt; (CreateCustomActionTypeResponse
+    -&gt; ActionType -&gt; CreateCustomActionTypeResponse)
+-&gt; Lens
+     CreateCustomActionTypeResponse
+     CreateCustomActionTypeResponse
+     ActionType
+     ActionType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293006"><span class="annot"><span class="annottext">ActionType
+actionType :: ActionType
+$sel:actionType:CreateCustomActionTypeResponse' :: CreateCustomActionTypeResponse -&gt; ActionType
+</span><a href="#local-6989586621679293006"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679293006"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293005"><span class="annot"><span class="annottext">s :: CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse%27"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293004"><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679293004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomActionTypeResponse
+</span><a href="#local-6989586621679293005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:CreateCustomActionTypeResponse' :: ActionType
+</span><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#%24sel%3AactionType%3ACreateCustomActionTypeResponse%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679293004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679293002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.CreateCustomActionType.html#CreateCustomActionTypeResponse"><span class="hs-identifier hs-type">CreateCustomActionTypeResponse</span></a></span></span><span>
+</span><span id="line-308"></span></pre></body></html>

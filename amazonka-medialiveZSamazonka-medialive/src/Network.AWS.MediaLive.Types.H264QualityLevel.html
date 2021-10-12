@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.H264QualityLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.H264QualityLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel"><span class="hs-identifier">H264QualityLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_ENHANCED_QUALITY"><span class="hs-identifier">H264QualityLevel_ENHANCED_QUALITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_STANDARD_QUALITY"><span class="hs-identifier">H264QualityLevel_STANDARD_QUALITY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | H264 Quality Level</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679874496"><span id="local-6989586621679874497"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264QualityLevel"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel"><span class="hs-identifier hs-var">H264QualityLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264QualityLevel%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel%27"><span class="hs-identifier hs-var">H264QualityLevel'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264QualityLevel"><span class="annot"><span class="annottext">H264QualityLevel -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#fromH264QualityLevel"><span class="hs-identifier hs-var hs-var">fromH264QualityLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679874488"><span id="local-6989586621679874490"><span id="local-6989586621679874492"><span class="annot"><span class="annottext">Int -&gt; H264QualityLevel -&gt; ShowS
+[H264QualityLevel] -&gt; ShowS
+H264QualityLevel -&gt; String
+(Int -&gt; H264QualityLevel -&gt; ShowS)
+-&gt; (H264QualityLevel -&gt; String)
+-&gt; ([H264QualityLevel] -&gt; ShowS)
+-&gt; Show H264QualityLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264QualityLevel] -&gt; ShowS
+$cshowList :: [H264QualityLevel] -&gt; ShowS
+show :: H264QualityLevel -&gt; String
+$cshow :: H264QualityLevel -&gt; String
+showsPrec :: Int -&gt; H264QualityLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264QualityLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679874479"><span id="local-6989586621679874481"><span id="local-6989586621679874483"><span id="local-6989586621679874485"><span class="annot"><span class="annottext">ReadPrec [H264QualityLevel]
+ReadPrec H264QualityLevel
+Int -&gt; ReadS H264QualityLevel
+ReadS [H264QualityLevel]
+(Int -&gt; ReadS H264QualityLevel)
+-&gt; ReadS [H264QualityLevel]
+-&gt; ReadPrec H264QualityLevel
+-&gt; ReadPrec [H264QualityLevel]
+-&gt; Read H264QualityLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264QualityLevel]
+$creadListPrec :: ReadPrec [H264QualityLevel]
+readPrec :: ReadPrec H264QualityLevel
+$creadPrec :: ReadPrec H264QualityLevel
+readList :: ReadS [H264QualityLevel]
+$creadList :: ReadS [H264QualityLevel]
+readsPrec :: Int -&gt; ReadS H264QualityLevel
+$creadsPrec :: Int -&gt; ReadS H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679874474"><span id="local-6989586621679874476"><span class="annot"><span class="annottext">H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+(H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; Eq H264QualityLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c/= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+== :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c== :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679874458"><span id="local-6989586621679874460"><span id="local-6989586621679874462"><span id="local-6989586621679874464"><span id="local-6989586621679874466"><span id="local-6989586621679874468"><span id="local-6989586621679874470"><span class="annot"><span class="annottext">Eq H264QualityLevel
+Eq H264QualityLevel
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Ordering)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; Bool)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel)
+-&gt; (H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel)
+-&gt; Ord H264QualityLevel
+H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+H264QualityLevel -&gt; H264QualityLevel -&gt; Ordering
+H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel
+$cmin :: H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel
+max :: H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel
+$cmax :: H264QualityLevel -&gt; H264QualityLevel -&gt; H264QualityLevel
+&gt;= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c&gt;= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+&gt; :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c&gt; :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+&lt;= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c&lt;= :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+&lt; :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+$c&lt; :: H264QualityLevel -&gt; H264QualityLevel -&gt; Bool
+compare :: H264QualityLevel -&gt; H264QualityLevel -&gt; Ordering
+$ccompare :: H264QualityLevel -&gt; H264QualityLevel -&gt; Ordering
+$cp1Ord :: Eq H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264QualityLevel -&gt; Rep H264QualityLevel x)
+-&gt; (forall x. Rep H264QualityLevel x -&gt; H264QualityLevel)
+-&gt; Generic H264QualityLevel
+forall x. Rep H264QualityLevel x -&gt; H264QualityLevel
+forall x. H264QualityLevel -&gt; Rep H264QualityLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264QualityLevel x -&gt; H264QualityLevel
+$cfrom :: forall x. H264QualityLevel -&gt; Rep H264QualityLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679874450"><span id="local-6989586621679874452"><span class="annot"><span class="annottext">Int -&gt; H264QualityLevel -&gt; Int
+H264QualityLevel -&gt; Int
+(Int -&gt; H264QualityLevel -&gt; Int)
+-&gt; (H264QualityLevel -&gt; Int) -&gt; Hashable H264QualityLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264QualityLevel -&gt; Int
+$chash :: H264QualityLevel -&gt; Int
+hashWithSalt :: Int -&gt; H264QualityLevel -&gt; Int
+$chashWithSalt :: Int -&gt; H264QualityLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679874447"><span class="annot"><span class="annottext">H264QualityLevel -&gt; ()
+(H264QualityLevel -&gt; ()) -&gt; NFData H264QualityLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264QualityLevel -&gt; ()
+$crnf :: H264QualityLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679874444"><span class="annot"><span class="annottext">Text -&gt; Either String H264QualityLevel
+(Text -&gt; Either String H264QualityLevel)
+-&gt; FromText H264QualityLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264QualityLevel
+$cfromText :: Text -&gt; Either String H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679874441"><span class="annot"><span class="annottext">H264QualityLevel -&gt; Text
+(H264QualityLevel -&gt; Text) -&gt; ToText H264QualityLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264QualityLevel -&gt; Text
+$ctoText :: H264QualityLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679874438"><span class="annot"><span class="annottext">H264QualityLevel -&gt; ByteString
+(H264QualityLevel -&gt; ByteString) -&gt; ToByteString H264QualityLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264QualityLevel -&gt; ByteString
+$ctoBS :: H264QualityLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679874435"><span class="annot"><span class="annottext">H264QualityLevel -&gt; ByteStringBuilder
+(H264QualityLevel -&gt; ByteStringBuilder) -&gt; ToLog H264QualityLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264QualityLevel -&gt; ByteStringBuilder
+$cbuild :: H264QualityLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679874432"><span class="annot"><span class="annottext">HeaderName -&gt; H264QualityLevel -&gt; [Header]
+(HeaderName -&gt; H264QualityLevel -&gt; [Header])
+-&gt; ToHeader H264QualityLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264QualityLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264QualityLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679874429"><span class="annot"><span class="annottext">H264QualityLevel -&gt; QueryString
+(H264QualityLevel -&gt; QueryString) -&gt; ToQuery H264QualityLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264QualityLevel -&gt; QueryString
+$ctoQuery :: H264QualityLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679874424"><span id="local-6989586621679874426"><span class="annot"><span class="annottext">Value -&gt; Parser [H264QualityLevel]
+Value -&gt; Parser H264QualityLevel
+(Value -&gt; Parser H264QualityLevel)
+-&gt; (Value -&gt; Parser [H264QualityLevel])
+-&gt; FromJSON H264QualityLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264QualityLevel]
+$cparseJSONList :: Value -&gt; Parser [H264QualityLevel]
+parseJSON :: Value -&gt; Parser H264QualityLevel
+$cparseJSON :: Value -&gt; Parser H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679874419"><span id="local-6989586621679874421"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264QualityLevel]
+FromJSONKeyFunction H264QualityLevel
+FromJSONKeyFunction H264QualityLevel
+-&gt; FromJSONKeyFunction [H264QualityLevel]
+-&gt; FromJSONKey H264QualityLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264QualityLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264QualityLevel]
+fromJSONKey :: FromJSONKeyFunction H264QualityLevel
+$cfromJSONKey :: FromJSONKeyFunction H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679874410"><span id="local-6989586621679874412"><span id="local-6989586621679874414"><span id="local-6989586621679874416"><span class="annot"><span class="annottext">[H264QualityLevel] -&gt; Encoding
+[H264QualityLevel] -&gt; Value
+H264QualityLevel -&gt; Encoding
+H264QualityLevel -&gt; Value
+(H264QualityLevel -&gt; Value)
+-&gt; (H264QualityLevel -&gt; Encoding)
+-&gt; ([H264QualityLevel] -&gt; Value)
+-&gt; ([H264QualityLevel] -&gt; Encoding)
+-&gt; ToJSON H264QualityLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264QualityLevel] -&gt; Encoding
+$ctoEncodingList :: [H264QualityLevel] -&gt; Encoding
+toJSONList :: [H264QualityLevel] -&gt; Value
+$ctoJSONList :: [H264QualityLevel] -&gt; Value
+toEncoding :: H264QualityLevel -&gt; Encoding
+$ctoEncoding :: H264QualityLevel -&gt; Encoding
+toJSON :: H264QualityLevel -&gt; Value
+$ctoJSON :: H264QualityLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679874405"><span id="local-6989586621679874407"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264QualityLevel]
+ToJSONKeyFunction H264QualityLevel
+ToJSONKeyFunction H264QualityLevel
+-&gt; ToJSONKeyFunction [H264QualityLevel]
+-&gt; ToJSONKey H264QualityLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264QualityLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264QualityLevel]
+toJSONKey :: ToJSONKeyFunction H264QualityLevel
+$ctoJSONKey :: ToJSONKeyFunction H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679874402"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264QualityLevel
+([Node] -&gt; Either String H264QualityLevel)
+-&gt; FromXML H264QualityLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264QualityLevel
+$cparseXML :: [Node] -&gt; Either String H264QualityLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679874399"><span class="annot"><span class="annottext">H264QualityLevel -&gt; XML
+(H264QualityLevel -&gt; XML) -&gt; ToXML H264QualityLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264QualityLevel -&gt; XML
+$ctoXML :: H264QualityLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_ENHANCED_QUALITY"><span class="hs-identifier hs-type">H264QualityLevel_ENHANCED_QUALITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel"><span class="hs-identifier hs-type">H264QualityLevel</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264QualityLevel_ENHANCED_QUALITY"><span id="%24mH264QualityLevel_ENHANCED_QUALITY"><span id="H264QualityLevel_ENHANCED_QUALITY"><span class="annot"><span class="annottext">$bH264QualityLevel_ENHANCED_QUALITY :: H264QualityLevel
+$mH264QualityLevel_ENHANCED_QUALITY :: forall r. H264QualityLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#%24bH264QualityLevel_ENHANCED_QUALITY"><span class="hs-identifier hs-var hs-var hs-var">H264QualityLevel_ENHANCED_QUALITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel%27"><span class="hs-identifier hs-type">H264QualityLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENHANCED_QUALITY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_STANDARD_QUALITY"><span class="hs-identifier hs-type">H264QualityLevel_STANDARD_QUALITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel"><span class="hs-identifier hs-type">H264QualityLevel</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264QualityLevel_STANDARD_QUALITY"><span id="%24mH264QualityLevel_STANDARD_QUALITY"><span id="H264QualityLevel_STANDARD_QUALITY"><span class="annot"><span class="annottext">$bH264QualityLevel_STANDARD_QUALITY :: H264QualityLevel
+$mH264QualityLevel_STANDARD_QUALITY :: forall r. H264QualityLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#%24bH264QualityLevel_STANDARD_QUALITY"><span class="hs-identifier hs-var hs-var hs-var">H264QualityLevel_STANDARD_QUALITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel%27"><span class="hs-identifier hs-type">H264QualityLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD_QUALITY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_ENHANCED_QUALITY"><span class="hs-pragma hs-type">H264QualityLevel_ENHANCED_QUALITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel_STANDARD_QUALITY"><span class="hs-pragma hs-type">H264QualityLevel_STANDARD_QUALITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264QualityLevel.html#H264QualityLevel%27"><span class="hs-pragma hs-type">H264QualityLevel'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

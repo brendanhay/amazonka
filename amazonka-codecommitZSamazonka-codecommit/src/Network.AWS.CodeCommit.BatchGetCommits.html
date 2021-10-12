@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.BatchGetCommits</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the contents of one or more commits in a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.BatchGetCommits</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier">BatchGetCommits</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommits"><span class="hs-identifier">newBatchGetCommits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_commitIds"><span class="hs-identifier">batchGetCommits_commitIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_repositoryName"><span class="hs-identifier">batchGetCommits_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier">BatchGetCommitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommitsResponse"><span class="hs-identifier">newBatchGetCommitsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_commits"><span class="hs-identifier">batchGetCommitsResponse_commits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_errors"><span class="hs-identifier">batchGetCommitsResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_httpStatus"><span class="hs-identifier">batchGetCommitsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchGetCommits' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679371667"><span id="local-6989586621679371668"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetCommits"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-var">BatchGetCommits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetCommits%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-var">BatchGetCommits'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full commit IDs of the commits to get information about.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- You must supply the full SHA IDs of each commit. You cannot use</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- shortened SHA IDs.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcommitIds%3ABatchGetCommits%27"><span class="annot"><span class="annottext">BatchGetCommits -&gt; [Text]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AcommitIds%3ABatchGetCommits%27"><span class="hs-identifier hs-var hs-var">commitIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the commits.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ArepositoryName%3ABatchGetCommits%27"><span class="annot"><span class="annottext">BatchGetCommits -&gt; Text
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3ArepositoryName%3ABatchGetCommits%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371660"><span id="local-6989586621679371662"><span class="annot"><span class="annottext">BatchGetCommits -&gt; BatchGetCommits -&gt; Bool
+(BatchGetCommits -&gt; BatchGetCommits -&gt; Bool)
+-&gt; (BatchGetCommits -&gt; BatchGetCommits -&gt; Bool)
+-&gt; Eq BatchGetCommits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetCommits -&gt; BatchGetCommits -&gt; Bool
+$c/= :: BatchGetCommits -&gt; BatchGetCommits -&gt; Bool
+== :: BatchGetCommits -&gt; BatchGetCommits -&gt; Bool
+$c== :: BatchGetCommits -&gt; BatchGetCommits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371651"><span id="local-6989586621679371653"><span id="local-6989586621679371655"><span id="local-6989586621679371657"><span class="annot"><span class="annottext">ReadPrec [BatchGetCommits]
+ReadPrec BatchGetCommits
+Int -&gt; ReadS BatchGetCommits
+ReadS [BatchGetCommits]
+(Int -&gt; ReadS BatchGetCommits)
+-&gt; ReadS [BatchGetCommits]
+-&gt; ReadPrec BatchGetCommits
+-&gt; ReadPrec [BatchGetCommits]
+-&gt; Read BatchGetCommits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetCommits]
+$creadListPrec :: ReadPrec [BatchGetCommits]
+readPrec :: ReadPrec BatchGetCommits
+$creadPrec :: ReadPrec BatchGetCommits
+readList :: ReadS [BatchGetCommits]
+$creadList :: ReadS [BatchGetCommits]
+readsPrec :: Int -&gt; ReadS BatchGetCommits
+$creadsPrec :: Int -&gt; ReadS BatchGetCommits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371644"><span id="local-6989586621679371646"><span id="local-6989586621679371648"><span class="annot"><span class="annottext">Int -&gt; BatchGetCommits -&gt; ShowS
+[BatchGetCommits] -&gt; ShowS
+BatchGetCommits -&gt; String
+(Int -&gt; BatchGetCommits -&gt; ShowS)
+-&gt; (BatchGetCommits -&gt; String)
+-&gt; ([BatchGetCommits] -&gt; ShowS)
+-&gt; Show BatchGetCommits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetCommits] -&gt; ShowS
+$cshowList :: [BatchGetCommits] -&gt; ShowS
+show :: BatchGetCommits -&gt; String
+$cshow :: BatchGetCommits -&gt; String
+showsPrec :: Int -&gt; BatchGetCommits -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetCommits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetCommits -&gt; Rep BatchGetCommits x)
+-&gt; (forall x. Rep BatchGetCommits x -&gt; BatchGetCommits)
+-&gt; Generic BatchGetCommits
+forall x. Rep BatchGetCommits x -&gt; BatchGetCommits
+forall x. BatchGetCommits -&gt; Rep BatchGetCommits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetCommits x -&gt; BatchGetCommits
+$cfrom :: forall x. BatchGetCommits -&gt; Rep BatchGetCommits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'BatchGetCommits' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'commitIds', 'batchGetCommits_commitIds' - The full commit IDs of the commits to get information about.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- You must supply the full SHA IDs of each commit. You cannot use</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- shortened SHA IDs.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'repositoryName', 'batchGetCommits_repositoryName' - The name of the repository that contains the commits.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommits"><span class="hs-identifier hs-type">newBatchGetCommits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'repositoryName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span>
+</span><span id="line-82"></span><span id="newBatchGetCommits"><span class="annot"><span class="annottext">newBatchGetCommits :: Text -&gt; BatchGetCommits
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommits"><span class="hs-identifier hs-var hs-var">newBatchGetCommits</span></a></span></span><span> </span><span id="local-6989586621679371639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371639"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">BatchGetCommits' :: [Text] -&gt; Text -&gt; BatchGetCommits
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commitIds:BatchGetCommits' :: [Text]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AcommitIds%3ABatchGetCommits%27"><span class="hs-identifier hs-var">commitIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetCommits' :: Text
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3ArepositoryName%3ABatchGetCommits%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371639"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The full commit IDs of the commits to get information about.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- You must supply the full SHA IDs of each commit. You cannot use</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- shortened SHA IDs.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_commitIds"><span class="hs-identifier hs-type">batchGetCommits_commitIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span id="batchGetCommits_commitIds"><span class="annot"><span class="annottext">batchGetCommits_commitIds :: ([Text] -&gt; f [Text]) -&gt; BatchGetCommits -&gt; f BatchGetCommits
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_commitIds"><span class="hs-identifier hs-var hs-var">batchGetCommits_commitIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetCommits -&gt; [Text])
+-&gt; (BatchGetCommits -&gt; [Text] -&gt; BatchGetCommits)
+-&gt; Lens BatchGetCommits BatchGetCommits [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371636"><span class="annot"><span class="annottext">[Text]
+commitIds :: [Text]
+$sel:commitIds:BatchGetCommits' :: BatchGetCommits -&gt; [Text]
+</span><a href="#local-6989586621679371636"><span class="hs-identifier hs-var hs-var">commitIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371636"><span class="hs-identifier hs-var">commitIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371635"><span class="annot"><span class="annottext">s :: BatchGetCommits
+</span><a href="#local-6989586621679371635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371634"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetCommits
+</span><a href="#local-6989586621679371635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitIds:BatchGetCommits' :: [Text]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AcommitIds%3ABatchGetCommits%27"><span class="hs-identifier hs-var">commitIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; BatchGetCommits -&gt; f BatchGetCommits)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchGetCommits
+-&gt; f BatchGetCommits
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the repository that contains the commits.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_repositoryName"><span class="hs-identifier hs-type">batchGetCommits_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="batchGetCommits_repositoryName"><span class="annot"><span class="annottext">batchGetCommits_repositoryName :: (Text -&gt; f Text) -&gt; BatchGetCommits -&gt; f BatchGetCommits
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommits_repositoryName"><span class="hs-identifier hs-var hs-var">batchGetCommits_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetCommits -&gt; Text)
+-&gt; (BatchGetCommits -&gt; Text -&gt; BatchGetCommits)
+-&gt; Lens BatchGetCommits BatchGetCommits Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371631"><span class="annot"><span class="annottext">Text
+repositoryName :: Text
+$sel:repositoryName:BatchGetCommits' :: BatchGetCommits -&gt; Text
+</span><a href="#local-6989586621679371631"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371631"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371630"><span class="annot"><span class="annottext">s :: BatchGetCommits
+</span><a href="#local-6989586621679371630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetCommits
+</span><a href="#local-6989586621679371630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetCommits' :: Text
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3ArepositoryName%3ABatchGetCommits%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679371625"><span class="annot"><span class="annottext">request :: BatchGetCommits -&gt; Request BatchGetCommits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetCommits -&gt; Request BatchGetCommits
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679371621"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchGetCommits
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetCommits)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchGetCommits))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchGetCommits
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchGetCommits)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371618"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679371617"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679371617"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679371616"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Commit]
+-&gt; Maybe [BatchGetCommitsError] -&gt; Int -&gt; BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-var">BatchGetCommitsResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Commit]
+ -&gt; Maybe [BatchGetCommitsError] -&gt; Int -&gt; BatchGetCommitsResponse)
+-&gt; Either String (Maybe [Commit])
+-&gt; Either
+     String
+     (Maybe [BatchGetCommitsError] -&gt; Int -&gt; BatchGetCommitsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Commit]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Commit]))
+-&gt; Maybe [Commit] -&gt; Either String (Maybe [Commit])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Commit]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [BatchGetCommitsError] -&gt; Int -&gt; BatchGetCommitsResponse)
+-&gt; Either String (Maybe [BatchGetCommitsError])
+-&gt; Either String (Int -&gt; BatchGetCommitsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [BatchGetCommitsError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BatchGetCommitsError]))
+-&gt; Maybe [BatchGetCommitsError]
+-&gt; Either String (Maybe [BatchGetCommitsError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetCommitsResponse)
+-&gt; Either String Int -&gt; Either String BatchGetCommitsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371618"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371607"><span id="local-6989586621679371609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679371600"><span class="annot"><span class="annottext">toHeaders :: BatchGetCommits -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetCommits -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.BatchGetCommits&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371590"><span id="local-6989586621679371592"><span id="local-6989586621679371594"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679371588"><span class="annot"><span class="annottext">toJSON :: BatchGetCommits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits%27"><span class="hs-identifier hs-type">BatchGetCommits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371585"><span id="local-6989586621679371586"><span class="annot"><span class="annottext">[Text]
+Text
+repositoryName :: Text
+commitIds :: [Text]
+$sel:repositoryName:BatchGetCommits' :: BatchGetCommits -&gt; Text
+$sel:commitIds:BatchGetCommits' :: BatchGetCommits -&gt; [Text]
+</span><a href="#local-6989586621679371585"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commitIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371586"><span class="hs-identifier hs-var">commitIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371585"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679371579"><span class="annot"><span class="annottext">toPath :: BatchGetCommits -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetCommits -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommits"><span class="hs-identifier hs-type">BatchGetCommits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679371575"><span class="annot"><span class="annottext">toQuery :: BatchGetCommits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetCommits -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newBatchGetCommitsResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679371572"><span id="local-6989586621679371573"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetCommitsResponse"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-var">BatchGetCommitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetCommitsResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-var">BatchGetCommitsResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of commit data type objects, each of which contains information</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- about a specified commit.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Acommits%3ABatchGetCommitsResponse%27"><span class="annot"><span class="annottext">BatchGetCommitsResponse -&gt; Maybe [Commit]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Acommits%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var hs-var">commits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Commit.html#Commit"><span class="hs-identifier hs-type">Commit</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | Returns any commit IDs for which information could not be found. For</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- example, if one of the commit IDs was a shortened SHA ID or that commit</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- was not found in the specified repository, the ID returns an error</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- object with more information.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchGetCommitsResponse%27"><span class="annot"><span class="annottext">BatchGetCommitsResponse -&gt; Maybe [BatchGetCommitsError]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Aerrors%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BatchGetCommitsError.html#BatchGetCommitsError"><span class="hs-identifier hs-type">BatchGetCommitsError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetCommitsResponse%27"><span class="annot"><span class="annottext">BatchGetCommitsResponse -&gt; Int
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AhttpStatus%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371565"><span id="local-6989586621679371567"><span class="annot"><span class="annottext">BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool
+(BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool)
+-&gt; (BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool)
+-&gt; Eq BatchGetCommitsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool
+$c/= :: BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool
+== :: BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool
+$c== :: BatchGetCommitsResponse -&gt; BatchGetCommitsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371557"><span id="local-6989586621679371559"><span id="local-6989586621679371561"><span id="local-6989586621679371563"><span class="annot"><span class="annottext">ReadPrec [BatchGetCommitsResponse]
+ReadPrec BatchGetCommitsResponse
+Int -&gt; ReadS BatchGetCommitsResponse
+ReadS [BatchGetCommitsResponse]
+(Int -&gt; ReadS BatchGetCommitsResponse)
+-&gt; ReadS [BatchGetCommitsResponse]
+-&gt; ReadPrec BatchGetCommitsResponse
+-&gt; ReadPrec [BatchGetCommitsResponse]
+-&gt; Read BatchGetCommitsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetCommitsResponse]
+$creadListPrec :: ReadPrec [BatchGetCommitsResponse]
+readPrec :: ReadPrec BatchGetCommitsResponse
+$creadPrec :: ReadPrec BatchGetCommitsResponse
+readList :: ReadS [BatchGetCommitsResponse]
+$creadList :: ReadS [BatchGetCommitsResponse]
+readsPrec :: Int -&gt; ReadS BatchGetCommitsResponse
+$creadsPrec :: Int -&gt; ReadS BatchGetCommitsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371551"><span id="local-6989586621679371553"><span id="local-6989586621679371555"><span class="annot"><span class="annottext">Int -&gt; BatchGetCommitsResponse -&gt; ShowS
+[BatchGetCommitsResponse] -&gt; ShowS
+BatchGetCommitsResponse -&gt; String
+(Int -&gt; BatchGetCommitsResponse -&gt; ShowS)
+-&gt; (BatchGetCommitsResponse -&gt; String)
+-&gt; ([BatchGetCommitsResponse] -&gt; ShowS)
+-&gt; Show BatchGetCommitsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetCommitsResponse] -&gt; ShowS
+$cshowList :: [BatchGetCommitsResponse] -&gt; ShowS
+show :: BatchGetCommitsResponse -&gt; String
+$cshow :: BatchGetCommitsResponse -&gt; String
+showsPrec :: Int -&gt; BatchGetCommitsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetCommitsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchGetCommitsResponse -&gt; Rep BatchGetCommitsResponse x)
+-&gt; (forall x.
+    Rep BatchGetCommitsResponse x -&gt; BatchGetCommitsResponse)
+-&gt; Generic BatchGetCommitsResponse
+forall x. Rep BatchGetCommitsResponse x -&gt; BatchGetCommitsResponse
+forall x. BatchGetCommitsResponse -&gt; Rep BatchGetCommitsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetCommitsResponse x -&gt; BatchGetCommitsResponse
+$cfrom :: forall x. BatchGetCommitsResponse -&gt; Rep BatchGetCommitsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'BatchGetCommitsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'commits', 'batchGetCommitsResponse_commits' - An array of commit data type objects, each of which contains information</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- about a specified commit.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'errors', 'batchGetCommitsResponse_errors' - Returns any commit IDs for which information could not be found. For</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- example, if one of the commit IDs was a shortened SHA ID or that commit</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- was not found in the specified repository, the ID returns an error</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- object with more information.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'batchGetCommitsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommitsResponse"><span class="hs-identifier hs-type">newBatchGetCommitsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span>
+</span><span id="line-184"></span><span id="newBatchGetCommitsResponse"><span class="annot"><span class="annottext">newBatchGetCommitsResponse :: Int -&gt; BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#newBatchGetCommitsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetCommitsResponse</span></a></span></span><span> </span><span id="local-6989586621679371548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">BatchGetCommitsResponse' :: Maybe [Commit]
+-&gt; Maybe [BatchGetCommitsError] -&gt; Int -&gt; BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commits:BatchGetCommitsResponse' :: Maybe [Commit]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Acommits%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">commits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Commit]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:BatchGetCommitsResponse' :: Maybe [BatchGetCommitsError]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Aerrors%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetCommitsResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AhttpStatus%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | An array of commit data type objects, each of which contains information</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- about a specified commit.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_commits"><span class="hs-identifier hs-type">batchGetCommitsResponse_commits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Commit.html#Commit"><span class="hs-identifier hs-type">Commit</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="batchGetCommitsResponse_commits"><span class="annot"><span class="annottext">batchGetCommitsResponse_commits :: (Maybe [Commit] -&gt; f (Maybe [Commit]))
+-&gt; BatchGetCommitsResponse -&gt; f BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_commits"><span class="hs-identifier hs-var hs-var">batchGetCommitsResponse_commits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetCommitsResponse -&gt; Maybe [Commit])
+-&gt; (BatchGetCommitsResponse
+    -&gt; Maybe [Commit] -&gt; BatchGetCommitsResponse)
+-&gt; Lens
+     BatchGetCommitsResponse
+     BatchGetCommitsResponse
+     (Maybe [Commit])
+     (Maybe [Commit])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371547"><span class="annot"><span class="annottext">Maybe [Commit]
+commits :: Maybe [Commit]
+$sel:commits:BatchGetCommitsResponse' :: BatchGetCommitsResponse -&gt; Maybe [Commit]
+</span><a href="#local-6989586621679371547"><span class="hs-identifier hs-var hs-var">commits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Commit]
+</span><a href="#local-6989586621679371547"><span class="hs-identifier hs-var">commits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371546"><span class="annot"><span class="annottext">s :: BatchGetCommitsResponse
+</span><a href="#local-6989586621679371546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371545"><span class="annot"><span class="annottext">Maybe [Commit]
+</span><a href="#local-6989586621679371545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetCommitsResponse
+</span><a href="#local-6989586621679371546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commits:BatchGetCommitsResponse' :: Maybe [Commit]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Acommits%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">commits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Commit]
+</span><a href="#local-6989586621679371545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Commit] -&gt; f (Maybe [Commit]))
+ -&gt; BatchGetCommitsResponse -&gt; f BatchGetCommitsResponse)
+-&gt; ((Maybe [Commit] -&gt; f (Maybe [Commit]))
+    -&gt; Maybe [Commit] -&gt; f (Maybe [Commit]))
+-&gt; (Maybe [Commit] -&gt; f (Maybe [Commit]))
+-&gt; BatchGetCommitsResponse
+-&gt; f BatchGetCommitsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Commit] [Commit] [Commit] [Commit]
+-&gt; Iso
+     (Maybe [Commit]) (Maybe [Commit]) (Maybe [Commit]) (Maybe [Commit])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Commit] [Commit] [Commit] [Commit]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Returns any commit IDs for which information could not be found. For</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- example, if one of the commit IDs was a shortened SHA ID or that commit</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- was not found in the specified repository, the ID returns an error</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- object with more information.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_errors"><span class="hs-identifier hs-type">batchGetCommitsResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.BatchGetCommitsError.html#BatchGetCommitsError"><span class="hs-identifier hs-type">BatchGetCommitsError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="batchGetCommitsResponse_errors"><span class="annot"><span class="annottext">batchGetCommitsResponse_errors :: (Maybe [BatchGetCommitsError] -&gt; f (Maybe [BatchGetCommitsError]))
+-&gt; BatchGetCommitsResponse -&gt; f BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_errors"><span class="hs-identifier hs-var hs-var">batchGetCommitsResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetCommitsResponse -&gt; Maybe [BatchGetCommitsError])
+-&gt; (BatchGetCommitsResponse
+    -&gt; Maybe [BatchGetCommitsError] -&gt; BatchGetCommitsResponse)
+-&gt; Lens
+     BatchGetCommitsResponse
+     BatchGetCommitsResponse
+     (Maybe [BatchGetCommitsError])
+     (Maybe [BatchGetCommitsError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371543"><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+errors :: Maybe [BatchGetCommitsError]
+$sel:errors:BatchGetCommitsResponse' :: BatchGetCommitsResponse -&gt; Maybe [BatchGetCommitsError]
+</span><a href="#local-6989586621679371543"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+</span><a href="#local-6989586621679371543"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371542"><span class="annot"><span class="annottext">s :: BatchGetCommitsResponse
+</span><a href="#local-6989586621679371542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371541"><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+</span><a href="#local-6989586621679371541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetCommitsResponse
+</span><a href="#local-6989586621679371542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchGetCommitsResponse' :: Maybe [BatchGetCommitsError]
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3Aerrors%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchGetCommitsError]
+</span><a href="#local-6989586621679371541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchGetCommitsError] -&gt; f (Maybe [BatchGetCommitsError]))
+ -&gt; BatchGetCommitsResponse -&gt; f BatchGetCommitsResponse)
+-&gt; ((Maybe [BatchGetCommitsError]
+     -&gt; f (Maybe [BatchGetCommitsError]))
+    -&gt; Maybe [BatchGetCommitsError]
+    -&gt; f (Maybe [BatchGetCommitsError]))
+-&gt; (Maybe [BatchGetCommitsError]
+    -&gt; f (Maybe [BatchGetCommitsError]))
+-&gt; BatchGetCommitsResponse
+-&gt; f BatchGetCommitsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+-&gt; Iso
+     (Maybe [BatchGetCommitsError])
+     (Maybe [BatchGetCommitsError])
+     (Maybe [BatchGetCommitsError])
+     (Maybe [BatchGetCommitsError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+  [BatchGetCommitsError]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetCommitsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span id="batchGetCommitsResponse_httpStatus"><span class="annot"><span class="annottext">batchGetCommitsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchGetCommitsResponse -&gt; f BatchGetCommitsResponse
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#batchGetCommitsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetCommitsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetCommitsResponse -&gt; Int)
+-&gt; (BatchGetCommitsResponse -&gt; Int -&gt; BatchGetCommitsResponse)
+-&gt; Lens BatchGetCommitsResponse BatchGetCommitsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371540"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchGetCommitsResponse' :: BatchGetCommitsResponse -&gt; Int
+</span><a href="#local-6989586621679371540"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371540"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371539"><span class="annot"><span class="annottext">s :: BatchGetCommitsResponse
+</span><a href="#local-6989586621679371539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse%27"><span class="hs-identifier hs-type">BatchGetCommitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetCommitsResponse
+</span><a href="#local-6989586621679371539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetCommitsResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.BatchGetCommits.html#%24sel%3AhttpStatus%3ABatchGetCommitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetCommits.html#BatchGetCommitsResponse"><span class="hs-identifier hs-type">BatchGetCommitsResponse</span></a></span></span><span>
+</span><span id="line-208"></span></pre></body></html>

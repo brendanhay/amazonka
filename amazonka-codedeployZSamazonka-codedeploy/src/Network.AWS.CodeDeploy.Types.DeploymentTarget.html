@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.Types.DeploymentTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.Types.DeploymentTarget</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.CloudFormationTarget.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types.CloudFormationTarget</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTargetType.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types.DeploymentTargetType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSTarget.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types.ECSTarget</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceTarget.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types.InstanceTarget</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaTarget.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types.LambdaTarget</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Information about the deployment target.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDeploymentTarget' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679314445"><span id="local-6989586621679314446"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentTarget"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-var">DeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentTarget%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-var">DeploymentTarget'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the target for a deployment that uses the Amazon ECS</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AecsTarget%3ADeploymentTarget%27"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Maybe ECSTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AecsTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var hs-var">ecsTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSTarget.html#ECSTarget"><span class="hs-identifier hs-type">ECSTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Information about the target for a deployment that uses the AWS Lambda</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlambdaTarget%3ADeploymentTarget%27"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Maybe LambdaTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AlambdaTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var hs-var">lambdaTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaTarget.html#LambdaTarget"><span class="hs-identifier hs-type">LambdaTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcloudFormationTarget%3ADeploymentTarget%27"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Maybe CloudFormationTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AcloudFormationTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var hs-var">cloudFormationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.CloudFormationTarget.html#CloudFormationTarget"><span class="hs-identifier hs-type">CloudFormationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the target for a deployment that uses the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- EC2\/On-premises compute platform.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AinstanceTarget%3ADeploymentTarget%27"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Maybe InstanceTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AinstanceTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var hs-var">instanceTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceTarget.html#InstanceTarget"><span class="hs-identifier hs-type">InstanceTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The deployment type that is specific to the deployment\'s compute</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- platform or deployments initiated by a CloudFormation stack update.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdeploymentTargetType%3ADeploymentTarget%27"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Maybe DeploymentTargetType
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AdeploymentTargetType%3ADeploymentTarget%27"><span class="hs-identifier hs-var hs-var">deploymentTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314435"><span id="local-6989586621679314437"><span class="annot"><span class="annottext">DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+(DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; Eq DeploymentTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c/= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+== :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c== :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314426"><span id="local-6989586621679314428"><span id="local-6989586621679314430"><span id="local-6989586621679314432"><span class="annot"><span class="annottext">ReadPrec [DeploymentTarget]
+ReadPrec DeploymentTarget
+Int -&gt; ReadS DeploymentTarget
+ReadS [DeploymentTarget]
+(Int -&gt; ReadS DeploymentTarget)
+-&gt; ReadS [DeploymentTarget]
+-&gt; ReadPrec DeploymentTarget
+-&gt; ReadPrec [DeploymentTarget]
+-&gt; Read DeploymentTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentTarget]
+$creadListPrec :: ReadPrec [DeploymentTarget]
+readPrec :: ReadPrec DeploymentTarget
+$creadPrec :: ReadPrec DeploymentTarget
+readList :: ReadS [DeploymentTarget]
+$creadList :: ReadS [DeploymentTarget]
+readsPrec :: Int -&gt; ReadS DeploymentTarget
+$creadsPrec :: Int -&gt; ReadS DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314419"><span id="local-6989586621679314421"><span id="local-6989586621679314423"><span class="annot"><span class="annottext">Int -&gt; DeploymentTarget -&gt; ShowS
+[DeploymentTarget] -&gt; ShowS
+DeploymentTarget -&gt; String
+(Int -&gt; DeploymentTarget -&gt; ShowS)
+-&gt; (DeploymentTarget -&gt; String)
+-&gt; ([DeploymentTarget] -&gt; ShowS)
+-&gt; Show DeploymentTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentTarget] -&gt; ShowS
+$cshowList :: [DeploymentTarget] -&gt; ShowS
+show :: DeploymentTarget -&gt; String
+$cshow :: DeploymentTarget -&gt; String
+showsPrec :: Int -&gt; DeploymentTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeploymentTarget -&gt; Rep DeploymentTarget x)
+-&gt; (forall x. Rep DeploymentTarget x -&gt; DeploymentTarget)
+-&gt; Generic DeploymentTarget
+forall x. Rep DeploymentTarget x -&gt; DeploymentTarget
+forall x. DeploymentTarget -&gt; Rep DeploymentTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentTarget x -&gt; DeploymentTarget
+$cfrom :: forall x. DeploymentTarget -&gt; Rep DeploymentTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'DeploymentTarget' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'ecsTarget', 'deploymentTarget_ecsTarget' - Information about the target for a deployment that uses the Amazon ECS</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'instanceTarget', 'deploymentTarget_instanceTarget' - Information about the target for a deployment that uses the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- EC2\/On-premises compute platform.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'deploymentTargetType', 'deploymentTarget_deploymentTargetType' - The deployment type that is specific to the deployment\'s compute</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- platform or deployments initiated by a CloudFormation stack update.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#newDeploymentTarget"><span class="hs-identifier hs-type">newDeploymentTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeploymentTarget"><span class="annot"><span class="annottext">newDeploymentTarget :: DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#newDeploymentTarget"><span class="hs-identifier hs-var hs-var">newDeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeploymentTarget' :: Maybe ECSTarget
+-&gt; Maybe LambdaTarget
+-&gt; Maybe CloudFormationTarget
+-&gt; Maybe InstanceTarget
+-&gt; Maybe DeploymentTargetType
+-&gt; DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ecsTarget:DeploymentTarget' :: Maybe ECSTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AecsTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">ecsTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ECSTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaTarget:DeploymentTarget' :: Maybe LambdaTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AlambdaTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">lambdaTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudFormationTarget:DeploymentTarget' :: Maybe CloudFormationTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AcloudFormationTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">cloudFormationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudFormationTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTarget:DeploymentTarget' :: Maybe InstanceTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AinstanceTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">instanceTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentTargetType:DeploymentTarget' :: Maybe DeploymentTargetType
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AdeploymentTargetType%3ADeploymentTarget%27"><span class="hs-identifier hs-var">deploymentTargetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTargetType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Information about the target for a deployment that uses the Amazon ECS</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_ecsTarget"><span class="hs-identifier hs-type">deploymentTarget_ecsTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSTarget.html#ECSTarget"><span class="hs-identifier hs-type">ECSTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="deploymentTarget_ecsTarget"><span class="annot"><span class="annottext">deploymentTarget_ecsTarget :: (Maybe ECSTarget -&gt; f (Maybe ECSTarget))
+-&gt; DeploymentTarget -&gt; f DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_ecsTarget"><span class="hs-identifier hs-var hs-var">deploymentTarget_ecsTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentTarget -&gt; Maybe ECSTarget)
+-&gt; (DeploymentTarget -&gt; Maybe ECSTarget -&gt; DeploymentTarget)
+-&gt; Lens
+     DeploymentTarget
+     DeploymentTarget
+     (Maybe ECSTarget)
+     (Maybe ECSTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314410"><span class="annot"><span class="annottext">Maybe ECSTarget
+ecsTarget :: Maybe ECSTarget
+$sel:ecsTarget:DeploymentTarget' :: DeploymentTarget -&gt; Maybe ECSTarget
+</span><a href="#local-6989586621679314410"><span class="hs-identifier hs-var hs-var">ecsTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ECSTarget
+</span><a href="#local-6989586621679314410"><span class="hs-identifier hs-var">ecsTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314409"><span class="annot"><span class="annottext">s :: DeploymentTarget
+</span><a href="#local-6989586621679314409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314408"><span class="annot"><span class="annottext">Maybe ECSTarget
+</span><a href="#local-6989586621679314408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679314409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsTarget:DeploymentTarget' :: Maybe ECSTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AecsTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">ecsTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ECSTarget
+</span><a href="#local-6989586621679314408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Information about the target for a deployment that uses the AWS Lambda</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- compute platform.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_lambdaTarget"><span class="hs-identifier hs-type">deploymentTarget_lambdaTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaTarget.html#LambdaTarget"><span class="hs-identifier hs-type">LambdaTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="deploymentTarget_lambdaTarget"><span class="annot"><span class="annottext">deploymentTarget_lambdaTarget :: (Maybe LambdaTarget -&gt; f (Maybe LambdaTarget))
+-&gt; DeploymentTarget -&gt; f DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_lambdaTarget"><span class="hs-identifier hs-var hs-var">deploymentTarget_lambdaTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentTarget -&gt; Maybe LambdaTarget)
+-&gt; (DeploymentTarget -&gt; Maybe LambdaTarget -&gt; DeploymentTarget)
+-&gt; Lens
+     DeploymentTarget
+     DeploymentTarget
+     (Maybe LambdaTarget)
+     (Maybe LambdaTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314406"><span class="annot"><span class="annottext">Maybe LambdaTarget
+lambdaTarget :: Maybe LambdaTarget
+$sel:lambdaTarget:DeploymentTarget' :: DeploymentTarget -&gt; Maybe LambdaTarget
+</span><a href="#local-6989586621679314406"><span class="hs-identifier hs-var hs-var">lambdaTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaTarget
+</span><a href="#local-6989586621679314406"><span class="hs-identifier hs-var">lambdaTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314405"><span class="annot"><span class="annottext">s :: DeploymentTarget
+</span><a href="#local-6989586621679314405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314404"><span class="annot"><span class="annottext">Maybe LambdaTarget
+</span><a href="#local-6989586621679314404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679314405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaTarget:DeploymentTarget' :: Maybe LambdaTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AlambdaTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">lambdaTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaTarget
+</span><a href="#local-6989586621679314404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_cloudFormationTarget"><span class="hs-identifier hs-type">deploymentTarget_cloudFormationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.CloudFormationTarget.html#CloudFormationTarget"><span class="hs-identifier hs-type">CloudFormationTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="deploymentTarget_cloudFormationTarget"><span class="annot"><span class="annottext">deploymentTarget_cloudFormationTarget :: (Maybe CloudFormationTarget -&gt; f (Maybe CloudFormationTarget))
+-&gt; DeploymentTarget -&gt; f DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_cloudFormationTarget"><span class="hs-identifier hs-var hs-var">deploymentTarget_cloudFormationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentTarget -&gt; Maybe CloudFormationTarget)
+-&gt; (DeploymentTarget
+    -&gt; Maybe CloudFormationTarget -&gt; DeploymentTarget)
+-&gt; Lens
+     DeploymentTarget
+     DeploymentTarget
+     (Maybe CloudFormationTarget)
+     (Maybe CloudFormationTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314402"><span class="annot"><span class="annottext">Maybe CloudFormationTarget
+cloudFormationTarget :: Maybe CloudFormationTarget
+$sel:cloudFormationTarget:DeploymentTarget' :: DeploymentTarget -&gt; Maybe CloudFormationTarget
+</span><a href="#local-6989586621679314402"><span class="hs-identifier hs-var hs-var">cloudFormationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudFormationTarget
+</span><a href="#local-6989586621679314402"><span class="hs-identifier hs-var">cloudFormationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314401"><span class="annot"><span class="annottext">s :: DeploymentTarget
+</span><a href="#local-6989586621679314401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314400"><span class="annot"><span class="annottext">Maybe CloudFormationTarget
+</span><a href="#local-6989586621679314400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679314401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFormationTarget:DeploymentTarget' :: Maybe CloudFormationTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AcloudFormationTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">cloudFormationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudFormationTarget
+</span><a href="#local-6989586621679314400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Information about the target for a deployment that uses the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- EC2\/On-premises compute platform.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_instanceTarget"><span class="hs-identifier hs-type">deploymentTarget_instanceTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceTarget.html#InstanceTarget"><span class="hs-identifier hs-type">InstanceTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="deploymentTarget_instanceTarget"><span class="annot"><span class="annottext">deploymentTarget_instanceTarget :: (Maybe InstanceTarget -&gt; f (Maybe InstanceTarget))
+-&gt; DeploymentTarget -&gt; f DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_instanceTarget"><span class="hs-identifier hs-var hs-var">deploymentTarget_instanceTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentTarget -&gt; Maybe InstanceTarget)
+-&gt; (DeploymentTarget -&gt; Maybe InstanceTarget -&gt; DeploymentTarget)
+-&gt; Lens
+     DeploymentTarget
+     DeploymentTarget
+     (Maybe InstanceTarget)
+     (Maybe InstanceTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314398"><span class="annot"><span class="annottext">Maybe InstanceTarget
+instanceTarget :: Maybe InstanceTarget
+$sel:instanceTarget:DeploymentTarget' :: DeploymentTarget -&gt; Maybe InstanceTarget
+</span><a href="#local-6989586621679314398"><span class="hs-identifier hs-var hs-var">instanceTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceTarget
+</span><a href="#local-6989586621679314398"><span class="hs-identifier hs-var">instanceTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314397"><span class="annot"><span class="annottext">s :: DeploymentTarget
+</span><a href="#local-6989586621679314397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314396"><span class="annot"><span class="annottext">Maybe InstanceTarget
+</span><a href="#local-6989586621679314396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679314397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTarget:DeploymentTarget' :: Maybe InstanceTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AinstanceTarget%3ADeploymentTarget%27"><span class="hs-identifier hs-var">instanceTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceTarget
+</span><a href="#local-6989586621679314396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The deployment type that is specific to the deployment\'s compute</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- platform or deployments initiated by a CloudFormation stack update.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_deploymentTargetType"><span class="hs-identifier hs-type">deploymentTarget_deploymentTargetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTargetType.html#DeploymentTargetType"><span class="hs-identifier hs-type">DeploymentTargetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="deploymentTarget_deploymentTargetType"><span class="annot"><span class="annottext">deploymentTarget_deploymentTargetType :: (Maybe DeploymentTargetType -&gt; f (Maybe DeploymentTargetType))
+-&gt; DeploymentTarget -&gt; f DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#deploymentTarget_deploymentTargetType"><span class="hs-identifier hs-var hs-var">deploymentTarget_deploymentTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentTarget -&gt; Maybe DeploymentTargetType)
+-&gt; (DeploymentTarget
+    -&gt; Maybe DeploymentTargetType -&gt; DeploymentTarget)
+-&gt; Lens
+     DeploymentTarget
+     DeploymentTarget
+     (Maybe DeploymentTargetType)
+     (Maybe DeploymentTargetType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314394"><span class="annot"><span class="annottext">Maybe DeploymentTargetType
+deploymentTargetType :: Maybe DeploymentTargetType
+$sel:deploymentTargetType:DeploymentTarget' :: DeploymentTarget -&gt; Maybe DeploymentTargetType
+</span><a href="#local-6989586621679314394"><span class="hs-identifier hs-var hs-var">deploymentTargetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTargetType
+</span><a href="#local-6989586621679314394"><span class="hs-identifier hs-var">deploymentTargetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314393"><span class="annot"><span class="annottext">s :: DeploymentTarget
+</span><a href="#local-6989586621679314393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314392"><span class="annot"><span class="annottext">Maybe DeploymentTargetType
+</span><a href="#local-6989586621679314392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentTarget
+</span><a href="#local-6989586621679314393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentTargetType:DeploymentTarget' :: Maybe DeploymentTargetType
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#%24sel%3AdeploymentTargetType%3ADeploymentTarget%27"><span class="hs-identifier hs-var">deploymentTargetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTargetType
+</span><a href="#local-6989586621679314392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679314387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DeploymentTarget)
+-&gt; Value
+-&gt; Parser DeploymentTarget
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DeploymentTarget&quot;</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe ECSTarget
+-&gt; Maybe LambdaTarget
+-&gt; Maybe CloudFormationTarget
+-&gt; Maybe InstanceTarget
+-&gt; Maybe DeploymentTargetType
+-&gt; DeploymentTarget
+</span><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-var">DeploymentTarget'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ECSTarget
+ -&gt; Maybe LambdaTarget
+ -&gt; Maybe CloudFormationTarget
+ -&gt; Maybe InstanceTarget
+ -&gt; Maybe DeploymentTargetType
+ -&gt; DeploymentTarget)
+-&gt; Parser (Maybe ECSTarget)
+-&gt; Parser
+     (Maybe LambdaTarget
+      -&gt; Maybe CloudFormationTarget
+      -&gt; Maybe InstanceTarget
+      -&gt; Maybe DeploymentTargetType
+      -&gt; DeploymentTarget)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ECSTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ecsTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaTarget
+   -&gt; Maybe CloudFormationTarget
+   -&gt; Maybe InstanceTarget
+   -&gt; Maybe DeploymentTargetType
+   -&gt; DeploymentTarget)
+-&gt; Parser (Maybe LambdaTarget)
+-&gt; Parser
+     (Maybe CloudFormationTarget
+      -&gt; Maybe InstanceTarget
+      -&gt; Maybe DeploymentTargetType
+      -&gt; DeploymentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambdaTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudFormationTarget
+   -&gt; Maybe InstanceTarget
+   -&gt; Maybe DeploymentTargetType
+   -&gt; DeploymentTarget)
+-&gt; Parser (Maybe CloudFormationTarget)
+-&gt; Parser
+     (Maybe InstanceTarget
+      -&gt; Maybe DeploymentTargetType -&gt; DeploymentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudFormationTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cloudFormationTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceTarget
+   -&gt; Maybe DeploymentTargetType -&gt; DeploymentTarget)
+-&gt; Parser (Maybe InstanceTarget)
+-&gt; Parser (Maybe DeploymentTargetType -&gt; DeploymentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeploymentTargetType -&gt; DeploymentTarget)
+-&gt; Parser (Maybe DeploymentTargetType) -&gt; Parser DeploymentTarget
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentTargetType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentTargetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314378"><span id="local-6989586621679314380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

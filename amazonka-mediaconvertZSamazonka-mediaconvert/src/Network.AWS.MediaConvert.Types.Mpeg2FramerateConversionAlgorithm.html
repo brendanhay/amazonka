@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier">Mpeg2FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier">Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier">Mpeg2FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier">Mpeg2FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621679986848"><span id="local-6989586621679986849"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Mpeg2FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#fromMpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromMpeg2FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986840"><span id="local-6989586621679986842"><span id="local-6989586621679986844"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
+[Mpeg2FramerateConversionAlgorithm] -&gt; ShowS
+Mpeg2FramerateConversionAlgorithm -&gt; String
+(Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS)
+-&gt; (Mpeg2FramerateConversionAlgorithm -&gt; String)
+-&gt; ([Mpeg2FramerateConversionAlgorithm] -&gt; ShowS)
+-&gt; Show Mpeg2FramerateConversionAlgorithm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mpeg2FramerateConversionAlgorithm] -&gt; ShowS
+$cshowList :: [Mpeg2FramerateConversionAlgorithm] -&gt; ShowS
+show :: Mpeg2FramerateConversionAlgorithm -&gt; String
+$cshow :: Mpeg2FramerateConversionAlgorithm -&gt; String
+showsPrec :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986831"><span id="local-6989586621679986833"><span id="local-6989586621679986835"><span id="local-6989586621679986837"><span class="annot"><span class="annottext">ReadPrec [Mpeg2FramerateConversionAlgorithm]
+ReadPrec Mpeg2FramerateConversionAlgorithm
+Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
+ReadS [Mpeg2FramerateConversionAlgorithm]
+(Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm)
+-&gt; ReadS [Mpeg2FramerateConversionAlgorithm]
+-&gt; ReadPrec Mpeg2FramerateConversionAlgorithm
+-&gt; ReadPrec [Mpeg2FramerateConversionAlgorithm]
+-&gt; Read Mpeg2FramerateConversionAlgorithm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mpeg2FramerateConversionAlgorithm]
+$creadListPrec :: ReadPrec [Mpeg2FramerateConversionAlgorithm]
+readPrec :: ReadPrec Mpeg2FramerateConversionAlgorithm
+$creadPrec :: ReadPrec Mpeg2FramerateConversionAlgorithm
+readList :: ReadS [Mpeg2FramerateConversionAlgorithm]
+$creadList :: ReadS [Mpeg2FramerateConversionAlgorithm]
+readsPrec :: Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
+$creadsPrec :: Int -&gt; ReadS Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986826"><span id="local-6989586621679986828"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+(Mpeg2FramerateConversionAlgorithm
+ -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; Eq Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c/= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+== :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c== :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986810"><span id="local-6989586621679986812"><span id="local-6989586621679986814"><span id="local-6989586621679986816"><span id="local-6989586621679986818"><span id="local-6989586621679986820"><span id="local-6989586621679986822"><span class="annot"><span class="annottext">Eq Mpeg2FramerateConversionAlgorithm
+Eq Mpeg2FramerateConversionAlgorithm
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Ordering)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm)
+-&gt; (Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm
+    -&gt; Mpeg2FramerateConversionAlgorithm)
+-&gt; Ord Mpeg2FramerateConversionAlgorithm
+Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Ordering
+Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+$cmin :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+max :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+$cmax :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm
+&gt;= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c&gt;= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+&gt; :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c&gt; :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+&lt;= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c&lt;= :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+&lt; :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+$c&lt; :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Bool
+compare :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Ordering
+$ccompare :: Mpeg2FramerateConversionAlgorithm
+-&gt; Mpeg2FramerateConversionAlgorithm -&gt; Ordering
+$cp1Ord :: Eq Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Mpeg2FramerateConversionAlgorithm
+ -&gt; Rep Mpeg2FramerateConversionAlgorithm x)
+-&gt; (forall x.
+    Rep Mpeg2FramerateConversionAlgorithm x
+    -&gt; Mpeg2FramerateConversionAlgorithm)
+-&gt; Generic Mpeg2FramerateConversionAlgorithm
+forall x.
+Rep Mpeg2FramerateConversionAlgorithm x
+-&gt; Mpeg2FramerateConversionAlgorithm
+forall x.
+Mpeg2FramerateConversionAlgorithm
+-&gt; Rep Mpeg2FramerateConversionAlgorithm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Mpeg2FramerateConversionAlgorithm x
+-&gt; Mpeg2FramerateConversionAlgorithm
+$cfrom :: forall x.
+Mpeg2FramerateConversionAlgorithm
+-&gt; Rep Mpeg2FramerateConversionAlgorithm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986802"><span id="local-6989586621679986804"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
+Mpeg2FramerateConversionAlgorithm -&gt; Int
+(Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int)
+-&gt; (Mpeg2FramerateConversionAlgorithm -&gt; Int)
+-&gt; Hashable Mpeg2FramerateConversionAlgorithm
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mpeg2FramerateConversionAlgorithm -&gt; Int
+$chash :: Mpeg2FramerateConversionAlgorithm -&gt; Int
+hashWithSalt :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
+$chashWithSalt :: Int -&gt; Mpeg2FramerateConversionAlgorithm -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986799"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ()
+(Mpeg2FramerateConversionAlgorithm -&gt; ())
+-&gt; NFData Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mpeg2FramerateConversionAlgorithm -&gt; ()
+$crnf :: Mpeg2FramerateConversionAlgorithm -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986796"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
+(Text -&gt; Either String Mpeg2FramerateConversionAlgorithm)
+-&gt; FromText Mpeg2FramerateConversionAlgorithm
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
+$cfromText :: Text -&gt; Either String Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986793"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; Text
+(Mpeg2FramerateConversionAlgorithm -&gt; Text)
+-&gt; ToText Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mpeg2FramerateConversionAlgorithm -&gt; Text
+$ctoText :: Mpeg2FramerateConversionAlgorithm -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986790"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteString
+(Mpeg2FramerateConversionAlgorithm -&gt; ByteString)
+-&gt; ToByteString Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mpeg2FramerateConversionAlgorithm -&gt; ByteString
+$ctoBS :: Mpeg2FramerateConversionAlgorithm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986787"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
+(Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder)
+-&gt; ToLog Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
+$cbuild :: Mpeg2FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679986784"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
+(HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header])
+-&gt; ToHeader Mpeg2FramerateConversionAlgorithm
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mpeg2FramerateConversionAlgorithm -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679986781"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; QueryString
+(Mpeg2FramerateConversionAlgorithm -&gt; QueryString)
+-&gt; ToQuery Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mpeg2FramerateConversionAlgorithm -&gt; QueryString
+$ctoQuery :: Mpeg2FramerateConversionAlgorithm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679986776"><span id="local-6989586621679986778"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
+Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
+(Value -&gt; Parser Mpeg2FramerateConversionAlgorithm)
+-&gt; (Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm])
+-&gt; FromJSON Mpeg2FramerateConversionAlgorithm
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
+$cparseJSONList :: Value -&gt; Parser [Mpeg2FramerateConversionAlgorithm]
+parseJSON :: Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
+$cparseJSON :: Value -&gt; Parser Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679986771"><span id="local-6989586621679986773"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+-&gt; FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+-&gt; FromJSONKey Mpeg2FramerateConversionAlgorithm
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+fromJSONKey :: FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+$cfromJSONKey :: FromJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679986762"><span id="local-6989586621679986764"><span id="local-6989586621679986766"><span id="local-6989586621679986768"><span class="annot"><span class="annottext">[Mpeg2FramerateConversionAlgorithm] -&gt; Encoding
+[Mpeg2FramerateConversionAlgorithm] -&gt; Value
+Mpeg2FramerateConversionAlgorithm -&gt; Encoding
+Mpeg2FramerateConversionAlgorithm -&gt; Value
+(Mpeg2FramerateConversionAlgorithm -&gt; Value)
+-&gt; (Mpeg2FramerateConversionAlgorithm -&gt; Encoding)
+-&gt; ([Mpeg2FramerateConversionAlgorithm] -&gt; Value)
+-&gt; ([Mpeg2FramerateConversionAlgorithm] -&gt; Encoding)
+-&gt; ToJSON Mpeg2FramerateConversionAlgorithm
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mpeg2FramerateConversionAlgorithm] -&gt; Encoding
+$ctoEncodingList :: [Mpeg2FramerateConversionAlgorithm] -&gt; Encoding
+toJSONList :: [Mpeg2FramerateConversionAlgorithm] -&gt; Value
+$ctoJSONList :: [Mpeg2FramerateConversionAlgorithm] -&gt; Value
+toEncoding :: Mpeg2FramerateConversionAlgorithm -&gt; Encoding
+$ctoEncoding :: Mpeg2FramerateConversionAlgorithm -&gt; Encoding
+toJSON :: Mpeg2FramerateConversionAlgorithm -&gt; Value
+$ctoJSON :: Mpeg2FramerateConversionAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679986757"><span id="local-6989586621679986759"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+-&gt; ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+-&gt; ToJSONKey Mpeg2FramerateConversionAlgorithm
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2FramerateConversionAlgorithm]
+toJSONKey :: ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+$ctoJSONKey :: ToJSONKeyFunction Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679986754"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
+([Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm)
+-&gt; FromXML Mpeg2FramerateConversionAlgorithm
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
+$cparseXML :: [Node] -&gt; Either String Mpeg2FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679986751"><span class="annot"><span class="annottext">Mpeg2FramerateConversionAlgorithm -&gt; XML
+(Mpeg2FramerateConversionAlgorithm -&gt; XML)
+-&gt; ToXML Mpeg2FramerateConversionAlgorithm
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mpeg2FramerateConversionAlgorithm -&gt; XML
+$ctoXML :: Mpeg2FramerateConversionAlgorithm -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span id="%24mMpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span id="Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="annot"><span class="annottext">$bMpeg2FramerateConversionAlgorithm_DUPLICATE_DROP :: Mpeg2FramerateConversionAlgorithm
+$mMpeg2FramerateConversionAlgorithm_DUPLICATE_DROP :: forall r.
+Mpeg2FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#%24bMpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUPLICATE_DROP&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span id="%24mMpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span id="Mpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span class="annot"><span class="annottext">$bMpeg2FramerateConversionAlgorithm_FRAMEFORMER :: Mpeg2FramerateConversionAlgorithm
+$mMpeg2FramerateConversionAlgorithm_FRAMEFORMER :: forall r.
+Mpeg2FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#%24bMpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2FramerateConversionAlgorithm_FRAMEFORMER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAMEFORMER&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2FramerateConversionAlgorithm_INTERPOLATE"><span id="%24mMpeg2FramerateConversionAlgorithm_INTERPOLATE"><span id="Mpeg2FramerateConversionAlgorithm_INTERPOLATE"><span class="annot"><span class="annottext">$bMpeg2FramerateConversionAlgorithm_INTERPOLATE :: Mpeg2FramerateConversionAlgorithm
+$mMpeg2FramerateConversionAlgorithm_INTERPOLATE :: forall r.
+Mpeg2FramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#%24bMpeg2FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2FramerateConversionAlgorithm_INTERPOLATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">Mpeg2FramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERPOLATE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-pragma hs-type">Mpeg2FramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-pragma hs-type">Mpeg2FramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm_INTERPOLATE"><span class="hs-pragma hs-type">Mpeg2FramerateConversionAlgorithm_INTERPOLATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm.html#Mpeg2FramerateConversionAlgorithm%27"><span class="hs-pragma hs-type">Mpeg2FramerateConversionAlgorithm'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

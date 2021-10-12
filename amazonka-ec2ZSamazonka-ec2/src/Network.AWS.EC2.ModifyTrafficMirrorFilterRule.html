@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ModifyTrafficMirrorFilterRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the specified Traffic Mirror rule.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @DestinationCidrBlock@ and @SourceCidrBlock@ must both be an IPv4 range</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- or an IPv6 range.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ModifyTrafficMirrorFilterRule</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRule"><span class="hs-identifier">newModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_removeFields"><span class="hs-identifier">modifyTrafficMirrorFilterRule_removeFields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_dryRun"><span class="hs-identifier">modifyTrafficMirrorFilterRule_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier">modifyTrafficMirrorFilterRule_sourcePortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier">modifyTrafficMirrorFilterRule_ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier">modifyTrafficMirrorFilterRule_sourceCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier">modifyTrafficMirrorFilterRule_trafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier">modifyTrafficMirrorFilterRule_destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_protocol"><span class="hs-identifier">modifyTrafficMirrorFilterRule_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_description"><span class="hs-identifier">modifyTrafficMirrorFilterRule_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier">modifyTrafficMirrorFilterRule_ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier">modifyTrafficMirrorFilterRule_destinationPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId"><span class="hs-identifier">modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier">newModifyTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier">modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier">modifyTrafficMirrorFilterRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newModifyTrafficMirrorFilterRule' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621681181368"><span id="local-6989586621681181369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTrafficMirrorFilterRule"><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTrafficMirrorFilterRule%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterRule'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The properties that you want to remove from the Traffic Mirror filter</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- When you remove a property from a Traffic Mirror filter rule, the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- property is set to the default.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AremoveFields%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+-&gt; Maybe [TrafficMirrorFilterRuleField]
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AremoveFields%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">removeFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorFilterRuleField.html#TrafficMirrorFilterRuleField"><span class="hs-identifier hs-type">TrafficMirrorFilterRuleField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The port range to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AsourcePortRange%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">sourcePortRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The action to assign to the rule.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AruleAction%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficMirrorRuleAction
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleAction%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-type">TrafficMirrorRuleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsourceCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">sourceCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The type of traffic (@ingress@ | @egress@) to assign to the rule.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtrafficDirection%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficDirection
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">trafficDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-type">TrafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The protocol, for example TCP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aprotocol%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The description to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Adescription%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Adescription%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AruleNumber%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The destination ports that are associated with the Traffic Mirror rule.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AdestinationPortRange%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">destinationPortRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The ID of the Traffic Mirror rule.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilterRuleId%3AModifyTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule -&gt; Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRuleId%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRuleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681181351"><span id="local-6989586621681181353"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+-&gt; ModifyTrafficMirrorFilterRule -&gt; Bool
+(ModifyTrafficMirrorFilterRule
+ -&gt; ModifyTrafficMirrorFilterRule -&gt; Bool)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; ModifyTrafficMirrorFilterRule -&gt; Bool)
+-&gt; Eq ModifyTrafficMirrorFilterRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyTrafficMirrorFilterRule
+-&gt; ModifyTrafficMirrorFilterRule -&gt; Bool
+$c/= :: ModifyTrafficMirrorFilterRule
+-&gt; ModifyTrafficMirrorFilterRule -&gt; Bool
+== :: ModifyTrafficMirrorFilterRule
+-&gt; ModifyTrafficMirrorFilterRule -&gt; Bool
+$c== :: ModifyTrafficMirrorFilterRule
+-&gt; ModifyTrafficMirrorFilterRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181342"><span id="local-6989586621681181344"><span id="local-6989586621681181346"><span id="local-6989586621681181348"><span class="annot"><span class="annottext">ReadPrec [ModifyTrafficMirrorFilterRule]
+ReadPrec ModifyTrafficMirrorFilterRule
+Int -&gt; ReadS ModifyTrafficMirrorFilterRule
+ReadS [ModifyTrafficMirrorFilterRule]
+(Int -&gt; ReadS ModifyTrafficMirrorFilterRule)
+-&gt; ReadS [ModifyTrafficMirrorFilterRule]
+-&gt; ReadPrec ModifyTrafficMirrorFilterRule
+-&gt; ReadPrec [ModifyTrafficMirrorFilterRule]
+-&gt; Read ModifyTrafficMirrorFilterRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyTrafficMirrorFilterRule]
+$creadListPrec :: ReadPrec [ModifyTrafficMirrorFilterRule]
+readPrec :: ReadPrec ModifyTrafficMirrorFilterRule
+$creadPrec :: ReadPrec ModifyTrafficMirrorFilterRule
+readList :: ReadS [ModifyTrafficMirrorFilterRule]
+$creadList :: ReadS [ModifyTrafficMirrorFilterRule]
+readsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterRule
+$creadsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181335"><span id="local-6989586621681181337"><span id="local-6989586621681181339"><span class="annot"><span class="annottext">Int -&gt; ModifyTrafficMirrorFilterRule -&gt; ShowS
+[ModifyTrafficMirrorFilterRule] -&gt; ShowS
+ModifyTrafficMirrorFilterRule -&gt; String
+(Int -&gt; ModifyTrafficMirrorFilterRule -&gt; ShowS)
+-&gt; (ModifyTrafficMirrorFilterRule -&gt; String)
+-&gt; ([ModifyTrafficMirrorFilterRule] -&gt; ShowS)
+-&gt; Show ModifyTrafficMirrorFilterRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyTrafficMirrorFilterRule] -&gt; ShowS
+$cshowList :: [ModifyTrafficMirrorFilterRule] -&gt; ShowS
+show :: ModifyTrafficMirrorFilterRule -&gt; String
+$cshow :: ModifyTrafficMirrorFilterRule -&gt; String
+showsPrec :: Int -&gt; ModifyTrafficMirrorFilterRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyTrafficMirrorFilterRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyTrafficMirrorFilterRule
+ -&gt; Rep ModifyTrafficMirrorFilterRule x)
+-&gt; (forall x.
+    Rep ModifyTrafficMirrorFilterRule x
+    -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Generic ModifyTrafficMirrorFilterRule
+forall x.
+Rep ModifyTrafficMirrorFilterRule x
+-&gt; ModifyTrafficMirrorFilterRule
+forall x.
+ModifyTrafficMirrorFilterRule
+-&gt; Rep ModifyTrafficMirrorFilterRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyTrafficMirrorFilterRule x
+-&gt; ModifyTrafficMirrorFilterRule
+$cfrom :: forall x.
+ModifyTrafficMirrorFilterRule
+-&gt; Rep ModifyTrafficMirrorFilterRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'ModifyTrafficMirrorFilterRule' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'removeFields', 'modifyTrafficMirrorFilterRule_removeFields' - The properties that you want to remove from the Traffic Mirror filter</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- When you remove a property from a Traffic Mirror filter rule, the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- property is set to the default.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'dryRun', 'modifyTrafficMirrorFilterRule_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'sourcePortRange', 'modifyTrafficMirrorFilterRule_sourcePortRange' - The port range to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'ruleAction', 'modifyTrafficMirrorFilterRule_ruleAction' - The action to assign to the rule.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'sourceCidrBlock', 'modifyTrafficMirrorFilterRule_sourceCidrBlock' - The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'trafficDirection', 'modifyTrafficMirrorFilterRule_trafficDirection' - The type of traffic (@ingress@ | @egress@) to assign to the rule.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'destinationCidrBlock', 'modifyTrafficMirrorFilterRule_destinationCidrBlock' - The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'protocol', 'modifyTrafficMirrorFilterRule_protocol' - The protocol, for example TCP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'description', 'modifyTrafficMirrorFilterRule_description' - The description to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'ruleNumber', 'modifyTrafficMirrorFilterRule_ruleNumber' - The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'destinationPortRange', 'modifyTrafficMirrorFilterRule_destinationPortRange' - The destination ports that are associated with the Traffic Mirror rule.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'trafficMirrorFilterRuleId', 'modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId' - The ID of the Traffic Mirror rule.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">newModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'trafficMirrorFilterRuleId'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span>
+</span><span id="line-145"></span><span id="newModifyTrafficMirrorFilterRule"><span class="annot"><span class="annottext">newModifyTrafficMirrorFilterRule :: Text -&gt; ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-var hs-var">newModifyTrafficMirrorFilterRule</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621681181330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181330"><span class="hs-identifier hs-var">pTrafficMirrorFilterRuleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule' :: Maybe [TrafficMirrorFilterRuleField]
+-&gt; Maybe Bool
+-&gt; Maybe TrafficMirrorPortRangeRequest
+-&gt; Maybe TrafficMirrorRuleAction
+-&gt; Maybe Text
+-&gt; Maybe TrafficDirection
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe TrafficMirrorPortRangeRequest
+-&gt; Text
+-&gt; ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:removeFields:ModifyTrafficMirrorFilterRule' :: Maybe [TrafficMirrorFilterRuleField]
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AremoveFields%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">removeFields</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTrafficMirrorFilterRule' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourcePortRange:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleAction:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorRuleAction
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleAction%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCidrBlock:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficDirection:ModifyTrafficMirrorFilterRule' :: Maybe TrafficDirection
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficDirection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:ModifyTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Adescription%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleNumber:ModifyTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationPortRange:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRuleId:ModifyTrafficMirrorFilterRule' :: Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRuleId%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficMirrorFilterRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181330"><span class="hs-identifier hs-var">pTrafficMirrorFilterRuleId_</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The properties that you want to remove from the Traffic Mirror filter</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- When you remove a property from a Traffic Mirror filter rule, the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- property is set to the default.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_removeFields"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_removeFields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorFilterRuleField.html#TrafficMirrorFilterRuleField"><span class="hs-identifier hs-type">TrafficMirrorFilterRuleField</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="modifyTrafficMirrorFilterRule_removeFields"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_removeFields :: (Maybe [TrafficMirrorFilterRuleField]
+ -&gt; f (Maybe [TrafficMirrorFilterRuleField]))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_removeFields"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_removeFields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule
+ -&gt; Maybe [TrafficMirrorFilterRuleField])
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe [TrafficMirrorFilterRuleField]
+    -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe [TrafficMirrorFilterRuleField])
+     (Maybe [TrafficMirrorFilterRuleField])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181327"><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+removeFields :: Maybe [TrafficMirrorFilterRuleField]
+$sel:removeFields:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181327"><span class="hs-identifier hs-var hs-var">removeFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181327"><span class="hs-identifier hs-var">removeFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181326"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181325"><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeFields:ModifyTrafficMirrorFilterRule' :: Maybe [TrafficMirrorFilterRuleField]
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AremoveFields%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">removeFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrafficMirrorFilterRuleField]
+  -&gt; f (Maybe [TrafficMirrorFilterRuleField]))
+ -&gt; ModifyTrafficMirrorFilterRule
+ -&gt; f ModifyTrafficMirrorFilterRule)
+-&gt; ((Maybe [TrafficMirrorFilterRuleField]
+     -&gt; f (Maybe [TrafficMirrorFilterRuleField]))
+    -&gt; Maybe [TrafficMirrorFilterRuleField]
+    -&gt; f (Maybe [TrafficMirrorFilterRuleField]))
+-&gt; (Maybe [TrafficMirrorFilterRuleField]
+    -&gt; f (Maybe [TrafficMirrorFilterRuleField]))
+-&gt; ModifyTrafficMirrorFilterRule
+-&gt; f ModifyTrafficMirrorFilterRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+-&gt; Iso
+     (Maybe [TrafficMirrorFilterRuleField])
+     (Maybe [TrafficMirrorFilterRuleField])
+     (Maybe [TrafficMirrorFilterRuleField])
+     (Maybe [TrafficMirrorFilterRuleField])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+  [TrafficMirrorFilterRuleField]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_dryRun"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="modifyTrafficMirrorFilterRule_dryRun"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_dryRun"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Bool)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Bool -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181321"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Bool
+</span><a href="#local-6989586621681181321"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681181321"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181320"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181319"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681181319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTrafficMirrorFilterRule' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdryRun%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681181319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The port range to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_sourcePortRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="modifyTrafficMirrorFilterRule_sourcePortRange"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_sourcePortRange :: (Maybe TrafficMirrorPortRangeRequest
+ -&gt; f (Maybe TrafficMirrorPortRangeRequest))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_sourcePortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule
+ -&gt; Maybe TrafficMirrorPortRangeRequest)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe TrafficMirrorPortRangeRequest
+    -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe TrafficMirrorPortRangeRequest)
+     (Maybe TrafficMirrorPortRangeRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181318"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+sourcePortRange :: Maybe TrafficMirrorPortRangeRequest
+$sel:sourcePortRange:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181318"><span class="hs-identifier hs-var hs-var">sourcePortRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181318"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181317"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181316"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePortRange:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The action to assign to the rule.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_ruleAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-type">TrafficMirrorRuleAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="modifyTrafficMirrorFilterRule_ruleAction"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_ruleAction :: (Maybe TrafficMirrorRuleAction
+ -&gt; f (Maybe TrafficMirrorRuleAction))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_ruleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficMirrorRuleAction)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe TrafficMirrorRuleAction -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe TrafficMirrorRuleAction)
+     (Maybe TrafficMirrorRuleAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181315"><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+ruleAction :: Maybe TrafficMirrorRuleAction
+$sel:ruleAction:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficMirrorRuleAction
+</span><a href="#local-6989586621681181315"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+</span><a href="#local-6989586621681181315"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181314"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181313"><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+</span><a href="#local-6989586621681181313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleAction:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorRuleAction
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleAction%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+</span><a href="#local-6989586621681181313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="modifyTrafficMirrorFilterRule_sourceCidrBlock"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_sourceCidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_sourceCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Text)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Text -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181312"><span class="annot"><span class="annottext">Maybe Text
+sourceCidrBlock :: Maybe Text
+$sel:sourceCidrBlock:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681181312"><span class="hs-identifier hs-var hs-var">sourceCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181312"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181311"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181310"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCidrBlock:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The type of traffic (@ingress@ | @egress@) to assign to the rule.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_trafficDirection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-type">TrafficDirection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="modifyTrafficMirrorFilterRule_trafficDirection"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_trafficDirection :: (Maybe TrafficDirection -&gt; f (Maybe TrafficDirection))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_trafficDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficDirection)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe TrafficDirection -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe TrafficDirection)
+     (Maybe TrafficDirection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181309"><span class="annot"><span class="annottext">Maybe TrafficDirection
+trafficDirection :: Maybe TrafficDirection
+$sel:trafficDirection:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficDirection
+</span><a href="#local-6989586621681181309"><span class="hs-identifier hs-var hs-var">trafficDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficDirection
+</span><a href="#local-6989586621681181309"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181308"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181307"><span class="annot"><span class="annottext">Maybe TrafficDirection
+</span><a href="#local-6989586621681181307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficDirection:ModifyTrafficMirrorFilterRule' :: Maybe TrafficDirection
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficDirection
+</span><a href="#local-6989586621681181307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="modifyTrafficMirrorFilterRule_destinationCidrBlock"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_destinationCidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Text)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Text -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181306"><span class="annot"><span class="annottext">Maybe Text
+destinationCidrBlock :: Maybe Text
+$sel:destinationCidrBlock:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681181306"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181306"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181305"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The protocol, for example TCP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_protocol"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="modifyTrafficMirrorFilterRule_protocol"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_protocol :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_protocol"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Int)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Int -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181303"><span class="annot"><span class="annottext">Maybe Int
+protocol :: Maybe Int
+$sel:protocol:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="#local-6989586621681181303"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181303"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181302"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181301"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:ModifyTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The description to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_description"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="modifyTrafficMirrorFilterRule_description"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_description"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Text)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Text -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181300"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681181300"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181300"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181299"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ModifyTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3Adescription%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_ruleNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="modifyTrafficMirrorFilterRule_ruleNumber"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_ruleNumber :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Maybe Int)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe Int -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181297"><span class="annot"><span class="annottext">Maybe Int
+ruleNumber :: Maybe Int
+$sel:ruleNumber:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="#local-6989586621681181297"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181297"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181296"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181295"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNumber:ModifyTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The destination ports that are associated with the Traffic Mirror rule.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_destinationPortRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="modifyTrafficMirrorFilterRule_destinationPortRange"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_destinationPortRange :: (Maybe TrafficMirrorPortRangeRequest
+ -&gt; f (Maybe TrafficMirrorPortRangeRequest))
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_destinationPortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule
+ -&gt; Maybe TrafficMirrorPortRangeRequest)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Maybe TrafficMirrorPortRangeRequest
+    -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     (Maybe TrafficMirrorPortRangeRequest)
+     (Maybe TrafficMirrorPortRangeRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181294"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+destinationPortRange :: Maybe TrafficMirrorPortRangeRequest
+$sel:destinationPortRange:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181294"><span class="hs-identifier hs-var hs-var">destinationPortRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181294"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181293"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181292"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPortRange:ModifyTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The ID of the Traffic Mirror rule.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-219"></span><span id="modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId :: (Text -&gt; f Text)
+-&gt; ModifyTrafficMirrorFilterRule -&gt; f ModifyTrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRule -&gt; Text)
+-&gt; (ModifyTrafficMirrorFilterRule
+    -&gt; Text -&gt; ModifyTrafficMirrorFilterRule)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRule
+     ModifyTrafficMirrorFilterRule
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181291"><span class="annot"><span class="annottext">Text
+trafficMirrorFilterRuleId :: Text
+$sel:trafficMirrorFilterRuleId:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Text
+</span><a href="#local-6989586621681181291"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181291"><span class="hs-identifier hs-var">trafficMirrorFilterRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181290"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRule
+</span><a href="#local-6989586621681181290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRuleId:ModifyTrafficMirrorFilterRule' :: Text
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRuleId%3AModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficMirrorFilterRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-226"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621681181285"><span class="annot"><span class="annottext">request :: ModifyTrafficMirrorFilterRule
+-&gt; Request ModifyTrafficMirrorFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ModifyTrafficMirrorFilterRule
+-&gt; Request ModifyTrafficMirrorFilterRule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621681181281"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyTrafficMirrorFilterRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyTrafficMirrorFilterRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ModifyTrafficMirrorFilterRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyTrafficMirrorFilterRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyTrafficMirrorFilterRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681181278"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181278"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681181277"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681181277"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681181276"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681181276"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+-&gt; Int -&gt; ModifyTrafficMirrorFilterRuleResponse
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrafficMirrorFilterRule
+ -&gt; Int -&gt; ModifyTrafficMirrorFilterRuleResponse)
+-&gt; Either String (Maybe TrafficMirrorFilterRule)
+-&gt; Either String (Int -&gt; ModifyTrafficMirrorFilterRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681181276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrafficMirrorFilterRule)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trafficMirrorFilterRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyTrafficMirrorFilterRuleResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyTrafficMirrorFilterRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181278"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621681181268"><span id="local-6989586621681181270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621681181261"><span class="annot"><span class="annottext">toHeaders :: ModifyTrafficMirrorFilterRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyTrafficMirrorFilterRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621681181256"><span class="annot"><span class="annottext">toPath :: ModifyTrafficMirrorFilterRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyTrafficMirrorFilterRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621681181252"><span class="annot"><span class="annottext">toQuery :: ModifyTrafficMirrorFilterRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181239"><span id="local-6989586621681181240"><span id="local-6989586621681181241"><span id="local-6989586621681181242"><span id="local-6989586621681181243"><span id="local-6989586621681181244"><span id="local-6989586621681181245"><span id="local-6989586621681181246"><span id="local-6989586621681181247"><span id="local-6989586621681181248"><span id="local-6989586621681181249"><span id="local-6989586621681181250"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [TrafficMirrorFilterRuleField]
+Maybe Text
+Maybe TrafficDirection
+Maybe TrafficMirrorPortRangeRequest
+Maybe TrafficMirrorRuleAction
+Text
+trafficMirrorFilterRuleId :: Text
+destinationPortRange :: Maybe TrafficMirrorPortRangeRequest
+ruleNumber :: Maybe Int
+description :: Maybe Text
+protocol :: Maybe Int
+destinationCidrBlock :: Maybe Text
+trafficDirection :: Maybe TrafficDirection
+sourceCidrBlock :: Maybe Text
+ruleAction :: Maybe TrafficMirrorRuleAction
+sourcePortRange :: Maybe TrafficMirrorPortRangeRequest
+dryRun :: Maybe Bool
+removeFields :: Maybe [TrafficMirrorFilterRuleField]
+$sel:trafficMirrorFilterRuleId:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Text
+$sel:destinationPortRange:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+$sel:ruleNumber:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+$sel:description:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+$sel:protocol:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Int
+$sel:destinationCidrBlock:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+$sel:trafficDirection:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficDirection
+$sel:sourceCidrBlock:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Text
+$sel:ruleAction:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe TrafficMirrorRuleAction
+$sel:sourcePortRange:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+$sel:dryRun:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule -&gt; Maybe Bool
+$sel:removeFields:ModifyTrafficMirrorFilterRule' :: ModifyTrafficMirrorFilterRule
+-&gt; Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181239"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyTrafficMirrorFilterRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-254"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-255"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TrafficMirrorFilterRuleField] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RemoveField&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">([TrafficMirrorFilterRuleField] -&gt; QueryString)
+-&gt; Maybe [TrafficMirrorFilterRuleField] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TrafficMirrorFilterRuleField]
+</span><a href="#local-6989586621681181250"><span class="hs-identifier hs-var">removeFields</span></a></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681181249"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourcePortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficMirrorPortRangeRequest -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181248"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficMirrorRuleAction -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorRuleAction
+</span><a href="#local-6989586621681181247"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181246"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficDirection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficDirection -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficDirection
+</span><a href="#local-6989586621681181245"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181244"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181243"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181242"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681181241"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationPortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficMirrorPortRangeRequest -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681181240"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficMirrorFilterRuleId&quot;</span></span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681181239"><span class="hs-identifier hs-var">trafficMirrorFilterRuleId</span></a></span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | /See:/ 'newModifyTrafficMirrorFilterRuleResponse' smart constructor.</span><span>
+</span><span id="line-277"></span><span id="local-6989586621681181235"><span id="local-6989586621681181236"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTrafficMirrorFilterRuleResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTrafficMirrorFilterRuleResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">ModifyTrafficMirrorFilterRuleResponse'</span></a></span></span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Modifies a Traffic Mirror rule.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilterRule%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse
+-&gt; Maybe TrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorFilterRule.html#TrafficMirrorFilterRule"><span class="hs-identifier hs-type">TrafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse -&gt; Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681181229"><span id="local-6989586621681181231"><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse
+-&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool
+(ModifyTrafficMirrorFilterRuleResponse
+ -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool)
+-&gt; (ModifyTrafficMirrorFilterRuleResponse
+    -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool)
+-&gt; Eq ModifyTrafficMirrorFilterRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyTrafficMirrorFilterRuleResponse
+-&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool
+$c/= :: ModifyTrafficMirrorFilterRuleResponse
+-&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool
+== :: ModifyTrafficMirrorFilterRuleResponse
+-&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool
+$c== :: ModifyTrafficMirrorFilterRuleResponse
+-&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181221"><span id="local-6989586621681181223"><span id="local-6989586621681181225"><span id="local-6989586621681181227"><span class="annot"><span class="annottext">ReadPrec [ModifyTrafficMirrorFilterRuleResponse]
+ReadPrec ModifyTrafficMirrorFilterRuleResponse
+Int -&gt; ReadS ModifyTrafficMirrorFilterRuleResponse
+ReadS [ModifyTrafficMirrorFilterRuleResponse]
+(Int -&gt; ReadS ModifyTrafficMirrorFilterRuleResponse)
+-&gt; ReadS [ModifyTrafficMirrorFilterRuleResponse]
+-&gt; ReadPrec ModifyTrafficMirrorFilterRuleResponse
+-&gt; ReadPrec [ModifyTrafficMirrorFilterRuleResponse]
+-&gt; Read ModifyTrafficMirrorFilterRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyTrafficMirrorFilterRuleResponse]
+$creadListPrec :: ReadPrec [ModifyTrafficMirrorFilterRuleResponse]
+readPrec :: ReadPrec ModifyTrafficMirrorFilterRuleResponse
+$creadPrec :: ReadPrec ModifyTrafficMirrorFilterRuleResponse
+readList :: ReadS [ModifyTrafficMirrorFilterRuleResponse]
+$creadList :: ReadS [ModifyTrafficMirrorFilterRuleResponse]
+readsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterRuleResponse
+$creadsPrec :: Int -&gt; ReadS ModifyTrafficMirrorFilterRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181215"><span id="local-6989586621681181217"><span id="local-6989586621681181219"><span class="annot"><span class="annottext">Int -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; ShowS
+[ModifyTrafficMirrorFilterRuleResponse] -&gt; ShowS
+ModifyTrafficMirrorFilterRuleResponse -&gt; String
+(Int -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; ShowS)
+-&gt; (ModifyTrafficMirrorFilterRuleResponse -&gt; String)
+-&gt; ([ModifyTrafficMirrorFilterRuleResponse] -&gt; ShowS)
+-&gt; Show ModifyTrafficMirrorFilterRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyTrafficMirrorFilterRuleResponse] -&gt; ShowS
+$cshowList :: [ModifyTrafficMirrorFilterRuleResponse] -&gt; ShowS
+show :: ModifyTrafficMirrorFilterRuleResponse -&gt; String
+$cshow :: ModifyTrafficMirrorFilterRuleResponse -&gt; String
+showsPrec :: Int -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyTrafficMirrorFilterRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyTrafficMirrorFilterRuleResponse
+ -&gt; Rep ModifyTrafficMirrorFilterRuleResponse x)
+-&gt; (forall x.
+    Rep ModifyTrafficMirrorFilterRuleResponse x
+    -&gt; ModifyTrafficMirrorFilterRuleResponse)
+-&gt; Generic ModifyTrafficMirrorFilterRuleResponse
+forall x.
+Rep ModifyTrafficMirrorFilterRuleResponse x
+-&gt; ModifyTrafficMirrorFilterRuleResponse
+forall x.
+ModifyTrafficMirrorFilterRuleResponse
+-&gt; Rep ModifyTrafficMirrorFilterRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyTrafficMirrorFilterRuleResponse x
+-&gt; ModifyTrafficMirrorFilterRuleResponse
+$cfrom :: forall x.
+ModifyTrafficMirrorFilterRuleResponse
+-&gt; Rep ModifyTrafficMirrorFilterRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Create a value of 'ModifyTrafficMirrorFilterRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'trafficMirrorFilterRule', 'modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule' - Modifies a Traffic Mirror rule.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'httpStatus', 'modifyTrafficMirrorFilterRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">newModifyTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span>
+</span><span id="line-300"></span><span id="newModifyTrafficMirrorFilterRuleResponse"><span class="annot"><span class="annottext">newModifyTrafficMirrorFilterRuleResponse :: Int -&gt; ModifyTrafficMirrorFilterRuleResponse
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#newModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-var hs-var">newModifyTrafficMirrorFilterRuleResponse</span></a></span></span><span> </span><span id="local-6989586621681181212"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181212"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+-&gt; Int -&gt; ModifyTrafficMirrorFilterRuleResponse
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRule:ModifyTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTrafficMirrorFilterRuleResponse' :: Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181212"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | Modifies a Traffic Mirror rule.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorFilterRule.html#TrafficMirrorFilterRule"><span class="hs-identifier hs-type">TrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule :: (Maybe TrafficMirrorFilterRule
+ -&gt; f (Maybe TrafficMirrorFilterRule))
+-&gt; ModifyTrafficMirrorFilterRuleResponse
+-&gt; f ModifyTrafficMirrorFilterRuleResponse
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRuleResponse
+ -&gt; Maybe TrafficMirrorFilterRule)
+-&gt; (ModifyTrafficMirrorFilterRuleResponse
+    -&gt; Maybe TrafficMirrorFilterRule
+    -&gt; ModifyTrafficMirrorFilterRuleResponse)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRuleResponse
+     ModifyTrafficMirrorFilterRuleResponse
+     (Maybe TrafficMirrorFilterRule)
+     (Maybe TrafficMirrorFilterRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181211"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+trafficMirrorFilterRule :: Maybe TrafficMirrorFilterRule
+$sel:trafficMirrorFilterRule:ModifyTrafficMirrorFilterRuleResponse' :: ModifyTrafficMirrorFilterRuleResponse
+-&gt; Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681181211"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681181211"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181210"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681181210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181209"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681181209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681181210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRule:ModifyTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681181209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier hs-type">modifyTrafficMirrorFilterRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-313"></span><span id="modifyTrafficMirrorFilterRuleResponse_httpStatus"><span class="annot"><span class="annottext">modifyTrafficMirrorFilterRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyTrafficMirrorFilterRuleResponse
+-&gt; f ModifyTrafficMirrorFilterRuleResponse
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#modifyTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyTrafficMirrorFilterRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyTrafficMirrorFilterRuleResponse -&gt; Int)
+-&gt; (ModifyTrafficMirrorFilterRuleResponse
+    -&gt; Int -&gt; ModifyTrafficMirrorFilterRuleResponse)
+-&gt; Lens
+     ModifyTrafficMirrorFilterRuleResponse
+     ModifyTrafficMirrorFilterRuleResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181208"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyTrafficMirrorFilterRuleResponse' :: ModifyTrafficMirrorFilterRuleResponse -&gt; Int
+</span><a href="#local-6989586621681181208"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181208"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181207"><span class="annot"><span class="annottext">s :: ModifyTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681181207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681181207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTrafficMirrorFilterRuleResponse' :: Int
+</span><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3AModifyTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681181206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621681181204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTrafficMirrorFilterRule.html#ModifyTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">ModifyTrafficMirrorFilterRuleResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

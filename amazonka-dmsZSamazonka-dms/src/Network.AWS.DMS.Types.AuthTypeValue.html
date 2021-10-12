@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.AuthTypeValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.AuthTypeValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier">AuthTypeValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_No"><span class="hs-identifier">AuthTypeValue_No</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_Password"><span class="hs-identifier">AuthTypeValue_Password</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679429234"><span id="local-6989586621679429235"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier hs-var">AuthTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue%27"><span class="hs-identifier hs-var">AuthTypeValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthTypeValue"><span class="annot"><span class="annottext">AuthTypeValue -&gt; Text
+</span><a href="Network.AWS.DMS.Types.AuthTypeValue.html#fromAuthTypeValue"><span class="hs-identifier hs-var hs-var">fromAuthTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429226"><span id="local-6989586621679429228"><span id="local-6989586621679429230"><span class="annot"><span class="annottext">Int -&gt; AuthTypeValue -&gt; ShowS
+[AuthTypeValue] -&gt; ShowS
+AuthTypeValue -&gt; String
+(Int -&gt; AuthTypeValue -&gt; ShowS)
+-&gt; (AuthTypeValue -&gt; String)
+-&gt; ([AuthTypeValue] -&gt; ShowS)
+-&gt; Show AuthTypeValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthTypeValue] -&gt; ShowS
+$cshowList :: [AuthTypeValue] -&gt; ShowS
+show :: AuthTypeValue -&gt; String
+$cshow :: AuthTypeValue -&gt; String
+showsPrec :: Int -&gt; AuthTypeValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthTypeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679429217"><span id="local-6989586621679429219"><span id="local-6989586621679429221"><span id="local-6989586621679429223"><span class="annot"><span class="annottext">ReadPrec [AuthTypeValue]
+ReadPrec AuthTypeValue
+Int -&gt; ReadS AuthTypeValue
+ReadS [AuthTypeValue]
+(Int -&gt; ReadS AuthTypeValue)
+-&gt; ReadS [AuthTypeValue]
+-&gt; ReadPrec AuthTypeValue
+-&gt; ReadPrec [AuthTypeValue]
+-&gt; Read AuthTypeValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthTypeValue]
+$creadListPrec :: ReadPrec [AuthTypeValue]
+readPrec :: ReadPrec AuthTypeValue
+$creadPrec :: ReadPrec AuthTypeValue
+readList :: ReadS [AuthTypeValue]
+$creadList :: ReadS [AuthTypeValue]
+readsPrec :: Int -&gt; ReadS AuthTypeValue
+$creadsPrec :: Int -&gt; ReadS AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679429212"><span id="local-6989586621679429214"><span class="annot"><span class="annottext">AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+(AuthTypeValue -&gt; AuthTypeValue -&gt; Bool)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Bool) -&gt; Eq AuthTypeValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c/= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+== :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c== :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679429196"><span id="local-6989586621679429198"><span id="local-6989586621679429200"><span id="local-6989586621679429202"><span id="local-6989586621679429204"><span id="local-6989586621679429206"><span id="local-6989586621679429208"><span class="annot"><span class="annottext">Eq AuthTypeValue
+Eq AuthTypeValue
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Ordering)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Bool)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Bool)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Bool)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; Bool)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue)
+-&gt; (AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue)
+-&gt; Ord AuthTypeValue
+AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+AuthTypeValue -&gt; AuthTypeValue -&gt; Ordering
+AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue
+$cmin :: AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue
+max :: AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue
+$cmax :: AuthTypeValue -&gt; AuthTypeValue -&gt; AuthTypeValue
+&gt;= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c&gt;= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+&gt; :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c&gt; :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+&lt;= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c&lt;= :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+&lt; :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+$c&lt; :: AuthTypeValue -&gt; AuthTypeValue -&gt; Bool
+compare :: AuthTypeValue -&gt; AuthTypeValue -&gt; Ordering
+$ccompare :: AuthTypeValue -&gt; AuthTypeValue -&gt; Ordering
+$cp1Ord :: Eq AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthTypeValue -&gt; Rep AuthTypeValue x)
+-&gt; (forall x. Rep AuthTypeValue x -&gt; AuthTypeValue)
+-&gt; Generic AuthTypeValue
+forall x. Rep AuthTypeValue x -&gt; AuthTypeValue
+forall x. AuthTypeValue -&gt; Rep AuthTypeValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthTypeValue x -&gt; AuthTypeValue
+$cfrom :: forall x. AuthTypeValue -&gt; Rep AuthTypeValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429188"><span id="local-6989586621679429190"><span class="annot"><span class="annottext">Int -&gt; AuthTypeValue -&gt; Int
+AuthTypeValue -&gt; Int
+(Int -&gt; AuthTypeValue -&gt; Int)
+-&gt; (AuthTypeValue -&gt; Int) -&gt; Hashable AuthTypeValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthTypeValue -&gt; Int
+$chash :: AuthTypeValue -&gt; Int
+hashWithSalt :: Int -&gt; AuthTypeValue -&gt; Int
+$chashWithSalt :: Int -&gt; AuthTypeValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679429185"><span class="annot"><span class="annottext">AuthTypeValue -&gt; ()
+(AuthTypeValue -&gt; ()) -&gt; NFData AuthTypeValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthTypeValue -&gt; ()
+$crnf :: AuthTypeValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429182"><span class="annot"><span class="annottext">Text -&gt; Either String AuthTypeValue
+(Text -&gt; Either String AuthTypeValue) -&gt; FromText AuthTypeValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthTypeValue
+$cfromText :: Text -&gt; Either String AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679429179"><span class="annot"><span class="annottext">AuthTypeValue -&gt; Text
+(AuthTypeValue -&gt; Text) -&gt; ToText AuthTypeValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthTypeValue -&gt; Text
+$ctoText :: AuthTypeValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679429176"><span class="annot"><span class="annottext">AuthTypeValue -&gt; ByteString
+(AuthTypeValue -&gt; ByteString) -&gt; ToByteString AuthTypeValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthTypeValue -&gt; ByteString
+$ctoBS :: AuthTypeValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679429173"><span class="annot"><span class="annottext">AuthTypeValue -&gt; ByteStringBuilder
+(AuthTypeValue -&gt; ByteStringBuilder) -&gt; ToLog AuthTypeValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthTypeValue -&gt; ByteStringBuilder
+$cbuild :: AuthTypeValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679429170"><span class="annot"><span class="annottext">HeaderName -&gt; AuthTypeValue -&gt; [Header]
+(HeaderName -&gt; AuthTypeValue -&gt; [Header]) -&gt; ToHeader AuthTypeValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthTypeValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthTypeValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429167"><span class="annot"><span class="annottext">AuthTypeValue -&gt; QueryString
+(AuthTypeValue -&gt; QueryString) -&gt; ToQuery AuthTypeValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthTypeValue -&gt; QueryString
+$ctoQuery :: AuthTypeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429162"><span id="local-6989586621679429164"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthTypeValue]
+Value -&gt; Parser AuthTypeValue
+(Value -&gt; Parser AuthTypeValue)
+-&gt; (Value -&gt; Parser [AuthTypeValue]) -&gt; FromJSON AuthTypeValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthTypeValue]
+$cparseJSONList :: Value -&gt; Parser [AuthTypeValue]
+parseJSON :: Value -&gt; Parser AuthTypeValue
+$cparseJSON :: Value -&gt; Parser AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429157"><span id="local-6989586621679429159"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthTypeValue]
+FromJSONKeyFunction AuthTypeValue
+FromJSONKeyFunction AuthTypeValue
+-&gt; FromJSONKeyFunction [AuthTypeValue] -&gt; FromJSONKey AuthTypeValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthTypeValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthTypeValue]
+fromJSONKey :: FromJSONKeyFunction AuthTypeValue
+$cfromJSONKey :: FromJSONKeyFunction AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429148"><span id="local-6989586621679429150"><span id="local-6989586621679429152"><span id="local-6989586621679429154"><span class="annot"><span class="annottext">[AuthTypeValue] -&gt; Encoding
+[AuthTypeValue] -&gt; Value
+AuthTypeValue -&gt; Encoding
+AuthTypeValue -&gt; Value
+(AuthTypeValue -&gt; Value)
+-&gt; (AuthTypeValue -&gt; Encoding)
+-&gt; ([AuthTypeValue] -&gt; Value)
+-&gt; ([AuthTypeValue] -&gt; Encoding)
+-&gt; ToJSON AuthTypeValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthTypeValue] -&gt; Encoding
+$ctoEncodingList :: [AuthTypeValue] -&gt; Encoding
+toJSONList :: [AuthTypeValue] -&gt; Value
+$ctoJSONList :: [AuthTypeValue] -&gt; Value
+toEncoding :: AuthTypeValue -&gt; Encoding
+$ctoEncoding :: AuthTypeValue -&gt; Encoding
+toJSON :: AuthTypeValue -&gt; Value
+$ctoJSON :: AuthTypeValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429143"><span id="local-6989586621679429145"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthTypeValue]
+ToJSONKeyFunction AuthTypeValue
+ToJSONKeyFunction AuthTypeValue
+-&gt; ToJSONKeyFunction [AuthTypeValue] -&gt; ToJSONKey AuthTypeValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthTypeValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthTypeValue]
+toJSONKey :: ToJSONKeyFunction AuthTypeValue
+$ctoJSONKey :: ToJSONKeyFunction AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429140"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthTypeValue
+([Node] -&gt; Either String AuthTypeValue) -&gt; FromXML AuthTypeValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthTypeValue
+$cparseXML :: [Node] -&gt; Either String AuthTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679429137"><span class="annot"><span class="annottext">AuthTypeValue -&gt; XML
+(AuthTypeValue -&gt; XML) -&gt; ToXML AuthTypeValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthTypeValue -&gt; XML
+$ctoXML :: AuthTypeValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_No"><span class="hs-identifier hs-type">AuthTypeValue_No</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier hs-type">AuthTypeValue</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthTypeValue_No"><span id="%24mAuthTypeValue_No"><span id="AuthTypeValue_No"><span class="annot"><span class="annottext">$bAuthTypeValue_No :: AuthTypeValue
+$mAuthTypeValue_No :: forall r. AuthTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DMS.Types.AuthTypeValue.html#%24bAuthTypeValue_No"><span class="hs-identifier hs-var hs-var hs-var">AuthTypeValue_No</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue%27"><span class="hs-identifier hs-type">AuthTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;no&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_Password"><span class="hs-identifier hs-type">AuthTypeValue_Password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier hs-type">AuthTypeValue</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthTypeValue_Password"><span id="%24mAuthTypeValue_Password"><span id="AuthTypeValue_Password"><span class="annot"><span class="annottext">$bAuthTypeValue_Password :: AuthTypeValue
+$mAuthTypeValue_Password :: forall r. AuthTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DMS.Types.AuthTypeValue.html#%24bAuthTypeValue_Password"><span class="hs-identifier hs-var hs-var hs-var">AuthTypeValue_Password</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue%27"><span class="hs-identifier hs-type">AuthTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;password&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_No"><span class="hs-pragma hs-type">AuthTypeValue_No</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue_Password"><span class="hs-pragma hs-type">AuthTypeValue_Password</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue%27"><span class="hs-pragma hs-type">AuthTypeValue'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.AuthEventType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.AuthEventType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventContextDataType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.EventContextDataType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventResponseType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.EventResponseType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventRiskType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.EventRiskType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.EventType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The authentication event type.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newAuthEventType' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679433482"><span id="local-6989586621679433483"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthEventType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-var">AuthEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthEventType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-var">AuthEventType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AeventType%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe EventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventType%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The event ID.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AeventId%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventId%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The challenge responses.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AchallengeResponses%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe [ChallengeResponseType]
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AchallengeResponses%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">challengeResponses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType.html#ChallengeResponseType"><span class="hs-identifier hs-type">ChallengeResponseType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The user context data captured at the time of an event request. It</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- provides additional information about the client from which event the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- request is received.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeventContextData%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe EventContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventContextData%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventContextDataType.html#EventContextDataType"><span class="hs-identifier hs-type">EventContextDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The creation date</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreationDate%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AcreationDate%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The event risk.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AeventRisk%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe EventRiskType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventRisk%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventRisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventRiskType.html#EventRiskType"><span class="hs-identifier hs-type">EventRiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The event response.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AeventResponse%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe EventResponseType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventResponse%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventResponseType.html#EventResponseType"><span class="hs-identifier hs-type">EventResponseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A flag specifying the user feedback captured at the time of an event</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- request is good or bad.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AeventFeedback%3AAuthEventType%27"><span class="annot"><span class="annottext">AuthEventType -&gt; Maybe EventFeedbackType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventFeedback%3AAuthEventType%27"><span class="hs-identifier hs-var hs-var">eventFeedback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType.html#EventFeedbackType"><span class="hs-identifier hs-type">EventFeedbackType</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433469"><span id="local-6989586621679433471"><span class="annot"><span class="annottext">AuthEventType -&gt; AuthEventType -&gt; Bool
+(AuthEventType -&gt; AuthEventType -&gt; Bool)
+-&gt; (AuthEventType -&gt; AuthEventType -&gt; Bool) -&gt; Eq AuthEventType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthEventType -&gt; AuthEventType -&gt; Bool
+$c/= :: AuthEventType -&gt; AuthEventType -&gt; Bool
+== :: AuthEventType -&gt; AuthEventType -&gt; Bool
+$c== :: AuthEventType -&gt; AuthEventType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433460"><span id="local-6989586621679433462"><span id="local-6989586621679433464"><span id="local-6989586621679433466"><span class="annot"><span class="annottext">ReadPrec [AuthEventType]
+ReadPrec AuthEventType
+Int -&gt; ReadS AuthEventType
+ReadS [AuthEventType]
+(Int -&gt; ReadS AuthEventType)
+-&gt; ReadS [AuthEventType]
+-&gt; ReadPrec AuthEventType
+-&gt; ReadPrec [AuthEventType]
+-&gt; Read AuthEventType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthEventType]
+$creadListPrec :: ReadPrec [AuthEventType]
+readPrec :: ReadPrec AuthEventType
+$creadPrec :: ReadPrec AuthEventType
+readList :: ReadS [AuthEventType]
+$creadList :: ReadS [AuthEventType]
+readsPrec :: Int -&gt; ReadS AuthEventType
+$creadsPrec :: Int -&gt; ReadS AuthEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433453"><span id="local-6989586621679433455"><span id="local-6989586621679433457"><span class="annot"><span class="annottext">Int -&gt; AuthEventType -&gt; ShowS
+[AuthEventType] -&gt; ShowS
+AuthEventType -&gt; String
+(Int -&gt; AuthEventType -&gt; ShowS)
+-&gt; (AuthEventType -&gt; String)
+-&gt; ([AuthEventType] -&gt; ShowS)
+-&gt; Show AuthEventType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthEventType] -&gt; ShowS
+$cshowList :: [AuthEventType] -&gt; ShowS
+show :: AuthEventType -&gt; String
+$cshow :: AuthEventType -&gt; String
+showsPrec :: Int -&gt; AuthEventType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthEventType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AuthEventType -&gt; Rep AuthEventType x)
+-&gt; (forall x. Rep AuthEventType x -&gt; AuthEventType)
+-&gt; Generic AuthEventType
+forall x. Rep AuthEventType x -&gt; AuthEventType
+forall x. AuthEventType -&gt; Rep AuthEventType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthEventType x -&gt; AuthEventType
+$cfrom :: forall x. AuthEventType -&gt; Rep AuthEventType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'AuthEventType' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'eventType', 'authEventType_eventType' - The event type.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'eventId', 'authEventType_eventId' - The event ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'challengeResponses', 'authEventType_challengeResponses' - The challenge responses.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'eventContextData', 'authEventType_eventContextData' - The user context data captured at the time of an event request. It</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- provides additional information about the client from which event the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- request is received.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'creationDate', 'authEventType_creationDate' - The creation date</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'eventRisk', 'authEventType_eventRisk' - The event risk.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'eventResponse', 'authEventType_eventResponse' - The event response.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'eventFeedback', 'authEventType_eventFeedback' - A flag specifying the user feedback captured at the time of an event</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- request is good or bad.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#newAuthEventType"><span class="hs-identifier hs-type">newAuthEventType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span>
+</span><span id="line-86"></span><span id="newAuthEventType"><span class="annot"><span class="annottext">newAuthEventType :: AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#newAuthEventType"><span class="hs-identifier hs-var hs-var">newAuthEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">AuthEventType' :: Maybe EventType
+-&gt; Maybe Text
+-&gt; Maybe [ChallengeResponseType]
+-&gt; Maybe EventContextDataType
+-&gt; Maybe POSIX
+-&gt; Maybe EventRiskType
+-&gt; Maybe EventResponseType
+-&gt; Maybe EventFeedbackType
+-&gt; AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventType:AuthEventType' :: Maybe EventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventType%3AAuthEventType%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventId:AuthEventType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventId%3AAuthEventType%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:challengeResponses:AuthEventType' :: Maybe [ChallengeResponseType]
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AchallengeResponses%3AAuthEventType%27"><span class="hs-identifier hs-var">challengeResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventContextData:AuthEventType' :: Maybe EventContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventContextData%3AAuthEventType%27"><span class="hs-identifier hs-var">eventContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventContextDataType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:AuthEventType' :: Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AcreationDate%3AAuthEventType%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventRisk:AuthEventType' :: Maybe EventRiskType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventRisk%3AAuthEventType%27"><span class="hs-identifier hs-var">eventRisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventRiskType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventResponse:AuthEventType' :: Maybe EventResponseType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventResponse%3AAuthEventType%27"><span class="hs-identifier hs-var">eventResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventResponseType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventFeedback:AuthEventType' :: Maybe EventFeedbackType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventFeedback%3AAuthEventType%27"><span class="hs-identifier hs-var">eventFeedback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventFeedbackType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The event type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventType"><span class="hs-identifier hs-type">authEventType_eventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="authEventType_eventType"><span class="annot"><span class="annottext">authEventType_eventType :: (Maybe EventType -&gt; f (Maybe EventType))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventType"><span class="hs-identifier hs-var hs-var">authEventType_eventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe EventType)
+-&gt; (AuthEventType -&gt; Maybe EventType -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType AuthEventType (Maybe EventType) (Maybe EventType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433444"><span class="annot"><span class="annottext">Maybe EventType
+eventType :: Maybe EventType
+$sel:eventType:AuthEventType' :: AuthEventType -&gt; Maybe EventType
+</span><a href="#local-6989586621679433444"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
+</span><a href="#local-6989586621679433444"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433443"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433442"><span class="annot"><span class="annottext">Maybe EventType
+</span><a href="#local-6989586621679433442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:AuthEventType' :: Maybe EventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventType%3AAuthEventType%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
+</span><a href="#local-6989586621679433442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The event ID.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventId"><span class="hs-identifier hs-type">authEventType_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="authEventType_eventId"><span class="annot"><span class="annottext">authEventType_eventId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventId"><span class="hs-identifier hs-var hs-var">authEventType_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe Text)
+-&gt; (AuthEventType -&gt; Maybe Text -&gt; AuthEventType)
+-&gt; Lens AuthEventType AuthEventType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433440"><span class="annot"><span class="annottext">Maybe Text
+eventId :: Maybe Text
+$sel:eventId:AuthEventType' :: AuthEventType -&gt; Maybe Text
+</span><a href="#local-6989586621679433440"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433440"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433439"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:AuthEventType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventId%3AAuthEventType%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The challenge responses.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_challengeResponses"><span class="hs-identifier hs-type">authEventType_challengeResponses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType.html#ChallengeResponseType"><span class="hs-identifier hs-type">ChallengeResponseType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="authEventType_challengeResponses"><span class="annot"><span class="annottext">authEventType_challengeResponses :: (Maybe [ChallengeResponseType]
+ -&gt; f (Maybe [ChallengeResponseType]))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_challengeResponses"><span class="hs-identifier hs-var hs-var">authEventType_challengeResponses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe [ChallengeResponseType])
+-&gt; (AuthEventType
+    -&gt; Maybe [ChallengeResponseType] -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType
+     AuthEventType
+     (Maybe [ChallengeResponseType])
+     (Maybe [ChallengeResponseType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433436"><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+challengeResponses :: Maybe [ChallengeResponseType]
+$sel:challengeResponses:AuthEventType' :: AuthEventType -&gt; Maybe [ChallengeResponseType]
+</span><a href="#local-6989586621679433436"><span class="hs-identifier hs-var hs-var">challengeResponses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+</span><a href="#local-6989586621679433436"><span class="hs-identifier hs-var">challengeResponses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433435"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433434"><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+</span><a href="#local-6989586621679433434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:challengeResponses:AuthEventType' :: Maybe [ChallengeResponseType]
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AchallengeResponses%3AAuthEventType%27"><span class="hs-identifier hs-var">challengeResponses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+</span><a href="#local-6989586621679433434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChallengeResponseType]
+  -&gt; f (Maybe [ChallengeResponseType]))
+ -&gt; AuthEventType -&gt; f AuthEventType)
+-&gt; ((Maybe [ChallengeResponseType]
+     -&gt; f (Maybe [ChallengeResponseType]))
+    -&gt; Maybe [ChallengeResponseType]
+    -&gt; f (Maybe [ChallengeResponseType]))
+-&gt; (Maybe [ChallengeResponseType]
+    -&gt; f (Maybe [ChallengeResponseType]))
+-&gt; AuthEventType
+-&gt; f AuthEventType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+-&gt; Iso
+     (Maybe [ChallengeResponseType])
+     (Maybe [ChallengeResponseType])
+     (Maybe [ChallengeResponseType])
+     (Maybe [ChallengeResponseType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+  [ChallengeResponseType]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The user context data captured at the time of an event request. It</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- provides additional information about the client from which event the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- request is received.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventContextData"><span class="hs-identifier hs-type">authEventType_eventContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventContextDataType.html#EventContextDataType"><span class="hs-identifier hs-type">EventContextDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="authEventType_eventContextData"><span class="annot"><span class="annottext">authEventType_eventContextData :: (Maybe EventContextDataType -&gt; f (Maybe EventContextDataType))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventContextData"><span class="hs-identifier hs-var hs-var">authEventType_eventContextData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe EventContextDataType)
+-&gt; (AuthEventType -&gt; Maybe EventContextDataType -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType
+     AuthEventType
+     (Maybe EventContextDataType)
+     (Maybe EventContextDataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433429"><span class="annot"><span class="annottext">Maybe EventContextDataType
+eventContextData :: Maybe EventContextDataType
+$sel:eventContextData:AuthEventType' :: AuthEventType -&gt; Maybe EventContextDataType
+</span><a href="#local-6989586621679433429"><span class="hs-identifier hs-var hs-var">eventContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventContextDataType
+</span><a href="#local-6989586621679433429"><span class="hs-identifier hs-var">eventContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433428"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433427"><span class="annot"><span class="annottext">Maybe EventContextDataType
+</span><a href="#local-6989586621679433427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventContextData:AuthEventType' :: Maybe EventContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventContextData%3AAuthEventType%27"><span class="hs-identifier hs-var">eventContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventContextDataType
+</span><a href="#local-6989586621679433427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The creation date</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_creationDate"><span class="hs-identifier hs-type">authEventType_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="authEventType_creationDate"><span class="annot"><span class="annottext">authEventType_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_creationDate"><span class="hs-identifier hs-var hs-var">authEventType_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe POSIX)
+-&gt; (AuthEventType -&gt; Maybe POSIX -&gt; AuthEventType)
+-&gt; Lens AuthEventType AuthEventType (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433425"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:AuthEventType' :: AuthEventType -&gt; Maybe POSIX
+</span><a href="#local-6989586621679433425"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679433425"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433424"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433423"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679433423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:AuthEventType' :: Maybe POSIX
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AcreationDate%3AAuthEventType%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679433423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AuthEventType -&gt; f AuthEventType)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthEventType
+-&gt; f AuthEventType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The event risk.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventRisk"><span class="hs-identifier hs-type">authEventType_eventRisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventRiskType.html#EventRiskType"><span class="hs-identifier hs-type">EventRiskType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="authEventType_eventRisk"><span class="annot"><span class="annottext">authEventType_eventRisk :: (Maybe EventRiskType -&gt; f (Maybe EventRiskType))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventRisk"><span class="hs-identifier hs-var hs-var">authEventType_eventRisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe EventRiskType)
+-&gt; (AuthEventType -&gt; Maybe EventRiskType -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType
+     AuthEventType
+     (Maybe EventRiskType)
+     (Maybe EventRiskType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433420"><span class="annot"><span class="annottext">Maybe EventRiskType
+eventRisk :: Maybe EventRiskType
+$sel:eventRisk:AuthEventType' :: AuthEventType -&gt; Maybe EventRiskType
+</span><a href="#local-6989586621679433420"><span class="hs-identifier hs-var hs-var">eventRisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventRiskType
+</span><a href="#local-6989586621679433420"><span class="hs-identifier hs-var">eventRisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433419"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433418"><span class="annot"><span class="annottext">Maybe EventRiskType
+</span><a href="#local-6989586621679433418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventRisk:AuthEventType' :: Maybe EventRiskType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventRisk%3AAuthEventType%27"><span class="hs-identifier hs-var">eventRisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventRiskType
+</span><a href="#local-6989586621679433418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The event response.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventResponse"><span class="hs-identifier hs-type">authEventType_eventResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventResponseType.html#EventResponseType"><span class="hs-identifier hs-type">EventResponseType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="authEventType_eventResponse"><span class="annot"><span class="annottext">authEventType_eventResponse :: (Maybe EventResponseType -&gt; f (Maybe EventResponseType))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventResponse"><span class="hs-identifier hs-var hs-var">authEventType_eventResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe EventResponseType)
+-&gt; (AuthEventType -&gt; Maybe EventResponseType -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType
+     AuthEventType
+     (Maybe EventResponseType)
+     (Maybe EventResponseType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433416"><span class="annot"><span class="annottext">Maybe EventResponseType
+eventResponse :: Maybe EventResponseType
+$sel:eventResponse:AuthEventType' :: AuthEventType -&gt; Maybe EventResponseType
+</span><a href="#local-6989586621679433416"><span class="hs-identifier hs-var hs-var">eventResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventResponseType
+</span><a href="#local-6989586621679433416"><span class="hs-identifier hs-var">eventResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433415"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433414"><span class="annot"><span class="annottext">Maybe EventResponseType
+</span><a href="#local-6989586621679433414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventResponse:AuthEventType' :: Maybe EventResponseType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventResponse%3AAuthEventType%27"><span class="hs-identifier hs-var">eventResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventResponseType
+</span><a href="#local-6989586621679433414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A flag specifying the user feedback captured at the time of an event</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- request is good or bad.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventFeedback"><span class="hs-identifier hs-type">authEventType_eventFeedback</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType.html#EventFeedbackType"><span class="hs-identifier hs-type">EventFeedbackType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="authEventType_eventFeedback"><span class="annot"><span class="annottext">authEventType_eventFeedback :: (Maybe EventFeedbackType -&gt; f (Maybe EventFeedbackType))
+-&gt; AuthEventType -&gt; f AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#authEventType_eventFeedback"><span class="hs-identifier hs-var hs-var">authEventType_eventFeedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthEventType -&gt; Maybe EventFeedbackType)
+-&gt; (AuthEventType -&gt; Maybe EventFeedbackType -&gt; AuthEventType)
+-&gt; Lens
+     AuthEventType
+     AuthEventType
+     (Maybe EventFeedbackType)
+     (Maybe EventFeedbackType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433412"><span class="annot"><span class="annottext">Maybe EventFeedbackType
+eventFeedback :: Maybe EventFeedbackType
+$sel:eventFeedback:AuthEventType' :: AuthEventType -&gt; Maybe EventFeedbackType
+</span><a href="#local-6989586621679433412"><span class="hs-identifier hs-var hs-var">eventFeedback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventFeedbackType
+</span><a href="#local-6989586621679433412"><span class="hs-identifier hs-var">eventFeedback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433411"><span class="annot"><span class="annottext">s :: AuthEventType
+</span><a href="#local-6989586621679433411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-type">AuthEventType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433410"><span class="annot"><span class="annottext">Maybe EventFeedbackType
+</span><a href="#local-6989586621679433410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthEventType
+</span><a href="#local-6989586621679433411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventFeedback:AuthEventType' :: Maybe EventFeedbackType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#%24sel%3AeventFeedback%3AAuthEventType%27"><span class="hs-identifier hs-var">eventFeedback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventFeedbackType
+</span><a href="#local-6989586621679433410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433407"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679433405"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AuthEventType)
+-&gt; Value
+-&gt; Parser AuthEventType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AuthEventType&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433402"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventType
+-&gt; Maybe Text
+-&gt; Maybe [ChallengeResponseType]
+-&gt; Maybe EventContextDataType
+-&gt; Maybe POSIX
+-&gt; Maybe EventRiskType
+-&gt; Maybe EventResponseType
+-&gt; Maybe EventFeedbackType
+-&gt; AuthEventType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType%27"><span class="hs-identifier hs-var">AuthEventType'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventType
+ -&gt; Maybe Text
+ -&gt; Maybe [ChallengeResponseType]
+ -&gt; Maybe EventContextDataType
+ -&gt; Maybe POSIX
+ -&gt; Maybe EventRiskType
+ -&gt; Maybe EventResponseType
+ -&gt; Maybe EventFeedbackType
+ -&gt; AuthEventType)
+-&gt; Parser (Maybe EventType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [ChallengeResponseType]
+      -&gt; Maybe EventContextDataType
+      -&gt; Maybe POSIX
+      -&gt; Maybe EventRiskType
+      -&gt; Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType
+      -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [ChallengeResponseType]
+   -&gt; Maybe EventContextDataType
+   -&gt; Maybe POSIX
+   -&gt; Maybe EventRiskType
+   -&gt; Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType
+   -&gt; AuthEventType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [ChallengeResponseType]
+      -&gt; Maybe EventContextDataType
+      -&gt; Maybe POSIX
+      -&gt; Maybe EventRiskType
+      -&gt; Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType
+      -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ChallengeResponseType]
+   -&gt; Maybe EventContextDataType
+   -&gt; Maybe POSIX
+   -&gt; Maybe EventRiskType
+   -&gt; Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType
+   -&gt; AuthEventType)
+-&gt; Parser (Maybe [ChallengeResponseType])
+-&gt; Parser
+     (Maybe EventContextDataType
+      -&gt; Maybe POSIX
+      -&gt; Maybe EventRiskType
+      -&gt; Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType
+      -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ChallengeResponseType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChallengeResponses&quot;</span></span><span>
+</span><span id="line-142"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ChallengeResponseType]))
+-&gt; Maybe [ChallengeResponseType]
+-&gt; Parser (Maybe [ChallengeResponseType])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ChallengeResponseType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventContextDataType
+   -&gt; Maybe POSIX
+   -&gt; Maybe EventRiskType
+   -&gt; Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType
+   -&gt; AuthEventType)
+-&gt; Parser (Maybe EventContextDataType)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe EventRiskType
+      -&gt; Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType
+      -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventContextDataType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventContextData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe EventRiskType
+   -&gt; Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType
+   -&gt; AuthEventType)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe EventRiskType
+      -&gt; Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType
+      -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventRiskType
+   -&gt; Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType
+   -&gt; AuthEventType)
+-&gt; Parser (Maybe EventRiskType)
+-&gt; Parser
+     (Maybe EventResponseType
+      -&gt; Maybe EventFeedbackType -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventRiskType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventRisk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventResponseType
+   -&gt; Maybe EventFeedbackType -&gt; AuthEventType)
+-&gt; Parser (Maybe EventResponseType)
+-&gt; Parser (Maybe EventFeedbackType -&gt; AuthEventType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventResponseType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventResponse&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EventFeedbackType -&gt; AuthEventType)
+-&gt; Parser (Maybe EventFeedbackType) -&gt; Parser AuthEventType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventFeedbackType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventFeedback&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433395"><span id="local-6989586621679433397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

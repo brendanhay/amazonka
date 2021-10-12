@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.Types.BatchCreateObject</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.Types.BatchCreateObject</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.AttributeKeyAndValue</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.ObjectReference</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.SchemaFacet</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents the output of a CreateObject operation.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBatchCreateObject' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679329973"><span id="local-6989586621679329974"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateObject"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-var">BatchCreateObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateObject%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-var">BatchCreateObject'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the link.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlinkName%3ABatchCreateObject%27"><span class="annot"><span class="annottext">BatchCreateObject -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AlinkName%3ABatchCreateObject%27"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | If specified, the parent reference to which this object will be</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- attached.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AparentReference%3ABatchCreateObject%27"><span class="annot"><span class="annottext">BatchCreateObject -&gt; Maybe ObjectReference
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AparentReference%3ABatchCreateObject%27"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The batch reference name. See</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support&gt;</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AbatchReferenceName%3ABatchCreateObject%27"><span class="annot"><span class="annottext">BatchCreateObject -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AbatchReferenceName%3ABatchCreateObject%27"><span class="hs-identifier hs-var hs-var">batchReferenceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of @FacetArns@ that will be associated with the object. For more</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- information, see arns.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AschemaFacet%3ABatchCreateObject%27"><span class="annot"><span class="annottext">BatchCreateObject -&gt; [SchemaFacet]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AschemaFacet%3ABatchCreateObject%27"><span class="hs-identifier hs-var hs-var">schemaFacet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An attribute map, which contains an attribute ARN as the key and</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- attribute value as the map value.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AobjectAttributeList%3ABatchCreateObject%27"><span class="annot"><span class="annottext">BatchCreateObject -&gt; [AttributeKeyAndValue]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AobjectAttributeList%3ABatchCreateObject%27"><span class="hs-identifier hs-var hs-var">objectAttributeList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329963"><span id="local-6989586621679329965"><span class="annot"><span class="annottext">BatchCreateObject -&gt; BatchCreateObject -&gt; Bool
+(BatchCreateObject -&gt; BatchCreateObject -&gt; Bool)
+-&gt; (BatchCreateObject -&gt; BatchCreateObject -&gt; Bool)
+-&gt; Eq BatchCreateObject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateObject -&gt; BatchCreateObject -&gt; Bool
+$c/= :: BatchCreateObject -&gt; BatchCreateObject -&gt; Bool
+== :: BatchCreateObject -&gt; BatchCreateObject -&gt; Bool
+$c== :: BatchCreateObject -&gt; BatchCreateObject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329954"><span id="local-6989586621679329956"><span id="local-6989586621679329958"><span id="local-6989586621679329960"><span class="annot"><span class="annottext">ReadPrec [BatchCreateObject]
+ReadPrec BatchCreateObject
+Int -&gt; ReadS BatchCreateObject
+ReadS [BatchCreateObject]
+(Int -&gt; ReadS BatchCreateObject)
+-&gt; ReadS [BatchCreateObject]
+-&gt; ReadPrec BatchCreateObject
+-&gt; ReadPrec [BatchCreateObject]
+-&gt; Read BatchCreateObject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateObject]
+$creadListPrec :: ReadPrec [BatchCreateObject]
+readPrec :: ReadPrec BatchCreateObject
+$creadPrec :: ReadPrec BatchCreateObject
+readList :: ReadS [BatchCreateObject]
+$creadList :: ReadS [BatchCreateObject]
+readsPrec :: Int -&gt; ReadS BatchCreateObject
+$creadsPrec :: Int -&gt; ReadS BatchCreateObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329947"><span id="local-6989586621679329949"><span id="local-6989586621679329951"><span class="annot"><span class="annottext">Int -&gt; BatchCreateObject -&gt; ShowS
+[BatchCreateObject] -&gt; ShowS
+BatchCreateObject -&gt; String
+(Int -&gt; BatchCreateObject -&gt; ShowS)
+-&gt; (BatchCreateObject -&gt; String)
+-&gt; ([BatchCreateObject] -&gt; ShowS)
+-&gt; Show BatchCreateObject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateObject] -&gt; ShowS
+$cshowList :: [BatchCreateObject] -&gt; ShowS
+show :: BatchCreateObject -&gt; String
+$cshow :: BatchCreateObject -&gt; String
+showsPrec :: Int -&gt; BatchCreateObject -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchCreateObject -&gt; Rep BatchCreateObject x)
+-&gt; (forall x. Rep BatchCreateObject x -&gt; BatchCreateObject)
+-&gt; Generic BatchCreateObject
+forall x. Rep BatchCreateObject x -&gt; BatchCreateObject
+forall x. BatchCreateObject -&gt; Rep BatchCreateObject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchCreateObject x -&gt; BatchCreateObject
+$cfrom :: forall x. BatchCreateObject -&gt; Rep BatchCreateObject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'BatchCreateObject' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'linkName', 'batchCreateObject_linkName' - The name of the link.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'parentReference', 'batchCreateObject_parentReference' - If specified, the parent reference to which this object will be</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- attached.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'batchReferenceName', 'batchCreateObject_batchReferenceName' - The batch reference name. See</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support&gt;</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'schemaFacet', 'batchCreateObject_schemaFacet' - A list of @FacetArns@ that will be associated with the object. For more</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- information, see arns.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'objectAttributeList', 'batchCreateObject_objectAttributeList' - An attribute map, which contains an attribute ARN as the key and</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- attribute value as the map value.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#newBatchCreateObject"><span class="hs-identifier hs-type">newBatchCreateObject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span>
+</span><span id="line-75"></span><span id="newBatchCreateObject"><span class="annot"><span class="annottext">newBatchCreateObject :: BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#newBatchCreateObject"><span class="hs-identifier hs-var hs-var">newBatchCreateObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">BatchCreateObject' :: Maybe Text
+-&gt; Maybe ObjectReference
+-&gt; Maybe Text
+-&gt; [SchemaFacet]
+-&gt; [AttributeKeyAndValue]
+-&gt; BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:linkName:BatchCreateObject' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AlinkName%3ABatchCreateObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentReference:BatchCreateObject' :: Maybe ObjectReference
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AparentReference%3ABatchCreateObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchReferenceName:BatchCreateObject' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AbatchReferenceName%3ABatchCreateObject%27"><span class="hs-identifier hs-var">batchReferenceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaFacet:BatchCreateObject' :: [SchemaFacet]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AschemaFacet%3ABatchCreateObject%27"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SchemaFacet]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectAttributeList:BatchCreateObject' :: [AttributeKeyAndValue]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AobjectAttributeList%3ABatchCreateObject%27"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the link.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_linkName"><span class="hs-identifier hs-type">batchCreateObject_linkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="batchCreateObject_linkName"><span class="annot"><span class="annottext">batchCreateObject_linkName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchCreateObject -&gt; f BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_linkName"><span class="hs-identifier hs-var hs-var">batchCreateObject_linkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateObject -&gt; Maybe Text)
+-&gt; (BatchCreateObject -&gt; Maybe Text -&gt; BatchCreateObject)
+-&gt; Lens
+     BatchCreateObject BatchCreateObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329938"><span class="annot"><span class="annottext">Maybe Text
+linkName :: Maybe Text
+$sel:linkName:BatchCreateObject' :: BatchCreateObject -&gt; Maybe Text
+</span><a href="#local-6989586621679329938"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329938"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329937"><span class="annot"><span class="annottext">s :: BatchCreateObject
+</span><a href="#local-6989586621679329937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateObject
+</span><a href="#local-6989586621679329937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:BatchCreateObject' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AlinkName%3ABatchCreateObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | If specified, the parent reference to which this object will be</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- attached.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_parentReference"><span class="hs-identifier hs-type">batchCreateObject_parentReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="batchCreateObject_parentReference"><span class="annot"><span class="annottext">batchCreateObject_parentReference :: (Maybe ObjectReference -&gt; f (Maybe ObjectReference))
+-&gt; BatchCreateObject -&gt; f BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_parentReference"><span class="hs-identifier hs-var hs-var">batchCreateObject_parentReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateObject -&gt; Maybe ObjectReference)
+-&gt; (BatchCreateObject
+    -&gt; Maybe ObjectReference -&gt; BatchCreateObject)
+-&gt; Lens
+     BatchCreateObject
+     BatchCreateObject
+     (Maybe ObjectReference)
+     (Maybe ObjectReference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329934"><span class="annot"><span class="annottext">Maybe ObjectReference
+parentReference :: Maybe ObjectReference
+$sel:parentReference:BatchCreateObject' :: BatchCreateObject -&gt; Maybe ObjectReference
+</span><a href="#local-6989586621679329934"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679329934"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329933"><span class="annot"><span class="annottext">s :: BatchCreateObject
+</span><a href="#local-6989586621679329933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329932"><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679329932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateObject
+</span><a href="#local-6989586621679329933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:BatchCreateObject' :: Maybe ObjectReference
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AparentReference%3ABatchCreateObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679329932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The batch reference name. See</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support&gt;</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_batchReferenceName"><span class="hs-identifier hs-type">batchCreateObject_batchReferenceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="batchCreateObject_batchReferenceName"><span class="annot"><span class="annottext">batchCreateObject_batchReferenceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchCreateObject -&gt; f BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_batchReferenceName"><span class="hs-identifier hs-var hs-var">batchCreateObject_batchReferenceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateObject -&gt; Maybe Text)
+-&gt; (BatchCreateObject -&gt; Maybe Text -&gt; BatchCreateObject)
+-&gt; Lens
+     BatchCreateObject BatchCreateObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329930"><span class="annot"><span class="annottext">Maybe Text
+batchReferenceName :: Maybe Text
+$sel:batchReferenceName:BatchCreateObject' :: BatchCreateObject -&gt; Maybe Text
+</span><a href="#local-6989586621679329930"><span class="hs-identifier hs-var hs-var">batchReferenceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329930"><span class="hs-identifier hs-var">batchReferenceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329929"><span class="annot"><span class="annottext">s :: BatchCreateObject
+</span><a href="#local-6989586621679329929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateObject
+</span><a href="#local-6989586621679329929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchReferenceName:BatchCreateObject' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AbatchReferenceName%3ABatchCreateObject%27"><span class="hs-identifier hs-var">batchReferenceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A list of @FacetArns@ that will be associated with the object. For more</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- information, see arns.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_schemaFacet"><span class="hs-identifier hs-type">batchCreateObject_schemaFacet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.SchemaFacet.html#SchemaFacet"><span class="hs-identifier hs-type">SchemaFacet</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span id="batchCreateObject_schemaFacet"><span class="annot"><span class="annottext">batchCreateObject_schemaFacet :: ([SchemaFacet] -&gt; f [SchemaFacet])
+-&gt; BatchCreateObject -&gt; f BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_schemaFacet"><span class="hs-identifier hs-var hs-var">batchCreateObject_schemaFacet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateObject -&gt; [SchemaFacet])
+-&gt; (BatchCreateObject -&gt; [SchemaFacet] -&gt; BatchCreateObject)
+-&gt; Lens
+     BatchCreateObject BatchCreateObject [SchemaFacet] [SchemaFacet]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329926"><span class="annot"><span class="annottext">[SchemaFacet]
+schemaFacet :: [SchemaFacet]
+$sel:schemaFacet:BatchCreateObject' :: BatchCreateObject -&gt; [SchemaFacet]
+</span><a href="#local-6989586621679329926"><span class="hs-identifier hs-var hs-var">schemaFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SchemaFacet]
+</span><a href="#local-6989586621679329926"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329925"><span class="annot"><span class="annottext">s :: BatchCreateObject
+</span><a href="#local-6989586621679329925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329924"><span class="annot"><span class="annottext">[SchemaFacet]
+</span><a href="#local-6989586621679329924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateObject
+</span><a href="#local-6989586621679329925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaFacet:BatchCreateObject' :: [SchemaFacet]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AschemaFacet%3ABatchCreateObject%27"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SchemaFacet]
+</span><a href="#local-6989586621679329924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SchemaFacet] -&gt; f [SchemaFacet])
+ -&gt; BatchCreateObject -&gt; f BatchCreateObject)
+-&gt; (([SchemaFacet] -&gt; f [SchemaFacet])
+    -&gt; [SchemaFacet] -&gt; f [SchemaFacet])
+-&gt; ([SchemaFacet] -&gt; f [SchemaFacet])
+-&gt; BatchCreateObject
+-&gt; f BatchCreateObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SchemaFacet] -&gt; f [SchemaFacet])
+-&gt; [SchemaFacet] -&gt; f [SchemaFacet]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | An attribute map, which contains an attribute ARN as the key and</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- attribute value as the map value.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_objectAttributeList"><span class="hs-identifier hs-type">batchCreateObject_objectAttributeList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span id="batchCreateObject_objectAttributeList"><span class="annot"><span class="annottext">batchCreateObject_objectAttributeList :: ([AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+-&gt; BatchCreateObject -&gt; f BatchCreateObject
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#batchCreateObject_objectAttributeList"><span class="hs-identifier hs-var hs-var">batchCreateObject_objectAttributeList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateObject -&gt; [AttributeKeyAndValue])
+-&gt; (BatchCreateObject
+    -&gt; [AttributeKeyAndValue] -&gt; BatchCreateObject)
+-&gt; Lens
+     BatchCreateObject
+     BatchCreateObject
+     [AttributeKeyAndValue]
+     [AttributeKeyAndValue]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329920"><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+objectAttributeList :: [AttributeKeyAndValue]
+$sel:objectAttributeList:BatchCreateObject' :: BatchCreateObject -&gt; [AttributeKeyAndValue]
+</span><a href="#local-6989586621679329920"><span class="hs-identifier hs-var hs-var">objectAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+</span><a href="#local-6989586621679329920"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329919"><span class="annot"><span class="annottext">s :: BatchCreateObject
+</span><a href="#local-6989586621679329919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329918"><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+</span><a href="#local-6989586621679329918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateObject
+</span><a href="#local-6989586621679329919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectAttributeList:BatchCreateObject' :: [AttributeKeyAndValue]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#%24sel%3AobjectAttributeList%3ABatchCreateObject%27"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+</span><a href="#local-6989586621679329918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+ -&gt; BatchCreateObject -&gt; f BatchCreateObject)
+-&gt; (([AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+    -&gt; [AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+-&gt; ([AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+-&gt; BatchCreateObject
+-&gt; f BatchCreateObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue])
+-&gt; [AttributeKeyAndValue] -&gt; f [AttributeKeyAndValue]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329914"><span id="local-6989586621679329916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329903"><span id="local-6989586621679329905"><span id="local-6989586621679329907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject"><span class="hs-identifier hs-type">BatchCreateObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679329901"><span class="annot"><span class="annottext">toJSON :: BatchCreateObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchCreateObject.html#BatchCreateObject%27"><span class="hs-identifier hs-type">BatchCreateObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329895"><span id="local-6989586621679329896"><span id="local-6989586621679329897"><span id="local-6989586621679329898"><span id="local-6989586621679329899"><span class="annot"><span class="annottext">[SchemaFacet]
+[AttributeKeyAndValue]
+Maybe Text
+Maybe ObjectReference
+objectAttributeList :: [AttributeKeyAndValue]
+schemaFacet :: [SchemaFacet]
+batchReferenceName :: Maybe Text
+parentReference :: Maybe ObjectReference
+linkName :: Maybe Text
+$sel:objectAttributeList:BatchCreateObject' :: BatchCreateObject -&gt; [AttributeKeyAndValue]
+$sel:schemaFacet:BatchCreateObject' :: BatchCreateObject -&gt; [SchemaFacet]
+$sel:batchReferenceName:BatchCreateObject' :: BatchCreateObject -&gt; Maybe Text
+$sel:parentReference:BatchCreateObject' :: BatchCreateObject -&gt; Maybe ObjectReference
+$sel:linkName:BatchCreateObject' :: BatchCreateObject -&gt; Maybe Text
+</span><a href="#local-6989586621679329895"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LinkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329899"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(ObjectReference -&gt; Pair) -&gt; Maybe ObjectReference -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679329898"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BatchReferenceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329897"><span class="hs-identifier hs-var">batchReferenceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaFacet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SchemaFacet] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[SchemaFacet]
+</span><a href="#local-6989586621679329896"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectAttributeList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeKeyAndValue] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AttributeKeyAndValue]
+</span><a href="#local-6989586621679329895"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span></pre></body></html>

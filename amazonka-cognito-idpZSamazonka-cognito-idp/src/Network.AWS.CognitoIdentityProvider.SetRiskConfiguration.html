@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.SetRiskConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Configures actions on detected risks. To delete the risk configuration</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- for @UserPoolId@ or @ClientId@, pass null values for all four</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- configuration types.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To enable Amazon Cognito advanced security features, update the user</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- pool to include the @UserPoolAddOns@ key@AdvancedSecurityMode@.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.SetRiskConfiguration</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier">SetRiskConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfiguration"><span class="hs-identifier">newSetRiskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_accountTakeoverRiskConfiguration"><span class="hs-identifier">setRiskConfiguration_accountTakeoverRiskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_riskExceptionConfiguration"><span class="hs-identifier">setRiskConfiguration_riskExceptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_clientId"><span class="hs-identifier">setRiskConfiguration_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_compromisedCredentialsRiskConfiguration"><span class="hs-identifier">setRiskConfiguration_compromisedCredentialsRiskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_userPoolId"><span class="hs-identifier">setRiskConfiguration_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier">SetRiskConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfigurationResponse"><span class="hs-identifier">newSetRiskConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_httpStatus"><span class="hs-identifier">setRiskConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_riskConfiguration"><span class="hs-identifier">setRiskConfigurationResponse_riskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newSetRiskConfiguration' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679440864"><span id="local-6989586621679440865"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetRiskConfiguration"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-var">SetRiskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetRiskConfiguration%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-var">SetRiskConfiguration'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account takeover risk configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AaccountTakeoverRiskConfiguration%3ASetRiskConfiguration%27"><span class="annot"><span class="annottext">SetRiskConfiguration -&gt; Maybe AccountTakeoverRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AaccountTakeoverRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var hs-var">accountTakeoverRiskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType.html#AccountTakeoverRiskConfigurationType"><span class="hs-identifier hs-type">AccountTakeoverRiskConfigurationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The configuration to override the risk decision.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AriskExceptionConfiguration%3ASetRiskConfiguration%27"><span class="annot"><span class="annottext">SetRiskConfiguration -&gt; Maybe RiskExceptionConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskExceptionConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var hs-var">riskExceptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The app client ID. If @ClientId@ is null, then the risk configuration is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- mapped to @userPoolId@. When the client ID is null, the same risk</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- configuration is applied to all the clients in the userPool.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Otherwise, @ClientId@ is mapped to the client. When the client ID is not</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- null, the user pool configuration is overridden and the risk</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- configuration for the client is used instead.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AclientId%3ASetRiskConfiguration%27"><span class="annot"><span class="annottext">SetRiskConfiguration -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AclientId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The compromised credentials risk configuration.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcompromisedCredentialsRiskConfiguration%3ASetRiskConfiguration%27"><span class="annot"><span class="annottext">SetRiskConfiguration
+-&gt; Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AcompromisedCredentialsRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var hs-var">compromisedCredentialsRiskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType.html#CompromisedCredentialsRiskConfigurationType"><span class="hs-identifier hs-type">CompromisedCredentialsRiskConfigurationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AuserPoolId%3ASetRiskConfiguration%27"><span class="annot"><span class="annottext">SetRiskConfiguration -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AuserPoolId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440854"><span id="local-6989586621679440856"><span class="annot"><span class="annottext">SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool
+(SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool)
+-&gt; (SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool)
+-&gt; Eq SetRiskConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool
+$c/= :: SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool
+== :: SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool
+$c== :: SetRiskConfiguration -&gt; SetRiskConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440847"><span id="local-6989586621679440849"><span id="local-6989586621679440851"><span class="annot"><span class="annottext">Int -&gt; SetRiskConfiguration -&gt; ShowS
+[SetRiskConfiguration] -&gt; ShowS
+SetRiskConfiguration -&gt; String
+(Int -&gt; SetRiskConfiguration -&gt; ShowS)
+-&gt; (SetRiskConfiguration -&gt; String)
+-&gt; ([SetRiskConfiguration] -&gt; ShowS)
+-&gt; Show SetRiskConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetRiskConfiguration] -&gt; ShowS
+$cshowList :: [SetRiskConfiguration] -&gt; ShowS
+show :: SetRiskConfiguration -&gt; String
+$cshow :: SetRiskConfiguration -&gt; String
+showsPrec :: Int -&gt; SetRiskConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetRiskConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetRiskConfiguration -&gt; Rep SetRiskConfiguration x)
+-&gt; (forall x. Rep SetRiskConfiguration x -&gt; SetRiskConfiguration)
+-&gt; Generic SetRiskConfiguration
+forall x. Rep SetRiskConfiguration x -&gt; SetRiskConfiguration
+forall x. SetRiskConfiguration -&gt; Rep SetRiskConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetRiskConfiguration x -&gt; SetRiskConfiguration
+$cfrom :: forall x. SetRiskConfiguration -&gt; Rep SetRiskConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'SetRiskConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'accountTakeoverRiskConfiguration', 'setRiskConfiguration_accountTakeoverRiskConfiguration' - The account takeover risk configuration.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'riskExceptionConfiguration', 'setRiskConfiguration_riskExceptionConfiguration' - The configuration to override the risk decision.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'clientId', 'setRiskConfiguration_clientId' - The app client ID. If @ClientId@ is null, then the risk configuration is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- mapped to @userPoolId@. When the client ID is null, the same risk</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- configuration is applied to all the clients in the userPool.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Otherwise, @ClientId@ is mapped to the client. When the client ID is not</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- null, the user pool configuration is overridden and the risk</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- configuration for the client is used instead.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'compromisedCredentialsRiskConfiguration', 'setRiskConfiguration_compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'userPoolId', 'setRiskConfiguration_userPoolId' - The user pool ID.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfiguration"><span class="hs-identifier hs-type">newSetRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span>
+</span><span id="line-106"></span><span id="newSetRiskConfiguration"><span class="annot"><span class="annottext">newSetRiskConfiguration :: Text -&gt; SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfiguration"><span class="hs-identifier hs-var hs-var">newSetRiskConfiguration</span></a></span></span><span> </span><span id="local-6989586621679440842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440842"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">SetRiskConfiguration' :: Maybe AccountTakeoverRiskConfigurationType
+-&gt; Maybe RiskExceptionConfigurationType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe CompromisedCredentialsRiskConfigurationType
+-&gt; Text
+-&gt; SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountTakeoverRiskConfiguration:SetRiskConfiguration' :: Maybe AccountTakeoverRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AaccountTakeoverRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">accountTakeoverRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:riskExceptionConfiguration:SetRiskConfiguration' :: Maybe RiskExceptionConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskExceptionConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">riskExceptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientId:SetRiskConfiguration' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AclientId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:compromisedCredentialsRiskConfiguration:SetRiskConfiguration' :: Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AcompromisedCredentialsRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">compromisedCredentialsRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:SetRiskConfiguration' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AuserPoolId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440842"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The account takeover risk configuration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_accountTakeoverRiskConfiguration"><span class="hs-identifier hs-type">setRiskConfiguration_accountTakeoverRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType.html#AccountTakeoverRiskConfigurationType"><span class="hs-identifier hs-type">AccountTakeoverRiskConfigurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="setRiskConfiguration_accountTakeoverRiskConfiguration"><span class="annot"><span class="annottext">setRiskConfiguration_accountTakeoverRiskConfiguration :: (Maybe AccountTakeoverRiskConfigurationType
+ -&gt; f (Maybe AccountTakeoverRiskConfigurationType))
+-&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_accountTakeoverRiskConfiguration"><span class="hs-identifier hs-var hs-var">setRiskConfiguration_accountTakeoverRiskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfiguration
+ -&gt; Maybe AccountTakeoverRiskConfigurationType)
+-&gt; (SetRiskConfiguration
+    -&gt; Maybe AccountTakeoverRiskConfigurationType
+    -&gt; SetRiskConfiguration)
+-&gt; Lens
+     SetRiskConfiguration
+     SetRiskConfiguration
+     (Maybe AccountTakeoverRiskConfigurationType)
+     (Maybe AccountTakeoverRiskConfigurationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440839"><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+accountTakeoverRiskConfiguration :: Maybe AccountTakeoverRiskConfigurationType
+$sel:accountTakeoverRiskConfiguration:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440839"><span class="hs-identifier hs-var hs-var">accountTakeoverRiskConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440839"><span class="hs-identifier hs-var">accountTakeoverRiskConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440838"><span class="annot"><span class="annottext">s :: SetRiskConfiguration
+</span><a href="#local-6989586621679440838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440837"><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfiguration
+</span><a href="#local-6989586621679440838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountTakeoverRiskConfiguration:SetRiskConfiguration' :: Maybe AccountTakeoverRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AaccountTakeoverRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">accountTakeoverRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The configuration to override the risk decision.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_riskExceptionConfiguration"><span class="hs-identifier hs-type">setRiskConfiguration_riskExceptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="setRiskConfiguration_riskExceptionConfiguration"><span class="annot"><span class="annottext">setRiskConfiguration_riskExceptionConfiguration :: (Maybe RiskExceptionConfigurationType
+ -&gt; f (Maybe RiskExceptionConfigurationType))
+-&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_riskExceptionConfiguration"><span class="hs-identifier hs-var hs-var">setRiskConfiguration_riskExceptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfiguration -&gt; Maybe RiskExceptionConfigurationType)
+-&gt; (SetRiskConfiguration
+    -&gt; Maybe RiskExceptionConfigurationType -&gt; SetRiskConfiguration)
+-&gt; Lens
+     SetRiskConfiguration
+     SetRiskConfiguration
+     (Maybe RiskExceptionConfigurationType)
+     (Maybe RiskExceptionConfigurationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440836"><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+riskExceptionConfiguration :: Maybe RiskExceptionConfigurationType
+$sel:riskExceptionConfiguration:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe RiskExceptionConfigurationType
+</span><a href="#local-6989586621679440836"><span class="hs-identifier hs-var hs-var">riskExceptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+</span><a href="#local-6989586621679440836"><span class="hs-identifier hs-var">riskExceptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440835"><span class="annot"><span class="annottext">s :: SetRiskConfiguration
+</span><a href="#local-6989586621679440835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440834"><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+</span><a href="#local-6989586621679440834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfiguration
+</span><a href="#local-6989586621679440835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:riskExceptionConfiguration:SetRiskConfiguration' :: Maybe RiskExceptionConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskExceptionConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">riskExceptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+</span><a href="#local-6989586621679440834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The app client ID. If @ClientId@ is null, then the risk configuration is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- mapped to @userPoolId@. When the client ID is null, the same risk</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- configuration is applied to all the clients in the userPool.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Otherwise, @ClientId@ is mapped to the client. When the client ID is not</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- null, the user pool configuration is overridden and the risk</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- configuration for the client is used instead.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_clientId"><span class="hs-identifier hs-type">setRiskConfiguration_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="setRiskConfiguration_clientId"><span class="annot"><span class="annottext">setRiskConfiguration_clientId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_clientId"><span class="hs-identifier hs-var hs-var">setRiskConfiguration_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfiguration -&gt; Maybe (Sensitive Text))
+-&gt; (SetRiskConfiguration
+    -&gt; Maybe (Sensitive Text) -&gt; SetRiskConfiguration)
+-&gt; Lens
+     SetRiskConfiguration
+     SetRiskConfiguration
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440833"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+clientId :: Maybe (Sensitive Text)
+$sel:clientId:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440832"><span class="annot"><span class="annottext">s :: SetRiskConfiguration
+</span><a href="#local-6989586621679440832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440831"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfiguration
+</span><a href="#local-6989586621679440832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:SetRiskConfiguration' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AclientId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetRiskConfiguration
+-&gt; f SetRiskConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The compromised credentials risk configuration.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_compromisedCredentialsRiskConfiguration"><span class="hs-identifier hs-type">setRiskConfiguration_compromisedCredentialsRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType.html#CompromisedCredentialsRiskConfigurationType"><span class="hs-identifier hs-type">CompromisedCredentialsRiskConfigurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="setRiskConfiguration_compromisedCredentialsRiskConfiguration"><span class="annot"><span class="annottext">setRiskConfiguration_compromisedCredentialsRiskConfiguration :: (Maybe CompromisedCredentialsRiskConfigurationType
+ -&gt; f (Maybe CompromisedCredentialsRiskConfigurationType))
+-&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_compromisedCredentialsRiskConfiguration"><span class="hs-identifier hs-var hs-var">setRiskConfiguration_compromisedCredentialsRiskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfiguration
+ -&gt; Maybe CompromisedCredentialsRiskConfigurationType)
+-&gt; (SetRiskConfiguration
+    -&gt; Maybe CompromisedCredentialsRiskConfigurationType
+    -&gt; SetRiskConfiguration)
+-&gt; Lens
+     SetRiskConfiguration
+     SetRiskConfiguration
+     (Maybe CompromisedCredentialsRiskConfigurationType)
+     (Maybe CompromisedCredentialsRiskConfigurationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440827"><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+compromisedCredentialsRiskConfiguration :: Maybe CompromisedCredentialsRiskConfigurationType
+$sel:compromisedCredentialsRiskConfiguration:SetRiskConfiguration' :: SetRiskConfiguration
+-&gt; Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="#local-6989586621679440827"><span class="hs-identifier hs-var hs-var">compromisedCredentialsRiskConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="#local-6989586621679440827"><span class="hs-identifier hs-var">compromisedCredentialsRiskConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440826"><span class="annot"><span class="annottext">s :: SetRiskConfiguration
+</span><a href="#local-6989586621679440826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440825"><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="#local-6989586621679440825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfiguration
+</span><a href="#local-6989586621679440826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compromisedCredentialsRiskConfiguration:SetRiskConfiguration' :: Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AcompromisedCredentialsRiskConfiguration%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">compromisedCredentialsRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="#local-6989586621679440825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_userPoolId"><span class="hs-identifier hs-type">setRiskConfiguration_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="setRiskConfiguration_userPoolId"><span class="annot"><span class="annottext">setRiskConfiguration_userPoolId :: (Text -&gt; f Text) -&gt; SetRiskConfiguration -&gt; f SetRiskConfiguration
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfiguration_userPoolId"><span class="hs-identifier hs-var hs-var">setRiskConfiguration_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfiguration -&gt; Text)
+-&gt; (SetRiskConfiguration -&gt; Text -&gt; SetRiskConfiguration)
+-&gt; Lens SetRiskConfiguration SetRiskConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440824"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Text
+</span><a href="#local-6989586621679440824"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440824"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440823"><span class="annot"><span class="annottext">s :: SetRiskConfiguration
+</span><a href="#local-6989586621679440823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfiguration
+</span><a href="#local-6989586621679440823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:SetRiskConfiguration' :: Text
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AuserPoolId%3ASetRiskConfiguration%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679440818"><span class="annot"><span class="annottext">request :: SetRiskConfiguration -&gt; Request SetRiskConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetRiskConfiguration -&gt; Request SetRiskConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679440814"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SetRiskConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetRiskConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SetRiskConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SetRiskConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SetRiskConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440810"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RiskConfigurationType -&gt; SetRiskConfigurationResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">SetRiskConfigurationResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RiskConfigurationType -&gt; SetRiskConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (RiskConfigurationType -&gt; SetRiskConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (RiskConfigurationType -&gt; SetRiskConfigurationResponse)
+-&gt; Either String RiskConfigurationType
+-&gt; Either String SetRiskConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String RiskConfigurationType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RiskConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440801"><span id="local-6989586621679440803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679440794"><span class="annot"><span class="annottext">toHeaders :: SetRiskConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetRiskConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.SetRiskConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-171"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440784"><span id="local-6989586621679440786"><span id="local-6989586621679440788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679440782"><span class="annot"><span class="annottext">toJSON :: SetRiskConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration%27"><span class="hs-identifier hs-type">SetRiskConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440776"><span id="local-6989586621679440777"><span id="local-6989586621679440778"><span id="local-6989586621679440779"><span id="local-6989586621679440780"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Maybe CompromisedCredentialsRiskConfigurationType
+Maybe AccountTakeoverRiskConfigurationType
+Maybe RiskExceptionConfigurationType
+Text
+userPoolId :: Text
+compromisedCredentialsRiskConfiguration :: Maybe CompromisedCredentialsRiskConfigurationType
+clientId :: Maybe (Sensitive Text)
+riskExceptionConfiguration :: Maybe RiskExceptionConfigurationType
+accountTakeoverRiskConfiguration :: Maybe AccountTakeoverRiskConfigurationType
+$sel:userPoolId:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Text
+$sel:compromisedCredentialsRiskConfiguration:SetRiskConfiguration' :: SetRiskConfiguration
+-&gt; Maybe CompromisedCredentialsRiskConfigurationType
+$sel:clientId:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe (Sensitive Text)
+$sel:riskExceptionConfiguration:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe RiskExceptionConfigurationType
+$sel:accountTakeoverRiskConfiguration:SetRiskConfiguration' :: SetRiskConfiguration -&gt; Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountTakeoverRiskConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccountTakeoverRiskConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(AccountTakeoverRiskConfigurationType -&gt; Pair)
+-&gt; Maybe AccountTakeoverRiskConfigurationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccountTakeoverRiskConfigurationType
+</span><a href="#local-6989586621679440780"><span class="hs-identifier hs-var">accountTakeoverRiskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RiskExceptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RiskExceptionConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(RiskExceptionConfigurationType -&gt; Pair)
+-&gt; Maybe RiskExceptionConfigurationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RiskExceptionConfigurationType
+</span><a href="#local-6989586621679440779"><span class="hs-identifier hs-var">riskExceptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440778"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompromisedCredentialsRiskConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CompromisedCredentialsRiskConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(CompromisedCredentialsRiskConfigurationType -&gt; Pair)
+-&gt; Maybe CompromisedCredentialsRiskConfigurationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CompromisedCredentialsRiskConfigurationType
+</span><a href="#local-6989586621679440777"><span class="hs-identifier hs-var">compromisedCredentialsRiskConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440776"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679440770"><span class="annot"><span class="annottext">toPath :: SetRiskConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetRiskConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfiguration"><span class="hs-identifier hs-type">SetRiskConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679440766"><span class="annot"><span class="annottext">toQuery :: SetRiskConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetRiskConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newSetRiskConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679440763"><span id="local-6989586621679440764"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetRiskConfigurationResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-var">SetRiskConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetRiskConfigurationResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">SetRiskConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetRiskConfigurationResponse%27"><span class="annot"><span class="annottext">SetRiskConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AhttpStatus%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The risk configuration.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AriskConfiguration%3ASetRiskConfigurationResponse%27"><span class="annot"><span class="annottext">SetRiskConfigurationResponse -&gt; RiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskConfiguration%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">riskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType.html#RiskConfigurationType"><span class="hs-identifier hs-type">RiskConfigurationType</span></a></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440757"><span id="local-6989586621679440759"><span class="annot"><span class="annottext">SetRiskConfigurationResponse
+-&gt; SetRiskConfigurationResponse -&gt; Bool
+(SetRiskConfigurationResponse
+ -&gt; SetRiskConfigurationResponse -&gt; Bool)
+-&gt; (SetRiskConfigurationResponse
+    -&gt; SetRiskConfigurationResponse -&gt; Bool)
+-&gt; Eq SetRiskConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetRiskConfigurationResponse
+-&gt; SetRiskConfigurationResponse -&gt; Bool
+$c/= :: SetRiskConfigurationResponse
+-&gt; SetRiskConfigurationResponse -&gt; Bool
+== :: SetRiskConfigurationResponse
+-&gt; SetRiskConfigurationResponse -&gt; Bool
+$c== :: SetRiskConfigurationResponse
+-&gt; SetRiskConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440751"><span id="local-6989586621679440753"><span id="local-6989586621679440755"><span class="annot"><span class="annottext">Int -&gt; SetRiskConfigurationResponse -&gt; ShowS
+[SetRiskConfigurationResponse] -&gt; ShowS
+SetRiskConfigurationResponse -&gt; String
+(Int -&gt; SetRiskConfigurationResponse -&gt; ShowS)
+-&gt; (SetRiskConfigurationResponse -&gt; String)
+-&gt; ([SetRiskConfigurationResponse] -&gt; ShowS)
+-&gt; Show SetRiskConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetRiskConfigurationResponse] -&gt; ShowS
+$cshowList :: [SetRiskConfigurationResponse] -&gt; ShowS
+show :: SetRiskConfigurationResponse -&gt; String
+$cshow :: SetRiskConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; SetRiskConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetRiskConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SetRiskConfigurationResponse -&gt; Rep SetRiskConfigurationResponse x)
+-&gt; (forall x.
+    Rep SetRiskConfigurationResponse x -&gt; SetRiskConfigurationResponse)
+-&gt; Generic SetRiskConfigurationResponse
+forall x.
+Rep SetRiskConfigurationResponse x -&gt; SetRiskConfigurationResponse
+forall x.
+SetRiskConfigurationResponse -&gt; Rep SetRiskConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SetRiskConfigurationResponse x -&gt; SetRiskConfigurationResponse
+$cfrom :: forall x.
+SetRiskConfigurationResponse -&gt; Rep SetRiskConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'SetRiskConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'setRiskConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'riskConfiguration', 'setRiskConfigurationResponse_riskConfiguration' - The risk configuration.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfigurationResponse"><span class="hs-identifier hs-type">newSetRiskConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-comment">-- | 'riskConfiguration'</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType.html#RiskConfigurationType"><span class="hs-identifier hs-type">RiskConfigurationType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span>
+</span><span id="line-222"></span><span id="newSetRiskConfigurationResponse"><span class="annot"><span class="annottext">newSetRiskConfigurationResponse :: Int -&gt; RiskConfigurationType -&gt; SetRiskConfigurationResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#newSetRiskConfigurationResponse"><span class="hs-identifier hs-var hs-var">newSetRiskConfigurationResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679440748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679440747"><span class="annot"><span class="annottext">RiskConfigurationType
+</span><a href="#local-6989586621679440747"><span class="hs-identifier hs-var">pRiskConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">SetRiskConfigurationResponse' :: Int -&gt; RiskConfigurationType -&gt; SetRiskConfigurationResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-type">SetRiskConfigurationResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetRiskConfigurationResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AhttpStatus%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:riskConfiguration:SetRiskConfigurationResponse' :: RiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskConfiguration%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">riskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RiskConfigurationType
+</span><a href="#local-6989586621679440747"><span class="hs-identifier hs-var">pRiskConfiguration_</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">setRiskConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="setRiskConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">setRiskConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SetRiskConfigurationResponse -&gt; f SetRiskConfigurationResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setRiskConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfigurationResponse -&gt; Int)
+-&gt; (SetRiskConfigurationResponse
+    -&gt; Int -&gt; SetRiskConfigurationResponse)
+-&gt; Lens
+     SetRiskConfigurationResponse SetRiskConfigurationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-type">SetRiskConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440746"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SetRiskConfigurationResponse' :: SetRiskConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679440746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440745"><span class="annot"><span class="annottext">s :: SetRiskConfigurationResponse
+</span><a href="#local-6989586621679440745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-type">SetRiskConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfigurationResponse
+</span><a href="#local-6989586621679440745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetRiskConfigurationResponse' :: Int
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AhttpStatus%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The risk configuration.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_riskConfiguration"><span class="hs-identifier hs-type">setRiskConfigurationResponse_riskConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType.html#RiskConfigurationType"><span class="hs-identifier hs-type">RiskConfigurationType</span></a></span><span>
+</span><span id="line-237"></span><span id="setRiskConfigurationResponse_riskConfiguration"><span class="annot"><span class="annottext">setRiskConfigurationResponse_riskConfiguration :: (RiskConfigurationType -&gt; f RiskConfigurationType)
+-&gt; SetRiskConfigurationResponse -&gt; f SetRiskConfigurationResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#setRiskConfigurationResponse_riskConfiguration"><span class="hs-identifier hs-var hs-var">setRiskConfigurationResponse_riskConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetRiskConfigurationResponse -&gt; RiskConfigurationType)
+-&gt; (SetRiskConfigurationResponse
+    -&gt; RiskConfigurationType -&gt; SetRiskConfigurationResponse)
+-&gt; Lens
+     SetRiskConfigurationResponse
+     SetRiskConfigurationResponse
+     RiskConfigurationType
+     RiskConfigurationType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-type">SetRiskConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440743"><span class="annot"><span class="annottext">RiskConfigurationType
+riskConfiguration :: RiskConfigurationType
+$sel:riskConfiguration:SetRiskConfigurationResponse' :: SetRiskConfigurationResponse -&gt; RiskConfigurationType
+</span><a href="#local-6989586621679440743"><span class="hs-identifier hs-var hs-var">riskConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RiskConfigurationType
+</span><a href="#local-6989586621679440743"><span class="hs-identifier hs-var">riskConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440742"><span class="annot"><span class="annottext">s :: SetRiskConfigurationResponse
+</span><a href="#local-6989586621679440742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse%27"><span class="hs-identifier hs-type">SetRiskConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440741"><span class="annot"><span class="annottext">RiskConfigurationType
+</span><a href="#local-6989586621679440741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetRiskConfigurationResponse
+</span><a href="#local-6989586621679440742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:riskConfiguration:SetRiskConfigurationResponse' :: RiskConfigurationType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#%24sel%3AriskConfiguration%3ASetRiskConfigurationResponse%27"><span class="hs-identifier hs-var">riskConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RiskConfigurationType
+</span><a href="#local-6989586621679440741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetRiskConfiguration.html#SetRiskConfigurationResponse"><span class="hs-identifier hs-type">SetRiskConfigurationResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

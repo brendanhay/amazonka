@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Terminates the specified instance and optionally adjusts the desired</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- group size. This operation cannot be called on instances in a warm pool.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This call simply makes a termination request. The instance is not</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- terminated immediately. When an instance is terminated, the instance</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- status changes to @terminated@. You can\'t connect to or start an</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- instance after you\'ve terminated it.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- If you do not specify the option to decrement the desired capacity,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Amazon EC2 Auto Scaling launches instances to replace the ones that are</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- terminated.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- By default, Amazon EC2 Auto Scaling balances instances across all</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Availability Zones. If you decrement the desired capacity, your Auto</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Scaling group can become unbalanced between Availability Zones. Amazon</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- EC2 Auto Scaling tries to rebalance the group, and rebalancing might</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- terminate instances in other zones. For more information, see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage Rebalancing activities&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier">TerminateInstanceInAutoScalingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroup"><span class="hs-identifier">newTerminateInstanceInAutoScalingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_instanceId"><span class="hs-identifier">terminateInstanceInAutoScalingGroup_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity"><span class="hs-identifier">terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier">newTerminateInstanceInAutoScalingGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_activity"><span class="hs-identifier">terminateInstanceInAutoScalingGroupResponse_activity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_httpStatus"><span class="hs-identifier">terminateInstanceInAutoScalingGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.html"><span class="hs-identifier">Network.AWS.AutoScaling.Types</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newTerminateInstanceInAutoScalingGroup' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679334840"><span id="local-6989586621679334841"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateInstanceInAutoScalingGroup"><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-var">TerminateInstanceInAutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateInstanceInAutoScalingGroup%27"><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var">TerminateInstanceInAutoScalingGroup'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AinstanceId%3ATerminateInstanceInAutoScalingGroup%27"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup -&gt; Text
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AinstanceId%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Indicates whether terminating the instance also decrements the size of</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the Auto Scaling group.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AshouldDecrementDesiredCapacity%3ATerminateInstanceInAutoScalingGroup%27"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup -&gt; Bool
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AshouldDecrementDesiredCapacity%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var hs-var">shouldDecrementDesiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334833"><span id="local-6989586621679334835"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool
+(TerminateInstanceInAutoScalingGroup
+ -&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool)
+-&gt; (TerminateInstanceInAutoScalingGroup
+    -&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool)
+-&gt; Eq TerminateInstanceInAutoScalingGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TerminateInstanceInAutoScalingGroup
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool
+$c/= :: TerminateInstanceInAutoScalingGroup
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool
+== :: TerminateInstanceInAutoScalingGroup
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool
+$c== :: TerminateInstanceInAutoScalingGroup
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334824"><span id="local-6989586621679334826"><span id="local-6989586621679334828"><span id="local-6989586621679334830"><span class="annot"><span class="annottext">ReadPrec [TerminateInstanceInAutoScalingGroup]
+ReadPrec TerminateInstanceInAutoScalingGroup
+Int -&gt; ReadS TerminateInstanceInAutoScalingGroup
+ReadS [TerminateInstanceInAutoScalingGroup]
+(Int -&gt; ReadS TerminateInstanceInAutoScalingGroup)
+-&gt; ReadS [TerminateInstanceInAutoScalingGroup]
+-&gt; ReadPrec TerminateInstanceInAutoScalingGroup
+-&gt; ReadPrec [TerminateInstanceInAutoScalingGroup]
+-&gt; Read TerminateInstanceInAutoScalingGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TerminateInstanceInAutoScalingGroup]
+$creadListPrec :: ReadPrec [TerminateInstanceInAutoScalingGroup]
+readPrec :: ReadPrec TerminateInstanceInAutoScalingGroup
+$creadPrec :: ReadPrec TerminateInstanceInAutoScalingGroup
+readList :: ReadS [TerminateInstanceInAutoScalingGroup]
+$creadList :: ReadS [TerminateInstanceInAutoScalingGroup]
+readsPrec :: Int -&gt; ReadS TerminateInstanceInAutoScalingGroup
+$creadsPrec :: Int -&gt; ReadS TerminateInstanceInAutoScalingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334817"><span id="local-6989586621679334819"><span id="local-6989586621679334821"><span class="annot"><span class="annottext">Int -&gt; TerminateInstanceInAutoScalingGroup -&gt; ShowS
+[TerminateInstanceInAutoScalingGroup] -&gt; ShowS
+TerminateInstanceInAutoScalingGroup -&gt; String
+(Int -&gt; TerminateInstanceInAutoScalingGroup -&gt; ShowS)
+-&gt; (TerminateInstanceInAutoScalingGroup -&gt; String)
+-&gt; ([TerminateInstanceInAutoScalingGroup] -&gt; ShowS)
+-&gt; Show TerminateInstanceInAutoScalingGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TerminateInstanceInAutoScalingGroup] -&gt; ShowS
+$cshowList :: [TerminateInstanceInAutoScalingGroup] -&gt; ShowS
+show :: TerminateInstanceInAutoScalingGroup -&gt; String
+$cshow :: TerminateInstanceInAutoScalingGroup -&gt; String
+showsPrec :: Int -&gt; TerminateInstanceInAutoScalingGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; TerminateInstanceInAutoScalingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TerminateInstanceInAutoScalingGroup
+ -&gt; Rep TerminateInstanceInAutoScalingGroup x)
+-&gt; (forall x.
+    Rep TerminateInstanceInAutoScalingGroup x
+    -&gt; TerminateInstanceInAutoScalingGroup)
+-&gt; Generic TerminateInstanceInAutoScalingGroup
+forall x.
+Rep TerminateInstanceInAutoScalingGroup x
+-&gt; TerminateInstanceInAutoScalingGroup
+forall x.
+TerminateInstanceInAutoScalingGroup
+-&gt; Rep TerminateInstanceInAutoScalingGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TerminateInstanceInAutoScalingGroup x
+-&gt; TerminateInstanceInAutoScalingGroup
+$cfrom :: forall x.
+TerminateInstanceInAutoScalingGroup
+-&gt; Rep TerminateInstanceInAutoScalingGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'TerminateInstanceInAutoScalingGroup' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'instanceId', 'terminateInstanceInAutoScalingGroup_instanceId' - The ID of the instance.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'shouldDecrementDesiredCapacity', 'terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity' - Indicates whether terminating the instance also decrements the size of</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the Auto Scaling group.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">newTerminateInstanceInAutoScalingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'shouldDecrementDesiredCapacity'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span>
+</span><span id="line-96"></span><span id="newTerminateInstanceInAutoScalingGroup"><span class="annot"><span class="annottext">newTerminateInstanceInAutoScalingGroup :: Text -&gt; Bool -&gt; TerminateInstanceInAutoScalingGroup
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-var hs-var">newTerminateInstanceInAutoScalingGroup</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679334812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334812"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679334811"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334811"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup' :: Text -&gt; Bool -&gt; TerminateInstanceInAutoScalingGroup
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:TerminateInstanceInAutoScalingGroup' :: Text
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AinstanceId%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334812"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:shouldDecrementDesiredCapacity:TerminateInstanceInAutoScalingGroup' :: Bool
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AshouldDecrementDesiredCapacity%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334811"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_instanceId"><span class="hs-identifier hs-type">terminateInstanceInAutoScalingGroup_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="terminateInstanceInAutoScalingGroup_instanceId"><span class="annot"><span class="annottext">terminateInstanceInAutoScalingGroup_instanceId :: (Text -&gt; f Text)
+-&gt; TerminateInstanceInAutoScalingGroup
+-&gt; f TerminateInstanceInAutoScalingGroup
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_instanceId"><span class="hs-identifier hs-var hs-var">terminateInstanceInAutoScalingGroup_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TerminateInstanceInAutoScalingGroup -&gt; Text)
+-&gt; (TerminateInstanceInAutoScalingGroup
+    -&gt; Text -&gt; TerminateInstanceInAutoScalingGroup)
+-&gt; Lens
+     TerminateInstanceInAutoScalingGroup
+     TerminateInstanceInAutoScalingGroup
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334808"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:TerminateInstanceInAutoScalingGroup' :: TerminateInstanceInAutoScalingGroup -&gt; Text
+</span><a href="#local-6989586621679334808"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334808"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334807"><span class="annot"><span class="annottext">s :: TerminateInstanceInAutoScalingGroup
+</span><a href="#local-6989586621679334807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334806"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup
+</span><a href="#local-6989586621679334807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:TerminateInstanceInAutoScalingGroup' :: Text
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AinstanceId%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Indicates whether terminating the instance also decrements the size of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the Auto Scaling group.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity"><span class="hs-identifier hs-type">terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-113"></span><span id="terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity"><span class="annot"><span class="annottext">terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity :: (Bool -&gt; f Bool)
+-&gt; TerminateInstanceInAutoScalingGroup
+-&gt; f TerminateInstanceInAutoScalingGroup
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity"><span class="hs-identifier hs-var hs-var">terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TerminateInstanceInAutoScalingGroup -&gt; Bool)
+-&gt; (TerminateInstanceInAutoScalingGroup
+    -&gt; Bool -&gt; TerminateInstanceInAutoScalingGroup)
+-&gt; Lens
+     TerminateInstanceInAutoScalingGroup
+     TerminateInstanceInAutoScalingGroup
+     Bool
+     Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334805"><span class="annot"><span class="annottext">Bool
+shouldDecrementDesiredCapacity :: Bool
+$sel:shouldDecrementDesiredCapacity:TerminateInstanceInAutoScalingGroup' :: TerminateInstanceInAutoScalingGroup -&gt; Bool
+</span><a href="#local-6989586621679334805"><span class="hs-identifier hs-var hs-var">shouldDecrementDesiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334805"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334804"><span class="annot"><span class="annottext">s :: TerminateInstanceInAutoScalingGroup
+</span><a href="#local-6989586621679334804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334803"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroup
+</span><a href="#local-6989586621679334804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shouldDecrementDesiredCapacity:TerminateInstanceInAutoScalingGroup' :: Bool
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AshouldDecrementDesiredCapacity%3ATerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679334799"><span class="annot"><span class="annottext">request :: TerminateInstanceInAutoScalingGroup
+-&gt; Request TerminateInstanceInAutoScalingGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; TerminateInstanceInAutoScalingGroup
+-&gt; Request TerminateInstanceInAutoScalingGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679334795"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TerminateInstanceInAutoScalingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse TerminateInstanceInAutoScalingGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse TerminateInstanceInAutoScalingGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TerminateInstanceInAutoScalingGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse TerminateInstanceInAutoScalingGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TerminateInstanceInAutoScalingGroupResult&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334792"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679334791"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679334791"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679334790"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679334790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Activity
+-&gt; Int -&gt; TerminateInstanceInAutoScalingGroupResponse
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Activity
+ -&gt; Int -&gt; TerminateInstanceInAutoScalingGroupResponse)
+-&gt; Either String (Maybe Activity)
+-&gt; Either
+     String (Int -&gt; TerminateInstanceInAutoScalingGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679334790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Activity)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Activity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; TerminateInstanceInAutoScalingGroupResponse)
+-&gt; Either String Int
+-&gt; Either String TerminateInstanceInAutoScalingGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334792"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679334782"><span id="local-6989586621679334784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679334779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679334775"><span class="annot"><span class="annottext">toHeaders :: TerminateInstanceInAutoScalingGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; TerminateInstanceInAutoScalingGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679334770"><span class="annot"><span class="annottext">toPath :: TerminateInstanceInAutoScalingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TerminateInstanceInAutoScalingGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679334766"><span class="annot"><span class="annottext">toQuery :: TerminateInstanceInAutoScalingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroup%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334763"><span id="local-6989586621679334764"><span class="annot"><span class="annottext">Bool
+Text
+shouldDecrementDesiredCapacity :: Bool
+instanceId :: Text
+$sel:shouldDecrementDesiredCapacity:TerminateInstanceInAutoScalingGroup' :: TerminateInstanceInAutoScalingGroup -&gt; Bool
+$sel:instanceId:TerminateInstanceInAutoScalingGroup' :: TerminateInstanceInAutoScalingGroup -&gt; Text
+</span><a href="#local-6989586621679334763"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TerminateInstanceInAutoScalingGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334764"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ShouldDecrementDesiredCapacity&quot;</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679334763"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newTerminateInstanceInAutoScalingGroupResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679334760"><span id="local-6989586621679334761"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateInstanceInAutoScalingGroupResponse"><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-var">TerminateInstanceInAutoScalingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateInstanceInAutoScalingGroupResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">TerminateInstanceInAutoScalingGroupResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A scaling activity.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Aactivity%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse -&gt; Maybe Activity
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3Aactivity%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var hs-var">activity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse -&gt; Int
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AhttpStatus%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334754"><span id="local-6989586621679334756"><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse
+-&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool
+(TerminateInstanceInAutoScalingGroupResponse
+ -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool)
+-&gt; (TerminateInstanceInAutoScalingGroupResponse
+    -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool)
+-&gt; Eq TerminateInstanceInAutoScalingGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TerminateInstanceInAutoScalingGroupResponse
+-&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool
+$c/= :: TerminateInstanceInAutoScalingGroupResponse
+-&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool
+== :: TerminateInstanceInAutoScalingGroupResponse
+-&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool
+$c== :: TerminateInstanceInAutoScalingGroupResponse
+-&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334746"><span id="local-6989586621679334748"><span id="local-6989586621679334750"><span id="local-6989586621679334752"><span class="annot"><span class="annottext">ReadPrec [TerminateInstanceInAutoScalingGroupResponse]
+ReadPrec TerminateInstanceInAutoScalingGroupResponse
+Int -&gt; ReadS TerminateInstanceInAutoScalingGroupResponse
+ReadS [TerminateInstanceInAutoScalingGroupResponse]
+(Int -&gt; ReadS TerminateInstanceInAutoScalingGroupResponse)
+-&gt; ReadS [TerminateInstanceInAutoScalingGroupResponse]
+-&gt; ReadPrec TerminateInstanceInAutoScalingGroupResponse
+-&gt; ReadPrec [TerminateInstanceInAutoScalingGroupResponse]
+-&gt; Read TerminateInstanceInAutoScalingGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TerminateInstanceInAutoScalingGroupResponse]
+$creadListPrec :: ReadPrec [TerminateInstanceInAutoScalingGroupResponse]
+readPrec :: ReadPrec TerminateInstanceInAutoScalingGroupResponse
+$creadPrec :: ReadPrec TerminateInstanceInAutoScalingGroupResponse
+readList :: ReadS [TerminateInstanceInAutoScalingGroupResponse]
+$creadList :: ReadS [TerminateInstanceInAutoScalingGroupResponse]
+readsPrec :: Int -&gt; ReadS TerminateInstanceInAutoScalingGroupResponse
+$creadsPrec :: Int -&gt; ReadS TerminateInstanceInAutoScalingGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334740"><span id="local-6989586621679334742"><span id="local-6989586621679334744"><span class="annot"><span class="annottext">Int -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; ShowS
+[TerminateInstanceInAutoScalingGroupResponse] -&gt; ShowS
+TerminateInstanceInAutoScalingGroupResponse -&gt; String
+(Int -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; ShowS)
+-&gt; (TerminateInstanceInAutoScalingGroupResponse -&gt; String)
+-&gt; ([TerminateInstanceInAutoScalingGroupResponse] -&gt; ShowS)
+-&gt; Show TerminateInstanceInAutoScalingGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TerminateInstanceInAutoScalingGroupResponse] -&gt; ShowS
+$cshowList :: [TerminateInstanceInAutoScalingGroupResponse] -&gt; ShowS
+show :: TerminateInstanceInAutoScalingGroupResponse -&gt; String
+$cshow :: TerminateInstanceInAutoScalingGroupResponse -&gt; String
+showsPrec :: Int -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TerminateInstanceInAutoScalingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TerminateInstanceInAutoScalingGroupResponse
+ -&gt; Rep TerminateInstanceInAutoScalingGroupResponse x)
+-&gt; (forall x.
+    Rep TerminateInstanceInAutoScalingGroupResponse x
+    -&gt; TerminateInstanceInAutoScalingGroupResponse)
+-&gt; Generic TerminateInstanceInAutoScalingGroupResponse
+forall x.
+Rep TerminateInstanceInAutoScalingGroupResponse x
+-&gt; TerminateInstanceInAutoScalingGroupResponse
+forall x.
+TerminateInstanceInAutoScalingGroupResponse
+-&gt; Rep TerminateInstanceInAutoScalingGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TerminateInstanceInAutoScalingGroupResponse x
+-&gt; TerminateInstanceInAutoScalingGroupResponse
+$cfrom :: forall x.
+TerminateInstanceInAutoScalingGroupResponse
+-&gt; Rep TerminateInstanceInAutoScalingGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'TerminateInstanceInAutoScalingGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'activity', 'terminateInstanceInAutoScalingGroupResponse_activity' - A scaling activity.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'terminateInstanceInAutoScalingGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">newTerminateInstanceInAutoScalingGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newTerminateInstanceInAutoScalingGroupResponse"><span class="annot"><span class="annottext">newTerminateInstanceInAutoScalingGroupResponse :: Int -&gt; TerminateInstanceInAutoScalingGroupResponse
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#newTerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-var hs-var">newTerminateInstanceInAutoScalingGroupResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679334737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse' :: Maybe Activity
+-&gt; Int -&gt; TerminateInstanceInAutoScalingGroupResponse
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activity:TerminateInstanceInAutoScalingGroupResponse' :: Maybe Activity
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3Aactivity%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">activity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe Activity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:TerminateInstanceInAutoScalingGroupResponse' :: Int
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AhttpStatus%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | A scaling activity.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_activity"><span class="hs-identifier hs-type">terminateInstanceInAutoScalingGroupResponse_activity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="terminateInstanceInAutoScalingGroupResponse_activity"><span class="annot"><span class="annottext">terminateInstanceInAutoScalingGroupResponse_activity :: (Maybe Activity -&gt; f (Maybe Activity))
+-&gt; TerminateInstanceInAutoScalingGroupResponse
+-&gt; f TerminateInstanceInAutoScalingGroupResponse
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_activity"><span class="hs-identifier hs-var hs-var">terminateInstanceInAutoScalingGroupResponse_activity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TerminateInstanceInAutoScalingGroupResponse -&gt; Maybe Activity)
+-&gt; (TerminateInstanceInAutoScalingGroupResponse
+    -&gt; Maybe Activity -&gt; TerminateInstanceInAutoScalingGroupResponse)
+-&gt; Lens
+     TerminateInstanceInAutoScalingGroupResponse
+     TerminateInstanceInAutoScalingGroupResponse
+     (Maybe Activity)
+     (Maybe Activity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334736"><span class="annot"><span class="annottext">Maybe Activity
+activity :: Maybe Activity
+$sel:activity:TerminateInstanceInAutoScalingGroupResponse' :: TerminateInstanceInAutoScalingGroupResponse -&gt; Maybe Activity
+</span><a href="#local-6989586621679334736"><span class="hs-identifier hs-var hs-var">activity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Activity
+</span><a href="#local-6989586621679334736"><span class="hs-identifier hs-var">activity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334735"><span class="annot"><span class="annottext">s :: TerminateInstanceInAutoScalingGroupResponse
+</span><a href="#local-6989586621679334735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334734"><span class="annot"><span class="annottext">Maybe Activity
+</span><a href="#local-6989586621679334734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse
+</span><a href="#local-6989586621679334735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activity:TerminateInstanceInAutoScalingGroupResponse' :: Maybe Activity
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3Aactivity%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">activity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Activity
+</span><a href="#local-6989586621679334734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_httpStatus"><span class="hs-identifier hs-type">terminateInstanceInAutoScalingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span id="terminateInstanceInAutoScalingGroupResponse_httpStatus"><span class="annot"><span class="annottext">terminateInstanceInAutoScalingGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; TerminateInstanceInAutoScalingGroupResponse
+-&gt; f TerminateInstanceInAutoScalingGroupResponse
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#terminateInstanceInAutoScalingGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">terminateInstanceInAutoScalingGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TerminateInstanceInAutoScalingGroupResponse -&gt; Int)
+-&gt; (TerminateInstanceInAutoScalingGroupResponse
+    -&gt; Int -&gt; TerminateInstanceInAutoScalingGroupResponse)
+-&gt; Lens
+     TerminateInstanceInAutoScalingGroupResponse
+     TerminateInstanceInAutoScalingGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334733"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:TerminateInstanceInAutoScalingGroupResponse' :: TerminateInstanceInAutoScalingGroupResponse -&gt; Int
+</span><a href="#local-6989586621679334733"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334733"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334732"><span class="annot"><span class="annottext">s :: TerminateInstanceInAutoScalingGroupResponse
+</span><a href="#local-6989586621679334732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateInstanceInAutoScalingGroupResponse
+</span><a href="#local-6989586621679334732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TerminateInstanceInAutoScalingGroupResponse' :: Int
+</span><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#%24sel%3AhttpStatus%3ATerminateInstanceInAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679334731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679334729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup.html#TerminateInstanceInAutoScalingGroupResponse"><span class="hs-identifier hs-type">TerminateInstanceInAutoScalingGroupResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

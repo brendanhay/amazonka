@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KMS.Types.KeySpec</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KMS.Types.KeySpec</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier">KeySpec</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P256"><span class="hs-identifier">KeySpec_ECC_NIST_P256</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P384"><span class="hs-identifier">KeySpec_ECC_NIST_P384</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P521"><span class="hs-identifier">KeySpec_ECC_NIST_P521</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_SECG_P256K1"><span class="hs-identifier">KeySpec_ECC_SECG_P256K1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_2048"><span class="hs-identifier">KeySpec_RSA_2048</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_3072"><span class="hs-identifier">KeySpec_RSA_3072</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_4096"><span class="hs-identifier">KeySpec_RSA_4096</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_SYMMETRIC_DEFAULT"><span class="hs-identifier">KeySpec_SYMMETRIC_DEFAULT</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679248534"><span id="local-6989586621679248535"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeySpec"><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-var">KeySpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeySpec%27"><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-var">KeySpec'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromKeySpec"><span class="annot"><span class="annottext">KeySpec -&gt; Text
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#fromKeySpec"><span class="hs-identifier hs-var hs-var">fromKeySpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248526"><span id="local-6989586621679248528"><span id="local-6989586621679248530"><span class="annot"><span class="annottext">Int -&gt; KeySpec -&gt; ShowS
+[KeySpec] -&gt; ShowS
+KeySpec -&gt; String
+(Int -&gt; KeySpec -&gt; ShowS)
+-&gt; (KeySpec -&gt; String) -&gt; ([KeySpec] -&gt; ShowS) -&gt; Show KeySpec
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KeySpec] -&gt; ShowS
+$cshowList :: [KeySpec] -&gt; ShowS
+show :: KeySpec -&gt; String
+$cshow :: KeySpec -&gt; String
+showsPrec :: Int -&gt; KeySpec -&gt; ShowS
+$cshowsPrec :: Int -&gt; KeySpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248517"><span id="local-6989586621679248519"><span id="local-6989586621679248521"><span id="local-6989586621679248523"><span class="annot"><span class="annottext">ReadPrec [KeySpec]
+ReadPrec KeySpec
+Int -&gt; ReadS KeySpec
+ReadS [KeySpec]
+(Int -&gt; ReadS KeySpec)
+-&gt; ReadS [KeySpec]
+-&gt; ReadPrec KeySpec
+-&gt; ReadPrec [KeySpec]
+-&gt; Read KeySpec
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KeySpec]
+$creadListPrec :: ReadPrec [KeySpec]
+readPrec :: ReadPrec KeySpec
+$creadPrec :: ReadPrec KeySpec
+readList :: ReadS [KeySpec]
+$creadList :: ReadS [KeySpec]
+readsPrec :: Int -&gt; ReadS KeySpec
+$creadsPrec :: Int -&gt; ReadS KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248512"><span id="local-6989586621679248514"><span class="annot"><span class="annottext">KeySpec -&gt; KeySpec -&gt; Bool
+(KeySpec -&gt; KeySpec -&gt; Bool)
+-&gt; (KeySpec -&gt; KeySpec -&gt; Bool) -&gt; Eq KeySpec
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KeySpec -&gt; KeySpec -&gt; Bool
+$c/= :: KeySpec -&gt; KeySpec -&gt; Bool
+== :: KeySpec -&gt; KeySpec -&gt; Bool
+$c== :: KeySpec -&gt; KeySpec -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679248496"><span id="local-6989586621679248498"><span id="local-6989586621679248500"><span id="local-6989586621679248502"><span id="local-6989586621679248504"><span id="local-6989586621679248506"><span id="local-6989586621679248508"><span class="annot"><span class="annottext">Eq KeySpec
+Eq KeySpec
+-&gt; (KeySpec -&gt; KeySpec -&gt; Ordering)
+-&gt; (KeySpec -&gt; KeySpec -&gt; Bool)
+-&gt; (KeySpec -&gt; KeySpec -&gt; Bool)
+-&gt; (KeySpec -&gt; KeySpec -&gt; Bool)
+-&gt; (KeySpec -&gt; KeySpec -&gt; Bool)
+-&gt; (KeySpec -&gt; KeySpec -&gt; KeySpec)
+-&gt; (KeySpec -&gt; KeySpec -&gt; KeySpec)
+-&gt; Ord KeySpec
+KeySpec -&gt; KeySpec -&gt; Bool
+KeySpec -&gt; KeySpec -&gt; Ordering
+KeySpec -&gt; KeySpec -&gt; KeySpec
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: KeySpec -&gt; KeySpec -&gt; KeySpec
+$cmin :: KeySpec -&gt; KeySpec -&gt; KeySpec
+max :: KeySpec -&gt; KeySpec -&gt; KeySpec
+$cmax :: KeySpec -&gt; KeySpec -&gt; KeySpec
+&gt;= :: KeySpec -&gt; KeySpec -&gt; Bool
+$c&gt;= :: KeySpec -&gt; KeySpec -&gt; Bool
+&gt; :: KeySpec -&gt; KeySpec -&gt; Bool
+$c&gt; :: KeySpec -&gt; KeySpec -&gt; Bool
+&lt;= :: KeySpec -&gt; KeySpec -&gt; Bool
+$c&lt;= :: KeySpec -&gt; KeySpec -&gt; Bool
+&lt; :: KeySpec -&gt; KeySpec -&gt; Bool
+$c&lt; :: KeySpec -&gt; KeySpec -&gt; Bool
+compare :: KeySpec -&gt; KeySpec -&gt; Ordering
+$ccompare :: KeySpec -&gt; KeySpec -&gt; Ordering
+$cp1Ord :: Eq KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. KeySpec -&gt; Rep KeySpec x)
+-&gt; (forall x. Rep KeySpec x -&gt; KeySpec) -&gt; Generic KeySpec
+forall x. Rep KeySpec x -&gt; KeySpec
+forall x. KeySpec -&gt; Rep KeySpec x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep KeySpec x -&gt; KeySpec
+$cfrom :: forall x. KeySpec -&gt; Rep KeySpec x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248488"><span id="local-6989586621679248490"><span class="annot"><span class="annottext">Int -&gt; KeySpec -&gt; Int
+KeySpec -&gt; Int
+(Int -&gt; KeySpec -&gt; Int) -&gt; (KeySpec -&gt; Int) -&gt; Hashable KeySpec
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: KeySpec -&gt; Int
+$chash :: KeySpec -&gt; Int
+hashWithSalt :: Int -&gt; KeySpec -&gt; Int
+$chashWithSalt :: Int -&gt; KeySpec -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248485"><span class="annot"><span class="annottext">KeySpec -&gt; ()
+(KeySpec -&gt; ()) -&gt; NFData KeySpec
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: KeySpec -&gt; ()
+$crnf :: KeySpec -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248482"><span class="annot"><span class="annottext">Text -&gt; Either String KeySpec
+(Text -&gt; Either String KeySpec) -&gt; FromText KeySpec
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String KeySpec
+$cfromText :: Text -&gt; Either String KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248479"><span class="annot"><span class="annottext">KeySpec -&gt; Text
+(KeySpec -&gt; Text) -&gt; ToText KeySpec
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: KeySpec -&gt; Text
+$ctoText :: KeySpec -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248476"><span class="annot"><span class="annottext">KeySpec -&gt; ByteString
+(KeySpec -&gt; ByteString) -&gt; ToByteString KeySpec
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: KeySpec -&gt; ByteString
+$ctoBS :: KeySpec -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248473"><span class="annot"><span class="annottext">KeySpec -&gt; ByteStringBuilder
+(KeySpec -&gt; ByteStringBuilder) -&gt; ToLog KeySpec
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: KeySpec -&gt; ByteStringBuilder
+$cbuild :: KeySpec -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248470"><span class="annot"><span class="annottext">HeaderName -&gt; KeySpec -&gt; [Header]
+(HeaderName -&gt; KeySpec -&gt; [Header]) -&gt; ToHeader KeySpec
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; KeySpec -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; KeySpec -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248467"><span class="annot"><span class="annottext">KeySpec -&gt; QueryString
+(KeySpec -&gt; QueryString) -&gt; ToQuery KeySpec
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: KeySpec -&gt; QueryString
+$ctoQuery :: KeySpec -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248462"><span id="local-6989586621679248464"><span class="annot"><span class="annottext">Value -&gt; Parser [KeySpec]
+Value -&gt; Parser KeySpec
+(Value -&gt; Parser KeySpec)
+-&gt; (Value -&gt; Parser [KeySpec]) -&gt; FromJSON KeySpec
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [KeySpec]
+$cparseJSONList :: Value -&gt; Parser [KeySpec]
+parseJSON :: Value -&gt; Parser KeySpec
+$cparseJSON :: Value -&gt; Parser KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248457"><span id="local-6989586621679248459"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeySpec]
+FromJSONKeyFunction KeySpec
+FromJSONKeyFunction KeySpec
+-&gt; FromJSONKeyFunction [KeySpec] -&gt; FromJSONKey KeySpec
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [KeySpec]
+$cfromJSONKeyList :: FromJSONKeyFunction [KeySpec]
+fromJSONKey :: FromJSONKeyFunction KeySpec
+$cfromJSONKey :: FromJSONKeyFunction KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248448"><span id="local-6989586621679248450"><span id="local-6989586621679248452"><span id="local-6989586621679248454"><span class="annot"><span class="annottext">[KeySpec] -&gt; Encoding
+[KeySpec] -&gt; Value
+KeySpec -&gt; Encoding
+KeySpec -&gt; Value
+(KeySpec -&gt; Value)
+-&gt; (KeySpec -&gt; Encoding)
+-&gt; ([KeySpec] -&gt; Value)
+-&gt; ([KeySpec] -&gt; Encoding)
+-&gt; ToJSON KeySpec
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [KeySpec] -&gt; Encoding
+$ctoEncodingList :: [KeySpec] -&gt; Encoding
+toJSONList :: [KeySpec] -&gt; Value
+$ctoJSONList :: [KeySpec] -&gt; Value
+toEncoding :: KeySpec -&gt; Encoding
+$ctoEncoding :: KeySpec -&gt; Encoding
+toJSON :: KeySpec -&gt; Value
+$ctoJSON :: KeySpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248443"><span id="local-6989586621679248445"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeySpec]
+ToJSONKeyFunction KeySpec
+ToJSONKeyFunction KeySpec
+-&gt; ToJSONKeyFunction [KeySpec] -&gt; ToJSONKey KeySpec
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [KeySpec]
+$ctoJSONKeyList :: ToJSONKeyFunction [KeySpec]
+toJSONKey :: ToJSONKeyFunction KeySpec
+$ctoJSONKey :: ToJSONKeyFunction KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248440"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeySpec
+([Node] -&gt; Either String KeySpec) -&gt; FromXML KeySpec
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String KeySpec
+$cparseXML :: [Node] -&gt; Either String KeySpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248437"><span class="annot"><span class="annottext">KeySpec -&gt; XML
+(KeySpec -&gt; XML) -&gt; ToXML KeySpec
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: KeySpec -&gt; XML
+$ctoXML :: KeySpec -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P256"><span class="hs-identifier hs-type">KeySpec_ECC_NIST_P256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_ECC_NIST_P256"><span id="%24mKeySpec_ECC_NIST_P256"><span id="KeySpec_ECC_NIST_P256"><span class="annot"><span class="annottext">$bKeySpec_ECC_NIST_P256 :: KeySpec
+$mKeySpec_ECC_NIST_P256 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_ECC_NIST_P256"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_ECC_NIST_P256</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECC_NIST_P256&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P384"><span class="hs-identifier hs-type">KeySpec_ECC_NIST_P384</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_ECC_NIST_P384"><span id="%24mKeySpec_ECC_NIST_P384"><span id="KeySpec_ECC_NIST_P384"><span class="annot"><span class="annottext">$bKeySpec_ECC_NIST_P384 :: KeySpec
+$mKeySpec_ECC_NIST_P384 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_ECC_NIST_P384"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_ECC_NIST_P384</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECC_NIST_P384&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P521"><span class="hs-identifier hs-type">KeySpec_ECC_NIST_P521</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_ECC_NIST_P521"><span id="%24mKeySpec_ECC_NIST_P521"><span id="KeySpec_ECC_NIST_P521"><span class="annot"><span class="annottext">$bKeySpec_ECC_NIST_P521 :: KeySpec
+$mKeySpec_ECC_NIST_P521 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_ECC_NIST_P521"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_ECC_NIST_P521</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECC_NIST_P521&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_SECG_P256K1"><span class="hs-identifier hs-type">KeySpec_ECC_SECG_P256K1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_ECC_SECG_P256K1"><span id="%24mKeySpec_ECC_SECG_P256K1"><span id="KeySpec_ECC_SECG_P256K1"><span class="annot"><span class="annottext">$bKeySpec_ECC_SECG_P256K1 :: KeySpec
+$mKeySpec_ECC_SECG_P256K1 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_ECC_SECG_P256K1"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_ECC_SECG_P256K1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECC_SECG_P256K1&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_2048"><span class="hs-identifier hs-type">KeySpec_RSA_2048</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_RSA_2048"><span id="%24mKeySpec_RSA_2048"><span id="KeySpec_RSA_2048"><span class="annot"><span class="annottext">$bKeySpec_RSA_2048 :: KeySpec
+$mKeySpec_RSA_2048 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_RSA_2048"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_RSA_2048</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSA_2048&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_3072"><span class="hs-identifier hs-type">KeySpec_RSA_3072</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_RSA_3072"><span id="%24mKeySpec_RSA_3072"><span id="KeySpec_RSA_3072"><span class="annot"><span class="annottext">$bKeySpec_RSA_3072 :: KeySpec
+$mKeySpec_RSA_3072 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_RSA_3072"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_RSA_3072</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSA_3072&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_4096"><span class="hs-identifier hs-type">KeySpec_RSA_4096</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_RSA_4096"><span id="%24mKeySpec_RSA_4096"><span id="KeySpec_RSA_4096"><span class="annot"><span class="annottext">$bKeySpec_RSA_4096 :: KeySpec
+$mKeySpec_RSA_4096 :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_RSA_4096"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_RSA_4096</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSA_4096&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_SYMMETRIC_DEFAULT"><span class="hs-identifier hs-type">KeySpec_SYMMETRIC_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec"><span class="hs-identifier hs-type">KeySpec</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeySpec_SYMMETRIC_DEFAULT"><span id="%24mKeySpec_SYMMETRIC_DEFAULT"><span id="KeySpec_SYMMETRIC_DEFAULT"><span class="annot"><span class="annottext">$bKeySpec_SYMMETRIC_DEFAULT :: KeySpec
+$mKeySpec_SYMMETRIC_DEFAULT :: forall r. KeySpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KMS.Types.KeySpec.html#%24bKeySpec_SYMMETRIC_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">KeySpec_SYMMETRIC_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-identifier hs-type">KeySpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYMMETRIC_DEFAULT&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P256"><span class="hs-pragma hs-type">KeySpec_ECC_NIST_P256</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P384"><span class="hs-pragma hs-type">KeySpec_ECC_NIST_P384</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_NIST_P521"><span class="hs-pragma hs-type">KeySpec_ECC_NIST_P521</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_ECC_SECG_P256K1"><span class="hs-pragma hs-type">KeySpec_ECC_SECG_P256K1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_2048"><span class="hs-pragma hs-type">KeySpec_RSA_2048</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_3072"><span class="hs-pragma hs-type">KeySpec_RSA_3072</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_RSA_4096"><span class="hs-pragma hs-type">KeySpec_RSA_4096</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec_SYMMETRIC_DEFAULT"><span class="hs-pragma hs-type">KeySpec_SYMMETRIC_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.KeySpec.html#KeySpec%27"><span class="hs-pragma hs-type">KeySpec'</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-98"></span></pre></body></html>

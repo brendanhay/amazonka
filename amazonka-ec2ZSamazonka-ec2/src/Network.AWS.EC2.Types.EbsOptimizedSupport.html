@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.EbsOptimizedSupport</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.EbsOptimizedSupport</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier">EbsOptimizedSupport</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Default"><span class="hs-identifier">EbsOptimizedSupport_Default</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Supported"><span class="hs-identifier">EbsOptimizedSupport_Supported</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Unsupported"><span class="hs-identifier">EbsOptimizedSupport_Unsupported</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681068395"><span id="local-6989586621681068396"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EbsOptimizedSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-var">EbsOptimizedSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsOptimizedSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-var">EbsOptimizedSupport'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEbsOptimizedSupport"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; Text
+</span><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#fromEbsOptimizedSupport"><span class="hs-identifier hs-var hs-var">fromEbsOptimizedSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681068387"><span id="local-6989586621681068389"><span id="local-6989586621681068391"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; ShowS
+[EbsOptimizedSupport] -&gt; ShowS
+EbsOptimizedSupport -&gt; String
+(Int -&gt; EbsOptimizedSupport -&gt; ShowS)
+-&gt; (EbsOptimizedSupport -&gt; String)
+-&gt; ([EbsOptimizedSupport] -&gt; ShowS)
+-&gt; Show EbsOptimizedSupport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EbsOptimizedSupport] -&gt; ShowS
+$cshowList :: [EbsOptimizedSupport] -&gt; ShowS
+show :: EbsOptimizedSupport -&gt; String
+$cshow :: EbsOptimizedSupport -&gt; String
+showsPrec :: Int -&gt; EbsOptimizedSupport -&gt; ShowS
+$cshowsPrec :: Int -&gt; EbsOptimizedSupport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681068378"><span id="local-6989586621681068380"><span id="local-6989586621681068382"><span id="local-6989586621681068384"><span class="annot"><span class="annottext">ReadPrec [EbsOptimizedSupport]
+ReadPrec EbsOptimizedSupport
+Int -&gt; ReadS EbsOptimizedSupport
+ReadS [EbsOptimizedSupport]
+(Int -&gt; ReadS EbsOptimizedSupport)
+-&gt; ReadS [EbsOptimizedSupport]
+-&gt; ReadPrec EbsOptimizedSupport
+-&gt; ReadPrec [EbsOptimizedSupport]
+-&gt; Read EbsOptimizedSupport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EbsOptimizedSupport]
+$creadListPrec :: ReadPrec [EbsOptimizedSupport]
+readPrec :: ReadPrec EbsOptimizedSupport
+$creadPrec :: ReadPrec EbsOptimizedSupport
+readList :: ReadS [EbsOptimizedSupport]
+$creadList :: ReadS [EbsOptimizedSupport]
+readsPrec :: Int -&gt; ReadS EbsOptimizedSupport
+$creadsPrec :: Int -&gt; ReadS EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681068373"><span id="local-6989586621681068375"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+(EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; Eq EbsOptimizedSupport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c/= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+== :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c== :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681068357"><span id="local-6989586621681068359"><span id="local-6989586621681068361"><span id="local-6989586621681068363"><span id="local-6989586621681068365"><span id="local-6989586621681068367"><span id="local-6989586621681068369"><span class="annot"><span class="annottext">Eq EbsOptimizedSupport
+Eq EbsOptimizedSupport
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Ordering)
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; (EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool)
+-&gt; (EbsOptimizedSupport
+    -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport)
+-&gt; (EbsOptimizedSupport
+    -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport)
+-&gt; Ord EbsOptimizedSupport
+EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Ordering
+EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport
+$cmin :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport
+max :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport
+$cmax :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; EbsOptimizedSupport
+&gt;= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c&gt;= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+&gt; :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c&gt; :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+&lt;= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c&lt;= :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+&lt; :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+$c&lt; :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Bool
+compare :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Ordering
+$ccompare :: EbsOptimizedSupport -&gt; EbsOptimizedSupport -&gt; Ordering
+$cp1Ord :: Eq EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EbsOptimizedSupport -&gt; Rep EbsOptimizedSupport x)
+-&gt; (forall x. Rep EbsOptimizedSupport x -&gt; EbsOptimizedSupport)
+-&gt; Generic EbsOptimizedSupport
+forall x. Rep EbsOptimizedSupport x -&gt; EbsOptimizedSupport
+forall x. EbsOptimizedSupport -&gt; Rep EbsOptimizedSupport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EbsOptimizedSupport x -&gt; EbsOptimizedSupport
+$cfrom :: forall x. EbsOptimizedSupport -&gt; Rep EbsOptimizedSupport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681068349"><span id="local-6989586621681068351"><span class="annot"><span class="annottext">Int -&gt; EbsOptimizedSupport -&gt; Int
+EbsOptimizedSupport -&gt; Int
+(Int -&gt; EbsOptimizedSupport -&gt; Int)
+-&gt; (EbsOptimizedSupport -&gt; Int) -&gt; Hashable EbsOptimizedSupport
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EbsOptimizedSupport -&gt; Int
+$chash :: EbsOptimizedSupport -&gt; Int
+hashWithSalt :: Int -&gt; EbsOptimizedSupport -&gt; Int
+$chashWithSalt :: Int -&gt; EbsOptimizedSupport -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681068346"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ()
+(EbsOptimizedSupport -&gt; ()) -&gt; NFData EbsOptimizedSupport
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EbsOptimizedSupport -&gt; ()
+$crnf :: EbsOptimizedSupport -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681068343"><span class="annot"><span class="annottext">Text -&gt; Either String EbsOptimizedSupport
+(Text -&gt; Either String EbsOptimizedSupport)
+-&gt; FromText EbsOptimizedSupport
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EbsOptimizedSupport
+$cfromText :: Text -&gt; Either String EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681068340"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; Text
+(EbsOptimizedSupport -&gt; Text) -&gt; ToText EbsOptimizedSupport
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EbsOptimizedSupport -&gt; Text
+$ctoText :: EbsOptimizedSupport -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681068337"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteString
+(EbsOptimizedSupport -&gt; ByteString)
+-&gt; ToByteString EbsOptimizedSupport
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EbsOptimizedSupport -&gt; ByteString
+$ctoBS :: EbsOptimizedSupport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681068334"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; ByteStringBuilder
+(EbsOptimizedSupport -&gt; ByteStringBuilder)
+-&gt; ToLog EbsOptimizedSupport
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EbsOptimizedSupport -&gt; ByteStringBuilder
+$cbuild :: EbsOptimizedSupport -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681068331"><span class="annot"><span class="annottext">HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
+(HeaderName -&gt; EbsOptimizedSupport -&gt; [Header])
+-&gt; ToHeader EbsOptimizedSupport
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EbsOptimizedSupport -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681068328"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; QueryString
+(EbsOptimizedSupport -&gt; QueryString) -&gt; ToQuery EbsOptimizedSupport
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EbsOptimizedSupport -&gt; QueryString
+$ctoQuery :: EbsOptimizedSupport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681068323"><span id="local-6989586621681068325"><span class="annot"><span class="annottext">Value -&gt; Parser [EbsOptimizedSupport]
+Value -&gt; Parser EbsOptimizedSupport
+(Value -&gt; Parser EbsOptimizedSupport)
+-&gt; (Value -&gt; Parser [EbsOptimizedSupport])
+-&gt; FromJSON EbsOptimizedSupport
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EbsOptimizedSupport]
+$cparseJSONList :: Value -&gt; Parser [EbsOptimizedSupport]
+parseJSON :: Value -&gt; Parser EbsOptimizedSupport
+$cparseJSON :: Value -&gt; Parser EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681068318"><span id="local-6989586621681068320"><span class="annot"><span class="annottext">FromJSONKeyFunction [EbsOptimizedSupport]
+FromJSONKeyFunction EbsOptimizedSupport
+FromJSONKeyFunction EbsOptimizedSupport
+-&gt; FromJSONKeyFunction [EbsOptimizedSupport]
+-&gt; FromJSONKey EbsOptimizedSupport
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EbsOptimizedSupport]
+$cfromJSONKeyList :: FromJSONKeyFunction [EbsOptimizedSupport]
+fromJSONKey :: FromJSONKeyFunction EbsOptimizedSupport
+$cfromJSONKey :: FromJSONKeyFunction EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681068309"><span id="local-6989586621681068311"><span id="local-6989586621681068313"><span id="local-6989586621681068315"><span class="annot"><span class="annottext">[EbsOptimizedSupport] -&gt; Encoding
+[EbsOptimizedSupport] -&gt; Value
+EbsOptimizedSupport -&gt; Encoding
+EbsOptimizedSupport -&gt; Value
+(EbsOptimizedSupport -&gt; Value)
+-&gt; (EbsOptimizedSupport -&gt; Encoding)
+-&gt; ([EbsOptimizedSupport] -&gt; Value)
+-&gt; ([EbsOptimizedSupport] -&gt; Encoding)
+-&gt; ToJSON EbsOptimizedSupport
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EbsOptimizedSupport] -&gt; Encoding
+$ctoEncodingList :: [EbsOptimizedSupport] -&gt; Encoding
+toJSONList :: [EbsOptimizedSupport] -&gt; Value
+$ctoJSONList :: [EbsOptimizedSupport] -&gt; Value
+toEncoding :: EbsOptimizedSupport -&gt; Encoding
+$ctoEncoding :: EbsOptimizedSupport -&gt; Encoding
+toJSON :: EbsOptimizedSupport -&gt; Value
+$ctoJSON :: EbsOptimizedSupport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681068304"><span id="local-6989586621681068306"><span class="annot"><span class="annottext">ToJSONKeyFunction [EbsOptimizedSupport]
+ToJSONKeyFunction EbsOptimizedSupport
+ToJSONKeyFunction EbsOptimizedSupport
+-&gt; ToJSONKeyFunction [EbsOptimizedSupport]
+-&gt; ToJSONKey EbsOptimizedSupport
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EbsOptimizedSupport]
+$ctoJSONKeyList :: ToJSONKeyFunction [EbsOptimizedSupport]
+toJSONKey :: ToJSONKeyFunction EbsOptimizedSupport
+$ctoJSONKey :: ToJSONKeyFunction EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681068301"><span class="annot"><span class="annottext">[Node] -&gt; Either String EbsOptimizedSupport
+([Node] -&gt; Either String EbsOptimizedSupport)
+-&gt; FromXML EbsOptimizedSupport
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EbsOptimizedSupport
+$cparseXML :: [Node] -&gt; Either String EbsOptimizedSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681068298"><span class="annot"><span class="annottext">EbsOptimizedSupport -&gt; XML
+(EbsOptimizedSupport -&gt; XML) -&gt; ToXML EbsOptimizedSupport
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EbsOptimizedSupport -&gt; XML
+$ctoXML :: EbsOptimizedSupport -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Default"><span class="hs-identifier hs-type">EbsOptimizedSupport_Default</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-type">EbsOptimizedSupport</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsOptimizedSupport_Default"><span id="%24mEbsOptimizedSupport_Default"><span id="EbsOptimizedSupport_Default"><span class="annot"><span class="annottext">$bEbsOptimizedSupport_Default :: EbsOptimizedSupport
+$mEbsOptimizedSupport_Default :: forall r. EbsOptimizedSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#%24bEbsOptimizedSupport_Default"><span class="hs-identifier hs-var hs-var hs-var">EbsOptimizedSupport_Default</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-type">EbsOptimizedSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;default&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Supported"><span class="hs-identifier hs-type">EbsOptimizedSupport_Supported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-type">EbsOptimizedSupport</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsOptimizedSupport_Supported"><span id="%24mEbsOptimizedSupport_Supported"><span id="EbsOptimizedSupport_Supported"><span class="annot"><span class="annottext">$bEbsOptimizedSupport_Supported :: EbsOptimizedSupport
+$mEbsOptimizedSupport_Supported :: forall r. EbsOptimizedSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#%24bEbsOptimizedSupport_Supported"><span class="hs-identifier hs-var hs-var hs-var">EbsOptimizedSupport_Supported</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-type">EbsOptimizedSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;supported&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Unsupported"><span class="hs-identifier hs-type">EbsOptimizedSupport_Unsupported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport"><span class="hs-identifier hs-type">EbsOptimizedSupport</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEbsOptimizedSupport_Unsupported"><span id="%24mEbsOptimizedSupport_Unsupported"><span id="EbsOptimizedSupport_Unsupported"><span class="annot"><span class="annottext">$bEbsOptimizedSupport_Unsupported :: EbsOptimizedSupport
+$mEbsOptimizedSupport_Unsupported :: forall r. EbsOptimizedSupport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#%24bEbsOptimizedSupport_Unsupported"><span class="hs-identifier hs-var hs-var hs-var">EbsOptimizedSupport_Unsupported</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-identifier hs-type">EbsOptimizedSupport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unsupported&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Default"><span class="hs-pragma hs-type">EbsOptimizedSupport_Default</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Supported"><span class="hs-pragma hs-type">EbsOptimizedSupport_Supported</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport_Unsupported"><span class="hs-pragma hs-type">EbsOptimizedSupport_Unsupported</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EbsOptimizedSupport.html#EbsOptimizedSupport%27"><span class="hs-pragma hs-type">EbsOptimizedSupport'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

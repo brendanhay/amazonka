@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.Condition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.Condition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Operator.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.Operator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.SimpleCondition</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies the conditions to evaluate for an activity in a journey, and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- how to evaluate those conditions.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCondition' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679612060"><span id="local-6989586621679612061"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how to handle multiple conditions for the activity. For</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- example, if you specify two conditions for an activity, whether both or</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- only one of the conditions must be met for the activity to be performed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aoperator%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe Operator
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aoperator%3ACondition%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The conditions to evaluate for the activity.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aconditions%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe [SimpleCondition]
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aconditions%3ACondition%27"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612053"><span id="local-6989586621679612055"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
+(Condition -&gt; Condition -&gt; Bool)
+-&gt; (Condition -&gt; Condition -&gt; Bool) -&gt; Eq Condition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Condition -&gt; Condition -&gt; Bool
+$c/= :: Condition -&gt; Condition -&gt; Bool
+== :: Condition -&gt; Condition -&gt; Bool
+$c== :: Condition -&gt; Condition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612044"><span id="local-6989586621679612046"><span id="local-6989586621679612048"><span id="local-6989586621679612050"><span class="annot"><span class="annottext">ReadPrec [Condition]
+ReadPrec Condition
+Int -&gt; ReadS Condition
+ReadS [Condition]
+(Int -&gt; ReadS Condition)
+-&gt; ReadS [Condition]
+-&gt; ReadPrec Condition
+-&gt; ReadPrec [Condition]
+-&gt; Read Condition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Condition]
+$creadListPrec :: ReadPrec [Condition]
+readPrec :: ReadPrec Condition
+$creadPrec :: ReadPrec Condition
+readList :: ReadS [Condition]
+$creadList :: ReadS [Condition]
+readsPrec :: Int -&gt; ReadS Condition
+$creadsPrec :: Int -&gt; ReadS Condition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612037"><span id="local-6989586621679612039"><span id="local-6989586621679612041"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
+[Condition] -&gt; ShowS
+Condition -&gt; String
+(Int -&gt; Condition -&gt; ShowS)
+-&gt; (Condition -&gt; String)
+-&gt; ([Condition] -&gt; ShowS)
+-&gt; Show Condition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Condition] -&gt; ShowS
+$cshowList :: [Condition] -&gt; ShowS
+show :: Condition -&gt; String
+$cshow :: Condition -&gt; String
+showsPrec :: Int -&gt; Condition -&gt; ShowS
+$cshowsPrec :: Int -&gt; Condition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Condition -&gt; Rep Condition x)
+-&gt; (forall x. Rep Condition x -&gt; Condition) -&gt; Generic Condition
+forall x. Rep Condition x -&gt; Condition
+forall x. Condition -&gt; Rep Condition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Condition x -&gt; Condition
+$cfrom :: forall x. Condition -&gt; Rep Condition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'Condition' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'operator', 'condition_operator' - Specifies how to handle multiple conditions for the activity. For</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- example, if you specify two conditions for an activity, whether both or</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- only one of the conditions must be met for the activity to be performed.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'conditions', 'condition_conditions' - The conditions to evaluate for the activity.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#newCondition"><span class="hs-identifier hs-type">newCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span>
+</span><span id="line-57"></span><span id="newCondition"><span class="annot"><span class="annottext">newCondition :: Condition
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#newCondition"><span class="hs-identifier hs-var hs-var">newCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">Condition' :: Maybe Operator -&gt; Maybe [SimpleCondition] -&gt; Condition
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operator:Condition' :: Maybe Operator
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aoperator%3ACondition%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditions:Condition' :: Maybe [SimpleCondition]
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aconditions%3ACondition%27"><span class="hs-identifier hs-var">conditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Specifies how to handle multiple conditions for the activity. For</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- example, if you specify two conditions for an activity, whether both or</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- only one of the conditions must be met for the activity to be performed.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#condition_operator"><span class="hs-identifier hs-type">condition_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="condition_operator"><span class="annot"><span class="annottext">condition_operator :: (Maybe Operator -&gt; f (Maybe Operator)) -&gt; Condition -&gt; f Condition
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#condition_operator"><span class="hs-identifier hs-var hs-var">condition_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Condition -&gt; Maybe Operator)
+-&gt; (Condition -&gt; Maybe Operator -&gt; Condition)
+-&gt; Lens Condition Condition (Maybe Operator) (Maybe Operator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612028"><span class="annot"><span class="annottext">Maybe Operator
+operator :: Maybe Operator
+$sel:operator:Condition' :: Condition -&gt; Maybe Operator
+</span><a href="#local-6989586621679612028"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operator
+</span><a href="#local-6989586621679612028"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612027"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679612027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612026"><span class="annot"><span class="annottext">Maybe Operator
+</span><a href="#local-6989586621679612026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679612027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:Condition' :: Maybe Operator
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aoperator%3ACondition%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operator
+</span><a href="#local-6989586621679612026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The conditions to evaluate for the activity.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#condition_conditions"><span class="hs-identifier hs-type">condition_conditions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="condition_conditions"><span class="annot"><span class="annottext">condition_conditions :: (Maybe [SimpleCondition] -&gt; f (Maybe [SimpleCondition]))
+-&gt; Condition -&gt; f Condition
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#condition_conditions"><span class="hs-identifier hs-var hs-var">condition_conditions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Condition -&gt; Maybe [SimpleCondition])
+-&gt; (Condition -&gt; Maybe [SimpleCondition] -&gt; Condition)
+-&gt; Lens
+     Condition
+     Condition
+     (Maybe [SimpleCondition])
+     (Maybe [SimpleCondition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612024"><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+conditions :: Maybe [SimpleCondition]
+$sel:conditions:Condition' :: Condition -&gt; Maybe [SimpleCondition]
+</span><a href="#local-6989586621679612024"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+</span><a href="#local-6989586621679612024"><span class="hs-identifier hs-var">conditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612023"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679612023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612022"><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+</span><a href="#local-6989586621679612022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679612023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditions:Condition' :: Maybe [SimpleCondition]
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#%24sel%3Aconditions%3ACondition%27"><span class="hs-identifier hs-var">conditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+</span><a href="#local-6989586621679612022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SimpleCondition] -&gt; f (Maybe [SimpleCondition]))
+ -&gt; Condition -&gt; f Condition)
+-&gt; ((Maybe [SimpleCondition] -&gt; f (Maybe [SimpleCondition]))
+    -&gt; Maybe [SimpleCondition] -&gt; f (Maybe [SimpleCondition]))
+-&gt; (Maybe [SimpleCondition] -&gt; f (Maybe [SimpleCondition]))
+-&gt; Condition
+-&gt; f Condition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SimpleCondition]
+  [SimpleCondition]
+  [SimpleCondition]
+  [SimpleCondition]
+-&gt; Iso
+     (Maybe [SimpleCondition])
+     (Maybe [SimpleCondition])
+     (Maybe [SimpleCondition])
+     (Maybe [SimpleCondition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SimpleCondition]
+  [SimpleCondition]
+  [SimpleCondition]
+  [SimpleCondition]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612016"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679612014"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Condition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Condition) -&gt; Value -&gt; Parser Condition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679612011"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612011"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operator -&gt; Maybe [SimpleCondition] -&gt; Condition
+</span><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operator -&gt; Maybe [SimpleCondition] -&gt; Condition)
+-&gt; Parser (Maybe Operator)
+-&gt; Parser (Maybe [SimpleCondition] -&gt; Condition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Operator)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [SimpleCondition] -&gt; Condition)
+-&gt; Parser (Maybe [SimpleCondition]) -&gt; Parser Condition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SimpleCondition]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Conditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SimpleCondition]))
+-&gt; Maybe [SimpleCondition] -&gt; Parser (Maybe [SimpleCondition])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612004"><span id="local-6989586621679612006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611993"><span id="local-6989586621679611995"><span id="local-6989586621679611997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679611991"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611988"><span id="local-6989586621679611989"><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+Maybe Operator
+conditions :: Maybe [SimpleCondition]
+operator :: Maybe Operator
+$sel:conditions:Condition' :: Condition -&gt; Maybe [SimpleCondition]
+$sel:operator:Condition' :: Condition -&gt; Maybe Operator
+</span><a href="#local-6989586621679611988"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Operator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Operator -&gt; Pair) -&gt; Maybe Operator -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Operator
+</span><a href="#local-6989586621679611989"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Conditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SimpleCondition] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SimpleCondition] -&gt; Pair)
+-&gt; Maybe [SimpleCondition] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SimpleCondition]
+</span><a href="#local-6989586621679611988"><span class="hs-identifier hs-var">conditions</span></a></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span></pre></body></html>

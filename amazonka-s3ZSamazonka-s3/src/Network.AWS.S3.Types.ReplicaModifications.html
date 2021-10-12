@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.ReplicaModifications</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.ReplicaModifications</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html"><span class="hs-identifier">Network.AWS.S3.Types.ReplicaModificationsStatus</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A filter that you can specify for selection for modifications on</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- replicas. Amazon S3 doesn\'t replicate replica modifications by default.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- In the latest version of replication configuration (when @Filter@ is</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- specified), you can specify this element and set the status to @Enabled@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- to replicate modifications on replicas.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If you don\'t specify the @Filter@ element, Amazon S3 assumes that the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- replication configuration is the earlier version, V1. In the earlier</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- version, this element is not allowed.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newReplicaModifications' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679549272"><span id="local-6989586621679549273"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicaModifications"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-var">ReplicaModifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaModifications%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-var">ReplicaModifications'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether Amazon S3 replicates modifications on replicas.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astatus%3AReplicaModifications%27"><span class="annot"><span class="annottext">ReplicaModifications -&gt; ReplicaModificationsStatus
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#%24sel%3Astatus%3AReplicaModifications%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus"><span class="hs-identifier hs-type">ReplicaModificationsStatus</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549266"><span id="local-6989586621679549268"><span class="annot"><span class="annottext">ReplicaModifications -&gt; ReplicaModifications -&gt; Bool
+(ReplicaModifications -&gt; ReplicaModifications -&gt; Bool)
+-&gt; (ReplicaModifications -&gt; ReplicaModifications -&gt; Bool)
+-&gt; Eq ReplicaModifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicaModifications -&gt; ReplicaModifications -&gt; Bool
+$c/= :: ReplicaModifications -&gt; ReplicaModifications -&gt; Bool
+== :: ReplicaModifications -&gt; ReplicaModifications -&gt; Bool
+$c== :: ReplicaModifications -&gt; ReplicaModifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549257"><span id="local-6989586621679549259"><span id="local-6989586621679549261"><span id="local-6989586621679549263"><span class="annot"><span class="annottext">ReadPrec [ReplicaModifications]
+ReadPrec ReplicaModifications
+Int -&gt; ReadS ReplicaModifications
+ReadS [ReplicaModifications]
+(Int -&gt; ReadS ReplicaModifications)
+-&gt; ReadS [ReplicaModifications]
+-&gt; ReadPrec ReplicaModifications
+-&gt; ReadPrec [ReplicaModifications]
+-&gt; Read ReplicaModifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicaModifications]
+$creadListPrec :: ReadPrec [ReplicaModifications]
+readPrec :: ReadPrec ReplicaModifications
+$creadPrec :: ReadPrec ReplicaModifications
+readList :: ReadS [ReplicaModifications]
+$creadList :: ReadS [ReplicaModifications]
+readsPrec :: Int -&gt; ReadS ReplicaModifications
+$creadsPrec :: Int -&gt; ReadS ReplicaModifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549250"><span id="local-6989586621679549252"><span id="local-6989586621679549254"><span class="annot"><span class="annottext">Int -&gt; ReplicaModifications -&gt; ShowS
+[ReplicaModifications] -&gt; ShowS
+ReplicaModifications -&gt; String
+(Int -&gt; ReplicaModifications -&gt; ShowS)
+-&gt; (ReplicaModifications -&gt; String)
+-&gt; ([ReplicaModifications] -&gt; ShowS)
+-&gt; Show ReplicaModifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicaModifications] -&gt; ShowS
+$cshowList :: [ReplicaModifications] -&gt; ShowS
+show :: ReplicaModifications -&gt; String
+$cshow :: ReplicaModifications -&gt; String
+showsPrec :: Int -&gt; ReplicaModifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicaModifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReplicaModifications -&gt; Rep ReplicaModifications x)
+-&gt; (forall x. Rep ReplicaModifications x -&gt; ReplicaModifications)
+-&gt; Generic ReplicaModifications
+forall x. Rep ReplicaModifications x -&gt; ReplicaModifications
+forall x. ReplicaModifications -&gt; Rep ReplicaModifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicaModifications x -&gt; ReplicaModifications
+$cfrom :: forall x. ReplicaModifications -&gt; Rep ReplicaModifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ReplicaModifications' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'status', 'replicaModifications_status' - Specifies whether Amazon S3 replicates modifications on replicas.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#newReplicaModifications"><span class="hs-identifier hs-type">newReplicaModifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus"><span class="hs-identifier hs-type">ReplicaModificationsStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span><span>
+</span><span id="line-58"></span><span id="newReplicaModifications"><span class="annot"><span class="annottext">newReplicaModifications :: ReplicaModificationsStatus -&gt; ReplicaModifications
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#newReplicaModifications"><span class="hs-identifier hs-var hs-var">newReplicaModifications</span></a></span></span><span> </span><span id="local-6989586621679549244"><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549244"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ReplicaModifications' :: ReplicaModificationsStatus -&gt; ReplicaModifications
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-type">ReplicaModifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicaModifications' :: ReplicaModificationsStatus
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#%24sel%3Astatus%3AReplicaModifications%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549244"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Specifies whether Amazon S3 replicates modifications on replicas.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#replicaModifications_status"><span class="hs-identifier hs-type">replicaModifications_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus"><span class="hs-identifier hs-type">ReplicaModificationsStatus</span></a></span><span>
+</span><span id="line-63"></span><span id="replicaModifications_status"><span class="annot"><span class="annottext">replicaModifications_status :: (ReplicaModificationsStatus -&gt; f ReplicaModificationsStatus)
+-&gt; ReplicaModifications -&gt; f ReplicaModifications
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#replicaModifications_status"><span class="hs-identifier hs-var hs-var">replicaModifications_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicaModifications -&gt; ReplicaModificationsStatus)
+-&gt; (ReplicaModifications
+    -&gt; ReplicaModificationsStatus -&gt; ReplicaModifications)
+-&gt; Lens
+     ReplicaModifications
+     ReplicaModifications
+     ReplicaModificationsStatus
+     ReplicaModificationsStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-type">ReplicaModifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549240"><span class="annot"><span class="annottext">ReplicaModificationsStatus
+status :: ReplicaModificationsStatus
+$sel:status:ReplicaModifications' :: ReplicaModifications -&gt; ReplicaModificationsStatus
+</span><a href="#local-6989586621679549240"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549240"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549239"><span class="annot"><span class="annottext">s :: ReplicaModifications
+</span><a href="#local-6989586621679549239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-type">ReplicaModifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549238"><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicaModifications
+</span><a href="#local-6989586621679549239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicaModifications' :: ReplicaModificationsStatus
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#%24sel%3Astatus%3AReplicaModifications%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679549235"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicaModifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679549233"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ReplicaModifications
+</span><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-var">ReplicaModifications'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(ReplicaModificationsStatus -&gt; ReplicaModifications)
+-&gt; Either String ReplicaModificationsStatus
+-&gt; Either String ReplicaModifications
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReplicaModificationsStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549227"><span id="local-6989586621679549229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications"><span class="hs-identifier hs-type">ReplicaModifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679549220"><span class="annot"><span class="annottext">toXML :: ReplicaModifications -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModifications.html#ReplicaModifications%27"><span class="hs-identifier hs-type">ReplicaModifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549218"><span class="annot"><span class="annottext">ReplicaModificationsStatus
+status :: ReplicaModificationsStatus
+$sel:status:ReplicaModifications' :: ReplicaModifications -&gt; ReplicaModificationsStatus
+</span><a href="#local-6989586621679549218"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ReplicaModificationsStatus -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ReplicaModificationsStatus
+</span><a href="#local-6989586621679549218"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span></pre></body></html>

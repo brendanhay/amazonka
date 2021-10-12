@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AutoScaling.Types.InstanceRefreshStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScaling.Types.InstanceRefreshStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelled"><span class="hs-identifier">InstanceRefreshStatus_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelling"><span class="hs-identifier">InstanceRefreshStatus_Cancelling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Failed"><span class="hs-identifier">InstanceRefreshStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_InProgress"><span class="hs-identifier">InstanceRefreshStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Pending"><span class="hs-identifier">InstanceRefreshStatus_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Successful"><span class="hs-identifier">InstanceRefreshStatus_Successful</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679326271"><span id="local-6989586621679326272"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceRefreshStatus"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-var">InstanceRefreshStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefreshStatus%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-var">InstanceRefreshStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceRefreshStatus"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; Text
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#fromInstanceRefreshStatus"><span class="hs-identifier hs-var hs-var">fromInstanceRefreshStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326263"><span id="local-6989586621679326265"><span id="local-6989586621679326267"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; ShowS
+[InstanceRefreshStatus] -&gt; ShowS
+InstanceRefreshStatus -&gt; String
+(Int -&gt; InstanceRefreshStatus -&gt; ShowS)
+-&gt; (InstanceRefreshStatus -&gt; String)
+-&gt; ([InstanceRefreshStatus] -&gt; ShowS)
+-&gt; Show InstanceRefreshStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceRefreshStatus] -&gt; ShowS
+$cshowList :: [InstanceRefreshStatus] -&gt; ShowS
+show :: InstanceRefreshStatus -&gt; String
+$cshow :: InstanceRefreshStatus -&gt; String
+showsPrec :: Int -&gt; InstanceRefreshStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceRefreshStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679326254"><span id="local-6989586621679326256"><span id="local-6989586621679326258"><span id="local-6989586621679326260"><span class="annot"><span class="annottext">ReadPrec [InstanceRefreshStatus]
+ReadPrec InstanceRefreshStatus
+Int -&gt; ReadS InstanceRefreshStatus
+ReadS [InstanceRefreshStatus]
+(Int -&gt; ReadS InstanceRefreshStatus)
+-&gt; ReadS [InstanceRefreshStatus]
+-&gt; ReadPrec InstanceRefreshStatus
+-&gt; ReadPrec [InstanceRefreshStatus]
+-&gt; Read InstanceRefreshStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceRefreshStatus]
+$creadListPrec :: ReadPrec [InstanceRefreshStatus]
+readPrec :: ReadPrec InstanceRefreshStatus
+$creadPrec :: ReadPrec InstanceRefreshStatus
+readList :: ReadS [InstanceRefreshStatus]
+$creadList :: ReadS [InstanceRefreshStatus]
+readsPrec :: Int -&gt; ReadS InstanceRefreshStatus
+$creadsPrec :: Int -&gt; ReadS InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679326249"><span id="local-6989586621679326251"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+(InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; Eq InstanceRefreshStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c/= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+== :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c== :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326233"><span id="local-6989586621679326235"><span id="local-6989586621679326237"><span id="local-6989586621679326239"><span id="local-6989586621679326241"><span id="local-6989586621679326243"><span id="local-6989586621679326245"><span class="annot"><span class="annottext">Eq InstanceRefreshStatus
+Eq InstanceRefreshStatus
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Ordering)
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; (InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool)
+-&gt; (InstanceRefreshStatus
+    -&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus)
+-&gt; (InstanceRefreshStatus
+    -&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus)
+-&gt; Ord InstanceRefreshStatus
+InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Ordering
+InstanceRefreshStatus
+-&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceRefreshStatus
+-&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus
+$cmin :: InstanceRefreshStatus
+-&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus
+max :: InstanceRefreshStatus
+-&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus
+$cmax :: InstanceRefreshStatus
+-&gt; InstanceRefreshStatus -&gt; InstanceRefreshStatus
+&gt;= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c&gt;= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+&gt; :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c&gt; :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+&lt;= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c&lt;= :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+&lt; :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+$c&lt; :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Bool
+compare :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Ordering
+$ccompare :: InstanceRefreshStatus -&gt; InstanceRefreshStatus -&gt; Ordering
+$cp1Ord :: Eq InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceRefreshStatus -&gt; Rep InstanceRefreshStatus x)
+-&gt; (forall x. Rep InstanceRefreshStatus x -&gt; InstanceRefreshStatus)
+-&gt; Generic InstanceRefreshStatus
+forall x. Rep InstanceRefreshStatus x -&gt; InstanceRefreshStatus
+forall x. InstanceRefreshStatus -&gt; Rep InstanceRefreshStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceRefreshStatus x -&gt; InstanceRefreshStatus
+$cfrom :: forall x. InstanceRefreshStatus -&gt; Rep InstanceRefreshStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326225"><span id="local-6989586621679326227"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshStatus -&gt; Int
+InstanceRefreshStatus -&gt; Int
+(Int -&gt; InstanceRefreshStatus -&gt; Int)
+-&gt; (InstanceRefreshStatus -&gt; Int) -&gt; Hashable InstanceRefreshStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceRefreshStatus -&gt; Int
+$chash :: InstanceRefreshStatus -&gt; Int
+hashWithSalt :: Int -&gt; InstanceRefreshStatus -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceRefreshStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326222"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ()
+(InstanceRefreshStatus -&gt; ()) -&gt; NFData InstanceRefreshStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceRefreshStatus -&gt; ()
+$crnf :: InstanceRefreshStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326219"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceRefreshStatus
+(Text -&gt; Either String InstanceRefreshStatus)
+-&gt; FromText InstanceRefreshStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceRefreshStatus
+$cfromText :: Text -&gt; Either String InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326216"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; Text
+(InstanceRefreshStatus -&gt; Text) -&gt; ToText InstanceRefreshStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceRefreshStatus -&gt; Text
+$ctoText :: InstanceRefreshStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326213"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteString
+(InstanceRefreshStatus -&gt; ByteString)
+-&gt; ToByteString InstanceRefreshStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceRefreshStatus -&gt; ByteString
+$ctoBS :: InstanceRefreshStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326210"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; ByteStringBuilder
+(InstanceRefreshStatus -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceRefreshStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceRefreshStatus -&gt; ByteStringBuilder
+$cbuild :: InstanceRefreshStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326207"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
+(HeaderName -&gt; InstanceRefreshStatus -&gt; [Header])
+-&gt; ToHeader InstanceRefreshStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceRefreshStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326204"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; QueryString
+(InstanceRefreshStatus -&gt; QueryString)
+-&gt; ToQuery InstanceRefreshStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceRefreshStatus -&gt; QueryString
+$ctoQuery :: InstanceRefreshStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326199"><span id="local-6989586621679326201"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceRefreshStatus]
+Value -&gt; Parser InstanceRefreshStatus
+(Value -&gt; Parser InstanceRefreshStatus)
+-&gt; (Value -&gt; Parser [InstanceRefreshStatus])
+-&gt; FromJSON InstanceRefreshStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceRefreshStatus]
+$cparseJSONList :: Value -&gt; Parser [InstanceRefreshStatus]
+parseJSON :: Value -&gt; Parser InstanceRefreshStatus
+$cparseJSON :: Value -&gt; Parser InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326194"><span id="local-6989586621679326196"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceRefreshStatus]
+FromJSONKeyFunction InstanceRefreshStatus
+FromJSONKeyFunction InstanceRefreshStatus
+-&gt; FromJSONKeyFunction [InstanceRefreshStatus]
+-&gt; FromJSONKey InstanceRefreshStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceRefreshStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceRefreshStatus]
+fromJSONKey :: FromJSONKeyFunction InstanceRefreshStatus
+$cfromJSONKey :: FromJSONKeyFunction InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326185"><span id="local-6989586621679326187"><span id="local-6989586621679326189"><span id="local-6989586621679326191"><span class="annot"><span class="annottext">[InstanceRefreshStatus] -&gt; Encoding
+[InstanceRefreshStatus] -&gt; Value
+InstanceRefreshStatus -&gt; Encoding
+InstanceRefreshStatus -&gt; Value
+(InstanceRefreshStatus -&gt; Value)
+-&gt; (InstanceRefreshStatus -&gt; Encoding)
+-&gt; ([InstanceRefreshStatus] -&gt; Value)
+-&gt; ([InstanceRefreshStatus] -&gt; Encoding)
+-&gt; ToJSON InstanceRefreshStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceRefreshStatus] -&gt; Encoding
+$ctoEncodingList :: [InstanceRefreshStatus] -&gt; Encoding
+toJSONList :: [InstanceRefreshStatus] -&gt; Value
+$ctoJSONList :: [InstanceRefreshStatus] -&gt; Value
+toEncoding :: InstanceRefreshStatus -&gt; Encoding
+$ctoEncoding :: InstanceRefreshStatus -&gt; Encoding
+toJSON :: InstanceRefreshStatus -&gt; Value
+$ctoJSON :: InstanceRefreshStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326180"><span id="local-6989586621679326182"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceRefreshStatus]
+ToJSONKeyFunction InstanceRefreshStatus
+ToJSONKeyFunction InstanceRefreshStatus
+-&gt; ToJSONKeyFunction [InstanceRefreshStatus]
+-&gt; ToJSONKey InstanceRefreshStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceRefreshStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceRefreshStatus]
+toJSONKey :: ToJSONKeyFunction InstanceRefreshStatus
+$ctoJSONKey :: ToJSONKeyFunction InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326177"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceRefreshStatus
+([Node] -&gt; Either String InstanceRefreshStatus)
+-&gt; FromXML InstanceRefreshStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceRefreshStatus
+$cparseXML :: [Node] -&gt; Either String InstanceRefreshStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326174"><span class="annot"><span class="annottext">InstanceRefreshStatus -&gt; XML
+(InstanceRefreshStatus -&gt; XML) -&gt; ToXML InstanceRefreshStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceRefreshStatus -&gt; XML
+$ctoXML :: InstanceRefreshStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelled"><span class="hs-identifier hs-type">InstanceRefreshStatus_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_Cancelled"><span id="%24mInstanceRefreshStatus_Cancelled"><span id="InstanceRefreshStatus_Cancelled"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_Cancelled :: InstanceRefreshStatus
+$mInstanceRefreshStatus_Cancelled :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Cancelled&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelling"><span class="hs-identifier hs-type">InstanceRefreshStatus_Cancelling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_Cancelling"><span id="%24mInstanceRefreshStatus_Cancelling"><span id="InstanceRefreshStatus_Cancelling"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_Cancelling :: InstanceRefreshStatus
+$mInstanceRefreshStatus_Cancelling :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_Cancelling"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_Cancelling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Cancelling&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Failed"><span class="hs-identifier hs-type">InstanceRefreshStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_Failed"><span id="%24mInstanceRefreshStatus_Failed"><span id="InstanceRefreshStatus_Failed"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_Failed :: InstanceRefreshStatus
+$mInstanceRefreshStatus_Failed :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_InProgress"><span class="hs-identifier hs-type">InstanceRefreshStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_InProgress"><span id="%24mInstanceRefreshStatus_InProgress"><span id="InstanceRefreshStatus_InProgress"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_InProgress :: InstanceRefreshStatus
+$mInstanceRefreshStatus_InProgress :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Pending"><span class="hs-identifier hs-type">InstanceRefreshStatus_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_Pending"><span id="%24mInstanceRefreshStatus_Pending"><span id="InstanceRefreshStatus_Pending"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_Pending :: InstanceRefreshStatus
+$mInstanceRefreshStatus_Pending :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_Pending"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Successful"><span class="hs-identifier hs-type">InstanceRefreshStatus_Successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus"><span class="hs-identifier hs-type">InstanceRefreshStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceRefreshStatus_Successful"><span id="%24mInstanceRefreshStatus_Successful"><span id="InstanceRefreshStatus_Successful"><span class="annot"><span class="annottext">$bInstanceRefreshStatus_Successful :: InstanceRefreshStatus
+$mInstanceRefreshStatus_Successful :: forall r.
+InstanceRefreshStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#%24bInstanceRefreshStatus_Successful"><span class="hs-identifier hs-var hs-var hs-var">InstanceRefreshStatus_Successful</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-identifier hs-type">InstanceRefreshStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Successful&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelled"><span class="hs-pragma hs-type">InstanceRefreshStatus_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Cancelling"><span class="hs-pragma hs-type">InstanceRefreshStatus_Cancelling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Failed"><span class="hs-pragma hs-type">InstanceRefreshStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_InProgress"><span class="hs-pragma hs-type">InstanceRefreshStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Pending"><span class="hs-pragma hs-type">InstanceRefreshStatus_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus_Successful"><span class="hs-pragma hs-type">InstanceRefreshStatus_Successful</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshStatus.html#InstanceRefreshStatus%27"><span class="hs-pragma hs-type">InstanceRefreshStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

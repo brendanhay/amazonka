@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.Types.ThreatIntelSetFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.Types.ThreatIntelSetFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_ALIEN_VAULT"><span class="hs-identifier">ThreatIntelSetFormat_ALIEN_VAULT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_FIRE_EYE"><span class="hs-identifier">ThreatIntelSetFormat_FIRE_EYE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_OTX_CSV"><span class="hs-identifier">ThreatIntelSetFormat_OTX_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_PROOF_POINT"><span class="hs-identifier">ThreatIntelSetFormat_PROOF_POINT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_STIX"><span class="hs-identifier">ThreatIntelSetFormat_STIX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_TXT"><span class="hs-identifier">ThreatIntelSetFormat_TXT</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679301274"><span id="local-6989586621679301275"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThreatIntelSetFormat"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-var">ThreatIntelSetFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelSetFormat%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-var">ThreatIntelSetFormat'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThreatIntelSetFormat"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; Text
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#fromThreatIntelSetFormat"><span class="hs-identifier hs-var hs-var">fromThreatIntelSetFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301266"><span id="local-6989586621679301268"><span id="local-6989586621679301270"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; ShowS
+[ThreatIntelSetFormat] -&gt; ShowS
+ThreatIntelSetFormat -&gt; String
+(Int -&gt; ThreatIntelSetFormat -&gt; ShowS)
+-&gt; (ThreatIntelSetFormat -&gt; String)
+-&gt; ([ThreatIntelSetFormat] -&gt; ShowS)
+-&gt; Show ThreatIntelSetFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThreatIntelSetFormat] -&gt; ShowS
+$cshowList :: [ThreatIntelSetFormat] -&gt; ShowS
+show :: ThreatIntelSetFormat -&gt; String
+$cshow :: ThreatIntelSetFormat -&gt; String
+showsPrec :: Int -&gt; ThreatIntelSetFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThreatIntelSetFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301257"><span id="local-6989586621679301259"><span id="local-6989586621679301261"><span id="local-6989586621679301263"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelSetFormat]
+ReadPrec ThreatIntelSetFormat
+Int -&gt; ReadS ThreatIntelSetFormat
+ReadS [ThreatIntelSetFormat]
+(Int -&gt; ReadS ThreatIntelSetFormat)
+-&gt; ReadS [ThreatIntelSetFormat]
+-&gt; ReadPrec ThreatIntelSetFormat
+-&gt; ReadPrec [ThreatIntelSetFormat]
+-&gt; Read ThreatIntelSetFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThreatIntelSetFormat]
+$creadListPrec :: ReadPrec [ThreatIntelSetFormat]
+readPrec :: ReadPrec ThreatIntelSetFormat
+$creadPrec :: ReadPrec ThreatIntelSetFormat
+readList :: ReadS [ThreatIntelSetFormat]
+$creadList :: ReadS [ThreatIntelSetFormat]
+readsPrec :: Int -&gt; ReadS ThreatIntelSetFormat
+$creadsPrec :: Int -&gt; ReadS ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679301252"><span id="local-6989586621679301254"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+(ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; Eq ThreatIntelSetFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c/= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+== :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c== :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301236"><span id="local-6989586621679301238"><span id="local-6989586621679301240"><span id="local-6989586621679301242"><span id="local-6989586621679301244"><span id="local-6989586621679301246"><span id="local-6989586621679301248"><span class="annot"><span class="annottext">Eq ThreatIntelSetFormat
+Eq ThreatIntelSetFormat
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Ordering)
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
+-&gt; (ThreatIntelSetFormat
+    -&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat)
+-&gt; (ThreatIntelSetFormat
+    -&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat)
+-&gt; Ord ThreatIntelSetFormat
+ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Ordering
+ThreatIntelSetFormat
+-&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ThreatIntelSetFormat
+-&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat
+$cmin :: ThreatIntelSetFormat
+-&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat
+max :: ThreatIntelSetFormat
+-&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat
+$cmax :: ThreatIntelSetFormat
+-&gt; ThreatIntelSetFormat -&gt; ThreatIntelSetFormat
+&gt;= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c&gt;= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+&gt; :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c&gt; :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+&lt;= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c&lt;= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+&lt; :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+$c&lt; :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+compare :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Ordering
+$ccompare :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Ordering
+$cp1Ord :: Eq ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ThreatIntelSetFormat -&gt; Rep ThreatIntelSetFormat x)
+-&gt; (forall x. Rep ThreatIntelSetFormat x -&gt; ThreatIntelSetFormat)
+-&gt; Generic ThreatIntelSetFormat
+forall x. Rep ThreatIntelSetFormat x -&gt; ThreatIntelSetFormat
+forall x. ThreatIntelSetFormat -&gt; Rep ThreatIntelSetFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ThreatIntelSetFormat x -&gt; ThreatIntelSetFormat
+$cfrom :: forall x. ThreatIntelSetFormat -&gt; Rep ThreatIntelSetFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301228"><span id="local-6989586621679301230"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; Int
+ThreatIntelSetFormat -&gt; Int
+(Int -&gt; ThreatIntelSetFormat -&gt; Int)
+-&gt; (ThreatIntelSetFormat -&gt; Int) -&gt; Hashable ThreatIntelSetFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ThreatIntelSetFormat -&gt; Int
+$chash :: ThreatIntelSetFormat -&gt; Int
+hashWithSalt :: Int -&gt; ThreatIntelSetFormat -&gt; Int
+$chashWithSalt :: Int -&gt; ThreatIntelSetFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301225"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ()
+(ThreatIntelSetFormat -&gt; ()) -&gt; NFData ThreatIntelSetFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ThreatIntelSetFormat -&gt; ()
+$crnf :: ThreatIntelSetFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301222"><span class="annot"><span class="annottext">Text -&gt; Either String ThreatIntelSetFormat
+(Text -&gt; Either String ThreatIntelSetFormat)
+-&gt; FromText ThreatIntelSetFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ThreatIntelSetFormat
+$cfromText :: Text -&gt; Either String ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301219"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; Text
+(ThreatIntelSetFormat -&gt; Text) -&gt; ToText ThreatIntelSetFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ThreatIntelSetFormat -&gt; Text
+$ctoText :: ThreatIntelSetFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301216"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteString
+(ThreatIntelSetFormat -&gt; ByteString)
+-&gt; ToByteString ThreatIntelSetFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ThreatIntelSetFormat -&gt; ByteString
+$ctoBS :: ThreatIntelSetFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301213"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteStringBuilder
+(ThreatIntelSetFormat -&gt; ByteStringBuilder)
+-&gt; ToLog ThreatIntelSetFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ThreatIntelSetFormat -&gt; ByteStringBuilder
+$cbuild :: ThreatIntelSetFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301210"><span class="annot"><span class="annottext">HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
+(HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header])
+-&gt; ToHeader ThreatIntelSetFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301207"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; QueryString
+(ThreatIntelSetFormat -&gt; QueryString)
+-&gt; ToQuery ThreatIntelSetFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ThreatIntelSetFormat -&gt; QueryString
+$ctoQuery :: ThreatIntelSetFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301202"><span id="local-6989586621679301204"><span class="annot"><span class="annottext">Value -&gt; Parser [ThreatIntelSetFormat]
+Value -&gt; Parser ThreatIntelSetFormat
+(Value -&gt; Parser ThreatIntelSetFormat)
+-&gt; (Value -&gt; Parser [ThreatIntelSetFormat])
+-&gt; FromJSON ThreatIntelSetFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ThreatIntelSetFormat]
+$cparseJSONList :: Value -&gt; Parser [ThreatIntelSetFormat]
+parseJSON :: Value -&gt; Parser ThreatIntelSetFormat
+$cparseJSON :: Value -&gt; Parser ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301197"><span id="local-6989586621679301199"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThreatIntelSetFormat]
+FromJSONKeyFunction ThreatIntelSetFormat
+FromJSONKeyFunction ThreatIntelSetFormat
+-&gt; FromJSONKeyFunction [ThreatIntelSetFormat]
+-&gt; FromJSONKey ThreatIntelSetFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ThreatIntelSetFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [ThreatIntelSetFormat]
+fromJSONKey :: FromJSONKeyFunction ThreatIntelSetFormat
+$cfromJSONKey :: FromJSONKeyFunction ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301188"><span id="local-6989586621679301190"><span id="local-6989586621679301192"><span id="local-6989586621679301194"><span class="annot"><span class="annottext">[ThreatIntelSetFormat] -&gt; Encoding
+[ThreatIntelSetFormat] -&gt; Value
+ThreatIntelSetFormat -&gt; Encoding
+ThreatIntelSetFormat -&gt; Value
+(ThreatIntelSetFormat -&gt; Value)
+-&gt; (ThreatIntelSetFormat -&gt; Encoding)
+-&gt; ([ThreatIntelSetFormat] -&gt; Value)
+-&gt; ([ThreatIntelSetFormat] -&gt; Encoding)
+-&gt; ToJSON ThreatIntelSetFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ThreatIntelSetFormat] -&gt; Encoding
+$ctoEncodingList :: [ThreatIntelSetFormat] -&gt; Encoding
+toJSONList :: [ThreatIntelSetFormat] -&gt; Value
+$ctoJSONList :: [ThreatIntelSetFormat] -&gt; Value
+toEncoding :: ThreatIntelSetFormat -&gt; Encoding
+$ctoEncoding :: ThreatIntelSetFormat -&gt; Encoding
+toJSON :: ThreatIntelSetFormat -&gt; Value
+$ctoJSON :: ThreatIntelSetFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301183"><span id="local-6989586621679301185"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThreatIntelSetFormat]
+ToJSONKeyFunction ThreatIntelSetFormat
+ToJSONKeyFunction ThreatIntelSetFormat
+-&gt; ToJSONKeyFunction [ThreatIntelSetFormat]
+-&gt; ToJSONKey ThreatIntelSetFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ThreatIntelSetFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [ThreatIntelSetFormat]
+toJSONKey :: ToJSONKeyFunction ThreatIntelSetFormat
+$ctoJSONKey :: ToJSONKeyFunction ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301180"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThreatIntelSetFormat
+([Node] -&gt; Either String ThreatIntelSetFormat)
+-&gt; FromXML ThreatIntelSetFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ThreatIntelSetFormat
+$cparseXML :: [Node] -&gt; Either String ThreatIntelSetFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301177"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; XML
+(ThreatIntelSetFormat -&gt; XML) -&gt; ToXML ThreatIntelSetFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ThreatIntelSetFormat -&gt; XML
+$ctoXML :: ThreatIntelSetFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_ALIEN_VAULT"><span class="hs-identifier hs-type">ThreatIntelSetFormat_ALIEN_VAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_ALIEN_VAULT"><span id="%24mThreatIntelSetFormat_ALIEN_VAULT"><span id="ThreatIntelSetFormat_ALIEN_VAULT"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_ALIEN_VAULT :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_ALIEN_VAULT :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_ALIEN_VAULT"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_ALIEN_VAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALIEN_VAULT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_FIRE_EYE"><span class="hs-identifier hs-type">ThreatIntelSetFormat_FIRE_EYE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_FIRE_EYE"><span id="%24mThreatIntelSetFormat_FIRE_EYE"><span id="ThreatIntelSetFormat_FIRE_EYE"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_FIRE_EYE :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_FIRE_EYE :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_FIRE_EYE"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_FIRE_EYE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FIRE_EYE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_OTX_CSV"><span class="hs-identifier hs-type">ThreatIntelSetFormat_OTX_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_OTX_CSV"><span id="%24mThreatIntelSetFormat_OTX_CSV"><span id="ThreatIntelSetFormat_OTX_CSV"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_OTX_CSV :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_OTX_CSV :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_OTX_CSV"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_OTX_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OTX_CSV&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_PROOF_POINT"><span class="hs-identifier hs-type">ThreatIntelSetFormat_PROOF_POINT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_PROOF_POINT"><span id="%24mThreatIntelSetFormat_PROOF_POINT"><span id="ThreatIntelSetFormat_PROOF_POINT"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_PROOF_POINT :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_PROOF_POINT :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_PROOF_POINT"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_PROOF_POINT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROOF_POINT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_STIX"><span class="hs-identifier hs-type">ThreatIntelSetFormat_STIX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_STIX"><span id="%24mThreatIntelSetFormat_STIX"><span id="ThreatIntelSetFormat_STIX"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_STIX :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_STIX :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_STIX"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_STIX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STIX&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_TXT"><span class="hs-identifier hs-type">ThreatIntelSetFormat_TXT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-type">ThreatIntelSetFormat</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelSetFormat_TXT"><span id="%24mThreatIntelSetFormat_TXT"><span id="ThreatIntelSetFormat_TXT"><span class="annot"><span class="annottext">$bThreatIntelSetFormat_TXT :: ThreatIntelSetFormat
+$mThreatIntelSetFormat_TXT :: forall r. ThreatIntelSetFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#%24bThreatIntelSetFormat_TXT"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelSetFormat_TXT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-type">ThreatIntelSetFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TXT&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_ALIEN_VAULT"><span class="hs-pragma hs-type">ThreatIntelSetFormat_ALIEN_VAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_FIRE_EYE"><span class="hs-pragma hs-type">ThreatIntelSetFormat_FIRE_EYE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_OTX_CSV"><span class="hs-pragma hs-type">ThreatIntelSetFormat_OTX_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_PROOF_POINT"><span class="hs-pragma hs-type">ThreatIntelSetFormat_PROOF_POINT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_STIX"><span class="hs-pragma hs-type">ThreatIntelSetFormat_STIX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat_TXT"><span class="hs-pragma hs-type">ThreatIntelSetFormat_TXT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-pragma hs-type">ThreatIntelSetFormat'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

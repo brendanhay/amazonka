@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.EnrollmentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.EnrollmentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier">EnrollmentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DEREGISTERING"><span class="hs-identifier">EnrollmentStatus_DEREGISTERING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DISASSOCIATING"><span class="hs-identifier">EnrollmentStatus_DISASSOCIATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_INITIALIZED"><span class="hs-identifier">EnrollmentStatus_INITIALIZED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_PENDING"><span class="hs-identifier">EnrollmentStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_REGISTERED"><span class="hs-identifier">EnrollmentStatus_REGISTERED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679367219"><span id="local-6989586621679367220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnrollmentStatus"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-var">EnrollmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnrollmentStatus%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-var">EnrollmentStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnrollmentStatus"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#fromEnrollmentStatus"><span class="hs-identifier hs-var hs-var">fromEnrollmentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367211"><span id="local-6989586621679367213"><span id="local-6989586621679367215"><span class="annot"><span class="annottext">Int -&gt; EnrollmentStatus -&gt; ShowS
+[EnrollmentStatus] -&gt; ShowS
+EnrollmentStatus -&gt; String
+(Int -&gt; EnrollmentStatus -&gt; ShowS)
+-&gt; (EnrollmentStatus -&gt; String)
+-&gt; ([EnrollmentStatus] -&gt; ShowS)
+-&gt; Show EnrollmentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnrollmentStatus] -&gt; ShowS
+$cshowList :: [EnrollmentStatus] -&gt; ShowS
+show :: EnrollmentStatus -&gt; String
+$cshow :: EnrollmentStatus -&gt; String
+showsPrec :: Int -&gt; EnrollmentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnrollmentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679367202"><span id="local-6989586621679367204"><span id="local-6989586621679367206"><span id="local-6989586621679367208"><span class="annot"><span class="annottext">ReadPrec [EnrollmentStatus]
+ReadPrec EnrollmentStatus
+Int -&gt; ReadS EnrollmentStatus
+ReadS [EnrollmentStatus]
+(Int -&gt; ReadS EnrollmentStatus)
+-&gt; ReadS [EnrollmentStatus]
+-&gt; ReadPrec EnrollmentStatus
+-&gt; ReadPrec [EnrollmentStatus]
+-&gt; Read EnrollmentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnrollmentStatus]
+$creadListPrec :: ReadPrec [EnrollmentStatus]
+readPrec :: ReadPrec EnrollmentStatus
+$creadPrec :: ReadPrec EnrollmentStatus
+readList :: ReadS [EnrollmentStatus]
+$creadList :: ReadS [EnrollmentStatus]
+readsPrec :: Int -&gt; ReadS EnrollmentStatus
+$creadsPrec :: Int -&gt; ReadS EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679367197"><span id="local-6989586621679367199"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+(EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; Eq EnrollmentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c/= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+== :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c== :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679367181"><span id="local-6989586621679367183"><span id="local-6989586621679367185"><span id="local-6989586621679367187"><span id="local-6989586621679367189"><span id="local-6989586621679367191"><span id="local-6989586621679367193"><span class="annot"><span class="annottext">Eq EnrollmentStatus
+Eq EnrollmentStatus
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Ordering)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus)
+-&gt; (EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus)
+-&gt; Ord EnrollmentStatus
+EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+EnrollmentStatus -&gt; EnrollmentStatus -&gt; Ordering
+EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus
+$cmin :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus
+max :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus
+$cmax :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; EnrollmentStatus
+&gt;= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c&gt;= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+&gt; :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c&gt; :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+&lt;= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c&lt;= :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+&lt; :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+$c&lt; :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Bool
+compare :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Ordering
+$ccompare :: EnrollmentStatus -&gt; EnrollmentStatus -&gt; Ordering
+$cp1Ord :: Eq EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EnrollmentStatus -&gt; Rep EnrollmentStatus x)
+-&gt; (forall x. Rep EnrollmentStatus x -&gt; EnrollmentStatus)
+-&gt; Generic EnrollmentStatus
+forall x. Rep EnrollmentStatus x -&gt; EnrollmentStatus
+forall x. EnrollmentStatus -&gt; Rep EnrollmentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnrollmentStatus x -&gt; EnrollmentStatus
+$cfrom :: forall x. EnrollmentStatus -&gt; Rep EnrollmentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367173"><span id="local-6989586621679367175"><span class="annot"><span class="annottext">Int -&gt; EnrollmentStatus -&gt; Int
+EnrollmentStatus -&gt; Int
+(Int -&gt; EnrollmentStatus -&gt; Int)
+-&gt; (EnrollmentStatus -&gt; Int) -&gt; Hashable EnrollmentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EnrollmentStatus -&gt; Int
+$chash :: EnrollmentStatus -&gt; Int
+hashWithSalt :: Int -&gt; EnrollmentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; EnrollmentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367170"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; ()
+(EnrollmentStatus -&gt; ()) -&gt; NFData EnrollmentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EnrollmentStatus -&gt; ()
+$crnf :: EnrollmentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679367167"><span class="annot"><span class="annottext">Text -&gt; Either String EnrollmentStatus
+(Text -&gt; Either String EnrollmentStatus)
+-&gt; FromText EnrollmentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EnrollmentStatus
+$cfromText :: Text -&gt; Either String EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679367164"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; Text
+(EnrollmentStatus -&gt; Text) -&gt; ToText EnrollmentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EnrollmentStatus -&gt; Text
+$ctoText :: EnrollmentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367161"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; ByteString
+(EnrollmentStatus -&gt; ByteString) -&gt; ToByteString EnrollmentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EnrollmentStatus -&gt; ByteString
+$ctoBS :: EnrollmentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367158"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; ByteStringBuilder
+(EnrollmentStatus -&gt; ByteStringBuilder) -&gt; ToLog EnrollmentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EnrollmentStatus -&gt; ByteStringBuilder
+$cbuild :: EnrollmentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367155"><span class="annot"><span class="annottext">HeaderName -&gt; EnrollmentStatus -&gt; [Header]
+(HeaderName -&gt; EnrollmentStatus -&gt; [Header])
+-&gt; ToHeader EnrollmentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EnrollmentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EnrollmentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367152"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; QueryString
+(EnrollmentStatus -&gt; QueryString) -&gt; ToQuery EnrollmentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EnrollmentStatus -&gt; QueryString
+$ctoQuery :: EnrollmentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367147"><span id="local-6989586621679367149"><span class="annot"><span class="annottext">Value -&gt; Parser [EnrollmentStatus]
+Value -&gt; Parser EnrollmentStatus
+(Value -&gt; Parser EnrollmentStatus)
+-&gt; (Value -&gt; Parser [EnrollmentStatus])
+-&gt; FromJSON EnrollmentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EnrollmentStatus]
+$cparseJSONList :: Value -&gt; Parser [EnrollmentStatus]
+parseJSON :: Value -&gt; Parser EnrollmentStatus
+$cparseJSON :: Value -&gt; Parser EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367142"><span id="local-6989586621679367144"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnrollmentStatus]
+FromJSONKeyFunction EnrollmentStatus
+FromJSONKeyFunction EnrollmentStatus
+-&gt; FromJSONKeyFunction [EnrollmentStatus]
+-&gt; FromJSONKey EnrollmentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EnrollmentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [EnrollmentStatus]
+fromJSONKey :: FromJSONKeyFunction EnrollmentStatus
+$cfromJSONKey :: FromJSONKeyFunction EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367133"><span id="local-6989586621679367135"><span id="local-6989586621679367137"><span id="local-6989586621679367139"><span class="annot"><span class="annottext">[EnrollmentStatus] -&gt; Encoding
+[EnrollmentStatus] -&gt; Value
+EnrollmentStatus -&gt; Encoding
+EnrollmentStatus -&gt; Value
+(EnrollmentStatus -&gt; Value)
+-&gt; (EnrollmentStatus -&gt; Encoding)
+-&gt; ([EnrollmentStatus] -&gt; Value)
+-&gt; ([EnrollmentStatus] -&gt; Encoding)
+-&gt; ToJSON EnrollmentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EnrollmentStatus] -&gt; Encoding
+$ctoEncodingList :: [EnrollmentStatus] -&gt; Encoding
+toJSONList :: [EnrollmentStatus] -&gt; Value
+$ctoJSONList :: [EnrollmentStatus] -&gt; Value
+toEncoding :: EnrollmentStatus -&gt; Encoding
+$ctoEncoding :: EnrollmentStatus -&gt; Encoding
+toJSON :: EnrollmentStatus -&gt; Value
+$ctoJSON :: EnrollmentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367128"><span id="local-6989586621679367130"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnrollmentStatus]
+ToJSONKeyFunction EnrollmentStatus
+ToJSONKeyFunction EnrollmentStatus
+-&gt; ToJSONKeyFunction [EnrollmentStatus]
+-&gt; ToJSONKey EnrollmentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EnrollmentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [EnrollmentStatus]
+toJSONKey :: ToJSONKeyFunction EnrollmentStatus
+$ctoJSONKey :: ToJSONKeyFunction EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367125"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnrollmentStatus
+([Node] -&gt; Either String EnrollmentStatus)
+-&gt; FromXML EnrollmentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EnrollmentStatus
+$cparseXML :: [Node] -&gt; Either String EnrollmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367122"><span class="annot"><span class="annottext">EnrollmentStatus -&gt; XML
+(EnrollmentStatus -&gt; XML) -&gt; ToXML EnrollmentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EnrollmentStatus -&gt; XML
+$ctoXML :: EnrollmentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DEREGISTERING"><span class="hs-identifier hs-type">EnrollmentStatus_DEREGISTERING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-type">EnrollmentStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentStatus_DEREGISTERING"><span id="%24mEnrollmentStatus_DEREGISTERING"><span id="EnrollmentStatus_DEREGISTERING"><span class="annot"><span class="annottext">$bEnrollmentStatus_DEREGISTERING :: EnrollmentStatus
+$mEnrollmentStatus_DEREGISTERING :: forall r. EnrollmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#%24bEnrollmentStatus_DEREGISTERING"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentStatus_DEREGISTERING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-type">EnrollmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEREGISTERING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DISASSOCIATING"><span class="hs-identifier hs-type">EnrollmentStatus_DISASSOCIATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-type">EnrollmentStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentStatus_DISASSOCIATING"><span id="%24mEnrollmentStatus_DISASSOCIATING"><span id="EnrollmentStatus_DISASSOCIATING"><span class="annot"><span class="annottext">$bEnrollmentStatus_DISASSOCIATING :: EnrollmentStatus
+$mEnrollmentStatus_DISASSOCIATING :: forall r. EnrollmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#%24bEnrollmentStatus_DISASSOCIATING"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentStatus_DISASSOCIATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-type">EnrollmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISASSOCIATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_INITIALIZED"><span class="hs-identifier hs-type">EnrollmentStatus_INITIALIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-type">EnrollmentStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentStatus_INITIALIZED"><span id="%24mEnrollmentStatus_INITIALIZED"><span id="EnrollmentStatus_INITIALIZED"><span class="annot"><span class="annottext">$bEnrollmentStatus_INITIALIZED :: EnrollmentStatus
+$mEnrollmentStatus_INITIALIZED :: forall r. EnrollmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#%24bEnrollmentStatus_INITIALIZED"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentStatus_INITIALIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-type">EnrollmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INITIALIZED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_PENDING"><span class="hs-identifier hs-type">EnrollmentStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-type">EnrollmentStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentStatus_PENDING"><span id="%24mEnrollmentStatus_PENDING"><span id="EnrollmentStatus_PENDING"><span class="annot"><span class="annottext">$bEnrollmentStatus_PENDING :: EnrollmentStatus
+$mEnrollmentStatus_PENDING :: forall r. EnrollmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#%24bEnrollmentStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-type">EnrollmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_REGISTERED"><span class="hs-identifier hs-type">EnrollmentStatus_REGISTERED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus"><span class="hs-identifier hs-type">EnrollmentStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentStatus_REGISTERED"><span id="%24mEnrollmentStatus_REGISTERED"><span id="EnrollmentStatus_REGISTERED"><span class="annot"><span class="annottext">$bEnrollmentStatus_REGISTERED :: EnrollmentStatus
+$mEnrollmentStatus_REGISTERED :: forall r. EnrollmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#%24bEnrollmentStatus_REGISTERED"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentStatus_REGISTERED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-identifier hs-type">EnrollmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REGISTERED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DEREGISTERING"><span class="hs-pragma hs-type">EnrollmentStatus_DEREGISTERING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_DISASSOCIATING"><span class="hs-pragma hs-type">EnrollmentStatus_DISASSOCIATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_INITIALIZED"><span class="hs-pragma hs-type">EnrollmentStatus_INITIALIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_PENDING"><span class="hs-pragma hs-type">EnrollmentStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus_REGISTERED"><span class="hs-pragma hs-type">EnrollmentStatus_REGISTERED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.EnrollmentStatus.html#EnrollmentStatus%27"><span class="hs-pragma hs-type">EnrollmentStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

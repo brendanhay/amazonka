@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpsWorksCM.Types.ServerStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpsWorksCM.Types.ServerStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier">ServerStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_BACKING_UP"><span class="hs-identifier">ServerStatus_BACKING_UP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CONNECTION_LOST"><span class="hs-identifier">ServerStatus_CONNECTION_LOST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CREATING"><span class="hs-identifier">ServerStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_DELETING"><span class="hs-identifier">ServerStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_FAILED"><span class="hs-identifier">ServerStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_HEALTHY"><span class="hs-identifier">ServerStatus_HEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_MODIFYING"><span class="hs-identifier">ServerStatus_MODIFYING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RESTORING"><span class="hs-identifier">ServerStatus_RESTORING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RUNNING"><span class="hs-identifier">ServerStatus_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_SETUP"><span class="hs-identifier">ServerStatus_SETUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_TERMINATED"><span class="hs-identifier">ServerStatus_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNDER_MAINTENANCE"><span class="hs-identifier">ServerStatus_UNDER_MAINTENANCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNHEALTHY"><span class="hs-identifier">ServerStatus_UNHEALTHY</span></a></span><span>
+</span><span id="line-36"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679191025"><span id="local-6989586621679191026"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerStatus"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-var">ServerStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerStatus%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-var">ServerStatus'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServerStatus"><span class="annot"><span class="annottext">ServerStatus -&gt; Text
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#fromServerStatus"><span class="hs-identifier hs-var hs-var">fromServerStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191017"><span id="local-6989586621679191019"><span id="local-6989586621679191021"><span class="annot"><span class="annottext">Int -&gt; ServerStatus -&gt; ShowS
+[ServerStatus] -&gt; ShowS
+ServerStatus -&gt; String
+(Int -&gt; ServerStatus -&gt; ShowS)
+-&gt; (ServerStatus -&gt; String)
+-&gt; ([ServerStatus] -&gt; ShowS)
+-&gt; Show ServerStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServerStatus] -&gt; ShowS
+$cshowList :: [ServerStatus] -&gt; ShowS
+show :: ServerStatus -&gt; String
+$cshow :: ServerStatus -&gt; String
+showsPrec :: Int -&gt; ServerStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServerStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679191008"><span id="local-6989586621679191010"><span id="local-6989586621679191012"><span id="local-6989586621679191014"><span class="annot"><span class="annottext">ReadPrec [ServerStatus]
+ReadPrec ServerStatus
+Int -&gt; ReadS ServerStatus
+ReadS [ServerStatus]
+(Int -&gt; ReadS ServerStatus)
+-&gt; ReadS [ServerStatus]
+-&gt; ReadPrec ServerStatus
+-&gt; ReadPrec [ServerStatus]
+-&gt; Read ServerStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServerStatus]
+$creadListPrec :: ReadPrec [ServerStatus]
+readPrec :: ReadPrec ServerStatus
+$creadPrec :: ReadPrec ServerStatus
+readList :: ReadS [ServerStatus]
+$creadList :: ReadS [ServerStatus]
+readsPrec :: Int -&gt; ReadS ServerStatus
+$creadsPrec :: Int -&gt; ReadS ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679191003"><span id="local-6989586621679191005"><span class="annot"><span class="annottext">ServerStatus -&gt; ServerStatus -&gt; Bool
+(ServerStatus -&gt; ServerStatus -&gt; Bool)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Bool) -&gt; Eq ServerStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c/= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+== :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c== :: ServerStatus -&gt; ServerStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190987"><span id="local-6989586621679190989"><span id="local-6989586621679190991"><span id="local-6989586621679190993"><span id="local-6989586621679190995"><span id="local-6989586621679190997"><span id="local-6989586621679190999"><span class="annot"><span class="annottext">Eq ServerStatus
+Eq ServerStatus
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Ordering)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Bool)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Bool)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Bool)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; Bool)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; ServerStatus)
+-&gt; (ServerStatus -&gt; ServerStatus -&gt; ServerStatus)
+-&gt; Ord ServerStatus
+ServerStatus -&gt; ServerStatus -&gt; Bool
+ServerStatus -&gt; ServerStatus -&gt; Ordering
+ServerStatus -&gt; ServerStatus -&gt; ServerStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServerStatus -&gt; ServerStatus -&gt; ServerStatus
+$cmin :: ServerStatus -&gt; ServerStatus -&gt; ServerStatus
+max :: ServerStatus -&gt; ServerStatus -&gt; ServerStatus
+$cmax :: ServerStatus -&gt; ServerStatus -&gt; ServerStatus
+&gt;= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c&gt;= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+&gt; :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c&gt; :: ServerStatus -&gt; ServerStatus -&gt; Bool
+&lt;= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c&lt;= :: ServerStatus -&gt; ServerStatus -&gt; Bool
+&lt; :: ServerStatus -&gt; ServerStatus -&gt; Bool
+$c&lt; :: ServerStatus -&gt; ServerStatus -&gt; Bool
+compare :: ServerStatus -&gt; ServerStatus -&gt; Ordering
+$ccompare :: ServerStatus -&gt; ServerStatus -&gt; Ordering
+$cp1Ord :: Eq ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServerStatus -&gt; Rep ServerStatus x)
+-&gt; (forall x. Rep ServerStatus x -&gt; ServerStatus)
+-&gt; Generic ServerStatus
+forall x. Rep ServerStatus x -&gt; ServerStatus
+forall x. ServerStatus -&gt; Rep ServerStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServerStatus x -&gt; ServerStatus
+$cfrom :: forall x. ServerStatus -&gt; Rep ServerStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190979"><span id="local-6989586621679190981"><span class="annot"><span class="annottext">Int -&gt; ServerStatus -&gt; Int
+ServerStatus -&gt; Int
+(Int -&gt; ServerStatus -&gt; Int)
+-&gt; (ServerStatus -&gt; Int) -&gt; Hashable ServerStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServerStatus -&gt; Int
+$chash :: ServerStatus -&gt; Int
+hashWithSalt :: Int -&gt; ServerStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ServerStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190976"><span class="annot"><span class="annottext">ServerStatus -&gt; ()
+(ServerStatus -&gt; ()) -&gt; NFData ServerStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServerStatus -&gt; ()
+$crnf :: ServerStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190973"><span class="annot"><span class="annottext">Text -&gt; Either String ServerStatus
+(Text -&gt; Either String ServerStatus) -&gt; FromText ServerStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServerStatus
+$cfromText :: Text -&gt; Either String ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679190970"><span class="annot"><span class="annottext">ServerStatus -&gt; Text
+(ServerStatus -&gt; Text) -&gt; ToText ServerStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServerStatus -&gt; Text
+$ctoText :: ServerStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679190967"><span class="annot"><span class="annottext">ServerStatus -&gt; ByteString
+(ServerStatus -&gt; ByteString) -&gt; ToByteString ServerStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServerStatus -&gt; ByteString
+$ctoBS :: ServerStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679190964"><span class="annot"><span class="annottext">ServerStatus -&gt; ByteStringBuilder
+(ServerStatus -&gt; ByteStringBuilder) -&gt; ToLog ServerStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServerStatus -&gt; ByteStringBuilder
+$cbuild :: ServerStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679190961"><span class="annot"><span class="annottext">HeaderName -&gt; ServerStatus -&gt; [Header]
+(HeaderName -&gt; ServerStatus -&gt; [Header]) -&gt; ToHeader ServerStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServerStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServerStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679190958"><span class="annot"><span class="annottext">ServerStatus -&gt; QueryString
+(ServerStatus -&gt; QueryString) -&gt; ToQuery ServerStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServerStatus -&gt; QueryString
+$ctoQuery :: ServerStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679190953"><span id="local-6989586621679190955"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerStatus]
+Value -&gt; Parser ServerStatus
+(Value -&gt; Parser ServerStatus)
+-&gt; (Value -&gt; Parser [ServerStatus]) -&gt; FromJSON ServerStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServerStatus]
+$cparseJSONList :: Value -&gt; Parser [ServerStatus]
+parseJSON :: Value -&gt; Parser ServerStatus
+$cparseJSON :: Value -&gt; Parser ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679190948"><span id="local-6989586621679190950"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerStatus]
+FromJSONKeyFunction ServerStatus
+FromJSONKeyFunction ServerStatus
+-&gt; FromJSONKeyFunction [ServerStatus] -&gt; FromJSONKey ServerStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServerStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServerStatus]
+fromJSONKey :: FromJSONKeyFunction ServerStatus
+$cfromJSONKey :: FromJSONKeyFunction ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679190939"><span id="local-6989586621679190941"><span id="local-6989586621679190943"><span id="local-6989586621679190945"><span class="annot"><span class="annottext">[ServerStatus] -&gt; Encoding
+[ServerStatus] -&gt; Value
+ServerStatus -&gt; Encoding
+ServerStatus -&gt; Value
+(ServerStatus -&gt; Value)
+-&gt; (ServerStatus -&gt; Encoding)
+-&gt; ([ServerStatus] -&gt; Value)
+-&gt; ([ServerStatus] -&gt; Encoding)
+-&gt; ToJSON ServerStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServerStatus] -&gt; Encoding
+$ctoEncodingList :: [ServerStatus] -&gt; Encoding
+toJSONList :: [ServerStatus] -&gt; Value
+$ctoJSONList :: [ServerStatus] -&gt; Value
+toEncoding :: ServerStatus -&gt; Encoding
+$ctoEncoding :: ServerStatus -&gt; Encoding
+toJSON :: ServerStatus -&gt; Value
+$ctoJSON :: ServerStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679190934"><span id="local-6989586621679190936"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerStatus]
+ToJSONKeyFunction ServerStatus
+ToJSONKeyFunction ServerStatus
+-&gt; ToJSONKeyFunction [ServerStatus] -&gt; ToJSONKey ServerStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServerStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServerStatus]
+toJSONKey :: ToJSONKeyFunction ServerStatus
+$ctoJSONKey :: ToJSONKeyFunction ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679190931"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerStatus
+([Node] -&gt; Either String ServerStatus) -&gt; FromXML ServerStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServerStatus
+$cparseXML :: [Node] -&gt; Either String ServerStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679190928"><span class="annot"><span class="annottext">ServerStatus -&gt; XML
+(ServerStatus -&gt; XML) -&gt; ToXML ServerStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServerStatus -&gt; XML
+$ctoXML :: ServerStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_BACKING_UP"><span class="hs-identifier hs-type">ServerStatus_BACKING_UP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_BACKING_UP"><span id="%24mServerStatus_BACKING_UP"><span id="ServerStatus_BACKING_UP"><span class="annot"><span class="annottext">$bServerStatus_BACKING_UP :: ServerStatus
+$mServerStatus_BACKING_UP :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_BACKING_UP"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_BACKING_UP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BACKING_UP&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CONNECTION_LOST"><span class="hs-identifier hs-type">ServerStatus_CONNECTION_LOST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_CONNECTION_LOST"><span id="%24mServerStatus_CONNECTION_LOST"><span id="ServerStatus_CONNECTION_LOST"><span class="annot"><span class="annottext">$bServerStatus_CONNECTION_LOST :: ServerStatus
+$mServerStatus_CONNECTION_LOST :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_CONNECTION_LOST"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_CONNECTION_LOST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTION_LOST&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CREATING"><span class="hs-identifier hs-type">ServerStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_CREATING"><span id="%24mServerStatus_CREATING"><span id="ServerStatus_CREATING"><span class="annot"><span class="annottext">$bServerStatus_CREATING :: ServerStatus
+$mServerStatus_CREATING :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_DELETING"><span class="hs-identifier hs-type">ServerStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_DELETING"><span id="%24mServerStatus_DELETING"><span id="ServerStatus_DELETING"><span class="annot"><span class="annottext">$bServerStatus_DELETING :: ServerStatus
+$mServerStatus_DELETING :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_FAILED"><span class="hs-identifier hs-type">ServerStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_FAILED"><span id="%24mServerStatus_FAILED"><span id="ServerStatus_FAILED"><span class="annot"><span class="annottext">$bServerStatus_FAILED :: ServerStatus
+$mServerStatus_FAILED :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_HEALTHY"><span class="hs-identifier hs-type">ServerStatus_HEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_HEALTHY"><span id="%24mServerStatus_HEALTHY"><span id="ServerStatus_HEALTHY"><span class="annot"><span class="annottext">$bServerStatus_HEALTHY :: ServerStatus
+$mServerStatus_HEALTHY :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_HEALTHY"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_HEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEALTHY&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_MODIFYING"><span class="hs-identifier hs-type">ServerStatus_MODIFYING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_MODIFYING"><span id="%24mServerStatus_MODIFYING"><span id="ServerStatus_MODIFYING"><span class="annot"><span class="annottext">$bServerStatus_MODIFYING :: ServerStatus
+$mServerStatus_MODIFYING :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_MODIFYING"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_MODIFYING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MODIFYING&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RESTORING"><span class="hs-identifier hs-type">ServerStatus_RESTORING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_RESTORING"><span id="%24mServerStatus_RESTORING"><span id="ServerStatus_RESTORING"><span class="annot"><span class="annottext">$bServerStatus_RESTORING :: ServerStatus
+$mServerStatus_RESTORING :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_RESTORING"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_RESTORING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESTORING&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RUNNING"><span class="hs-identifier hs-type">ServerStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_RUNNING"><span id="%24mServerStatus_RUNNING"><span id="ServerStatus_RUNNING"><span class="annot"><span class="annottext">$bServerStatus_RUNNING :: ServerStatus
+$mServerStatus_RUNNING :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_SETUP"><span class="hs-identifier hs-type">ServerStatus_SETUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_SETUP"><span id="%24mServerStatus_SETUP"><span id="ServerStatus_SETUP"><span class="annot"><span class="annottext">$bServerStatus_SETUP :: ServerStatus
+$mServerStatus_SETUP :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_SETUP"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_SETUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SETUP&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_TERMINATED"><span class="hs-identifier hs-type">ServerStatus_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_TERMINATED"><span id="%24mServerStatus_TERMINATED"><span id="ServerStatus_TERMINATED"><span class="annot"><span class="annottext">$bServerStatus_TERMINATED :: ServerStatus
+$mServerStatus_TERMINATED :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATED&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNDER_MAINTENANCE"><span class="hs-identifier hs-type">ServerStatus_UNDER_MAINTENANCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_UNDER_MAINTENANCE"><span id="%24mServerStatus_UNDER_MAINTENANCE"><span id="ServerStatus_UNDER_MAINTENANCE"><span class="annot"><span class="annottext">$bServerStatus_UNDER_MAINTENANCE :: ServerStatus
+$mServerStatus_UNDER_MAINTENANCE :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_UNDER_MAINTENANCE"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_UNDER_MAINTENANCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNDER_MAINTENANCE&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNHEALTHY"><span class="hs-identifier hs-type">ServerStatus_UNHEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus"><span class="hs-identifier hs-type">ServerStatus</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerStatus_UNHEALTHY"><span id="%24mServerStatus_UNHEALTHY"><span id="ServerStatus_UNHEALTHY"><span class="annot"><span class="annottext">$bServerStatus_UNHEALTHY :: ServerStatus
+$mServerStatus_UNHEALTHY :: forall r. ServerStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#%24bServerStatus_UNHEALTHY"><span class="hs-identifier hs-var hs-var hs-var">ServerStatus_UNHEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-identifier hs-type">ServerStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNHEALTHY&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_BACKING_UP"><span class="hs-pragma hs-type">ServerStatus_BACKING_UP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CONNECTION_LOST"><span class="hs-pragma hs-type">ServerStatus_CONNECTION_LOST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_CREATING"><span class="hs-pragma hs-type">ServerStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_DELETING"><span class="hs-pragma hs-type">ServerStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_FAILED"><span class="hs-pragma hs-type">ServerStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_HEALTHY"><span class="hs-pragma hs-type">ServerStatus_HEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_MODIFYING"><span class="hs-pragma hs-type">ServerStatus_MODIFYING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RESTORING"><span class="hs-pragma hs-type">ServerStatus_RESTORING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_RUNNING"><span class="hs-pragma hs-type">ServerStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_SETUP"><span class="hs-pragma hs-type">ServerStatus_SETUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_TERMINATED"><span class="hs-pragma hs-type">ServerStatus_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNDER_MAINTENANCE"><span class="hs-pragma hs-type">ServerStatus_UNDER_MAINTENANCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus_UNHEALTHY"><span class="hs-pragma hs-type">ServerStatus_UNHEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerStatus.html#ServerStatus%27"><span class="hs-pragma hs-type">ServerStatus'</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-126"></span></pre></body></html>

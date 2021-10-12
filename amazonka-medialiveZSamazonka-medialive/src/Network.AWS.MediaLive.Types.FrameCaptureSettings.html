@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.FrameCaptureSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.FrameCaptureSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Frame Capture Settings</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFrameCaptureSettings' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679871661"><span id="local-6989586621679871662"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-var">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The frequency at which to capture frames for inclusion in the output.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- May be specified in either seconds or milliseconds, as specified by</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- captureIntervalUnits.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcaptureInterval%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureInterval%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">captureInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Unit for the frame capture interval.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcaptureIntervalUnits%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe FrameCaptureIntervalUnit
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureIntervalUnits%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">captureIntervalUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit.html#FrameCaptureIntervalUnit"><span class="hs-identifier hs-type">FrameCaptureIntervalUnit</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679871654"><span id="local-6989586621679871656"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+(FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
+-&gt; (FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
+-&gt; Eq FrameCaptureSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+$c/= :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+== :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+$c== :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679871645"><span id="local-6989586621679871647"><span id="local-6989586621679871649"><span id="local-6989586621679871651"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureSettings]
+ReadPrec FrameCaptureSettings
+Int -&gt; ReadS FrameCaptureSettings
+ReadS [FrameCaptureSettings]
+(Int -&gt; ReadS FrameCaptureSettings)
+-&gt; ReadS [FrameCaptureSettings]
+-&gt; ReadPrec FrameCaptureSettings
+-&gt; ReadPrec [FrameCaptureSettings]
+-&gt; Read FrameCaptureSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FrameCaptureSettings]
+$creadListPrec :: ReadPrec [FrameCaptureSettings]
+readPrec :: ReadPrec FrameCaptureSettings
+$creadPrec :: ReadPrec FrameCaptureSettings
+readList :: ReadS [FrameCaptureSettings]
+$creadList :: ReadS [FrameCaptureSettings]
+readsPrec :: Int -&gt; ReadS FrameCaptureSettings
+$creadsPrec :: Int -&gt; ReadS FrameCaptureSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679871638"><span id="local-6989586621679871640"><span id="local-6989586621679871642"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureSettings -&gt; ShowS
+[FrameCaptureSettings] -&gt; ShowS
+FrameCaptureSettings -&gt; String
+(Int -&gt; FrameCaptureSettings -&gt; ShowS)
+-&gt; (FrameCaptureSettings -&gt; String)
+-&gt; ([FrameCaptureSettings] -&gt; ShowS)
+-&gt; Show FrameCaptureSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FrameCaptureSettings] -&gt; ShowS
+$cshowList :: [FrameCaptureSettings] -&gt; ShowS
+show :: FrameCaptureSettings -&gt; String
+$cshow :: FrameCaptureSettings -&gt; String
+showsPrec :: Int -&gt; FrameCaptureSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; FrameCaptureSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x)
+-&gt; (forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings)
+-&gt; Generic FrameCaptureSettings
+forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings
+forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings
+$cfrom :: forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'FrameCaptureSettings' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'captureInterval', 'frameCaptureSettings_captureInterval' - The frequency at which to capture frames for inclusion in the output.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- May be specified in either seconds or milliseconds, as specified by</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- captureIntervalUnits.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'captureIntervalUnits', 'frameCaptureSettings_captureIntervalUnits' - Unit for the frame capture interval.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#newFrameCaptureSettings"><span class="hs-identifier hs-type">newFrameCaptureSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span>
+</span><span id="line-55"></span><span id="newFrameCaptureSettings"><span class="annot"><span class="annottext">newFrameCaptureSettings :: FrameCaptureSettings
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#newFrameCaptureSettings"><span class="hs-identifier hs-var hs-var">newFrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">FrameCaptureSettings' :: Maybe Natural
+-&gt; Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:captureInterval:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureInterval%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">captureInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:captureIntervalUnits:FrameCaptureSettings' :: Maybe FrameCaptureIntervalUnit
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureIntervalUnits%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">captureIntervalUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The frequency at which to capture frames for inclusion in the output.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- May be specified in either seconds or milliseconds, as specified by</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- captureIntervalUnits.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#frameCaptureSettings_captureInterval"><span class="hs-identifier hs-type">frameCaptureSettings_captureInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="frameCaptureSettings_captureInterval"><span class="annot"><span class="annottext">frameCaptureSettings_captureInterval :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#frameCaptureSettings_captureInterval"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_captureInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe Natural)
+-&gt; (FrameCaptureSettings -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679871629"><span class="annot"><span class="annottext">Maybe Natural
+captureInterval :: Maybe Natural
+$sel:captureInterval:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679871629"><span class="hs-identifier hs-var hs-var">captureInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679871629"><span class="hs-identifier hs-var">captureInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679871628"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679871628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679871627"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679871627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679871628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captureInterval:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureInterval%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">captureInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679871627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Unit for the frame capture interval.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#frameCaptureSettings_captureIntervalUnits"><span class="hs-identifier hs-type">frameCaptureSettings_captureIntervalUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit.html#FrameCaptureIntervalUnit"><span class="hs-identifier hs-type">FrameCaptureIntervalUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="frameCaptureSettings_captureIntervalUnits"><span class="annot"><span class="annottext">frameCaptureSettings_captureIntervalUnits :: (Maybe FrameCaptureIntervalUnit
+ -&gt; f (Maybe FrameCaptureIntervalUnit))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#frameCaptureSettings_captureIntervalUnits"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_captureIntervalUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe FrameCaptureIntervalUnit)
+-&gt; (FrameCaptureSettings
+    -&gt; Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe FrameCaptureIntervalUnit)
+     (Maybe FrameCaptureIntervalUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679871625"><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+captureIntervalUnits :: Maybe FrameCaptureIntervalUnit
+$sel:captureIntervalUnits:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe FrameCaptureIntervalUnit
+</span><a href="#local-6989586621679871625"><span class="hs-identifier hs-var hs-var">captureIntervalUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+</span><a href="#local-6989586621679871625"><span class="hs-identifier hs-var">captureIntervalUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679871624"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679871624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679871623"><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+</span><a href="#local-6989586621679871623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679871624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captureIntervalUnits:FrameCaptureSettings' :: Maybe FrameCaptureIntervalUnit
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#%24sel%3AcaptureIntervalUnits%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">captureIntervalUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+</span><a href="#local-6989586621679871623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679871620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679871618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FrameCaptureSettings)
+-&gt; Value
+-&gt; Parser FrameCaptureSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FrameCaptureSettings&quot;</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679871615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679871615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679871615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captureInterval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FrameCaptureIntervalUnit -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe FrameCaptureIntervalUnit)
+-&gt; Parser FrameCaptureSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679871615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameCaptureIntervalUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captureIntervalUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679871609"><span id="local-6989586621679871611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679871606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679871598"><span id="local-6989586621679871600"><span id="local-6989586621679871602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679871596"><span class="annot"><span class="annottext">toJSON :: FrameCaptureSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679871593"><span id="local-6989586621679871594"><span class="annot"><span class="annottext">Maybe Natural
+Maybe FrameCaptureIntervalUnit
+captureIntervalUnits :: Maybe FrameCaptureIntervalUnit
+captureInterval :: Maybe Natural
+$sel:captureIntervalUnits:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe FrameCaptureIntervalUnit
+$sel:captureInterval:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679871593"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captureInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679871594"><span class="hs-identifier hs-var">captureInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;captureIntervalUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FrameCaptureIntervalUnit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(FrameCaptureIntervalUnit -&gt; Pair)
+-&gt; Maybe FrameCaptureIntervalUnit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureIntervalUnit
+</span><a href="#local-6989586621679871593"><span class="hs-identifier hs-var">captureIntervalUnits</span></a></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span></pre></body></html>

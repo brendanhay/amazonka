@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DirectoryService.RegisterCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers a certificate for a secure LDAP or client certificate</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- authentication.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectoryService.RegisterCertificate</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier">RegisterCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificate"><span class="hs-identifier">newRegisterCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_clientCertAuthSettings"><span class="hs-identifier">registerCertificate_clientCertAuthSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_type"><span class="hs-identifier">registerCertificate_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_directoryId"><span class="hs-identifier">registerCertificate_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_certificateData"><span class="hs-identifier">registerCertificate_certificateData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier">RegisterCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificateResponse"><span class="hs-identifier">newRegisterCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_certificateId"><span class="hs-identifier">registerCertificateResponse_certificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_httpStatus"><span class="hs-identifier">registerCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.html"><span class="hs-identifier">Network.AWS.DirectoryService.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newRegisterCertificate' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679304952"><span id="local-6989586621679304953"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificate"><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-var">RegisterCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificate%27"><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-var">RegisterCertificate'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @ClientCertAuthSettings@ object that contains client certificate</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- authentication settings.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AclientCertAuthSettings%3ARegisterCertificate%27"><span class="annot"><span class="annottext">RegisterCertificate -&gt; Maybe ClientCertAuthSettings
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AclientCertAuthSettings%3ARegisterCertificate%27"><span class="hs-identifier hs-var hs-var">clientCertAuthSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atype%27%3ARegisterCertificate%27"><span class="annot"><span class="annottext">RegisterCertificate -&gt; Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3Atype%27%3ARegisterCertificate%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateType.html#CertificateType"><span class="hs-identifier hs-type">CertificateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdirectoryId%3ARegisterCertificate%27"><span class="annot"><span class="annottext">RegisterCertificate -&gt; Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AdirectoryId%3ARegisterCertificate%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The certificate PEM string that needs to be registered.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcertificateData%3ARegisterCertificate%27"><span class="annot"><span class="annottext">RegisterCertificate -&gt; Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateData%3ARegisterCertificate%27"><span class="hs-identifier hs-var hs-var">certificateData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304943"><span id="local-6989586621679304945"><span class="annot"><span class="annottext">RegisterCertificate -&gt; RegisterCertificate -&gt; Bool
+(RegisterCertificate -&gt; RegisterCertificate -&gt; Bool)
+-&gt; (RegisterCertificate -&gt; RegisterCertificate -&gt; Bool)
+-&gt; Eq RegisterCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterCertificate -&gt; RegisterCertificate -&gt; Bool
+$c/= :: RegisterCertificate -&gt; RegisterCertificate -&gt; Bool
+== :: RegisterCertificate -&gt; RegisterCertificate -&gt; Bool
+$c== :: RegisterCertificate -&gt; RegisterCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304934"><span id="local-6989586621679304936"><span id="local-6989586621679304938"><span id="local-6989586621679304940"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificate]
+ReadPrec RegisterCertificate
+Int -&gt; ReadS RegisterCertificate
+ReadS [RegisterCertificate]
+(Int -&gt; ReadS RegisterCertificate)
+-&gt; ReadS [RegisterCertificate]
+-&gt; ReadPrec RegisterCertificate
+-&gt; ReadPrec [RegisterCertificate]
+-&gt; Read RegisterCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterCertificate]
+$creadListPrec :: ReadPrec [RegisterCertificate]
+readPrec :: ReadPrec RegisterCertificate
+$creadPrec :: ReadPrec RegisterCertificate
+readList :: ReadS [RegisterCertificate]
+$creadList :: ReadS [RegisterCertificate]
+readsPrec :: Int -&gt; ReadS RegisterCertificate
+$creadsPrec :: Int -&gt; ReadS RegisterCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304927"><span id="local-6989586621679304929"><span id="local-6989586621679304931"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificate -&gt; ShowS
+[RegisterCertificate] -&gt; ShowS
+RegisterCertificate -&gt; String
+(Int -&gt; RegisterCertificate -&gt; ShowS)
+-&gt; (RegisterCertificate -&gt; String)
+-&gt; ([RegisterCertificate] -&gt; ShowS)
+-&gt; Show RegisterCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterCertificate] -&gt; ShowS
+$cshowList :: [RegisterCertificate] -&gt; ShowS
+show :: RegisterCertificate -&gt; String
+$cshow :: RegisterCertificate -&gt; String
+showsPrec :: Int -&gt; RegisterCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterCertificate -&gt; Rep RegisterCertificate x)
+-&gt; (forall x. Rep RegisterCertificate x -&gt; RegisterCertificate)
+-&gt; Generic RegisterCertificate
+forall x. Rep RegisterCertificate x -&gt; RegisterCertificate
+forall x. RegisterCertificate -&gt; Rep RegisterCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterCertificate x -&gt; RegisterCertificate
+$cfrom :: forall x. RegisterCertificate -&gt; Rep RegisterCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'RegisterCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'clientCertAuthSettings', 'registerCertificate_clientCertAuthSettings' - A @ClientCertAuthSettings@ object that contains client certificate</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- authentication settings.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'type'', 'registerCertificate_type' - The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'directoryId', 'registerCertificate_directoryId' - The identifier of the directory.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'certificateData', 'registerCertificate_certificateData' - The certificate PEM string that needs to be registered.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificate"><span class="hs-identifier hs-type">newRegisterCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'certificateData'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span>
+</span><span id="line-93"></span><span id="newRegisterCertificate"><span class="annot"><span class="annottext">newRegisterCertificate :: Text -&gt; Text -&gt; RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificate"><span class="hs-identifier hs-var hs-var">newRegisterCertificate</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679304922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304922"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304921"><span class="hs-identifier hs-var">pCertificateData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">RegisterCertificate' :: Maybe ClientCertAuthSettings
+-&gt; Maybe CertificateType -&gt; Text -&gt; Text -&gt; RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientCertAuthSettings:RegisterCertificate' :: Maybe ClientCertAuthSettings
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AclientCertAuthSettings%3ARegisterCertificate%27"><span class="hs-identifier hs-var">clientCertAuthSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':RegisterCertificate' :: Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3Atype%27%3ARegisterCertificate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryId:RegisterCertificate' :: Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AdirectoryId%3ARegisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304922"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateData:RegisterCertificate' :: Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateData%3ARegisterCertificate%27"><span class="hs-identifier hs-var">certificateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304921"><span class="hs-identifier hs-var">pCertificateData_</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A @ClientCertAuthSettings@ object that contains client certificate</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- authentication settings.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_clientCertAuthSettings"><span class="hs-identifier hs-type">registerCertificate_clientCertAuthSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="registerCertificate_clientCertAuthSettings"><span class="annot"><span class="annottext">registerCertificate_clientCertAuthSettings :: (Maybe ClientCertAuthSettings -&gt; f (Maybe ClientCertAuthSettings))
+-&gt; RegisterCertificate -&gt; f RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_clientCertAuthSettings"><span class="hs-identifier hs-var hs-var">registerCertificate_clientCertAuthSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificate -&gt; Maybe ClientCertAuthSettings)
+-&gt; (RegisterCertificate
+    -&gt; Maybe ClientCertAuthSettings -&gt; RegisterCertificate)
+-&gt; Lens
+     RegisterCertificate
+     RegisterCertificate
+     (Maybe ClientCertAuthSettings)
+     (Maybe ClientCertAuthSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304918"><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+clientCertAuthSettings :: Maybe ClientCertAuthSettings
+$sel:clientCertAuthSettings:RegisterCertificate' :: RegisterCertificate -&gt; Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var hs-var">clientCertAuthSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var">clientCertAuthSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304917"><span class="annot"><span class="annottext">s :: RegisterCertificate
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304916"><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificate
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientCertAuthSettings:RegisterCertificate' :: Maybe ClientCertAuthSettings
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AclientCertAuthSettings%3ARegisterCertificate%27"><span class="hs-identifier hs-var">clientCertAuthSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The function that the registered certificate performs. Valid values</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @ClientLDAPS@.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_type"><span class="hs-identifier hs-type">registerCertificate_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.CertificateType.html#CertificateType"><span class="hs-identifier hs-type">CertificateType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="registerCertificate_type"><span class="annot"><span class="annottext">registerCertificate_type :: (Maybe CertificateType -&gt; f (Maybe CertificateType))
+-&gt; RegisterCertificate -&gt; f RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_type"><span class="hs-identifier hs-var hs-var">registerCertificate_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificate -&gt; Maybe CertificateType)
+-&gt; (RegisterCertificate
+    -&gt; Maybe CertificateType -&gt; RegisterCertificate)
+-&gt; Lens
+     RegisterCertificate
+     RegisterCertificate
+     (Maybe CertificateType)
+     (Maybe CertificateType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304915"><span class="annot"><span class="annottext">Maybe CertificateType
+type' :: Maybe CertificateType
+$sel:type':RegisterCertificate' :: RegisterCertificate -&gt; Maybe CertificateType
+</span><a href="#local-6989586621679304915"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679304915"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304914"><span class="annot"><span class="annottext">s :: RegisterCertificate
+</span><a href="#local-6989586621679304914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304913"><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679304913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificate
+</span><a href="#local-6989586621679304914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RegisterCertificate' :: Maybe CertificateType
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3Atype%27%3ARegisterCertificate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679304913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The identifier of the directory.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_directoryId"><span class="hs-identifier hs-type">registerCertificate_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="registerCertificate_directoryId"><span class="annot"><span class="annottext">registerCertificate_directoryId :: (Text -&gt; f Text) -&gt; RegisterCertificate -&gt; f RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_directoryId"><span class="hs-identifier hs-var hs-var">registerCertificate_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificate -&gt; Text)
+-&gt; (RegisterCertificate -&gt; Text -&gt; RegisterCertificate)
+-&gt; Lens RegisterCertificate RegisterCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304912"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:RegisterCertificate' :: RegisterCertificate -&gt; Text
+</span><a href="#local-6989586621679304912"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304912"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304911"><span class="annot"><span class="annottext">s :: RegisterCertificate
+</span><a href="#local-6989586621679304911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificate
+</span><a href="#local-6989586621679304911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RegisterCertificate' :: Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AdirectoryId%3ARegisterCertificate%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The certificate PEM string that needs to be registered.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_certificateData"><span class="hs-identifier hs-type">registerCertificate_certificateData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="registerCertificate_certificateData"><span class="annot"><span class="annottext">registerCertificate_certificateData :: (Text -&gt; f Text) -&gt; RegisterCertificate -&gt; f RegisterCertificate
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificate_certificateData"><span class="hs-identifier hs-var hs-var">registerCertificate_certificateData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificate -&gt; Text)
+-&gt; (RegisterCertificate -&gt; Text -&gt; RegisterCertificate)
+-&gt; Lens RegisterCertificate RegisterCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304909"><span class="annot"><span class="annottext">Text
+certificateData :: Text
+$sel:certificateData:RegisterCertificate' :: RegisterCertificate -&gt; Text
+</span><a href="#local-6989586621679304909"><span class="hs-identifier hs-var hs-var">certificateData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304909"><span class="hs-identifier hs-var">certificateData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304908"><span class="annot"><span class="annottext">s :: RegisterCertificate
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificate
+</span><a href="#local-6989586621679304908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateData:RegisterCertificate' :: Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateData%3ARegisterCertificate%27"><span class="hs-identifier hs-var">certificateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679304903"><span class="annot"><span class="annottext">request :: RegisterCertificate -&gt; Request RegisterCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterCertificate -&gt; Request RegisterCertificate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679304899"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RegisterCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304895"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304895"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304894"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterCertificateResponse
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-var">RegisterCertificateResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterCertificateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RegisterCertificateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RegisterCertificateResponse)
+-&gt; Either String Int -&gt; Either String RegisterCertificateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304886"><span id="local-6989586621679304888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679304879"><span class="annot"><span class="annottext">toHeaders :: RegisterCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.RegisterCertificate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304869"><span id="local-6989586621679304871"><span id="local-6989586621679304873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679304867"><span class="annot"><span class="annottext">toJSON :: RegisterCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate%27"><span class="hs-identifier hs-type">RegisterCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304862"><span id="local-6989586621679304863"><span id="local-6989586621679304864"><span id="local-6989586621679304865"><span class="annot"><span class="annottext">Maybe CertificateType
+Maybe ClientCertAuthSettings
+Text
+certificateData :: Text
+directoryId :: Text
+type' :: Maybe CertificateType
+clientCertAuthSettings :: Maybe ClientCertAuthSettings
+$sel:certificateData:RegisterCertificate' :: RegisterCertificate -&gt; Text
+$sel:directoryId:RegisterCertificate' :: RegisterCertificate -&gt; Text
+$sel:type':RegisterCertificate' :: RegisterCertificate -&gt; Maybe CertificateType
+$sel:clientCertAuthSettings:RegisterCertificate' :: RegisterCertificate -&gt; Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientCertAuthSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ClientCertAuthSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(ClientCertAuthSettings -&gt; Pair)
+-&gt; Maybe ClientCertAuthSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClientCertAuthSettings
+</span><a href="#local-6989586621679304865"><span class="hs-identifier hs-var">clientCertAuthSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CertificateType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CertificateType -&gt; Pair) -&gt; Maybe CertificateType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CertificateType
+</span><a href="#local-6989586621679304864"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304863"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304862"><span class="hs-identifier hs-var">certificateData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679304856"><span class="annot"><span class="annottext">toPath :: RegisterCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificate"><span class="hs-identifier hs-type">RegisterCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679304852"><span class="annot"><span class="annottext">toQuery :: RegisterCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterCertificate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newRegisterCertificateResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679304849"><span id="local-6989586621679304850"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificateResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-var">RegisterCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificateResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-var">RegisterCertificateResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AcertificateId%3ARegisterCertificateResponse%27"><span class="annot"><span class="annottext">RegisterCertificateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateId%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterCertificateResponse%27"><span class="annot"><span class="annottext">RegisterCertificateResponse -&gt; Int
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AhttpStatus%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304843"><span id="local-6989586621679304845"><span class="annot"><span class="annottext">RegisterCertificateResponse -&gt; RegisterCertificateResponse -&gt; Bool
+(RegisterCertificateResponse
+ -&gt; RegisterCertificateResponse -&gt; Bool)
+-&gt; (RegisterCertificateResponse
+    -&gt; RegisterCertificateResponse -&gt; Bool)
+-&gt; Eq RegisterCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterCertificateResponse -&gt; RegisterCertificateResponse -&gt; Bool
+$c/= :: RegisterCertificateResponse -&gt; RegisterCertificateResponse -&gt; Bool
+== :: RegisterCertificateResponse -&gt; RegisterCertificateResponse -&gt; Bool
+$c== :: RegisterCertificateResponse -&gt; RegisterCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304835"><span id="local-6989586621679304837"><span id="local-6989586621679304839"><span id="local-6989586621679304841"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificateResponse]
+ReadPrec RegisterCertificateResponse
+Int -&gt; ReadS RegisterCertificateResponse
+ReadS [RegisterCertificateResponse]
+(Int -&gt; ReadS RegisterCertificateResponse)
+-&gt; ReadS [RegisterCertificateResponse]
+-&gt; ReadPrec RegisterCertificateResponse
+-&gt; ReadPrec [RegisterCertificateResponse]
+-&gt; Read RegisterCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterCertificateResponse]
+$creadListPrec :: ReadPrec [RegisterCertificateResponse]
+readPrec :: ReadPrec RegisterCertificateResponse
+$creadPrec :: ReadPrec RegisterCertificateResponse
+readList :: ReadS [RegisterCertificateResponse]
+$creadList :: ReadS [RegisterCertificateResponse]
+readsPrec :: Int -&gt; ReadS RegisterCertificateResponse
+$creadsPrec :: Int -&gt; ReadS RegisterCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304829"><span id="local-6989586621679304831"><span id="local-6989586621679304833"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificateResponse -&gt; ShowS
+[RegisterCertificateResponse] -&gt; ShowS
+RegisterCertificateResponse -&gt; String
+(Int -&gt; RegisterCertificateResponse -&gt; ShowS)
+-&gt; (RegisterCertificateResponse -&gt; String)
+-&gt; ([RegisterCertificateResponse] -&gt; ShowS)
+-&gt; Show RegisterCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterCertificateResponse] -&gt; ShowS
+$cshowList :: [RegisterCertificateResponse] -&gt; ShowS
+show :: RegisterCertificateResponse -&gt; String
+$cshow :: RegisterCertificateResponse -&gt; String
+showsPrec :: Int -&gt; RegisterCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterCertificateResponse -&gt; Rep RegisterCertificateResponse x)
+-&gt; (forall x.
+    Rep RegisterCertificateResponse x -&gt; RegisterCertificateResponse)
+-&gt; Generic RegisterCertificateResponse
+forall x.
+Rep RegisterCertificateResponse x -&gt; RegisterCertificateResponse
+forall x.
+RegisterCertificateResponse -&gt; Rep RegisterCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterCertificateResponse x -&gt; RegisterCertificateResponse
+$cfrom :: forall x.
+RegisterCertificateResponse -&gt; Rep RegisterCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'RegisterCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'certificateId', 'registerCertificateResponse_certificateId' - The identifier of the certificate.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'registerCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificateResponse"><span class="hs-identifier hs-type">newRegisterCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newRegisterCertificateResponse"><span class="annot"><span class="annottext">newRegisterCertificateResponse :: Int -&gt; RegisterCertificateResponse
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#newRegisterCertificateResponse"><span class="hs-identifier hs-var hs-var">newRegisterCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679304826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">RegisterCertificateResponse' :: Maybe Text -&gt; Int -&gt; RegisterCertificateResponse
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-type">RegisterCertificateResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCertificateResponse' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateId%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCertificateResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AhttpStatus%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The identifier of the certificate.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_certificateId"><span class="hs-identifier hs-type">registerCertificateResponse_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="registerCertificateResponse_certificateId"><span class="annot"><span class="annottext">registerCertificateResponse_certificateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterCertificateResponse -&gt; f RegisterCertificateResponse
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_certificateId"><span class="hs-identifier hs-var hs-var">registerCertificateResponse_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificateResponse -&gt; Maybe Text)
+-&gt; (RegisterCertificateResponse
+    -&gt; Maybe Text -&gt; RegisterCertificateResponse)
+-&gt; Lens
+     RegisterCertificateResponse
+     RegisterCertificateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-type">RegisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304825"><span class="annot"><span class="annottext">Maybe Text
+certificateId :: Maybe Text
+$sel:certificateId:RegisterCertificateResponse' :: RegisterCertificateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679304825"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304825"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304824"><span class="annot"><span class="annottext">s :: RegisterCertificateResponse
+</span><a href="#local-6989586621679304824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-type">RegisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateResponse
+</span><a href="#local-6989586621679304824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCertificateResponse' :: Maybe Text
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AcertificateId%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_httpStatus"><span class="hs-identifier hs-type">registerCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="registerCertificateResponse_httpStatus"><span class="annot"><span class="annottext">registerCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RegisterCertificateResponse -&gt; f RegisterCertificateResponse
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#registerCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCertificateResponse -&gt; Int)
+-&gt; (RegisterCertificateResponse
+    -&gt; Int -&gt; RegisterCertificateResponse)
+-&gt; Lens
+     RegisterCertificateResponse RegisterCertificateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-type">RegisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304822"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterCertificateResponse' :: RegisterCertificateResponse -&gt; Int
+</span><a href="#local-6989586621679304822"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304822"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304821"><span class="annot"><span class="annottext">s :: RegisterCertificateResponse
+</span><a href="#local-6989586621679304821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse%27"><span class="hs-identifier hs-type">RegisterCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateResponse
+</span><a href="#local-6989586621679304821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCertificateResponse' :: Int
+</span><a href="Network.AWS.DirectoryService.RegisterCertificate.html#%24sel%3AhttpStatus%3ARegisterCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RegisterCertificate.html#RegisterCertificateResponse"><span class="hs-identifier hs-type">RegisterCertificateResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

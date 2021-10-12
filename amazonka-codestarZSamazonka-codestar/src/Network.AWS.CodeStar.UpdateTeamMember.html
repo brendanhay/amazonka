@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStar.UpdateTeamMember</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a team member\'s attributes in an AWS CodeStar project. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- example, you can change a team member\'s role in the project, or change</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- whether they have remote access to project resources.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStar.UpdateTeamMember</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier">UpdateTeamMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMember"><span class="hs-identifier">newUpdateTeamMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectRole"><span class="hs-identifier">updateTeamMember_projectRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_remoteAccessAllowed"><span class="hs-identifier">updateTeamMember_remoteAccessAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectId"><span class="hs-identifier">updateTeamMember_projectId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_userArn"><span class="hs-identifier">updateTeamMember_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier">UpdateTeamMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMemberResponse"><span class="hs-identifier">newUpdateTeamMemberResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_userArn"><span class="hs-identifier">updateTeamMemberResponse_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_projectRole"><span class="hs-identifier">updateTeamMemberResponse_projectRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_remoteAccessAllowed"><span class="hs-identifier">updateTeamMemberResponse_remoteAccessAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_httpStatus"><span class="hs-identifier">updateTeamMemberResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.html"><span class="hs-identifier">Network.AWS.CodeStar.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateTeamMember' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679178873"><span id="local-6989586621679178874"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTeamMember"><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-var">UpdateTeamMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTeamMember%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-var">UpdateTeamMember'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role assigned to the user in the project. Project roles have</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- different levels of access. For more information, see</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams&gt;</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- in the /AWS CodeStar User Guide/.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AprojectRole%3AUpdateTeamMember%27"><span class="annot"><span class="annottext">UpdateTeamMember -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMember%27"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile. Even if</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- this is set to True, the user must associate a public key with their</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- profile before the user can access resources.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AremoteAccessAllowed%3AUpdateTeamMember%27"><span class="annot"><span class="annottext">UpdateTeamMember -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMember%27"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AprojectId%3AUpdateTeamMember%27"><span class="annot"><span class="annottext">UpdateTeamMember -&gt; Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectId%3AUpdateTeamMember%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user for whom you want to change</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- team membership attributes.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AuserArn%3AUpdateTeamMember%27"><span class="annot"><span class="annottext">UpdateTeamMember -&gt; Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMember%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178864"><span id="local-6989586621679178866"><span class="annot"><span class="annottext">UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool
+(UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool)
+-&gt; (UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool)
+-&gt; Eq UpdateTeamMember
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool
+$c/= :: UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool
+== :: UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool
+$c== :: UpdateTeamMember -&gt; UpdateTeamMember -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178855"><span id="local-6989586621679178857"><span id="local-6989586621679178859"><span id="local-6989586621679178861"><span class="annot"><span class="annottext">ReadPrec [UpdateTeamMember]
+ReadPrec UpdateTeamMember
+Int -&gt; ReadS UpdateTeamMember
+ReadS [UpdateTeamMember]
+(Int -&gt; ReadS UpdateTeamMember)
+-&gt; ReadS [UpdateTeamMember]
+-&gt; ReadPrec UpdateTeamMember
+-&gt; ReadPrec [UpdateTeamMember]
+-&gt; Read UpdateTeamMember
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTeamMember]
+$creadListPrec :: ReadPrec [UpdateTeamMember]
+readPrec :: ReadPrec UpdateTeamMember
+$creadPrec :: ReadPrec UpdateTeamMember
+readList :: ReadS [UpdateTeamMember]
+$creadList :: ReadS [UpdateTeamMember]
+readsPrec :: Int -&gt; ReadS UpdateTeamMember
+$creadsPrec :: Int -&gt; ReadS UpdateTeamMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178848"><span id="local-6989586621679178850"><span id="local-6989586621679178852"><span class="annot"><span class="annottext">Int -&gt; UpdateTeamMember -&gt; ShowS
+[UpdateTeamMember] -&gt; ShowS
+UpdateTeamMember -&gt; String
+(Int -&gt; UpdateTeamMember -&gt; ShowS)
+-&gt; (UpdateTeamMember -&gt; String)
+-&gt; ([UpdateTeamMember] -&gt; ShowS)
+-&gt; Show UpdateTeamMember
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTeamMember] -&gt; ShowS
+$cshowList :: [UpdateTeamMember] -&gt; ShowS
+show :: UpdateTeamMember -&gt; String
+$cshow :: UpdateTeamMember -&gt; String
+showsPrec :: Int -&gt; UpdateTeamMember -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTeamMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateTeamMember -&gt; Rep UpdateTeamMember x)
+-&gt; (forall x. Rep UpdateTeamMember x -&gt; UpdateTeamMember)
+-&gt; Generic UpdateTeamMember
+forall x. Rep UpdateTeamMember x -&gt; UpdateTeamMember
+forall x. UpdateTeamMember -&gt; Rep UpdateTeamMember x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateTeamMember x -&gt; UpdateTeamMember
+$cfrom :: forall x. UpdateTeamMember -&gt; Rep UpdateTeamMember x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'UpdateTeamMember' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'projectRole', 'updateTeamMember_projectRole' - The role assigned to the user in the project. Project roles have</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- different levels of access. For more information, see</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams&gt;</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- in the /AWS CodeStar User Guide/.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'remoteAccessAllowed', 'updateTeamMember_remoteAccessAllowed' - Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile. Even if</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- this is set to True, the user must associate a public key with their</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- profile before the user can access resources.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'projectId', 'updateTeamMember_projectId' - The ID of the project.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'userArn', 'updateTeamMember_userArn' - The Amazon Resource Name (ARN) of the user for whom you want to change</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- team membership attributes.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMember"><span class="hs-identifier hs-type">newUpdateTeamMember</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'projectId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'userArn'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span>
+</span><span id="line-104"></span><span id="newUpdateTeamMember"><span class="annot"><span class="annottext">newUpdateTeamMember :: Text -&gt; Text -&gt; UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMember"><span class="hs-identifier hs-var hs-var">newUpdateTeamMember</span></a></span></span><span> </span><span id="local-6989586621679178843"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178843"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span id="local-6989586621679178842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178842"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateTeamMember' :: Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectRole:UpdateTeamMember' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:UpdateTeamMember' :: Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:UpdateTeamMember' :: Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectId%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178843"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:UpdateTeamMember' :: Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178842"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The role assigned to the user in the project. Project roles have</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- different levels of access. For more information, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams&gt;</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- in the /AWS CodeStar User Guide/.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectRole"><span class="hs-identifier hs-type">updateTeamMember_projectRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateTeamMember_projectRole"><span class="annot"><span class="annottext">updateTeamMember_projectRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateTeamMember -&gt; f UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectRole"><span class="hs-identifier hs-var hs-var">updateTeamMember_projectRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMember -&gt; Maybe Text)
+-&gt; (UpdateTeamMember -&gt; Maybe Text -&gt; UpdateTeamMember)
+-&gt; Lens UpdateTeamMember UpdateTeamMember (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178839"><span class="annot"><span class="annottext">Maybe Text
+projectRole :: Maybe Text
+$sel:projectRole:UpdateTeamMember' :: UpdateTeamMember -&gt; Maybe Text
+</span><a href="#local-6989586621679178839"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178839"><span class="hs-identifier hs-var">projectRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178838"><span class="annot"><span class="annottext">s :: UpdateTeamMember
+</span><a href="#local-6989586621679178838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMember
+</span><a href="#local-6989586621679178838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectRole:UpdateTeamMember' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile. Even if</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- this is set to True, the user must associate a public key with their</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- profile before the user can access resources.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_remoteAccessAllowed"><span class="hs-identifier hs-type">updateTeamMember_remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="updateTeamMember_remoteAccessAllowed"><span class="annot"><span class="annottext">updateTeamMember_remoteAccessAllowed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateTeamMember -&gt; f UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_remoteAccessAllowed"><span class="hs-identifier hs-var hs-var">updateTeamMember_remoteAccessAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMember -&gt; Maybe Bool)
+-&gt; (UpdateTeamMember -&gt; Maybe Bool -&gt; UpdateTeamMember)
+-&gt; Lens UpdateTeamMember UpdateTeamMember (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178836"><span class="annot"><span class="annottext">Maybe Bool
+remoteAccessAllowed :: Maybe Bool
+$sel:remoteAccessAllowed:UpdateTeamMember' :: UpdateTeamMember -&gt; Maybe Bool
+</span><a href="#local-6989586621679178836"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178836"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178835"><span class="annot"><span class="annottext">s :: UpdateTeamMember
+</span><a href="#local-6989586621679178835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178834"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMember
+</span><a href="#local-6989586621679178835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:UpdateTeamMember' :: Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectId"><span class="hs-identifier hs-type">updateTeamMember_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="updateTeamMember_projectId"><span class="annot"><span class="annottext">updateTeamMember_projectId :: (Text -&gt; f Text) -&gt; UpdateTeamMember -&gt; f UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_projectId"><span class="hs-identifier hs-var hs-var">updateTeamMember_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMember -&gt; Text)
+-&gt; (UpdateTeamMember -&gt; Text -&gt; UpdateTeamMember)
+-&gt; Lens UpdateTeamMember UpdateTeamMember Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178833"><span class="annot"><span class="annottext">Text
+projectId :: Text
+$sel:projectId:UpdateTeamMember' :: UpdateTeamMember -&gt; Text
+</span><a href="#local-6989586621679178833"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178833"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178832"><span class="annot"><span class="annottext">s :: UpdateTeamMember
+</span><a href="#local-6989586621679178832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMember
+</span><a href="#local-6989586621679178832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:UpdateTeamMember' :: Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectId%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user for whom you want to change</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- team membership attributes.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_userArn"><span class="hs-identifier hs-type">updateTeamMember_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="updateTeamMember_userArn"><span class="annot"><span class="annottext">updateTeamMember_userArn :: (Text -&gt; f Text) -&gt; UpdateTeamMember -&gt; f UpdateTeamMember
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMember_userArn"><span class="hs-identifier hs-var hs-var">updateTeamMember_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMember -&gt; Text)
+-&gt; (UpdateTeamMember -&gt; Text -&gt; UpdateTeamMember)
+-&gt; Lens UpdateTeamMember UpdateTeamMember Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178830"><span class="annot"><span class="annottext">Text
+userArn :: Text
+$sel:userArn:UpdateTeamMember' :: UpdateTeamMember -&gt; Text
+</span><a href="#local-6989586621679178830"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178830"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178829"><span class="annot"><span class="annottext">s :: UpdateTeamMember
+</span><a href="#local-6989586621679178829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMember
+</span><a href="#local-6989586621679178829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:UpdateTeamMember' :: Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679178824"><span class="annot"><span class="annottext">request :: UpdateTeamMember -&gt; Request UpdateTeamMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTeamMember -&gt; Request UpdateTeamMember
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178820"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateTeamMember
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTeamMember)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateTeamMember))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateTeamMember
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTeamMember)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178817"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178816"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178816"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">UpdateTeamMemberResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; UpdateTeamMemberResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteAccessAllowed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateTeamMemberResponse)
+-&gt; Either String Int -&gt; Either String UpdateTeamMemberResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178817"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178807"><span id="local-6989586621679178809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679178800"><span class="annot"><span class="annottext">toHeaders :: UpdateTeamMember -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTeamMember -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeStar_20170419.UpdateTeamMember&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-165"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178790"><span id="local-6989586621679178792"><span id="local-6989586621679178794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679178788"><span class="annot"><span class="annottext">toJSON :: UpdateTeamMember -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember%27"><span class="hs-identifier hs-type">UpdateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178783"><span id="local-6989586621679178784"><span id="local-6989586621679178785"><span id="local-6989586621679178786"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+userArn :: Text
+projectId :: Text
+remoteAccessAllowed :: Maybe Bool
+projectRole :: Maybe Text
+$sel:userArn:UpdateTeamMember' :: UpdateTeamMember -&gt; Text
+$sel:projectId:UpdateTeamMember' :: UpdateTeamMember -&gt; Text
+$sel:remoteAccessAllowed:UpdateTeamMember' :: UpdateTeamMember -&gt; Maybe Bool
+$sel:projectRole:UpdateTeamMember' :: UpdateTeamMember -&gt; Maybe Text
+</span><a href="#local-6989586621679178783"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178786"><span class="hs-identifier hs-var">projectRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteAccessAllowed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178785"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178784"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178783"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679178777"><span class="annot"><span class="annottext">toPath :: UpdateTeamMember -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTeamMember -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMember"><span class="hs-identifier hs-type">UpdateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679178773"><span class="annot"><span class="annottext">toQuery :: UpdateTeamMember -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTeamMember -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newUpdateTeamMemberResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679178770"><span id="local-6989586621679178771"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTeamMemberResponse"><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-var">UpdateTeamMemberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTeamMemberResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">UpdateTeamMemberResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user whose team membership</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- attributes were updated.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AuserArn%3AUpdateTeamMemberResponse%27"><span class="annot"><span class="annottext">UpdateTeamMemberResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The project role granted to the user.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AprojectRole%3AUpdateTeamMemberResponse%27"><span class="annot"><span class="annottext">UpdateTeamMemberResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AremoteAccessAllowed%3AUpdateTeamMemberResponse%27"><span class="annot"><span class="annottext">UpdateTeamMemberResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTeamMemberResponse%27"><span class="annot"><span class="annottext">UpdateTeamMemberResponse -&gt; Int
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AhttpStatus%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178762"><span id="local-6989586621679178764"><span class="annot"><span class="annottext">UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool
+(UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool)
+-&gt; (UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool)
+-&gt; Eq UpdateTeamMemberResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool
+$c/= :: UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool
+== :: UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool
+$c== :: UpdateTeamMemberResponse -&gt; UpdateTeamMemberResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178754"><span id="local-6989586621679178756"><span id="local-6989586621679178758"><span id="local-6989586621679178760"><span class="annot"><span class="annottext">ReadPrec [UpdateTeamMemberResponse]
+ReadPrec UpdateTeamMemberResponse
+Int -&gt; ReadS UpdateTeamMemberResponse
+ReadS [UpdateTeamMemberResponse]
+(Int -&gt; ReadS UpdateTeamMemberResponse)
+-&gt; ReadS [UpdateTeamMemberResponse]
+-&gt; ReadPrec UpdateTeamMemberResponse
+-&gt; ReadPrec [UpdateTeamMemberResponse]
+-&gt; Read UpdateTeamMemberResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTeamMemberResponse]
+$creadListPrec :: ReadPrec [UpdateTeamMemberResponse]
+readPrec :: ReadPrec UpdateTeamMemberResponse
+$creadPrec :: ReadPrec UpdateTeamMemberResponse
+readList :: ReadS [UpdateTeamMemberResponse]
+$creadList :: ReadS [UpdateTeamMemberResponse]
+readsPrec :: Int -&gt; ReadS UpdateTeamMemberResponse
+$creadsPrec :: Int -&gt; ReadS UpdateTeamMemberResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178748"><span id="local-6989586621679178750"><span id="local-6989586621679178752"><span class="annot"><span class="annottext">Int -&gt; UpdateTeamMemberResponse -&gt; ShowS
+[UpdateTeamMemberResponse] -&gt; ShowS
+UpdateTeamMemberResponse -&gt; String
+(Int -&gt; UpdateTeamMemberResponse -&gt; ShowS)
+-&gt; (UpdateTeamMemberResponse -&gt; String)
+-&gt; ([UpdateTeamMemberResponse] -&gt; ShowS)
+-&gt; Show UpdateTeamMemberResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTeamMemberResponse] -&gt; ShowS
+$cshowList :: [UpdateTeamMemberResponse] -&gt; ShowS
+show :: UpdateTeamMemberResponse -&gt; String
+$cshow :: UpdateTeamMemberResponse -&gt; String
+showsPrec :: Int -&gt; UpdateTeamMemberResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTeamMemberResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateTeamMemberResponse -&gt; Rep UpdateTeamMemberResponse x)
+-&gt; (forall x.
+    Rep UpdateTeamMemberResponse x -&gt; UpdateTeamMemberResponse)
+-&gt; Generic UpdateTeamMemberResponse
+forall x.
+Rep UpdateTeamMemberResponse x -&gt; UpdateTeamMemberResponse
+forall x.
+UpdateTeamMemberResponse -&gt; Rep UpdateTeamMemberResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateTeamMemberResponse x -&gt; UpdateTeamMemberResponse
+$cfrom :: forall x.
+UpdateTeamMemberResponse -&gt; Rep UpdateTeamMemberResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'UpdateTeamMemberResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'userArn', 'updateTeamMemberResponse_userArn' - The Amazon Resource Name (ARN) of the user whose team membership</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- attributes were updated.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'projectRole', 'updateTeamMemberResponse_projectRole' - The project role granted to the user.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'remoteAccessAllowed', 'updateTeamMemberResponse_remoteAccessAllowed' - Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'updateTeamMemberResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMemberResponse"><span class="hs-identifier hs-type">newUpdateTeamMemberResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newUpdateTeamMemberResponse"><span class="annot"><span class="annottext">newUpdateTeamMemberResponse :: Int -&gt; UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#newUpdateTeamMemberResponse"><span class="hs-identifier hs-var hs-var">newUpdateTeamMemberResponse</span></a></span></span><span> </span><span id="local-6989586621679178745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">UpdateTeamMemberResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userArn:UpdateTeamMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectRole:UpdateTeamMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:UpdateTeamMemberResponse' :: Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTeamMemberResponse' :: Int
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AhttpStatus%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user whose team membership</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- attributes were updated.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_userArn"><span class="hs-identifier hs-type">updateTeamMemberResponse_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="updateTeamMemberResponse_userArn"><span class="annot"><span class="annottext">updateTeamMemberResponse_userArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateTeamMemberResponse -&gt; f UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_userArn"><span class="hs-identifier hs-var hs-var">updateTeamMemberResponse_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMemberResponse -&gt; Maybe Text)
+-&gt; (UpdateTeamMemberResponse
+    -&gt; Maybe Text -&gt; UpdateTeamMemberResponse)
+-&gt; Lens
+     UpdateTeamMemberResponse
+     UpdateTeamMemberResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178744"><span class="annot"><span class="annottext">Maybe Text
+userArn :: Maybe Text
+$sel:userArn:UpdateTeamMemberResponse' :: UpdateTeamMemberResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679178744"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178744"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178743"><span class="annot"><span class="annottext">s :: UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:UpdateTeamMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AuserArn%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The project role granted to the user.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_projectRole"><span class="hs-identifier hs-type">updateTeamMemberResponse_projectRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="updateTeamMemberResponse_projectRole"><span class="annot"><span class="annottext">updateTeamMemberResponse_projectRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateTeamMemberResponse -&gt; f UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_projectRole"><span class="hs-identifier hs-var hs-var">updateTeamMemberResponse_projectRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMemberResponse -&gt; Maybe Text)
+-&gt; (UpdateTeamMemberResponse
+    -&gt; Maybe Text -&gt; UpdateTeamMemberResponse)
+-&gt; Lens
+     UpdateTeamMemberResponse
+     UpdateTeamMemberResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178741"><span class="annot"><span class="annottext">Maybe Text
+projectRole :: Maybe Text
+$sel:projectRole:UpdateTeamMemberResponse' :: UpdateTeamMemberResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679178741"><span class="hs-identifier hs-var hs-var">projectRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178741"><span class="hs-identifier hs-var">projectRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178740"><span class="annot"><span class="annottext">s :: UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectRole:UpdateTeamMemberResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AprojectRole%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">projectRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | Whether a team member is allowed to remotely access project resources</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- using the SSH public key associated with the user\'s profile.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_remoteAccessAllowed"><span class="hs-identifier hs-type">updateTeamMemberResponse_remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="updateTeamMemberResponse_remoteAccessAllowed"><span class="annot"><span class="annottext">updateTeamMemberResponse_remoteAccessAllowed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateTeamMemberResponse -&gt; f UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_remoteAccessAllowed"><span class="hs-identifier hs-var hs-var">updateTeamMemberResponse_remoteAccessAllowed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMemberResponse -&gt; Maybe Bool)
+-&gt; (UpdateTeamMemberResponse
+    -&gt; Maybe Bool -&gt; UpdateTeamMemberResponse)
+-&gt; Lens
+     UpdateTeamMemberResponse
+     UpdateTeamMemberResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178738"><span class="annot"><span class="annottext">Maybe Bool
+remoteAccessAllowed :: Maybe Bool
+$sel:remoteAccessAllowed:UpdateTeamMemberResponse' :: UpdateTeamMemberResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679178738"><span class="hs-identifier hs-var hs-var">remoteAccessAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178738"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178737"><span class="annot"><span class="annottext">s :: UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178736"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessAllowed:UpdateTeamMemberResponse' :: Maybe Bool
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AremoteAccessAllowed%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">remoteAccessAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679178736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_httpStatus"><span class="hs-identifier hs-type">updateTeamMemberResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-248"></span><span id="updateTeamMemberResponse_httpStatus"><span class="annot"><span class="annottext">updateTeamMemberResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateTeamMemberResponse -&gt; f UpdateTeamMemberResponse
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#updateTeamMemberResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateTeamMemberResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTeamMemberResponse -&gt; Int)
+-&gt; (UpdateTeamMemberResponse -&gt; Int -&gt; UpdateTeamMemberResponse)
+-&gt; Lens UpdateTeamMemberResponse UpdateTeamMemberResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178735"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateTeamMemberResponse' :: UpdateTeamMemberResponse -&gt; Int
+</span><a href="#local-6989586621679178735"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178735"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178734"><span class="annot"><span class="annottext">s :: UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse%27"><span class="hs-identifier hs-type">UpdateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178733"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTeamMemberResponse
+</span><a href="#local-6989586621679178734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTeamMemberResponse' :: Int
+</span><a href="Network.AWS.CodeStar.UpdateTeamMember.html#%24sel%3AhttpStatus%3AUpdateTeamMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateTeamMember.html#UpdateTeamMemberResponse"><span class="hs-identifier hs-type">UpdateTeamMemberResponse</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

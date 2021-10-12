@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.S3.PutBucketAccelerateConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the accelerate configuration of an existing bucket. Amazon S3</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Transfer Acceleration is a bucket-level feature that enables you to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- perform faster data transfers to Amazon S3.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To use this operation, you must have permission to perform the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- s3:PutAccelerateConfiguration action. The bucket owner has this</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- permission by default. The bucket owner can grant this permission to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- others. For more information about permissions, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- The Transfer Acceleration state of a bucket can be set to one of the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- following two values:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Enabled &#8211; Enables accelerated data transfers to the bucket.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   Suspended &#8211; Disables accelerated data transfers to the bucket.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- action returns the transfer acceleration state of a bucket.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- After setting the Transfer Acceleration state of a bucket to Enabled, it</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- might take up to thirty minutes before the data transfer rates to the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- bucket increase.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The name of the bucket used for Transfer Acceleration must be</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- DNS-compliant and must not contain periods (\&quot;.\&quot;).</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- For more information about transfer acceleration, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration&gt;.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following operations are related to</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @PutBucketAccelerateConfiguration@:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration&gt;</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket&gt;</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.PutBucketAccelerateConfiguration</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfiguration"><span class="hs-identifier">newPutBucketAccelerateConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_expectedBucketOwner"><span class="hs-identifier">putBucketAccelerateConfiguration_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_bucket"><span class="hs-identifier">putBucketAccelerateConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_accelerateConfiguration"><span class="hs-identifier">putBucketAccelerateConfiguration_accelerateConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse"><span class="hs-identifier">PutBucketAccelerateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfigurationResponse"><span class="hs-identifier">newPutBucketAccelerateConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newPutBucketAccelerateConfiguration' smart constructor.</span><span>
+</span><span id="line-86"></span><span id="local-6989586621679567065"><span id="local-6989586621679567066"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketAccelerateConfiguration"><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-var">PutBucketAccelerateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketAccelerateConfiguration%27"><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">PutBucketAccelerateConfiguration'</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketAccelerateConfiguration%27"><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the bucket for which the accelerate configuration is set.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketAccelerateConfiguration%27"><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration -&gt; BucketName
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3Abucket%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Container for setting the transfer acceleration state.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AaccelerateConfiguration%3APutBucketAccelerateConfiguration%27"><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AaccelerateConfiguration%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var hs-var">accelerateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccelerateConfiguration.html#AccelerateConfiguration"><span class="hs-identifier hs-type">AccelerateConfiguration</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679567057"><span id="local-6989586621679567059"><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration -&gt; Bool
+(PutBucketAccelerateConfiguration
+ -&gt; PutBucketAccelerateConfiguration -&gt; Bool)
+-&gt; (PutBucketAccelerateConfiguration
+    -&gt; PutBucketAccelerateConfiguration -&gt; Bool)
+-&gt; Eq PutBucketAccelerateConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketAccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration -&gt; Bool
+$c/= :: PutBucketAccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration -&gt; Bool
+== :: PutBucketAccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration -&gt; Bool
+$c== :: PutBucketAccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567048"><span id="local-6989586621679567050"><span id="local-6989586621679567052"><span id="local-6989586621679567054"><span class="annot"><span class="annottext">ReadPrec [PutBucketAccelerateConfiguration]
+ReadPrec PutBucketAccelerateConfiguration
+Int -&gt; ReadS PutBucketAccelerateConfiguration
+ReadS [PutBucketAccelerateConfiguration]
+(Int -&gt; ReadS PutBucketAccelerateConfiguration)
+-&gt; ReadS [PutBucketAccelerateConfiguration]
+-&gt; ReadPrec PutBucketAccelerateConfiguration
+-&gt; ReadPrec [PutBucketAccelerateConfiguration]
+-&gt; Read PutBucketAccelerateConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketAccelerateConfiguration]
+$creadListPrec :: ReadPrec [PutBucketAccelerateConfiguration]
+readPrec :: ReadPrec PutBucketAccelerateConfiguration
+$creadPrec :: ReadPrec PutBucketAccelerateConfiguration
+readList :: ReadS [PutBucketAccelerateConfiguration]
+$creadList :: ReadS [PutBucketAccelerateConfiguration]
+readsPrec :: Int -&gt; ReadS PutBucketAccelerateConfiguration
+$creadsPrec :: Int -&gt; ReadS PutBucketAccelerateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679567041"><span id="local-6989586621679567043"><span id="local-6989586621679567045"><span class="annot"><span class="annottext">Int -&gt; PutBucketAccelerateConfiguration -&gt; ShowS
+[PutBucketAccelerateConfiguration] -&gt; ShowS
+PutBucketAccelerateConfiguration -&gt; String
+(Int -&gt; PutBucketAccelerateConfiguration -&gt; ShowS)
+-&gt; (PutBucketAccelerateConfiguration -&gt; String)
+-&gt; ([PutBucketAccelerateConfiguration] -&gt; ShowS)
+-&gt; Show PutBucketAccelerateConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketAccelerateConfiguration] -&gt; ShowS
+$cshowList :: [PutBucketAccelerateConfiguration] -&gt; ShowS
+show :: PutBucketAccelerateConfiguration -&gt; String
+$cshow :: PutBucketAccelerateConfiguration -&gt; String
+showsPrec :: Int -&gt; PutBucketAccelerateConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketAccelerateConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketAccelerateConfiguration
+ -&gt; Rep PutBucketAccelerateConfiguration x)
+-&gt; (forall x.
+    Rep PutBucketAccelerateConfiguration x
+    -&gt; PutBucketAccelerateConfiguration)
+-&gt; Generic PutBucketAccelerateConfiguration
+forall x.
+Rep PutBucketAccelerateConfiguration x
+-&gt; PutBucketAccelerateConfiguration
+forall x.
+PutBucketAccelerateConfiguration
+-&gt; Rep PutBucketAccelerateConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBucketAccelerateConfiguration x
+-&gt; PutBucketAccelerateConfiguration
+$cfrom :: forall x.
+PutBucketAccelerateConfiguration
+-&gt; Rep PutBucketAccelerateConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'PutBucketAccelerateConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketAccelerateConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'bucket', 'putBucketAccelerateConfiguration_bucket' - The name of the bucket for which the accelerate configuration is set.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'accelerateConfiguration', 'putBucketAccelerateConfiguration_accelerateConfiguration' - Container for setting the transfer acceleration state.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">newPutBucketAccelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'accelerateConfiguration'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AccelerateConfiguration.html#AccelerateConfiguration"><span class="hs-identifier hs-type">AccelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span>
+</span><span id="line-119"></span><span id="newPutBucketAccelerateConfiguration"><span class="annot"><span class="annottext">newPutBucketAccelerateConfiguration :: BucketName
+-&gt; AccelerateConfiguration -&gt; PutBucketAccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfiguration"><span class="hs-identifier hs-var hs-var">newPutBucketAccelerateConfiguration</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679567036"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567036"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679567035"><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679567035"><span class="hs-identifier hs-var">pAccelerateConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration' :: Maybe Text
+-&gt; BucketName
+-&gt; AccelerateConfiguration
+-&gt; PutBucketAccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketAccelerateConfiguration' :: BucketName
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3Abucket%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567036"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: AccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AaccelerateConfiguration%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">accelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679567035"><span class="hs-identifier hs-var">pAccelerateConfiguration_</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketAccelerateConfiguration_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="putBucketAccelerateConfiguration_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketAccelerateConfiguration_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketAccelerateConfiguration
+-&gt; f PutBucketAccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketAccelerateConfiguration_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketAccelerateConfiguration -&gt; Maybe Text)
+-&gt; (PutBucketAccelerateConfiguration
+    -&gt; Maybe Text -&gt; PutBucketAccelerateConfiguration)
+-&gt; Lens
+     PutBucketAccelerateConfiguration
+     PutBucketAccelerateConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567032"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679567032"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567032"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567031"><span class="annot"><span class="annottext">s :: PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679567030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the bucket for which the accelerate configuration is set.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_bucket"><span class="hs-identifier hs-type">putBucketAccelerateConfiguration_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-138"></span><span id="putBucketAccelerateConfiguration_bucket"><span class="annot"><span class="annottext">putBucketAccelerateConfiguration_bucket :: (BucketName -&gt; f BucketName)
+-&gt; PutBucketAccelerateConfiguration
+-&gt; f PutBucketAccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_bucket"><span class="hs-identifier hs-var hs-var">putBucketAccelerateConfiguration_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketAccelerateConfiguration -&gt; BucketName)
+-&gt; (PutBucketAccelerateConfiguration
+    -&gt; BucketName -&gt; PutBucketAccelerateConfiguration)
+-&gt; Lens
+     PutBucketAccelerateConfiguration
+     PutBucketAccelerateConfiguration
+     BucketName
+     BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567029"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; BucketName
+</span><a href="#local-6989586621679567029"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567029"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567028"><span class="annot"><span class="annottext">s :: PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567027"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketAccelerateConfiguration' :: BucketName
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3Abucket%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679567027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Container for setting the transfer acceleration state.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_accelerateConfiguration"><span class="hs-identifier hs-type">putBucketAccelerateConfiguration_accelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccelerateConfiguration.html#AccelerateConfiguration"><span class="hs-identifier hs-type">AccelerateConfiguration</span></a></span><span>
+</span><span id="line-142"></span><span id="putBucketAccelerateConfiguration_accelerateConfiguration"><span class="annot"><span class="annottext">putBucketAccelerateConfiguration_accelerateConfiguration :: (AccelerateConfiguration -&gt; f AccelerateConfiguration)
+-&gt; PutBucketAccelerateConfiguration
+-&gt; f PutBucketAccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#putBucketAccelerateConfiguration_accelerateConfiguration"><span class="hs-identifier hs-var hs-var">putBucketAccelerateConfiguration_accelerateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration)
+-&gt; (PutBucketAccelerateConfiguration
+    -&gt; AccelerateConfiguration -&gt; PutBucketAccelerateConfiguration)
+-&gt; Lens
+     PutBucketAccelerateConfiguration
+     PutBucketAccelerateConfiguration
+     AccelerateConfiguration
+     AccelerateConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679567026"><span class="annot"><span class="annottext">AccelerateConfiguration
+accelerateConfiguration :: AccelerateConfiguration
+$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration
+</span><a href="#local-6989586621679567026"><span class="hs-identifier hs-var hs-var">accelerateConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679567026"><span class="hs-identifier hs-var">accelerateConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679567025"><span class="annot"><span class="annottext">s :: PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679567024"><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679567024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketAccelerateConfiguration
+</span><a href="#local-6989586621679567025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: AccelerateConfiguration
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#%24sel%3AaccelerateConfiguration%3APutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-var">accelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679567024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-type">PutBucketAccelerateConfigurationResponse</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679567020"><span class="annot"><span class="annottext">request :: PutBucketAccelerateConfiguration
+-&gt; Request PutBucketAccelerateConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutBucketAccelerateConfiguration
+-&gt; Request PutBucketAccelerateConfiguration
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679567016"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutBucketAccelerateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutBucketAccelerateConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketAccelerateConfiguration
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutBucketAccelerateConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutBucketAccelerateConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketAccelerateConfiguration
+PutBucketAccelerateConfigurationResponse
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketAccelerateConfigurationResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679567009"><span id="local-6989586621679567011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679567006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679567002"><span class="annot"><span class="annottext">toElement :: PutBucketAccelerateConfiguration -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566998"><span id="local-6989586621679566999"><span id="local-6989586621679567000"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+AccelerateConfiguration
+accelerateConfiguration :: AccelerateConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration
+$sel:bucket:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566998"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; AccelerateConfiguration -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}AccelerateConfiguration&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">AccelerateConfiguration
+</span><a href="#local-6989586621679566998"><span class="hs-identifier hs-var">accelerateConfiguration</span></a></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679566994"><span class="annot"><span class="annottext">toHeaders :: PutBucketAccelerateConfiguration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566990"><span id="local-6989586621679566991"><span id="local-6989586621679566992"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+AccelerateConfiguration
+accelerateConfiguration :: AccelerateConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration
+$sel:bucket:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566992"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679566986"><span class="annot"><span class="annottext">toPath :: PutBucketAccelerateConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration%27"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566982"><span id="local-6989586621679566983"><span id="local-6989586621679566984"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+AccelerateConfiguration
+accelerateConfiguration :: AccelerateConfiguration
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:accelerateConfiguration:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; AccelerateConfiguration
+$sel:bucket:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; BucketName
+$sel:expectedBucketOwner:PutBucketAccelerateConfiguration' :: PutBucketAccelerateConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679566982"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566983"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfiguration"><span class="hs-identifier hs-type">PutBucketAccelerateConfiguration</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679566978"><span class="annot"><span class="annottext">toQuery :: PutBucketAccelerateConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketAccelerateConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;accelerate&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newPutBucketAccelerateConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679566974"><span id="local-6989586621679566975"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketAccelerateConfigurationResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-var">PutBucketAccelerateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketAccelerateConfigurationResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketAccelerateConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566970"><span id="local-6989586621679566972"><span class="annot"><span class="annottext">PutBucketAccelerateConfigurationResponse
+-&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool
+(PutBucketAccelerateConfigurationResponse
+ -&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool)
+-&gt; (PutBucketAccelerateConfigurationResponse
+    -&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool)
+-&gt; Eq PutBucketAccelerateConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutBucketAccelerateConfigurationResponse
+-&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool
+$c/= :: PutBucketAccelerateConfigurationResponse
+-&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool
+== :: PutBucketAccelerateConfigurationResponse
+-&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool
+$c== :: PutBucketAccelerateConfigurationResponse
+-&gt; PutBucketAccelerateConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566962"><span id="local-6989586621679566964"><span id="local-6989586621679566966"><span id="local-6989586621679566968"><span class="annot"><span class="annottext">ReadPrec [PutBucketAccelerateConfigurationResponse]
+ReadPrec PutBucketAccelerateConfigurationResponse
+Int -&gt; ReadS PutBucketAccelerateConfigurationResponse
+ReadS [PutBucketAccelerateConfigurationResponse]
+(Int -&gt; ReadS PutBucketAccelerateConfigurationResponse)
+-&gt; ReadS [PutBucketAccelerateConfigurationResponse]
+-&gt; ReadPrec PutBucketAccelerateConfigurationResponse
+-&gt; ReadPrec [PutBucketAccelerateConfigurationResponse]
+-&gt; Read PutBucketAccelerateConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutBucketAccelerateConfigurationResponse]
+$creadListPrec :: ReadPrec [PutBucketAccelerateConfigurationResponse]
+readPrec :: ReadPrec PutBucketAccelerateConfigurationResponse
+$creadPrec :: ReadPrec PutBucketAccelerateConfigurationResponse
+readList :: ReadS [PutBucketAccelerateConfigurationResponse]
+$creadList :: ReadS [PutBucketAccelerateConfigurationResponse]
+readsPrec :: Int -&gt; ReadS PutBucketAccelerateConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS PutBucketAccelerateConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566956"><span id="local-6989586621679566958"><span id="local-6989586621679566960"><span class="annot"><span class="annottext">Int -&gt; PutBucketAccelerateConfigurationResponse -&gt; ShowS
+[PutBucketAccelerateConfigurationResponse] -&gt; ShowS
+PutBucketAccelerateConfigurationResponse -&gt; String
+(Int -&gt; PutBucketAccelerateConfigurationResponse -&gt; ShowS)
+-&gt; (PutBucketAccelerateConfigurationResponse -&gt; String)
+-&gt; ([PutBucketAccelerateConfigurationResponse] -&gt; ShowS)
+-&gt; Show PutBucketAccelerateConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutBucketAccelerateConfigurationResponse] -&gt; ShowS
+$cshowList :: [PutBucketAccelerateConfigurationResponse] -&gt; ShowS
+show :: PutBucketAccelerateConfigurationResponse -&gt; String
+$cshow :: PutBucketAccelerateConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; PutBucketAccelerateConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutBucketAccelerateConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutBucketAccelerateConfigurationResponse
+ -&gt; Rep PutBucketAccelerateConfigurationResponse x)
+-&gt; (forall x.
+    Rep PutBucketAccelerateConfigurationResponse x
+    -&gt; PutBucketAccelerateConfigurationResponse)
+-&gt; Generic PutBucketAccelerateConfigurationResponse
+forall x.
+Rep PutBucketAccelerateConfigurationResponse x
+-&gt; PutBucketAccelerateConfigurationResponse
+forall x.
+PutBucketAccelerateConfigurationResponse
+-&gt; Rep PutBucketAccelerateConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutBucketAccelerateConfigurationResponse x
+-&gt; PutBucketAccelerateConfigurationResponse
+$cfrom :: forall x.
+PutBucketAccelerateConfigurationResponse
+-&gt; Rep PutBucketAccelerateConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Create a value of 'PutBucketAccelerateConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-type">newPutBucketAccelerateConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-type">PutBucketAccelerateConfigurationResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newPutBucketAccelerateConfigurationResponse"><span class="annot"><span class="annottext">newPutBucketAccelerateConfigurationResponse :: PutBucketAccelerateConfigurationResponse
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#newPutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutBucketAccelerateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">PutBucketAccelerateConfigurationResponse
+</span><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketAccelerateConfigurationResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679566952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketAccelerateConfiguration.html#PutBucketAccelerateConfigurationResponse"><span class="hs-identifier hs-type">PutBucketAccelerateConfigurationResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

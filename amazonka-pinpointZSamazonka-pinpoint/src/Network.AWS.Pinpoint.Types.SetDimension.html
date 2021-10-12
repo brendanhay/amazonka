@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.SetDimension</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.SetDimension</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.DimensionType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the dimension type and values for a segment dimension.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSetDimension' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679610080"><span id="local-6989586621679610081"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-var">SetDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-var">SetDimension'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of segment dimension to use. Valid values are: INCLUSIVE,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- endpoints that match the criteria are included in the segment; and,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- EXCLUSIVE, endpoints that match the criteria are excluded from the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- segment.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdimensionType%3ASetDimension%27"><span class="annot"><span class="annottext">SetDimension -&gt; Maybe DimensionType
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3AdimensionType%3ASetDimension%27"><span class="hs-identifier hs-var hs-var">dimensionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-type">DimensionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The criteria values to use for the segment dimension. Depending on the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- value of the DimensionType property, endpoints are included or excluded</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- from the segment if their values match the criteria values.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Avalues%3ASetDimension%27"><span class="annot"><span class="annottext">SetDimension -&gt; [Text]
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3Avalues%3ASetDimension%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610073"><span id="local-6989586621679610075"><span class="annot"><span class="annottext">SetDimension -&gt; SetDimension -&gt; Bool
+(SetDimension -&gt; SetDimension -&gt; Bool)
+-&gt; (SetDimension -&gt; SetDimension -&gt; Bool) -&gt; Eq SetDimension
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetDimension -&gt; SetDimension -&gt; Bool
+$c/= :: SetDimension -&gt; SetDimension -&gt; Bool
+== :: SetDimension -&gt; SetDimension -&gt; Bool
+$c== :: SetDimension -&gt; SetDimension -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610064"><span id="local-6989586621679610066"><span id="local-6989586621679610068"><span id="local-6989586621679610070"><span class="annot"><span class="annottext">ReadPrec [SetDimension]
+ReadPrec SetDimension
+Int -&gt; ReadS SetDimension
+ReadS [SetDimension]
+(Int -&gt; ReadS SetDimension)
+-&gt; ReadS [SetDimension]
+-&gt; ReadPrec SetDimension
+-&gt; ReadPrec [SetDimension]
+-&gt; Read SetDimension
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetDimension]
+$creadListPrec :: ReadPrec [SetDimension]
+readPrec :: ReadPrec SetDimension
+$creadPrec :: ReadPrec SetDimension
+readList :: ReadS [SetDimension]
+$creadList :: ReadS [SetDimension]
+readsPrec :: Int -&gt; ReadS SetDimension
+$creadsPrec :: Int -&gt; ReadS SetDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610057"><span id="local-6989586621679610059"><span id="local-6989586621679610061"><span class="annot"><span class="annottext">Int -&gt; SetDimension -&gt; ShowS
+[SetDimension] -&gt; ShowS
+SetDimension -&gt; String
+(Int -&gt; SetDimension -&gt; ShowS)
+-&gt; (SetDimension -&gt; String)
+-&gt; ([SetDimension] -&gt; ShowS)
+-&gt; Show SetDimension
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetDimension] -&gt; ShowS
+$cshowList :: [SetDimension] -&gt; ShowS
+show :: SetDimension -&gt; String
+$cshow :: SetDimension -&gt; String
+showsPrec :: Int -&gt; SetDimension -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetDimension -&gt; Rep SetDimension x)
+-&gt; (forall x. Rep SetDimension x -&gt; SetDimension)
+-&gt; Generic SetDimension
+forall x. Rep SetDimension x -&gt; SetDimension
+forall x. SetDimension -&gt; Rep SetDimension x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetDimension x -&gt; SetDimension
+$cfrom :: forall x. SetDimension -&gt; Rep SetDimension x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'SetDimension' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'dimensionType', 'setDimension_dimensionType' - The type of segment dimension to use. Valid values are: INCLUSIVE,</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- endpoints that match the criteria are included in the segment; and,</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- EXCLUSIVE, endpoints that match the criteria are excluded from the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- segment.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'values', 'setDimension_values' - The criteria values to use for the segment dimension. Depending on the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- value of the DimensionType property, endpoints are included or excluded</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- from the segment if their values match the criteria values.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#newSetDimension"><span class="hs-identifier hs-type">newSetDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span>
+</span><span id="line-61"></span><span id="newSetDimension"><span class="annot"><span class="annottext">newSetDimension :: SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#newSetDimension"><span class="hs-identifier hs-var hs-var">newSetDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SetDimension' :: Maybe DimensionType -&gt; [Text] -&gt; SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dimensionType:SetDimension' :: Maybe DimensionType
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3AdimensionType%3ASetDimension%27"><span class="hs-identifier hs-var">dimensionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:SetDimension' :: [Text]
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3Avalues%3ASetDimension%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The type of segment dimension to use. Valid values are: INCLUSIVE,</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- endpoints that match the criteria are included in the segment; and,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- EXCLUSIVE, endpoints that match the criteria are excluded from the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- segment.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#setDimension_dimensionType"><span class="hs-identifier hs-type">setDimension_dimensionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-type">DimensionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="setDimension_dimensionType"><span class="annot"><span class="annottext">setDimension_dimensionType :: (Maybe DimensionType -&gt; f (Maybe DimensionType))
+-&gt; SetDimension -&gt; f SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#setDimension_dimensionType"><span class="hs-identifier hs-var hs-var">setDimension_dimensionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Maybe DimensionType)
+-&gt; (SetDimension -&gt; Maybe DimensionType -&gt; SetDimension)
+-&gt; Lens
+     SetDimension
+     SetDimension
+     (Maybe DimensionType)
+     (Maybe DimensionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610048"><span class="annot"><span class="annottext">Maybe DimensionType
+dimensionType :: Maybe DimensionType
+$sel:dimensionType:SetDimension' :: SetDimension -&gt; Maybe DimensionType
+</span><a href="#local-6989586621679610048"><span class="hs-identifier hs-var hs-var">dimensionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679610048"><span class="hs-identifier hs-var">dimensionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610047"><span class="annot"><span class="annottext">s :: SetDimension
+</span><a href="#local-6989586621679610047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610046"><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679610046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDimension
+</span><a href="#local-6989586621679610047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionType:SetDimension' :: Maybe DimensionType
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3AdimensionType%3ASetDimension%27"><span class="hs-identifier hs-var">dimensionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679610046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The criteria values to use for the segment dimension. Depending on the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- value of the DimensionType property, endpoints are included or excluded</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- from the segment if their values match the criteria values.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#setDimension_values"><span class="hs-identifier hs-type">setDimension_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-78"></span><span id="setDimension_values"><span class="annot"><span class="annottext">setDimension_values :: ([Text] -&gt; f [Text]) -&gt; SetDimension -&gt; f SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#setDimension_values"><span class="hs-identifier hs-var hs-var">setDimension_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; [Text])
+-&gt; (SetDimension -&gt; [Text] -&gt; SetDimension)
+-&gt; Lens SetDimension SetDimension [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610044"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:SetDimension' :: SetDimension -&gt; [Text]
+</span><a href="#local-6989586621679610044"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679610044"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610043"><span class="annot"><span class="annottext">s :: SetDimension
+</span><a href="#local-6989586621679610043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610042"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679610042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDimension
+</span><a href="#local-6989586621679610043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:SetDimension' :: [Text]
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#%24sel%3Avalues%3ASetDimension%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679610042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SetDimension -&gt; f SetDimension)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; SetDimension
+-&gt; f SetDimension
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679610035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SetDimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SetDimension) -&gt; Value -&gt; Parser SetDimension
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SetDimension&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610032"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe DimensionType -&gt; [Text] -&gt; SetDimension
+</span><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-var">SetDimension'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DimensionType -&gt; [Text] -&gt; SetDimension)
+-&gt; Parser (Maybe DimensionType) -&gt; Parser ([Text] -&gt; SetDimension)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DimensionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; SetDimension)
+-&gt; Parser [Text] -&gt; Parser SetDimension
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610025"><span id="local-6989586621679610027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610014"><span id="local-6989586621679610016"><span id="local-6989586621679610018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension"><span class="hs-identifier hs-type">SetDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679610012"><span class="annot"><span class="annottext">toJSON :: SetDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SetDimension.html#SetDimension%27"><span class="hs-identifier hs-type">SetDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610009"><span id="local-6989586621679610010"><span class="annot"><span class="annottext">[Text]
+Maybe DimensionType
+values :: [Text]
+dimensionType :: Maybe DimensionType
+$sel:values:SetDimension' :: SetDimension -&gt; [Text]
+$sel:dimensionType:SetDimension' :: SetDimension -&gt; Maybe DimensionType
+</span><a href="#local-6989586621679610009"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DimensionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DimensionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DimensionType -&gt; Pair) -&gt; Maybe DimensionType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DimensionType
+</span><a href="#local-6989586621679610010"><span class="hs-identifier hs-var">dimensionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679610009"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span></pre></body></html>

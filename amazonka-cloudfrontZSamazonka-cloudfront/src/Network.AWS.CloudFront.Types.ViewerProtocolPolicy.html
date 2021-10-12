@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.ViewerProtocolPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.ViewerProtocolPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier">ViewerProtocolPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Allow_all"><span class="hs-identifier">ViewerProtocolPolicy_Allow_all</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Https_only"><span class="hs-identifier">ViewerProtocolPolicy_Https_only</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Redirect_to_https"><span class="hs-identifier">ViewerProtocolPolicy_Redirect_to_https</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679404961"><span id="local-6989586621679404962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ViewerProtocolPolicy"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier hs-var">ViewerProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewerProtocolPolicy%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy%27"><span class="hs-identifier hs-var">ViewerProtocolPolicy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromViewerProtocolPolicy"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; Text
+</span><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#fromViewerProtocolPolicy"><span class="hs-identifier hs-var hs-var">fromViewerProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404953"><span id="local-6989586621679404955"><span id="local-6989586621679404957"><span class="annot"><span class="annottext">Int -&gt; ViewerProtocolPolicy -&gt; ShowS
+[ViewerProtocolPolicy] -&gt; ShowS
+ViewerProtocolPolicy -&gt; String
+(Int -&gt; ViewerProtocolPolicy -&gt; ShowS)
+-&gt; (ViewerProtocolPolicy -&gt; String)
+-&gt; ([ViewerProtocolPolicy] -&gt; ShowS)
+-&gt; Show ViewerProtocolPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ViewerProtocolPolicy] -&gt; ShowS
+$cshowList :: [ViewerProtocolPolicy] -&gt; ShowS
+show :: ViewerProtocolPolicy -&gt; String
+$cshow :: ViewerProtocolPolicy -&gt; String
+showsPrec :: Int -&gt; ViewerProtocolPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; ViewerProtocolPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679404944"><span id="local-6989586621679404946"><span id="local-6989586621679404948"><span id="local-6989586621679404950"><span class="annot"><span class="annottext">ReadPrec [ViewerProtocolPolicy]
+ReadPrec ViewerProtocolPolicy
+Int -&gt; ReadS ViewerProtocolPolicy
+ReadS [ViewerProtocolPolicy]
+(Int -&gt; ReadS ViewerProtocolPolicy)
+-&gt; ReadS [ViewerProtocolPolicy]
+-&gt; ReadPrec ViewerProtocolPolicy
+-&gt; ReadPrec [ViewerProtocolPolicy]
+-&gt; Read ViewerProtocolPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ViewerProtocolPolicy]
+$creadListPrec :: ReadPrec [ViewerProtocolPolicy]
+readPrec :: ReadPrec ViewerProtocolPolicy
+$creadPrec :: ReadPrec ViewerProtocolPolicy
+readList :: ReadS [ViewerProtocolPolicy]
+$creadList :: ReadS [ViewerProtocolPolicy]
+readsPrec :: Int -&gt; ReadS ViewerProtocolPolicy
+$creadsPrec :: Int -&gt; ReadS ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679404939"><span id="local-6989586621679404941"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+(ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; Eq ViewerProtocolPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c/= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+== :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c== :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679404923"><span id="local-6989586621679404925"><span id="local-6989586621679404927"><span id="local-6989586621679404929"><span id="local-6989586621679404931"><span id="local-6989586621679404933"><span id="local-6989586621679404935"><span class="annot"><span class="annottext">Eq ViewerProtocolPolicy
+Eq ViewerProtocolPolicy
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Ordering)
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; (ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool)
+-&gt; (ViewerProtocolPolicy
+    -&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy)
+-&gt; (ViewerProtocolPolicy
+    -&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy)
+-&gt; Ord ViewerProtocolPolicy
+ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Ordering
+ViewerProtocolPolicy
+-&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ViewerProtocolPolicy
+-&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy
+$cmin :: ViewerProtocolPolicy
+-&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy
+max :: ViewerProtocolPolicy
+-&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy
+$cmax :: ViewerProtocolPolicy
+-&gt; ViewerProtocolPolicy -&gt; ViewerProtocolPolicy
+&gt;= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c&gt;= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+&gt; :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c&gt; :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+&lt;= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c&lt;= :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+&lt; :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+$c&lt; :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Bool
+compare :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Ordering
+$ccompare :: ViewerProtocolPolicy -&gt; ViewerProtocolPolicy -&gt; Ordering
+$cp1Ord :: Eq ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ViewerProtocolPolicy -&gt; Rep ViewerProtocolPolicy x)
+-&gt; (forall x. Rep ViewerProtocolPolicy x -&gt; ViewerProtocolPolicy)
+-&gt; Generic ViewerProtocolPolicy
+forall x. Rep ViewerProtocolPolicy x -&gt; ViewerProtocolPolicy
+forall x. ViewerProtocolPolicy -&gt; Rep ViewerProtocolPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ViewerProtocolPolicy x -&gt; ViewerProtocolPolicy
+$cfrom :: forall x. ViewerProtocolPolicy -&gt; Rep ViewerProtocolPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404915"><span id="local-6989586621679404917"><span class="annot"><span class="annottext">Int -&gt; ViewerProtocolPolicy -&gt; Int
+ViewerProtocolPolicy -&gt; Int
+(Int -&gt; ViewerProtocolPolicy -&gt; Int)
+-&gt; (ViewerProtocolPolicy -&gt; Int) -&gt; Hashable ViewerProtocolPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ViewerProtocolPolicy -&gt; Int
+$chash :: ViewerProtocolPolicy -&gt; Int
+hashWithSalt :: Int -&gt; ViewerProtocolPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; ViewerProtocolPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679404912"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; ()
+(ViewerProtocolPolicy -&gt; ()) -&gt; NFData ViewerProtocolPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ViewerProtocolPolicy -&gt; ()
+$crnf :: ViewerProtocolPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404909"><span class="annot"><span class="annottext">Text -&gt; Either String ViewerProtocolPolicy
+(Text -&gt; Either String ViewerProtocolPolicy)
+-&gt; FromText ViewerProtocolPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ViewerProtocolPolicy
+$cfromText :: Text -&gt; Either String ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404906"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; Text
+(ViewerProtocolPolicy -&gt; Text) -&gt; ToText ViewerProtocolPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ViewerProtocolPolicy -&gt; Text
+$ctoText :: ViewerProtocolPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404903"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; ByteString
+(ViewerProtocolPolicy -&gt; ByteString)
+-&gt; ToByteString ViewerProtocolPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ViewerProtocolPolicy -&gt; ByteString
+$ctoBS :: ViewerProtocolPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404900"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; ByteStringBuilder
+(ViewerProtocolPolicy -&gt; ByteStringBuilder)
+-&gt; ToLog ViewerProtocolPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ViewerProtocolPolicy -&gt; ByteStringBuilder
+$cbuild :: ViewerProtocolPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404897"><span class="annot"><span class="annottext">HeaderName -&gt; ViewerProtocolPolicy -&gt; [Header]
+(HeaderName -&gt; ViewerProtocolPolicy -&gt; [Header])
+-&gt; ToHeader ViewerProtocolPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ViewerProtocolPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ViewerProtocolPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404894"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; QueryString
+(ViewerProtocolPolicy -&gt; QueryString)
+-&gt; ToQuery ViewerProtocolPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ViewerProtocolPolicy -&gt; QueryString
+$ctoQuery :: ViewerProtocolPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404889"><span id="local-6989586621679404891"><span class="annot"><span class="annottext">Value -&gt; Parser [ViewerProtocolPolicy]
+Value -&gt; Parser ViewerProtocolPolicy
+(Value -&gt; Parser ViewerProtocolPolicy)
+-&gt; (Value -&gt; Parser [ViewerProtocolPolicy])
+-&gt; FromJSON ViewerProtocolPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ViewerProtocolPolicy]
+$cparseJSONList :: Value -&gt; Parser [ViewerProtocolPolicy]
+parseJSON :: Value -&gt; Parser ViewerProtocolPolicy
+$cparseJSON :: Value -&gt; Parser ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404884"><span id="local-6989586621679404886"><span class="annot"><span class="annottext">FromJSONKeyFunction [ViewerProtocolPolicy]
+FromJSONKeyFunction ViewerProtocolPolicy
+FromJSONKeyFunction ViewerProtocolPolicy
+-&gt; FromJSONKeyFunction [ViewerProtocolPolicy]
+-&gt; FromJSONKey ViewerProtocolPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ViewerProtocolPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [ViewerProtocolPolicy]
+fromJSONKey :: FromJSONKeyFunction ViewerProtocolPolicy
+$cfromJSONKey :: FromJSONKeyFunction ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404875"><span id="local-6989586621679404877"><span id="local-6989586621679404879"><span id="local-6989586621679404881"><span class="annot"><span class="annottext">[ViewerProtocolPolicy] -&gt; Encoding
+[ViewerProtocolPolicy] -&gt; Value
+ViewerProtocolPolicy -&gt; Encoding
+ViewerProtocolPolicy -&gt; Value
+(ViewerProtocolPolicy -&gt; Value)
+-&gt; (ViewerProtocolPolicy -&gt; Encoding)
+-&gt; ([ViewerProtocolPolicy] -&gt; Value)
+-&gt; ([ViewerProtocolPolicy] -&gt; Encoding)
+-&gt; ToJSON ViewerProtocolPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ViewerProtocolPolicy] -&gt; Encoding
+$ctoEncodingList :: [ViewerProtocolPolicy] -&gt; Encoding
+toJSONList :: [ViewerProtocolPolicy] -&gt; Value
+$ctoJSONList :: [ViewerProtocolPolicy] -&gt; Value
+toEncoding :: ViewerProtocolPolicy -&gt; Encoding
+$ctoEncoding :: ViewerProtocolPolicy -&gt; Encoding
+toJSON :: ViewerProtocolPolicy -&gt; Value
+$ctoJSON :: ViewerProtocolPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404870"><span id="local-6989586621679404872"><span class="annot"><span class="annottext">ToJSONKeyFunction [ViewerProtocolPolicy]
+ToJSONKeyFunction ViewerProtocolPolicy
+ToJSONKeyFunction ViewerProtocolPolicy
+-&gt; ToJSONKeyFunction [ViewerProtocolPolicy]
+-&gt; ToJSONKey ViewerProtocolPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ViewerProtocolPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [ViewerProtocolPolicy]
+toJSONKey :: ToJSONKeyFunction ViewerProtocolPolicy
+$ctoJSONKey :: ToJSONKeyFunction ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404867"><span class="annot"><span class="annottext">[Node] -&gt; Either String ViewerProtocolPolicy
+([Node] -&gt; Either String ViewerProtocolPolicy)
+-&gt; FromXML ViewerProtocolPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ViewerProtocolPolicy
+$cparseXML :: [Node] -&gt; Either String ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404864"><span class="annot"><span class="annottext">ViewerProtocolPolicy -&gt; XML
+(ViewerProtocolPolicy -&gt; XML) -&gt; ToXML ViewerProtocolPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ViewerProtocolPolicy -&gt; XML
+$ctoXML :: ViewerProtocolPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Allow_all"><span class="hs-identifier hs-type">ViewerProtocolPolicy_Allow_all</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier hs-type">ViewerProtocolPolicy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bViewerProtocolPolicy_Allow_all"><span id="%24mViewerProtocolPolicy_Allow_all"><span id="ViewerProtocolPolicy_Allow_all"><span class="annot"><span class="annottext">$bViewerProtocolPolicy_Allow_all :: ViewerProtocolPolicy
+$mViewerProtocolPolicy_Allow_all :: forall r. ViewerProtocolPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#%24bViewerProtocolPolicy_Allow_all"><span class="hs-identifier hs-var hs-var hs-var">ViewerProtocolPolicy_Allow_all</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy%27"><span class="hs-identifier hs-type">ViewerProtocolPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;allow-all&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Https_only"><span class="hs-identifier hs-type">ViewerProtocolPolicy_Https_only</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier hs-type">ViewerProtocolPolicy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bViewerProtocolPolicy_Https_only"><span id="%24mViewerProtocolPolicy_Https_only"><span id="ViewerProtocolPolicy_Https_only"><span class="annot"><span class="annottext">$bViewerProtocolPolicy_Https_only :: ViewerProtocolPolicy
+$mViewerProtocolPolicy_Https_only :: forall r. ViewerProtocolPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#%24bViewerProtocolPolicy_Https_only"><span class="hs-identifier hs-var hs-var hs-var">ViewerProtocolPolicy_Https_only</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy%27"><span class="hs-identifier hs-type">ViewerProtocolPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;https-only&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Redirect_to_https"><span class="hs-identifier hs-type">ViewerProtocolPolicy_Redirect_to_https</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier hs-type">ViewerProtocolPolicy</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bViewerProtocolPolicy_Redirect_to_https"><span id="%24mViewerProtocolPolicy_Redirect_to_https"><span id="ViewerProtocolPolicy_Redirect_to_https"><span class="annot"><span class="annottext">$bViewerProtocolPolicy_Redirect_to_https :: ViewerProtocolPolicy
+$mViewerProtocolPolicy_Redirect_to_https :: forall r. ViewerProtocolPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#%24bViewerProtocolPolicy_Redirect_to_https"><span class="hs-identifier hs-var hs-var hs-var">ViewerProtocolPolicy_Redirect_to_https</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy%27"><span class="hs-identifier hs-type">ViewerProtocolPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;redirect-to-https&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Allow_all"><span class="hs-pragma hs-type">ViewerProtocolPolicy_Allow_all</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Https_only"><span class="hs-pragma hs-type">ViewerProtocolPolicy_Https_only</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy_Redirect_to_https"><span class="hs-pragma hs-type">ViewerProtocolPolicy_Redirect_to_https</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy%27"><span class="hs-pragma hs-type">ViewerProtocolPolicy'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

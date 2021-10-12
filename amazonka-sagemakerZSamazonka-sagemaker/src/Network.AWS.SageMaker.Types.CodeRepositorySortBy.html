@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.CodeRepositorySortBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.CodeRepositorySortBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy"><span class="hs-identifier">CodeRepositorySortBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_CreationTime"><span class="hs-identifier">CodeRepositorySortBy_CreationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_LastModifiedTime"><span class="hs-identifier">CodeRepositorySortBy_LastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_Name"><span class="hs-identifier">CodeRepositorySortBy_Name</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680296262"><span id="local-6989586621680296263"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CodeRepositorySortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy"><span class="hs-identifier hs-var">CodeRepositorySortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeRepositorySortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy%27"><span class="hs-identifier hs-var">CodeRepositorySortBy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCodeRepositorySortBy"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#fromCodeRepositorySortBy"><span class="hs-identifier hs-var hs-var">fromCodeRepositorySortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296254"><span id="local-6989586621680296256"><span id="local-6989586621680296258"><span class="annot"><span class="annottext">Int -&gt; CodeRepositorySortBy -&gt; ShowS
+[CodeRepositorySortBy] -&gt; ShowS
+CodeRepositorySortBy -&gt; String
+(Int -&gt; CodeRepositorySortBy -&gt; ShowS)
+-&gt; (CodeRepositorySortBy -&gt; String)
+-&gt; ([CodeRepositorySortBy] -&gt; ShowS)
+-&gt; Show CodeRepositorySortBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CodeRepositorySortBy] -&gt; ShowS
+$cshowList :: [CodeRepositorySortBy] -&gt; ShowS
+show :: CodeRepositorySortBy -&gt; String
+$cshow :: CodeRepositorySortBy -&gt; String
+showsPrec :: Int -&gt; CodeRepositorySortBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; CodeRepositorySortBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680296245"><span id="local-6989586621680296247"><span id="local-6989586621680296249"><span id="local-6989586621680296251"><span class="annot"><span class="annottext">ReadPrec [CodeRepositorySortBy]
+ReadPrec CodeRepositorySortBy
+Int -&gt; ReadS CodeRepositorySortBy
+ReadS [CodeRepositorySortBy]
+(Int -&gt; ReadS CodeRepositorySortBy)
+-&gt; ReadS [CodeRepositorySortBy]
+-&gt; ReadPrec CodeRepositorySortBy
+-&gt; ReadPrec [CodeRepositorySortBy]
+-&gt; Read CodeRepositorySortBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CodeRepositorySortBy]
+$creadListPrec :: ReadPrec [CodeRepositorySortBy]
+readPrec :: ReadPrec CodeRepositorySortBy
+$creadPrec :: ReadPrec CodeRepositorySortBy
+readList :: ReadS [CodeRepositorySortBy]
+$creadList :: ReadS [CodeRepositorySortBy]
+readsPrec :: Int -&gt; ReadS CodeRepositorySortBy
+$creadsPrec :: Int -&gt; ReadS CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680296240"><span id="local-6989586621680296242"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+(CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; Eq CodeRepositorySortBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c/= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+== :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c== :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680296224"><span id="local-6989586621680296226"><span id="local-6989586621680296228"><span id="local-6989586621680296230"><span id="local-6989586621680296232"><span id="local-6989586621680296234"><span id="local-6989586621680296236"><span class="annot"><span class="annottext">Eq CodeRepositorySortBy
+Eq CodeRepositorySortBy
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Ordering)
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; (CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool)
+-&gt; (CodeRepositorySortBy
+    -&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy)
+-&gt; (CodeRepositorySortBy
+    -&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy)
+-&gt; Ord CodeRepositorySortBy
+CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Ordering
+CodeRepositorySortBy
+-&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CodeRepositorySortBy
+-&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy
+$cmin :: CodeRepositorySortBy
+-&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy
+max :: CodeRepositorySortBy
+-&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy
+$cmax :: CodeRepositorySortBy
+-&gt; CodeRepositorySortBy -&gt; CodeRepositorySortBy
+&gt;= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c&gt;= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+&gt; :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c&gt; :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+&lt;= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c&lt;= :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+&lt; :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+$c&lt; :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Bool
+compare :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Ordering
+$ccompare :: CodeRepositorySortBy -&gt; CodeRepositorySortBy -&gt; Ordering
+$cp1Ord :: Eq CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CodeRepositorySortBy -&gt; Rep CodeRepositorySortBy x)
+-&gt; (forall x. Rep CodeRepositorySortBy x -&gt; CodeRepositorySortBy)
+-&gt; Generic CodeRepositorySortBy
+forall x. Rep CodeRepositorySortBy x -&gt; CodeRepositorySortBy
+forall x. CodeRepositorySortBy -&gt; Rep CodeRepositorySortBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CodeRepositorySortBy x -&gt; CodeRepositorySortBy
+$cfrom :: forall x. CodeRepositorySortBy -&gt; Rep CodeRepositorySortBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296216"><span id="local-6989586621680296218"><span class="annot"><span class="annottext">Int -&gt; CodeRepositorySortBy -&gt; Int
+CodeRepositorySortBy -&gt; Int
+(Int -&gt; CodeRepositorySortBy -&gt; Int)
+-&gt; (CodeRepositorySortBy -&gt; Int) -&gt; Hashable CodeRepositorySortBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CodeRepositorySortBy -&gt; Int
+$chash :: CodeRepositorySortBy -&gt; Int
+hashWithSalt :: Int -&gt; CodeRepositorySortBy -&gt; Int
+$chashWithSalt :: Int -&gt; CodeRepositorySortBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680296213"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; ()
+(CodeRepositorySortBy -&gt; ()) -&gt; NFData CodeRepositorySortBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CodeRepositorySortBy -&gt; ()
+$crnf :: CodeRepositorySortBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680296210"><span class="annot"><span class="annottext">Text -&gt; Either String CodeRepositorySortBy
+(Text -&gt; Either String CodeRepositorySortBy)
+-&gt; FromText CodeRepositorySortBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CodeRepositorySortBy
+$cfromText :: Text -&gt; Either String CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680296207"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; Text
+(CodeRepositorySortBy -&gt; Text) -&gt; ToText CodeRepositorySortBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CodeRepositorySortBy -&gt; Text
+$ctoText :: CodeRepositorySortBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680296204"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; ByteString
+(CodeRepositorySortBy -&gt; ByteString)
+-&gt; ToByteString CodeRepositorySortBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CodeRepositorySortBy -&gt; ByteString
+$ctoBS :: CodeRepositorySortBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680296201"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; ByteStringBuilder
+(CodeRepositorySortBy -&gt; ByteStringBuilder)
+-&gt; ToLog CodeRepositorySortBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CodeRepositorySortBy -&gt; ByteStringBuilder
+$cbuild :: CodeRepositorySortBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680296198"><span class="annot"><span class="annottext">HeaderName -&gt; CodeRepositorySortBy -&gt; [Header]
+(HeaderName -&gt; CodeRepositorySortBy -&gt; [Header])
+-&gt; ToHeader CodeRepositorySortBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CodeRepositorySortBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CodeRepositorySortBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680296195"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; QueryString
+(CodeRepositorySortBy -&gt; QueryString)
+-&gt; ToQuery CodeRepositorySortBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CodeRepositorySortBy -&gt; QueryString
+$ctoQuery :: CodeRepositorySortBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296190"><span id="local-6989586621680296192"><span class="annot"><span class="annottext">Value -&gt; Parser [CodeRepositorySortBy]
+Value -&gt; Parser CodeRepositorySortBy
+(Value -&gt; Parser CodeRepositorySortBy)
+-&gt; (Value -&gt; Parser [CodeRepositorySortBy])
+-&gt; FromJSON CodeRepositorySortBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CodeRepositorySortBy]
+$cparseJSONList :: Value -&gt; Parser [CodeRepositorySortBy]
+parseJSON :: Value -&gt; Parser CodeRepositorySortBy
+$cparseJSON :: Value -&gt; Parser CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296185"><span id="local-6989586621680296187"><span class="annot"><span class="annottext">FromJSONKeyFunction [CodeRepositorySortBy]
+FromJSONKeyFunction CodeRepositorySortBy
+FromJSONKeyFunction CodeRepositorySortBy
+-&gt; FromJSONKeyFunction [CodeRepositorySortBy]
+-&gt; FromJSONKey CodeRepositorySortBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CodeRepositorySortBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [CodeRepositorySortBy]
+fromJSONKey :: FromJSONKeyFunction CodeRepositorySortBy
+$cfromJSONKey :: FromJSONKeyFunction CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296176"><span id="local-6989586621680296178"><span id="local-6989586621680296180"><span id="local-6989586621680296182"><span class="annot"><span class="annottext">[CodeRepositorySortBy] -&gt; Encoding
+[CodeRepositorySortBy] -&gt; Value
+CodeRepositorySortBy -&gt; Encoding
+CodeRepositorySortBy -&gt; Value
+(CodeRepositorySortBy -&gt; Value)
+-&gt; (CodeRepositorySortBy -&gt; Encoding)
+-&gt; ([CodeRepositorySortBy] -&gt; Value)
+-&gt; ([CodeRepositorySortBy] -&gt; Encoding)
+-&gt; ToJSON CodeRepositorySortBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CodeRepositorySortBy] -&gt; Encoding
+$ctoEncodingList :: [CodeRepositorySortBy] -&gt; Encoding
+toJSONList :: [CodeRepositorySortBy] -&gt; Value
+$ctoJSONList :: [CodeRepositorySortBy] -&gt; Value
+toEncoding :: CodeRepositorySortBy -&gt; Encoding
+$ctoEncoding :: CodeRepositorySortBy -&gt; Encoding
+toJSON :: CodeRepositorySortBy -&gt; Value
+$ctoJSON :: CodeRepositorySortBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296171"><span id="local-6989586621680296173"><span class="annot"><span class="annottext">ToJSONKeyFunction [CodeRepositorySortBy]
+ToJSONKeyFunction CodeRepositorySortBy
+ToJSONKeyFunction CodeRepositorySortBy
+-&gt; ToJSONKeyFunction [CodeRepositorySortBy]
+-&gt; ToJSONKey CodeRepositorySortBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CodeRepositorySortBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [CodeRepositorySortBy]
+toJSONKey :: ToJSONKeyFunction CodeRepositorySortBy
+$ctoJSONKey :: ToJSONKeyFunction CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296168"><span class="annot"><span class="annottext">[Node] -&gt; Either String CodeRepositorySortBy
+([Node] -&gt; Either String CodeRepositorySortBy)
+-&gt; FromXML CodeRepositorySortBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CodeRepositorySortBy
+$cparseXML :: [Node] -&gt; Either String CodeRepositorySortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680296165"><span class="annot"><span class="annottext">CodeRepositorySortBy -&gt; XML
+(CodeRepositorySortBy -&gt; XML) -&gt; ToXML CodeRepositorySortBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CodeRepositorySortBy -&gt; XML
+$ctoXML :: CodeRepositorySortBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_CreationTime"><span class="hs-identifier hs-type">CodeRepositorySortBy_CreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy"><span class="hs-identifier hs-type">CodeRepositorySortBy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCodeRepositorySortBy_CreationTime"><span id="%24mCodeRepositorySortBy_CreationTime"><span id="CodeRepositorySortBy_CreationTime"><span class="annot"><span class="annottext">$bCodeRepositorySortBy_CreationTime :: CodeRepositorySortBy
+$mCodeRepositorySortBy_CreationTime :: forall r. CodeRepositorySortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#%24bCodeRepositorySortBy_CreationTime"><span class="hs-identifier hs-var hs-var hs-var">CodeRepositorySortBy_CreationTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy%27"><span class="hs-identifier hs-type">CodeRepositorySortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreationTime&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_LastModifiedTime"><span class="hs-identifier hs-type">CodeRepositorySortBy_LastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy"><span class="hs-identifier hs-type">CodeRepositorySortBy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCodeRepositorySortBy_LastModifiedTime"><span id="%24mCodeRepositorySortBy_LastModifiedTime"><span id="CodeRepositorySortBy_LastModifiedTime"><span class="annot"><span class="annottext">$bCodeRepositorySortBy_LastModifiedTime :: CodeRepositorySortBy
+$mCodeRepositorySortBy_LastModifiedTime :: forall r. CodeRepositorySortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#%24bCodeRepositorySortBy_LastModifiedTime"><span class="hs-identifier hs-var hs-var hs-var">CodeRepositorySortBy_LastModifiedTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy%27"><span class="hs-identifier hs-type">CodeRepositorySortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_Name"><span class="hs-identifier hs-type">CodeRepositorySortBy_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy"><span class="hs-identifier hs-type">CodeRepositorySortBy</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCodeRepositorySortBy_Name"><span id="%24mCodeRepositorySortBy_Name"><span id="CodeRepositorySortBy_Name"><span class="annot"><span class="annottext">$bCodeRepositorySortBy_Name :: CodeRepositorySortBy
+$mCodeRepositorySortBy_Name :: forall r. CodeRepositorySortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#%24bCodeRepositorySortBy_Name"><span class="hs-identifier hs-var hs-var hs-var">CodeRepositorySortBy_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy%27"><span class="hs-identifier hs-type">CodeRepositorySortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_CreationTime"><span class="hs-pragma hs-type">CodeRepositorySortBy_CreationTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_LastModifiedTime"><span class="hs-pragma hs-type">CodeRepositorySortBy_LastModifiedTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy_Name"><span class="hs-pragma hs-type">CodeRepositorySortBy_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySortBy.html#CodeRepositorySortBy%27"><span class="hs-pragma hs-type">CodeRepositorySortBy'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

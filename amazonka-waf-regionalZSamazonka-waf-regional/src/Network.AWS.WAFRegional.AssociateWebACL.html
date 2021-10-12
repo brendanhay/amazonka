@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WAFRegional.AssociateWebACL</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic Regional__ documentation. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Associates a web ACL with a resource, either an application load</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- balancer or Amazon API Gateway stage.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WAFRegional.AssociateWebACL</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier">AssociateWebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACL"><span class="hs-identifier">newAssociateWebACL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_webACLId"><span class="hs-identifier">associateWebACL_webACLId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_resourceArn"><span class="hs-identifier">associateWebACL_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier">AssociateWebACLResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACLResponse"><span class="hs-identifier">newAssociateWebACLResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACLResponse_httpStatus"><span class="hs-identifier">associateWebACLResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newAssociateWebACL' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679327724"><span id="local-6989586621679327725"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateWebACL"><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-var">AssociateWebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateWebACL%27"><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-var">AssociateWebACL'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier (ID) for the web ACL.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AwebACLId%3AAssociateWebACL%27"><span class="annot"><span class="annottext">AssociateWebACL -&gt; Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AwebACLId%3AAssociateWebACL%27"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource to be protected, either</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- an application load balancer or Amazon API Gateway stage.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The ARN should be in one of the following formats:</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   For an Application Load Balancer:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   For an Amazon API Gateway stage:</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AresourceArn%3AAssociateWebACL%27"><span class="annot"><span class="annottext">AssociateWebACL -&gt; Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AresourceArn%3AAssociateWebACL%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327717"><span id="local-6989586621679327719"><span class="annot"><span class="annottext">AssociateWebACL -&gt; AssociateWebACL -&gt; Bool
+(AssociateWebACL -&gt; AssociateWebACL -&gt; Bool)
+-&gt; (AssociateWebACL -&gt; AssociateWebACL -&gt; Bool)
+-&gt; Eq AssociateWebACL
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateWebACL -&gt; AssociateWebACL -&gt; Bool
+$c/= :: AssociateWebACL -&gt; AssociateWebACL -&gt; Bool
+== :: AssociateWebACL -&gt; AssociateWebACL -&gt; Bool
+$c== :: AssociateWebACL -&gt; AssociateWebACL -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327708"><span id="local-6989586621679327710"><span id="local-6989586621679327712"><span id="local-6989586621679327714"><span class="annot"><span class="annottext">ReadPrec [AssociateWebACL]
+ReadPrec AssociateWebACL
+Int -&gt; ReadS AssociateWebACL
+ReadS [AssociateWebACL]
+(Int -&gt; ReadS AssociateWebACL)
+-&gt; ReadS [AssociateWebACL]
+-&gt; ReadPrec AssociateWebACL
+-&gt; ReadPrec [AssociateWebACL]
+-&gt; Read AssociateWebACL
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateWebACL]
+$creadListPrec :: ReadPrec [AssociateWebACL]
+readPrec :: ReadPrec AssociateWebACL
+$creadPrec :: ReadPrec AssociateWebACL
+readList :: ReadS [AssociateWebACL]
+$creadList :: ReadS [AssociateWebACL]
+readsPrec :: Int -&gt; ReadS AssociateWebACL
+$creadsPrec :: Int -&gt; ReadS AssociateWebACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327701"><span id="local-6989586621679327703"><span id="local-6989586621679327705"><span class="annot"><span class="annottext">Int -&gt; AssociateWebACL -&gt; ShowS
+[AssociateWebACL] -&gt; ShowS
+AssociateWebACL -&gt; String
+(Int -&gt; AssociateWebACL -&gt; ShowS)
+-&gt; (AssociateWebACL -&gt; String)
+-&gt; ([AssociateWebACL] -&gt; ShowS)
+-&gt; Show AssociateWebACL
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateWebACL] -&gt; ShowS
+$cshowList :: [AssociateWebACL] -&gt; ShowS
+show :: AssociateWebACL -&gt; String
+$cshow :: AssociateWebACL -&gt; String
+showsPrec :: Int -&gt; AssociateWebACL -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateWebACL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateWebACL -&gt; Rep AssociateWebACL x)
+-&gt; (forall x. Rep AssociateWebACL x -&gt; AssociateWebACL)
+-&gt; Generic AssociateWebACL
+forall x. Rep AssociateWebACL x -&gt; AssociateWebACL
+forall x. AssociateWebACL -&gt; Rep AssociateWebACL x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateWebACL x -&gt; AssociateWebACL
+$cfrom :: forall x. AssociateWebACL -&gt; Rep AssociateWebACL x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'AssociateWebACL' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'webACLId', 'associateWebACL_webACLId' - A unique identifier (ID) for the web ACL.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'resourceArn', 'associateWebACL_resourceArn' - The ARN (Amazon Resource Name) of the resource to be protected, either</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- an application load balancer or Amazon API Gateway stage.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The ARN should be in one of the following formats:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   For an Application Load Balancer:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   For an Amazon API Gateway stage:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACL"><span class="hs-identifier hs-type">newAssociateWebACL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'webACLId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span>
+</span><span id="line-104"></span><span id="newAssociateWebACL"><span class="annot"><span class="annottext">newAssociateWebACL :: Text -&gt; Text -&gt; AssociateWebACL
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACL"><span class="hs-identifier hs-var hs-var">newAssociateWebACL</span></a></span></span><span> </span><span id="local-6989586621679327696"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327696"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span id="local-6989586621679327695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327695"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">AssociateWebACL' :: Text -&gt; Text -&gt; AssociateWebACL
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webACLId:AssociateWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AwebACLId%3AAssociateWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327696"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:AssociateWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AresourceArn%3AAssociateWebACL%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327695"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A unique identifier (ID) for the web ACL.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_webACLId"><span class="hs-identifier hs-type">associateWebACL_webACLId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="associateWebACL_webACLId"><span class="annot"><span class="annottext">associateWebACL_webACLId :: (Text -&gt; f Text) -&gt; AssociateWebACL -&gt; f AssociateWebACL
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_webACLId"><span class="hs-identifier hs-var hs-var">associateWebACL_webACLId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateWebACL -&gt; Text)
+-&gt; (AssociateWebACL -&gt; Text -&gt; AssociateWebACL)
+-&gt; Lens AssociateWebACL AssociateWebACL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327692"><span class="annot"><span class="annottext">Text
+webACLId :: Text
+$sel:webACLId:AssociateWebACL' :: AssociateWebACL -&gt; Text
+</span><a href="#local-6989586621679327692"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327692"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327691"><span class="annot"><span class="annottext">s :: AssociateWebACL
+</span><a href="#local-6989586621679327691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateWebACL
+</span><a href="#local-6989586621679327691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:AssociateWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AwebACLId%3AAssociateWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource to be protected, either</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- an application load balancer or Amazon API Gateway stage.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The ARN should be in one of the following formats:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   For an Application Load Balancer:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   For an Amazon API Gateway stage:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_resourceArn"><span class="hs-identifier hs-type">associateWebACL_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="associateWebACL_resourceArn"><span class="annot"><span class="annottext">associateWebACL_resourceArn :: (Text -&gt; f Text) -&gt; AssociateWebACL -&gt; f AssociateWebACL
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACL_resourceArn"><span class="hs-identifier hs-var hs-var">associateWebACL_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateWebACL -&gt; Text)
+-&gt; (AssociateWebACL -&gt; Text -&gt; AssociateWebACL)
+-&gt; Lens AssociateWebACL AssociateWebACL Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327689"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:AssociateWebACL' :: AssociateWebACL -&gt; Text
+</span><a href="#local-6989586621679327689"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327689"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327688"><span class="annot"><span class="annottext">s :: AssociateWebACL
+</span><a href="#local-6989586621679327688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateWebACL
+</span><a href="#local-6989586621679327688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AssociateWebACL' :: Text
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AresourceArn%3AAssociateWebACL%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-type">AssociateWebACLResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679327683"><span class="annot"><span class="annottext">request :: AssociateWebACL -&gt; Request AssociateWebACL
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateWebACL -&gt; Request AssociateWebACL
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679327679"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateWebACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateWebACL)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateWebACL))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateWebACL
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateWebACL)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327676"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679327675"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679327675"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679327674"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679327674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateWebACLResponse
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse%27"><span class="hs-identifier hs-var">AssociateWebACLResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateWebACLResponse)
+-&gt; Either String Int -&gt; Either String AssociateWebACLResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327676"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327667"><span id="local-6989586621679327669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679327660"><span class="annot"><span class="annottext">toHeaders :: AssociateWebACL -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateWebACL -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_Regional_20161128.AssociateWebACL&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327650"><span id="local-6989586621679327652"><span id="local-6989586621679327654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679327648"><span class="annot"><span class="annottext">toJSON :: AssociateWebACL -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL%27"><span class="hs-identifier hs-type">AssociateWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327645"><span id="local-6989586621679327646"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+webACLId :: Text
+$sel:resourceArn:AssociateWebACL' :: AssociateWebACL -&gt; Text
+$sel:webACLId:AssociateWebACL' :: AssociateWebACL -&gt; Text
+</span><a href="#local-6989586621679327645"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WebACLId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327646"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327645"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679327639"><span class="annot"><span class="annottext">toPath :: AssociateWebACL -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateWebACL -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACL"><span class="hs-identifier hs-type">AssociateWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679327635"><span class="annot"><span class="annottext">toQuery :: AssociateWebACL -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateWebACL -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newAssociateWebACLResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679327632"><span id="local-6989586621679327633"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateWebACLResponse"><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-var">AssociateWebACLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateWebACLResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse%27"><span class="hs-identifier hs-var">AssociateWebACLResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateWebACLResponse%27"><span class="annot"><span class="annottext">AssociateWebACLResponse -&gt; Int
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AhttpStatus%3AAssociateWebACLResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327627"><span id="local-6989586621679327629"><span class="annot"><span class="annottext">AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool
+(AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool)
+-&gt; (AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool)
+-&gt; Eq AssociateWebACLResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool
+$c/= :: AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool
+== :: AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool
+$c== :: AssociateWebACLResponse -&gt; AssociateWebACLResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327619"><span id="local-6989586621679327621"><span id="local-6989586621679327623"><span id="local-6989586621679327625"><span class="annot"><span class="annottext">ReadPrec [AssociateWebACLResponse]
+ReadPrec AssociateWebACLResponse
+Int -&gt; ReadS AssociateWebACLResponse
+ReadS [AssociateWebACLResponse]
+(Int -&gt; ReadS AssociateWebACLResponse)
+-&gt; ReadS [AssociateWebACLResponse]
+-&gt; ReadPrec AssociateWebACLResponse
+-&gt; ReadPrec [AssociateWebACLResponse]
+-&gt; Read AssociateWebACLResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateWebACLResponse]
+$creadListPrec :: ReadPrec [AssociateWebACLResponse]
+readPrec :: ReadPrec AssociateWebACLResponse
+$creadPrec :: ReadPrec AssociateWebACLResponse
+readList :: ReadS [AssociateWebACLResponse]
+$creadList :: ReadS [AssociateWebACLResponse]
+readsPrec :: Int -&gt; ReadS AssociateWebACLResponse
+$creadsPrec :: Int -&gt; ReadS AssociateWebACLResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327613"><span id="local-6989586621679327615"><span id="local-6989586621679327617"><span class="annot"><span class="annottext">Int -&gt; AssociateWebACLResponse -&gt; ShowS
+[AssociateWebACLResponse] -&gt; ShowS
+AssociateWebACLResponse -&gt; String
+(Int -&gt; AssociateWebACLResponse -&gt; ShowS)
+-&gt; (AssociateWebACLResponse -&gt; String)
+-&gt; ([AssociateWebACLResponse] -&gt; ShowS)
+-&gt; Show AssociateWebACLResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateWebACLResponse] -&gt; ShowS
+$cshowList :: [AssociateWebACLResponse] -&gt; ShowS
+show :: AssociateWebACLResponse -&gt; String
+$cshow :: AssociateWebACLResponse -&gt; String
+showsPrec :: Int -&gt; AssociateWebACLResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateWebACLResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateWebACLResponse -&gt; Rep AssociateWebACLResponse x)
+-&gt; (forall x.
+    Rep AssociateWebACLResponse x -&gt; AssociateWebACLResponse)
+-&gt; Generic AssociateWebACLResponse
+forall x. Rep AssociateWebACLResponse x -&gt; AssociateWebACLResponse
+forall x. AssociateWebACLResponse -&gt; Rep AssociateWebACLResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateWebACLResponse x -&gt; AssociateWebACLResponse
+$cfrom :: forall x. AssociateWebACLResponse -&gt; Rep AssociateWebACLResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'AssociateWebACLResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'associateWebACLResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACLResponse"><span class="hs-identifier hs-type">newAssociateWebACLResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-type">AssociateWebACLResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newAssociateWebACLResponse"><span class="annot"><span class="annottext">newAssociateWebACLResponse :: Int -&gt; AssociateWebACLResponse
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#newAssociateWebACLResponse"><span class="hs-identifier hs-var hs-var">newAssociateWebACLResponse</span></a></span></span><span> </span><span id="local-6989586621679327610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">AssociateWebACLResponse' :: Int -&gt; AssociateWebACLResponse
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse%27"><span class="hs-identifier hs-type">AssociateWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateWebACLResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AhttpStatus%3AAssociateWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACLResponse_httpStatus"><span class="hs-identifier hs-type">associateWebACLResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-type">AssociateWebACLResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="associateWebACLResponse_httpStatus"><span class="annot"><span class="annottext">associateWebACLResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateWebACLResponse -&gt; f AssociateWebACLResponse
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#associateWebACLResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateWebACLResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateWebACLResponse -&gt; Int)
+-&gt; (AssociateWebACLResponse -&gt; Int -&gt; AssociateWebACLResponse)
+-&gt; Lens AssociateWebACLResponse AssociateWebACLResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse%27"><span class="hs-identifier hs-type">AssociateWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327609"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateWebACLResponse' :: AssociateWebACLResponse -&gt; Int
+</span><a href="#local-6989586621679327609"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327609"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327608"><span class="annot"><span class="annottext">s :: AssociateWebACLResponse
+</span><a href="#local-6989586621679327608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse%27"><span class="hs-identifier hs-type">AssociateWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327607"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateWebACLResponse
+</span><a href="#local-6989586621679327608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateWebACLResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.AssociateWebACL.html#%24sel%3AhttpStatus%3AAssociateWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-type">AssociateWebACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.AssociateWebACL.html#AssociateWebACLResponse"><span class="hs-identifier hs-type">AssociateWebACLResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

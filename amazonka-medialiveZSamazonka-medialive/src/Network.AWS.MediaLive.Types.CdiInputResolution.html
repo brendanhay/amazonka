@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.CdiInputResolution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.CdiInputResolution</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier">CdiInputResolution</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_FHD"><span class="hs-identifier">CdiInputResolution_FHD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_HD"><span class="hs-identifier">CdiInputResolution_HD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_SD"><span class="hs-identifier">CdiInputResolution_SD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_UHD"><span class="hs-identifier">CdiInputResolution_UHD</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Maximum CDI input resolution; SD is 480i and 576i up to 30</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- frames-per-second (fps), HD is 720p up to 60 fps \/ 1080i up to 30 fps,</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- FHD is 1080p up to 60 fps, UHD is 2160p up to 60 fps</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679862895"><span id="local-6989586621679862896"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CdiInputResolution"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-var">CdiInputResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CdiInputResolution%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-var">CdiInputResolution'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCdiInputResolution"><span class="annot"><span class="annottext">CdiInputResolution -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#fromCdiInputResolution"><span class="hs-identifier hs-var hs-var">fromCdiInputResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862887"><span id="local-6989586621679862889"><span id="local-6989586621679862891"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; ShowS
+[CdiInputResolution] -&gt; ShowS
+CdiInputResolution -&gt; String
+(Int -&gt; CdiInputResolution -&gt; ShowS)
+-&gt; (CdiInputResolution -&gt; String)
+-&gt; ([CdiInputResolution] -&gt; ShowS)
+-&gt; Show CdiInputResolution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CdiInputResolution] -&gt; ShowS
+$cshowList :: [CdiInputResolution] -&gt; ShowS
+show :: CdiInputResolution -&gt; String
+$cshow :: CdiInputResolution -&gt; String
+showsPrec :: Int -&gt; CdiInputResolution -&gt; ShowS
+$cshowsPrec :: Int -&gt; CdiInputResolution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679862878"><span id="local-6989586621679862880"><span id="local-6989586621679862882"><span id="local-6989586621679862884"><span class="annot"><span class="annottext">ReadPrec [CdiInputResolution]
+ReadPrec CdiInputResolution
+Int -&gt; ReadS CdiInputResolution
+ReadS [CdiInputResolution]
+(Int -&gt; ReadS CdiInputResolution)
+-&gt; ReadS [CdiInputResolution]
+-&gt; ReadPrec CdiInputResolution
+-&gt; ReadPrec [CdiInputResolution]
+-&gt; Read CdiInputResolution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CdiInputResolution]
+$creadListPrec :: ReadPrec [CdiInputResolution]
+readPrec :: ReadPrec CdiInputResolution
+$creadPrec :: ReadPrec CdiInputResolution
+readList :: ReadS [CdiInputResolution]
+$creadList :: ReadS [CdiInputResolution]
+readsPrec :: Int -&gt; ReadS CdiInputResolution
+$creadsPrec :: Int -&gt; ReadS CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679862873"><span id="local-6989586621679862875"><span class="annot"><span class="annottext">CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+(CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; Eq CdiInputResolution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c/= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+== :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c== :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679862857"><span id="local-6989586621679862859"><span id="local-6989586621679862861"><span id="local-6989586621679862863"><span id="local-6989586621679862865"><span id="local-6989586621679862867"><span id="local-6989586621679862869"><span class="annot"><span class="annottext">Eq CdiInputResolution
+Eq CdiInputResolution
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Ordering)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution)
+-&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution)
+-&gt; Ord CdiInputResolution
+CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+CdiInputResolution -&gt; CdiInputResolution -&gt; Ordering
+CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution
+$cmin :: CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution
+max :: CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution
+$cmax :: CdiInputResolution -&gt; CdiInputResolution -&gt; CdiInputResolution
+&gt;= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c&gt;= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+&gt; :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c&gt; :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+&lt;= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c&lt;= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+&lt; :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+$c&lt; :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+compare :: CdiInputResolution -&gt; CdiInputResolution -&gt; Ordering
+$ccompare :: CdiInputResolution -&gt; CdiInputResolution -&gt; Ordering
+$cp1Ord :: Eq CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CdiInputResolution -&gt; Rep CdiInputResolution x)
+-&gt; (forall x. Rep CdiInputResolution x -&gt; CdiInputResolution)
+-&gt; Generic CdiInputResolution
+forall x. Rep CdiInputResolution x -&gt; CdiInputResolution
+forall x. CdiInputResolution -&gt; Rep CdiInputResolution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CdiInputResolution x -&gt; CdiInputResolution
+$cfrom :: forall x. CdiInputResolution -&gt; Rep CdiInputResolution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862849"><span id="local-6989586621679862851"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; Int
+CdiInputResolution -&gt; Int
+(Int -&gt; CdiInputResolution -&gt; Int)
+-&gt; (CdiInputResolution -&gt; Int) -&gt; Hashable CdiInputResolution
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CdiInputResolution -&gt; Int
+$chash :: CdiInputResolution -&gt; Int
+hashWithSalt :: Int -&gt; CdiInputResolution -&gt; Int
+$chashWithSalt :: Int -&gt; CdiInputResolution -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862846"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ()
+(CdiInputResolution -&gt; ()) -&gt; NFData CdiInputResolution
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CdiInputResolution -&gt; ()
+$crnf :: CdiInputResolution -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862843"><span class="annot"><span class="annottext">Text -&gt; Either String CdiInputResolution
+(Text -&gt; Either String CdiInputResolution)
+-&gt; FromText CdiInputResolution
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CdiInputResolution
+$cfromText :: Text -&gt; Either String CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862840"><span class="annot"><span class="annottext">CdiInputResolution -&gt; Text
+(CdiInputResolution -&gt; Text) -&gt; ToText CdiInputResolution
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CdiInputResolution -&gt; Text
+$ctoText :: CdiInputResolution -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862837"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteString
+(CdiInputResolution -&gt; ByteString)
+-&gt; ToByteString CdiInputResolution
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CdiInputResolution -&gt; ByteString
+$ctoBS :: CdiInputResolution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862834"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteStringBuilder
+(CdiInputResolution -&gt; ByteStringBuilder)
+-&gt; ToLog CdiInputResolution
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CdiInputResolution -&gt; ByteStringBuilder
+$cbuild :: CdiInputResolution -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862831"><span class="annot"><span class="annottext">HeaderName -&gt; CdiInputResolution -&gt; [Header]
+(HeaderName -&gt; CdiInputResolution -&gt; [Header])
+-&gt; ToHeader CdiInputResolution
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CdiInputResolution -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CdiInputResolution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679862828"><span class="annot"><span class="annottext">CdiInputResolution -&gt; QueryString
+(CdiInputResolution -&gt; QueryString) -&gt; ToQuery CdiInputResolution
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CdiInputResolution -&gt; QueryString
+$ctoQuery :: CdiInputResolution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679862823"><span id="local-6989586621679862825"><span class="annot"><span class="annottext">Value -&gt; Parser [CdiInputResolution]
+Value -&gt; Parser CdiInputResolution
+(Value -&gt; Parser CdiInputResolution)
+-&gt; (Value -&gt; Parser [CdiInputResolution])
+-&gt; FromJSON CdiInputResolution
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CdiInputResolution]
+$cparseJSONList :: Value -&gt; Parser [CdiInputResolution]
+parseJSON :: Value -&gt; Parser CdiInputResolution
+$cparseJSON :: Value -&gt; Parser CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679862818"><span id="local-6989586621679862820"><span class="annot"><span class="annottext">FromJSONKeyFunction [CdiInputResolution]
+FromJSONKeyFunction CdiInputResolution
+FromJSONKeyFunction CdiInputResolution
+-&gt; FromJSONKeyFunction [CdiInputResolution]
+-&gt; FromJSONKey CdiInputResolution
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CdiInputResolution]
+$cfromJSONKeyList :: FromJSONKeyFunction [CdiInputResolution]
+fromJSONKey :: FromJSONKeyFunction CdiInputResolution
+$cfromJSONKey :: FromJSONKeyFunction CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679862809"><span id="local-6989586621679862811"><span id="local-6989586621679862813"><span id="local-6989586621679862815"><span class="annot"><span class="annottext">[CdiInputResolution] -&gt; Encoding
+[CdiInputResolution] -&gt; Value
+CdiInputResolution -&gt; Encoding
+CdiInputResolution -&gt; Value
+(CdiInputResolution -&gt; Value)
+-&gt; (CdiInputResolution -&gt; Encoding)
+-&gt; ([CdiInputResolution] -&gt; Value)
+-&gt; ([CdiInputResolution] -&gt; Encoding)
+-&gt; ToJSON CdiInputResolution
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CdiInputResolution] -&gt; Encoding
+$ctoEncodingList :: [CdiInputResolution] -&gt; Encoding
+toJSONList :: [CdiInputResolution] -&gt; Value
+$ctoJSONList :: [CdiInputResolution] -&gt; Value
+toEncoding :: CdiInputResolution -&gt; Encoding
+$ctoEncoding :: CdiInputResolution -&gt; Encoding
+toJSON :: CdiInputResolution -&gt; Value
+$ctoJSON :: CdiInputResolution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679862804"><span id="local-6989586621679862806"><span class="annot"><span class="annottext">ToJSONKeyFunction [CdiInputResolution]
+ToJSONKeyFunction CdiInputResolution
+ToJSONKeyFunction CdiInputResolution
+-&gt; ToJSONKeyFunction [CdiInputResolution]
+-&gt; ToJSONKey CdiInputResolution
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CdiInputResolution]
+$ctoJSONKeyList :: ToJSONKeyFunction [CdiInputResolution]
+toJSONKey :: ToJSONKeyFunction CdiInputResolution
+$ctoJSONKey :: ToJSONKeyFunction CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679862801"><span class="annot"><span class="annottext">[Node] -&gt; Either String CdiInputResolution
+([Node] -&gt; Either String CdiInputResolution)
+-&gt; FromXML CdiInputResolution
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CdiInputResolution
+$cparseXML :: [Node] -&gt; Either String CdiInputResolution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679862798"><span class="annot"><span class="annottext">CdiInputResolution -&gt; XML
+(CdiInputResolution -&gt; XML) -&gt; ToXML CdiInputResolution
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CdiInputResolution -&gt; XML
+$ctoXML :: CdiInputResolution -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_FHD"><span class="hs-identifier hs-type">CdiInputResolution_FHD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-type">CdiInputResolution</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCdiInputResolution_FHD"><span id="%24mCdiInputResolution_FHD"><span id="CdiInputResolution_FHD"><span class="annot"><span class="annottext">$bCdiInputResolution_FHD :: CdiInputResolution
+$mCdiInputResolution_FHD :: forall r. CdiInputResolution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#%24bCdiInputResolution_FHD"><span class="hs-identifier hs-var hs-var hs-var">CdiInputResolution_FHD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-type">CdiInputResolution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FHD&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_HD"><span class="hs-identifier hs-type">CdiInputResolution_HD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-type">CdiInputResolution</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCdiInputResolution_HD"><span id="%24mCdiInputResolution_HD"><span id="CdiInputResolution_HD"><span class="annot"><span class="annottext">$bCdiInputResolution_HD :: CdiInputResolution
+$mCdiInputResolution_HD :: forall r. CdiInputResolution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#%24bCdiInputResolution_HD"><span class="hs-identifier hs-var hs-var hs-var">CdiInputResolution_HD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-type">CdiInputResolution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HD&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_SD"><span class="hs-identifier hs-type">CdiInputResolution_SD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-type">CdiInputResolution</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCdiInputResolution_SD"><span id="%24mCdiInputResolution_SD"><span id="CdiInputResolution_SD"><span class="annot"><span class="annottext">$bCdiInputResolution_SD :: CdiInputResolution
+$mCdiInputResolution_SD :: forall r. CdiInputResolution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#%24bCdiInputResolution_SD"><span class="hs-identifier hs-var hs-var hs-var">CdiInputResolution_SD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-type">CdiInputResolution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SD&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_UHD"><span class="hs-identifier hs-type">CdiInputResolution_UHD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-type">CdiInputResolution</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCdiInputResolution_UHD"><span id="%24mCdiInputResolution_UHD"><span id="CdiInputResolution_UHD"><span class="annot"><span class="annottext">$bCdiInputResolution_UHD :: CdiInputResolution
+$mCdiInputResolution_UHD :: forall r. CdiInputResolution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#%24bCdiInputResolution_UHD"><span class="hs-identifier hs-var hs-var hs-var">CdiInputResolution_UHD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-type">CdiInputResolution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UHD&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_FHD"><span class="hs-pragma hs-type">CdiInputResolution_FHD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_HD"><span class="hs-pragma hs-type">CdiInputResolution_HD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_SD"><span class="hs-pragma hs-type">CdiInputResolution_SD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution_UHD"><span class="hs-pragma hs-type">CdiInputResolution_UHD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-pragma hs-type">CdiInputResolution'</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-84"></span></pre></body></html>

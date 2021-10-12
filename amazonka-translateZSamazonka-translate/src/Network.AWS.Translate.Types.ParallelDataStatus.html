@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Translate.Types.ParallelDataStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Translate.Types.ParallelDataStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier">ParallelDataStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_ACTIVE"><span class="hs-identifier">ParallelDataStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_CREATING"><span class="hs-identifier">ParallelDataStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_DELETING"><span class="hs-identifier">ParallelDataStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_FAILED"><span class="hs-identifier">ParallelDataStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_UPDATING"><span class="hs-identifier">ParallelDataStatus_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679183530"><span id="local-6989586621679183531"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParallelDataStatus"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-var">ParallelDataStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParallelDataStatus%27"><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-var">ParallelDataStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParallelDataStatus"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; Text
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#fromParallelDataStatus"><span class="hs-identifier hs-var hs-var">fromParallelDataStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183522"><span id="local-6989586621679183524"><span id="local-6989586621679183526"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; ShowS
+[ParallelDataStatus] -&gt; ShowS
+ParallelDataStatus -&gt; String
+(Int -&gt; ParallelDataStatus -&gt; ShowS)
+-&gt; (ParallelDataStatus -&gt; String)
+-&gt; ([ParallelDataStatus] -&gt; ShowS)
+-&gt; Show ParallelDataStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ParallelDataStatus] -&gt; ShowS
+$cshowList :: [ParallelDataStatus] -&gt; ShowS
+show :: ParallelDataStatus -&gt; String
+$cshow :: ParallelDataStatus -&gt; String
+showsPrec :: Int -&gt; ParallelDataStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ParallelDataStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183513"><span id="local-6989586621679183515"><span id="local-6989586621679183517"><span id="local-6989586621679183519"><span class="annot"><span class="annottext">ReadPrec [ParallelDataStatus]
+ReadPrec ParallelDataStatus
+Int -&gt; ReadS ParallelDataStatus
+ReadS [ParallelDataStatus]
+(Int -&gt; ReadS ParallelDataStatus)
+-&gt; ReadS [ParallelDataStatus]
+-&gt; ReadPrec ParallelDataStatus
+-&gt; ReadPrec [ParallelDataStatus]
+-&gt; Read ParallelDataStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ParallelDataStatus]
+$creadListPrec :: ReadPrec [ParallelDataStatus]
+readPrec :: ReadPrec ParallelDataStatus
+$creadPrec :: ReadPrec ParallelDataStatus
+readList :: ReadS [ParallelDataStatus]
+$creadList :: ReadS [ParallelDataStatus]
+readsPrec :: Int -&gt; ReadS ParallelDataStatus
+$creadsPrec :: Int -&gt; ReadS ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679183508"><span id="local-6989586621679183510"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+(ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; Eq ParallelDataStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c/= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+== :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c== :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679183492"><span id="local-6989586621679183494"><span id="local-6989586621679183496"><span id="local-6989586621679183498"><span id="local-6989586621679183500"><span id="local-6989586621679183502"><span id="local-6989586621679183504"><span class="annot"><span class="annottext">Eq ParallelDataStatus
+Eq ParallelDataStatus
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Ordering)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus)
+-&gt; (ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus)
+-&gt; Ord ParallelDataStatus
+ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+ParallelDataStatus -&gt; ParallelDataStatus -&gt; Ordering
+ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus
+$cmin :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus
+max :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus
+$cmax :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; ParallelDataStatus
+&gt;= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c&gt;= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+&gt; :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c&gt; :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+&lt;= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c&lt;= :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+&lt; :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+$c&lt; :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Bool
+compare :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Ordering
+$ccompare :: ParallelDataStatus -&gt; ParallelDataStatus -&gt; Ordering
+$cp1Ord :: Eq ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ParallelDataStatus -&gt; Rep ParallelDataStatus x)
+-&gt; (forall x. Rep ParallelDataStatus x -&gt; ParallelDataStatus)
+-&gt; Generic ParallelDataStatus
+forall x. Rep ParallelDataStatus x -&gt; ParallelDataStatus
+forall x. ParallelDataStatus -&gt; Rep ParallelDataStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ParallelDataStatus x -&gt; ParallelDataStatus
+$cfrom :: forall x. ParallelDataStatus -&gt; Rep ParallelDataStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183484"><span id="local-6989586621679183486"><span class="annot"><span class="annottext">Int -&gt; ParallelDataStatus -&gt; Int
+ParallelDataStatus -&gt; Int
+(Int -&gt; ParallelDataStatus -&gt; Int)
+-&gt; (ParallelDataStatus -&gt; Int) -&gt; Hashable ParallelDataStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ParallelDataStatus -&gt; Int
+$chash :: ParallelDataStatus -&gt; Int
+hashWithSalt :: Int -&gt; ParallelDataStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ParallelDataStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183481"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ()
+(ParallelDataStatus -&gt; ()) -&gt; NFData ParallelDataStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ParallelDataStatus -&gt; ()
+$crnf :: ParallelDataStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183478"><span class="annot"><span class="annottext">Text -&gt; Either String ParallelDataStatus
+(Text -&gt; Either String ParallelDataStatus)
+-&gt; FromText ParallelDataStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ParallelDataStatus
+$cfromText :: Text -&gt; Either String ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183475"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; Text
+(ParallelDataStatus -&gt; Text) -&gt; ToText ParallelDataStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ParallelDataStatus -&gt; Text
+$ctoText :: ParallelDataStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183472"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteString
+(ParallelDataStatus -&gt; ByteString)
+-&gt; ToByteString ParallelDataStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ParallelDataStatus -&gt; ByteString
+$ctoBS :: ParallelDataStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183469"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; ByteStringBuilder
+(ParallelDataStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ParallelDataStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ParallelDataStatus -&gt; ByteStringBuilder
+$cbuild :: ParallelDataStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183466"><span class="annot"><span class="annottext">HeaderName -&gt; ParallelDataStatus -&gt; [Header]
+(HeaderName -&gt; ParallelDataStatus -&gt; [Header])
+-&gt; ToHeader ParallelDataStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ParallelDataStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ParallelDataStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183463"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; QueryString
+(ParallelDataStatus -&gt; QueryString) -&gt; ToQuery ParallelDataStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ParallelDataStatus -&gt; QueryString
+$ctoQuery :: ParallelDataStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183458"><span id="local-6989586621679183460"><span class="annot"><span class="annottext">Value -&gt; Parser [ParallelDataStatus]
+Value -&gt; Parser ParallelDataStatus
+(Value -&gt; Parser ParallelDataStatus)
+-&gt; (Value -&gt; Parser [ParallelDataStatus])
+-&gt; FromJSON ParallelDataStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ParallelDataStatus]
+$cparseJSONList :: Value -&gt; Parser [ParallelDataStatus]
+parseJSON :: Value -&gt; Parser ParallelDataStatus
+$cparseJSON :: Value -&gt; Parser ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183453"><span id="local-6989586621679183455"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParallelDataStatus]
+FromJSONKeyFunction ParallelDataStatus
+FromJSONKeyFunction ParallelDataStatus
+-&gt; FromJSONKeyFunction [ParallelDataStatus]
+-&gt; FromJSONKey ParallelDataStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ParallelDataStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ParallelDataStatus]
+fromJSONKey :: FromJSONKeyFunction ParallelDataStatus
+$cfromJSONKey :: FromJSONKeyFunction ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183444"><span id="local-6989586621679183446"><span id="local-6989586621679183448"><span id="local-6989586621679183450"><span class="annot"><span class="annottext">[ParallelDataStatus] -&gt; Encoding
+[ParallelDataStatus] -&gt; Value
+ParallelDataStatus -&gt; Encoding
+ParallelDataStatus -&gt; Value
+(ParallelDataStatus -&gt; Value)
+-&gt; (ParallelDataStatus -&gt; Encoding)
+-&gt; ([ParallelDataStatus] -&gt; Value)
+-&gt; ([ParallelDataStatus] -&gt; Encoding)
+-&gt; ToJSON ParallelDataStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ParallelDataStatus] -&gt; Encoding
+$ctoEncodingList :: [ParallelDataStatus] -&gt; Encoding
+toJSONList :: [ParallelDataStatus] -&gt; Value
+$ctoJSONList :: [ParallelDataStatus] -&gt; Value
+toEncoding :: ParallelDataStatus -&gt; Encoding
+$ctoEncoding :: ParallelDataStatus -&gt; Encoding
+toJSON :: ParallelDataStatus -&gt; Value
+$ctoJSON :: ParallelDataStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183439"><span id="local-6989586621679183441"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParallelDataStatus]
+ToJSONKeyFunction ParallelDataStatus
+ToJSONKeyFunction ParallelDataStatus
+-&gt; ToJSONKeyFunction [ParallelDataStatus]
+-&gt; ToJSONKey ParallelDataStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ParallelDataStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ParallelDataStatus]
+toJSONKey :: ToJSONKeyFunction ParallelDataStatus
+$ctoJSONKey :: ToJSONKeyFunction ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183436"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParallelDataStatus
+([Node] -&gt; Either String ParallelDataStatus)
+-&gt; FromXML ParallelDataStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ParallelDataStatus
+$cparseXML :: [Node] -&gt; Either String ParallelDataStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679183433"><span class="annot"><span class="annottext">ParallelDataStatus -&gt; XML
+(ParallelDataStatus -&gt; XML) -&gt; ToXML ParallelDataStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ParallelDataStatus -&gt; XML
+$ctoXML :: ParallelDataStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_ACTIVE"><span class="hs-identifier hs-type">ParallelDataStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-type">ParallelDataStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParallelDataStatus_ACTIVE"><span id="%24mParallelDataStatus_ACTIVE"><span id="ParallelDataStatus_ACTIVE"><span class="annot"><span class="annottext">$bParallelDataStatus_ACTIVE :: ParallelDataStatus
+$mParallelDataStatus_ACTIVE :: forall r. ParallelDataStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#%24bParallelDataStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ParallelDataStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-type">ParallelDataStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_CREATING"><span class="hs-identifier hs-type">ParallelDataStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-type">ParallelDataStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParallelDataStatus_CREATING"><span id="%24mParallelDataStatus_CREATING"><span id="ParallelDataStatus_CREATING"><span class="annot"><span class="annottext">$bParallelDataStatus_CREATING :: ParallelDataStatus
+$mParallelDataStatus_CREATING :: forall r. ParallelDataStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#%24bParallelDataStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ParallelDataStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-type">ParallelDataStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_DELETING"><span class="hs-identifier hs-type">ParallelDataStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-type">ParallelDataStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParallelDataStatus_DELETING"><span id="%24mParallelDataStatus_DELETING"><span id="ParallelDataStatus_DELETING"><span class="annot"><span class="annottext">$bParallelDataStatus_DELETING :: ParallelDataStatus
+$mParallelDataStatus_DELETING :: forall r. ParallelDataStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#%24bParallelDataStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ParallelDataStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-type">ParallelDataStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_FAILED"><span class="hs-identifier hs-type">ParallelDataStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-type">ParallelDataStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParallelDataStatus_FAILED"><span id="%24mParallelDataStatus_FAILED"><span id="ParallelDataStatus_FAILED"><span class="annot"><span class="annottext">$bParallelDataStatus_FAILED :: ParallelDataStatus
+$mParallelDataStatus_FAILED :: forall r. ParallelDataStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#%24bParallelDataStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ParallelDataStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-type">ParallelDataStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_UPDATING"><span class="hs-identifier hs-type">ParallelDataStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus"><span class="hs-identifier hs-type">ParallelDataStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bParallelDataStatus_UPDATING"><span id="%24mParallelDataStatus_UPDATING"><span id="ParallelDataStatus_UPDATING"><span class="annot"><span class="annottext">$bParallelDataStatus_UPDATING :: ParallelDataStatus
+$mParallelDataStatus_UPDATING :: forall r. ParallelDataStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#%24bParallelDataStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ParallelDataStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-identifier hs-type">ParallelDataStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_ACTIVE"><span class="hs-pragma hs-type">ParallelDataStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_CREATING"><span class="hs-pragma hs-type">ParallelDataStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_DELETING"><span class="hs-pragma hs-type">ParallelDataStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_FAILED"><span class="hs-pragma hs-type">ParallelDataStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus_UPDATING"><span class="hs-pragma hs-type">ParallelDataStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.ParallelDataStatus.html#ParallelDataStatus%27"><span class="hs-pragma hs-type">ParallelDataStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

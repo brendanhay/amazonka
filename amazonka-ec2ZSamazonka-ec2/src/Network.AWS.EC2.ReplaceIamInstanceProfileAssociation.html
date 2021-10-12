@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ReplaceIamInstanceProfileAssociation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Replaces an IAM instance profile for the specified running instance. You</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- can use this action to change the IAM instance profile that\'s</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- associated with an instance without having to disassociate the existing</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- IAM instance profile first.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Use DescribeIamInstanceProfileAssociations to get the association ID.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ReplaceIamInstanceProfileAssociation</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier">ReplaceIamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociation"><span class="hs-identifier">newReplaceIamInstanceProfileAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_iamInstanceProfile"><span class="hs-identifier">replaceIamInstanceProfileAssociation_iamInstanceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_associationId"><span class="hs-identifier">replaceIamInstanceProfileAssociation_associationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier">newReplaceIamInstanceProfileAssociationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation"><span class="hs-identifier">replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_httpStatus"><span class="hs-identifier">replaceIamInstanceProfileAssociationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newReplaceIamInstanceProfileAssociation' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621681173476"><span id="local-6989586621681173477"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplaceIamInstanceProfileAssociation"><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-var">ReplaceIamInstanceProfileAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplaceIamInstanceProfileAssociation%27"><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">ReplaceIamInstanceProfileAssociation'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM instance profile.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AiamInstanceProfile%3AReplaceIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation
+-&gt; IamInstanceProfileSpecification
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the existing IAM instance profile association.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AassociationId%3AReplaceIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation -&gt; Text
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AassociationId%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173469"><span id="local-6989586621681173471"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool
+(ReplaceIamInstanceProfileAssociation
+ -&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool)
+-&gt; (ReplaceIamInstanceProfileAssociation
+    -&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool)
+-&gt; Eq ReplaceIamInstanceProfileAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplaceIamInstanceProfileAssociation
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool
+$c/= :: ReplaceIamInstanceProfileAssociation
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool
+== :: ReplaceIamInstanceProfileAssociation
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool
+$c== :: ReplaceIamInstanceProfileAssociation
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173460"><span id="local-6989586621681173462"><span id="local-6989586621681173464"><span id="local-6989586621681173466"><span class="annot"><span class="annottext">ReadPrec [ReplaceIamInstanceProfileAssociation]
+ReadPrec ReplaceIamInstanceProfileAssociation
+Int -&gt; ReadS ReplaceIamInstanceProfileAssociation
+ReadS [ReplaceIamInstanceProfileAssociation]
+(Int -&gt; ReadS ReplaceIamInstanceProfileAssociation)
+-&gt; ReadS [ReplaceIamInstanceProfileAssociation]
+-&gt; ReadPrec ReplaceIamInstanceProfileAssociation
+-&gt; ReadPrec [ReplaceIamInstanceProfileAssociation]
+-&gt; Read ReplaceIamInstanceProfileAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplaceIamInstanceProfileAssociation]
+$creadListPrec :: ReadPrec [ReplaceIamInstanceProfileAssociation]
+readPrec :: ReadPrec ReplaceIamInstanceProfileAssociation
+$creadPrec :: ReadPrec ReplaceIamInstanceProfileAssociation
+readList :: ReadS [ReplaceIamInstanceProfileAssociation]
+$creadList :: ReadS [ReplaceIamInstanceProfileAssociation]
+readsPrec :: Int -&gt; ReadS ReplaceIamInstanceProfileAssociation
+$creadsPrec :: Int -&gt; ReadS ReplaceIamInstanceProfileAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173453"><span id="local-6989586621681173455"><span id="local-6989586621681173457"><span class="annot"><span class="annottext">Int -&gt; ReplaceIamInstanceProfileAssociation -&gt; ShowS
+[ReplaceIamInstanceProfileAssociation] -&gt; ShowS
+ReplaceIamInstanceProfileAssociation -&gt; String
+(Int -&gt; ReplaceIamInstanceProfileAssociation -&gt; ShowS)
+-&gt; (ReplaceIamInstanceProfileAssociation -&gt; String)
+-&gt; ([ReplaceIamInstanceProfileAssociation] -&gt; ShowS)
+-&gt; Show ReplaceIamInstanceProfileAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplaceIamInstanceProfileAssociation] -&gt; ShowS
+$cshowList :: [ReplaceIamInstanceProfileAssociation] -&gt; ShowS
+show :: ReplaceIamInstanceProfileAssociation -&gt; String
+$cshow :: ReplaceIamInstanceProfileAssociation -&gt; String
+showsPrec :: Int -&gt; ReplaceIamInstanceProfileAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplaceIamInstanceProfileAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReplaceIamInstanceProfileAssociation
+ -&gt; Rep ReplaceIamInstanceProfileAssociation x)
+-&gt; (forall x.
+    Rep ReplaceIamInstanceProfileAssociation x
+    -&gt; ReplaceIamInstanceProfileAssociation)
+-&gt; Generic ReplaceIamInstanceProfileAssociation
+forall x.
+Rep ReplaceIamInstanceProfileAssociation x
+-&gt; ReplaceIamInstanceProfileAssociation
+forall x.
+ReplaceIamInstanceProfileAssociation
+-&gt; Rep ReplaceIamInstanceProfileAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplaceIamInstanceProfileAssociation x
+-&gt; ReplaceIamInstanceProfileAssociation
+$cfrom :: forall x.
+ReplaceIamInstanceProfileAssociation
+-&gt; Rep ReplaceIamInstanceProfileAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ReplaceIamInstanceProfileAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'iamInstanceProfile', 'replaceIamInstanceProfileAssociation_iamInstanceProfile' - The IAM instance profile.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'associationId', 'replaceIamInstanceProfileAssociation_associationId' - The ID of the existing IAM instance profile association.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">newReplaceIamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'iamInstanceProfile'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'associationId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-81"></span><span id="newReplaceIamInstanceProfileAssociation"><span class="annot"><span class="annottext">newReplaceIamInstanceProfileAssociation :: IamInstanceProfileSpecification
+-&gt; Text -&gt; ReplaceIamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-var hs-var">newReplaceIamInstanceProfileAssociation</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681173448"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173448"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621681173447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173447"><span class="hs-identifier hs-var">pAssociationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation' :: IamInstanceProfileSpecification
+-&gt; Text -&gt; ReplaceIamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:ReplaceIamInstanceProfileAssociation' :: IamInstanceProfileSpecification
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173448"><span class="hs-identifier hs-var">pIamInstanceProfile_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:associationId:ReplaceIamInstanceProfileAssociation' :: Text
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AassociationId%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173447"><span class="hs-identifier hs-var">pAssociationId_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The IAM instance profile.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_iamInstanceProfile"><span class="hs-identifier hs-type">replaceIamInstanceProfileAssociation_iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileSpecification.html#IamInstanceProfileSpecification"><span class="hs-identifier hs-type">IamInstanceProfileSpecification</span></a></span><span>
+</span><span id="line-92"></span><span id="replaceIamInstanceProfileAssociation_iamInstanceProfile"><span class="annot"><span class="annottext">replaceIamInstanceProfileAssociation_iamInstanceProfile :: (IamInstanceProfileSpecification
+ -&gt; f IamInstanceProfileSpecification)
+-&gt; ReplaceIamInstanceProfileAssociation
+-&gt; f ReplaceIamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_iamInstanceProfile"><span class="hs-identifier hs-var hs-var">replaceIamInstanceProfileAssociation_iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceIamInstanceProfileAssociation
+ -&gt; IamInstanceProfileSpecification)
+-&gt; (ReplaceIamInstanceProfileAssociation
+    -&gt; IamInstanceProfileSpecification
+    -&gt; ReplaceIamInstanceProfileAssociation)
+-&gt; Lens
+     ReplaceIamInstanceProfileAssociation
+     ReplaceIamInstanceProfileAssociation
+     IamInstanceProfileSpecification
+     IamInstanceProfileSpecification
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173444"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+iamInstanceProfile :: IamInstanceProfileSpecification
+$sel:iamInstanceProfile:ReplaceIamInstanceProfileAssociation' :: ReplaceIamInstanceProfileAssociation
+-&gt; IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173444"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173444"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173443"><span class="annot"><span class="annottext">s :: ReplaceIamInstanceProfileAssociation
+</span><a href="#local-6989586621681173443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173442"><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation
+</span><a href="#local-6989586621681173443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:ReplaceIamInstanceProfileAssociation' :: IamInstanceProfileSpecification
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the existing IAM instance profile association.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_associationId"><span class="hs-identifier hs-type">replaceIamInstanceProfileAssociation_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="replaceIamInstanceProfileAssociation_associationId"><span class="annot"><span class="annottext">replaceIamInstanceProfileAssociation_associationId :: (Text -&gt; f Text)
+-&gt; ReplaceIamInstanceProfileAssociation
+-&gt; f ReplaceIamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociation_associationId"><span class="hs-identifier hs-var hs-var">replaceIamInstanceProfileAssociation_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceIamInstanceProfileAssociation -&gt; Text)
+-&gt; (ReplaceIamInstanceProfileAssociation
+    -&gt; Text -&gt; ReplaceIamInstanceProfileAssociation)
+-&gt; Lens
+     ReplaceIamInstanceProfileAssociation
+     ReplaceIamInstanceProfileAssociation
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173441"><span class="annot"><span class="annottext">Text
+associationId :: Text
+$sel:associationId:ReplaceIamInstanceProfileAssociation' :: ReplaceIamInstanceProfileAssociation -&gt; Text
+</span><a href="#local-6989586621681173441"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173441"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173440"><span class="annot"><span class="annottext">s :: ReplaceIamInstanceProfileAssociation
+</span><a href="#local-6989586621681173440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociation
+</span><a href="#local-6989586621681173440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:ReplaceIamInstanceProfileAssociation' :: Text
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AassociationId%3AReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621681173435"><span class="annot"><span class="annottext">request :: ReplaceIamInstanceProfileAssociation
+-&gt; Request ReplaceIamInstanceProfileAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ReplaceIamInstanceProfileAssociation
+-&gt; Request ReplaceIamInstanceProfileAssociation
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621681173431"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ReplaceIamInstanceProfileAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ReplaceIamInstanceProfileAssociation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse ReplaceIamInstanceProfileAssociation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ReplaceIamInstanceProfileAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ReplaceIamInstanceProfileAssociation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681173428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681173427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681173427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681173426"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681173426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+-&gt; Int -&gt; ReplaceIamInstanceProfileAssociationResponse
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IamInstanceProfileAssociation
+ -&gt; Int -&gt; ReplaceIamInstanceProfileAssociationResponse)
+-&gt; Either String (Maybe IamInstanceProfileAssociation)
+-&gt; Either
+     String (Int -&gt; ReplaceIamInstanceProfileAssociationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681173426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe IamInstanceProfileAssociation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamInstanceProfileAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ReplaceIamInstanceProfileAssociationResponse)
+-&gt; Either String Int
+-&gt; Either String ReplaceIamInstanceProfileAssociationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681173418"><span id="local-6989586621681173420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681173415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621681173411"><span class="annot"><span class="annottext">toHeaders :: ReplaceIamInstanceProfileAssociation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ReplaceIamInstanceProfileAssociation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681173406"><span class="annot"><span class="annottext">toPath :: ReplaceIamInstanceProfileAssociation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReplaceIamInstanceProfileAssociation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681173402"><span class="annot"><span class="annottext">toQuery :: ReplaceIamInstanceProfileAssociation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173399"><span id="local-6989586621681173400"><span class="annot"><span class="annottext">Text
+IamInstanceProfileSpecification
+associationId :: Text
+iamInstanceProfile :: IamInstanceProfileSpecification
+$sel:associationId:ReplaceIamInstanceProfileAssociation' :: ReplaceIamInstanceProfileAssociation -&gt; Text
+$sel:iamInstanceProfile:ReplaceIamInstanceProfileAssociation' :: ReplaceIamInstanceProfileAssociation
+-&gt; IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173399"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReplaceIamInstanceProfileAssociation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IamInstanceProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IamInstanceProfileSpecification -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileSpecification
+</span><a href="#local-6989586621681173400"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681173399"><span class="hs-identifier hs-var">associationId</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newReplaceIamInstanceProfileAssociationResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621681173396"><span id="local-6989586621681173397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplaceIamInstanceProfileAssociationResponse"><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-var">ReplaceIamInstanceProfileAssociationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplaceIamInstanceProfileAssociationResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">ReplaceIamInstanceProfileAssociationResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the IAM instance profile association.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AiamInstanceProfileAssociation%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse
+-&gt; Maybe IamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfileAssociation%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse -&gt; Int
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AhttpStatus%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173390"><span id="local-6989586621681173392"><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool
+(ReplaceIamInstanceProfileAssociationResponse
+ -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool)
+-&gt; (ReplaceIamInstanceProfileAssociationResponse
+    -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool)
+-&gt; Eq ReplaceIamInstanceProfileAssociationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool
+$c/= :: ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool
+== :: ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool
+$c== :: ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173382"><span id="local-6989586621681173384"><span id="local-6989586621681173386"><span id="local-6989586621681173388"><span class="annot"><span class="annottext">ReadPrec [ReplaceIamInstanceProfileAssociationResponse]
+ReadPrec ReplaceIamInstanceProfileAssociationResponse
+Int -&gt; ReadS ReplaceIamInstanceProfileAssociationResponse
+ReadS [ReplaceIamInstanceProfileAssociationResponse]
+(Int -&gt; ReadS ReplaceIamInstanceProfileAssociationResponse)
+-&gt; ReadS [ReplaceIamInstanceProfileAssociationResponse]
+-&gt; ReadPrec ReplaceIamInstanceProfileAssociationResponse
+-&gt; ReadPrec [ReplaceIamInstanceProfileAssociationResponse]
+-&gt; Read ReplaceIamInstanceProfileAssociationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplaceIamInstanceProfileAssociationResponse]
+$creadListPrec :: ReadPrec [ReplaceIamInstanceProfileAssociationResponse]
+readPrec :: ReadPrec ReplaceIamInstanceProfileAssociationResponse
+$creadPrec :: ReadPrec ReplaceIamInstanceProfileAssociationResponse
+readList :: ReadS [ReplaceIamInstanceProfileAssociationResponse]
+$creadList :: ReadS [ReplaceIamInstanceProfileAssociationResponse]
+readsPrec :: Int -&gt; ReadS ReplaceIamInstanceProfileAssociationResponse
+$creadsPrec :: Int -&gt; ReadS ReplaceIamInstanceProfileAssociationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173376"><span id="local-6989586621681173378"><span id="local-6989586621681173380"><span class="annot"><span class="annottext">Int -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; ShowS
+[ReplaceIamInstanceProfileAssociationResponse] -&gt; ShowS
+ReplaceIamInstanceProfileAssociationResponse -&gt; String
+(Int -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; ShowS)
+-&gt; (ReplaceIamInstanceProfileAssociationResponse -&gt; String)
+-&gt; ([ReplaceIamInstanceProfileAssociationResponse] -&gt; ShowS)
+-&gt; Show ReplaceIamInstanceProfileAssociationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplaceIamInstanceProfileAssociationResponse] -&gt; ShowS
+$cshowList :: [ReplaceIamInstanceProfileAssociationResponse] -&gt; ShowS
+show :: ReplaceIamInstanceProfileAssociationResponse -&gt; String
+$cshow :: ReplaceIamInstanceProfileAssociationResponse -&gt; String
+showsPrec :: Int -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplaceIamInstanceProfileAssociationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReplaceIamInstanceProfileAssociationResponse
+ -&gt; Rep ReplaceIamInstanceProfileAssociationResponse x)
+-&gt; (forall x.
+    Rep ReplaceIamInstanceProfileAssociationResponse x
+    -&gt; ReplaceIamInstanceProfileAssociationResponse)
+-&gt; Generic ReplaceIamInstanceProfileAssociationResponse
+forall x.
+Rep ReplaceIamInstanceProfileAssociationResponse x
+-&gt; ReplaceIamInstanceProfileAssociationResponse
+forall x.
+ReplaceIamInstanceProfileAssociationResponse
+-&gt; Rep ReplaceIamInstanceProfileAssociationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplaceIamInstanceProfileAssociationResponse x
+-&gt; ReplaceIamInstanceProfileAssociationResponse
+$cfrom :: forall x.
+ReplaceIamInstanceProfileAssociationResponse
+-&gt; Rep ReplaceIamInstanceProfileAssociationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'ReplaceIamInstanceProfileAssociationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'iamInstanceProfileAssociation', 'replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation' - Information about the IAM instance profile association.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'replaceIamInstanceProfileAssociationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">newReplaceIamInstanceProfileAssociationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newReplaceIamInstanceProfileAssociationResponse"><span class="annot"><span class="annottext">newReplaceIamInstanceProfileAssociationResponse :: Int -&gt; ReplaceIamInstanceProfileAssociationResponse
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#newReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-var hs-var">newReplaceIamInstanceProfileAssociationResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681173373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse' :: Maybe IamInstanceProfileAssociation
+-&gt; Int -&gt; ReplaceIamInstanceProfileAssociationResponse
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociation:ReplaceIamInstanceProfileAssociationResponse' :: Maybe IamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfileAssociation%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ReplaceIamInstanceProfileAssociationResponse' :: Int
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AhttpStatus%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Information about the IAM instance profile association.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation"><span class="hs-identifier hs-type">replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation"><span class="annot"><span class="annottext">replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation :: (Maybe IamInstanceProfileAssociation
+ -&gt; f (Maybe IamInstanceProfileAssociation))
+-&gt; ReplaceIamInstanceProfileAssociationResponse
+-&gt; f ReplaceIamInstanceProfileAssociationResponse
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation"><span class="hs-identifier hs-var hs-var">replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceIamInstanceProfileAssociationResponse
+ -&gt; Maybe IamInstanceProfileAssociation)
+-&gt; (ReplaceIamInstanceProfileAssociationResponse
+    -&gt; Maybe IamInstanceProfileAssociation
+    -&gt; ReplaceIamInstanceProfileAssociationResponse)
+-&gt; Lens
+     ReplaceIamInstanceProfileAssociationResponse
+     ReplaceIamInstanceProfileAssociationResponse
+     (Maybe IamInstanceProfileAssociation)
+     (Maybe IamInstanceProfileAssociation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173372"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+iamInstanceProfileAssociation :: Maybe IamInstanceProfileAssociation
+$sel:iamInstanceProfileAssociation:ReplaceIamInstanceProfileAssociationResponse' :: ReplaceIamInstanceProfileAssociationResponse
+-&gt; Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681173372"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681173372"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173371"><span class="annot"><span class="annottext">s :: ReplaceIamInstanceProfileAssociationResponse
+</span><a href="#local-6989586621681173371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173370"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681173370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse
+</span><a href="#local-6989586621681173371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfileAssociation:ReplaceIamInstanceProfileAssociationResponse' :: Maybe IamInstanceProfileAssociation
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfileAssociation%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">iamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociation
+</span><a href="#local-6989586621681173370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_httpStatus"><span class="hs-identifier hs-type">replaceIamInstanceProfileAssociationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="replaceIamInstanceProfileAssociationResponse_httpStatus"><span class="annot"><span class="annottext">replaceIamInstanceProfileAssociationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ReplaceIamInstanceProfileAssociationResponse
+-&gt; f ReplaceIamInstanceProfileAssociationResponse
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#replaceIamInstanceProfileAssociationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">replaceIamInstanceProfileAssociationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceIamInstanceProfileAssociationResponse -&gt; Int)
+-&gt; (ReplaceIamInstanceProfileAssociationResponse
+    -&gt; Int -&gt; ReplaceIamInstanceProfileAssociationResponse)
+-&gt; Lens
+     ReplaceIamInstanceProfileAssociationResponse
+     ReplaceIamInstanceProfileAssociationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173369"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ReplaceIamInstanceProfileAssociationResponse' :: ReplaceIamInstanceProfileAssociationResponse -&gt; Int
+</span><a href="#local-6989586621681173369"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173369"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173368"><span class="annot"><span class="annottext">s :: ReplaceIamInstanceProfileAssociationResponse
+</span><a href="#local-6989586621681173368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceIamInstanceProfileAssociationResponse
+</span><a href="#local-6989586621681173368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReplaceIamInstanceProfileAssociationResponse' :: Int
+</span><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#%24sel%3AhttpStatus%3AReplaceIamInstanceProfileAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681173367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621681173365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReplaceIamInstanceProfileAssociation.html#ReplaceIamInstanceProfileAssociationResponse"><span class="hs-identifier hs-type">ReplaceIamInstanceProfileAssociationResponse</span></a></span></span><span>
+</span><span id="line-193"></span></pre></body></html>

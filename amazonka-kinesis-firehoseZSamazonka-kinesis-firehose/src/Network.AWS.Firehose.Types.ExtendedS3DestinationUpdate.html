@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html"><span class="hs-identifier">Network.AWS.Firehose.Types.BufferingHints</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Network.AWS.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html"><span class="hs-identifier">Network.AWS.Firehose.Types.CompressionFormat</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DataFormatConversionConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.DataFormatConversionConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.DynamicPartitioningConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.ProcessingConfiguration</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html"><span class="hs-identifier">Network.AWS.Firehose.Types.S3BackupMode</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html"><span class="hs-identifier">Network.AWS.Firehose.Types.S3DestinationUpdate</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | Describes an update for a destination in Amazon S3.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newExtendedS3DestinationUpdate' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679264068"><span id="local-6989586621679264069"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExtendedS3DestinationUpdate"><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-var">ExtendedS3DestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedS3DestinationUpdate%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">ExtendedS3DestinationUpdate'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AerrorOutputPrefix%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AerrorOutputPrefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">errorOutputPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AencryptionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AroleARN%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AroleARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AprocessingConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AbucketARN%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbucketARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The serializer, deserializer, and schema for converting data from the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- JSON format to the Parquet or ORC format before writing it to Amazon S3.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdataFormatConversionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+-&gt; Maybe DataFormatConversionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdataFormatConversionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">dataFormatConversionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DataFormatConversionConfiguration.html#DataFormatConversionConfiguration"><span class="hs-identifier hs-type">DataFormatConversionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aprefix%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3Aprefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The configuration of the dynamic partitioning mechanism that creates</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- smaller data sets from the streaming data by partitioning it based on</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- partition keys. Currently, dynamic partitioning is only supported for</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Amazon S3 destinations. For more information, see</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html&gt;</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdynamicPartitioningConfiguration%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+-&gt; Maybe DynamicPartitioningConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdynamicPartitioningConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">dynamicPartitioningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 destination for backup.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3As3BackupUpdate%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupUpdate%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3BackupUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The buffering option.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AbufferingHints%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbufferingHints%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | You can update a delivery stream to enable Amazon S3 backup if it is</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- disabled. If backup is enabled, you can\'t update the delivery stream to</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- disable it.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3As3BackupMode%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe S3BackupMode
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupMode%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode"><span class="hs-identifier hs-type">S3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcompressionFormat%3AExtendedS3DestinationUpdate%27"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcompressionFormat%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var hs-var">compressionFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html#CompressionFormat"><span class="hs-identifier hs-type">CompressionFormat</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264050"><span id="local-6989586621679264052"><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate -&gt; ExtendedS3DestinationUpdate -&gt; Bool
+(ExtendedS3DestinationUpdate
+ -&gt; ExtendedS3DestinationUpdate -&gt; Bool)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; ExtendedS3DestinationUpdate -&gt; Bool)
+-&gt; Eq ExtendedS3DestinationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExtendedS3DestinationUpdate -&gt; ExtendedS3DestinationUpdate -&gt; Bool
+$c/= :: ExtendedS3DestinationUpdate -&gt; ExtendedS3DestinationUpdate -&gt; Bool
+== :: ExtendedS3DestinationUpdate -&gt; ExtendedS3DestinationUpdate -&gt; Bool
+$c== :: ExtendedS3DestinationUpdate -&gt; ExtendedS3DestinationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264041"><span id="local-6989586621679264043"><span id="local-6989586621679264045"><span id="local-6989586621679264047"><span class="annot"><span class="annottext">ReadPrec [ExtendedS3DestinationUpdate]
+ReadPrec ExtendedS3DestinationUpdate
+Int -&gt; ReadS ExtendedS3DestinationUpdate
+ReadS [ExtendedS3DestinationUpdate]
+(Int -&gt; ReadS ExtendedS3DestinationUpdate)
+-&gt; ReadS [ExtendedS3DestinationUpdate]
+-&gt; ReadPrec ExtendedS3DestinationUpdate
+-&gt; ReadPrec [ExtendedS3DestinationUpdate]
+-&gt; Read ExtendedS3DestinationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExtendedS3DestinationUpdate]
+$creadListPrec :: ReadPrec [ExtendedS3DestinationUpdate]
+readPrec :: ReadPrec ExtendedS3DestinationUpdate
+$creadPrec :: ReadPrec ExtendedS3DestinationUpdate
+readList :: ReadS [ExtendedS3DestinationUpdate]
+$creadList :: ReadS [ExtendedS3DestinationUpdate]
+readsPrec :: Int -&gt; ReadS ExtendedS3DestinationUpdate
+$creadsPrec :: Int -&gt; ReadS ExtendedS3DestinationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264034"><span id="local-6989586621679264036"><span id="local-6989586621679264038"><span class="annot"><span class="annottext">Int -&gt; ExtendedS3DestinationUpdate -&gt; ShowS
+[ExtendedS3DestinationUpdate] -&gt; ShowS
+ExtendedS3DestinationUpdate -&gt; String
+(Int -&gt; ExtendedS3DestinationUpdate -&gt; ShowS)
+-&gt; (ExtendedS3DestinationUpdate -&gt; String)
+-&gt; ([ExtendedS3DestinationUpdate] -&gt; ShowS)
+-&gt; Show ExtendedS3DestinationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExtendedS3DestinationUpdate] -&gt; ShowS
+$cshowList :: [ExtendedS3DestinationUpdate] -&gt; ShowS
+show :: ExtendedS3DestinationUpdate -&gt; String
+$cshow :: ExtendedS3DestinationUpdate -&gt; String
+showsPrec :: Int -&gt; ExtendedS3DestinationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExtendedS3DestinationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExtendedS3DestinationUpdate -&gt; Rep ExtendedS3DestinationUpdate x)
+-&gt; (forall x.
+    Rep ExtendedS3DestinationUpdate x -&gt; ExtendedS3DestinationUpdate)
+-&gt; Generic ExtendedS3DestinationUpdate
+forall x.
+Rep ExtendedS3DestinationUpdate x -&gt; ExtendedS3DestinationUpdate
+forall x.
+ExtendedS3DestinationUpdate -&gt; Rep ExtendedS3DestinationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExtendedS3DestinationUpdate x -&gt; ExtendedS3DestinationUpdate
+$cfrom :: forall x.
+ExtendedS3DestinationUpdate -&gt; Rep ExtendedS3DestinationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'ExtendedS3DestinationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'errorOutputPrefix', 'extendedS3DestinationUpdate_errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'encryptionConfiguration', 'extendedS3DestinationUpdate_encryptionConfiguration' - The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'roleARN', 'extendedS3DestinationUpdate_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'processingConfiguration', 'extendedS3DestinationUpdate_processingConfiguration' - The data processing configuration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'bucketARN', 'extendedS3DestinationUpdate_bucketARN' - The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'extendedS3DestinationUpdate_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'dataFormatConversionConfiguration', 'extendedS3DestinationUpdate_dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- JSON format to the Parquet or ORC format before writing it to Amazon S3.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'prefix', 'extendedS3DestinationUpdate_prefix' - The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'dynamicPartitioningConfiguration', 'extendedS3DestinationUpdate_dynamicPartitioningConfiguration' - The configuration of the dynamic partitioning mechanism that creates</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- smaller data sets from the streaming data by partitioning it based on</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- partition keys. Currently, dynamic partitioning is only supported for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Amazon S3 destinations. For more information, see</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html&gt;</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 's3BackupUpdate', 'extendedS3DestinationUpdate_s3BackupUpdate' - The Amazon S3 destination for backup.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'bufferingHints', 'extendedS3DestinationUpdate_bufferingHints' - The buffering option.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 's3BackupMode', 'extendedS3DestinationUpdate_s3BackupMode' - You can update a delivery stream to enable Amazon S3 backup if it is</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- disabled. If backup is enabled, you can\'t update the delivery stream to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- disable it.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'compressionFormat', 'extendedS3DestinationUpdate_compressionFormat' - The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#newExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">newExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span>
+</span><span id="line-139"></span><span id="newExtendedS3DestinationUpdate"><span class="annot"><span class="annottext">newExtendedS3DestinationUpdate :: ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#newExtendedS3DestinationUpdate"><span class="hs-identifier hs-var hs-var">newExtendedS3DestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate' :: Maybe Text
+-&gt; Maybe EncryptionConfiguration
+-&gt; Maybe Text
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe Text
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe DataFormatConversionConfiguration
+-&gt; Maybe Text
+-&gt; Maybe DynamicPartitioningConfiguration
+-&gt; Maybe S3DestinationUpdate
+-&gt; Maybe BufferingHints
+-&gt; Maybe S3BackupMode
+-&gt; Maybe CompressionFormat
+-&gt; ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorOutputPrefix:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AerrorOutputPrefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ExtendedS3DestinationUpdate' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AencryptionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AroleARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:ExtendedS3DestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AprocessingConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketARN:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbucketARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ExtendedS3DestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataFormatConversionConfiguration:ExtendedS3DestinationUpdate' :: Maybe DataFormatConversionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdataFormatConversionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">dataFormatConversionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3Aprefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamicPartitioningConfiguration:ExtendedS3DestinationUpdate' :: Maybe DynamicPartitioningConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdynamicPartitioningConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">dynamicPartitioningConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BackupUpdate:ExtendedS3DestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupUpdate%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:bufferingHints:ExtendedS3DestinationUpdate' :: Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbufferingHints%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BackupMode:ExtendedS3DestinationUpdate' :: Maybe S3BackupMode
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupMode%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BackupMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:compressionFormat:ExtendedS3DestinationUpdate' :: Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcompressionFormat%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A prefix that Kinesis Data Firehose evaluates and adds to failed records</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- before writing them to S3. This prefix appears immediately following the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- bucket name. For information about how to specify this prefix, see</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_errorOutputPrefix"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="extendedS3DestinationUpdate_errorOutputPrefix"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_errorOutputPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_errorOutputPrefix"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_errorOutputPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe Text)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe Text -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264025"><span class="annot"><span class="annottext">Maybe Text
+errorOutputPrefix :: Maybe Text
+$sel:errorOutputPrefix:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679264025"><span class="hs-identifier hs-var hs-var">errorOutputPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264025"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264024"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorOutputPrefix:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AerrorOutputPrefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The encryption configuration. If no value is specified, the default is</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- no encryption.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_encryptionConfiguration"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="extendedS3DestinationUpdate_encryptionConfiguration"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe EncryptionConfiguration)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe EncryptionConfiguration -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264021"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679264021"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679264021"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264020"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264019"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679264019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ExtendedS3DestinationUpdate' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AencryptionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679264019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS credentials. For more</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_roleARN"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="extendedS3DestinationUpdate_roleARN"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_roleARN"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe Text)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe Text -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264017"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679264017"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264017"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264016"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AroleARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_processingConfiguration"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="extendedS3DestinationUpdate_processingConfiguration"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_processingConfiguration"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe ProcessingConfiguration)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe ProcessingConfiguration -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264013"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679264013"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679264013"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264012"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264011"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679264011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:ExtendedS3DestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AprocessingConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679264011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The ARN of the S3 bucket. For more information, see</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_bucketARN"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_bucketARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="extendedS3DestinationUpdate_bucketARN"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_bucketARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_bucketARN"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_bucketARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe Text)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe Text -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264009"><span class="annot"><span class="annottext">Maybe Text
+bucketARN :: Maybe Text
+$sel:bucketARN:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679264009"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264009"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264008"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketARN:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbucketARN%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="extendedS3DestinationUpdate_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe CloudWatchLoggingOptions -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264005"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679264005"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679264005"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264004"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264003"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679264003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ExtendedS3DestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679264003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The serializer, deserializer, and schema for converting data from the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- JSON format to the Parquet or ORC format before writing it to Amazon S3.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_dataFormatConversionConfiguration"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_dataFormatConversionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DataFormatConversionConfiguration.html#DataFormatConversionConfiguration"><span class="hs-identifier hs-type">DataFormatConversionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="extendedS3DestinationUpdate_dataFormatConversionConfiguration"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_dataFormatConversionConfiguration :: (Maybe DataFormatConversionConfiguration
+ -&gt; f (Maybe DataFormatConversionConfiguration))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_dataFormatConversionConfiguration"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_dataFormatConversionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate
+ -&gt; Maybe DataFormatConversionConfiguration)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe DataFormatConversionConfiguration
+    -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe DataFormatConversionConfiguration)
+     (Maybe DataFormatConversionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264001"><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+dataFormatConversionConfiguration :: Maybe DataFormatConversionConfiguration
+$sel:dataFormatConversionConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate
+-&gt; Maybe DataFormatConversionConfiguration
+</span><a href="#local-6989586621679264001"><span class="hs-identifier hs-var hs-var">dataFormatConversionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+</span><a href="#local-6989586621679264001"><span class="hs-identifier hs-var">dataFormatConversionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264000"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263999"><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+</span><a href="#local-6989586621679263999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679264000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormatConversionConfiguration:ExtendedS3DestinationUpdate' :: Maybe DataFormatConversionConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdataFormatConversionConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">dataFormatConversionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+</span><a href="#local-6989586621679263999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The \&quot;YYYY\/MM\/DD\/HH\&quot; time format prefix is automatically used for</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- delivered Amazon S3 files. You can also specify a custom prefix, as</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- described in</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects&gt;.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_prefix"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="extendedS3DestinationUpdate_prefix"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_prefix"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe Text)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe Text -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263997"><span class="annot"><span class="annottext">Maybe Text
+prefix :: Maybe Text
+$sel:prefix:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263997"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263997"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263996"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:ExtendedS3DestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3Aprefix%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The configuration of the dynamic partitioning mechanism that creates</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- smaller data sets from the streaming data by partitioning it based on</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- partition keys. Currently, dynamic partitioning is only supported for</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Amazon S3 destinations. For more information, see</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html&gt;</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_dynamicPartitioningConfiguration"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_dynamicPartitioningConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="extendedS3DestinationUpdate_dynamicPartitioningConfiguration"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_dynamicPartitioningConfiguration :: (Maybe DynamicPartitioningConfiguration
+ -&gt; f (Maybe DynamicPartitioningConfiguration))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_dynamicPartitioningConfiguration"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_dynamicPartitioningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate
+ -&gt; Maybe DynamicPartitioningConfiguration)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe DynamicPartitioningConfiguration
+    -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe DynamicPartitioningConfiguration)
+     (Maybe DynamicPartitioningConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263993"><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+dynamicPartitioningConfiguration :: Maybe DynamicPartitioningConfiguration
+$sel:dynamicPartitioningConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate
+-&gt; Maybe DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679263993"><span class="hs-identifier hs-var hs-var">dynamicPartitioningConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679263993"><span class="hs-identifier hs-var">dynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263992"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263991"><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679263991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicPartitioningConfiguration:ExtendedS3DestinationUpdate' :: Maybe DynamicPartitioningConfiguration
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AdynamicPartitioningConfiguration%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">dynamicPartitioningConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679263991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon S3 destination for backup.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_s3BackupUpdate"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_s3BackupUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="extendedS3DestinationUpdate_s3BackupUpdate"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_s3BackupUpdate :: (Maybe S3DestinationUpdate -&gt; f (Maybe S3DestinationUpdate))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_s3BackupUpdate"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_s3BackupUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe S3DestinationUpdate)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe S3DestinationUpdate -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe S3DestinationUpdate)
+     (Maybe S3DestinationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263989"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+s3BackupUpdate :: Maybe S3DestinationUpdate
+$sel:s3BackupUpdate:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263989"><span class="hs-identifier hs-var hs-var">s3BackupUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263989"><span class="hs-identifier hs-var">s3BackupUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263988"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263987"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupUpdate:ExtendedS3DestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupUpdate%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The buffering option.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_bufferingHints"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="extendedS3DestinationUpdate_bufferingHints"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_bufferingHints :: (Maybe BufferingHints -&gt; f (Maybe BufferingHints))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_bufferingHints"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe BufferingHints)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe BufferingHints -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe BufferingHints)
+     (Maybe BufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263985"><span class="annot"><span class="annottext">Maybe BufferingHints
+bufferingHints :: Maybe BufferingHints
+$sel:bufferingHints:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe BufferingHints
+</span><a href="#local-6989586621679263985"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679263985"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263984"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263983"><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679263983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:ExtendedS3DestinationUpdate' :: Maybe BufferingHints
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AbufferingHints%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679263983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | You can update a delivery stream to enable Amazon S3 backup if it is</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- disabled. If backup is enabled, you can\'t update the delivery stream to</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- disable it.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_s3BackupMode"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode"><span class="hs-identifier hs-type">S3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="extendedS3DestinationUpdate_s3BackupMode"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_s3BackupMode :: (Maybe S3BackupMode -&gt; f (Maybe S3BackupMode))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_s3BackupMode"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe S3BackupMode)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe S3BackupMode -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe S3BackupMode)
+     (Maybe S3BackupMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263981"><span class="annot"><span class="annottext">Maybe S3BackupMode
+s3BackupMode :: Maybe S3BackupMode
+$sel:s3BackupMode:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe S3BackupMode
+</span><a href="#local-6989586621679263981"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3BackupMode
+</span><a href="#local-6989586621679263981"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263980"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263979"><span class="annot"><span class="annottext">Maybe S3BackupMode
+</span><a href="#local-6989586621679263979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:ExtendedS3DestinationUpdate' :: Maybe S3BackupMode
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3As3BackupMode%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BackupMode
+</span><a href="#local-6989586621679263979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The compression format. If no value is specified, the default is</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @UNCOMPRESSED@.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_compressionFormat"><span class="hs-identifier hs-type">extendedS3DestinationUpdate_compressionFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CompressionFormat.html#CompressionFormat"><span class="hs-identifier hs-type">CompressionFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="extendedS3DestinationUpdate_compressionFormat"><span class="annot"><span class="annottext">extendedS3DestinationUpdate_compressionFormat :: (Maybe CompressionFormat -&gt; f (Maybe CompressionFormat))
+-&gt; ExtendedS3DestinationUpdate -&gt; f ExtendedS3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#extendedS3DestinationUpdate_compressionFormat"><span class="hs-identifier hs-var hs-var">extendedS3DestinationUpdate_compressionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedS3DestinationUpdate -&gt; Maybe CompressionFormat)
+-&gt; (ExtendedS3DestinationUpdate
+    -&gt; Maybe CompressionFormat -&gt; ExtendedS3DestinationUpdate)
+-&gt; Lens
+     ExtendedS3DestinationUpdate
+     ExtendedS3DestinationUpdate
+     (Maybe CompressionFormat)
+     (Maybe CompressionFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263977"><span class="annot"><span class="annottext">Maybe CompressionFormat
+compressionFormat :: Maybe CompressionFormat
+$sel:compressionFormat:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe CompressionFormat
+</span><a href="#local-6989586621679263977"><span class="hs-identifier hs-var hs-var">compressionFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679263977"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263976"><span class="annot"><span class="annottext">s :: ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263975"><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679263975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedS3DestinationUpdate
+</span><a href="#local-6989586621679263976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressionFormat:ExtendedS3DestinationUpdate' :: Maybe CompressionFormat
+</span><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#%24sel%3AcompressionFormat%3AExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679263975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263971"><span id="local-6989586621679263973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span></span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263960"><span id="local-6989586621679263962"><span id="local-6989586621679263964"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679263958"><span class="annot"><span class="annottext">toJSON :: ExtendedS3DestinationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate.html#ExtendedS3DestinationUpdate%27"><span class="hs-identifier hs-type">ExtendedS3DestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263944"><span id="local-6989586621679263945"><span id="local-6989586621679263946"><span id="local-6989586621679263947"><span id="local-6989586621679263948"><span id="local-6989586621679263949"><span id="local-6989586621679263950"><span id="local-6989586621679263951"><span id="local-6989586621679263952"><span id="local-6989586621679263953"><span id="local-6989586621679263954"><span id="local-6989586621679263955"><span id="local-6989586621679263956"><span class="annot"><span class="annottext">Maybe Text
+Maybe BufferingHints
+Maybe CloudWatchLoggingOptions
+Maybe CompressionFormat
+Maybe EncryptionConfiguration
+Maybe ProcessingConfiguration
+Maybe DynamicPartitioningConfiguration
+Maybe S3BackupMode
+Maybe S3DestinationUpdate
+Maybe DataFormatConversionConfiguration
+compressionFormat :: Maybe CompressionFormat
+s3BackupMode :: Maybe S3BackupMode
+bufferingHints :: Maybe BufferingHints
+s3BackupUpdate :: Maybe S3DestinationUpdate
+dynamicPartitioningConfiguration :: Maybe DynamicPartitioningConfiguration
+prefix :: Maybe Text
+dataFormatConversionConfiguration :: Maybe DataFormatConversionConfiguration
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+bucketARN :: Maybe Text
+processingConfiguration :: Maybe ProcessingConfiguration
+roleARN :: Maybe Text
+encryptionConfiguration :: Maybe EncryptionConfiguration
+errorOutputPrefix :: Maybe Text
+$sel:compressionFormat:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe CompressionFormat
+$sel:s3BackupMode:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe S3BackupMode
+$sel:bufferingHints:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe BufferingHints
+$sel:s3BackupUpdate:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe S3DestinationUpdate
+$sel:dynamicPartitioningConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate
+-&gt; Maybe DynamicPartitioningConfiguration
+$sel:prefix:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+$sel:dataFormatConversionConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate
+-&gt; Maybe DataFormatConversionConfiguration
+$sel:cloudWatchLoggingOptions:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+$sel:bucketARN:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+$sel:processingConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe ProcessingConfiguration
+$sel:roleARN:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+$sel:encryptionConfiguration:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe EncryptionConfiguration
+$sel:errorOutputPrefix:ExtendedS3DestinationUpdate' :: ExtendedS3DestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorOutputPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263956"><span class="hs-identifier hs-var">errorOutputPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionConfiguration -&gt; Pair)
+-&gt; Maybe EncryptionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679263955"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263954"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
+-&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263953"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263952"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
+-&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263951"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataFormatConversionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataFormatConversionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">(DataFormatConversionConfiguration -&gt; Pair)
+-&gt; Maybe DataFormatConversionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataFormatConversionConfiguration
+</span><a href="#local-6989586621679263950"><span class="hs-identifier hs-var">dataFormatConversionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263949"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DynamicPartitioningConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamicPartitioningConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(DynamicPartitioningConfiguration -&gt; Pair)
+-&gt; Maybe DynamicPartitioningConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679263948"><span class="hs-identifier hs-var">dynamicPartitioningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">(S3DestinationUpdate -&gt; Pair)
+-&gt; Maybe S3DestinationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263947"><span class="hs-identifier hs-var">s3BackupUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BufferingHints -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(BufferingHints -&gt; Pair) -&gt; Maybe BufferingHints -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BufferingHints
+</span><a href="#local-6989586621679263946"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3BackupMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3BackupMode -&gt; Pair) -&gt; Maybe S3BackupMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3BackupMode
+</span><a href="#local-6989586621679263945"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompressionFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CompressionFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">(CompressionFormat -&gt; Pair)
+-&gt; Maybe CompressionFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CompressionFormat
+</span><a href="#local-6989586621679263944"><span class="hs-identifier hs-var">compressionFormat</span></a></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span></pre></body></html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm"><span class="hs-identifier">XavcFramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier">XavcFramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier">XavcFramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier">XavcFramerateConversionAlgorithm_INTERPOLATE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621680014412"><span id="local-6989586621680014413"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcFramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm"><span class="hs-identifier hs-var">XavcFramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcFramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">XavcFramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcFramerateConversionAlgorithm"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#fromXavcFramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromXavcFramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014404"><span id="local-6989586621680014406"><span id="local-6989586621680014408"><span class="annot"><span class="annottext">Int -&gt; XavcFramerateConversionAlgorithm -&gt; ShowS
+[XavcFramerateConversionAlgorithm] -&gt; ShowS
+XavcFramerateConversionAlgorithm -&gt; String
+(Int -&gt; XavcFramerateConversionAlgorithm -&gt; ShowS)
+-&gt; (XavcFramerateConversionAlgorithm -&gt; String)
+-&gt; ([XavcFramerateConversionAlgorithm] -&gt; ShowS)
+-&gt; Show XavcFramerateConversionAlgorithm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [XavcFramerateConversionAlgorithm] -&gt; ShowS
+$cshowList :: [XavcFramerateConversionAlgorithm] -&gt; ShowS
+show :: XavcFramerateConversionAlgorithm -&gt; String
+$cshow :: XavcFramerateConversionAlgorithm -&gt; String
+showsPrec :: Int -&gt; XavcFramerateConversionAlgorithm -&gt; ShowS
+$cshowsPrec :: Int -&gt; XavcFramerateConversionAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680014395"><span id="local-6989586621680014397"><span id="local-6989586621680014399"><span id="local-6989586621680014401"><span class="annot"><span class="annottext">ReadPrec [XavcFramerateConversionAlgorithm]
+ReadPrec XavcFramerateConversionAlgorithm
+Int -&gt; ReadS XavcFramerateConversionAlgorithm
+ReadS [XavcFramerateConversionAlgorithm]
+(Int -&gt; ReadS XavcFramerateConversionAlgorithm)
+-&gt; ReadS [XavcFramerateConversionAlgorithm]
+-&gt; ReadPrec XavcFramerateConversionAlgorithm
+-&gt; ReadPrec [XavcFramerateConversionAlgorithm]
+-&gt; Read XavcFramerateConversionAlgorithm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [XavcFramerateConversionAlgorithm]
+$creadListPrec :: ReadPrec [XavcFramerateConversionAlgorithm]
+readPrec :: ReadPrec XavcFramerateConversionAlgorithm
+$creadPrec :: ReadPrec XavcFramerateConversionAlgorithm
+readList :: ReadS [XavcFramerateConversionAlgorithm]
+$creadList :: ReadS [XavcFramerateConversionAlgorithm]
+readsPrec :: Int -&gt; ReadS XavcFramerateConversionAlgorithm
+$creadsPrec :: Int -&gt; ReadS XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680014390"><span id="local-6989586621680014392"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+(XavcFramerateConversionAlgorithm
+ -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; Eq XavcFramerateConversionAlgorithm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c/= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+== :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c== :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680014374"><span id="local-6989586621680014376"><span id="local-6989586621680014378"><span id="local-6989586621680014380"><span id="local-6989586621680014382"><span id="local-6989586621680014384"><span id="local-6989586621680014386"><span class="annot"><span class="annottext">Eq XavcFramerateConversionAlgorithm
+Eq XavcFramerateConversionAlgorithm
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Ordering)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm -&gt; Bool)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm)
+-&gt; (XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm
+    -&gt; XavcFramerateConversionAlgorithm)
+-&gt; Ord XavcFramerateConversionAlgorithm
+XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Ordering
+XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+$cmin :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+max :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+$cmax :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm
+&gt;= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c&gt;= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+&gt; :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c&gt; :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+&lt;= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c&lt;= :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+&lt; :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+$c&lt; :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Bool
+compare :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Ordering
+$ccompare :: XavcFramerateConversionAlgorithm
+-&gt; XavcFramerateConversionAlgorithm -&gt; Ordering
+$cp1Ord :: Eq XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ XavcFramerateConversionAlgorithm
+ -&gt; Rep XavcFramerateConversionAlgorithm x)
+-&gt; (forall x.
+    Rep XavcFramerateConversionAlgorithm x
+    -&gt; XavcFramerateConversionAlgorithm)
+-&gt; Generic XavcFramerateConversionAlgorithm
+forall x.
+Rep XavcFramerateConversionAlgorithm x
+-&gt; XavcFramerateConversionAlgorithm
+forall x.
+XavcFramerateConversionAlgorithm
+-&gt; Rep XavcFramerateConversionAlgorithm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep XavcFramerateConversionAlgorithm x
+-&gt; XavcFramerateConversionAlgorithm
+$cfrom :: forall x.
+XavcFramerateConversionAlgorithm
+-&gt; Rep XavcFramerateConversionAlgorithm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014366"><span id="local-6989586621680014368"><span class="annot"><span class="annottext">Int -&gt; XavcFramerateConversionAlgorithm -&gt; Int
+XavcFramerateConversionAlgorithm -&gt; Int
+(Int -&gt; XavcFramerateConversionAlgorithm -&gt; Int)
+-&gt; (XavcFramerateConversionAlgorithm -&gt; Int)
+-&gt; Hashable XavcFramerateConversionAlgorithm
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: XavcFramerateConversionAlgorithm -&gt; Int
+$chash :: XavcFramerateConversionAlgorithm -&gt; Int
+hashWithSalt :: Int -&gt; XavcFramerateConversionAlgorithm -&gt; Int
+$chashWithSalt :: Int -&gt; XavcFramerateConversionAlgorithm -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680014363"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; ()
+(XavcFramerateConversionAlgorithm -&gt; ())
+-&gt; NFData XavcFramerateConversionAlgorithm
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: XavcFramerateConversionAlgorithm -&gt; ()
+$crnf :: XavcFramerateConversionAlgorithm -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014360"><span class="annot"><span class="annottext">Text -&gt; Either String XavcFramerateConversionAlgorithm
+(Text -&gt; Either String XavcFramerateConversionAlgorithm)
+-&gt; FromText XavcFramerateConversionAlgorithm
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String XavcFramerateConversionAlgorithm
+$cfromText :: Text -&gt; Either String XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014357"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; Text
+(XavcFramerateConversionAlgorithm -&gt; Text)
+-&gt; ToText XavcFramerateConversionAlgorithm
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: XavcFramerateConversionAlgorithm -&gt; Text
+$ctoText :: XavcFramerateConversionAlgorithm -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014354"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; ByteString
+(XavcFramerateConversionAlgorithm -&gt; ByteString)
+-&gt; ToByteString XavcFramerateConversionAlgorithm
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: XavcFramerateConversionAlgorithm -&gt; ByteString
+$ctoBS :: XavcFramerateConversionAlgorithm -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014351"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; ByteStringBuilder
+(XavcFramerateConversionAlgorithm -&gt; ByteStringBuilder)
+-&gt; ToLog XavcFramerateConversionAlgorithm
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: XavcFramerateConversionAlgorithm -&gt; ByteStringBuilder
+$cbuild :: XavcFramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680014348"><span class="annot"><span class="annottext">HeaderName -&gt; XavcFramerateConversionAlgorithm -&gt; [Header]
+(HeaderName -&gt; XavcFramerateConversionAlgorithm -&gt; [Header])
+-&gt; ToHeader XavcFramerateConversionAlgorithm
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; XavcFramerateConversionAlgorithm -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; XavcFramerateConversionAlgorithm -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680014345"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; QueryString
+(XavcFramerateConversionAlgorithm -&gt; QueryString)
+-&gt; ToQuery XavcFramerateConversionAlgorithm
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: XavcFramerateConversionAlgorithm -&gt; QueryString
+$ctoQuery :: XavcFramerateConversionAlgorithm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680014340"><span id="local-6989586621680014342"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcFramerateConversionAlgorithm]
+Value -&gt; Parser XavcFramerateConversionAlgorithm
+(Value -&gt; Parser XavcFramerateConversionAlgorithm)
+-&gt; (Value -&gt; Parser [XavcFramerateConversionAlgorithm])
+-&gt; FromJSON XavcFramerateConversionAlgorithm
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [XavcFramerateConversionAlgorithm]
+$cparseJSONList :: Value -&gt; Parser [XavcFramerateConversionAlgorithm]
+parseJSON :: Value -&gt; Parser XavcFramerateConversionAlgorithm
+$cparseJSON :: Value -&gt; Parser XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680014335"><span id="local-6989586621680014337"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcFramerateConversionAlgorithm]
+FromJSONKeyFunction XavcFramerateConversionAlgorithm
+FromJSONKeyFunction XavcFramerateConversionAlgorithm
+-&gt; FromJSONKeyFunction [XavcFramerateConversionAlgorithm]
+-&gt; FromJSONKey XavcFramerateConversionAlgorithm
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [XavcFramerateConversionAlgorithm]
+$cfromJSONKeyList :: FromJSONKeyFunction [XavcFramerateConversionAlgorithm]
+fromJSONKey :: FromJSONKeyFunction XavcFramerateConversionAlgorithm
+$cfromJSONKey :: FromJSONKeyFunction XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680014326"><span id="local-6989586621680014328"><span id="local-6989586621680014330"><span id="local-6989586621680014332"><span class="annot"><span class="annottext">[XavcFramerateConversionAlgorithm] -&gt; Encoding
+[XavcFramerateConversionAlgorithm] -&gt; Value
+XavcFramerateConversionAlgorithm -&gt; Encoding
+XavcFramerateConversionAlgorithm -&gt; Value
+(XavcFramerateConversionAlgorithm -&gt; Value)
+-&gt; (XavcFramerateConversionAlgorithm -&gt; Encoding)
+-&gt; ([XavcFramerateConversionAlgorithm] -&gt; Value)
+-&gt; ([XavcFramerateConversionAlgorithm] -&gt; Encoding)
+-&gt; ToJSON XavcFramerateConversionAlgorithm
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [XavcFramerateConversionAlgorithm] -&gt; Encoding
+$ctoEncodingList :: [XavcFramerateConversionAlgorithm] -&gt; Encoding
+toJSONList :: [XavcFramerateConversionAlgorithm] -&gt; Value
+$ctoJSONList :: [XavcFramerateConversionAlgorithm] -&gt; Value
+toEncoding :: XavcFramerateConversionAlgorithm -&gt; Encoding
+$ctoEncoding :: XavcFramerateConversionAlgorithm -&gt; Encoding
+toJSON :: XavcFramerateConversionAlgorithm -&gt; Value
+$ctoJSON :: XavcFramerateConversionAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680014321"><span id="local-6989586621680014323"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcFramerateConversionAlgorithm]
+ToJSONKeyFunction XavcFramerateConversionAlgorithm
+ToJSONKeyFunction XavcFramerateConversionAlgorithm
+-&gt; ToJSONKeyFunction [XavcFramerateConversionAlgorithm]
+-&gt; ToJSONKey XavcFramerateConversionAlgorithm
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [XavcFramerateConversionAlgorithm]
+$ctoJSONKeyList :: ToJSONKeyFunction [XavcFramerateConversionAlgorithm]
+toJSONKey :: ToJSONKeyFunction XavcFramerateConversionAlgorithm
+$ctoJSONKey :: ToJSONKeyFunction XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680014318"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcFramerateConversionAlgorithm
+([Node] -&gt; Either String XavcFramerateConversionAlgorithm)
+-&gt; FromXML XavcFramerateConversionAlgorithm
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String XavcFramerateConversionAlgorithm
+$cparseXML :: [Node] -&gt; Either String XavcFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680014315"><span class="annot"><span class="annottext">XavcFramerateConversionAlgorithm -&gt; XML
+(XavcFramerateConversionAlgorithm -&gt; XML)
+-&gt; ToXML XavcFramerateConversionAlgorithm
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: XavcFramerateConversionAlgorithm -&gt; XML
+$ctoXML :: XavcFramerateConversionAlgorithm -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span id="%24mXavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span id="XavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span class="annot"><span class="annottext">$bXavcFramerateConversionAlgorithm_DUPLICATE_DROP :: XavcFramerateConversionAlgorithm
+$mXavcFramerateConversionAlgorithm_DUPLICATE_DROP :: forall r.
+XavcFramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#%24bXavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-identifier hs-var hs-var hs-var">XavcFramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUPLICATE_DROP&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavcFramerateConversionAlgorithm_FRAMEFORMER"><span id="%24mXavcFramerateConversionAlgorithm_FRAMEFORMER"><span id="XavcFramerateConversionAlgorithm_FRAMEFORMER"><span class="annot"><span class="annottext">$bXavcFramerateConversionAlgorithm_FRAMEFORMER :: XavcFramerateConversionAlgorithm
+$mXavcFramerateConversionAlgorithm_FRAMEFORMER :: forall r.
+XavcFramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#%24bXavcFramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-identifier hs-var hs-var hs-var">XavcFramerateConversionAlgorithm_FRAMEFORMER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAMEFORMER&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm_INTERPOLATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavcFramerateConversionAlgorithm_INTERPOLATE"><span id="%24mXavcFramerateConversionAlgorithm_INTERPOLATE"><span id="XavcFramerateConversionAlgorithm_INTERPOLATE"><span class="annot"><span class="annottext">$bXavcFramerateConversionAlgorithm_INTERPOLATE :: XavcFramerateConversionAlgorithm
+$mXavcFramerateConversionAlgorithm_INTERPOLATE :: forall r.
+XavcFramerateConversionAlgorithm
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#%24bXavcFramerateConversionAlgorithm_INTERPOLATE"><span class="hs-identifier hs-var hs-var hs-var">XavcFramerateConversionAlgorithm_INTERPOLATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm%27"><span class="hs-identifier hs-type">XavcFramerateConversionAlgorithm'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERPOLATE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_DUPLICATE_DROP"><span class="hs-pragma hs-type">XavcFramerateConversionAlgorithm_DUPLICATE_DROP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_FRAMEFORMER"><span class="hs-pragma hs-type">XavcFramerateConversionAlgorithm_FRAMEFORMER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm_INTERPOLATE"><span class="hs-pragma hs-type">XavcFramerateConversionAlgorithm_INTERPOLATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm.html#XavcFramerateConversionAlgorithm%27"><span class="hs-pragma hs-type">XavcFramerateConversionAlgorithm'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

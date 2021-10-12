@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.ContactProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.ContactProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier">ContactProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_Email"><span class="hs-identifier">ContactProtocol_Email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_SMS"><span class="hs-identifier">ContactProtocol_SMS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679605921"><span id="local-6989586621679605922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-var">ContactProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol%27"><span class="hs-identifier hs-var">ContactProtocol'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactProtocol"><span class="annot"><span class="annottext">ContactProtocol -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#fromContactProtocol"><span class="hs-identifier hs-var hs-var">fromContactProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605913"><span id="local-6989586621679605915"><span id="local-6989586621679605917"><span class="annot"><span class="annottext">Int -&gt; ContactProtocol -&gt; ShowS
+[ContactProtocol] -&gt; ShowS
+ContactProtocol -&gt; String
+(Int -&gt; ContactProtocol -&gt; ShowS)
+-&gt; (ContactProtocol -&gt; String)
+-&gt; ([ContactProtocol] -&gt; ShowS)
+-&gt; Show ContactProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactProtocol] -&gt; ShowS
+$cshowList :: [ContactProtocol] -&gt; ShowS
+show :: ContactProtocol -&gt; String
+$cshow :: ContactProtocol -&gt; String
+showsPrec :: Int -&gt; ContactProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679605904"><span id="local-6989586621679605906"><span id="local-6989586621679605908"><span id="local-6989586621679605910"><span class="annot"><span class="annottext">ReadPrec [ContactProtocol]
+ReadPrec ContactProtocol
+Int -&gt; ReadS ContactProtocol
+ReadS [ContactProtocol]
+(Int -&gt; ReadS ContactProtocol)
+-&gt; ReadS [ContactProtocol]
+-&gt; ReadPrec ContactProtocol
+-&gt; ReadPrec [ContactProtocol]
+-&gt; Read ContactProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactProtocol]
+$creadListPrec :: ReadPrec [ContactProtocol]
+readPrec :: ReadPrec ContactProtocol
+$creadPrec :: ReadPrec ContactProtocol
+readList :: ReadS [ContactProtocol]
+$creadList :: ReadS [ContactProtocol]
+readsPrec :: Int -&gt; ReadS ContactProtocol
+$creadsPrec :: Int -&gt; ReadS ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679605899"><span id="local-6989586621679605901"><span class="annot"><span class="annottext">ContactProtocol -&gt; ContactProtocol -&gt; Bool
+(ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; Eq ContactProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c/= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+== :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c== :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679605883"><span id="local-6989586621679605885"><span id="local-6989586621679605887"><span id="local-6989586621679605889"><span id="local-6989586621679605891"><span id="local-6989586621679605893"><span id="local-6989586621679605895"><span class="annot"><span class="annottext">Eq ContactProtocol
+Eq ContactProtocol
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Ordering)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; Bool)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol)
+-&gt; (ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol)
+-&gt; Ord ContactProtocol
+ContactProtocol -&gt; ContactProtocol -&gt; Bool
+ContactProtocol -&gt; ContactProtocol -&gt; Ordering
+ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol
+$cmin :: ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol
+max :: ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol
+$cmax :: ContactProtocol -&gt; ContactProtocol -&gt; ContactProtocol
+&gt;= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c&gt;= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+&gt; :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c&gt; :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+&lt;= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c&lt;= :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+&lt; :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+$c&lt; :: ContactProtocol -&gt; ContactProtocol -&gt; Bool
+compare :: ContactProtocol -&gt; ContactProtocol -&gt; Ordering
+$ccompare :: ContactProtocol -&gt; ContactProtocol -&gt; Ordering
+$cp1Ord :: Eq ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ContactProtocol -&gt; Rep ContactProtocol x)
+-&gt; (forall x. Rep ContactProtocol x -&gt; ContactProtocol)
+-&gt; Generic ContactProtocol
+forall x. Rep ContactProtocol x -&gt; ContactProtocol
+forall x. ContactProtocol -&gt; Rep ContactProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactProtocol x -&gt; ContactProtocol
+$cfrom :: forall x. ContactProtocol -&gt; Rep ContactProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605875"><span id="local-6989586621679605877"><span class="annot"><span class="annottext">Int -&gt; ContactProtocol -&gt; Int
+ContactProtocol -&gt; Int
+(Int -&gt; ContactProtocol -&gt; Int)
+-&gt; (ContactProtocol -&gt; Int) -&gt; Hashable ContactProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContactProtocol -&gt; Int
+$chash :: ContactProtocol -&gt; Int
+hashWithSalt :: Int -&gt; ContactProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; ContactProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605872"><span class="annot"><span class="annottext">ContactProtocol -&gt; ()
+(ContactProtocol -&gt; ()) -&gt; NFData ContactProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContactProtocol -&gt; ()
+$crnf :: ContactProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679605869"><span class="annot"><span class="annottext">Text -&gt; Either String ContactProtocol
+(Text -&gt; Either String ContactProtocol) -&gt; FromText ContactProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContactProtocol
+$cfromText :: Text -&gt; Either String ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679605866"><span class="annot"><span class="annottext">ContactProtocol -&gt; Text
+(ContactProtocol -&gt; Text) -&gt; ToText ContactProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContactProtocol -&gt; Text
+$ctoText :: ContactProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679605863"><span class="annot"><span class="annottext">ContactProtocol -&gt; ByteString
+(ContactProtocol -&gt; ByteString) -&gt; ToByteString ContactProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContactProtocol -&gt; ByteString
+$ctoBS :: ContactProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679605860"><span class="annot"><span class="annottext">ContactProtocol -&gt; ByteStringBuilder
+(ContactProtocol -&gt; ByteStringBuilder) -&gt; ToLog ContactProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContactProtocol -&gt; ByteStringBuilder
+$cbuild :: ContactProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605857"><span class="annot"><span class="annottext">HeaderName -&gt; ContactProtocol -&gt; [Header]
+(HeaderName -&gt; ContactProtocol -&gt; [Header])
+-&gt; ToHeader ContactProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContactProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContactProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605854"><span class="annot"><span class="annottext">ContactProtocol -&gt; QueryString
+(ContactProtocol -&gt; QueryString) -&gt; ToQuery ContactProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContactProtocol -&gt; QueryString
+$ctoQuery :: ContactProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605849"><span id="local-6989586621679605851"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactProtocol]
+Value -&gt; Parser ContactProtocol
+(Value -&gt; Parser ContactProtocol)
+-&gt; (Value -&gt; Parser [ContactProtocol]) -&gt; FromJSON ContactProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContactProtocol]
+$cparseJSONList :: Value -&gt; Parser [ContactProtocol]
+parseJSON :: Value -&gt; Parser ContactProtocol
+$cparseJSON :: Value -&gt; Parser ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605844"><span id="local-6989586621679605846"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactProtocol]
+FromJSONKeyFunction ContactProtocol
+FromJSONKeyFunction ContactProtocol
+-&gt; FromJSONKeyFunction [ContactProtocol]
+-&gt; FromJSONKey ContactProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContactProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContactProtocol]
+fromJSONKey :: FromJSONKeyFunction ContactProtocol
+$cfromJSONKey :: FromJSONKeyFunction ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605835"><span id="local-6989586621679605837"><span id="local-6989586621679605839"><span id="local-6989586621679605841"><span class="annot"><span class="annottext">[ContactProtocol] -&gt; Encoding
+[ContactProtocol] -&gt; Value
+ContactProtocol -&gt; Encoding
+ContactProtocol -&gt; Value
+(ContactProtocol -&gt; Value)
+-&gt; (ContactProtocol -&gt; Encoding)
+-&gt; ([ContactProtocol] -&gt; Value)
+-&gt; ([ContactProtocol] -&gt; Encoding)
+-&gt; ToJSON ContactProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContactProtocol] -&gt; Encoding
+$ctoEncodingList :: [ContactProtocol] -&gt; Encoding
+toJSONList :: [ContactProtocol] -&gt; Value
+$ctoJSONList :: [ContactProtocol] -&gt; Value
+toEncoding :: ContactProtocol -&gt; Encoding
+$ctoEncoding :: ContactProtocol -&gt; Encoding
+toJSON :: ContactProtocol -&gt; Value
+$ctoJSON :: ContactProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605830"><span id="local-6989586621679605832"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactProtocol]
+ToJSONKeyFunction ContactProtocol
+ToJSONKeyFunction ContactProtocol
+-&gt; ToJSONKeyFunction [ContactProtocol] -&gt; ToJSONKey ContactProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContactProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContactProtocol]
+toJSONKey :: ToJSONKeyFunction ContactProtocol
+$ctoJSONKey :: ToJSONKeyFunction ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605827"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactProtocol
+([Node] -&gt; Either String ContactProtocol)
+-&gt; FromXML ContactProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContactProtocol
+$cparseXML :: [Node] -&gt; Either String ContactProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679605824"><span class="annot"><span class="annottext">ContactProtocol -&gt; XML
+(ContactProtocol -&gt; XML) -&gt; ToXML ContactProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContactProtocol -&gt; XML
+$ctoXML :: ContactProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_Email"><span class="hs-identifier hs-type">ContactProtocol_Email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactProtocol_Email"><span id="%24mContactProtocol_Email"><span id="ContactProtocol_Email"><span class="annot"><span class="annottext">$bContactProtocol_Email :: ContactProtocol
+$mContactProtocol_Email :: forall r. ContactProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#%24bContactProtocol_Email"><span class="hs-identifier hs-var hs-var hs-var">ContactProtocol_Email</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol%27"><span class="hs-identifier hs-type">ContactProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Email&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_SMS"><span class="hs-identifier hs-type">ContactProtocol_SMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContactProtocol_SMS"><span id="%24mContactProtocol_SMS"><span id="ContactProtocol_SMS"><span class="annot"><span class="annottext">$bContactProtocol_SMS :: ContactProtocol
+$mContactProtocol_SMS :: forall r. ContactProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#%24bContactProtocol_SMS"><span class="hs-identifier hs-var hs-var hs-var">ContactProtocol_SMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol%27"><span class="hs-identifier hs-type">ContactProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_Email"><span class="hs-pragma hs-type">ContactProtocol_Email</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol_SMS"><span class="hs-pragma hs-type">ContactProtocol_SMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol%27"><span class="hs-pragma hs-type">ContactProtocol'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

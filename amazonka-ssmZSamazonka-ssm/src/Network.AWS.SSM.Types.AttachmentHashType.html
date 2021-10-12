@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.AttachmentHashType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.AttachmentHashType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType"><span class="hs-identifier">AttachmentHashType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType_Sha256"><span class="hs-identifier">AttachmentHashType_Sha256</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679786402"><span id="local-6989586621679786403"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttachmentHashType"><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType"><span class="hs-identifier hs-var">AttachmentHashType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachmentHashType%27"><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType%27"><span class="hs-identifier hs-var">AttachmentHashType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttachmentHashType"><span class="annot"><span class="annottext">AttachmentHashType -&gt; Text
+</span><a href="Network.AWS.SSM.Types.AttachmentHashType.html#fromAttachmentHashType"><span class="hs-identifier hs-var hs-var">fromAttachmentHashType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786394"><span id="local-6989586621679786396"><span id="local-6989586621679786398"><span class="annot"><span class="annottext">Int -&gt; AttachmentHashType -&gt; ShowS
+[AttachmentHashType] -&gt; ShowS
+AttachmentHashType -&gt; String
+(Int -&gt; AttachmentHashType -&gt; ShowS)
+-&gt; (AttachmentHashType -&gt; String)
+-&gt; ([AttachmentHashType] -&gt; ShowS)
+-&gt; Show AttachmentHashType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttachmentHashType] -&gt; ShowS
+$cshowList :: [AttachmentHashType] -&gt; ShowS
+show :: AttachmentHashType -&gt; String
+$cshow :: AttachmentHashType -&gt; String
+showsPrec :: Int -&gt; AttachmentHashType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttachmentHashType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679786385"><span id="local-6989586621679786387"><span id="local-6989586621679786389"><span id="local-6989586621679786391"><span class="annot"><span class="annottext">ReadPrec [AttachmentHashType]
+ReadPrec AttachmentHashType
+Int -&gt; ReadS AttachmentHashType
+ReadS [AttachmentHashType]
+(Int -&gt; ReadS AttachmentHashType)
+-&gt; ReadS [AttachmentHashType]
+-&gt; ReadPrec AttachmentHashType
+-&gt; ReadPrec [AttachmentHashType]
+-&gt; Read AttachmentHashType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttachmentHashType]
+$creadListPrec :: ReadPrec [AttachmentHashType]
+readPrec :: ReadPrec AttachmentHashType
+$creadPrec :: ReadPrec AttachmentHashType
+readList :: ReadS [AttachmentHashType]
+$creadList :: ReadS [AttachmentHashType]
+readsPrec :: Int -&gt; ReadS AttachmentHashType
+$creadsPrec :: Int -&gt; ReadS AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679786380"><span id="local-6989586621679786382"><span class="annot"><span class="annottext">AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+(AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; Eq AttachmentHashType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c/= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+== :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c== :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679786364"><span id="local-6989586621679786366"><span id="local-6989586621679786368"><span id="local-6989586621679786370"><span id="local-6989586621679786372"><span id="local-6989586621679786374"><span id="local-6989586621679786376"><span class="annot"><span class="annottext">Eq AttachmentHashType
+Eq AttachmentHashType
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Ordering)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; Bool)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType)
+-&gt; (AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType)
+-&gt; Ord AttachmentHashType
+AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+AttachmentHashType -&gt; AttachmentHashType -&gt; Ordering
+AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType
+$cmin :: AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType
+max :: AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType
+$cmax :: AttachmentHashType -&gt; AttachmentHashType -&gt; AttachmentHashType
+&gt;= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c&gt;= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+&gt; :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c&gt; :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+&lt;= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c&lt;= :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+&lt; :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+$c&lt; :: AttachmentHashType -&gt; AttachmentHashType -&gt; Bool
+compare :: AttachmentHashType -&gt; AttachmentHashType -&gt; Ordering
+$ccompare :: AttachmentHashType -&gt; AttachmentHashType -&gt; Ordering
+$cp1Ord :: Eq AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AttachmentHashType -&gt; Rep AttachmentHashType x)
+-&gt; (forall x. Rep AttachmentHashType x -&gt; AttachmentHashType)
+-&gt; Generic AttachmentHashType
+forall x. Rep AttachmentHashType x -&gt; AttachmentHashType
+forall x. AttachmentHashType -&gt; Rep AttachmentHashType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AttachmentHashType x -&gt; AttachmentHashType
+$cfrom :: forall x. AttachmentHashType -&gt; Rep AttachmentHashType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786356"><span id="local-6989586621679786358"><span class="annot"><span class="annottext">Int -&gt; AttachmentHashType -&gt; Int
+AttachmentHashType -&gt; Int
+(Int -&gt; AttachmentHashType -&gt; Int)
+-&gt; (AttachmentHashType -&gt; Int) -&gt; Hashable AttachmentHashType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AttachmentHashType -&gt; Int
+$chash :: AttachmentHashType -&gt; Int
+hashWithSalt :: Int -&gt; AttachmentHashType -&gt; Int
+$chashWithSalt :: Int -&gt; AttachmentHashType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679786353"><span class="annot"><span class="annottext">AttachmentHashType -&gt; ()
+(AttachmentHashType -&gt; ()) -&gt; NFData AttachmentHashType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AttachmentHashType -&gt; ()
+$crnf :: AttachmentHashType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679786350"><span class="annot"><span class="annottext">Text -&gt; Either String AttachmentHashType
+(Text -&gt; Either String AttachmentHashType)
+-&gt; FromText AttachmentHashType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AttachmentHashType
+$cfromText :: Text -&gt; Either String AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679786347"><span class="annot"><span class="annottext">AttachmentHashType -&gt; Text
+(AttachmentHashType -&gt; Text) -&gt; ToText AttachmentHashType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AttachmentHashType -&gt; Text
+$ctoText :: AttachmentHashType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679786344"><span class="annot"><span class="annottext">AttachmentHashType -&gt; ByteString
+(AttachmentHashType -&gt; ByteString)
+-&gt; ToByteString AttachmentHashType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AttachmentHashType -&gt; ByteString
+$ctoBS :: AttachmentHashType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679786341"><span class="annot"><span class="annottext">AttachmentHashType -&gt; ByteStringBuilder
+(AttachmentHashType -&gt; ByteStringBuilder)
+-&gt; ToLog AttachmentHashType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AttachmentHashType -&gt; ByteStringBuilder
+$cbuild :: AttachmentHashType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679786338"><span class="annot"><span class="annottext">HeaderName -&gt; AttachmentHashType -&gt; [Header]
+(HeaderName -&gt; AttachmentHashType -&gt; [Header])
+-&gt; ToHeader AttachmentHashType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AttachmentHashType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AttachmentHashType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679786335"><span class="annot"><span class="annottext">AttachmentHashType -&gt; QueryString
+(AttachmentHashType -&gt; QueryString) -&gt; ToQuery AttachmentHashType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AttachmentHashType -&gt; QueryString
+$ctoQuery :: AttachmentHashType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679786330"><span id="local-6989586621679786332"><span class="annot"><span class="annottext">Value -&gt; Parser [AttachmentHashType]
+Value -&gt; Parser AttachmentHashType
+(Value -&gt; Parser AttachmentHashType)
+-&gt; (Value -&gt; Parser [AttachmentHashType])
+-&gt; FromJSON AttachmentHashType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AttachmentHashType]
+$cparseJSONList :: Value -&gt; Parser [AttachmentHashType]
+parseJSON :: Value -&gt; Parser AttachmentHashType
+$cparseJSON :: Value -&gt; Parser AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679786325"><span id="local-6989586621679786327"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttachmentHashType]
+FromJSONKeyFunction AttachmentHashType
+FromJSONKeyFunction AttachmentHashType
+-&gt; FromJSONKeyFunction [AttachmentHashType]
+-&gt; FromJSONKey AttachmentHashType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AttachmentHashType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AttachmentHashType]
+fromJSONKey :: FromJSONKeyFunction AttachmentHashType
+$cfromJSONKey :: FromJSONKeyFunction AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679786316"><span id="local-6989586621679786318"><span id="local-6989586621679786320"><span id="local-6989586621679786322"><span class="annot"><span class="annottext">[AttachmentHashType] -&gt; Encoding
+[AttachmentHashType] -&gt; Value
+AttachmentHashType -&gt; Encoding
+AttachmentHashType -&gt; Value
+(AttachmentHashType -&gt; Value)
+-&gt; (AttachmentHashType -&gt; Encoding)
+-&gt; ([AttachmentHashType] -&gt; Value)
+-&gt; ([AttachmentHashType] -&gt; Encoding)
+-&gt; ToJSON AttachmentHashType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AttachmentHashType] -&gt; Encoding
+$ctoEncodingList :: [AttachmentHashType] -&gt; Encoding
+toJSONList :: [AttachmentHashType] -&gt; Value
+$ctoJSONList :: [AttachmentHashType] -&gt; Value
+toEncoding :: AttachmentHashType -&gt; Encoding
+$ctoEncoding :: AttachmentHashType -&gt; Encoding
+toJSON :: AttachmentHashType -&gt; Value
+$ctoJSON :: AttachmentHashType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679786311"><span id="local-6989586621679786313"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttachmentHashType]
+ToJSONKeyFunction AttachmentHashType
+ToJSONKeyFunction AttachmentHashType
+-&gt; ToJSONKeyFunction [AttachmentHashType]
+-&gt; ToJSONKey AttachmentHashType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AttachmentHashType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AttachmentHashType]
+toJSONKey :: ToJSONKeyFunction AttachmentHashType
+$ctoJSONKey :: ToJSONKeyFunction AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679786308"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttachmentHashType
+([Node] -&gt; Either String AttachmentHashType)
+-&gt; FromXML AttachmentHashType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AttachmentHashType
+$cparseXML :: [Node] -&gt; Either String AttachmentHashType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679786305"><span class="annot"><span class="annottext">AttachmentHashType -&gt; XML
+(AttachmentHashType -&gt; XML) -&gt; ToXML AttachmentHashType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AttachmentHashType -&gt; XML
+$ctoXML :: AttachmentHashType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType_Sha256"><span class="hs-identifier hs-type">AttachmentHashType_Sha256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType"><span class="hs-identifier hs-type">AttachmentHashType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAttachmentHashType_Sha256"><span id="%24mAttachmentHashType_Sha256"><span id="AttachmentHashType_Sha256"><span class="annot"><span class="annottext">$bAttachmentHashType_Sha256 :: AttachmentHashType
+$mAttachmentHashType_Sha256 :: forall r. AttachmentHashType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AttachmentHashType.html#%24bAttachmentHashType_Sha256"><span class="hs-identifier hs-var hs-var hs-var">AttachmentHashType_Sha256</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType%27"><span class="hs-identifier hs-type">AttachmentHashType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Sha256&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType_Sha256"><span class="hs-pragma hs-type">AttachmentHashType_Sha256</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentHashType.html#AttachmentHashType%27"><span class="hs-pragma hs-type">AttachmentHashType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

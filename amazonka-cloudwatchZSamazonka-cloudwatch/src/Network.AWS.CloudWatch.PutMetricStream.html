@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.PutMetricStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates a metric stream. Metric streams can automatically</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- stream CloudWatch metrics to Amazon Web Services destinations including</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Amazon S3 and to many third-party solutions.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html Using Metric Streams&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- To create a metric stream, you must be logged on to an account that has</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- the @iam:PassRole@ permission and either the @CloudWatchFullAccess@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- policy or the @cloudwatch:PutMetricStream@ permission.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- When you create or update a metric stream, you choose one of the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   Stream metrics from all metric namespaces in the account.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- -   Stream metrics from all metric namespaces in the account, except for</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     the namespaces that you list in @ExcludeFilters@.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   Stream metrics from only the metric namespaces that you list in</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     @IncludeFilters@.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- When you use @PutMetricStream@ to create a new metric stream, the stream</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- is created in the @running@ state. If you use it to update an existing</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- stream, the state of the stream is not changed.</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.PutMetricStream</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier">PutMetricStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStream"><span class="hs-identifier">newPutMetricStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_includeFilters"><span class="hs-identifier">putMetricStream_includeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_tags"><span class="hs-identifier">putMetricStream_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_excludeFilters"><span class="hs-identifier">putMetricStream_excludeFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_name"><span class="hs-identifier">putMetricStream_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_firehoseArn"><span class="hs-identifier">putMetricStream_firehoseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_roleArn"><span class="hs-identifier">putMetricStream_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_outputFormat"><span class="hs-identifier">putMetricStream_outputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier">PutMetricStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStreamResponse"><span class="hs-identifier">newPutMetricStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_arn"><span class="hs-identifier">putMetricStreamResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_httpStatus"><span class="hs-identifier">putMetricStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.html"><span class="hs-identifier">Network.AWS.CloudWatch.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newPutMetricStream' smart constructor.</span><span>
+</span><span id="line-80"></span><span id="local-6989586621679259682"><span id="local-6989586621679259683"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricStream"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-var">PutMetricStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricStream%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-var">PutMetricStream'</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify this parameter, the stream sends only the metrics from</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the metric namespaces that you specify here.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AincludeFilters%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AincludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">includeFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs to associate with the metric stream. You can</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- associate as many as 50 tags with a metric stream.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Tags can help you organize and categorize your resources. You can also</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- use them to scope user permissions by granting a user permission to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- access or change only resources with certain tag values.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- You can use this parameter only when you are creating a new metric</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- stream. If you are using this operation to update an existing metric</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- stream, any tags you specify in this parameter are ignored. To change</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- the tags of an existing metric stream, use</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- or</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource&gt;.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Atags%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Atags%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | If you specify this parameter, the stream sends metrics from all metric</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- namespaces except for the namespaces that you specify here.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AexcludeFilters%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AexcludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">excludeFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | If you are creating a new metric stream, this is the name for the new</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- stream. The name must be different than the names of other metric</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- streams in this account and Region.</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- If you are updating a metric stream, specify the name of that stream</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Valid characters are A-Z, a-z, 0-9, \&quot;-\&quot; and \&quot;_\&quot;.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Aname%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aname%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon Kinesis Firehose delivery stream to use for this</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- metric stream. This Amazon Kinesis Firehose delivery stream must already</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- exist and must be in the same account as the metric stream.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AfirehoseArn%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AfirehoseArn%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The ARN of an IAM role that this metric stream will use to access Amazon</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- Kinesis Firehose resources. This IAM role must already exist and must be</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- in the same account as the metric stream. This IAM role must include the</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- following permissions:</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- -   firehose:PutRecord</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   firehose:PutRecordBatch</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AroleArn%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AroleArn%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The output format for the stream. Valid values are @json@ and</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- @opentelemetry0.7@. For more information about metric stream output</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- formats, see</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats&gt;.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AoutputFormat%3APutMetricStream%27"><span class="annot"><span class="annottext">PutMetricStream -&gt; MetricStreamOutputFormat
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AoutputFormat%3APutMetricStream%27"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259670"><span id="local-6989586621679259672"><span class="annot"><span class="annottext">PutMetricStream -&gt; PutMetricStream -&gt; Bool
+(PutMetricStream -&gt; PutMetricStream -&gt; Bool)
+-&gt; (PutMetricStream -&gt; PutMetricStream -&gt; Bool)
+-&gt; Eq PutMetricStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutMetricStream -&gt; PutMetricStream -&gt; Bool
+$c/= :: PutMetricStream -&gt; PutMetricStream -&gt; Bool
+== :: PutMetricStream -&gt; PutMetricStream -&gt; Bool
+$c== :: PutMetricStream -&gt; PutMetricStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259661"><span id="local-6989586621679259663"><span id="local-6989586621679259665"><span id="local-6989586621679259667"><span class="annot"><span class="annottext">ReadPrec [PutMetricStream]
+ReadPrec PutMetricStream
+Int -&gt; ReadS PutMetricStream
+ReadS [PutMetricStream]
+(Int -&gt; ReadS PutMetricStream)
+-&gt; ReadS [PutMetricStream]
+-&gt; ReadPrec PutMetricStream
+-&gt; ReadPrec [PutMetricStream]
+-&gt; Read PutMetricStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutMetricStream]
+$creadListPrec :: ReadPrec [PutMetricStream]
+readPrec :: ReadPrec PutMetricStream
+$creadPrec :: ReadPrec PutMetricStream
+readList :: ReadS [PutMetricStream]
+$creadList :: ReadS [PutMetricStream]
+readsPrec :: Int -&gt; ReadS PutMetricStream
+$creadsPrec :: Int -&gt; ReadS PutMetricStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259654"><span id="local-6989586621679259656"><span id="local-6989586621679259658"><span class="annot"><span class="annottext">Int -&gt; PutMetricStream -&gt; ShowS
+[PutMetricStream] -&gt; ShowS
+PutMetricStream -&gt; String
+(Int -&gt; PutMetricStream -&gt; ShowS)
+-&gt; (PutMetricStream -&gt; String)
+-&gt; ([PutMetricStream] -&gt; ShowS)
+-&gt; Show PutMetricStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutMetricStream] -&gt; ShowS
+$cshowList :: [PutMetricStream] -&gt; ShowS
+show :: PutMetricStream -&gt; String
+$cshow :: PutMetricStream -&gt; String
+showsPrec :: Int -&gt; PutMetricStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutMetricStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutMetricStream -&gt; Rep PutMetricStream x)
+-&gt; (forall x. Rep PutMetricStream x -&gt; PutMetricStream)
+-&gt; Generic PutMetricStream
+forall x. Rep PutMetricStream x -&gt; PutMetricStream
+forall x. PutMetricStream -&gt; Rep PutMetricStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutMetricStream x -&gt; PutMetricStream
+$cfrom :: forall x. PutMetricStream -&gt; Rep PutMetricStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'PutMetricStream' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'includeFilters', 'putMetricStream_includeFilters' - If you specify this parameter, the stream sends only the metrics from</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the metric namespaces that you specify here.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'tags', 'putMetricStream_tags' - A list of key-value pairs to associate with the metric stream. You can</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- associate as many as 50 tags with a metric stream.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Tags can help you organize and categorize your resources. You can also</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- use them to scope user permissions by granting a user permission to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- access or change only resources with certain tag values.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- You can use this parameter only when you are creating a new metric</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- stream. If you are using this operation to update an existing metric</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- stream, any tags you specify in this parameter are ignored. To change</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- the tags of an existing metric stream, use</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource&gt;</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource&gt;.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'excludeFilters', 'putMetricStream_excludeFilters' - If you specify this parameter, the stream sends metrics from all metric</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- namespaces except for the namespaces that you specify here.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'name', 'putMetricStream_name' - If you are creating a new metric stream, this is the name for the new</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- stream. The name must be different than the names of other metric</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- streams in this account and Region.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- If you are updating a metric stream, specify the name of that stream</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Valid characters are A-Z, a-z, 0-9, \&quot;-\&quot; and \&quot;_\&quot;.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'firehoseArn', 'putMetricStream_firehoseArn' - The ARN of the Amazon Kinesis Firehose delivery stream to use for this</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- metric stream. This Amazon Kinesis Firehose delivery stream must already</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- exist and must be in the same account as the metric stream.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'roleArn', 'putMetricStream_roleArn' - The ARN of an IAM role that this metric stream will use to access Amazon</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Kinesis Firehose resources. This IAM role must already exist and must be</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- in the same account as the metric stream. This IAM role must include the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- following permissions:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   firehose:PutRecord</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   firehose:PutRecordBatch</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'outputFormat', 'putMetricStream_outputFormat' - The output format for the stream. Valid values are @json@ and</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @opentelemetry0.7@. For more information about metric stream output</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- formats, see</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats&gt;.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStream"><span class="hs-identifier hs-type">newPutMetricStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'firehoseArn'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-comment">-- | 'outputFormat'</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span>
+</span><span id="line-209"></span><span id="newPutMetricStream"><span class="annot"><span class="annottext">newPutMetricStream :: Text -&gt; Text -&gt; Text -&gt; MetricStreamOutputFormat -&gt; PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStream"><span class="hs-identifier hs-var hs-var">newPutMetricStream</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679259649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259649"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679259648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259648"><span class="hs-identifier hs-var">pFirehoseArn_</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679259647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259647"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679259646"><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259646"><span class="hs-identifier hs-var">pOutputFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">PutMetricStream' :: Maybe [MetricStreamFilter]
+-&gt; Maybe [Tag]
+-&gt; Maybe [MetricStreamFilter]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; MetricStreamOutputFormat
+-&gt; PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeFilters:PutMetricStream' :: Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AincludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var">includeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:PutMetricStream' :: Maybe [Tag]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Atags%3APutMetricStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludeFilters:PutMetricStream' :: Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AexcludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var">excludeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aname%3APutMetricStream%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259649"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:firehoseArn:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AfirehoseArn%3APutMetricStream%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259648"><span class="hs-identifier hs-var">pFirehoseArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AroleArn%3APutMetricStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259647"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputFormat:PutMetricStream' :: MetricStreamOutputFormat
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AoutputFormat%3APutMetricStream%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259646"><span class="hs-identifier hs-var">pOutputFormat_</span></a></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | If you specify this parameter, the stream sends only the metrics from</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- the metric namespaces that you specify here.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_includeFilters"><span class="hs-identifier hs-type">putMetricStream_includeFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="putMetricStream_includeFilters"><span class="annot"><span class="annottext">putMetricStream_includeFilters :: (Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_includeFilters"><span class="hs-identifier hs-var hs-var">putMetricStream_includeFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Maybe [MetricStreamFilter])
+-&gt; (PutMetricStream
+    -&gt; Maybe [MetricStreamFilter] -&gt; PutMetricStream)
+-&gt; Lens
+     PutMetricStream
+     PutMetricStream
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259643"><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+includeFilters :: Maybe [MetricStreamFilter]
+$sel:includeFilters:PutMetricStream' :: PutMetricStream -&gt; Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259643"><span class="hs-identifier hs-var hs-var">includeFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259643"><span class="hs-identifier hs-var">includeFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259642"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259641"><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeFilters:PutMetricStream' :: Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AincludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var">includeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+ -&gt; PutMetricStream -&gt; f PutMetricStream)
+-&gt; ((Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+    -&gt; Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; (Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; PutMetricStream
+-&gt; f PutMetricStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+-&gt; Iso
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | A list of key-value pairs to associate with the metric stream. You can</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- associate as many as 50 tags with a metric stream.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Tags can help you organize and categorize your resources. You can also</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- use them to scope user permissions by granting a user permission to</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- access or change only resources with certain tag values.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- You can use this parameter only when you are creating a new metric</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- stream. If you are using this operation to update an existing metric</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- stream, any tags you specify in this parameter are ignored. To change</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- the tags of an existing metric stream, use</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource&gt;</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource&gt;.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_tags"><span class="hs-identifier hs-type">putMetricStream_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="putMetricStream_tags"><span class="annot"><span class="annottext">putMetricStream_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_tags"><span class="hs-identifier hs-var hs-var">putMetricStream_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Maybe [Tag])
+-&gt; (PutMetricStream -&gt; Maybe [Tag] -&gt; PutMetricStream)
+-&gt; Lens PutMetricStream PutMetricStream (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259637"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:PutMetricStream' :: PutMetricStream -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679259637"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259637"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259636"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259635"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutMetricStream' :: Maybe [Tag]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Atags%3APutMetricStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; PutMetricStream -&gt; f PutMetricStream)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PutMetricStream
+-&gt; f PutMetricStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | If you specify this parameter, the stream sends metrics from all metric</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- namespaces except for the namespaces that you specify here.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_excludeFilters"><span class="hs-identifier hs-type">putMetricStream_excludeFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamFilter.html#MetricStreamFilter"><span class="hs-identifier hs-type">MetricStreamFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="putMetricStream_excludeFilters"><span class="annot"><span class="annottext">putMetricStream_excludeFilters :: (Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_excludeFilters"><span class="hs-identifier hs-var hs-var">putMetricStream_excludeFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Maybe [MetricStreamFilter])
+-&gt; (PutMetricStream
+    -&gt; Maybe [MetricStreamFilter] -&gt; PutMetricStream)
+-&gt; Lens
+     PutMetricStream
+     PutMetricStream
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259634"><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+excludeFilters :: Maybe [MetricStreamFilter]
+$sel:excludeFilters:PutMetricStream' :: PutMetricStream -&gt; Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259634"><span class="hs-identifier hs-var hs-var">excludeFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259634"><span class="hs-identifier hs-var">excludeFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259633"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259632"><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeFilters:PutMetricStream' :: Maybe [MetricStreamFilter]
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AexcludeFilters%3APutMetricStream%27"><span class="hs-identifier hs-var">excludeFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+ -&gt; PutMetricStream -&gt; f PutMetricStream)
+-&gt; ((Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+    -&gt; Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; (Maybe [MetricStreamFilter] -&gt; f (Maybe [MetricStreamFilter]))
+-&gt; PutMetricStream
+-&gt; f PutMetricStream
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+-&gt; Iso
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+     (Maybe [MetricStreamFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+  [MetricStreamFilter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | If you are creating a new metric stream, this is the name for the new</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- stream. The name must be different than the names of other metric</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- streams in this account and Region.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- If you are updating a metric stream, specify the name of that stream</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- here.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Valid characters are A-Z, a-z, 0-9, \&quot;-\&quot; and \&quot;_\&quot;.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_name"><span class="hs-identifier hs-type">putMetricStream_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-266"></span><span id="putMetricStream_name"><span class="annot"><span class="annottext">putMetricStream_name :: (Text -&gt; f Text) -&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_name"><span class="hs-identifier hs-var hs-var">putMetricStream_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Text)
+-&gt; (PutMetricStream -&gt; Text -&gt; PutMetricStream)
+-&gt; Lens PutMetricStream PutMetricStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259631"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PutMetricStream' :: PutMetricStream -&gt; Text
+</span><a href="#local-6989586621679259631"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259631"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259630"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aname%3APutMetricStream%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The ARN of the Amazon Kinesis Firehose delivery stream to use for this</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- metric stream. This Amazon Kinesis Firehose delivery stream must already</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- exist and must be in the same account as the metric stream.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_firehoseArn"><span class="hs-identifier hs-type">putMetricStream_firehoseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-272"></span><span id="putMetricStream_firehoseArn"><span class="annot"><span class="annottext">putMetricStream_firehoseArn :: (Text -&gt; f Text) -&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_firehoseArn"><span class="hs-identifier hs-var hs-var">putMetricStream_firehoseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Text)
+-&gt; (PutMetricStream -&gt; Text -&gt; PutMetricStream)
+-&gt; Lens PutMetricStream PutMetricStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259628"><span class="annot"><span class="annottext">Text
+firehoseArn :: Text
+$sel:firehoseArn:PutMetricStream' :: PutMetricStream -&gt; Text
+</span><a href="#local-6989586621679259628"><span class="hs-identifier hs-var hs-var">firehoseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259628"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259627"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259626"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehoseArn:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AfirehoseArn%3APutMetricStream%27"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The ARN of an IAM role that this metric stream will use to access Amazon</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Kinesis Firehose resources. This IAM role must already exist and must be</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- in the same account as the metric stream. This IAM role must include the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- following permissions:</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   firehose:PutRecord</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   firehose:PutRecordBatch</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_roleArn"><span class="hs-identifier hs-type">putMetricStream_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-283"></span><span id="putMetricStream_roleArn"><span class="annot"><span class="annottext">putMetricStream_roleArn :: (Text -&gt; f Text) -&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_roleArn"><span class="hs-identifier hs-var hs-var">putMetricStream_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; Text)
+-&gt; (PutMetricStream -&gt; Text -&gt; PutMetricStream)
+-&gt; Lens PutMetricStream PutMetricStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259625"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:PutMetricStream' :: PutMetricStream -&gt; Text
+</span><a href="#local-6989586621679259625"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259625"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259624"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PutMetricStream' :: Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AroleArn%3APutMetricStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The output format for the stream. Valid values are @json@ and</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- @opentelemetry0.7@. For more information about metric stream output</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- formats, see</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats&gt;.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_outputFormat"><span class="hs-identifier hs-type">putMetricStream_outputFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-type">MetricStreamOutputFormat</span></a></span><span>
+</span><span id="line-290"></span><span id="putMetricStream_outputFormat"><span class="annot"><span class="annottext">putMetricStream_outputFormat :: (MetricStreamOutputFormat -&gt; f MetricStreamOutputFormat)
+-&gt; PutMetricStream -&gt; f PutMetricStream
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStream_outputFormat"><span class="hs-identifier hs-var hs-var">putMetricStream_outputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStream -&gt; MetricStreamOutputFormat)
+-&gt; (PutMetricStream -&gt; MetricStreamOutputFormat -&gt; PutMetricStream)
+-&gt; Lens
+     PutMetricStream
+     PutMetricStream
+     MetricStreamOutputFormat
+     MetricStreamOutputFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259622"><span class="annot"><span class="annottext">MetricStreamOutputFormat
+outputFormat :: MetricStreamOutputFormat
+$sel:outputFormat:PutMetricStream' :: PutMetricStream -&gt; MetricStreamOutputFormat
+</span><a href="#local-6989586621679259622"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259622"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259621"><span class="annot"><span class="annottext">s :: PutMetricStream
+</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259620"><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStream
+</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:PutMetricStream' :: MetricStreamOutputFormat
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AoutputFormat%3APutMetricStream%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-294"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679259616"><span class="annot"><span class="annottext">request :: PutMetricStream -&gt; Request PutMetricStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutMetricStream -&gt; Request PutMetricStream
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679259612"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutMetricStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutMetricStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse PutMetricStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutMetricStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutMetricStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PutMetricStreamResult&quot;</span></span><span>
+</span><span id="line-300"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259609"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259609"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259608"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259608"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259607"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-301"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutMetricStreamResponse
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-var">PutMetricStreamResponse'</span></a></span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutMetricStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; PutMetricStreamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutMetricStreamResponse)
+-&gt; Either String Int -&gt; Either String PutMetricStreamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259609"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259599"><span id="local-6989586621679259601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span></span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679259592"><span class="annot"><span class="annottext">toHeaders :: PutMetricStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutMetricStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679259587"><span class="annot"><span class="annottext">toPath :: PutMetricStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutMetricStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream"><span class="hs-identifier hs-type">PutMetricStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679259583"><span class="annot"><span class="annottext">toQuery :: PutMetricStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStream%27"><span class="hs-identifier hs-type">PutMetricStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259575"><span id="local-6989586621679259576"><span id="local-6989586621679259577"><span id="local-6989586621679259578"><span id="local-6989586621679259579"><span id="local-6989586621679259580"><span id="local-6989586621679259581"><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+Maybe [Tag]
+Text
+MetricStreamOutputFormat
+outputFormat :: MetricStreamOutputFormat
+roleArn :: Text
+firehoseArn :: Text
+name :: Text
+excludeFilters :: Maybe [MetricStreamFilter]
+tags :: Maybe [Tag]
+includeFilters :: Maybe [MetricStreamFilter]
+$sel:outputFormat:PutMetricStream' :: PutMetricStream -&gt; MetricStreamOutputFormat
+$sel:roleArn:PutMetricStream' :: PutMetricStream -&gt; Text
+$sel:firehoseArn:PutMetricStream' :: PutMetricStream -&gt; Text
+$sel:name:PutMetricStream' :: PutMetricStream -&gt; Text
+$sel:excludeFilters:PutMetricStream' :: PutMetricStream -&gt; Maybe [MetricStreamFilter]
+$sel:tags:PutMetricStream' :: PutMetricStream -&gt; Maybe [Tag]
+$sel:includeFilters:PutMetricStream' :: PutMetricStream -&gt; Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259575"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-320"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PutMetricStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IncludeFilters&quot;</span></span><span>
+</span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [MetricStreamFilter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-326"></span><span>                </span><span class="annot"><span class="annottext">([MetricStreamFilter] -&gt; QueryString)
+-&gt; Maybe [MetricStreamFilter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259581"><span class="hs-identifier hs-var">includeFilters</span></a></span><span>
+</span><span id="line-327"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-329"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-330"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259580"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExcludeFilters&quot;</span></span><span>
+</span><span id="line-332"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [MetricStreamFilter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-334"></span><span>                </span><span class="annot"><span class="annottext">([MetricStreamFilter] -&gt; QueryString)
+-&gt; Maybe [MetricStreamFilter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamFilter]
+</span><a href="#local-6989586621679259579"><span class="hs-identifier hs-var">excludeFilters</span></a></span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259578"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FirehoseArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259577"><span class="hs-identifier hs-var">firehoseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259576"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OutputFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; MetricStreamOutputFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">MetricStreamOutputFormat
+</span><a href="#local-6989586621679259575"><span class="hs-identifier hs-var">outputFormat</span></a></span><span>
+</span><span id="line-340"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | /See:/ 'newPutMetricStreamResponse' smart constructor.</span><span>
+</span><span id="line-343"></span><span id="local-6989586621679259571"><span id="local-6989586621679259572"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricStreamResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-var">PutMetricStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricStreamResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-var">PutMetricStreamResponse'</span></a></span></span><span>
+</span><span id="line-344"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the metric stream.</span><span>
+</span><span id="line-345"></span><span>    </span><span id="%24sel%3Aarn%3APutMetricStreamResponse%27"><span class="annot"><span class="annottext">PutMetricStreamResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aarn%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-347"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutMetricStreamResponse%27"><span class="annot"><span class="annottext">PutMetricStreamResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AhttpStatus%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-348"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259565"><span id="local-6989586621679259567"><span class="annot"><span class="annottext">PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool
+(PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool)
+-&gt; (PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool)
+-&gt; Eq PutMetricStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool
+$c/= :: PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool
+== :: PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool
+$c== :: PutMetricStreamResponse -&gt; PutMetricStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259557"><span id="local-6989586621679259559"><span id="local-6989586621679259561"><span id="local-6989586621679259563"><span class="annot"><span class="annottext">ReadPrec [PutMetricStreamResponse]
+ReadPrec PutMetricStreamResponse
+Int -&gt; ReadS PutMetricStreamResponse
+ReadS [PutMetricStreamResponse]
+(Int -&gt; ReadS PutMetricStreamResponse)
+-&gt; ReadS [PutMetricStreamResponse]
+-&gt; ReadPrec PutMetricStreamResponse
+-&gt; ReadPrec [PutMetricStreamResponse]
+-&gt; Read PutMetricStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutMetricStreamResponse]
+$creadListPrec :: ReadPrec [PutMetricStreamResponse]
+readPrec :: ReadPrec PutMetricStreamResponse
+$creadPrec :: ReadPrec PutMetricStreamResponse
+readList :: ReadS [PutMetricStreamResponse]
+$creadList :: ReadS [PutMetricStreamResponse]
+readsPrec :: Int -&gt; ReadS PutMetricStreamResponse
+$creadsPrec :: Int -&gt; ReadS PutMetricStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259551"><span id="local-6989586621679259553"><span id="local-6989586621679259555"><span class="annot"><span class="annottext">Int -&gt; PutMetricStreamResponse -&gt; ShowS
+[PutMetricStreamResponse] -&gt; ShowS
+PutMetricStreamResponse -&gt; String
+(Int -&gt; PutMetricStreamResponse -&gt; ShowS)
+-&gt; (PutMetricStreamResponse -&gt; String)
+-&gt; ([PutMetricStreamResponse] -&gt; ShowS)
+-&gt; Show PutMetricStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutMetricStreamResponse] -&gt; ShowS
+$cshowList :: [PutMetricStreamResponse] -&gt; ShowS
+show :: PutMetricStreamResponse -&gt; String
+$cshow :: PutMetricStreamResponse -&gt; String
+showsPrec :: Int -&gt; PutMetricStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutMetricStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutMetricStreamResponse -&gt; Rep PutMetricStreamResponse x)
+-&gt; (forall x.
+    Rep PutMetricStreamResponse x -&gt; PutMetricStreamResponse)
+-&gt; Generic PutMetricStreamResponse
+forall x. Rep PutMetricStreamResponse x -&gt; PutMetricStreamResponse
+forall x. PutMetricStreamResponse -&gt; Rep PutMetricStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutMetricStreamResponse x -&gt; PutMetricStreamResponse
+$cfrom :: forall x. PutMetricStreamResponse -&gt; Rep PutMetricStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- Create a value of 'PutMetricStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- 'arn', 'putMetricStreamResponse_arn' - The ARN of the metric stream.</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- 'httpStatus', 'putMetricStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-362"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStreamResponse"><span class="hs-identifier hs-type">newPutMetricStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-363"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-364"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-365"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span>
+</span><span id="line-366"></span><span id="newPutMetricStreamResponse"><span class="annot"><span class="annottext">newPutMetricStreamResponse :: Int -&gt; PutMetricStreamResponse
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#newPutMetricStreamResponse"><span class="hs-identifier hs-var hs-var">newPutMetricStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679259548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-367"></span><span>  </span><span class="annot"><span class="annottext">PutMetricStreamResponse' :: Maybe Text -&gt; Int -&gt; PutMetricStreamResponse
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-type">PutMetricStreamResponse'</span></a></span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:PutMetricStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aarn%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutMetricStreamResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AhttpStatus%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | The ARN of the metric stream.</span><span>
+</span><span id="line-373"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_arn"><span class="hs-identifier hs-type">putMetricStreamResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span id="putMetricStreamResponse_arn"><span class="annot"><span class="annottext">putMetricStreamResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutMetricStreamResponse -&gt; f PutMetricStreamResponse
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_arn"><span class="hs-identifier hs-var hs-var">putMetricStreamResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStreamResponse -&gt; Maybe Text)
+-&gt; (PutMetricStreamResponse
+    -&gt; Maybe Text -&gt; PutMetricStreamResponse)
+-&gt; Lens
+     PutMetricStreamResponse
+     PutMetricStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-type">PutMetricStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259547"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:PutMetricStreamResponse' :: PutMetricStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679259547"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259547"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259546"><span class="annot"><span class="annottext">s :: PutMetricStreamResponse
+</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-type">PutMetricStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259545"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStreamResponse
+</span><a href="#local-6989586621679259546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PutMetricStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3Aarn%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-377"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_httpStatus"><span class="hs-identifier hs-type">putMetricStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-378"></span><span id="putMetricStreamResponse_httpStatus"><span class="annot"><span class="annottext">putMetricStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutMetricStreamResponse -&gt; f PutMetricStreamResponse
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#putMetricStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putMetricStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutMetricStreamResponse -&gt; Int)
+-&gt; (PutMetricStreamResponse -&gt; Int -&gt; PutMetricStreamResponse)
+-&gt; Lens PutMetricStreamResponse PutMetricStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-type">PutMetricStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259544"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutMetricStreamResponse' :: PutMetricStreamResponse -&gt; Int
+</span><a href="#local-6989586621679259544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259543"><span class="annot"><span class="annottext">s :: PutMetricStreamResponse
+</span><a href="#local-6989586621679259543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse%27"><span class="hs-identifier hs-type">PutMetricStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricStreamResponse
+</span><a href="#local-6989586621679259543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutMetricStreamResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.PutMetricStream.html#%24sel%3AhttpStatus%3APutMetricStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutMetricStream.html#PutMetricStreamResponse"><span class="hs-identifier hs-type">PutMetricStreamResponse</span></a></span></span><span>
+</span><span id="line-381"></span></pre></body></html>

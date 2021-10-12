@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppSync.DeleteGraphqlApi</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a @GraphqlApi@ object.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppSync.DeleteGraphqlApi</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApi"><span class="hs-identifier">newDeleteGraphqlApi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApi_apiId"><span class="hs-identifier">deleteGraphqlApi_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier">DeleteGraphqlApiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApiResponse"><span class="hs-identifier">newDeleteGraphqlApiResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApiResponse_httpStatus"><span class="hs-identifier">deleteGraphqlApiResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.html"><span class="hs-identifier">Network.AWS.AppSync.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteGraphqlApi' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679258199"><span id="local-6989586621679258200"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGraphqlApi"><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-var">DeleteGraphqlApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGraphqlApi%27"><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi%27"><span class="hs-identifier hs-var">DeleteGraphqlApi'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AapiId%3ADeleteGraphqlApi%27"><span class="annot"><span class="annottext">DeleteGraphqlApi -&gt; Text
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AapiId%3ADeleteGraphqlApi%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258193"><span id="local-6989586621679258195"><span class="annot"><span class="annottext">DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool
+(DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool)
+-&gt; (DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool)
+-&gt; Eq DeleteGraphqlApi
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool
+$c/= :: DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool
+== :: DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool
+$c== :: DeleteGraphqlApi -&gt; DeleteGraphqlApi -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258184"><span id="local-6989586621679258186"><span id="local-6989586621679258188"><span id="local-6989586621679258190"><span class="annot"><span class="annottext">ReadPrec [DeleteGraphqlApi]
+ReadPrec DeleteGraphqlApi
+Int -&gt; ReadS DeleteGraphqlApi
+ReadS [DeleteGraphqlApi]
+(Int -&gt; ReadS DeleteGraphqlApi)
+-&gt; ReadS [DeleteGraphqlApi]
+-&gt; ReadPrec DeleteGraphqlApi
+-&gt; ReadPrec [DeleteGraphqlApi]
+-&gt; Read DeleteGraphqlApi
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGraphqlApi]
+$creadListPrec :: ReadPrec [DeleteGraphqlApi]
+readPrec :: ReadPrec DeleteGraphqlApi
+$creadPrec :: ReadPrec DeleteGraphqlApi
+readList :: ReadS [DeleteGraphqlApi]
+$creadList :: ReadS [DeleteGraphqlApi]
+readsPrec :: Int -&gt; ReadS DeleteGraphqlApi
+$creadsPrec :: Int -&gt; ReadS DeleteGraphqlApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258177"><span id="local-6989586621679258179"><span id="local-6989586621679258181"><span class="annot"><span class="annottext">Int -&gt; DeleteGraphqlApi -&gt; ShowS
+[DeleteGraphqlApi] -&gt; ShowS
+DeleteGraphqlApi -&gt; String
+(Int -&gt; DeleteGraphqlApi -&gt; ShowS)
+-&gt; (DeleteGraphqlApi -&gt; String)
+-&gt; ([DeleteGraphqlApi] -&gt; ShowS)
+-&gt; Show DeleteGraphqlApi
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGraphqlApi] -&gt; ShowS
+$cshowList :: [DeleteGraphqlApi] -&gt; ShowS
+show :: DeleteGraphqlApi -&gt; String
+$cshow :: DeleteGraphqlApi -&gt; String
+showsPrec :: Int -&gt; DeleteGraphqlApi -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGraphqlApi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGraphqlApi -&gt; Rep DeleteGraphqlApi x)
+-&gt; (forall x. Rep DeleteGraphqlApi x -&gt; DeleteGraphqlApi)
+-&gt; Generic DeleteGraphqlApi
+forall x. Rep DeleteGraphqlApi x -&gt; DeleteGraphqlApi
+forall x. DeleteGraphqlApi -&gt; Rep DeleteGraphqlApi x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGraphqlApi x -&gt; DeleteGraphqlApi
+$cfrom :: forall x. DeleteGraphqlApi -&gt; Rep DeleteGraphqlApi x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteGraphqlApi' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'apiId', 'deleteGraphqlApi_apiId' - The API ID.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApi"><span class="hs-identifier hs-type">newDeleteGraphqlApi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteGraphqlApi"><span class="annot"><span class="annottext">newDeleteGraphqlApi :: Text -&gt; DeleteGraphqlApi
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApi"><span class="hs-identifier hs-var hs-var">newDeleteGraphqlApi</span></a></span></span><span> </span><span id="local-6989586621679258172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258172"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteGraphqlApi' :: Text -&gt; DeleteGraphqlApi
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi%27"><span class="hs-identifier hs-type">DeleteGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:DeleteGraphqlApi' :: Text
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AapiId%3ADeleteGraphqlApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258172"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApi_apiId"><span class="hs-identifier hs-type">deleteGraphqlApi_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteGraphqlApi_apiId"><span class="annot"><span class="annottext">deleteGraphqlApi_apiId :: (Text -&gt; f Text) -&gt; DeleteGraphqlApi -&gt; f DeleteGraphqlApi
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApi_apiId"><span class="hs-identifier hs-var hs-var">deleteGraphqlApi_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGraphqlApi -&gt; Text)
+-&gt; (DeleteGraphqlApi -&gt; Text -&gt; DeleteGraphqlApi)
+-&gt; Lens DeleteGraphqlApi DeleteGraphqlApi Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi%27"><span class="hs-identifier hs-type">DeleteGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258169"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:DeleteGraphqlApi' :: DeleteGraphqlApi -&gt; Text
+</span><a href="#local-6989586621679258169"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258169"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258168"><span class="annot"><span class="annottext">s :: DeleteGraphqlApi
+</span><a href="#local-6989586621679258168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi%27"><span class="hs-identifier hs-type">DeleteGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGraphqlApi
+</span><a href="#local-6989586621679258168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:DeleteGraphqlApi' :: Text
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AapiId%3ADeleteGraphqlApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679258163"><span class="annot"><span class="annottext">request :: DeleteGraphqlApi -&gt; Request DeleteGraphqlApi
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGraphqlApi -&gt; Request DeleteGraphqlApi
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679258159"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteGraphqlApi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGraphqlApi)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteGraphqlApi))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteGraphqlApi
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGraphqlApi)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258156"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258156"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258155"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258155"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258154"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679258154"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteGraphqlApiResponse
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse%27"><span class="hs-identifier hs-var">DeleteGraphqlApiResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteGraphqlApiResponse)
+-&gt; Either String Int -&gt; Either String DeleteGraphqlApiResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258156"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258147"><span id="local-6989586621679258149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679258140"><span class="annot"><span class="annottext">toHeaders :: DeleteGraphqlApi -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGraphqlApi -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679258134"><span class="annot"><span class="annottext">toPath :: DeleteGraphqlApi -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi%27"><span class="hs-identifier hs-type">DeleteGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258132"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:DeleteGraphqlApi' :: DeleteGraphqlApi -&gt; Text
+</span><a href="#local-6989586621679258132"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258132"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApi"><span class="hs-identifier hs-type">DeleteGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679258128"><span class="annot"><span class="annottext">toQuery :: DeleteGraphqlApi -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGraphqlApi -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDeleteGraphqlApiResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679258125"><span id="local-6989586621679258126"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGraphqlApiResponse"><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-var">DeleteGraphqlApiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGraphqlApiResponse%27"><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse%27"><span class="hs-identifier hs-var">DeleteGraphqlApiResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGraphqlApiResponse%27"><span class="annot"><span class="annottext">DeleteGraphqlApiResponse -&gt; Int
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AhttpStatus%3ADeleteGraphqlApiResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258120"><span id="local-6989586621679258122"><span class="annot"><span class="annottext">DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool
+(DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool)
+-&gt; (DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool)
+-&gt; Eq DeleteGraphqlApiResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool
+$c/= :: DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool
+== :: DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool
+$c== :: DeleteGraphqlApiResponse -&gt; DeleteGraphqlApiResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258112"><span id="local-6989586621679258114"><span id="local-6989586621679258116"><span id="local-6989586621679258118"><span class="annot"><span class="annottext">ReadPrec [DeleteGraphqlApiResponse]
+ReadPrec DeleteGraphqlApiResponse
+Int -&gt; ReadS DeleteGraphqlApiResponse
+ReadS [DeleteGraphqlApiResponse]
+(Int -&gt; ReadS DeleteGraphqlApiResponse)
+-&gt; ReadS [DeleteGraphqlApiResponse]
+-&gt; ReadPrec DeleteGraphqlApiResponse
+-&gt; ReadPrec [DeleteGraphqlApiResponse]
+-&gt; Read DeleteGraphqlApiResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGraphqlApiResponse]
+$creadListPrec :: ReadPrec [DeleteGraphqlApiResponse]
+readPrec :: ReadPrec DeleteGraphqlApiResponse
+$creadPrec :: ReadPrec DeleteGraphqlApiResponse
+readList :: ReadS [DeleteGraphqlApiResponse]
+$creadList :: ReadS [DeleteGraphqlApiResponse]
+readsPrec :: Int -&gt; ReadS DeleteGraphqlApiResponse
+$creadsPrec :: Int -&gt; ReadS DeleteGraphqlApiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258106"><span id="local-6989586621679258108"><span id="local-6989586621679258110"><span class="annot"><span class="annottext">Int -&gt; DeleteGraphqlApiResponse -&gt; ShowS
+[DeleteGraphqlApiResponse] -&gt; ShowS
+DeleteGraphqlApiResponse -&gt; String
+(Int -&gt; DeleteGraphqlApiResponse -&gt; ShowS)
+-&gt; (DeleteGraphqlApiResponse -&gt; String)
+-&gt; ([DeleteGraphqlApiResponse] -&gt; ShowS)
+-&gt; Show DeleteGraphqlApiResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGraphqlApiResponse] -&gt; ShowS
+$cshowList :: [DeleteGraphqlApiResponse] -&gt; ShowS
+show :: DeleteGraphqlApiResponse -&gt; String
+$cshow :: DeleteGraphqlApiResponse -&gt; String
+showsPrec :: Int -&gt; DeleteGraphqlApiResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGraphqlApiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteGraphqlApiResponse -&gt; Rep DeleteGraphqlApiResponse x)
+-&gt; (forall x.
+    Rep DeleteGraphqlApiResponse x -&gt; DeleteGraphqlApiResponse)
+-&gt; Generic DeleteGraphqlApiResponse
+forall x.
+Rep DeleteGraphqlApiResponse x -&gt; DeleteGraphqlApiResponse
+forall x.
+DeleteGraphqlApiResponse -&gt; Rep DeleteGraphqlApiResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteGraphqlApiResponse x -&gt; DeleteGraphqlApiResponse
+$cfrom :: forall x.
+DeleteGraphqlApiResponse -&gt; Rep DeleteGraphqlApiResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'DeleteGraphqlApiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'httpStatus', 'deleteGraphqlApiResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApiResponse"><span class="hs-identifier hs-type">newDeleteGraphqlApiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse</span></a></span><span>
+</span><span id="line-129"></span><span id="newDeleteGraphqlApiResponse"><span class="annot"><span class="annottext">newDeleteGraphqlApiResponse :: Int -&gt; DeleteGraphqlApiResponse
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#newDeleteGraphqlApiResponse"><span class="hs-identifier hs-var hs-var">newDeleteGraphqlApiResponse</span></a></span></span><span> </span><span id="local-6989586621679258103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeleteGraphqlApiResponse' :: Int -&gt; DeleteGraphqlApiResponse
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse%27"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGraphqlApiResponse' :: Int
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AhttpStatus%3ADeleteGraphqlApiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApiResponse_httpStatus"><span class="hs-identifier hs-type">deleteGraphqlApiResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span id="deleteGraphqlApiResponse_httpStatus"><span class="annot"><span class="annottext">deleteGraphqlApiResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteGraphqlApiResponse -&gt; f DeleteGraphqlApiResponse
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#deleteGraphqlApiResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteGraphqlApiResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGraphqlApiResponse -&gt; Int)
+-&gt; (DeleteGraphqlApiResponse -&gt; Int -&gt; DeleteGraphqlApiResponse)
+-&gt; Lens DeleteGraphqlApiResponse DeleteGraphqlApiResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse%27"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258102"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteGraphqlApiResponse' :: DeleteGraphqlApiResponse -&gt; Int
+</span><a href="#local-6989586621679258102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258101"><span class="annot"><span class="annottext">s :: DeleteGraphqlApiResponse
+</span><a href="#local-6989586621679258101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse%27"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGraphqlApiResponse
+</span><a href="#local-6989586621679258101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGraphqlApiResponse' :: Int
+</span><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#%24sel%3AhttpStatus%3ADeleteGraphqlApiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.DeleteGraphqlApi.html#DeleteGraphqlApiResponse"><span class="hs-identifier hs-type">DeleteGraphqlApiResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.WakeWord</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.WakeWord</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier">WakeWord</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ALEXA"><span class="hs-identifier">WakeWord_ALEXA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_AMAZON"><span class="hs-identifier">WakeWord_AMAZON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_COMPUTER"><span class="hs-identifier">WakeWord_COMPUTER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ECHO"><span class="hs-identifier">WakeWord_ECHO</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679374262"><span id="local-6989586621679374263"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WakeWord"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-var">WakeWord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WakeWord%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-var">WakeWord'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWakeWord"><span class="annot"><span class="annottext">WakeWord -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#fromWakeWord"><span class="hs-identifier hs-var hs-var">fromWakeWord</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374254"><span id="local-6989586621679374256"><span id="local-6989586621679374258"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; ShowS
+[WakeWord] -&gt; ShowS
+WakeWord -&gt; String
+(Int -&gt; WakeWord -&gt; ShowS)
+-&gt; (WakeWord -&gt; String) -&gt; ([WakeWord] -&gt; ShowS) -&gt; Show WakeWord
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WakeWord] -&gt; ShowS
+$cshowList :: [WakeWord] -&gt; ShowS
+show :: WakeWord -&gt; String
+$cshow :: WakeWord -&gt; String
+showsPrec :: Int -&gt; WakeWord -&gt; ShowS
+$cshowsPrec :: Int -&gt; WakeWord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374245"><span id="local-6989586621679374247"><span id="local-6989586621679374249"><span id="local-6989586621679374251"><span class="annot"><span class="annottext">ReadPrec [WakeWord]
+ReadPrec WakeWord
+Int -&gt; ReadS WakeWord
+ReadS [WakeWord]
+(Int -&gt; ReadS WakeWord)
+-&gt; ReadS [WakeWord]
+-&gt; ReadPrec WakeWord
+-&gt; ReadPrec [WakeWord]
+-&gt; Read WakeWord
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WakeWord]
+$creadListPrec :: ReadPrec [WakeWord]
+readPrec :: ReadPrec WakeWord
+$creadPrec :: ReadPrec WakeWord
+readList :: ReadS [WakeWord]
+$creadList :: ReadS [WakeWord]
+readsPrec :: Int -&gt; ReadS WakeWord
+$creadsPrec :: Int -&gt; ReadS WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679374240"><span id="local-6989586621679374242"><span class="annot"><span class="annottext">WakeWord -&gt; WakeWord -&gt; Bool
+(WakeWord -&gt; WakeWord -&gt; Bool)
+-&gt; (WakeWord -&gt; WakeWord -&gt; Bool) -&gt; Eq WakeWord
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WakeWord -&gt; WakeWord -&gt; Bool
+$c/= :: WakeWord -&gt; WakeWord -&gt; Bool
+== :: WakeWord -&gt; WakeWord -&gt; Bool
+$c== :: WakeWord -&gt; WakeWord -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679374224"><span id="local-6989586621679374226"><span id="local-6989586621679374228"><span id="local-6989586621679374230"><span id="local-6989586621679374232"><span id="local-6989586621679374234"><span id="local-6989586621679374236"><span class="annot"><span class="annottext">Eq WakeWord
+Eq WakeWord
+-&gt; (WakeWord -&gt; WakeWord -&gt; Ordering)
+-&gt; (WakeWord -&gt; WakeWord -&gt; Bool)
+-&gt; (WakeWord -&gt; WakeWord -&gt; Bool)
+-&gt; (WakeWord -&gt; WakeWord -&gt; Bool)
+-&gt; (WakeWord -&gt; WakeWord -&gt; Bool)
+-&gt; (WakeWord -&gt; WakeWord -&gt; WakeWord)
+-&gt; (WakeWord -&gt; WakeWord -&gt; WakeWord)
+-&gt; Ord WakeWord
+WakeWord -&gt; WakeWord -&gt; Bool
+WakeWord -&gt; WakeWord -&gt; Ordering
+WakeWord -&gt; WakeWord -&gt; WakeWord
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WakeWord -&gt; WakeWord -&gt; WakeWord
+$cmin :: WakeWord -&gt; WakeWord -&gt; WakeWord
+max :: WakeWord -&gt; WakeWord -&gt; WakeWord
+$cmax :: WakeWord -&gt; WakeWord -&gt; WakeWord
+&gt;= :: WakeWord -&gt; WakeWord -&gt; Bool
+$c&gt;= :: WakeWord -&gt; WakeWord -&gt; Bool
+&gt; :: WakeWord -&gt; WakeWord -&gt; Bool
+$c&gt; :: WakeWord -&gt; WakeWord -&gt; Bool
+&lt;= :: WakeWord -&gt; WakeWord -&gt; Bool
+$c&lt;= :: WakeWord -&gt; WakeWord -&gt; Bool
+&lt; :: WakeWord -&gt; WakeWord -&gt; Bool
+$c&lt; :: WakeWord -&gt; WakeWord -&gt; Bool
+compare :: WakeWord -&gt; WakeWord -&gt; Ordering
+$ccompare :: WakeWord -&gt; WakeWord -&gt; Ordering
+$cp1Ord :: Eq WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WakeWord -&gt; Rep WakeWord x)
+-&gt; (forall x. Rep WakeWord x -&gt; WakeWord) -&gt; Generic WakeWord
+forall x. Rep WakeWord x -&gt; WakeWord
+forall x. WakeWord -&gt; Rep WakeWord x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WakeWord x -&gt; WakeWord
+$cfrom :: forall x. WakeWord -&gt; Rep WakeWord x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374216"><span id="local-6989586621679374218"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; Int
+WakeWord -&gt; Int
+(Int -&gt; WakeWord -&gt; Int) -&gt; (WakeWord -&gt; Int) -&gt; Hashable WakeWord
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WakeWord -&gt; Int
+$chash :: WakeWord -&gt; Int
+hashWithSalt :: Int -&gt; WakeWord -&gt; Int
+$chashWithSalt :: Int -&gt; WakeWord -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374213"><span class="annot"><span class="annottext">WakeWord -&gt; ()
+(WakeWord -&gt; ()) -&gt; NFData WakeWord
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WakeWord -&gt; ()
+$crnf :: WakeWord -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374210"><span class="annot"><span class="annottext">Text -&gt; Either String WakeWord
+(Text -&gt; Either String WakeWord) -&gt; FromText WakeWord
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WakeWord
+$cfromText :: Text -&gt; Either String WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374207"><span class="annot"><span class="annottext">WakeWord -&gt; Text
+(WakeWord -&gt; Text) -&gt; ToText WakeWord
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WakeWord -&gt; Text
+$ctoText :: WakeWord -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374204"><span class="annot"><span class="annottext">WakeWord -&gt; ByteString
+(WakeWord -&gt; ByteString) -&gt; ToByteString WakeWord
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WakeWord -&gt; ByteString
+$ctoBS :: WakeWord -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374201"><span class="annot"><span class="annottext">WakeWord -&gt; ByteStringBuilder
+(WakeWord -&gt; ByteStringBuilder) -&gt; ToLog WakeWord
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WakeWord -&gt; ByteStringBuilder
+$cbuild :: WakeWord -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374198"><span class="annot"><span class="annottext">HeaderName -&gt; WakeWord -&gt; [Header]
+(HeaderName -&gt; WakeWord -&gt; [Header]) -&gt; ToHeader WakeWord
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WakeWord -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WakeWord -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374195"><span class="annot"><span class="annottext">WakeWord -&gt; QueryString
+(WakeWord -&gt; QueryString) -&gt; ToQuery WakeWord
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WakeWord -&gt; QueryString
+$ctoQuery :: WakeWord -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374190"><span id="local-6989586621679374192"><span class="annot"><span class="annottext">Value -&gt; Parser [WakeWord]
+Value -&gt; Parser WakeWord
+(Value -&gt; Parser WakeWord)
+-&gt; (Value -&gt; Parser [WakeWord]) -&gt; FromJSON WakeWord
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WakeWord]
+$cparseJSONList :: Value -&gt; Parser [WakeWord]
+parseJSON :: Value -&gt; Parser WakeWord
+$cparseJSON :: Value -&gt; Parser WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374185"><span id="local-6989586621679374187"><span class="annot"><span class="annottext">FromJSONKeyFunction [WakeWord]
+FromJSONKeyFunction WakeWord
+FromJSONKeyFunction WakeWord
+-&gt; FromJSONKeyFunction [WakeWord] -&gt; FromJSONKey WakeWord
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WakeWord]
+$cfromJSONKeyList :: FromJSONKeyFunction [WakeWord]
+fromJSONKey :: FromJSONKeyFunction WakeWord
+$cfromJSONKey :: FromJSONKeyFunction WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374176"><span id="local-6989586621679374178"><span id="local-6989586621679374180"><span id="local-6989586621679374182"><span class="annot"><span class="annottext">[WakeWord] -&gt; Encoding
+[WakeWord] -&gt; Value
+WakeWord -&gt; Encoding
+WakeWord -&gt; Value
+(WakeWord -&gt; Value)
+-&gt; (WakeWord -&gt; Encoding)
+-&gt; ([WakeWord] -&gt; Value)
+-&gt; ([WakeWord] -&gt; Encoding)
+-&gt; ToJSON WakeWord
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WakeWord] -&gt; Encoding
+$ctoEncodingList :: [WakeWord] -&gt; Encoding
+toJSONList :: [WakeWord] -&gt; Value
+$ctoJSONList :: [WakeWord] -&gt; Value
+toEncoding :: WakeWord -&gt; Encoding
+$ctoEncoding :: WakeWord -&gt; Encoding
+toJSON :: WakeWord -&gt; Value
+$ctoJSON :: WakeWord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374171"><span id="local-6989586621679374173"><span class="annot"><span class="annottext">ToJSONKeyFunction [WakeWord]
+ToJSONKeyFunction WakeWord
+ToJSONKeyFunction WakeWord
+-&gt; ToJSONKeyFunction [WakeWord] -&gt; ToJSONKey WakeWord
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WakeWord]
+$ctoJSONKeyList :: ToJSONKeyFunction [WakeWord]
+toJSONKey :: ToJSONKeyFunction WakeWord
+$ctoJSONKey :: ToJSONKeyFunction WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374168"><span class="annot"><span class="annottext">[Node] -&gt; Either String WakeWord
+([Node] -&gt; Either String WakeWord) -&gt; FromXML WakeWord
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WakeWord
+$cparseXML :: [Node] -&gt; Either String WakeWord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374165"><span class="annot"><span class="annottext">WakeWord -&gt; XML
+(WakeWord -&gt; XML) -&gt; ToXML WakeWord
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WakeWord -&gt; XML
+$ctoXML :: WakeWord -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ALEXA"><span class="hs-identifier hs-type">WakeWord_ALEXA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWakeWord_ALEXA"><span id="%24mWakeWord_ALEXA"><span id="WakeWord_ALEXA"><span class="annot"><span class="annottext">$bWakeWord_ALEXA :: WakeWord
+$mWakeWord_ALEXA :: forall r. WakeWord -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#%24bWakeWord_ALEXA"><span class="hs-identifier hs-var hs-var hs-var">WakeWord_ALEXA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-type">WakeWord'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALEXA&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_AMAZON"><span class="hs-identifier hs-type">WakeWord_AMAZON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWakeWord_AMAZON"><span id="%24mWakeWord_AMAZON"><span id="WakeWord_AMAZON"><span class="annot"><span class="annottext">$bWakeWord_AMAZON :: WakeWord
+$mWakeWord_AMAZON :: forall r. WakeWord -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#%24bWakeWord_AMAZON"><span class="hs-identifier hs-var hs-var hs-var">WakeWord_AMAZON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-type">WakeWord'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AMAZON&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_COMPUTER"><span class="hs-identifier hs-type">WakeWord_COMPUTER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWakeWord_COMPUTER"><span id="%24mWakeWord_COMPUTER"><span id="WakeWord_COMPUTER"><span class="annot"><span class="annottext">$bWakeWord_COMPUTER :: WakeWord
+$mWakeWord_COMPUTER :: forall r. WakeWord -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#%24bWakeWord_COMPUTER"><span class="hs-identifier hs-var hs-var hs-var">WakeWord_COMPUTER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-type">WakeWord'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPUTER&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ECHO"><span class="hs-identifier hs-type">WakeWord_ECHO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWakeWord_ECHO"><span id="%24mWakeWord_ECHO"><span id="WakeWord_ECHO"><span class="annot"><span class="annottext">$bWakeWord_ECHO :: WakeWord
+$mWakeWord_ECHO :: forall r. WakeWord -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#%24bWakeWord_ECHO"><span class="hs-identifier hs-var hs-var hs-var">WakeWord_ECHO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-type">WakeWord'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECHO&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ALEXA"><span class="hs-pragma hs-type">WakeWord_ALEXA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_AMAZON"><span class="hs-pragma hs-type">WakeWord_AMAZON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_COMPUTER"><span class="hs-pragma hs-type">WakeWord_COMPUTER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord_ECHO"><span class="hs-pragma hs-type">WakeWord_ECHO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-pragma hs-type">WakeWord'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

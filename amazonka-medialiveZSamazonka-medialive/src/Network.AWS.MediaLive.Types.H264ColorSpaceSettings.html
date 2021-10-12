@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.H264ColorSpaceSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.H264ColorSpaceSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec601Settings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Rec601Settings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec709Settings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Rec709Settings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | H264 Color Space Settings</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newH264ColorSpaceSettings' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679904817"><span id="local-6989586621679904818"></span></span><span class="hs-keyword">data</span><span> </span><span id="H264ColorSpaceSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-var">H264ColorSpaceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264ColorSpaceSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-var">H264ColorSpaceSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Arec601Settings%3AH264ColorSpaceSettings%27"><span class="annot"><span class="annottext">H264ColorSpaceSettings -&gt; Maybe Rec601Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec601Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var hs-var">rec601Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec601Settings.html#Rec601Settings"><span class="hs-identifier hs-type">Rec601Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Arec709Settings%3AH264ColorSpaceSettings%27"><span class="annot"><span class="annottext">H264ColorSpaceSettings -&gt; Maybe Rec709Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec709Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var hs-var">rec709Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec709Settings.html#Rec709Settings"><span class="hs-identifier hs-type">Rec709Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcolorSpacePassthroughSettings%3AH264ColorSpaceSettings%27"><span class="annot"><span class="annottext">H264ColorSpaceSettings -&gt; Maybe ColorSpacePassthroughSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3AcolorSpacePassthroughSettings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var hs-var">colorSpacePassthroughSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings.html#ColorSpacePassthroughSettings"><span class="hs-identifier hs-type">ColorSpacePassthroughSettings</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679904809"><span id="local-6989586621679904811"><span class="annot"><span class="annottext">H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool
+(H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool)
+-&gt; (H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool)
+-&gt; Eq H264ColorSpaceSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool
+$c/= :: H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool
+== :: H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool
+$c== :: H264ColorSpaceSettings -&gt; H264ColorSpaceSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904800"><span id="local-6989586621679904802"><span id="local-6989586621679904804"><span id="local-6989586621679904806"><span class="annot"><span class="annottext">ReadPrec [H264ColorSpaceSettings]
+ReadPrec H264ColorSpaceSettings
+Int -&gt; ReadS H264ColorSpaceSettings
+ReadS [H264ColorSpaceSettings]
+(Int -&gt; ReadS H264ColorSpaceSettings)
+-&gt; ReadS [H264ColorSpaceSettings]
+-&gt; ReadPrec H264ColorSpaceSettings
+-&gt; ReadPrec [H264ColorSpaceSettings]
+-&gt; Read H264ColorSpaceSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264ColorSpaceSettings]
+$creadListPrec :: ReadPrec [H264ColorSpaceSettings]
+readPrec :: ReadPrec H264ColorSpaceSettings
+$creadPrec :: ReadPrec H264ColorSpaceSettings
+readList :: ReadS [H264ColorSpaceSettings]
+$creadList :: ReadS [H264ColorSpaceSettings]
+readsPrec :: Int -&gt; ReadS H264ColorSpaceSettings
+$creadsPrec :: Int -&gt; ReadS H264ColorSpaceSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904793"><span id="local-6989586621679904795"><span id="local-6989586621679904797"><span class="annot"><span class="annottext">Int -&gt; H264ColorSpaceSettings -&gt; ShowS
+[H264ColorSpaceSettings] -&gt; ShowS
+H264ColorSpaceSettings -&gt; String
+(Int -&gt; H264ColorSpaceSettings -&gt; ShowS)
+-&gt; (H264ColorSpaceSettings -&gt; String)
+-&gt; ([H264ColorSpaceSettings] -&gt; ShowS)
+-&gt; Show H264ColorSpaceSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264ColorSpaceSettings] -&gt; ShowS
+$cshowList :: [H264ColorSpaceSettings] -&gt; ShowS
+show :: H264ColorSpaceSettings -&gt; String
+$cshow :: H264ColorSpaceSettings -&gt; String
+showsPrec :: Int -&gt; H264ColorSpaceSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264ColorSpaceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. H264ColorSpaceSettings -&gt; Rep H264ColorSpaceSettings x)
+-&gt; (forall x.
+    Rep H264ColorSpaceSettings x -&gt; H264ColorSpaceSettings)
+-&gt; Generic H264ColorSpaceSettings
+forall x. Rep H264ColorSpaceSettings x -&gt; H264ColorSpaceSettings
+forall x. H264ColorSpaceSettings -&gt; Rep H264ColorSpaceSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264ColorSpaceSettings x -&gt; H264ColorSpaceSettings
+$cfrom :: forall x. H264ColorSpaceSettings -&gt; Rep H264ColorSpaceSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'H264ColorSpaceSettings' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'rec601Settings', 'h264ColorSpaceSettings_rec601Settings' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'rec709Settings', 'h264ColorSpaceSettings_rec709Settings' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'colorSpacePassthroughSettings', 'h264ColorSpaceSettings_colorSpacePassthroughSettings' - Undocumented member.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#newH264ColorSpaceSettings"><span class="hs-identifier hs-type">newH264ColorSpaceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span>
+</span><span id="line-54"></span><span id="newH264ColorSpaceSettings"><span class="annot"><span class="annottext">newH264ColorSpaceSettings :: H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#newH264ColorSpaceSettings"><span class="hs-identifier hs-var hs-var">newH264ColorSpaceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">H264ColorSpaceSettings' :: Maybe Rec601Settings
+-&gt; Maybe Rec709Settings
+-&gt; Maybe ColorSpacePassthroughSettings
+-&gt; H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rec601Settings:H264ColorSpaceSettings' :: Maybe Rec601Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec601Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">rec601Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Rec601Settings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:rec709Settings:H264ColorSpaceSettings' :: Maybe Rec709Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec709Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">rec709Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rec709Settings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorSpacePassthroughSettings:H264ColorSpaceSettings' :: Maybe ColorSpacePassthroughSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3AcolorSpacePassthroughSettings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">colorSpacePassthroughSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_rec601Settings"><span class="hs-identifier hs-type">h264ColorSpaceSettings_rec601Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec601Settings.html#Rec601Settings"><span class="hs-identifier hs-type">Rec601Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="h264ColorSpaceSettings_rec601Settings"><span class="annot"><span class="annottext">h264ColorSpaceSettings_rec601Settings :: (Maybe Rec601Settings -&gt; f (Maybe Rec601Settings))
+-&gt; H264ColorSpaceSettings -&gt; f H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_rec601Settings"><span class="hs-identifier hs-var hs-var">h264ColorSpaceSettings_rec601Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264ColorSpaceSettings -&gt; Maybe Rec601Settings)
+-&gt; (H264ColorSpaceSettings
+    -&gt; Maybe Rec601Settings -&gt; H264ColorSpaceSettings)
+-&gt; Lens
+     H264ColorSpaceSettings
+     H264ColorSpaceSettings
+     (Maybe Rec601Settings)
+     (Maybe Rec601Settings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904784"><span class="annot"><span class="annottext">Maybe Rec601Settings
+rec601Settings :: Maybe Rec601Settings
+$sel:rec601Settings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe Rec601Settings
+</span><a href="#local-6989586621679904784"><span class="hs-identifier hs-var hs-var">rec601Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rec601Settings
+</span><a href="#local-6989586621679904784"><span class="hs-identifier hs-var">rec601Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904783"><span class="annot"><span class="annottext">s :: H264ColorSpaceSettings
+</span><a href="#local-6989586621679904783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904782"><span class="annot"><span class="annottext">Maybe Rec601Settings
+</span><a href="#local-6989586621679904782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264ColorSpaceSettings
+</span><a href="#local-6989586621679904783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rec601Settings:H264ColorSpaceSettings' :: Maybe Rec601Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec601Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">rec601Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rec601Settings
+</span><a href="#local-6989586621679904782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_rec709Settings"><span class="hs-identifier hs-type">h264ColorSpaceSettings_rec709Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Rec709Settings.html#Rec709Settings"><span class="hs-identifier hs-type">Rec709Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="h264ColorSpaceSettings_rec709Settings"><span class="annot"><span class="annottext">h264ColorSpaceSettings_rec709Settings :: (Maybe Rec709Settings -&gt; f (Maybe Rec709Settings))
+-&gt; H264ColorSpaceSettings -&gt; f H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_rec709Settings"><span class="hs-identifier hs-var hs-var">h264ColorSpaceSettings_rec709Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264ColorSpaceSettings -&gt; Maybe Rec709Settings)
+-&gt; (H264ColorSpaceSettings
+    -&gt; Maybe Rec709Settings -&gt; H264ColorSpaceSettings)
+-&gt; Lens
+     H264ColorSpaceSettings
+     H264ColorSpaceSettings
+     (Maybe Rec709Settings)
+     (Maybe Rec709Settings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904780"><span class="annot"><span class="annottext">Maybe Rec709Settings
+rec709Settings :: Maybe Rec709Settings
+$sel:rec709Settings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe Rec709Settings
+</span><a href="#local-6989586621679904780"><span class="hs-identifier hs-var hs-var">rec709Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rec709Settings
+</span><a href="#local-6989586621679904780"><span class="hs-identifier hs-var">rec709Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904779"><span class="annot"><span class="annottext">s :: H264ColorSpaceSettings
+</span><a href="#local-6989586621679904779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904778"><span class="annot"><span class="annottext">Maybe Rec709Settings
+</span><a href="#local-6989586621679904778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264ColorSpaceSettings
+</span><a href="#local-6989586621679904779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rec709Settings:H264ColorSpaceSettings' :: Maybe Rec709Settings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3Arec709Settings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">rec709Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rec709Settings
+</span><a href="#local-6989586621679904778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_colorSpacePassthroughSettings"><span class="hs-identifier hs-type">h264ColorSpaceSettings_colorSpacePassthroughSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings.html#ColorSpacePassthroughSettings"><span class="hs-identifier hs-type">ColorSpacePassthroughSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="h264ColorSpaceSettings_colorSpacePassthroughSettings"><span class="annot"><span class="annottext">h264ColorSpaceSettings_colorSpacePassthroughSettings :: (Maybe ColorSpacePassthroughSettings
+ -&gt; f (Maybe ColorSpacePassthroughSettings))
+-&gt; H264ColorSpaceSettings -&gt; f H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#h264ColorSpaceSettings_colorSpacePassthroughSettings"><span class="hs-identifier hs-var hs-var">h264ColorSpaceSettings_colorSpacePassthroughSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(H264ColorSpaceSettings -&gt; Maybe ColorSpacePassthroughSettings)
+-&gt; (H264ColorSpaceSettings
+    -&gt; Maybe ColorSpacePassthroughSettings -&gt; H264ColorSpaceSettings)
+-&gt; Lens
+     H264ColorSpaceSettings
+     H264ColorSpaceSettings
+     (Maybe ColorSpacePassthroughSettings)
+     (Maybe ColorSpacePassthroughSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904776"><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+colorSpacePassthroughSettings :: Maybe ColorSpacePassthroughSettings
+$sel:colorSpacePassthroughSettings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe ColorSpacePassthroughSettings
+</span><a href="#local-6989586621679904776"><span class="hs-identifier hs-var hs-var">colorSpacePassthroughSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+</span><a href="#local-6989586621679904776"><span class="hs-identifier hs-var">colorSpacePassthroughSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904775"><span class="annot"><span class="annottext">s :: H264ColorSpaceSettings
+</span><a href="#local-6989586621679904775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904774"><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+</span><a href="#local-6989586621679904774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">H264ColorSpaceSettings
+</span><a href="#local-6989586621679904775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpacePassthroughSettings:H264ColorSpaceSettings' :: Maybe ColorSpacePassthroughSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#%24sel%3AcolorSpacePassthroughSettings%3AH264ColorSpaceSettings%27"><span class="hs-identifier hs-var">colorSpacePassthroughSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+</span><a href="#local-6989586621679904774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679904769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser H264ColorSpaceSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser H264ColorSpaceSettings)
+-&gt; Value
+-&gt; Parser H264ColorSpaceSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;H264ColorSpaceSettings&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679904766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Rec601Settings
+-&gt; Maybe Rec709Settings
+-&gt; Maybe ColorSpacePassthroughSettings
+-&gt; H264ColorSpaceSettings
+</span><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-var">H264ColorSpaceSettings'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Rec601Settings
+ -&gt; Maybe Rec709Settings
+ -&gt; Maybe ColorSpacePassthroughSettings
+ -&gt; H264ColorSpaceSettings)
+-&gt; Parser (Maybe Rec601Settings)
+-&gt; Parser
+     (Maybe Rec709Settings
+      -&gt; Maybe ColorSpacePassthroughSettings -&gt; H264ColorSpaceSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rec601Settings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rec601Settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Rec709Settings
+   -&gt; Maybe ColorSpacePassthroughSettings -&gt; H264ColorSpaceSettings)
+-&gt; Parser (Maybe Rec709Settings)
+-&gt; Parser
+     (Maybe ColorSpacePassthroughSettings -&gt; H264ColorSpaceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Rec709Settings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rec709Settings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ColorSpacePassthroughSettings -&gt; H264ColorSpaceSettings)
+-&gt; Parser (Maybe ColorSpacePassthroughSettings)
+-&gt; Parser H264ColorSpaceSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpacePassthroughSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpacePassthroughSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904760"><span id="local-6989586621679904762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904749"><span id="local-6989586621679904751"><span id="local-6989586621679904753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings"><span class="hs-identifier hs-type">H264ColorSpaceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679904747"><span class="annot"><span class="annottext">toJSON :: H264ColorSpaceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264ColorSpaceSettings.html#H264ColorSpaceSettings%27"><span class="hs-identifier hs-type">H264ColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904743"><span id="local-6989586621679904744"><span id="local-6989586621679904745"><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+Maybe Rec601Settings
+Maybe Rec709Settings
+colorSpacePassthroughSettings :: Maybe ColorSpacePassthroughSettings
+rec709Settings :: Maybe Rec709Settings
+rec601Settings :: Maybe Rec601Settings
+$sel:colorSpacePassthroughSettings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe ColorSpacePassthroughSettings
+$sel:rec709Settings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe Rec709Settings
+$sel:rec601Settings:H264ColorSpaceSettings' :: H264ColorSpaceSettings -&gt; Maybe Rec601Settings
+</span><a href="#local-6989586621679904743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rec601Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Rec601Settings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">(Rec601Settings -&gt; Pair) -&gt; Maybe Rec601Settings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Rec601Settings
+</span><a href="#local-6989586621679904745"><span class="hs-identifier hs-var">rec601Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rec709Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Rec709Settings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">(Rec709Settings -&gt; Pair) -&gt; Maybe Rec709Settings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Rec709Settings
+</span><a href="#local-6989586621679904744"><span class="hs-identifier hs-var">rec709Settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpacePassthroughSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpacePassthroughSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(ColorSpacePassthroughSettings -&gt; Pair)
+-&gt; Maybe ColorSpacePassthroughSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpacePassthroughSettings
+</span><a href="#local-6989586621679904743"><span class="hs-identifier hs-var">colorSpacePassthroughSettings</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

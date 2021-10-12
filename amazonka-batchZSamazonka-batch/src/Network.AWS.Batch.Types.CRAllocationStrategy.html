@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Batch.Types.CRAllocationStrategy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Batch.Types.CRAllocationStrategy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier">CRAllocationStrategy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT"><span class="hs-identifier">CRAllocationStrategy_BEST_FIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span class="hs-identifier">CRAllocationStrategy_BEST_FIT_PROGRESSIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span class="hs-identifier">CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679258457"><span id="local-6989586621679258458"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CRAllocationStrategy"><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier hs-var">CRAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CRAllocationStrategy%27"><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy%27"><span class="hs-identifier hs-var">CRAllocationStrategy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCRAllocationStrategy"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; Text
+</span><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#fromCRAllocationStrategy"><span class="hs-identifier hs-var hs-var">fromCRAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258449"><span id="local-6989586621679258451"><span id="local-6989586621679258453"><span class="annot"><span class="annottext">Int -&gt; CRAllocationStrategy -&gt; ShowS
+[CRAllocationStrategy] -&gt; ShowS
+CRAllocationStrategy -&gt; String
+(Int -&gt; CRAllocationStrategy -&gt; ShowS)
+-&gt; (CRAllocationStrategy -&gt; String)
+-&gt; ([CRAllocationStrategy] -&gt; ShowS)
+-&gt; Show CRAllocationStrategy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CRAllocationStrategy] -&gt; ShowS
+$cshowList :: [CRAllocationStrategy] -&gt; ShowS
+show :: CRAllocationStrategy -&gt; String
+$cshow :: CRAllocationStrategy -&gt; String
+showsPrec :: Int -&gt; CRAllocationStrategy -&gt; ShowS
+$cshowsPrec :: Int -&gt; CRAllocationStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679258440"><span id="local-6989586621679258442"><span id="local-6989586621679258444"><span id="local-6989586621679258446"><span class="annot"><span class="annottext">ReadPrec [CRAllocationStrategy]
+ReadPrec CRAllocationStrategy
+Int -&gt; ReadS CRAllocationStrategy
+ReadS [CRAllocationStrategy]
+(Int -&gt; ReadS CRAllocationStrategy)
+-&gt; ReadS [CRAllocationStrategy]
+-&gt; ReadPrec CRAllocationStrategy
+-&gt; ReadPrec [CRAllocationStrategy]
+-&gt; Read CRAllocationStrategy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CRAllocationStrategy]
+$creadListPrec :: ReadPrec [CRAllocationStrategy]
+readPrec :: ReadPrec CRAllocationStrategy
+$creadPrec :: ReadPrec CRAllocationStrategy
+readList :: ReadS [CRAllocationStrategy]
+$creadList :: ReadS [CRAllocationStrategy]
+readsPrec :: Int -&gt; ReadS CRAllocationStrategy
+$creadsPrec :: Int -&gt; ReadS CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679258435"><span id="local-6989586621679258437"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+(CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; Eq CRAllocationStrategy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c/= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+== :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c== :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679258419"><span id="local-6989586621679258421"><span id="local-6989586621679258423"><span id="local-6989586621679258425"><span id="local-6989586621679258427"><span id="local-6989586621679258429"><span id="local-6989586621679258431"><span class="annot"><span class="annottext">Eq CRAllocationStrategy
+Eq CRAllocationStrategy
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Ordering)
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; (CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool)
+-&gt; (CRAllocationStrategy
+    -&gt; CRAllocationStrategy -&gt; CRAllocationStrategy)
+-&gt; (CRAllocationStrategy
+    -&gt; CRAllocationStrategy -&gt; CRAllocationStrategy)
+-&gt; Ord CRAllocationStrategy
+CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Ordering
+CRAllocationStrategy
+-&gt; CRAllocationStrategy -&gt; CRAllocationStrategy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CRAllocationStrategy
+-&gt; CRAllocationStrategy -&gt; CRAllocationStrategy
+$cmin :: CRAllocationStrategy
+-&gt; CRAllocationStrategy -&gt; CRAllocationStrategy
+max :: CRAllocationStrategy
+-&gt; CRAllocationStrategy -&gt; CRAllocationStrategy
+$cmax :: CRAllocationStrategy
+-&gt; CRAllocationStrategy -&gt; CRAllocationStrategy
+&gt;= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c&gt;= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+&gt; :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c&gt; :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+&lt;= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c&lt;= :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+&lt; :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+$c&lt; :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Bool
+compare :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Ordering
+$ccompare :: CRAllocationStrategy -&gt; CRAllocationStrategy -&gt; Ordering
+$cp1Ord :: Eq CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CRAllocationStrategy -&gt; Rep CRAllocationStrategy x)
+-&gt; (forall x. Rep CRAllocationStrategy x -&gt; CRAllocationStrategy)
+-&gt; Generic CRAllocationStrategy
+forall x. Rep CRAllocationStrategy x -&gt; CRAllocationStrategy
+forall x. CRAllocationStrategy -&gt; Rep CRAllocationStrategy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CRAllocationStrategy x -&gt; CRAllocationStrategy
+$cfrom :: forall x. CRAllocationStrategy -&gt; Rep CRAllocationStrategy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258411"><span id="local-6989586621679258413"><span class="annot"><span class="annottext">Int -&gt; CRAllocationStrategy -&gt; Int
+CRAllocationStrategy -&gt; Int
+(Int -&gt; CRAllocationStrategy -&gt; Int)
+-&gt; (CRAllocationStrategy -&gt; Int) -&gt; Hashable CRAllocationStrategy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CRAllocationStrategy -&gt; Int
+$chash :: CRAllocationStrategy -&gt; Int
+hashWithSalt :: Int -&gt; CRAllocationStrategy -&gt; Int
+$chashWithSalt :: Int -&gt; CRAllocationStrategy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679258408"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; ()
+(CRAllocationStrategy -&gt; ()) -&gt; NFData CRAllocationStrategy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CRAllocationStrategy -&gt; ()
+$crnf :: CRAllocationStrategy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679258405"><span class="annot"><span class="annottext">Text -&gt; Either String CRAllocationStrategy
+(Text -&gt; Either String CRAllocationStrategy)
+-&gt; FromText CRAllocationStrategy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CRAllocationStrategy
+$cfromText :: Text -&gt; Either String CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679258402"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; Text
+(CRAllocationStrategy -&gt; Text) -&gt; ToText CRAllocationStrategy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CRAllocationStrategy -&gt; Text
+$ctoText :: CRAllocationStrategy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679258399"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; ByteString
+(CRAllocationStrategy -&gt; ByteString)
+-&gt; ToByteString CRAllocationStrategy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CRAllocationStrategy -&gt; ByteString
+$ctoBS :: CRAllocationStrategy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679258396"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; ByteStringBuilder
+(CRAllocationStrategy -&gt; ByteStringBuilder)
+-&gt; ToLog CRAllocationStrategy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CRAllocationStrategy -&gt; ByteStringBuilder
+$cbuild :: CRAllocationStrategy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679258393"><span class="annot"><span class="annottext">HeaderName -&gt; CRAllocationStrategy -&gt; [Header]
+(HeaderName -&gt; CRAllocationStrategy -&gt; [Header])
+-&gt; ToHeader CRAllocationStrategy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CRAllocationStrategy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CRAllocationStrategy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679258390"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; QueryString
+(CRAllocationStrategy -&gt; QueryString)
+-&gt; ToQuery CRAllocationStrategy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CRAllocationStrategy -&gt; QueryString
+$ctoQuery :: CRAllocationStrategy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679258385"><span id="local-6989586621679258387"><span class="annot"><span class="annottext">Value -&gt; Parser [CRAllocationStrategy]
+Value -&gt; Parser CRAllocationStrategy
+(Value -&gt; Parser CRAllocationStrategy)
+-&gt; (Value -&gt; Parser [CRAllocationStrategy])
+-&gt; FromJSON CRAllocationStrategy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CRAllocationStrategy]
+$cparseJSONList :: Value -&gt; Parser [CRAllocationStrategy]
+parseJSON :: Value -&gt; Parser CRAllocationStrategy
+$cparseJSON :: Value -&gt; Parser CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679258380"><span id="local-6989586621679258382"><span class="annot"><span class="annottext">FromJSONKeyFunction [CRAllocationStrategy]
+FromJSONKeyFunction CRAllocationStrategy
+FromJSONKeyFunction CRAllocationStrategy
+-&gt; FromJSONKeyFunction [CRAllocationStrategy]
+-&gt; FromJSONKey CRAllocationStrategy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CRAllocationStrategy]
+$cfromJSONKeyList :: FromJSONKeyFunction [CRAllocationStrategy]
+fromJSONKey :: FromJSONKeyFunction CRAllocationStrategy
+$cfromJSONKey :: FromJSONKeyFunction CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679258371"><span id="local-6989586621679258373"><span id="local-6989586621679258375"><span id="local-6989586621679258377"><span class="annot"><span class="annottext">[CRAllocationStrategy] -&gt; Encoding
+[CRAllocationStrategy] -&gt; Value
+CRAllocationStrategy -&gt; Encoding
+CRAllocationStrategy -&gt; Value
+(CRAllocationStrategy -&gt; Value)
+-&gt; (CRAllocationStrategy -&gt; Encoding)
+-&gt; ([CRAllocationStrategy] -&gt; Value)
+-&gt; ([CRAllocationStrategy] -&gt; Encoding)
+-&gt; ToJSON CRAllocationStrategy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CRAllocationStrategy] -&gt; Encoding
+$ctoEncodingList :: [CRAllocationStrategy] -&gt; Encoding
+toJSONList :: [CRAllocationStrategy] -&gt; Value
+$ctoJSONList :: [CRAllocationStrategy] -&gt; Value
+toEncoding :: CRAllocationStrategy -&gt; Encoding
+$ctoEncoding :: CRAllocationStrategy -&gt; Encoding
+toJSON :: CRAllocationStrategy -&gt; Value
+$ctoJSON :: CRAllocationStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679258366"><span id="local-6989586621679258368"><span class="annot"><span class="annottext">ToJSONKeyFunction [CRAllocationStrategy]
+ToJSONKeyFunction CRAllocationStrategy
+ToJSONKeyFunction CRAllocationStrategy
+-&gt; ToJSONKeyFunction [CRAllocationStrategy]
+-&gt; ToJSONKey CRAllocationStrategy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CRAllocationStrategy]
+$ctoJSONKeyList :: ToJSONKeyFunction [CRAllocationStrategy]
+toJSONKey :: ToJSONKeyFunction CRAllocationStrategy
+$ctoJSONKey :: ToJSONKeyFunction CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679258363"><span class="annot"><span class="annottext">[Node] -&gt; Either String CRAllocationStrategy
+([Node] -&gt; Either String CRAllocationStrategy)
+-&gt; FromXML CRAllocationStrategy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CRAllocationStrategy
+$cparseXML :: [Node] -&gt; Either String CRAllocationStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679258360"><span class="annot"><span class="annottext">CRAllocationStrategy -&gt; XML
+(CRAllocationStrategy -&gt; XML) -&gt; ToXML CRAllocationStrategy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CRAllocationStrategy -&gt; XML
+$ctoXML :: CRAllocationStrategy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT"><span class="hs-identifier hs-type">CRAllocationStrategy_BEST_FIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier hs-type">CRAllocationStrategy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCRAllocationStrategy_BEST_FIT"><span id="%24mCRAllocationStrategy_BEST_FIT"><span id="CRAllocationStrategy_BEST_FIT"><span class="annot"><span class="annottext">$bCRAllocationStrategy_BEST_FIT :: CRAllocationStrategy
+$mCRAllocationStrategy_BEST_FIT :: forall r. CRAllocationStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#%24bCRAllocationStrategy_BEST_FIT"><span class="hs-identifier hs-var hs-var hs-var">CRAllocationStrategy_BEST_FIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy%27"><span class="hs-identifier hs-type">CRAllocationStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BEST_FIT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span class="hs-identifier hs-type">CRAllocationStrategy_BEST_FIT_PROGRESSIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier hs-type">CRAllocationStrategy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span id="%24mCRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span id="CRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span class="annot"><span class="annottext">$bCRAllocationStrategy_BEST_FIT_PROGRESSIVE :: CRAllocationStrategy
+$mCRAllocationStrategy_BEST_FIT_PROGRESSIVE :: forall r. CRAllocationStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#%24bCRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span class="hs-identifier hs-var hs-var hs-var">CRAllocationStrategy_BEST_FIT_PROGRESSIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy%27"><span class="hs-identifier hs-type">CRAllocationStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BEST_FIT_PROGRESSIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span class="hs-identifier hs-type">CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy"><span class="hs-identifier hs-type">CRAllocationStrategy</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span id="%24mCRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span id="CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span class="annot"><span class="annottext">$bCRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED :: CRAllocationStrategy
+$mCRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED :: forall r. CRAllocationStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#%24bCRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span class="hs-identifier hs-var hs-var hs-var">CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy%27"><span class="hs-identifier hs-type">CRAllocationStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPOT_CAPACITY_OPTIMIZED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT"><span class="hs-pragma hs-type">CRAllocationStrategy_BEST_FIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_BEST_FIT_PROGRESSIVE"><span class="hs-pragma hs-type">CRAllocationStrategy_BEST_FIT_PROGRESSIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED"><span class="hs-pragma hs-type">CRAllocationStrategy_SPOT_CAPACITY_OPTIMIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.CRAllocationStrategy.html#CRAllocationStrategy%27"><span class="hs-pragma hs-type">CRAllocationStrategy'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.AssociationSyncCompliance</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.AssociationSyncCompliance</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance"><span class="hs-identifier">AssociationSyncCompliance</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_AUTO"><span class="hs-identifier">AssociationSyncCompliance_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_MANUAL"><span class="hs-identifier">AssociationSyncCompliance_MANUAL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679786241"><span id="local-6989586621679786242"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationSyncCompliance"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance"><span class="hs-identifier hs-var">AssociationSyncCompliance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationSyncCompliance%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance%27"><span class="hs-identifier hs-var">AssociationSyncCompliance'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationSyncCompliance"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; Text
+</span><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#fromAssociationSyncCompliance"><span class="hs-identifier hs-var hs-var">fromAssociationSyncCompliance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786233"><span id="local-6989586621679786235"><span id="local-6989586621679786237"><span class="annot"><span class="annottext">Int -&gt; AssociationSyncCompliance -&gt; ShowS
+[AssociationSyncCompliance] -&gt; ShowS
+AssociationSyncCompliance -&gt; String
+(Int -&gt; AssociationSyncCompliance -&gt; ShowS)
+-&gt; (AssociationSyncCompliance -&gt; String)
+-&gt; ([AssociationSyncCompliance] -&gt; ShowS)
+-&gt; Show AssociationSyncCompliance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationSyncCompliance] -&gt; ShowS
+$cshowList :: [AssociationSyncCompliance] -&gt; ShowS
+show :: AssociationSyncCompliance -&gt; String
+$cshow :: AssociationSyncCompliance -&gt; String
+showsPrec :: Int -&gt; AssociationSyncCompliance -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationSyncCompliance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679786224"><span id="local-6989586621679786226"><span id="local-6989586621679786228"><span id="local-6989586621679786230"><span class="annot"><span class="annottext">ReadPrec [AssociationSyncCompliance]
+ReadPrec AssociationSyncCompliance
+Int -&gt; ReadS AssociationSyncCompliance
+ReadS [AssociationSyncCompliance]
+(Int -&gt; ReadS AssociationSyncCompliance)
+-&gt; ReadS [AssociationSyncCompliance]
+-&gt; ReadPrec AssociationSyncCompliance
+-&gt; ReadPrec [AssociationSyncCompliance]
+-&gt; Read AssociationSyncCompliance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationSyncCompliance]
+$creadListPrec :: ReadPrec [AssociationSyncCompliance]
+readPrec :: ReadPrec AssociationSyncCompliance
+$creadPrec :: ReadPrec AssociationSyncCompliance
+readList :: ReadS [AssociationSyncCompliance]
+$creadList :: ReadS [AssociationSyncCompliance]
+readsPrec :: Int -&gt; ReadS AssociationSyncCompliance
+$creadsPrec :: Int -&gt; ReadS AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679786219"><span id="local-6989586621679786221"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+(AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; (AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; Eq AssociationSyncCompliance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c/= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+== :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c== :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679786203"><span id="local-6989586621679786205"><span id="local-6989586621679786207"><span id="local-6989586621679786209"><span id="local-6989586621679786211"><span id="local-6989586621679786213"><span id="local-6989586621679786215"><span class="annot"><span class="annottext">Eq AssociationSyncCompliance
+Eq AssociationSyncCompliance
+-&gt; (AssociationSyncCompliance
+    -&gt; AssociationSyncCompliance -&gt; Ordering)
+-&gt; (AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; (AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; (AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; (AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool)
+-&gt; (AssociationSyncCompliance
+    -&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance)
+-&gt; (AssociationSyncCompliance
+    -&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance)
+-&gt; Ord AssociationSyncCompliance
+AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Ordering
+AssociationSyncCompliance
+-&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssociationSyncCompliance
+-&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance
+$cmin :: AssociationSyncCompliance
+-&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance
+max :: AssociationSyncCompliance
+-&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance
+$cmax :: AssociationSyncCompliance
+-&gt; AssociationSyncCompliance -&gt; AssociationSyncCompliance
+&gt;= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c&gt;= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+&gt; :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c&gt; :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+&lt;= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c&lt;= :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+&lt; :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+$c&lt; :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Bool
+compare :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Ordering
+$ccompare :: AssociationSyncCompliance -&gt; AssociationSyncCompliance -&gt; Ordering
+$cp1Ord :: Eq AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AssociationSyncCompliance -&gt; Rep AssociationSyncCompliance x)
+-&gt; (forall x.
+    Rep AssociationSyncCompliance x -&gt; AssociationSyncCompliance)
+-&gt; Generic AssociationSyncCompliance
+forall x.
+Rep AssociationSyncCompliance x -&gt; AssociationSyncCompliance
+forall x.
+AssociationSyncCompliance -&gt; Rep AssociationSyncCompliance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociationSyncCompliance x -&gt; AssociationSyncCompliance
+$cfrom :: forall x.
+AssociationSyncCompliance -&gt; Rep AssociationSyncCompliance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786195"><span id="local-6989586621679786197"><span class="annot"><span class="annottext">Int -&gt; AssociationSyncCompliance -&gt; Int
+AssociationSyncCompliance -&gt; Int
+(Int -&gt; AssociationSyncCompliance -&gt; Int)
+-&gt; (AssociationSyncCompliance -&gt; Int)
+-&gt; Hashable AssociationSyncCompliance
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssociationSyncCompliance -&gt; Int
+$chash :: AssociationSyncCompliance -&gt; Int
+hashWithSalt :: Int -&gt; AssociationSyncCompliance -&gt; Int
+$chashWithSalt :: Int -&gt; AssociationSyncCompliance -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679786192"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; ()
+(AssociationSyncCompliance -&gt; ())
+-&gt; NFData AssociationSyncCompliance
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssociationSyncCompliance -&gt; ()
+$crnf :: AssociationSyncCompliance -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679786189"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationSyncCompliance
+(Text -&gt; Either String AssociationSyncCompliance)
+-&gt; FromText AssociationSyncCompliance
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssociationSyncCompliance
+$cfromText :: Text -&gt; Either String AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679786186"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; Text
+(AssociationSyncCompliance -&gt; Text)
+-&gt; ToText AssociationSyncCompliance
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssociationSyncCompliance -&gt; Text
+$ctoText :: AssociationSyncCompliance -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679786183"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; ByteString
+(AssociationSyncCompliance -&gt; ByteString)
+-&gt; ToByteString AssociationSyncCompliance
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssociationSyncCompliance -&gt; ByteString
+$ctoBS :: AssociationSyncCompliance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679786180"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; ByteStringBuilder
+(AssociationSyncCompliance -&gt; ByteStringBuilder)
+-&gt; ToLog AssociationSyncCompliance
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssociationSyncCompliance -&gt; ByteStringBuilder
+$cbuild :: AssociationSyncCompliance -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679786177"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationSyncCompliance -&gt; [Header]
+(HeaderName -&gt; AssociationSyncCompliance -&gt; [Header])
+-&gt; ToHeader AssociationSyncCompliance
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssociationSyncCompliance -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssociationSyncCompliance -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679786174"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; QueryString
+(AssociationSyncCompliance -&gt; QueryString)
+-&gt; ToQuery AssociationSyncCompliance
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssociationSyncCompliance -&gt; QueryString
+$ctoQuery :: AssociationSyncCompliance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679786169"><span id="local-6989586621679786171"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationSyncCompliance]
+Value -&gt; Parser AssociationSyncCompliance
+(Value -&gt; Parser AssociationSyncCompliance)
+-&gt; (Value -&gt; Parser [AssociationSyncCompliance])
+-&gt; FromJSON AssociationSyncCompliance
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssociationSyncCompliance]
+$cparseJSONList :: Value -&gt; Parser [AssociationSyncCompliance]
+parseJSON :: Value -&gt; Parser AssociationSyncCompliance
+$cparseJSON :: Value -&gt; Parser AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679786164"><span id="local-6989586621679786166"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationSyncCompliance]
+FromJSONKeyFunction AssociationSyncCompliance
+FromJSONKeyFunction AssociationSyncCompliance
+-&gt; FromJSONKeyFunction [AssociationSyncCompliance]
+-&gt; FromJSONKey AssociationSyncCompliance
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssociationSyncCompliance]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssociationSyncCompliance]
+fromJSONKey :: FromJSONKeyFunction AssociationSyncCompliance
+$cfromJSONKey :: FromJSONKeyFunction AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679786155"><span id="local-6989586621679786157"><span id="local-6989586621679786159"><span id="local-6989586621679786161"><span class="annot"><span class="annottext">[AssociationSyncCompliance] -&gt; Encoding
+[AssociationSyncCompliance] -&gt; Value
+AssociationSyncCompliance -&gt; Encoding
+AssociationSyncCompliance -&gt; Value
+(AssociationSyncCompliance -&gt; Value)
+-&gt; (AssociationSyncCompliance -&gt; Encoding)
+-&gt; ([AssociationSyncCompliance] -&gt; Value)
+-&gt; ([AssociationSyncCompliance] -&gt; Encoding)
+-&gt; ToJSON AssociationSyncCompliance
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssociationSyncCompliance] -&gt; Encoding
+$ctoEncodingList :: [AssociationSyncCompliance] -&gt; Encoding
+toJSONList :: [AssociationSyncCompliance] -&gt; Value
+$ctoJSONList :: [AssociationSyncCompliance] -&gt; Value
+toEncoding :: AssociationSyncCompliance -&gt; Encoding
+$ctoEncoding :: AssociationSyncCompliance -&gt; Encoding
+toJSON :: AssociationSyncCompliance -&gt; Value
+$ctoJSON :: AssociationSyncCompliance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679786150"><span id="local-6989586621679786152"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationSyncCompliance]
+ToJSONKeyFunction AssociationSyncCompliance
+ToJSONKeyFunction AssociationSyncCompliance
+-&gt; ToJSONKeyFunction [AssociationSyncCompliance]
+-&gt; ToJSONKey AssociationSyncCompliance
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssociationSyncCompliance]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssociationSyncCompliance]
+toJSONKey :: ToJSONKeyFunction AssociationSyncCompliance
+$ctoJSONKey :: ToJSONKeyFunction AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679786147"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationSyncCompliance
+([Node] -&gt; Either String AssociationSyncCompliance)
+-&gt; FromXML AssociationSyncCompliance
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssociationSyncCompliance
+$cparseXML :: [Node] -&gt; Either String AssociationSyncCompliance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679786144"><span class="annot"><span class="annottext">AssociationSyncCompliance -&gt; XML
+(AssociationSyncCompliance -&gt; XML)
+-&gt; ToXML AssociationSyncCompliance
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssociationSyncCompliance -&gt; XML
+$ctoXML :: AssociationSyncCompliance -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_AUTO"><span class="hs-identifier hs-type">AssociationSyncCompliance_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance"><span class="hs-identifier hs-type">AssociationSyncCompliance</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationSyncCompliance_AUTO"><span id="%24mAssociationSyncCompliance_AUTO"><span id="AssociationSyncCompliance_AUTO"><span class="annot"><span class="annottext">$bAssociationSyncCompliance_AUTO :: AssociationSyncCompliance
+$mAssociationSyncCompliance_AUTO :: forall r.
+AssociationSyncCompliance -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#%24bAssociationSyncCompliance_AUTO"><span class="hs-identifier hs-var hs-var hs-var">AssociationSyncCompliance_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance%27"><span class="hs-identifier hs-type">AssociationSyncCompliance'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_MANUAL"><span class="hs-identifier hs-type">AssociationSyncCompliance_MANUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance"><span class="hs-identifier hs-type">AssociationSyncCompliance</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssociationSyncCompliance_MANUAL"><span id="%24mAssociationSyncCompliance_MANUAL"><span id="AssociationSyncCompliance_MANUAL"><span class="annot"><span class="annottext">$bAssociationSyncCompliance_MANUAL :: AssociationSyncCompliance
+$mAssociationSyncCompliance_MANUAL :: forall r.
+AssociationSyncCompliance -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#%24bAssociationSyncCompliance_MANUAL"><span class="hs-identifier hs-var hs-var hs-var">AssociationSyncCompliance_MANUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance%27"><span class="hs-identifier hs-type">AssociationSyncCompliance'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MANUAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_AUTO"><span class="hs-pragma hs-type">AssociationSyncCompliance_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance_MANUAL"><span class="hs-pragma hs-type">AssociationSyncCompliance_MANUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationSyncCompliance.html#AssociationSyncCompliance%27"><span class="hs-pragma hs-type">AssociationSyncCompliance'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

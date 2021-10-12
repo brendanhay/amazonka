@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType"><span class="hs-identifier">AudioOnlyHlsSegmentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_AAC"><span class="hs-identifier">AudioOnlyHlsSegmentType_AAC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_FMP4"><span class="hs-identifier">AudioOnlyHlsSegmentType_FMP4</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Audio Only Hls Segment Type</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679859418"><span id="local-6989586621679859419"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioOnlyHlsSegmentType"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType"><span class="hs-identifier hs-var">AudioOnlyHlsSegmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioOnlyHlsSegmentType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType%27"><span class="hs-identifier hs-var">AudioOnlyHlsSegmentType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioOnlyHlsSegmentType"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#fromAudioOnlyHlsSegmentType"><span class="hs-identifier hs-var hs-var">fromAudioOnlyHlsSegmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679859410"><span id="local-6989586621679859412"><span id="local-6989586621679859414"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsSegmentType -&gt; ShowS
+[AudioOnlyHlsSegmentType] -&gt; ShowS
+AudioOnlyHlsSegmentType -&gt; String
+(Int -&gt; AudioOnlyHlsSegmentType -&gt; ShowS)
+-&gt; (AudioOnlyHlsSegmentType -&gt; String)
+-&gt; ([AudioOnlyHlsSegmentType] -&gt; ShowS)
+-&gt; Show AudioOnlyHlsSegmentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioOnlyHlsSegmentType] -&gt; ShowS
+$cshowList :: [AudioOnlyHlsSegmentType] -&gt; ShowS
+show :: AudioOnlyHlsSegmentType -&gt; String
+$cshow :: AudioOnlyHlsSegmentType -&gt; String
+showsPrec :: Int -&gt; AudioOnlyHlsSegmentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioOnlyHlsSegmentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679859401"><span id="local-6989586621679859403"><span id="local-6989586621679859405"><span id="local-6989586621679859407"><span class="annot"><span class="annottext">ReadPrec [AudioOnlyHlsSegmentType]
+ReadPrec AudioOnlyHlsSegmentType
+Int -&gt; ReadS AudioOnlyHlsSegmentType
+ReadS [AudioOnlyHlsSegmentType]
+(Int -&gt; ReadS AudioOnlyHlsSegmentType)
+-&gt; ReadS [AudioOnlyHlsSegmentType]
+-&gt; ReadPrec AudioOnlyHlsSegmentType
+-&gt; ReadPrec [AudioOnlyHlsSegmentType]
+-&gt; Read AudioOnlyHlsSegmentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioOnlyHlsSegmentType]
+$creadListPrec :: ReadPrec [AudioOnlyHlsSegmentType]
+readPrec :: ReadPrec AudioOnlyHlsSegmentType
+$creadPrec :: ReadPrec AudioOnlyHlsSegmentType
+readList :: ReadS [AudioOnlyHlsSegmentType]
+$creadList :: ReadS [AudioOnlyHlsSegmentType]
+readsPrec :: Int -&gt; ReadS AudioOnlyHlsSegmentType
+$creadsPrec :: Int -&gt; ReadS AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679859396"><span id="local-6989586621679859398"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+(AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; Eq AudioOnlyHlsSegmentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c/= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+== :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c== :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679859380"><span id="local-6989586621679859382"><span id="local-6989586621679859384"><span id="local-6989586621679859386"><span id="local-6989586621679859388"><span id="local-6989586621679859390"><span id="local-6989586621679859392"><span class="annot"><span class="annottext">Eq AudioOnlyHlsSegmentType
+Eq AudioOnlyHlsSegmentType
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Ordering)
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; (AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool)
+-&gt; (AudioOnlyHlsSegmentType
+    -&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType)
+-&gt; (AudioOnlyHlsSegmentType
+    -&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType)
+-&gt; Ord AudioOnlyHlsSegmentType
+AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Ordering
+AudioOnlyHlsSegmentType
+-&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AudioOnlyHlsSegmentType
+-&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType
+$cmin :: AudioOnlyHlsSegmentType
+-&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType
+max :: AudioOnlyHlsSegmentType
+-&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType
+$cmax :: AudioOnlyHlsSegmentType
+-&gt; AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType
+&gt;= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c&gt;= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+&gt; :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c&gt; :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+&lt;= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c&lt;= :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+&lt; :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+$c&lt; :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Bool
+compare :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Ordering
+$ccompare :: AudioOnlyHlsSegmentType -&gt; AudioOnlyHlsSegmentType -&gt; Ordering
+$cp1Ord :: Eq AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AudioOnlyHlsSegmentType -&gt; Rep AudioOnlyHlsSegmentType x)
+-&gt; (forall x.
+    Rep AudioOnlyHlsSegmentType x -&gt; AudioOnlyHlsSegmentType)
+-&gt; Generic AudioOnlyHlsSegmentType
+forall x. Rep AudioOnlyHlsSegmentType x -&gt; AudioOnlyHlsSegmentType
+forall x. AudioOnlyHlsSegmentType -&gt; Rep AudioOnlyHlsSegmentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AudioOnlyHlsSegmentType x -&gt; AudioOnlyHlsSegmentType
+$cfrom :: forall x. AudioOnlyHlsSegmentType -&gt; Rep AudioOnlyHlsSegmentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679859372"><span id="local-6989586621679859374"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsSegmentType -&gt; Int
+AudioOnlyHlsSegmentType -&gt; Int
+(Int -&gt; AudioOnlyHlsSegmentType -&gt; Int)
+-&gt; (AudioOnlyHlsSegmentType -&gt; Int)
+-&gt; Hashable AudioOnlyHlsSegmentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AudioOnlyHlsSegmentType -&gt; Int
+$chash :: AudioOnlyHlsSegmentType -&gt; Int
+hashWithSalt :: Int -&gt; AudioOnlyHlsSegmentType -&gt; Int
+$chashWithSalt :: Int -&gt; AudioOnlyHlsSegmentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679859369"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; ()
+(AudioOnlyHlsSegmentType -&gt; ()) -&gt; NFData AudioOnlyHlsSegmentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AudioOnlyHlsSegmentType -&gt; ()
+$crnf :: AudioOnlyHlsSegmentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679859366"><span class="annot"><span class="annottext">Text -&gt; Either String AudioOnlyHlsSegmentType
+(Text -&gt; Either String AudioOnlyHlsSegmentType)
+-&gt; FromText AudioOnlyHlsSegmentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AudioOnlyHlsSegmentType
+$cfromText :: Text -&gt; Either String AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679859363"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; Text
+(AudioOnlyHlsSegmentType -&gt; Text) -&gt; ToText AudioOnlyHlsSegmentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AudioOnlyHlsSegmentType -&gt; Text
+$ctoText :: AudioOnlyHlsSegmentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679859360"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; ByteString
+(AudioOnlyHlsSegmentType -&gt; ByteString)
+-&gt; ToByteString AudioOnlyHlsSegmentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AudioOnlyHlsSegmentType -&gt; ByteString
+$ctoBS :: AudioOnlyHlsSegmentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679859357"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; ByteStringBuilder
+(AudioOnlyHlsSegmentType -&gt; ByteStringBuilder)
+-&gt; ToLog AudioOnlyHlsSegmentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AudioOnlyHlsSegmentType -&gt; ByteStringBuilder
+$cbuild :: AudioOnlyHlsSegmentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679859354"><span class="annot"><span class="annottext">HeaderName -&gt; AudioOnlyHlsSegmentType -&gt; [Header]
+(HeaderName -&gt; AudioOnlyHlsSegmentType -&gt; [Header])
+-&gt; ToHeader AudioOnlyHlsSegmentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AudioOnlyHlsSegmentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AudioOnlyHlsSegmentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679859351"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; QueryString
+(AudioOnlyHlsSegmentType -&gt; QueryString)
+-&gt; ToQuery AudioOnlyHlsSegmentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AudioOnlyHlsSegmentType -&gt; QueryString
+$ctoQuery :: AudioOnlyHlsSegmentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679859346"><span id="local-6989586621679859348"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioOnlyHlsSegmentType]
+Value -&gt; Parser AudioOnlyHlsSegmentType
+(Value -&gt; Parser AudioOnlyHlsSegmentType)
+-&gt; (Value -&gt; Parser [AudioOnlyHlsSegmentType])
+-&gt; FromJSON AudioOnlyHlsSegmentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AudioOnlyHlsSegmentType]
+$cparseJSONList :: Value -&gt; Parser [AudioOnlyHlsSegmentType]
+parseJSON :: Value -&gt; Parser AudioOnlyHlsSegmentType
+$cparseJSON :: Value -&gt; Parser AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679859341"><span id="local-6989586621679859343"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioOnlyHlsSegmentType]
+FromJSONKeyFunction AudioOnlyHlsSegmentType
+FromJSONKeyFunction AudioOnlyHlsSegmentType
+-&gt; FromJSONKeyFunction [AudioOnlyHlsSegmentType]
+-&gt; FromJSONKey AudioOnlyHlsSegmentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AudioOnlyHlsSegmentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AudioOnlyHlsSegmentType]
+fromJSONKey :: FromJSONKeyFunction AudioOnlyHlsSegmentType
+$cfromJSONKey :: FromJSONKeyFunction AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679859332"><span id="local-6989586621679859334"><span id="local-6989586621679859336"><span id="local-6989586621679859338"><span class="annot"><span class="annottext">[AudioOnlyHlsSegmentType] -&gt; Encoding
+[AudioOnlyHlsSegmentType] -&gt; Value
+AudioOnlyHlsSegmentType -&gt; Encoding
+AudioOnlyHlsSegmentType -&gt; Value
+(AudioOnlyHlsSegmentType -&gt; Value)
+-&gt; (AudioOnlyHlsSegmentType -&gt; Encoding)
+-&gt; ([AudioOnlyHlsSegmentType] -&gt; Value)
+-&gt; ([AudioOnlyHlsSegmentType] -&gt; Encoding)
+-&gt; ToJSON AudioOnlyHlsSegmentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AudioOnlyHlsSegmentType] -&gt; Encoding
+$ctoEncodingList :: [AudioOnlyHlsSegmentType] -&gt; Encoding
+toJSONList :: [AudioOnlyHlsSegmentType] -&gt; Value
+$ctoJSONList :: [AudioOnlyHlsSegmentType] -&gt; Value
+toEncoding :: AudioOnlyHlsSegmentType -&gt; Encoding
+$ctoEncoding :: AudioOnlyHlsSegmentType -&gt; Encoding
+toJSON :: AudioOnlyHlsSegmentType -&gt; Value
+$ctoJSON :: AudioOnlyHlsSegmentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679859327"><span id="local-6989586621679859329"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioOnlyHlsSegmentType]
+ToJSONKeyFunction AudioOnlyHlsSegmentType
+ToJSONKeyFunction AudioOnlyHlsSegmentType
+-&gt; ToJSONKeyFunction [AudioOnlyHlsSegmentType]
+-&gt; ToJSONKey AudioOnlyHlsSegmentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AudioOnlyHlsSegmentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AudioOnlyHlsSegmentType]
+toJSONKey :: ToJSONKeyFunction AudioOnlyHlsSegmentType
+$ctoJSONKey :: ToJSONKeyFunction AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679859324"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioOnlyHlsSegmentType
+([Node] -&gt; Either String AudioOnlyHlsSegmentType)
+-&gt; FromXML AudioOnlyHlsSegmentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AudioOnlyHlsSegmentType
+$cparseXML :: [Node] -&gt; Either String AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679859321"><span class="annot"><span class="annottext">AudioOnlyHlsSegmentType -&gt; XML
+(AudioOnlyHlsSegmentType -&gt; XML) -&gt; ToXML AudioOnlyHlsSegmentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AudioOnlyHlsSegmentType -&gt; XML
+$ctoXML :: AudioOnlyHlsSegmentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_AAC"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType_AAC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioOnlyHlsSegmentType_AAC"><span id="%24mAudioOnlyHlsSegmentType_AAC"><span id="AudioOnlyHlsSegmentType_AAC"><span class="annot"><span class="annottext">$bAudioOnlyHlsSegmentType_AAC :: AudioOnlyHlsSegmentType
+$mAudioOnlyHlsSegmentType_AAC :: forall r.
+AudioOnlyHlsSegmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#%24bAudioOnlyHlsSegmentType_AAC"><span class="hs-identifier hs-var hs-var hs-var">AudioOnlyHlsSegmentType_AAC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType%27"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AAC&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_FMP4"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType_FMP4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioOnlyHlsSegmentType_FMP4"><span id="%24mAudioOnlyHlsSegmentType_FMP4"><span id="AudioOnlyHlsSegmentType_FMP4"><span class="annot"><span class="annottext">$bAudioOnlyHlsSegmentType_FMP4 :: AudioOnlyHlsSegmentType
+$mAudioOnlyHlsSegmentType_FMP4 :: forall r.
+AudioOnlyHlsSegmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#%24bAudioOnlyHlsSegmentType_FMP4"><span class="hs-identifier hs-var hs-var hs-var">AudioOnlyHlsSegmentType_FMP4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType%27"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FMP4&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_AAC"><span class="hs-pragma hs-type">AudioOnlyHlsSegmentType_AAC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType_FMP4"><span class="hs-pragma hs-type">AudioOnlyHlsSegmentType_FMP4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType%27"><span class="hs-pragma hs-type">AudioOnlyHlsSegmentType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.Types.SegmentTypeInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.Types.SegmentTypeInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html"><span class="hs-identifier">Network.AWS.Rekognition.Types.SegmentType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the type of a segment requested in a call to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- StartSegmentDetection. An array of @SegmentTypeInfo@ objects is returned</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- by the response from GetSegmentDetection.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSegmentTypeInfo' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679329987"><span id="local-6989586621679329988"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentTypeInfo"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-var">SegmentTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentTypeInfo%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-var">SegmentTypeInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the model used to detect segments.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmodelVersion%3ASegmentTypeInfo%27"><span class="annot"><span class="annottext">SegmentTypeInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3AmodelVersion%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of a segment (technical cue or shot detection).</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3ASegmentTypeInfo%27"><span class="annot"><span class="annottext">SegmentTypeInfo -&gt; Maybe SegmentType
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3Atype%27%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329980"><span id="local-6989586621679329982"><span class="annot"><span class="annottext">SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool
+(SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool)
+-&gt; (SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool)
+-&gt; Eq SegmentTypeInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool
+$c/= :: SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool
+== :: SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool
+$c== :: SegmentTypeInfo -&gt; SegmentTypeInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329971"><span id="local-6989586621679329973"><span id="local-6989586621679329975"><span id="local-6989586621679329977"><span class="annot"><span class="annottext">ReadPrec [SegmentTypeInfo]
+ReadPrec SegmentTypeInfo
+Int -&gt; ReadS SegmentTypeInfo
+ReadS [SegmentTypeInfo]
+(Int -&gt; ReadS SegmentTypeInfo)
+-&gt; ReadS [SegmentTypeInfo]
+-&gt; ReadPrec SegmentTypeInfo
+-&gt; ReadPrec [SegmentTypeInfo]
+-&gt; Read SegmentTypeInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SegmentTypeInfo]
+$creadListPrec :: ReadPrec [SegmentTypeInfo]
+readPrec :: ReadPrec SegmentTypeInfo
+$creadPrec :: ReadPrec SegmentTypeInfo
+readList :: ReadS [SegmentTypeInfo]
+$creadList :: ReadS [SegmentTypeInfo]
+readsPrec :: Int -&gt; ReadS SegmentTypeInfo
+$creadsPrec :: Int -&gt; ReadS SegmentTypeInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329964"><span id="local-6989586621679329966"><span id="local-6989586621679329968"><span class="annot"><span class="annottext">Int -&gt; SegmentTypeInfo -&gt; ShowS
+[SegmentTypeInfo] -&gt; ShowS
+SegmentTypeInfo -&gt; String
+(Int -&gt; SegmentTypeInfo -&gt; ShowS)
+-&gt; (SegmentTypeInfo -&gt; String)
+-&gt; ([SegmentTypeInfo] -&gt; ShowS)
+-&gt; Show SegmentTypeInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SegmentTypeInfo] -&gt; ShowS
+$cshowList :: [SegmentTypeInfo] -&gt; ShowS
+show :: SegmentTypeInfo -&gt; String
+$cshow :: SegmentTypeInfo -&gt; String
+showsPrec :: Int -&gt; SegmentTypeInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; SegmentTypeInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SegmentTypeInfo -&gt; Rep SegmentTypeInfo x)
+-&gt; (forall x. Rep SegmentTypeInfo x -&gt; SegmentTypeInfo)
+-&gt; Generic SegmentTypeInfo
+forall x. Rep SegmentTypeInfo x -&gt; SegmentTypeInfo
+forall x. SegmentTypeInfo -&gt; Rep SegmentTypeInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SegmentTypeInfo x -&gt; SegmentTypeInfo
+$cfrom :: forall x. SegmentTypeInfo -&gt; Rep SegmentTypeInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SegmentTypeInfo' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'modelVersion', 'segmentTypeInfo_modelVersion' - The version of the model used to detect segments.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'type'', 'segmentTypeInfo_type' - The type of a segment (technical cue or shot detection).</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#newSegmentTypeInfo"><span class="hs-identifier hs-type">newSegmentTypeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span><span>
+</span><span id="line-53"></span><span id="newSegmentTypeInfo"><span class="annot"><span class="annottext">newSegmentTypeInfo :: SegmentTypeInfo
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#newSegmentTypeInfo"><span class="hs-identifier hs-var hs-var">newSegmentTypeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">SegmentTypeInfo' :: Maybe Text -&gt; Maybe SegmentType -&gt; SegmentTypeInfo
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-type">SegmentTypeInfo'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelVersion:SegmentTypeInfo' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3AmodelVersion%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SegmentTypeInfo' :: Maybe SegmentType
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3Atype%27%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The version of the model used to detect segments.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#segmentTypeInfo_modelVersion"><span class="hs-identifier hs-type">segmentTypeInfo_modelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="segmentTypeInfo_modelVersion"><span class="annot"><span class="annottext">segmentTypeInfo_modelVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SegmentTypeInfo -&gt; f SegmentTypeInfo
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#segmentTypeInfo_modelVersion"><span class="hs-identifier hs-var hs-var">segmentTypeInfo_modelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentTypeInfo -&gt; Maybe Text)
+-&gt; (SegmentTypeInfo -&gt; Maybe Text -&gt; SegmentTypeInfo)
+-&gt; Lens SegmentTypeInfo SegmentTypeInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-type">SegmentTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329955"><span class="annot"><span class="annottext">Maybe Text
+modelVersion :: Maybe Text
+$sel:modelVersion:SegmentTypeInfo' :: SegmentTypeInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679329955"><span class="hs-identifier hs-var hs-var">modelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329955"><span class="hs-identifier hs-var">modelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329954"><span class="annot"><span class="annottext">s :: SegmentTypeInfo
+</span><a href="#local-6989586621679329954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-type">SegmentTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentTypeInfo
+</span><a href="#local-6989586621679329954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelVersion:SegmentTypeInfo' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3AmodelVersion%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var">modelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The type of a segment (technical cue or shot detection).</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#segmentTypeInfo_type"><span class="hs-identifier hs-type">segmentTypeInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="segmentTypeInfo_type"><span class="annot"><span class="annottext">segmentTypeInfo_type :: (Maybe SegmentType -&gt; f (Maybe SegmentType))
+-&gt; SegmentTypeInfo -&gt; f SegmentTypeInfo
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#segmentTypeInfo_type"><span class="hs-identifier hs-var hs-var">segmentTypeInfo_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentTypeInfo -&gt; Maybe SegmentType)
+-&gt; (SegmentTypeInfo -&gt; Maybe SegmentType -&gt; SegmentTypeInfo)
+-&gt; Lens
+     SegmentTypeInfo
+     SegmentTypeInfo
+     (Maybe SegmentType)
+     (Maybe SegmentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-type">SegmentTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329951"><span class="annot"><span class="annottext">Maybe SegmentType
+type' :: Maybe SegmentType
+$sel:type':SegmentTypeInfo' :: SegmentTypeInfo -&gt; Maybe SegmentType
+</span><a href="#local-6989586621679329951"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679329951"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329950"><span class="annot"><span class="annottext">s :: SegmentTypeInfo
+</span><a href="#local-6989586621679329950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-type">SegmentTypeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329949"><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679329949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentTypeInfo
+</span><a href="#local-6989586621679329950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SegmentTypeInfo' :: Maybe SegmentType
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#%24sel%3Atype%27%3ASegmentTypeInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679329949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329946"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679329944"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentTypeInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SegmentTypeInfo)
+-&gt; Value
+-&gt; Parser SegmentTypeInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SegmentTypeInfo&quot;</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SegmentType -&gt; SegmentTypeInfo
+</span><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo%27"><span class="hs-identifier hs-var">SegmentTypeInfo'</span></a></span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SegmentType -&gt; SegmentTypeInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe SegmentType -&gt; SegmentTypeInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SegmentType -&gt; SegmentTypeInfo)
+-&gt; Parser (Maybe SegmentType) -&gt; Parser SegmentTypeInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329935"><span id="local-6989586621679329937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentTypeInfo.html#SegmentTypeInfo"><span class="hs-identifier hs-type">SegmentTypeInfo</span></a></span></span><span>
+</span><span id="line-80"></span></pre></body></html>

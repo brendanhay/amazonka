@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.DeliveryStreamFailureType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.DeliveryStreamFailureType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_ENI_FAILED"><span class="hs-identifier">DeliveryStreamFailureType_CREATE_ENI_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span class="hs-identifier">DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DELETE_ENI_FAILED"><span class="hs-identifier">DeliveryStreamFailureType_DELETE_ENI_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DISABLED_KMS_KEY"><span class="hs-identifier">DeliveryStreamFailureType_DISABLED_KMS_KEY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_ENI_ACCESS_DENIED"><span class="hs-identifier">DeliveryStreamFailureType_ENI_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_INVALID_KMS_KEY"><span class="hs-identifier">DeliveryStreamFailureType_INVALID_KMS_KEY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_ACCESS_DENIED"><span class="hs-identifier">DeliveryStreamFailureType_KMS_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span class="hs-identifier">DeliveryStreamFailureType_KMS_KEY_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span class="hs-identifier">DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span class="hs-identifier">DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span class="hs-identifier">DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span class="hs-identifier">DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span class="hs-identifier">DeliveryStreamFailureType_SUBNET_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_NOT_FOUND"><span class="hs-identifier">DeliveryStreamFailureType_SUBNET_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_UNKNOWN_ERROR"><span class="hs-identifier">DeliveryStreamFailureType_UNKNOWN_ERROR</span></a></span><span>
+</span><span id="line-38"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679255607"><span id="local-6989586621679255608"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryStreamFailureType"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-var">DeliveryStreamFailureType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStreamFailureType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-var">DeliveryStreamFailureType'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliveryStreamFailureType"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#fromDeliveryStreamFailureType"><span class="hs-identifier hs-var hs-var">fromDeliveryStreamFailureType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255599"><span id="local-6989586621679255601"><span id="local-6989586621679255603"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamFailureType -&gt; ShowS
+[DeliveryStreamFailureType] -&gt; ShowS
+DeliveryStreamFailureType -&gt; String
+(Int -&gt; DeliveryStreamFailureType -&gt; ShowS)
+-&gt; (DeliveryStreamFailureType -&gt; String)
+-&gt; ([DeliveryStreamFailureType] -&gt; ShowS)
+-&gt; Show DeliveryStreamFailureType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeliveryStreamFailureType] -&gt; ShowS
+$cshowList :: [DeliveryStreamFailureType] -&gt; ShowS
+show :: DeliveryStreamFailureType -&gt; String
+$cshow :: DeliveryStreamFailureType -&gt; String
+showsPrec :: Int -&gt; DeliveryStreamFailureType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeliveryStreamFailureType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255590"><span id="local-6989586621679255592"><span id="local-6989586621679255594"><span id="local-6989586621679255596"><span class="annot"><span class="annottext">ReadPrec [DeliveryStreamFailureType]
+ReadPrec DeliveryStreamFailureType
+Int -&gt; ReadS DeliveryStreamFailureType
+ReadS [DeliveryStreamFailureType]
+(Int -&gt; ReadS DeliveryStreamFailureType)
+-&gt; ReadS [DeliveryStreamFailureType]
+-&gt; ReadPrec DeliveryStreamFailureType
+-&gt; ReadPrec [DeliveryStreamFailureType]
+-&gt; Read DeliveryStreamFailureType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeliveryStreamFailureType]
+$creadListPrec :: ReadPrec [DeliveryStreamFailureType]
+readPrec :: ReadPrec DeliveryStreamFailureType
+$creadPrec :: ReadPrec DeliveryStreamFailureType
+readList :: ReadS [DeliveryStreamFailureType]
+$creadList :: ReadS [DeliveryStreamFailureType]
+readsPrec :: Int -&gt; ReadS DeliveryStreamFailureType
+$creadsPrec :: Int -&gt; ReadS DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255585"><span id="local-6989586621679255587"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+(DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; (DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; Eq DeliveryStreamFailureType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c/= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+== :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c== :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255569"><span id="local-6989586621679255571"><span id="local-6989586621679255573"><span id="local-6989586621679255575"><span id="local-6989586621679255577"><span id="local-6989586621679255579"><span id="local-6989586621679255581"><span class="annot"><span class="annottext">Eq DeliveryStreamFailureType
+Eq DeliveryStreamFailureType
+-&gt; (DeliveryStreamFailureType
+    -&gt; DeliveryStreamFailureType -&gt; Ordering)
+-&gt; (DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; (DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; (DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; (DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool)
+-&gt; (DeliveryStreamFailureType
+    -&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType)
+-&gt; (DeliveryStreamFailureType
+    -&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType)
+-&gt; Ord DeliveryStreamFailureType
+DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Ordering
+DeliveryStreamFailureType
+-&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeliveryStreamFailureType
+-&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType
+$cmin :: DeliveryStreamFailureType
+-&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType
+max :: DeliveryStreamFailureType
+-&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType
+$cmax :: DeliveryStreamFailureType
+-&gt; DeliveryStreamFailureType -&gt; DeliveryStreamFailureType
+&gt;= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c&gt;= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+&gt; :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c&gt; :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+&lt;= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c&lt;= :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+&lt; :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+$c&lt; :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Bool
+compare :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Ordering
+$ccompare :: DeliveryStreamFailureType -&gt; DeliveryStreamFailureType -&gt; Ordering
+$cp1Ord :: Eq DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeliveryStreamFailureType -&gt; Rep DeliveryStreamFailureType x)
+-&gt; (forall x.
+    Rep DeliveryStreamFailureType x -&gt; DeliveryStreamFailureType)
+-&gt; Generic DeliveryStreamFailureType
+forall x.
+Rep DeliveryStreamFailureType x -&gt; DeliveryStreamFailureType
+forall x.
+DeliveryStreamFailureType -&gt; Rep DeliveryStreamFailureType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeliveryStreamFailureType x -&gt; DeliveryStreamFailureType
+$cfrom :: forall x.
+DeliveryStreamFailureType -&gt; Rep DeliveryStreamFailureType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255561"><span id="local-6989586621679255563"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamFailureType -&gt; Int
+DeliveryStreamFailureType -&gt; Int
+(Int -&gt; DeliveryStreamFailureType -&gt; Int)
+-&gt; (DeliveryStreamFailureType -&gt; Int)
+-&gt; Hashable DeliveryStreamFailureType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeliveryStreamFailureType -&gt; Int
+$chash :: DeliveryStreamFailureType -&gt; Int
+hashWithSalt :: Int -&gt; DeliveryStreamFailureType -&gt; Int
+$chashWithSalt :: Int -&gt; DeliveryStreamFailureType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679255558"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; ()
+(DeliveryStreamFailureType -&gt; ())
+-&gt; NFData DeliveryStreamFailureType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeliveryStreamFailureType -&gt; ()
+$crnf :: DeliveryStreamFailureType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679255555"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryStreamFailureType
+(Text -&gt; Either String DeliveryStreamFailureType)
+-&gt; FromText DeliveryStreamFailureType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeliveryStreamFailureType
+$cfromText :: Text -&gt; Either String DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679255552"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; Text
+(DeliveryStreamFailureType -&gt; Text)
+-&gt; ToText DeliveryStreamFailureType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeliveryStreamFailureType -&gt; Text
+$ctoText :: DeliveryStreamFailureType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679255549"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; ByteString
+(DeliveryStreamFailureType -&gt; ByteString)
+-&gt; ToByteString DeliveryStreamFailureType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeliveryStreamFailureType -&gt; ByteString
+$ctoBS :: DeliveryStreamFailureType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679255546"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; ByteStringBuilder
+(DeliveryStreamFailureType -&gt; ByteStringBuilder)
+-&gt; ToLog DeliveryStreamFailureType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeliveryStreamFailureType -&gt; ByteStringBuilder
+$cbuild :: DeliveryStreamFailureType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679255543"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryStreamFailureType -&gt; [Header]
+(HeaderName -&gt; DeliveryStreamFailureType -&gt; [Header])
+-&gt; ToHeader DeliveryStreamFailureType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeliveryStreamFailureType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeliveryStreamFailureType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679255540"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; QueryString
+(DeliveryStreamFailureType -&gt; QueryString)
+-&gt; ToQuery DeliveryStreamFailureType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeliveryStreamFailureType -&gt; QueryString
+$ctoQuery :: DeliveryStreamFailureType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679255535"><span id="local-6989586621679255537"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryStreamFailureType]
+Value -&gt; Parser DeliveryStreamFailureType
+(Value -&gt; Parser DeliveryStreamFailureType)
+-&gt; (Value -&gt; Parser [DeliveryStreamFailureType])
+-&gt; FromJSON DeliveryStreamFailureType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeliveryStreamFailureType]
+$cparseJSONList :: Value -&gt; Parser [DeliveryStreamFailureType]
+parseJSON :: Value -&gt; Parser DeliveryStreamFailureType
+$cparseJSON :: Value -&gt; Parser DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679255530"><span id="local-6989586621679255532"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryStreamFailureType]
+FromJSONKeyFunction DeliveryStreamFailureType
+FromJSONKeyFunction DeliveryStreamFailureType
+-&gt; FromJSONKeyFunction [DeliveryStreamFailureType]
+-&gt; FromJSONKey DeliveryStreamFailureType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeliveryStreamFailureType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeliveryStreamFailureType]
+fromJSONKey :: FromJSONKeyFunction DeliveryStreamFailureType
+$cfromJSONKey :: FromJSONKeyFunction DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679255521"><span id="local-6989586621679255523"><span id="local-6989586621679255525"><span id="local-6989586621679255527"><span class="annot"><span class="annottext">[DeliveryStreamFailureType] -&gt; Encoding
+[DeliveryStreamFailureType] -&gt; Value
+DeliveryStreamFailureType -&gt; Encoding
+DeliveryStreamFailureType -&gt; Value
+(DeliveryStreamFailureType -&gt; Value)
+-&gt; (DeliveryStreamFailureType -&gt; Encoding)
+-&gt; ([DeliveryStreamFailureType] -&gt; Value)
+-&gt; ([DeliveryStreamFailureType] -&gt; Encoding)
+-&gt; ToJSON DeliveryStreamFailureType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeliveryStreamFailureType] -&gt; Encoding
+$ctoEncodingList :: [DeliveryStreamFailureType] -&gt; Encoding
+toJSONList :: [DeliveryStreamFailureType] -&gt; Value
+$ctoJSONList :: [DeliveryStreamFailureType] -&gt; Value
+toEncoding :: DeliveryStreamFailureType -&gt; Encoding
+$ctoEncoding :: DeliveryStreamFailureType -&gt; Encoding
+toJSON :: DeliveryStreamFailureType -&gt; Value
+$ctoJSON :: DeliveryStreamFailureType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679255516"><span id="local-6989586621679255518"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryStreamFailureType]
+ToJSONKeyFunction DeliveryStreamFailureType
+ToJSONKeyFunction DeliveryStreamFailureType
+-&gt; ToJSONKeyFunction [DeliveryStreamFailureType]
+-&gt; ToJSONKey DeliveryStreamFailureType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeliveryStreamFailureType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeliveryStreamFailureType]
+toJSONKey :: ToJSONKeyFunction DeliveryStreamFailureType
+$ctoJSONKey :: ToJSONKeyFunction DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679255513"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryStreamFailureType
+([Node] -&gt; Either String DeliveryStreamFailureType)
+-&gt; FromXML DeliveryStreamFailureType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeliveryStreamFailureType
+$cparseXML :: [Node] -&gt; Either String DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679255510"><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; XML
+(DeliveryStreamFailureType -&gt; XML)
+-&gt; ToXML DeliveryStreamFailureType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeliveryStreamFailureType -&gt; XML
+$ctoXML :: DeliveryStreamFailureType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_ENI_FAILED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_CREATE_ENI_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_CREATE_ENI_FAILED"><span id="%24mDeliveryStreamFailureType_CREATE_ENI_FAILED"><span id="DeliveryStreamFailureType_CREATE_ENI_FAILED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_CREATE_ENI_FAILED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_CREATE_ENI_FAILED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_CREATE_ENI_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_CREATE_ENI_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_ENI_FAILED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span id="%24mDeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span id="DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_KMS_GRANT_FAILED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DELETE_ENI_FAILED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_DELETE_ENI_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_DELETE_ENI_FAILED"><span id="%24mDeliveryStreamFailureType_DELETE_ENI_FAILED"><span id="DeliveryStreamFailureType_DELETE_ENI_FAILED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_DELETE_ENI_FAILED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_DELETE_ENI_FAILED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_DELETE_ENI_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_DELETE_ENI_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_ENI_FAILED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DISABLED_KMS_KEY"><span class="hs-identifier hs-type">DeliveryStreamFailureType_DISABLED_KMS_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_DISABLED_KMS_KEY"><span id="%24mDeliveryStreamFailureType_DISABLED_KMS_KEY"><span id="DeliveryStreamFailureType_DISABLED_KMS_KEY"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_DISABLED_KMS_KEY :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_DISABLED_KMS_KEY :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_DISABLED_KMS_KEY"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_DISABLED_KMS_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED_KMS_KEY&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_ENI_ACCESS_DENIED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_ENI_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_ENI_ACCESS_DENIED"><span id="%24mDeliveryStreamFailureType_ENI_ACCESS_DENIED"><span id="DeliveryStreamFailureType_ENI_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_ENI_ACCESS_DENIED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_ENI_ACCESS_DENIED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_ENI_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_ENI_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENI_ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_INVALID_KMS_KEY"><span class="hs-identifier hs-type">DeliveryStreamFailureType_INVALID_KMS_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_INVALID_KMS_KEY"><span id="%24mDeliveryStreamFailureType_INVALID_KMS_KEY"><span id="DeliveryStreamFailureType_INVALID_KMS_KEY"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_INVALID_KMS_KEY :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_INVALID_KMS_KEY :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_INVALID_KMS_KEY"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_INVALID_KMS_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVALID_KMS_KEY&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_ACCESS_DENIED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_KMS_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_KMS_ACCESS_DENIED"><span id="%24mDeliveryStreamFailureType_KMS_ACCESS_DENIED"><span id="DeliveryStreamFailureType_KMS_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_KMS_ACCESS_DENIED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_KMS_ACCESS_DENIED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_KMS_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_KMS_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KMS_ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span class="hs-identifier hs-type">DeliveryStreamFailureType_KMS_KEY_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span id="%24mDeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span id="DeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_KMS_KEY_NOT_FOUND :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_KMS_KEY_NOT_FOUND :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_KMS_KEY_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KMS_KEY_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span id="%24mDeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span id="DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_KMS_OPT_IN_REQUIRED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_KMS_OPT_IN_REQUIRED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KMS_OPT_IN_REQUIRED&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span id="%24mDeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span id="DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RETIRE_KMS_GRANT_FAILED&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span id="%24mDeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span id="DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_GROUP_ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span class="hs-identifier hs-type">DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span id="%24mDeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span id="DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_GROUP_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span class="hs-identifier hs-type">DeliveryStreamFailureType_SUBNET_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span id="%24mDeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span id="DeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_SUBNET_ACCESS_DENIED :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_SUBNET_ACCESS_DENIED :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_SUBNET_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBNET_ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_NOT_FOUND"><span class="hs-identifier hs-type">DeliveryStreamFailureType_SUBNET_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_SUBNET_NOT_FOUND"><span id="%24mDeliveryStreamFailureType_SUBNET_NOT_FOUND"><span id="DeliveryStreamFailureType_SUBNET_NOT_FOUND"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_SUBNET_NOT_FOUND :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_SUBNET_NOT_FOUND :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_SUBNET_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_SUBNET_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBNET_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_UNKNOWN_ERROR"><span class="hs-identifier hs-type">DeliveryStreamFailureType_UNKNOWN_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamFailureType_UNKNOWN_ERROR"><span id="%24mDeliveryStreamFailureType_UNKNOWN_ERROR"><span id="DeliveryStreamFailureType_UNKNOWN_ERROR"><span class="annot"><span class="annottext">$bDeliveryStreamFailureType_UNKNOWN_ERROR :: DeliveryStreamFailureType
+$mDeliveryStreamFailureType_UNKNOWN_ERROR :: forall r.
+DeliveryStreamFailureType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#%24bDeliveryStreamFailureType_UNKNOWN_ERROR"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamFailureType_UNKNOWN_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-identifier hs-type">DeliveryStreamFailureType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN_ERROR&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_ENI_FAILED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_CREATE_ENI_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_CREATE_KMS_GRANT_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DELETE_ENI_FAILED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_DELETE_ENI_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_DISABLED_KMS_KEY"><span class="hs-pragma hs-type">DeliveryStreamFailureType_DISABLED_KMS_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_ENI_ACCESS_DENIED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_ENI_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_INVALID_KMS_KEY"><span class="hs-pragma hs-type">DeliveryStreamFailureType_INVALID_KMS_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_ACCESS_DENIED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_KMS_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_KEY_NOT_FOUND"><span class="hs-pragma hs-type">DeliveryStreamFailureType_KMS_KEY_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_KMS_OPT_IN_REQUIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_RETIRE_KMS_GRANT_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_SECURITY_GROUP_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND"><span class="hs-pragma hs-type">DeliveryStreamFailureType_SECURITY_GROUP_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_ACCESS_DENIED"><span class="hs-pragma hs-type">DeliveryStreamFailureType_SUBNET_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_SUBNET_NOT_FOUND"><span class="hs-pragma hs-type">DeliveryStreamFailureType_SUBNET_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType_UNKNOWN_ERROR"><span class="hs-pragma hs-type">DeliveryStreamFailureType_UNKNOWN_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType%27"><span class="hs-pragma hs-type">DeliveryStreamFailureType'</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-136"></span></pre></body></html>

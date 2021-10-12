@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Network.AWS.CloudSearchDomains.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudSearchDomains.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UploadDocuments</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocuments_contentType"><span class="hs-identifier">uploadDocuments_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocuments_documents"><span class="hs-identifier">uploadDocuments_documents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocumentsResponse_status"><span class="hs-identifier">uploadDocumentsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocumentsResponse_warnings"><span class="hs-identifier">uploadDocumentsResponse_warnings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocumentsResponse_deletes"><span class="hs-identifier">uploadDocumentsResponse_deletes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocumentsResponse_adds"><span class="hs-identifier">uploadDocumentsResponse_adds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html#uploadDocumentsResponse_httpStatus"><span class="hs-identifier">uploadDocumentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Search</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_expr"><span class="hs-identifier">search_expr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_partial"><span class="hs-identifier">search_partial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_queryParser"><span class="hs-identifier">search_queryParser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_queryOptions"><span class="hs-identifier">search_queryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_return"><span class="hs-identifier">search_return</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_cursor"><span class="hs-identifier">search_cursor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_stats"><span class="hs-identifier">search_stats</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_highlight"><span class="hs-identifier">search_highlight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_start"><span class="hs-identifier">search_start</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_facet"><span class="hs-identifier">search_facet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_size"><span class="hs-identifier">search_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_sort"><span class="hs-identifier">search_sort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_filterQuery"><span class="hs-identifier">search_filterQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#search_query"><span class="hs-identifier">search_query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#searchResponse_status"><span class="hs-identifier">searchResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#searchResponse_hits"><span class="hs-identifier">searchResponse_hits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#searchResponse_stats"><span class="hs-identifier">searchResponse_stats</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#searchResponse_facets"><span class="hs-identifier">searchResponse_facets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html#searchResponse_httpStatus"><span class="hs-identifier">searchResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Suggest</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggest_size"><span class="hs-identifier">suggest_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggest_query"><span class="hs-identifier">suggest_query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggest_suggester"><span class="hs-identifier">suggest_suggester</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggestResponse_status"><span class="hs-identifier">suggestResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggestResponse_suggest"><span class="hs-identifier">suggestResponse_suggest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html#suggestResponse_httpStatus"><span class="hs-identifier">suggestResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Bucket</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Bucket.html#bucket_count"><span class="hs-identifier">bucket_count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Bucket.html#bucket_value"><span class="hs-identifier">bucket_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BucketInfo</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html#bucketInfo_buckets"><span class="hs-identifier">bucketInfo_buckets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DocumentServiceWarning</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html#documentServiceWarning_message"><span class="hs-identifier">documentServiceWarning_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** FieldStats</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_mean"><span class="hs-identifier">fieldStats_mean</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_missing"><span class="hs-identifier">fieldStats_missing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_sum"><span class="hs-identifier">fieldStats_sum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_min"><span class="hs-identifier">fieldStats_min</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_stddev"><span class="hs-identifier">fieldStats_stddev</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_max"><span class="hs-identifier">fieldStats_max</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_count"><span class="hs-identifier">fieldStats_count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_sumOfSquares"><span class="hs-identifier">fieldStats_sumOfSquares</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Hit</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_id"><span class="hs-identifier">hit_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_exprs"><span class="hs-identifier">hit_exprs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_fields"><span class="hs-identifier">hit_fields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_highlights"><span class="hs-identifier">hit_highlights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Hits</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_found"><span class="hs-identifier">hits_found</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_hit"><span class="hs-identifier">hits_hit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_cursor"><span class="hs-identifier">hits_cursor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_start"><span class="hs-identifier">hits_start</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SearchStatus</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SearchStatus.html#searchStatus_timems"><span class="hs-identifier">searchStatus_timems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SearchStatus.html#searchStatus_rid"><span class="hs-identifier">searchStatus_rid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SuggestModel</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_suggestions"><span class="hs-identifier">suggestModel_suggestions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_found"><span class="hs-identifier">suggestModel_found</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_query"><span class="hs-identifier">suggestModel_query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SuggestStatus</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestStatus.html#suggestStatus_timems"><span class="hs-identifier">suggestStatus_timems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestStatus.html#suggestStatus_rid"><span class="hs-identifier">suggestStatus_rid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SuggestionMatch</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#suggestionMatch_suggestion"><span class="hs-identifier">suggestionMatch_suggestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#suggestionMatch_id"><span class="hs-identifier">suggestionMatch_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#suggestionMatch_score"><span class="hs-identifier">suggestionMatch_score</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Search.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Search</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Suggest.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Suggest</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Bucket.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.Bucket</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.BucketInfo.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.BucketInfo</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.FieldStats</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.Hit</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.Hits</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SearchStatus.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.SearchStatus</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.SuggestModel</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestStatus.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.SuggestStatus</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.Types.SuggestionMatch</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.UploadDocuments.html"><span class="hs-identifier">Network.AWS.CloudSearchDomains.UploadDocuments</span></a></span><span>
+</span><span id="line-122"></span></pre></body></html>

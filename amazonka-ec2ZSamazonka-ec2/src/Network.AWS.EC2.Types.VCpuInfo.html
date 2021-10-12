@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.VCpuInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.VCpuInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the vCPU configurations for the instance type.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVCpuInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681144059"><span id="local-6989586621681144060"></span></span><span class="hs-keyword">data</span><span> </span><span id="VCpuInfo"><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-var">VCpuInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VCpuInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-var">VCpuInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default number of cores for the instance type.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdefaultCores%3AVCpuInfo%27"><span class="annot"><span class="annottext">VCpuInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultCores%3AVCpuInfo%27"><span class="hs-identifier hs-var hs-var">defaultCores</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The default number of vCPUs for the instance type.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdefaultVCpus%3AVCpuInfo%27"><span class="annot"><span class="annottext">VCpuInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultVCpus%3AVCpuInfo%27"><span class="hs-identifier hs-var hs-var">defaultVCpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The valid number of threads per core that can be configured for the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- instance type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvalidThreadsPerCore%3AVCpuInfo%27"><span class="annot"><span class="annottext">VCpuInfo -&gt; Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var hs-var">validThreadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The valid number of cores that can be configured for the instance type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvalidCores%3AVCpuInfo%27"><span class="annot"><span class="annottext">VCpuInfo -&gt; Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidCores%3AVCpuInfo%27"><span class="hs-identifier hs-var hs-var">validCores</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The default number of threads per core for the instance type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdefaultThreadsPerCore%3AVCpuInfo%27"><span class="annot"><span class="annottext">VCpuInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var hs-var">defaultThreadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681144049"><span id="local-6989586621681144051"><span class="annot"><span class="annottext">VCpuInfo -&gt; VCpuInfo -&gt; Bool
+(VCpuInfo -&gt; VCpuInfo -&gt; Bool)
+-&gt; (VCpuInfo -&gt; VCpuInfo -&gt; Bool) -&gt; Eq VCpuInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VCpuInfo -&gt; VCpuInfo -&gt; Bool
+$c/= :: VCpuInfo -&gt; VCpuInfo -&gt; Bool
+== :: VCpuInfo -&gt; VCpuInfo -&gt; Bool
+$c== :: VCpuInfo -&gt; VCpuInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681144040"><span id="local-6989586621681144042"><span id="local-6989586621681144044"><span id="local-6989586621681144046"><span class="annot"><span class="annottext">ReadPrec [VCpuInfo]
+ReadPrec VCpuInfo
+Int -&gt; ReadS VCpuInfo
+ReadS [VCpuInfo]
+(Int -&gt; ReadS VCpuInfo)
+-&gt; ReadS [VCpuInfo]
+-&gt; ReadPrec VCpuInfo
+-&gt; ReadPrec [VCpuInfo]
+-&gt; Read VCpuInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VCpuInfo]
+$creadListPrec :: ReadPrec [VCpuInfo]
+readPrec :: ReadPrec VCpuInfo
+$creadPrec :: ReadPrec VCpuInfo
+readList :: ReadS [VCpuInfo]
+$creadList :: ReadS [VCpuInfo]
+readsPrec :: Int -&gt; ReadS VCpuInfo
+$creadsPrec :: Int -&gt; ReadS VCpuInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681144033"><span id="local-6989586621681144035"><span id="local-6989586621681144037"><span class="annot"><span class="annottext">Int -&gt; VCpuInfo -&gt; ShowS
+[VCpuInfo] -&gt; ShowS
+VCpuInfo -&gt; String
+(Int -&gt; VCpuInfo -&gt; ShowS)
+-&gt; (VCpuInfo -&gt; String) -&gt; ([VCpuInfo] -&gt; ShowS) -&gt; Show VCpuInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VCpuInfo] -&gt; ShowS
+$cshowList :: [VCpuInfo] -&gt; ShowS
+show :: VCpuInfo -&gt; String
+$cshow :: VCpuInfo -&gt; String
+showsPrec :: Int -&gt; VCpuInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; VCpuInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VCpuInfo -&gt; Rep VCpuInfo x)
+-&gt; (forall x. Rep VCpuInfo x -&gt; VCpuInfo) -&gt; Generic VCpuInfo
+forall x. Rep VCpuInfo x -&gt; VCpuInfo
+forall x. VCpuInfo -&gt; Rep VCpuInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VCpuInfo x -&gt; VCpuInfo
+$cfrom :: forall x. VCpuInfo -&gt; Rep VCpuInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'VCpuInfo' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'defaultCores', 'vCpuInfo_defaultCores' - The default number of cores for the instance type.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'defaultVCpus', 'vCpuInfo_defaultVCpus' - The default number of vCPUs for the instance type.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'validThreadsPerCore', 'vCpuInfo_validThreadsPerCore' - The valid number of threads per core that can be configured for the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- instance type.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'validCores', 'vCpuInfo_validCores' - The valid number of cores that can be configured for the instance type.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'defaultThreadsPerCore', 'vCpuInfo_defaultThreadsPerCore' - The default number of threads per core for the instance type.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#newVCpuInfo"><span class="hs-identifier hs-type">newVCpuInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span>
+</span><span id="line-65"></span><span id="newVCpuInfo"><span class="annot"><span class="annottext">newVCpuInfo :: VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#newVCpuInfo"><span class="hs-identifier hs-var hs-var">newVCpuInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">VCpuInfo' :: Maybe Int
+-&gt; Maybe Int -&gt; Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultCores:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultCores%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultCores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultVCpus:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultVCpus%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultVCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:validThreadsPerCore:VCpuInfo' :: Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var">validThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:validCores:VCpuInfo' :: Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidCores%3AVCpuInfo%27"><span class="hs-identifier hs-var">validCores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultThreadsPerCore:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The default number of cores for the instance type.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultCores"><span class="hs-identifier hs-type">vCpuInfo_defaultCores</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="vCpuInfo_defaultCores"><span class="annot"><span class="annottext">vCpuInfo_defaultCores :: (Maybe Int -&gt; f (Maybe Int)) -&gt; VCpuInfo -&gt; f VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultCores"><span class="hs-identifier hs-var hs-var">vCpuInfo_defaultCores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VCpuInfo -&gt; Maybe Int)
+-&gt; (VCpuInfo -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Lens VCpuInfo VCpuInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681144024"><span class="annot"><span class="annottext">Maybe Int
+defaultCores :: Maybe Int
+$sel:defaultCores:VCpuInfo' :: VCpuInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681144024"><span class="hs-identifier hs-var hs-var">defaultCores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144024"><span class="hs-identifier hs-var">defaultCores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681144023"><span class="annot"><span class="annottext">s :: VCpuInfo
+</span><a href="#local-6989586621681144023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681144022"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VCpuInfo
+</span><a href="#local-6989586621681144023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCores:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultCores%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultCores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The default number of vCPUs for the instance type.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultVCpus"><span class="hs-identifier hs-type">vCpuInfo_defaultVCpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="vCpuInfo_defaultVCpus"><span class="annot"><span class="annottext">vCpuInfo_defaultVCpus :: (Maybe Int -&gt; f (Maybe Int)) -&gt; VCpuInfo -&gt; f VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultVCpus"><span class="hs-identifier hs-var hs-var">vCpuInfo_defaultVCpus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VCpuInfo -&gt; Maybe Int)
+-&gt; (VCpuInfo -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Lens VCpuInfo VCpuInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681144020"><span class="annot"><span class="annottext">Maybe Int
+defaultVCpus :: Maybe Int
+$sel:defaultVCpus:VCpuInfo' :: VCpuInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681144020"><span class="hs-identifier hs-var hs-var">defaultVCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144020"><span class="hs-identifier hs-var">defaultVCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681144019"><span class="annot"><span class="annottext">s :: VCpuInfo
+</span><a href="#local-6989586621681144019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681144018"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VCpuInfo
+</span><a href="#local-6989586621681144019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultVCpus:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultVCpus%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultVCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The valid number of threads per core that can be configured for the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- instance type.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_validThreadsPerCore"><span class="hs-identifier hs-type">vCpuInfo_validThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="vCpuInfo_validThreadsPerCore"><span class="annot"><span class="annottext">vCpuInfo_validThreadsPerCore :: (Maybe [Int] -&gt; f (Maybe [Int])) -&gt; VCpuInfo -&gt; f VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_validThreadsPerCore"><span class="hs-identifier hs-var hs-var">vCpuInfo_validThreadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VCpuInfo -&gt; Maybe [Int])
+-&gt; (VCpuInfo -&gt; Maybe [Int] -&gt; VCpuInfo)
+-&gt; Lens VCpuInfo VCpuInfo (Maybe [Int]) (Maybe [Int])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681144016"><span class="annot"><span class="annottext">Maybe [Int]
+validThreadsPerCore :: Maybe [Int]
+$sel:validThreadsPerCore:VCpuInfo' :: VCpuInfo -&gt; Maybe [Int]
+</span><a href="#local-6989586621681144016"><span class="hs-identifier hs-var hs-var">validThreadsPerCore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144016"><span class="hs-identifier hs-var">validThreadsPerCore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681144015"><span class="annot"><span class="annottext">s :: VCpuInfo
+</span><a href="#local-6989586621681144015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681144014"><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VCpuInfo
+</span><a href="#local-6989586621681144015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validThreadsPerCore:VCpuInfo' :: Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var">validThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Int] -&gt; f (Maybe [Int])) -&gt; VCpuInfo -&gt; f VCpuInfo)
+-&gt; ((Maybe [Int] -&gt; f (Maybe [Int]))
+    -&gt; Maybe [Int] -&gt; f (Maybe [Int]))
+-&gt; (Maybe [Int] -&gt; f (Maybe [Int]))
+-&gt; VCpuInfo
+-&gt; f VCpuInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Int] [Int] [Int] [Int]
+-&gt; Iso (Maybe [Int]) (Maybe [Int]) (Maybe [Int]) (Maybe [Int])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Int] [Int] [Int] [Int]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The valid number of cores that can be configured for the instance type.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_validCores"><span class="hs-identifier hs-type">vCpuInfo_validCores</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="vCpuInfo_validCores"><span class="annot"><span class="annottext">vCpuInfo_validCores :: (Maybe [Int] -&gt; f (Maybe [Int])) -&gt; VCpuInfo -&gt; f VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_validCores"><span class="hs-identifier hs-var hs-var">vCpuInfo_validCores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VCpuInfo -&gt; Maybe [Int])
+-&gt; (VCpuInfo -&gt; Maybe [Int] -&gt; VCpuInfo)
+-&gt; Lens VCpuInfo VCpuInfo (Maybe [Int]) (Maybe [Int])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681144009"><span class="annot"><span class="annottext">Maybe [Int]
+validCores :: Maybe [Int]
+$sel:validCores:VCpuInfo' :: VCpuInfo -&gt; Maybe [Int]
+</span><a href="#local-6989586621681144009"><span class="hs-identifier hs-var hs-var">validCores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144009"><span class="hs-identifier hs-var">validCores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681144008"><span class="annot"><span class="annottext">s :: VCpuInfo
+</span><a href="#local-6989586621681144008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681144007"><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VCpuInfo
+</span><a href="#local-6989586621681144008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validCores:VCpuInfo' :: Maybe [Int]
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AvalidCores%3AVCpuInfo%27"><span class="hs-identifier hs-var">validCores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Int]
+</span><a href="#local-6989586621681144007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Int] -&gt; f (Maybe [Int])) -&gt; VCpuInfo -&gt; f VCpuInfo)
+-&gt; ((Maybe [Int] -&gt; f (Maybe [Int]))
+    -&gt; Maybe [Int] -&gt; f (Maybe [Int]))
+-&gt; (Maybe [Int] -&gt; f (Maybe [Int]))
+-&gt; VCpuInfo
+-&gt; f VCpuInfo
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Int] [Int] [Int] [Int]
+-&gt; Iso (Maybe [Int]) (Maybe [Int]) (Maybe [Int]) (Maybe [Int])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Int] [Int] [Int] [Int]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The default number of threads per core for the instance type.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultThreadsPerCore"><span class="hs-identifier hs-type">vCpuInfo_defaultThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="vCpuInfo_defaultThreadsPerCore"><span class="annot"><span class="annottext">vCpuInfo_defaultThreadsPerCore :: (Maybe Int -&gt; f (Maybe Int)) -&gt; VCpuInfo -&gt; f VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#vCpuInfo_defaultThreadsPerCore"><span class="hs-identifier hs-var hs-var">vCpuInfo_defaultThreadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VCpuInfo -&gt; Maybe Int)
+-&gt; (VCpuInfo -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Lens VCpuInfo VCpuInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681144005"><span class="annot"><span class="annottext">Maybe Int
+defaultThreadsPerCore :: Maybe Int
+$sel:defaultThreadsPerCore:VCpuInfo' :: VCpuInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681144005"><span class="hs-identifier hs-var hs-var">defaultThreadsPerCore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144005"><span class="hs-identifier hs-var">defaultThreadsPerCore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681144004"><span class="annot"><span class="annottext">s :: VCpuInfo
+</span><a href="#local-6989586621681144004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-type">VCpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681144003"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VCpuInfo
+</span><a href="#local-6989586621681144004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultThreadsPerCore:VCpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#%24sel%3AdefaultThreadsPerCore%3AVCpuInfo%27"><span class="hs-identifier hs-var">defaultThreadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681144003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621681144000"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VCpuInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681143998"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int -&gt; Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo
+</span><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo%27"><span class="hs-identifier hs-var">VCpuInfo'</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe [Int]
+ -&gt; Maybe [Int]
+ -&gt; Maybe Int
+ -&gt; VCpuInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int -&gt; Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultCores&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int -&gt; Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultVCpus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Int] -&gt; Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Either String (Maybe [Int])
+-&gt; Either String (Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validThreadsPerCore&quot;</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Int]))
+-&gt; Either String (Maybe [Int])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Int])
+-&gt; [Node] -&gt; Either String (Maybe [Int])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Int]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Int] -&gt; Maybe Int -&gt; VCpuInfo)
+-&gt; Either String (Maybe [Int])
+-&gt; Either String (Maybe Int -&gt; VCpuInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;validCores&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Int]))
+-&gt; Either String (Maybe [Int])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Int])
+-&gt; [Node] -&gt; Either String (Maybe [Int])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Int]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; VCpuInfo)
+-&gt; Either String (Maybe Int) -&gt; Either String VCpuInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultThreadsPerCore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681143989"><span id="local-6989586621681143991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681143986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VCpuInfo.html#VCpuInfo"><span class="hs-identifier hs-type">VCpuInfo</span></a></span></span><span>
+</span><span id="line-112"></span></pre></body></html>

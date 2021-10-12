@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.DescribeCoipPools</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified customer-owned address pools or all of your</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- customer-owned address pools.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.DescribeCoipPools</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPools"><span class="hs-identifier">newDescribeCoipPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_nextToken"><span class="hs-identifier">describeCoipPools_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_maxResults"><span class="hs-identifier">describeCoipPools_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_dryRun"><span class="hs-identifier">describeCoipPools_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_filters"><span class="hs-identifier">describeCoipPools_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_poolIds"><span class="hs-identifier">describeCoipPools_poolIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier">DescribeCoipPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPoolsResponse"><span class="hs-identifier">newDescribeCoipPoolsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_nextToken"><span class="hs-identifier">describeCoipPoolsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_coipPools"><span class="hs-identifier">describeCoipPoolsResponse_coipPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_httpStatus"><span class="hs-identifier">describeCoipPoolsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeCoipPools' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621681232898"><span id="local-6989586621681232899"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCoipPools"><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-var">DescribeCoipPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCoipPools%27"><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-var">DescribeCoipPools'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCoipPools%27"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPools%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeCoipPools%27"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AmaxResults%3ADescribeCoipPools%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeCoipPools%27"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AdryRun%3ADescribeCoipPools%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The filters. The following are the possible values:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @coip-pool.pool-id@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @coip-pool.local-gateway-route-table-id@</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeCoipPools%27"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3Afilters%3ADescribeCoipPools%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The IDs of the address pools.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApoolIds%3ADescribeCoipPools%27"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3ApoolIds%3ADescribeCoipPools%27"><span class="hs-identifier hs-var hs-var">poolIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681232888"><span id="local-6989586621681232890"><span class="annot"><span class="annottext">DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool
+(DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool)
+-&gt; (DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool)
+-&gt; Eq DescribeCoipPools
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool
+$c/= :: DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool
+== :: DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool
+$c== :: DescribeCoipPools -&gt; DescribeCoipPools -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681232879"><span id="local-6989586621681232881"><span id="local-6989586621681232883"><span id="local-6989586621681232885"><span class="annot"><span class="annottext">ReadPrec [DescribeCoipPools]
+ReadPrec DescribeCoipPools
+Int -&gt; ReadS DescribeCoipPools
+ReadS [DescribeCoipPools]
+(Int -&gt; ReadS DescribeCoipPools)
+-&gt; ReadS [DescribeCoipPools]
+-&gt; ReadPrec DescribeCoipPools
+-&gt; ReadPrec [DescribeCoipPools]
+-&gt; Read DescribeCoipPools
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCoipPools]
+$creadListPrec :: ReadPrec [DescribeCoipPools]
+readPrec :: ReadPrec DescribeCoipPools
+$creadPrec :: ReadPrec DescribeCoipPools
+readList :: ReadS [DescribeCoipPools]
+$creadList :: ReadS [DescribeCoipPools]
+readsPrec :: Int -&gt; ReadS DescribeCoipPools
+$creadsPrec :: Int -&gt; ReadS DescribeCoipPools
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681232872"><span id="local-6989586621681232874"><span id="local-6989586621681232876"><span class="annot"><span class="annottext">Int -&gt; DescribeCoipPools -&gt; ShowS
+[DescribeCoipPools] -&gt; ShowS
+DescribeCoipPools -&gt; String
+(Int -&gt; DescribeCoipPools -&gt; ShowS)
+-&gt; (DescribeCoipPools -&gt; String)
+-&gt; ([DescribeCoipPools] -&gt; ShowS)
+-&gt; Show DescribeCoipPools
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCoipPools] -&gt; ShowS
+$cshowList :: [DescribeCoipPools] -&gt; ShowS
+show :: DescribeCoipPools -&gt; String
+$cshow :: DescribeCoipPools -&gt; String
+showsPrec :: Int -&gt; DescribeCoipPools -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCoipPools -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeCoipPools -&gt; Rep DescribeCoipPools x)
+-&gt; (forall x. Rep DescribeCoipPools x -&gt; DescribeCoipPools)
+-&gt; Generic DescribeCoipPools
+forall x. Rep DescribeCoipPools x -&gt; DescribeCoipPools
+forall x. DescribeCoipPools -&gt; Rep DescribeCoipPools x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeCoipPools x -&gt; DescribeCoipPools
+$cfrom :: forall x. DescribeCoipPools -&gt; Rep DescribeCoipPools x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'DescribeCoipPools' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'describeCoipPools_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'maxResults', 'describeCoipPools_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'dryRun', 'describeCoipPools_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'filters', 'describeCoipPools_filters' - The filters. The following are the possible values:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @coip-pool.pool-id@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @coip-pool.local-gateway-route-table-id@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'poolIds', 'describeCoipPools_poolIds' - The IDs of the address pools.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPools"><span class="hs-identifier hs-type">newDescribeCoipPools</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span>
+</span><span id="line-109"></span><span id="newDescribeCoipPools"><span class="annot"><span class="annottext">newDescribeCoipPools :: DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPools"><span class="hs-identifier hs-var hs-var">newDescribeCoipPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">DescribeCoipPools' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe [Filter]
+-&gt; Maybe [Text]
+-&gt; DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCoipPools' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCoipPools' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AmaxResults%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeCoipPools' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AdryRun%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeCoipPools' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3Afilters%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolIds:DescribeCoipPools' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3ApoolIds%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">poolIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_nextToken"><span class="hs-identifier hs-type">describeCoipPools_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeCoipPools_nextToken"><span class="annot"><span class="annottext">describeCoipPools_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCoipPools -&gt; f DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_nextToken"><span class="hs-identifier hs-var hs-var">describeCoipPools_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe Text)
+-&gt; (DescribeCoipPools -&gt; Maybe Text -&gt; DescribeCoipPools)
+-&gt; Lens
+     DescribeCoipPools DescribeCoipPools (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232866"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Text
+</span><a href="#local-6989586621681232866"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232866"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232865"><span class="annot"><span class="annottext">s :: DescribeCoipPools
+</span><a href="#local-6989586621681232865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCoipPools' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_maxResults"><span class="hs-identifier hs-type">describeCoipPools_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="describeCoipPools_maxResults"><span class="annot"><span class="annottext">describeCoipPools_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeCoipPools -&gt; f DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_maxResults"><span class="hs-identifier hs-var hs-var">describeCoipPools_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe Natural)
+-&gt; (DescribeCoipPools -&gt; Maybe Natural -&gt; DescribeCoipPools)
+-&gt; Lens
+     DescribeCoipPools DescribeCoipPools (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232863"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Natural
+</span><a href="#local-6989586621681232863"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681232863"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232862"><span class="annot"><span class="annottext">s :: DescribeCoipPools
+</span><a href="#local-6989586621681232862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232861"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681232861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCoipPools' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AmaxResults%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681232861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_dryRun"><span class="hs-identifier hs-type">describeCoipPools_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="describeCoipPools_dryRun"><span class="annot"><span class="annottext">describeCoipPools_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeCoipPools -&gt; f DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_dryRun"><span class="hs-identifier hs-var hs-var">describeCoipPools_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe Bool)
+-&gt; (DescribeCoipPools -&gt; Maybe Bool -&gt; DescribeCoipPools)
+-&gt; Lens
+     DescribeCoipPools DescribeCoipPools (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232860"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Bool
+</span><a href="#local-6989586621681232860"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681232860"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232859"><span class="annot"><span class="annottext">s :: DescribeCoipPools
+</span><a href="#local-6989586621681232859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232858"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681232858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeCoipPools' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AdryRun%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681232858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The filters. The following are the possible values:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @coip-pool.pool-id@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @coip-pool.local-gateway-route-table-id@</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_filters"><span class="hs-identifier hs-type">describeCoipPools_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="describeCoipPools_filters"><span class="annot"><span class="annottext">describeCoipPools_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeCoipPools -&gt; f DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_filters"><span class="hs-identifier hs-var hs-var">describeCoipPools_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe [Filter])
+-&gt; (DescribeCoipPools -&gt; Maybe [Filter] -&gt; DescribeCoipPools)
+-&gt; Lens
+     DescribeCoipPools
+     DescribeCoipPools
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232857"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681232857"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681232857"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232856"><span class="annot"><span class="annottext">s :: DescribeCoipPools
+</span><a href="#local-6989586621681232856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232855"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681232855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeCoipPools' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3Afilters%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681232855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeCoipPools -&gt; f DescribeCoipPools)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeCoipPools
+-&gt; f DescribeCoipPools
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The IDs of the address pools.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_poolIds"><span class="hs-identifier hs-type">describeCoipPools_poolIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="describeCoipPools_poolIds"><span class="annot"><span class="annottext">describeCoipPools_poolIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeCoipPools -&gt; f DescribeCoipPools
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_poolIds"><span class="hs-identifier hs-var hs-var">describeCoipPools_poolIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe [Text])
+-&gt; (DescribeCoipPools -&gt; Maybe [Text] -&gt; DescribeCoipPools)
+-&gt; Lens
+     DescribeCoipPools DescribeCoipPools (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232851"><span class="annot"><span class="annottext">Maybe [Text]
+poolIds :: Maybe [Text]
+$sel:poolIds:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe [Text]
+</span><a href="#local-6989586621681232851"><span class="hs-identifier hs-var hs-var">poolIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681232851"><span class="hs-identifier hs-var">poolIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232850"><span class="annot"><span class="annottext">s :: DescribeCoipPools
+</span><a href="#local-6989586621681232850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232849"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681232849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolIds:DescribeCoipPools' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3ApoolIds%3ADescribeCoipPools%27"><span class="hs-identifier hs-var">poolIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681232849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeCoipPools -&gt; f DescribeCoipPools)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeCoipPools
+-&gt; f DescribeCoipPools
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681232845"><span class="annot"><span class="annottext">page :: DescribeCoipPools
+-&gt; AWSResponse DescribeCoipPools -&gt; Maybe DescribeCoipPools
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681232843"><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232843"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681232842"><span class="annot"><span class="annottext">AWSResponse DescribeCoipPools
+</span><a href="#local-6989586621681232842"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-150"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCoipPools
+DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+-&gt; Getting (First Text) DescribeCoipPoolsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeCoipPoolsResponse
+-&gt; Const (First Text) DescribeCoipPoolsResponse
+Lens' DescribeCoipPoolsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_nextToken"><span class="hs-identifier hs-var">describeCoipPoolsResponse_nextToken</span></a></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeCoipPoolsResponse
+ -&gt; Const (First Text) DescribeCoipPoolsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeCoipPoolsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-153"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeCoipPools
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [CoipPool] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCoipPools
+DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+-&gt; Getting (First [CoipPool]) DescribeCoipPoolsResponse [CoipPool]
+-&gt; Maybe [CoipPool]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [CoipPool] -&gt; Const (First [CoipPool]) (Maybe [CoipPool]))
+-&gt; DescribeCoipPoolsResponse
+-&gt; Const (First [CoipPool]) DescribeCoipPoolsResponse
+Lens' DescribeCoipPoolsResponse (Maybe [CoipPool])
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_coipPools"><span class="hs-identifier hs-var">describeCoipPoolsResponse_coipPools</span></a></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [CoipPool] -&gt; Const (First [CoipPool]) (Maybe [CoipPool]))
+ -&gt; DescribeCoipPoolsResponse
+ -&gt; Const (First [CoipPool]) DescribeCoipPoolsResponse)
+-&gt; (([CoipPool] -&gt; Const (First [CoipPool]) [CoipPool])
+    -&gt; Maybe [CoipPool] -&gt; Const (First [CoipPool]) (Maybe [CoipPool]))
+-&gt; Getting (First [CoipPool]) DescribeCoipPoolsResponse [CoipPool]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CoipPool] -&gt; Const (First [CoipPool]) [CoipPool])
+-&gt; Maybe [CoipPool] -&gt; Const (First [CoipPool]) (Maybe [CoipPool])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-159"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeCoipPools
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">DescribeCoipPools -&gt; Maybe DescribeCoipPools
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPools -&gt; Maybe DescribeCoipPools)
+-&gt; DescribeCoipPools -&gt; Maybe DescribeCoipPools
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">DescribeCoipPools
+</span><a href="#local-6989586621681232843"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">DescribeCoipPools
+-&gt; (DescribeCoipPools -&gt; DescribeCoipPools) -&gt; DescribeCoipPools
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeCoipPools -&gt; Identity DescribeCoipPools
+Lens DescribeCoipPools DescribeCoipPools (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPools_nextToken"><span class="hs-identifier hs-var">describeCoipPools_nextToken</span></a></span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeCoipPools -&gt; Identity DescribeCoipPools)
+-&gt; Maybe Text -&gt; DescribeCoipPools -&gt; DescribeCoipPools
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCoipPools
+DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+-&gt; Getting (First Text) DescribeCoipPoolsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeCoipPoolsResponse
+-&gt; Const (First Text) DescribeCoipPoolsResponse
+Lens' DescribeCoipPoolsResponse (Maybe Text)
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_nextToken"><span class="hs-identifier hs-var">describeCoipPoolsResponse_nextToken</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeCoipPoolsResponse
+ -&gt; Const (First Text) DescribeCoipPoolsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeCoipPoolsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-171"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621681232833"><span class="annot"><span class="annottext">request :: DescribeCoipPools -&gt; Request DescribeCoipPools
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCoipPools -&gt; Request DescribeCoipPools
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621681232829"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeCoipPools
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCoipPools)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeCoipPools))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeCoipPools
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCoipPools)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681232826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681232825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681232825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681232824"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681232824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [CoipPool] -&gt; Int -&gt; DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">DescribeCoipPoolsResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [CoipPool] -&gt; Int -&gt; DescribeCoipPoolsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [CoipPool] -&gt; Int -&gt; DescribeCoipPoolsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681232824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [CoipPool] -&gt; Int -&gt; DescribeCoipPoolsResponse)
+-&gt; Either String (Maybe [CoipPool])
+-&gt; Either String (Int -&gt; DescribeCoipPoolsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681232824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;coipPoolSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [CoipPool]))
+-&gt; Either String (Maybe [CoipPool])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [CoipPool])
+-&gt; [Node] -&gt; Either String (Maybe [CoipPool])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [CoipPool]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeCoipPoolsResponse)
+-&gt; Either String Int -&gt; Either String DescribeCoipPoolsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681232813"><span id="local-6989586621681232815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681232810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621681232806"><span class="annot"><span class="annottext">toHeaders :: DescribeCoipPools -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCoipPools -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681232801"><span class="annot"><span class="annottext">toPath :: DescribeCoipPools -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCoipPools -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools"><span class="hs-identifier hs-type">DescribeCoipPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681232797"><span class="annot"><span class="annottext">toQuery :: DescribeCoipPools -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPools%27"><span class="hs-identifier hs-type">DescribeCoipPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232791"><span id="local-6989586621681232792"><span id="local-6989586621681232793"><span id="local-6989586621681232794"><span id="local-6989586621681232795"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Text]
+Maybe [Filter]
+Maybe Text
+poolIds :: Maybe [Text]
+filters :: Maybe [Filter]
+dryRun :: Maybe Bool
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:poolIds:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe [Text]
+$sel:filters:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe [Filter]
+$sel:dryRun:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Bool
+$sel:maxResults:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Natural
+$sel:nextToken:DescribeCoipPools' :: DescribeCoipPools -&gt; Maybe Text
+</span><a href="#local-6989586621681232791"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeCoipPools&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232795"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681232794"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681232793"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681232792"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681232791"><span class="hs-identifier hs-var">poolIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | /See:/ 'newDescribeCoipPoolsResponse' smart constructor.</span><span>
+</span><span id="line-212"></span><span id="local-6989586621681232787"><span id="local-6989586621681232788"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCoipPoolsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-var">DescribeCoipPoolsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCoipPoolsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">DescribeCoipPoolsResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCoipPoolsResponse%27"><span class="annot"><span class="annottext">DescribeCoipPoolsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Information about the address pools.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AcoipPools%3ADescribeCoipPoolsResponse%27"><span class="annot"><span class="annottext">DescribeCoipPoolsResponse -&gt; Maybe [CoipPool]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AcoipPools%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var hs-var">coipPools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.CoipPool.html#CoipPool"><span class="hs-identifier hs-type">CoipPool</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCoipPoolsResponse%27"><span class="annot"><span class="annottext">DescribeCoipPoolsResponse -&gt; Int
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AhttpStatus%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681232780"><span id="local-6989586621681232782"><span class="annot"><span class="annottext">DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool
+(DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool)
+-&gt; (DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool)
+-&gt; Eq DescribeCoipPoolsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool
+$c/= :: DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool
+== :: DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool
+$c== :: DescribeCoipPoolsResponse -&gt; DescribeCoipPoolsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681232772"><span id="local-6989586621681232774"><span id="local-6989586621681232776"><span id="local-6989586621681232778"><span class="annot"><span class="annottext">ReadPrec [DescribeCoipPoolsResponse]
+ReadPrec DescribeCoipPoolsResponse
+Int -&gt; ReadS DescribeCoipPoolsResponse
+ReadS [DescribeCoipPoolsResponse]
+(Int -&gt; ReadS DescribeCoipPoolsResponse)
+-&gt; ReadS [DescribeCoipPoolsResponse]
+-&gt; ReadPrec DescribeCoipPoolsResponse
+-&gt; ReadPrec [DescribeCoipPoolsResponse]
+-&gt; Read DescribeCoipPoolsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCoipPoolsResponse]
+$creadListPrec :: ReadPrec [DescribeCoipPoolsResponse]
+readPrec :: ReadPrec DescribeCoipPoolsResponse
+$creadPrec :: ReadPrec DescribeCoipPoolsResponse
+readList :: ReadS [DescribeCoipPoolsResponse]
+$creadList :: ReadS [DescribeCoipPoolsResponse]
+readsPrec :: Int -&gt; ReadS DescribeCoipPoolsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeCoipPoolsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681232766"><span id="local-6989586621681232768"><span id="local-6989586621681232770"><span class="annot"><span class="annottext">Int -&gt; DescribeCoipPoolsResponse -&gt; ShowS
+[DescribeCoipPoolsResponse] -&gt; ShowS
+DescribeCoipPoolsResponse -&gt; String
+(Int -&gt; DescribeCoipPoolsResponse -&gt; ShowS)
+-&gt; (DescribeCoipPoolsResponse -&gt; String)
+-&gt; ([DescribeCoipPoolsResponse] -&gt; ShowS)
+-&gt; Show DescribeCoipPoolsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCoipPoolsResponse] -&gt; ShowS
+$cshowList :: [DescribeCoipPoolsResponse] -&gt; ShowS
+show :: DescribeCoipPoolsResponse -&gt; String
+$cshow :: DescribeCoipPoolsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeCoipPoolsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCoipPoolsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeCoipPoolsResponse -&gt; Rep DescribeCoipPoolsResponse x)
+-&gt; (forall x.
+    Rep DescribeCoipPoolsResponse x -&gt; DescribeCoipPoolsResponse)
+-&gt; Generic DescribeCoipPoolsResponse
+forall x.
+Rep DescribeCoipPoolsResponse x -&gt; DescribeCoipPoolsResponse
+forall x.
+DescribeCoipPoolsResponse -&gt; Rep DescribeCoipPoolsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeCoipPoolsResponse x -&gt; DescribeCoipPoolsResponse
+$cfrom :: forall x.
+DescribeCoipPoolsResponse -&gt; Rep DescribeCoipPoolsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'DescribeCoipPoolsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'nextToken', 'describeCoipPoolsResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'coipPools', 'describeCoipPoolsResponse_coipPools' - Information about the address pools.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'describeCoipPoolsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPoolsResponse"><span class="hs-identifier hs-type">newDescribeCoipPoolsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newDescribeCoipPoolsResponse"><span class="annot"><span class="annottext">newDescribeCoipPoolsResponse :: Int -&gt; DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#newDescribeCoipPoolsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCoipPoolsResponse</span></a></span></span><span> </span><span id="local-6989586621681232763"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232763"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse' :: Maybe Text -&gt; Maybe [CoipPool] -&gt; Int -&gt; DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCoipPoolsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:coipPools:DescribeCoipPoolsResponse' :: Maybe [CoipPool]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AcoipPools%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">coipPools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CoipPool]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCoipPoolsResponse' :: Int
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AhttpStatus%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232763"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_nextToken"><span class="hs-identifier hs-type">describeCoipPoolsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describeCoipPoolsResponse_nextToken"><span class="annot"><span class="annottext">describeCoipPoolsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCoipPoolsResponse -&gt; f DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeCoipPoolsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPoolsResponse -&gt; Maybe Text)
+-&gt; (DescribeCoipPoolsResponse
+    -&gt; Maybe Text -&gt; DescribeCoipPoolsResponse)
+-&gt; Lens' DescribeCoipPoolsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232762"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeCoipPoolsResponse' :: DescribeCoipPoolsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681232762"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232762"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232761"><span class="annot"><span class="annottext">s :: DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCoipPoolsResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AnextToken%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681232760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Information about the address pools.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_coipPools"><span class="hs-identifier hs-type">describeCoipPoolsResponse_coipPools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.CoipPool.html#CoipPool"><span class="hs-identifier hs-type">CoipPool</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeCoipPoolsResponse_coipPools"><span class="annot"><span class="annottext">describeCoipPoolsResponse_coipPools :: (Maybe [CoipPool] -&gt; f (Maybe [CoipPool]))
+-&gt; DescribeCoipPoolsResponse -&gt; f DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_coipPools"><span class="hs-identifier hs-var hs-var">describeCoipPoolsResponse_coipPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPoolsResponse -&gt; Maybe [CoipPool])
+-&gt; (DescribeCoipPoolsResponse
+    -&gt; Maybe [CoipPool] -&gt; DescribeCoipPoolsResponse)
+-&gt; Lens' DescribeCoipPoolsResponse (Maybe [CoipPool])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232759"><span class="annot"><span class="annottext">Maybe [CoipPool]
+coipPools :: Maybe [CoipPool]
+$sel:coipPools:DescribeCoipPoolsResponse' :: DescribeCoipPoolsResponse -&gt; Maybe [CoipPool]
+</span><a href="#local-6989586621681232759"><span class="hs-identifier hs-var hs-var">coipPools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CoipPool]
+</span><a href="#local-6989586621681232759"><span class="hs-identifier hs-var">coipPools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232758"><span class="annot"><span class="annottext">s :: DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232757"><span class="annot"><span class="annottext">Maybe [CoipPool]
+</span><a href="#local-6989586621681232757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coipPools:DescribeCoipPoolsResponse' :: Maybe [CoipPool]
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AcoipPools%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">coipPools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CoipPool]
+</span><a href="#local-6989586621681232757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CoipPool] -&gt; f (Maybe [CoipPool]))
+ -&gt; DescribeCoipPoolsResponse -&gt; f DescribeCoipPoolsResponse)
+-&gt; ((Maybe [CoipPool] -&gt; f (Maybe [CoipPool]))
+    -&gt; Maybe [CoipPool] -&gt; f (Maybe [CoipPool]))
+-&gt; (Maybe [CoipPool] -&gt; f (Maybe [CoipPool]))
+-&gt; DescribeCoipPoolsResponse
+-&gt; f DescribeCoipPoolsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CoipPool] [CoipPool] [CoipPool] [CoipPool]
+-&gt; Iso
+     (Maybe [CoipPool])
+     (Maybe [CoipPool])
+     (Maybe [CoipPool])
+     (Maybe [CoipPool])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CoipPool] [CoipPool] [CoipPool] [CoipPool]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_httpStatus"><span class="hs-identifier hs-type">describeCoipPoolsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="describeCoipPoolsResponse_httpStatus"><span class="annot"><span class="annottext">describeCoipPoolsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeCoipPoolsResponse -&gt; f DescribeCoipPoolsResponse
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#describeCoipPoolsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCoipPoolsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCoipPoolsResponse -&gt; Int)
+-&gt; (DescribeCoipPoolsResponse -&gt; Int -&gt; DescribeCoipPoolsResponse)
+-&gt; Lens DescribeCoipPoolsResponse DescribeCoipPoolsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681232756"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeCoipPoolsResponse' :: DescribeCoipPoolsResponse -&gt; Int
+</span><a href="#local-6989586621681232756"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232756"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681232755"><span class="annot"><span class="annottext">s :: DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse%27"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681232754"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCoipPoolsResponse
+</span><a href="#local-6989586621681232755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCoipPoolsResponse' :: Int
+</span><a href="Network.AWS.EC2.DescribeCoipPools.html#%24sel%3AhttpStatus%3ADescribeCoipPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681232754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681232752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeCoipPools.html#DescribeCoipPoolsResponse"><span class="hs-identifier hs-type">DescribeCoipPoolsResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

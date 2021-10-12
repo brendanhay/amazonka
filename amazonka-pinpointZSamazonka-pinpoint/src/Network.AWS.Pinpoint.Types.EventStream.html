@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.EventStream</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.EventStream</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Specifies settings for publishing event data to an Amazon Kinesis data</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- stream or an Amazon Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEventStream' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679598029"><span id="local-6989586621679598030"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventStream"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-var">EventStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventStream%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-var">EventStream'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date, in ISO 8601 format, when the event stream was last modified.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastModifiedDate%3AEventStream%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The IAM user who last modified the event stream.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedBy%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastUpdatedBy%3AEventStream%27"><span class="hs-identifier hs-var hs-var">lastUpdatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | (Deprecated) Your AWS account ID, which you assigned to an external ID</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- key in an IAM trust policy. Amazon Pinpoint previously used this value</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to assume an IAM role when publishing event data, but we removed this</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- requirement. We don\'t recommend use of external IDs for IAM roles that</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- are assumed by Amazon Pinpoint.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AexternalId%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AexternalId%3AEventStream%27"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application to publish event data for.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AapplicationId%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AapplicationId%3AEventStream%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) role that authorizes Amazon</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Pinpoint to publish event data to the stream in your AWS account.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroleArn%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AroleArn%3AEventStream%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Amazon Kinesis Data Firehose delivery stream to publish event data to.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For a Kinesis data stream, the ARN format is:</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- arn:aws:kinesis:region:account-id:stream\/stream_name</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- For a Kinesis Data Firehose delivery stream, the ARN format is:</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- arn:aws:firehose:region:account-id:deliverystream\/stream_name</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdestinationStreamArn%3AEventStream%27"><span class="annot"><span class="annottext">EventStream -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AdestinationStreamArn%3AEventStream%27"><span class="hs-identifier hs-var hs-var">destinationStreamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598018"><span id="local-6989586621679598020"><span class="annot"><span class="annottext">EventStream -&gt; EventStream -&gt; Bool
+(EventStream -&gt; EventStream -&gt; Bool)
+-&gt; (EventStream -&gt; EventStream -&gt; Bool) -&gt; Eq EventStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventStream -&gt; EventStream -&gt; Bool
+$c/= :: EventStream -&gt; EventStream -&gt; Bool
+== :: EventStream -&gt; EventStream -&gt; Bool
+$c== :: EventStream -&gt; EventStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598009"><span id="local-6989586621679598011"><span id="local-6989586621679598013"><span id="local-6989586621679598015"><span class="annot"><span class="annottext">ReadPrec [EventStream]
+ReadPrec EventStream
+Int -&gt; ReadS EventStream
+ReadS [EventStream]
+(Int -&gt; ReadS EventStream)
+-&gt; ReadS [EventStream]
+-&gt; ReadPrec EventStream
+-&gt; ReadPrec [EventStream]
+-&gt; Read EventStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventStream]
+$creadListPrec :: ReadPrec [EventStream]
+readPrec :: ReadPrec EventStream
+$creadPrec :: ReadPrec EventStream
+readList :: ReadS [EventStream]
+$creadList :: ReadS [EventStream]
+readsPrec :: Int -&gt; ReadS EventStream
+$creadsPrec :: Int -&gt; ReadS EventStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598002"><span id="local-6989586621679598004"><span id="local-6989586621679598006"><span class="annot"><span class="annottext">Int -&gt; EventStream -&gt; ShowS
+[EventStream] -&gt; ShowS
+EventStream -&gt; String
+(Int -&gt; EventStream -&gt; ShowS)
+-&gt; (EventStream -&gt; String)
+-&gt; ([EventStream] -&gt; ShowS)
+-&gt; Show EventStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventStream] -&gt; ShowS
+$cshowList :: [EventStream] -&gt; ShowS
+show :: EventStream -&gt; String
+$cshow :: EventStream -&gt; String
+showsPrec :: Int -&gt; EventStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EventStream -&gt; Rep EventStream x)
+-&gt; (forall x. Rep EventStream x -&gt; EventStream)
+-&gt; Generic EventStream
+forall x. Rep EventStream x -&gt; EventStream
+forall x. EventStream -&gt; Rep EventStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventStream x -&gt; EventStream
+$cfrom :: forall x. EventStream -&gt; Rep EventStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'EventStream' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'lastModifiedDate', 'eventStream_lastModifiedDate' - The date, in ISO 8601 format, when the event stream was last modified.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastUpdatedBy', 'eventStream_lastUpdatedBy' - The IAM user who last modified the event stream.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'externalId', 'eventStream_externalId' - (Deprecated) Your AWS account ID, which you assigned to an external ID</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- key in an IAM trust policy. Amazon Pinpoint previously used this value</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- to assume an IAM role when publishing event data, but we removed this</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- requirement. We don\'t recommend use of external IDs for IAM roles that</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- are assumed by Amazon Pinpoint.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'applicationId', 'eventStream_applicationId' - The unique identifier for the application to publish event data for.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'roleArn', 'eventStream_roleArn' - The AWS Identity and Access Management (IAM) role that authorizes Amazon</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Pinpoint to publish event data to the stream in your AWS account.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'destinationStreamArn', 'eventStream_destinationStreamArn' - The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Amazon Kinesis Data Firehose delivery stream to publish event data to.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- For a Kinesis data stream, the ARN format is:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- arn:aws:kinesis:region:account-id:stream\/stream_name</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- For a Kinesis Data Firehose delivery stream, the ARN format is:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- arn:aws:firehose:region:account-id:deliverystream\/stream_name</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#newEventStream"><span class="hs-identifier hs-type">newEventStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'destinationStreamArn'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span>
+</span><span id="line-97"></span><span id="newEventStream"><span class="annot"><span class="annottext">newEventStream :: Text -&gt; Text -&gt; Text -&gt; EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#newEventStream"><span class="hs-identifier hs-var hs-var">newEventStream</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679597996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597996"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679597995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597995"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679597994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597994"><span class="hs-identifier hs-var">pDestinationStreamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">EventStream' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastModifiedDate%3AEventStream%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedBy:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastUpdatedBy%3AEventStream%27"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:externalId:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AexternalId%3AEventStream%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AapplicationId%3AEventStream%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597996"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AroleArn%3AEventStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597995"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationStreamArn:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AdestinationStreamArn%3AEventStream%27"><span class="hs-identifier hs-var">destinationStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597994"><span class="hs-identifier hs-var">pDestinationStreamArn_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the event stream was last modified.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_lastModifiedDate"><span class="hs-identifier hs-type">eventStream_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="eventStream_lastModifiedDate"><span class="annot"><span class="annottext">eventStream_lastModifiedDate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_lastModifiedDate"><span class="hs-identifier hs-var hs-var">eventStream_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Maybe Text)
+-&gt; (EventStream -&gt; Maybe Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597990"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedDate :: Maybe Text
+$sel:lastModifiedDate:EventStream' :: EventStream -&gt; Maybe Text
+</span><a href="#local-6989586621679597990"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597990"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597989"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastModifiedDate%3AEventStream%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The IAM user who last modified the event stream.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_lastUpdatedBy"><span class="hs-identifier hs-type">eventStream_lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="eventStream_lastUpdatedBy"><span class="annot"><span class="annottext">eventStream_lastUpdatedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_lastUpdatedBy"><span class="hs-identifier hs-var hs-var">eventStream_lastUpdatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Maybe Text)
+-&gt; (EventStream -&gt; Maybe Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597986"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedBy :: Maybe Text
+$sel:lastUpdatedBy:EventStream' :: EventStream -&gt; Maybe Text
+</span><a href="#local-6989586621679597986"><span class="hs-identifier hs-var hs-var">lastUpdatedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597986"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597985"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedBy:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AlastUpdatedBy%3AEventStream%27"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | (Deprecated) Your AWS account ID, which you assigned to an external ID</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- key in an IAM trust policy. Amazon Pinpoint previously used this value</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to assume an IAM role when publishing event data, but we removed this</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- requirement. We don\'t recommend use of external IDs for IAM roles that</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- are assumed by Amazon Pinpoint.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_externalId"><span class="hs-identifier hs-type">eventStream_externalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="eventStream_externalId"><span class="annot"><span class="annottext">eventStream_externalId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_externalId"><span class="hs-identifier hs-var hs-var">eventStream_externalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Maybe Text)
+-&gt; (EventStream -&gt; Maybe Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597982"><span class="annot"><span class="annottext">Maybe Text
+externalId :: Maybe Text
+$sel:externalId:EventStream' :: EventStream -&gt; Maybe Text
+</span><a href="#local-6989586621679597982"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597982"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597981"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597980"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:EventStream' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AexternalId%3AEventStream%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679597980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The unique identifier for the application to publish event data for.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_applicationId"><span class="hs-identifier hs-type">eventStream_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="eventStream_applicationId"><span class="annot"><span class="annottext">eventStream_applicationId :: (Text -&gt; f Text) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_applicationId"><span class="hs-identifier hs-var hs-var">eventStream_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Text)
+-&gt; (EventStream -&gt; Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597978"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:EventStream' :: EventStream -&gt; Text
+</span><a href="#local-6989586621679597978"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597978"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597977"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AapplicationId%3AEventStream%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) role that authorizes Amazon</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Pinpoint to publish event data to the stream in your AWS account.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_roleArn"><span class="hs-identifier hs-type">eventStream_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="eventStream_roleArn"><span class="annot"><span class="annottext">eventStream_roleArn :: (Text -&gt; f Text) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_roleArn"><span class="hs-identifier hs-var hs-var">eventStream_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Text)
+-&gt; (EventStream -&gt; Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597974"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:EventStream' :: EventStream -&gt; Text
+</span><a href="#local-6989586621679597974"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597974"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597973"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AroleArn%3AEventStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Amazon Kinesis Data Firehose delivery stream to publish event data to.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For a Kinesis data stream, the ARN format is:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- arn:aws:kinesis:region:account-id:stream\/stream_name</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- For a Kinesis Data Firehose delivery stream, the ARN format is:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- arn:aws:firehose:region:account-id:deliverystream\/stream_name</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_destinationStreamArn"><span class="hs-identifier hs-type">eventStream_destinationStreamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="eventStream_destinationStreamArn"><span class="annot"><span class="annottext">eventStream_destinationStreamArn :: (Text -&gt; f Text) -&gt; EventStream -&gt; f EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#eventStream_destinationStreamArn"><span class="hs-identifier hs-var hs-var">eventStream_destinationStreamArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventStream -&gt; Text)
+-&gt; (EventStream -&gt; Text -&gt; EventStream)
+-&gt; Lens EventStream EventStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597970"><span class="annot"><span class="annottext">Text
+destinationStreamArn :: Text
+$sel:destinationStreamArn:EventStream' :: EventStream -&gt; Text
+</span><a href="#local-6989586621679597970"><span class="hs-identifier hs-var hs-var">destinationStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597970"><span class="hs-identifier hs-var">destinationStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597969"><span class="annot"><span class="annottext">s :: EventStream
+</span><a href="#local-6989586621679597969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-type">EventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventStream
+</span><a href="#local-6989586621679597969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationStreamArn:EventStream' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#%24sel%3AdestinationStreamArn%3AEventStream%27"><span class="hs-identifier hs-var">destinationStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679597968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679597963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EventStream) -&gt; Value -&gt; Parser EventStream
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EventStream&quot;</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679597960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream
+</span><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream%27"><span class="hs-identifier hs-var">EventStream'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; EventStream)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; EventStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExternalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; EventStream)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; EventStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; EventStream)
+-&gt; Parser Text -&gt; Parser (Text -&gt; EventStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; EventStream) -&gt; Parser Text -&gt; Parser EventStream
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679597960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationStreamArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597953"><span id="local-6989586621679597955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStream.html#EventStream"><span class="hs-identifier hs-type">EventStream</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

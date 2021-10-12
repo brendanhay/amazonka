@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AWSHealth.Types.EventAggregateField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AWSHealth.Types.EventAggregateField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier">EventAggregateField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField_EventTypeCategory"><span class="hs-identifier">EventAggregateField_EventTypeCategory</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679186396"><span id="local-6989586621679186397"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventAggregateField"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier hs-var">EventAggregateField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventAggregateField%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField%27"><span class="hs-identifier hs-var">EventAggregateField'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventAggregateField"><span class="annot"><span class="annottext">EventAggregateField -&gt; Text
+</span><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#fromEventAggregateField"><span class="hs-identifier hs-var hs-var">fromEventAggregateField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186388"><span id="local-6989586621679186390"><span id="local-6989586621679186392"><span class="annot"><span class="annottext">Int -&gt; EventAggregateField -&gt; ShowS
+[EventAggregateField] -&gt; ShowS
+EventAggregateField -&gt; String
+(Int -&gt; EventAggregateField -&gt; ShowS)
+-&gt; (EventAggregateField -&gt; String)
+-&gt; ([EventAggregateField] -&gt; ShowS)
+-&gt; Show EventAggregateField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventAggregateField] -&gt; ShowS
+$cshowList :: [EventAggregateField] -&gt; ShowS
+show :: EventAggregateField -&gt; String
+$cshow :: EventAggregateField -&gt; String
+showsPrec :: Int -&gt; EventAggregateField -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventAggregateField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679186379"><span id="local-6989586621679186381"><span id="local-6989586621679186383"><span id="local-6989586621679186385"><span class="annot"><span class="annottext">ReadPrec [EventAggregateField]
+ReadPrec EventAggregateField
+Int -&gt; ReadS EventAggregateField
+ReadS [EventAggregateField]
+(Int -&gt; ReadS EventAggregateField)
+-&gt; ReadS [EventAggregateField]
+-&gt; ReadPrec EventAggregateField
+-&gt; ReadPrec [EventAggregateField]
+-&gt; Read EventAggregateField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventAggregateField]
+$creadListPrec :: ReadPrec [EventAggregateField]
+readPrec :: ReadPrec EventAggregateField
+$creadPrec :: ReadPrec EventAggregateField
+readList :: ReadS [EventAggregateField]
+$creadList :: ReadS [EventAggregateField]
+readsPrec :: Int -&gt; ReadS EventAggregateField
+$creadsPrec :: Int -&gt; ReadS EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679186374"><span id="local-6989586621679186376"><span class="annot"><span class="annottext">EventAggregateField -&gt; EventAggregateField -&gt; Bool
+(EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; Eq EventAggregateField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c/= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+== :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c== :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186358"><span id="local-6989586621679186360"><span id="local-6989586621679186362"><span id="local-6989586621679186364"><span id="local-6989586621679186366"><span id="local-6989586621679186368"><span id="local-6989586621679186370"><span class="annot"><span class="annottext">Eq EventAggregateField
+Eq EventAggregateField
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Ordering)
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; (EventAggregateField -&gt; EventAggregateField -&gt; Bool)
+-&gt; (EventAggregateField
+    -&gt; EventAggregateField -&gt; EventAggregateField)
+-&gt; (EventAggregateField
+    -&gt; EventAggregateField -&gt; EventAggregateField)
+-&gt; Ord EventAggregateField
+EventAggregateField -&gt; EventAggregateField -&gt; Bool
+EventAggregateField -&gt; EventAggregateField -&gt; Ordering
+EventAggregateField -&gt; EventAggregateField -&gt; EventAggregateField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EventAggregateField -&gt; EventAggregateField -&gt; EventAggregateField
+$cmin :: EventAggregateField -&gt; EventAggregateField -&gt; EventAggregateField
+max :: EventAggregateField -&gt; EventAggregateField -&gt; EventAggregateField
+$cmax :: EventAggregateField -&gt; EventAggregateField -&gt; EventAggregateField
+&gt;= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c&gt;= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+&gt; :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c&gt; :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+&lt;= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c&lt;= :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+&lt; :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+$c&lt; :: EventAggregateField -&gt; EventAggregateField -&gt; Bool
+compare :: EventAggregateField -&gt; EventAggregateField -&gt; Ordering
+$ccompare :: EventAggregateField -&gt; EventAggregateField -&gt; Ordering
+$cp1Ord :: Eq EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EventAggregateField -&gt; Rep EventAggregateField x)
+-&gt; (forall x. Rep EventAggregateField x -&gt; EventAggregateField)
+-&gt; Generic EventAggregateField
+forall x. Rep EventAggregateField x -&gt; EventAggregateField
+forall x. EventAggregateField -&gt; Rep EventAggregateField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventAggregateField x -&gt; EventAggregateField
+$cfrom :: forall x. EventAggregateField -&gt; Rep EventAggregateField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186350"><span id="local-6989586621679186352"><span class="annot"><span class="annottext">Int -&gt; EventAggregateField -&gt; Int
+EventAggregateField -&gt; Int
+(Int -&gt; EventAggregateField -&gt; Int)
+-&gt; (EventAggregateField -&gt; Int) -&gt; Hashable EventAggregateField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EventAggregateField -&gt; Int
+$chash :: EventAggregateField -&gt; Int
+hashWithSalt :: Int -&gt; EventAggregateField -&gt; Int
+$chashWithSalt :: Int -&gt; EventAggregateField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679186347"><span class="annot"><span class="annottext">EventAggregateField -&gt; ()
+(EventAggregateField -&gt; ()) -&gt; NFData EventAggregateField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EventAggregateField -&gt; ()
+$crnf :: EventAggregateField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679186344"><span class="annot"><span class="annottext">Text -&gt; Either String EventAggregateField
+(Text -&gt; Either String EventAggregateField)
+-&gt; FromText EventAggregateField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EventAggregateField
+$cfromText :: Text -&gt; Either String EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186341"><span class="annot"><span class="annottext">EventAggregateField -&gt; Text
+(EventAggregateField -&gt; Text) -&gt; ToText EventAggregateField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EventAggregateField -&gt; Text
+$ctoText :: EventAggregateField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186338"><span class="annot"><span class="annottext">EventAggregateField -&gt; ByteString
+(EventAggregateField -&gt; ByteString)
+-&gt; ToByteString EventAggregateField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EventAggregateField -&gt; ByteString
+$ctoBS :: EventAggregateField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186335"><span class="annot"><span class="annottext">EventAggregateField -&gt; ByteStringBuilder
+(EventAggregateField -&gt; ByteStringBuilder)
+-&gt; ToLog EventAggregateField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EventAggregateField -&gt; ByteStringBuilder
+$cbuild :: EventAggregateField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186332"><span class="annot"><span class="annottext">HeaderName -&gt; EventAggregateField -&gt; [Header]
+(HeaderName -&gt; EventAggregateField -&gt; [Header])
+-&gt; ToHeader EventAggregateField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EventAggregateField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EventAggregateField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186329"><span class="annot"><span class="annottext">EventAggregateField -&gt; QueryString
+(EventAggregateField -&gt; QueryString) -&gt; ToQuery EventAggregateField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EventAggregateField -&gt; QueryString
+$ctoQuery :: EventAggregateField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186324"><span id="local-6989586621679186326"><span class="annot"><span class="annottext">Value -&gt; Parser [EventAggregateField]
+Value -&gt; Parser EventAggregateField
+(Value -&gt; Parser EventAggregateField)
+-&gt; (Value -&gt; Parser [EventAggregateField])
+-&gt; FromJSON EventAggregateField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EventAggregateField]
+$cparseJSONList :: Value -&gt; Parser [EventAggregateField]
+parseJSON :: Value -&gt; Parser EventAggregateField
+$cparseJSON :: Value -&gt; Parser EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186319"><span id="local-6989586621679186321"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventAggregateField]
+FromJSONKeyFunction EventAggregateField
+FromJSONKeyFunction EventAggregateField
+-&gt; FromJSONKeyFunction [EventAggregateField]
+-&gt; FromJSONKey EventAggregateField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EventAggregateField]
+$cfromJSONKeyList :: FromJSONKeyFunction [EventAggregateField]
+fromJSONKey :: FromJSONKeyFunction EventAggregateField
+$cfromJSONKey :: FromJSONKeyFunction EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186310"><span id="local-6989586621679186312"><span id="local-6989586621679186314"><span id="local-6989586621679186316"><span class="annot"><span class="annottext">[EventAggregateField] -&gt; Encoding
+[EventAggregateField] -&gt; Value
+EventAggregateField -&gt; Encoding
+EventAggregateField -&gt; Value
+(EventAggregateField -&gt; Value)
+-&gt; (EventAggregateField -&gt; Encoding)
+-&gt; ([EventAggregateField] -&gt; Value)
+-&gt; ([EventAggregateField] -&gt; Encoding)
+-&gt; ToJSON EventAggregateField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EventAggregateField] -&gt; Encoding
+$ctoEncodingList :: [EventAggregateField] -&gt; Encoding
+toJSONList :: [EventAggregateField] -&gt; Value
+$ctoJSONList :: [EventAggregateField] -&gt; Value
+toEncoding :: EventAggregateField -&gt; Encoding
+$ctoEncoding :: EventAggregateField -&gt; Encoding
+toJSON :: EventAggregateField -&gt; Value
+$ctoJSON :: EventAggregateField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186305"><span id="local-6989586621679186307"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventAggregateField]
+ToJSONKeyFunction EventAggregateField
+ToJSONKeyFunction EventAggregateField
+-&gt; ToJSONKeyFunction [EventAggregateField]
+-&gt; ToJSONKey EventAggregateField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EventAggregateField]
+$ctoJSONKeyList :: ToJSONKeyFunction [EventAggregateField]
+toJSONKey :: ToJSONKeyFunction EventAggregateField
+$ctoJSONKey :: ToJSONKeyFunction EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186302"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventAggregateField
+([Node] -&gt; Either String EventAggregateField)
+-&gt; FromXML EventAggregateField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EventAggregateField
+$cparseXML :: [Node] -&gt; Either String EventAggregateField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186299"><span class="annot"><span class="annottext">EventAggregateField -&gt; XML
+(EventAggregateField -&gt; XML) -&gt; ToXML EventAggregateField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EventAggregateField -&gt; XML
+$ctoXML :: EventAggregateField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField_EventTypeCategory"><span class="hs-identifier hs-type">EventAggregateField_EventTypeCategory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier hs-type">EventAggregateField</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEventAggregateField_EventTypeCategory"><span id="%24mEventAggregateField_EventTypeCategory"><span id="EventAggregateField_EventTypeCategory"><span class="annot"><span class="annottext">$bEventAggregateField_EventTypeCategory :: EventAggregateField
+$mEventAggregateField_EventTypeCategory :: forall r. EventAggregateField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#%24bEventAggregateField_EventTypeCategory"><span class="hs-identifier hs-var hs-var hs-var">EventAggregateField_EventTypeCategory</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField%27"><span class="hs-identifier hs-type">EventAggregateField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;eventTypeCategory&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField_EventTypeCategory"><span class="hs-pragma hs-type">EventAggregateField_EventTypeCategory</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField%27"><span class="hs-pragma hs-type">EventAggregateField'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

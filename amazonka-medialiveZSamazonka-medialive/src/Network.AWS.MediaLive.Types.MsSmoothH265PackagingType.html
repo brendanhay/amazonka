@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.MsSmoothH265PackagingType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.MsSmoothH265PackagingType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType"><span class="hs-identifier">MsSmoothH265PackagingType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HEV1"><span class="hs-identifier">MsSmoothH265PackagingType_HEV1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HVC1"><span class="hs-identifier">MsSmoothH265PackagingType_HVC1</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Ms Smooth H265 Packaging Type</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679899468"><span id="local-6989586621679899469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MsSmoothH265PackagingType"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType"><span class="hs-identifier hs-var">MsSmoothH265PackagingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothH265PackagingType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType%27"><span class="hs-identifier hs-var">MsSmoothH265PackagingType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMsSmoothH265PackagingType"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#fromMsSmoothH265PackagingType"><span class="hs-identifier hs-var hs-var">fromMsSmoothH265PackagingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899460"><span id="local-6989586621679899462"><span id="local-6989586621679899464"><span class="annot"><span class="annottext">Int -&gt; MsSmoothH265PackagingType -&gt; ShowS
+[MsSmoothH265PackagingType] -&gt; ShowS
+MsSmoothH265PackagingType -&gt; String
+(Int -&gt; MsSmoothH265PackagingType -&gt; ShowS)
+-&gt; (MsSmoothH265PackagingType -&gt; String)
+-&gt; ([MsSmoothH265PackagingType] -&gt; ShowS)
+-&gt; Show MsSmoothH265PackagingType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MsSmoothH265PackagingType] -&gt; ShowS
+$cshowList :: [MsSmoothH265PackagingType] -&gt; ShowS
+show :: MsSmoothH265PackagingType -&gt; String
+$cshow :: MsSmoothH265PackagingType -&gt; String
+showsPrec :: Int -&gt; MsSmoothH265PackagingType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MsSmoothH265PackagingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679899451"><span id="local-6989586621679899453"><span id="local-6989586621679899455"><span id="local-6989586621679899457"><span class="annot"><span class="annottext">ReadPrec [MsSmoothH265PackagingType]
+ReadPrec MsSmoothH265PackagingType
+Int -&gt; ReadS MsSmoothH265PackagingType
+ReadS [MsSmoothH265PackagingType]
+(Int -&gt; ReadS MsSmoothH265PackagingType)
+-&gt; ReadS [MsSmoothH265PackagingType]
+-&gt; ReadPrec MsSmoothH265PackagingType
+-&gt; ReadPrec [MsSmoothH265PackagingType]
+-&gt; Read MsSmoothH265PackagingType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MsSmoothH265PackagingType]
+$creadListPrec :: ReadPrec [MsSmoothH265PackagingType]
+readPrec :: ReadPrec MsSmoothH265PackagingType
+$creadPrec :: ReadPrec MsSmoothH265PackagingType
+readList :: ReadS [MsSmoothH265PackagingType]
+$creadList :: ReadS [MsSmoothH265PackagingType]
+readsPrec :: Int -&gt; ReadS MsSmoothH265PackagingType
+$creadsPrec :: Int -&gt; ReadS MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679899446"><span id="local-6989586621679899448"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+(MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; (MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; Eq MsSmoothH265PackagingType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c/= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+== :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c== :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679899430"><span id="local-6989586621679899432"><span id="local-6989586621679899434"><span id="local-6989586621679899436"><span id="local-6989586621679899438"><span id="local-6989586621679899440"><span id="local-6989586621679899442"><span class="annot"><span class="annottext">Eq MsSmoothH265PackagingType
+Eq MsSmoothH265PackagingType
+-&gt; (MsSmoothH265PackagingType
+    -&gt; MsSmoothH265PackagingType -&gt; Ordering)
+-&gt; (MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; (MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; (MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; (MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool)
+-&gt; (MsSmoothH265PackagingType
+    -&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType)
+-&gt; (MsSmoothH265PackagingType
+    -&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType)
+-&gt; Ord MsSmoothH265PackagingType
+MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Ordering
+MsSmoothH265PackagingType
+-&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MsSmoothH265PackagingType
+-&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType
+$cmin :: MsSmoothH265PackagingType
+-&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType
+max :: MsSmoothH265PackagingType
+-&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType
+$cmax :: MsSmoothH265PackagingType
+-&gt; MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType
+&gt;= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c&gt;= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+&gt; :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c&gt; :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+&lt;= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c&lt;= :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+&lt; :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+$c&lt; :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Bool
+compare :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Ordering
+$ccompare :: MsSmoothH265PackagingType -&gt; MsSmoothH265PackagingType -&gt; Ordering
+$cp1Ord :: Eq MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MsSmoothH265PackagingType -&gt; Rep MsSmoothH265PackagingType x)
+-&gt; (forall x.
+    Rep MsSmoothH265PackagingType x -&gt; MsSmoothH265PackagingType)
+-&gt; Generic MsSmoothH265PackagingType
+forall x.
+Rep MsSmoothH265PackagingType x -&gt; MsSmoothH265PackagingType
+forall x.
+MsSmoothH265PackagingType -&gt; Rep MsSmoothH265PackagingType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MsSmoothH265PackagingType x -&gt; MsSmoothH265PackagingType
+$cfrom :: forall x.
+MsSmoothH265PackagingType -&gt; Rep MsSmoothH265PackagingType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899422"><span id="local-6989586621679899424"><span class="annot"><span class="annottext">Int -&gt; MsSmoothH265PackagingType -&gt; Int
+MsSmoothH265PackagingType -&gt; Int
+(Int -&gt; MsSmoothH265PackagingType -&gt; Int)
+-&gt; (MsSmoothH265PackagingType -&gt; Int)
+-&gt; Hashable MsSmoothH265PackagingType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MsSmoothH265PackagingType -&gt; Int
+$chash :: MsSmoothH265PackagingType -&gt; Int
+hashWithSalt :: Int -&gt; MsSmoothH265PackagingType -&gt; Int
+$chashWithSalt :: Int -&gt; MsSmoothH265PackagingType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679899419"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; ()
+(MsSmoothH265PackagingType -&gt; ())
+-&gt; NFData MsSmoothH265PackagingType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MsSmoothH265PackagingType -&gt; ()
+$crnf :: MsSmoothH265PackagingType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679899416"><span class="annot"><span class="annottext">Text -&gt; Either String MsSmoothH265PackagingType
+(Text -&gt; Either String MsSmoothH265PackagingType)
+-&gt; FromText MsSmoothH265PackagingType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MsSmoothH265PackagingType
+$cfromText :: Text -&gt; Either String MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679899413"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; Text
+(MsSmoothH265PackagingType -&gt; Text)
+-&gt; ToText MsSmoothH265PackagingType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MsSmoothH265PackagingType -&gt; Text
+$ctoText :: MsSmoothH265PackagingType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679899410"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; ByteString
+(MsSmoothH265PackagingType -&gt; ByteString)
+-&gt; ToByteString MsSmoothH265PackagingType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MsSmoothH265PackagingType -&gt; ByteString
+$ctoBS :: MsSmoothH265PackagingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679899407"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; ByteStringBuilder
+(MsSmoothH265PackagingType -&gt; ByteStringBuilder)
+-&gt; ToLog MsSmoothH265PackagingType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MsSmoothH265PackagingType -&gt; ByteStringBuilder
+$cbuild :: MsSmoothH265PackagingType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679899404"><span class="annot"><span class="annottext">HeaderName -&gt; MsSmoothH265PackagingType -&gt; [Header]
+(HeaderName -&gt; MsSmoothH265PackagingType -&gt; [Header])
+-&gt; ToHeader MsSmoothH265PackagingType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MsSmoothH265PackagingType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MsSmoothH265PackagingType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679899401"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; QueryString
+(MsSmoothH265PackagingType -&gt; QueryString)
+-&gt; ToQuery MsSmoothH265PackagingType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MsSmoothH265PackagingType -&gt; QueryString
+$ctoQuery :: MsSmoothH265PackagingType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679899396"><span id="local-6989586621679899398"><span class="annot"><span class="annottext">Value -&gt; Parser [MsSmoothH265PackagingType]
+Value -&gt; Parser MsSmoothH265PackagingType
+(Value -&gt; Parser MsSmoothH265PackagingType)
+-&gt; (Value -&gt; Parser [MsSmoothH265PackagingType])
+-&gt; FromJSON MsSmoothH265PackagingType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MsSmoothH265PackagingType]
+$cparseJSONList :: Value -&gt; Parser [MsSmoothH265PackagingType]
+parseJSON :: Value -&gt; Parser MsSmoothH265PackagingType
+$cparseJSON :: Value -&gt; Parser MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679899391"><span id="local-6989586621679899393"><span class="annot"><span class="annottext">FromJSONKeyFunction [MsSmoothH265PackagingType]
+FromJSONKeyFunction MsSmoothH265PackagingType
+FromJSONKeyFunction MsSmoothH265PackagingType
+-&gt; FromJSONKeyFunction [MsSmoothH265PackagingType]
+-&gt; FromJSONKey MsSmoothH265PackagingType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MsSmoothH265PackagingType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MsSmoothH265PackagingType]
+fromJSONKey :: FromJSONKeyFunction MsSmoothH265PackagingType
+$cfromJSONKey :: FromJSONKeyFunction MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679899382"><span id="local-6989586621679899384"><span id="local-6989586621679899386"><span id="local-6989586621679899388"><span class="annot"><span class="annottext">[MsSmoothH265PackagingType] -&gt; Encoding
+[MsSmoothH265PackagingType] -&gt; Value
+MsSmoothH265PackagingType -&gt; Encoding
+MsSmoothH265PackagingType -&gt; Value
+(MsSmoothH265PackagingType -&gt; Value)
+-&gt; (MsSmoothH265PackagingType -&gt; Encoding)
+-&gt; ([MsSmoothH265PackagingType] -&gt; Value)
+-&gt; ([MsSmoothH265PackagingType] -&gt; Encoding)
+-&gt; ToJSON MsSmoothH265PackagingType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MsSmoothH265PackagingType] -&gt; Encoding
+$ctoEncodingList :: [MsSmoothH265PackagingType] -&gt; Encoding
+toJSONList :: [MsSmoothH265PackagingType] -&gt; Value
+$ctoJSONList :: [MsSmoothH265PackagingType] -&gt; Value
+toEncoding :: MsSmoothH265PackagingType -&gt; Encoding
+$ctoEncoding :: MsSmoothH265PackagingType -&gt; Encoding
+toJSON :: MsSmoothH265PackagingType -&gt; Value
+$ctoJSON :: MsSmoothH265PackagingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679899377"><span id="local-6989586621679899379"><span class="annot"><span class="annottext">ToJSONKeyFunction [MsSmoothH265PackagingType]
+ToJSONKeyFunction MsSmoothH265PackagingType
+ToJSONKeyFunction MsSmoothH265PackagingType
+-&gt; ToJSONKeyFunction [MsSmoothH265PackagingType]
+-&gt; ToJSONKey MsSmoothH265PackagingType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MsSmoothH265PackagingType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MsSmoothH265PackagingType]
+toJSONKey :: ToJSONKeyFunction MsSmoothH265PackagingType
+$ctoJSONKey :: ToJSONKeyFunction MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679899374"><span class="annot"><span class="annottext">[Node] -&gt; Either String MsSmoothH265PackagingType
+([Node] -&gt; Either String MsSmoothH265PackagingType)
+-&gt; FromXML MsSmoothH265PackagingType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MsSmoothH265PackagingType
+$cparseXML :: [Node] -&gt; Either String MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679899371"><span class="annot"><span class="annottext">MsSmoothH265PackagingType -&gt; XML
+(MsSmoothH265PackagingType -&gt; XML)
+-&gt; ToXML MsSmoothH265PackagingType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MsSmoothH265PackagingType -&gt; XML
+$ctoXML :: MsSmoothH265PackagingType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HEV1"><span class="hs-identifier hs-type">MsSmoothH265PackagingType_HEV1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType"><span class="hs-identifier hs-type">MsSmoothH265PackagingType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMsSmoothH265PackagingType_HEV1"><span id="%24mMsSmoothH265PackagingType_HEV1"><span id="MsSmoothH265PackagingType_HEV1"><span class="annot"><span class="annottext">$bMsSmoothH265PackagingType_HEV1 :: MsSmoothH265PackagingType
+$mMsSmoothH265PackagingType_HEV1 :: forall r.
+MsSmoothH265PackagingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#%24bMsSmoothH265PackagingType_HEV1"><span class="hs-identifier hs-var hs-var hs-var">MsSmoothH265PackagingType_HEV1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType%27"><span class="hs-identifier hs-type">MsSmoothH265PackagingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEV1&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HVC1"><span class="hs-identifier hs-type">MsSmoothH265PackagingType_HVC1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType"><span class="hs-identifier hs-type">MsSmoothH265PackagingType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMsSmoothH265PackagingType_HVC1"><span id="%24mMsSmoothH265PackagingType_HVC1"><span id="MsSmoothH265PackagingType_HVC1"><span class="annot"><span class="annottext">$bMsSmoothH265PackagingType_HVC1 :: MsSmoothH265PackagingType
+$mMsSmoothH265PackagingType_HVC1 :: forall r.
+MsSmoothH265PackagingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#%24bMsSmoothH265PackagingType_HVC1"><span class="hs-identifier hs-var hs-var hs-var">MsSmoothH265PackagingType_HVC1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType%27"><span class="hs-identifier hs-type">MsSmoothH265PackagingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HVC1&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HEV1"><span class="hs-pragma hs-type">MsSmoothH265PackagingType_HEV1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType_HVC1"><span class="hs-pragma hs-type">MsSmoothH265PackagingType_HVC1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothH265PackagingType.html#MsSmoothH265PackagingType%27"><span class="hs-pragma hs-type">MsSmoothH265PackagingType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.KGKeyPairIds</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.KGKeyPairIds</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.KeyPairIds</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A list of identifiers for the public keys that CloudFront can use to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- verify the signatures of signed URLs and signed cookies.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newKGKeyPairIds' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679393941"><span id="local-6989586621679393942"></span></span><span class="hs-keyword">data</span><span> </span><span id="KGKeyPairIds"><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-var">KGKeyPairIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KGKeyPairIds%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-var">KGKeyPairIds'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AkeyPairIds%3AKGKeyPairIds%27"><span class="annot"><span class="annottext">KGKeyPairIds -&gt; Maybe KeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyPairIds%3AKGKeyPairIds%27"><span class="hs-identifier hs-var hs-var">keyPairIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier of the key group that contains the public keys.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AkeyGroupId%3AKGKeyPairIds%27"><span class="annot"><span class="annottext">KGKeyPairIds -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyGroupId%3AKGKeyPairIds%27"><span class="hs-identifier hs-var hs-var">keyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393934"><span id="local-6989586621679393936"><span class="annot"><span class="annottext">KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool
+(KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool)
+-&gt; (KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool) -&gt; Eq KGKeyPairIds
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool
+$c/= :: KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool
+== :: KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool
+$c== :: KGKeyPairIds -&gt; KGKeyPairIds -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393925"><span id="local-6989586621679393927"><span id="local-6989586621679393929"><span id="local-6989586621679393931"><span class="annot"><span class="annottext">ReadPrec [KGKeyPairIds]
+ReadPrec KGKeyPairIds
+Int -&gt; ReadS KGKeyPairIds
+ReadS [KGKeyPairIds]
+(Int -&gt; ReadS KGKeyPairIds)
+-&gt; ReadS [KGKeyPairIds]
+-&gt; ReadPrec KGKeyPairIds
+-&gt; ReadPrec [KGKeyPairIds]
+-&gt; Read KGKeyPairIds
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KGKeyPairIds]
+$creadListPrec :: ReadPrec [KGKeyPairIds]
+readPrec :: ReadPrec KGKeyPairIds
+$creadPrec :: ReadPrec KGKeyPairIds
+readList :: ReadS [KGKeyPairIds]
+$creadList :: ReadS [KGKeyPairIds]
+readsPrec :: Int -&gt; ReadS KGKeyPairIds
+$creadsPrec :: Int -&gt; ReadS KGKeyPairIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393918"><span id="local-6989586621679393920"><span id="local-6989586621679393922"><span class="annot"><span class="annottext">Int -&gt; KGKeyPairIds -&gt; ShowS
+[KGKeyPairIds] -&gt; ShowS
+KGKeyPairIds -&gt; String
+(Int -&gt; KGKeyPairIds -&gt; ShowS)
+-&gt; (KGKeyPairIds -&gt; String)
+-&gt; ([KGKeyPairIds] -&gt; ShowS)
+-&gt; Show KGKeyPairIds
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KGKeyPairIds] -&gt; ShowS
+$cshowList :: [KGKeyPairIds] -&gt; ShowS
+show :: KGKeyPairIds -&gt; String
+$cshow :: KGKeyPairIds -&gt; String
+showsPrec :: Int -&gt; KGKeyPairIds -&gt; ShowS
+$cshowsPrec :: Int -&gt; KGKeyPairIds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. KGKeyPairIds -&gt; Rep KGKeyPairIds x)
+-&gt; (forall x. Rep KGKeyPairIds x -&gt; KGKeyPairIds)
+-&gt; Generic KGKeyPairIds
+forall x. Rep KGKeyPairIds x -&gt; KGKeyPairIds
+forall x. KGKeyPairIds -&gt; Rep KGKeyPairIds x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep KGKeyPairIds x -&gt; KGKeyPairIds
+$cfrom :: forall x. KGKeyPairIds -&gt; Rep KGKeyPairIds x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'KGKeyPairIds' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'keyPairIds', 'kGKeyPairIds_keyPairIds' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'keyGroupId', 'kGKeyPairIds_keyGroupId' - The identifier of the key group that contains the public keys.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#newKGKeyPairIds"><span class="hs-identifier hs-type">newKGKeyPairIds</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span>
+</span><span id="line-51"></span><span id="newKGKeyPairIds"><span class="annot"><span class="annottext">newKGKeyPairIds :: KGKeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#newKGKeyPairIds"><span class="hs-identifier hs-var hs-var">newKGKeyPairIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">KGKeyPairIds' :: Maybe KeyPairIds -&gt; Maybe Text -&gt; KGKeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-type">KGKeyPairIds'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyPairIds:KGKeyPairIds' :: Maybe KeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyPairIds%3AKGKeyPairIds%27"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyGroupId:KGKeyPairIds' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyGroupId%3AKGKeyPairIds%27"><span class="hs-identifier hs-var">keyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#kGKeyPairIds_keyPairIds"><span class="hs-identifier hs-type">kGKeyPairIds_keyPairIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="kGKeyPairIds_keyPairIds"><span class="annot"><span class="annottext">kGKeyPairIds_keyPairIds :: (Maybe KeyPairIds -&gt; f (Maybe KeyPairIds))
+-&gt; KGKeyPairIds -&gt; f KGKeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#kGKeyPairIds_keyPairIds"><span class="hs-identifier hs-var hs-var">kGKeyPairIds_keyPairIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KGKeyPairIds -&gt; Maybe KeyPairIds)
+-&gt; (KGKeyPairIds -&gt; Maybe KeyPairIds -&gt; KGKeyPairIds)
+-&gt; Lens
+     KGKeyPairIds KGKeyPairIds (Maybe KeyPairIds) (Maybe KeyPairIds)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-type">KGKeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393909"><span class="annot"><span class="annottext">Maybe KeyPairIds
+keyPairIds :: Maybe KeyPairIds
+$sel:keyPairIds:KGKeyPairIds' :: KGKeyPairIds -&gt; Maybe KeyPairIds
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var hs-var">keyPairIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393908"><span class="annot"><span class="annottext">s :: KGKeyPairIds
+</span><a href="#local-6989586621679393908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-type">KGKeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393907"><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><a href="#local-6989586621679393907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KGKeyPairIds
+</span><a href="#local-6989586621679393908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairIds:KGKeyPairIds' :: Maybe KeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyPairIds%3AKGKeyPairIds%27"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><a href="#local-6989586621679393907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The identifier of the key group that contains the public keys.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#kGKeyPairIds_keyGroupId"><span class="hs-identifier hs-type">kGKeyPairIds_keyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="kGKeyPairIds_keyGroupId"><span class="annot"><span class="annottext">kGKeyPairIds_keyGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KGKeyPairIds -&gt; f KGKeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#kGKeyPairIds_keyGroupId"><span class="hs-identifier hs-var hs-var">kGKeyPairIds_keyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KGKeyPairIds -&gt; Maybe Text)
+-&gt; (KGKeyPairIds -&gt; Maybe Text -&gt; KGKeyPairIds)
+-&gt; Lens KGKeyPairIds KGKeyPairIds (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-type">KGKeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393905"><span class="annot"><span class="annottext">Maybe Text
+keyGroupId :: Maybe Text
+$sel:keyGroupId:KGKeyPairIds' :: KGKeyPairIds -&gt; Maybe Text
+</span><a href="#local-6989586621679393905"><span class="hs-identifier hs-var hs-var">keyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393905"><span class="hs-identifier hs-var">keyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393904"><span class="annot"><span class="annottext">s :: KGKeyPairIds
+</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-type">KGKeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KGKeyPairIds
+</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroupId:KGKeyPairIds' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#%24sel%3AkeyGroupId%3AKGKeyPairIds%27"><span class="hs-identifier hs-var">keyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679393900"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KGKeyPairIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393898"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe KeyPairIds -&gt; Maybe Text -&gt; KGKeyPairIds
+</span><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds%27"><span class="hs-identifier hs-var">KGKeyPairIds'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe KeyPairIds -&gt; Maybe Text -&gt; KGKeyPairIds)
+-&gt; Either String (Maybe KeyPairIds)
+-&gt; Either String (Maybe Text -&gt; KGKeyPairIds)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KeyPairIds)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyPairIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; KGKeyPairIds)
+-&gt; Either String (Maybe Text) -&gt; Either String KGKeyPairIds
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393892"><span id="local-6989586621679393894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KGKeyPairIds.html#KGKeyPairIds"><span class="hs-identifier hs-type">KGKeyPairIds</span></a></span></span><span>
+</span><span id="line-74"></span></pre></body></html>

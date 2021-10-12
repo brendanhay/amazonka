@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.ListPipelineExecutionSteps</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of @PipeLineExecutionStep@ objects.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.ListPipelineExecutionSteps</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionSteps"><span class="hs-identifier">newListPipelineExecutionSteps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_nextToken"><span class="hs-identifier">listPipelineExecutionSteps_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_sortOrder"><span class="hs-identifier">listPipelineExecutionSteps_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_maxResults"><span class="hs-identifier">listPipelineExecutionSteps_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_pipelineExecutionArn"><span class="hs-identifier">listPipelineExecutionSteps_pipelineExecutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier">ListPipelineExecutionStepsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionStepsResponse"><span class="hs-identifier">newListPipelineExecutionStepsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_nextToken"><span class="hs-identifier">listPipelineExecutionStepsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_pipelineExecutionSteps"><span class="hs-identifier">listPipelineExecutionStepsResponse_pipelineExecutionSteps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_httpStatus"><span class="hs-identifier">listPipelineExecutionStepsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListPipelineExecutionSteps' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621680374991"><span id="local-6989586621680374992"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutionSteps"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-var">ListPipelineExecutionSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutionSteps%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">ListPipelineExecutionSteps'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListPipelineExecutionSteps%27"><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The field by which to sort results. The default is @CreatedTime@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsortOrder%3AListPipelineExecutionSteps%27"><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AsortOrder%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of pipeline execution steps to return in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPipelineExecutionSteps%27"><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AmaxResults%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApipelineExecutionArn%3AListPipelineExecutionSteps%27"><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionArn%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680374982"><span id="local-6989586621680374984"><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool
+(ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool)
+-&gt; (ListPipelineExecutionSteps
+    -&gt; ListPipelineExecutionSteps -&gt; Bool)
+-&gt; Eq ListPipelineExecutionSteps
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool
+$c/= :: ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool
+== :: ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool
+$c== :: ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374973"><span id="local-6989586621680374975"><span id="local-6989586621680374977"><span id="local-6989586621680374979"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutionSteps]
+ReadPrec ListPipelineExecutionSteps
+Int -&gt; ReadS ListPipelineExecutionSteps
+ReadS [ListPipelineExecutionSteps]
+(Int -&gt; ReadS ListPipelineExecutionSteps)
+-&gt; ReadS [ListPipelineExecutionSteps]
+-&gt; ReadPrec ListPipelineExecutionSteps
+-&gt; ReadPrec [ListPipelineExecutionSteps]
+-&gt; Read ListPipelineExecutionSteps
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPipelineExecutionSteps]
+$creadListPrec :: ReadPrec [ListPipelineExecutionSteps]
+readPrec :: ReadPrec ListPipelineExecutionSteps
+$creadPrec :: ReadPrec ListPipelineExecutionSteps
+readList :: ReadS [ListPipelineExecutionSteps]
+$creadList :: ReadS [ListPipelineExecutionSteps]
+readsPrec :: Int -&gt; ReadS ListPipelineExecutionSteps
+$creadsPrec :: Int -&gt; ReadS ListPipelineExecutionSteps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374966"><span id="local-6989586621680374968"><span id="local-6989586621680374970"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutionSteps -&gt; ShowS
+[ListPipelineExecutionSteps] -&gt; ShowS
+ListPipelineExecutionSteps -&gt; String
+(Int -&gt; ListPipelineExecutionSteps -&gt; ShowS)
+-&gt; (ListPipelineExecutionSteps -&gt; String)
+-&gt; ([ListPipelineExecutionSteps] -&gt; ShowS)
+-&gt; Show ListPipelineExecutionSteps
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPipelineExecutionSteps] -&gt; ShowS
+$cshowList :: [ListPipelineExecutionSteps] -&gt; ShowS
+show :: ListPipelineExecutionSteps -&gt; String
+$cshow :: ListPipelineExecutionSteps -&gt; String
+showsPrec :: Int -&gt; ListPipelineExecutionSteps -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPipelineExecutionSteps -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPipelineExecutionSteps -&gt; Rep ListPipelineExecutionSteps x)
+-&gt; (forall x.
+    Rep ListPipelineExecutionSteps x -&gt; ListPipelineExecutionSteps)
+-&gt; Generic ListPipelineExecutionSteps
+forall x.
+Rep ListPipelineExecutionSteps x -&gt; ListPipelineExecutionSteps
+forall x.
+ListPipelineExecutionSteps -&gt; Rep ListPipelineExecutionSteps x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPipelineExecutionSteps x -&gt; ListPipelineExecutionSteps
+$cfrom :: forall x.
+ListPipelineExecutionSteps -&gt; Rep ListPipelineExecutionSteps x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ListPipelineExecutionSteps' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listPipelineExecutionSteps_nextToken' - If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'sortOrder', 'listPipelineExecutionSteps_sortOrder' - The field by which to sort results. The default is @CreatedTime@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listPipelineExecutionSteps_maxResults' - The maximum number of pipeline execution steps to return in the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'pipelineExecutionArn', 'listPipelineExecutionSteps_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionSteps"><span class="hs-identifier hs-type">newListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span>
+</span><span id="line-91"></span><span id="newListPipelineExecutionSteps"><span class="annot"><span class="annottext">newListPipelineExecutionSteps :: ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionSteps"><span class="hs-identifier hs-var hs-var">newListPipelineExecutionSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps' :: Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionSteps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutionSteps' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AsortOrder%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutionSteps' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AmaxResults%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:ListPipelineExecutionSteps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionArn%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_nextToken"><span class="hs-identifier hs-type">listPipelineExecutionSteps_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listPipelineExecutionSteps_nextToken"><span class="annot"><span class="annottext">listPipelineExecutionSteps_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPipelineExecutionSteps -&gt; f ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_nextToken"><span class="hs-identifier hs-var hs-var">listPipelineExecutionSteps_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionSteps -&gt; Maybe Text)
+-&gt; (ListPipelineExecutionSteps
+    -&gt; Maybe Text -&gt; ListPipelineExecutionSteps)
+-&gt; Lens
+     ListPipelineExecutionSteps
+     ListPipelineExecutionSteps
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374960"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Text
+</span><a href="#local-6989586621680374960"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374960"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374959"><span class="annot"><span class="annottext">s :: ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionSteps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The field by which to sort results. The default is @CreatedTime@.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_sortOrder"><span class="hs-identifier hs-type">listPipelineExecutionSteps_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listPipelineExecutionSteps_sortOrder"><span class="annot"><span class="annottext">listPipelineExecutionSteps_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListPipelineExecutionSteps -&gt; f ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_sortOrder"><span class="hs-identifier hs-var hs-var">listPipelineExecutionSteps_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionSteps -&gt; Maybe SortOrder)
+-&gt; (ListPipelineExecutionSteps
+    -&gt; Maybe SortOrder -&gt; ListPipelineExecutionSteps)
+-&gt; Lens
+     ListPipelineExecutionSteps
+     ListPipelineExecutionSteps
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374957"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680374957"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680374957"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374956"><span class="annot"><span class="annottext">s :: ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374955"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680374955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutionSteps' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AsortOrder%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680374955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The maximum number of pipeline execution steps to return in the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_maxResults"><span class="hs-identifier hs-type">listPipelineExecutionSteps_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listPipelineExecutionSteps_maxResults"><span class="annot"><span class="annottext">listPipelineExecutionSteps_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPipelineExecutionSteps -&gt; f ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_maxResults"><span class="hs-identifier hs-var hs-var">listPipelineExecutionSteps_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionSteps -&gt; Maybe Natural)
+-&gt; (ListPipelineExecutionSteps
+    -&gt; Maybe Natural -&gt; ListPipelineExecutionSteps)
+-&gt; Lens
+     ListPipelineExecutionSteps
+     ListPipelineExecutionSteps
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374954"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Natural
+</span><a href="#local-6989586621680374954"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680374954"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374953"><span class="annot"><span class="annottext">s :: ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374952"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680374952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutionSteps' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AmaxResults%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680374952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline execution.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_pipelineExecutionArn"><span class="hs-identifier hs-type">listPipelineExecutionSteps_pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="listPipelineExecutionSteps_pipelineExecutionArn"><span class="annot"><span class="annottext">listPipelineExecutionSteps_pipelineExecutionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPipelineExecutionSteps -&gt; f ListPipelineExecutionSteps
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_pipelineExecutionArn"><span class="hs-identifier hs-var hs-var">listPipelineExecutionSteps_pipelineExecutionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionSteps -&gt; Maybe Text)
+-&gt; (ListPipelineExecutionSteps
+    -&gt; Maybe Text -&gt; ListPipelineExecutionSteps)
+-&gt; Lens
+     ListPipelineExecutionSteps
+     ListPipelineExecutionSteps
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374951"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionArn :: Maybe Text
+$sel:pipelineExecutionArn:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Text
+</span><a href="#local-6989586621680374951"><span class="hs-identifier hs-var hs-var">pipelineExecutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374951"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374950"><span class="annot"><span class="annottext">s :: ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionArn:ListPipelineExecutionSteps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionArn%3AListPipelineExecutionSteps%27"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680374945"><span class="annot"><span class="annottext">page :: ListPipelineExecutionSteps
+-&gt; AWSResponse ListPipelineExecutionSteps
+-&gt; Maybe ListPipelineExecutionSteps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680374943"><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374943"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680374942"><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374942"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutionSteps
+ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374942"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+-&gt; Getting (First Text) ListPipelineExecutionStepsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; Const (First Text) ListPipelineExecutionStepsResponse
+Lens' ListPipelineExecutionStepsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_nextToken"><span class="hs-identifier hs-var">listPipelineExecutionStepsResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPipelineExecutionStepsResponse
+ -&gt; Const (First Text) ListPipelineExecutionStepsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPipelineExecutionStepsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPipelineExecutionSteps
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutionSteps
+ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374942"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+-&gt; Getting
+     (First [PipelineExecutionStep])
+     ListPipelineExecutionStepsResponse
+     [PipelineExecutionStep]
+-&gt; Maybe [PipelineExecutionStep]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PipelineExecutionStep]
+ -&gt; Const
+      (First [PipelineExecutionStep]) (Maybe [PipelineExecutionStep]))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; Const
+     (First [PipelineExecutionStep]) ListPipelineExecutionStepsResponse
+Lens'
+  ListPipelineExecutionStepsResponse (Maybe [PipelineExecutionStep])
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_pipelineExecutionSteps"><span class="hs-identifier hs-var">listPipelineExecutionStepsResponse_pipelineExecutionSteps</span></a></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PipelineExecutionStep]
+  -&gt; Const
+       (First [PipelineExecutionStep]) (Maybe [PipelineExecutionStep]))
+ -&gt; ListPipelineExecutionStepsResponse
+ -&gt; Const
+      (First [PipelineExecutionStep]) ListPipelineExecutionStepsResponse)
+-&gt; (([PipelineExecutionStep]
+     -&gt; Const (First [PipelineExecutionStep]) [PipelineExecutionStep])
+    -&gt; Maybe [PipelineExecutionStep]
+    -&gt; Const
+         (First [PipelineExecutionStep]) (Maybe [PipelineExecutionStep]))
+-&gt; Getting
+     (First [PipelineExecutionStep])
+     ListPipelineExecutionStepsResponse
+     [PipelineExecutionStep]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PipelineExecutionStep]
+ -&gt; Const (First [PipelineExecutionStep]) [PipelineExecutionStep])
+-&gt; Maybe [PipelineExecutionStep]
+-&gt; Const
+     (First [PipelineExecutionStep]) (Maybe [PipelineExecutionStep])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPipelineExecutionSteps
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps -&gt; Maybe ListPipelineExecutionSteps
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionSteps -&gt; Maybe ListPipelineExecutionSteps)
+-&gt; ListPipelineExecutionSteps -&gt; Maybe ListPipelineExecutionSteps
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+</span><a href="#local-6989586621680374943"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListPipelineExecutionSteps
+-&gt; (ListPipelineExecutionSteps -&gt; ListPipelineExecutionSteps)
+-&gt; ListPipelineExecutionSteps
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPipelineExecutionSteps
+-&gt; Identity ListPipelineExecutionSteps
+Lens
+  ListPipelineExecutionSteps
+  ListPipelineExecutionSteps
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionSteps_nextToken"><span class="hs-identifier hs-var">listPipelineExecutionSteps_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPipelineExecutionSteps
+ -&gt; Identity ListPipelineExecutionSteps)
+-&gt; Maybe Text
+-&gt; ListPipelineExecutionSteps
+-&gt; ListPipelineExecutionSteps
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutionSteps
+ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374942"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+-&gt; Getting (First Text) ListPipelineExecutionStepsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; Const (First Text) ListPipelineExecutionStepsResponse
+Lens' ListPipelineExecutionStepsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_nextToken"><span class="hs-identifier hs-var">listPipelineExecutionStepsResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPipelineExecutionStepsResponse
+ -&gt; Const (First Text) ListPipelineExecutionStepsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPipelineExecutionStepsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621680374932"><span class="annot"><span class="annottext">request :: ListPipelineExecutionSteps -&gt; Request ListPipelineExecutionSteps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListPipelineExecutionSteps -&gt; Request ListPipelineExecutionSteps
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680374928"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPipelineExecutionSteps
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPipelineExecutionSteps)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPipelineExecutionSteps))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPipelineExecutionSteps
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPipelineExecutionSteps)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680374925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374925"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680374924"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680374924"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680374923"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680374923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PipelineExecutionStep]
+-&gt; Int
+-&gt; ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">ListPipelineExecutionStepsResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PipelineExecutionStep]
+ -&gt; Int
+ -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PipelineExecutionStep]
+      -&gt; Int -&gt; ListPipelineExecutionStepsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680374923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PipelineExecutionStep]
+   -&gt; Int -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Either String (Maybe [PipelineExecutionStep])
+-&gt; Either String (Int -&gt; ListPipelineExecutionStepsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680374923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PipelineExecutionStep]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionSteps&quot;</span></span><span>
+</span><span id="line-152"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PipelineExecutionStep]))
+-&gt; Maybe [PipelineExecutionStep]
+-&gt; Either String (Maybe [PipelineExecutionStep])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Either String Int
+-&gt; Either String ListPipelineExecutionStepsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374925"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374914"><span id="local-6989586621680374916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680374907"><span class="annot"><span class="annottext">toHeaders :: ListPipelineExecutionSteps -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPipelineExecutionSteps -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListPipelineExecutionSteps&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374897"><span id="local-6989586621680374899"><span id="local-6989586621680374901"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621680374895"><span class="annot"><span class="annottext">toJSON :: ListPipelineExecutionSteps -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps%27"><span class="hs-identifier hs-type">ListPipelineExecutionSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374890"><span id="local-6989586621680374891"><span id="local-6989586621680374892"><span id="local-6989586621680374893"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe SortOrder
+pipelineExecutionArn :: Maybe Text
+maxResults :: Maybe Natural
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+$sel:pipelineExecutionArn:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Text
+$sel:maxResults:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Natural
+$sel:sortOrder:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe SortOrder
+$sel:nextToken:ListPipelineExecutionSteps' :: ListPipelineExecutionSteps -&gt; Maybe Text
+</span><a href="#local-6989586621680374890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374893"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680374892"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680374891"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecutionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374890"><span class="hs-identifier hs-var">pipelineExecutionArn</span></a></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621680374884"><span class="annot"><span class="annottext">toPath :: ListPipelineExecutionSteps -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPipelineExecutionSteps -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionSteps"><span class="hs-identifier hs-type">ListPipelineExecutionSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621680374880"><span class="annot"><span class="annottext">toQuery :: ListPipelineExecutionSteps -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPipelineExecutionSteps -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newListPipelineExecutionStepsResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621680374877"><span id="local-6989586621680374878"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutionStepsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-var">ListPipelineExecutionStepsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutionStepsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">ListPipelineExecutionStepsResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AnextToken%3AListPipelineExecutionStepsResponse%27"><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | A list of @PipeLineExecutionStep@ objects. Each @PipeLineExecutionStep@</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- consists of StepName, StartTime, EndTime, StepStatus, and Metadata.</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- Metadata is an object with properties for each job that contains</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- relevant information about the job created by the step.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3ApipelineExecutionSteps%3AListPipelineExecutionStepsResponse%27"><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse -&gt; Maybe [PipelineExecutionStep]
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionSteps%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionSteps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPipelineExecutionStepsResponse%27"><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AhttpStatus%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680374870"><span id="local-6989586621680374872"><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+-&gt; ListPipelineExecutionStepsResponse -&gt; Bool
+(ListPipelineExecutionStepsResponse
+ -&gt; ListPipelineExecutionStepsResponse -&gt; Bool)
+-&gt; (ListPipelineExecutionStepsResponse
+    -&gt; ListPipelineExecutionStepsResponse -&gt; Bool)
+-&gt; Eq ListPipelineExecutionStepsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPipelineExecutionStepsResponse
+-&gt; ListPipelineExecutionStepsResponse -&gt; Bool
+$c/= :: ListPipelineExecutionStepsResponse
+-&gt; ListPipelineExecutionStepsResponse -&gt; Bool
+== :: ListPipelineExecutionStepsResponse
+-&gt; ListPipelineExecutionStepsResponse -&gt; Bool
+$c== :: ListPipelineExecutionStepsResponse
+-&gt; ListPipelineExecutionStepsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374862"><span id="local-6989586621680374864"><span id="local-6989586621680374866"><span id="local-6989586621680374868"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutionStepsResponse]
+ReadPrec ListPipelineExecutionStepsResponse
+Int -&gt; ReadS ListPipelineExecutionStepsResponse
+ReadS [ListPipelineExecutionStepsResponse]
+(Int -&gt; ReadS ListPipelineExecutionStepsResponse)
+-&gt; ReadS [ListPipelineExecutionStepsResponse]
+-&gt; ReadPrec ListPipelineExecutionStepsResponse
+-&gt; ReadPrec [ListPipelineExecutionStepsResponse]
+-&gt; Read ListPipelineExecutionStepsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPipelineExecutionStepsResponse]
+$creadListPrec :: ReadPrec [ListPipelineExecutionStepsResponse]
+readPrec :: ReadPrec ListPipelineExecutionStepsResponse
+$creadPrec :: ReadPrec ListPipelineExecutionStepsResponse
+readList :: ReadS [ListPipelineExecutionStepsResponse]
+$creadList :: ReadS [ListPipelineExecutionStepsResponse]
+readsPrec :: Int -&gt; ReadS ListPipelineExecutionStepsResponse
+$creadsPrec :: Int -&gt; ReadS ListPipelineExecutionStepsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374856"><span id="local-6989586621680374858"><span id="local-6989586621680374860"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutionStepsResponse -&gt; ShowS
+[ListPipelineExecutionStepsResponse] -&gt; ShowS
+ListPipelineExecutionStepsResponse -&gt; String
+(Int -&gt; ListPipelineExecutionStepsResponse -&gt; ShowS)
+-&gt; (ListPipelineExecutionStepsResponse -&gt; String)
+-&gt; ([ListPipelineExecutionStepsResponse] -&gt; ShowS)
+-&gt; Show ListPipelineExecutionStepsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPipelineExecutionStepsResponse] -&gt; ShowS
+$cshowList :: [ListPipelineExecutionStepsResponse] -&gt; ShowS
+show :: ListPipelineExecutionStepsResponse -&gt; String
+$cshow :: ListPipelineExecutionStepsResponse -&gt; String
+showsPrec :: Int -&gt; ListPipelineExecutionStepsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPipelineExecutionStepsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPipelineExecutionStepsResponse
+ -&gt; Rep ListPipelineExecutionStepsResponse x)
+-&gt; (forall x.
+    Rep ListPipelineExecutionStepsResponse x
+    -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Generic ListPipelineExecutionStepsResponse
+forall x.
+Rep ListPipelineExecutionStepsResponse x
+-&gt; ListPipelineExecutionStepsResponse
+forall x.
+ListPipelineExecutionStepsResponse
+-&gt; Rep ListPipelineExecutionStepsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPipelineExecutionStepsResponse x
+-&gt; ListPipelineExecutionStepsResponse
+$cfrom :: forall x.
+ListPipelineExecutionStepsResponse
+-&gt; Rep ListPipelineExecutionStepsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'ListPipelineExecutionStepsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'nextToken', 'listPipelineExecutionStepsResponse_nextToken' - If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'pipelineExecutionSteps', 'listPipelineExecutionStepsResponse_pipelineExecutionSteps' - A list of @PipeLineExecutionStep@ objects. Each @PipeLineExecutionStep@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- consists of StepName, StartTime, EndTime, StepStatus, and Metadata.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Metadata is an object with properties for each job that contains</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- relevant information about the job created by the step.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'listPipelineExecutionStepsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">newListPipelineExecutionStepsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newListPipelineExecutionStepsResponse"><span class="annot"><span class="annottext">newListPipelineExecutionStepsResponse :: Int -&gt; ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#newListPipelineExecutionStepsResponse"><span class="hs-identifier hs-var hs-var">newListPipelineExecutionStepsResponse</span></a></span></span><span> </span><span id="local-6989586621680374853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse' :: Maybe Text
+-&gt; Maybe [PipelineExecutionStep]
+-&gt; Int
+-&gt; ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionStepsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionSteps:ListPipelineExecutionStepsResponse' :: Maybe [PipelineExecutionStep]
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionSteps%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">pipelineExecutionSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPipelineExecutionStepsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AhttpStatus%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutionSteps@ request was</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- of pipeline execution steps, use the token in the next request.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_nextToken"><span class="hs-identifier hs-type">listPipelineExecutionStepsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="listPipelineExecutionStepsResponse_nextToken"><span class="annot"><span class="annottext">listPipelineExecutionStepsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; f ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPipelineExecutionStepsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionStepsResponse -&gt; Maybe Text)
+-&gt; (ListPipelineExecutionStepsResponse
+    -&gt; Maybe Text -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Lens' ListPipelineExecutionStepsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374852"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPipelineExecutionStepsResponse' :: ListPipelineExecutionStepsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680374852"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374852"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374851"><span class="annot"><span class="annottext">s :: ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionStepsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AnextToken%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680374850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | A list of @PipeLineExecutionStep@ objects. Each @PipeLineExecutionStep@</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- consists of StepName, StartTime, EndTime, StepStatus, and Metadata.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Metadata is an object with properties for each job that contains</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- relevant information about the job created by the step.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_pipelineExecutionSteps"><span class="hs-identifier hs-type">listPipelineExecutionStepsResponse_pipelineExecutionSteps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStep.html#PipelineExecutionStep"><span class="hs-identifier hs-type">PipelineExecutionStep</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="listPipelineExecutionStepsResponse_pipelineExecutionSteps"><span class="annot"><span class="annottext">listPipelineExecutionStepsResponse_pipelineExecutionSteps :: (Maybe [PipelineExecutionStep]
+ -&gt; f (Maybe [PipelineExecutionStep]))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; f ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_pipelineExecutionSteps"><span class="hs-identifier hs-var hs-var">listPipelineExecutionStepsResponse_pipelineExecutionSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionStepsResponse
+ -&gt; Maybe [PipelineExecutionStep])
+-&gt; (ListPipelineExecutionStepsResponse
+    -&gt; Maybe [PipelineExecutionStep]
+    -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Lens'
+     ListPipelineExecutionStepsResponse (Maybe [PipelineExecutionStep])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374849"><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+pipelineExecutionSteps :: Maybe [PipelineExecutionStep]
+$sel:pipelineExecutionSteps:ListPipelineExecutionStepsResponse' :: ListPipelineExecutionStepsResponse -&gt; Maybe [PipelineExecutionStep]
+</span><a href="#local-6989586621680374849"><span class="hs-identifier hs-var hs-var">pipelineExecutionSteps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+</span><a href="#local-6989586621680374849"><span class="hs-identifier hs-var">pipelineExecutionSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374848"><span class="annot"><span class="annottext">s :: ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374847"><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+</span><a href="#local-6989586621680374847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionSteps:ListPipelineExecutionStepsResponse' :: Maybe [PipelineExecutionStep]
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3ApipelineExecutionSteps%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">pipelineExecutionSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionStep]
+</span><a href="#local-6989586621680374847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineExecutionStep]
+  -&gt; f (Maybe [PipelineExecutionStep]))
+ -&gt; ListPipelineExecutionStepsResponse
+ -&gt; f ListPipelineExecutionStepsResponse)
+-&gt; ((Maybe [PipelineExecutionStep]
+     -&gt; f (Maybe [PipelineExecutionStep]))
+    -&gt; Maybe [PipelineExecutionStep]
+    -&gt; f (Maybe [PipelineExecutionStep]))
+-&gt; (Maybe [PipelineExecutionStep]
+    -&gt; f (Maybe [PipelineExecutionStep]))
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; f ListPipelineExecutionStepsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+-&gt; Iso
+     (Maybe [PipelineExecutionStep])
+     (Maybe [PipelineExecutionStep])
+     (Maybe [PipelineExecutionStep])
+     (Maybe [PipelineExecutionStep])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+  [PipelineExecutionStep]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_httpStatus"><span class="hs-identifier hs-type">listPipelineExecutionStepsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="listPipelineExecutionStepsResponse_httpStatus"><span class="annot"><span class="annottext">listPipelineExecutionStepsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPipelineExecutionStepsResponse
+-&gt; f ListPipelineExecutionStepsResponse
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#listPipelineExecutionStepsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPipelineExecutionStepsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutionStepsResponse -&gt; Int)
+-&gt; (ListPipelineExecutionStepsResponse
+    -&gt; Int -&gt; ListPipelineExecutionStepsResponse)
+-&gt; Lens
+     ListPipelineExecutionStepsResponse
+     ListPipelineExecutionStepsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374844"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPipelineExecutionStepsResponse' :: ListPipelineExecutionStepsResponse -&gt; Int
+</span><a href="#local-6989586621680374844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374843"><span class="annot"><span class="annottext">s :: ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionStepsResponse
+</span><a href="#local-6989586621680374843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPipelineExecutionStepsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#%24sel%3AhttpStatus%3AListPipelineExecutionStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680374842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621680374840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutionSteps.html#ListPipelineExecutionStepsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionStepsResponse</span></a></span></span><span>
+</span><span id="line-261"></span></pre></body></html>

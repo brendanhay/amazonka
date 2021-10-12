@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.UpdateIPSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the IPSet specified by the IPSet ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.UpdateIPSet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier">UpdateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSet"><span class="hs-identifier">newUpdateIPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_activate"><span class="hs-identifier">updateIPSet_activate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_name"><span class="hs-identifier">updateIPSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_location"><span class="hs-identifier">updateIPSet_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_detectorId"><span class="hs-identifier">updateIPSet_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_ipSetId"><span class="hs-identifier">updateIPSet_ipSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier">UpdateIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSetResponse"><span class="hs-identifier">newUpdateIPSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSetResponse_httpStatus"><span class="hs-identifier">updateIPSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateIPSet' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679316281"><span id="local-6989586621679316282"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIPSet"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-var">UpdateIPSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIPSet%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-var">UpdateIPSet'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated Boolean value that specifies whether the IPSet is active or</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aactivate%3AUpdateIPSet%27"><span class="annot"><span class="annottext">UpdateIPSet -&gt; Maybe Bool
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aactivate%3AUpdateIPSet%27"><span class="hs-identifier hs-var hs-var">activate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3AUpdateIPSet%27"><span class="annot"><span class="annottext">UpdateIPSet -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aname%3AUpdateIPSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The updated URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Alocation%3AUpdateIPSet%27"><span class="annot"><span class="annottext">UpdateIPSet -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Alocation%3AUpdateIPSet%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The detectorID that specifies the GuardDuty service whose IPSet you want</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- to update.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdetectorId%3AUpdateIPSet%27"><span class="annot"><span class="annottext">UpdateIPSet -&gt; Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AdetectorId%3AUpdateIPSet%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AipSetId%3AUpdateIPSet%27"><span class="annot"><span class="annottext">UpdateIPSet -&gt; Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AipSetId%3AUpdateIPSet%27"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316271"><span id="local-6989586621679316273"><span class="annot"><span class="annottext">UpdateIPSet -&gt; UpdateIPSet -&gt; Bool
+(UpdateIPSet -&gt; UpdateIPSet -&gt; Bool)
+-&gt; (UpdateIPSet -&gt; UpdateIPSet -&gt; Bool) -&gt; Eq UpdateIPSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIPSet -&gt; UpdateIPSet -&gt; Bool
+$c/= :: UpdateIPSet -&gt; UpdateIPSet -&gt; Bool
+== :: UpdateIPSet -&gt; UpdateIPSet -&gt; Bool
+$c== :: UpdateIPSet -&gt; UpdateIPSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316262"><span id="local-6989586621679316264"><span id="local-6989586621679316266"><span id="local-6989586621679316268"><span class="annot"><span class="annottext">ReadPrec [UpdateIPSet]
+ReadPrec UpdateIPSet
+Int -&gt; ReadS UpdateIPSet
+ReadS [UpdateIPSet]
+(Int -&gt; ReadS UpdateIPSet)
+-&gt; ReadS [UpdateIPSet]
+-&gt; ReadPrec UpdateIPSet
+-&gt; ReadPrec [UpdateIPSet]
+-&gt; Read UpdateIPSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIPSet]
+$creadListPrec :: ReadPrec [UpdateIPSet]
+readPrec :: ReadPrec UpdateIPSet
+$creadPrec :: ReadPrec UpdateIPSet
+readList :: ReadS [UpdateIPSet]
+$creadList :: ReadS [UpdateIPSet]
+readsPrec :: Int -&gt; ReadS UpdateIPSet
+$creadsPrec :: Int -&gt; ReadS UpdateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316255"><span id="local-6989586621679316257"><span id="local-6989586621679316259"><span class="annot"><span class="annottext">Int -&gt; UpdateIPSet -&gt; ShowS
+[UpdateIPSet] -&gt; ShowS
+UpdateIPSet -&gt; String
+(Int -&gt; UpdateIPSet -&gt; ShowS)
+-&gt; (UpdateIPSet -&gt; String)
+-&gt; ([UpdateIPSet] -&gt; ShowS)
+-&gt; Show UpdateIPSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIPSet] -&gt; ShowS
+$cshowList :: [UpdateIPSet] -&gt; ShowS
+show :: UpdateIPSet -&gt; String
+$cshow :: UpdateIPSet -&gt; String
+showsPrec :: Int -&gt; UpdateIPSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIPSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateIPSet -&gt; Rep UpdateIPSet x)
+-&gt; (forall x. Rep UpdateIPSet x -&gt; UpdateIPSet)
+-&gt; Generic UpdateIPSet
+forall x. Rep UpdateIPSet x -&gt; UpdateIPSet
+forall x. UpdateIPSet -&gt; Rep UpdateIPSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateIPSet x -&gt; UpdateIPSet
+$cfrom :: forall x. UpdateIPSet -&gt; Rep UpdateIPSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'UpdateIPSet' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'activate', 'updateIPSet_activate' - The updated Boolean value that specifies whether the IPSet is active or</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'updateIPSet_name' - The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'location', 'updateIPSet_location' - The updated URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'detectorId', 'updateIPSet_detectorId' - The detectorID that specifies the GuardDuty service whose IPSet you want</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to update.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'ipSetId', 'updateIPSet_ipSetId' - The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSet"><span class="hs-identifier hs-type">newUpdateIPSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'ipSetId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span>
+</span><span id="line-96"></span><span id="newUpdateIPSet"><span class="annot"><span class="annottext">newUpdateIPSet :: Text -&gt; Text -&gt; UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSet"><span class="hs-identifier hs-var hs-var">newUpdateIPSet</span></a></span></span><span> </span><span id="local-6989586621679316250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316250"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679316249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316249"><span class="hs-identifier hs-var">pIpSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">UpdateIPSet' :: Maybe Bool
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activate:UpdateIPSet' :: Maybe Bool
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aactivate%3AUpdateIPSet%27"><span class="hs-identifier hs-var">activate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateIPSet' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aname%3AUpdateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:UpdateIPSet' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Alocation%3AUpdateIPSet%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:UpdateIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AdetectorId%3AUpdateIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316250"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipSetId:UpdateIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AipSetId%3AUpdateIPSet%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316249"><span class="hs-identifier hs-var">pIpSetId_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The updated Boolean value that specifies whether the IPSet is active or</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_activate"><span class="hs-identifier hs-type">updateIPSet_activate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="updateIPSet_activate"><span class="annot"><span class="annottext">updateIPSet_activate :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateIPSet -&gt; f UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_activate"><span class="hs-identifier hs-var hs-var">updateIPSet_activate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSet -&gt; Maybe Bool)
+-&gt; (UpdateIPSet -&gt; Maybe Bool -&gt; UpdateIPSet)
+-&gt; Lens UpdateIPSet UpdateIPSet (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316246"><span class="annot"><span class="annottext">Maybe Bool
+activate :: Maybe Bool
+$sel:activate:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Bool
+</span><a href="#local-6989586621679316246"><span class="hs-identifier hs-var hs-var">activate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316246"><span class="hs-identifier hs-var">activate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316245"><span class="annot"><span class="annottext">s :: UpdateIPSet
+</span><a href="#local-6989586621679316245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316244"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSet
+</span><a href="#local-6989586621679316245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activate:UpdateIPSet' :: Maybe Bool
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aactivate%3AUpdateIPSet%27"><span class="hs-identifier hs-var">activate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_name"><span class="hs-identifier hs-type">updateIPSet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="updateIPSet_name"><span class="annot"><span class="annottext">updateIPSet_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateIPSet -&gt; f UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_name"><span class="hs-identifier hs-var hs-var">updateIPSet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSet -&gt; Maybe Text)
+-&gt; (UpdateIPSet -&gt; Maybe Text -&gt; UpdateIPSet)
+-&gt; Lens UpdateIPSet UpdateIPSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316243"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+</span><a href="#local-6989586621679316243"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316243"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316242"><span class="annot"><span class="annottext">s :: UpdateIPSet
+</span><a href="#local-6989586621679316242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSet
+</span><a href="#local-6989586621679316242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateIPSet' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Aname%3AUpdateIPSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The updated URI of the file that contains the IPSet. For example:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_location"><span class="hs-identifier hs-type">updateIPSet_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateIPSet_location"><span class="annot"><span class="annottext">updateIPSet_location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateIPSet -&gt; f UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_location"><span class="hs-identifier hs-var hs-var">updateIPSet_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSet -&gt; Maybe Text)
+-&gt; (UpdateIPSet -&gt; Maybe Text -&gt; UpdateIPSet)
+-&gt; Lens UpdateIPSet UpdateIPSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316240"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+</span><a href="#local-6989586621679316240"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316240"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316239"><span class="annot"><span class="annottext">s :: UpdateIPSet
+</span><a href="#local-6989586621679316239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSet
+</span><a href="#local-6989586621679316239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:UpdateIPSet' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3Alocation%3AUpdateIPSet%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The detectorID that specifies the GuardDuty service whose IPSet you want</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to update.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_detectorId"><span class="hs-identifier hs-type">updateIPSet_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="updateIPSet_detectorId"><span class="annot"><span class="annottext">updateIPSet_detectorId :: (Text -&gt; f Text) -&gt; UpdateIPSet -&gt; f UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_detectorId"><span class="hs-identifier hs-var hs-var">updateIPSet_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSet -&gt; Text)
+-&gt; (UpdateIPSet -&gt; Text -&gt; UpdateIPSet)
+-&gt; Lens UpdateIPSet UpdateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316237"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+</span><a href="#local-6989586621679316237"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316237"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316236"><span class="annot"><span class="annottext">s :: UpdateIPSet
+</span><a href="#local-6989586621679316236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSet
+</span><a href="#local-6989586621679316236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:UpdateIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AdetectorId%3AUpdateIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The unique ID that specifies the IPSet that you want to update.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_ipSetId"><span class="hs-identifier hs-type">updateIPSet_ipSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="updateIPSet_ipSetId"><span class="annot"><span class="annottext">updateIPSet_ipSetId :: (Text -&gt; f Text) -&gt; UpdateIPSet -&gt; f UpdateIPSet
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSet_ipSetId"><span class="hs-identifier hs-var hs-var">updateIPSet_ipSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSet -&gt; Text)
+-&gt; (UpdateIPSet -&gt; Text -&gt; UpdateIPSet)
+-&gt; Lens UpdateIPSet UpdateIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316234"><span class="annot"><span class="annottext">Text
+ipSetId :: Text
+$sel:ipSetId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+</span><a href="#local-6989586621679316234"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316234"><span class="hs-identifier hs-var">ipSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316233"><span class="annot"><span class="annottext">s :: UpdateIPSet
+</span><a href="#local-6989586621679316233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSet
+</span><a href="#local-6989586621679316233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipSetId:UpdateIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AipSetId%3AUpdateIPSet%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-type">UpdateIPSetResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679316228"><span class="annot"><span class="annottext">request :: UpdateIPSet -&gt; Request UpdateIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateIPSet -&gt; Request UpdateIPSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679316224"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateIPSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateIPSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateIPSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316221"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316220"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316220"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316219"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679316219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateIPSetResponse
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse%27"><span class="hs-identifier hs-var">UpdateIPSetResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateIPSetResponse)
+-&gt; Either String Int -&gt; Either String UpdateIPSetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316221"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316212"><span id="local-6989586621679316214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679316205"><span class="annot"><span class="annottext">toHeaders :: UpdateIPSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateIPSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316195"><span id="local-6989586621679316197"><span id="local-6989586621679316199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679316193"><span class="annot"><span class="annottext">toJSON :: UpdateIPSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316187"><span id="local-6989586621679316188"><span id="local-6989586621679316189"><span id="local-6989586621679316190"><span id="local-6989586621679316191"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+ipSetId :: Text
+detectorId :: Text
+location :: Maybe Text
+name :: Maybe Text
+activate :: Maybe Bool
+$sel:ipSetId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+$sel:detectorId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+$sel:location:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+$sel:name:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+$sel:activate:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Bool
+</span><a href="#local-6989586621679316187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;activate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316191"><span class="hs-identifier hs-var">activate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316190"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316189"><span class="hs-identifier hs-var">location</span></a></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679316181"><span class="annot"><span class="annottext">toPath :: UpdateIPSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet%27"><span class="hs-identifier hs-type">UpdateIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316175"><span id="local-6989586621679316176"><span id="local-6989586621679316177"><span id="local-6989586621679316178"><span id="local-6989586621679316179"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+ipSetId :: Text
+detectorId :: Text
+location :: Maybe Text
+name :: Maybe Text
+activate :: Maybe Bool
+$sel:ipSetId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+$sel:detectorId:UpdateIPSet' :: UpdateIPSet -&gt; Text
+$sel:location:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+$sel:name:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Text
+$sel:activate:UpdateIPSet' :: UpdateIPSet -&gt; Maybe Bool
+</span><a href="#local-6989586621679316175"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316176"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ipset/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316175"><span class="hs-identifier hs-var">ipSetId</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSet"><span class="hs-identifier hs-type">UpdateIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679316171"><span class="annot"><span class="annottext">toQuery :: UpdateIPSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateIPSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newUpdateIPSetResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679316168"><span id="local-6989586621679316169"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIPSetResponse"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-var">UpdateIPSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIPSetResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse%27"><span class="hs-identifier hs-var">UpdateIPSetResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateIPSetResponse%27"><span class="annot"><span class="annottext">UpdateIPSetResponse -&gt; Int
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AhttpStatus%3AUpdateIPSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316163"><span id="local-6989586621679316165"><span class="annot"><span class="annottext">UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool
+(UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool)
+-&gt; (UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool)
+-&gt; Eq UpdateIPSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool
+$c/= :: UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool
+== :: UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool
+$c== :: UpdateIPSetResponse -&gt; UpdateIPSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316155"><span id="local-6989586621679316157"><span id="local-6989586621679316159"><span id="local-6989586621679316161"><span class="annot"><span class="annottext">ReadPrec [UpdateIPSetResponse]
+ReadPrec UpdateIPSetResponse
+Int -&gt; ReadS UpdateIPSetResponse
+ReadS [UpdateIPSetResponse]
+(Int -&gt; ReadS UpdateIPSetResponse)
+-&gt; ReadS [UpdateIPSetResponse]
+-&gt; ReadPrec UpdateIPSetResponse
+-&gt; ReadPrec [UpdateIPSetResponse]
+-&gt; Read UpdateIPSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIPSetResponse]
+$creadListPrec :: ReadPrec [UpdateIPSetResponse]
+readPrec :: ReadPrec UpdateIPSetResponse
+$creadPrec :: ReadPrec UpdateIPSetResponse
+readList :: ReadS [UpdateIPSetResponse]
+$creadList :: ReadS [UpdateIPSetResponse]
+readsPrec :: Int -&gt; ReadS UpdateIPSetResponse
+$creadsPrec :: Int -&gt; ReadS UpdateIPSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316149"><span id="local-6989586621679316151"><span id="local-6989586621679316153"><span class="annot"><span class="annottext">Int -&gt; UpdateIPSetResponse -&gt; ShowS
+[UpdateIPSetResponse] -&gt; ShowS
+UpdateIPSetResponse -&gt; String
+(Int -&gt; UpdateIPSetResponse -&gt; ShowS)
+-&gt; (UpdateIPSetResponse -&gt; String)
+-&gt; ([UpdateIPSetResponse] -&gt; ShowS)
+-&gt; Show UpdateIPSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIPSetResponse] -&gt; ShowS
+$cshowList :: [UpdateIPSetResponse] -&gt; ShowS
+show :: UpdateIPSetResponse -&gt; String
+$cshow :: UpdateIPSetResponse -&gt; String
+showsPrec :: Int -&gt; UpdateIPSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIPSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateIPSetResponse -&gt; Rep UpdateIPSetResponse x)
+-&gt; (forall x. Rep UpdateIPSetResponse x -&gt; UpdateIPSetResponse)
+-&gt; Generic UpdateIPSetResponse
+forall x. Rep UpdateIPSetResponse x -&gt; UpdateIPSetResponse
+forall x. UpdateIPSetResponse -&gt; Rep UpdateIPSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateIPSetResponse x -&gt; UpdateIPSetResponse
+$cfrom :: forall x. UpdateIPSetResponse -&gt; Rep UpdateIPSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'UpdateIPSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'updateIPSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSetResponse"><span class="hs-identifier hs-type">newUpdateIPSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-type">UpdateIPSetResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newUpdateIPSetResponse"><span class="annot"><span class="annottext">newUpdateIPSetResponse :: Int -&gt; UpdateIPSetResponse
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#newUpdateIPSetResponse"><span class="hs-identifier hs-var hs-var">newUpdateIPSetResponse</span></a></span></span><span> </span><span id="local-6989586621679316146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">UpdateIPSetResponse' :: Int -&gt; UpdateIPSetResponse
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse%27"><span class="hs-identifier hs-type">UpdateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateIPSetResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AhttpStatus%3AUpdateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSetResponse_httpStatus"><span class="hs-identifier hs-type">updateIPSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-type">UpdateIPSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="updateIPSetResponse_httpStatus"><span class="annot"><span class="annottext">updateIPSetResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateIPSetResponse -&gt; f UpdateIPSetResponse
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#updateIPSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateIPSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIPSetResponse -&gt; Int)
+-&gt; (UpdateIPSetResponse -&gt; Int -&gt; UpdateIPSetResponse)
+-&gt; Lens UpdateIPSetResponse UpdateIPSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse%27"><span class="hs-identifier hs-type">UpdateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316145"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateIPSetResponse' :: UpdateIPSetResponse -&gt; Int
+</span><a href="#local-6989586621679316145"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316145"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316144"><span class="annot"><span class="annottext">s :: UpdateIPSetResponse
+</span><a href="#local-6989586621679316144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse%27"><span class="hs-identifier hs-type">UpdateIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316143"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIPSetResponse
+</span><a href="#local-6989586621679316144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateIPSetResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.UpdateIPSet.html#%24sel%3AhttpStatus%3AUpdateIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-type">UpdateIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateIPSet.html#UpdateIPSetResponse"><span class="hs-identifier hs-type">UpdateIPSetResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

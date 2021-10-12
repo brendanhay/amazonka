@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManager.Types.RenewalSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManager.Types.RenewalSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.DomainValidation.html"><span class="hs-identifier">Network.AWS.CertificateManager.Types.DomainValidation</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html"><span class="hs-identifier">Network.AWS.CertificateManager.Types.FailureReason</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalStatus.html"><span class="hs-identifier">Network.AWS.CertificateManager.Types.RenewalStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains information about the status of ACM\'s</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- for the certificate. This structure exists only when the certificate</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- type is @AMAZON_ISSUED@.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRenewalSummary' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679190179"><span id="local-6989586621679190180"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewalSummary"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-var">RenewalSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewalSummary%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-var">RenewalSummary'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason that a renewal request was unsuccessful.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArenewalStatusReason%3ARenewalSummary%27"><span class="annot"><span class="annottext">RenewalSummary -&gt; Maybe FailureReason
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatusReason%3ARenewalSummary%27"><span class="hs-identifier hs-var hs-var">renewalStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-type">FailureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The status of ACM\'s</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of the certificate.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArenewalStatus%3ARenewalSummary%27"><span class="annot"><span class="annottext">RenewalSummary -&gt; RenewalStatus
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatus%3ARenewalSummary%27"><span class="hs-identifier hs-var hs-var">renewalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalStatus.html#RenewalStatus"><span class="hs-identifier hs-type">RenewalStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Contains information about the validation of each domain name in the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- certificate, as it pertains to ACM\'s</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- This is different from the initial validation that occurs as a result of</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the RequestCertificate request. This field exists only when the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- certificate type is @AMAZON_ISSUED@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdomainValidationOptions%3ARenewalSummary%27"><span class="annot"><span class="annottext">RenewalSummary -&gt; NonEmpty DomainValidation
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AdomainValidationOptions%3ARenewalSummary%27"><span class="hs-identifier hs-var hs-var">domainValidationOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.DomainValidation.html#DomainValidation"><span class="hs-identifier hs-type">DomainValidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The time at which the renewal summary was last updated.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AupdatedAt%3ARenewalSummary%27"><span class="annot"><span class="annottext">RenewalSummary -&gt; POSIX
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AupdatedAt%3ARenewalSummary%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190170"><span id="local-6989586621679190172"><span class="annot"><span class="annottext">RenewalSummary -&gt; RenewalSummary -&gt; Bool
+(RenewalSummary -&gt; RenewalSummary -&gt; Bool)
+-&gt; (RenewalSummary -&gt; RenewalSummary -&gt; Bool) -&gt; Eq RenewalSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RenewalSummary -&gt; RenewalSummary -&gt; Bool
+$c/= :: RenewalSummary -&gt; RenewalSummary -&gt; Bool
+== :: RenewalSummary -&gt; RenewalSummary -&gt; Bool
+$c== :: RenewalSummary -&gt; RenewalSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190161"><span id="local-6989586621679190163"><span id="local-6989586621679190165"><span id="local-6989586621679190167"><span class="annot"><span class="annottext">ReadPrec [RenewalSummary]
+ReadPrec RenewalSummary
+Int -&gt; ReadS RenewalSummary
+ReadS [RenewalSummary]
+(Int -&gt; ReadS RenewalSummary)
+-&gt; ReadS [RenewalSummary]
+-&gt; ReadPrec RenewalSummary
+-&gt; ReadPrec [RenewalSummary]
+-&gt; Read RenewalSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RenewalSummary]
+$creadListPrec :: ReadPrec [RenewalSummary]
+readPrec :: ReadPrec RenewalSummary
+$creadPrec :: ReadPrec RenewalSummary
+readList :: ReadS [RenewalSummary]
+$creadList :: ReadS [RenewalSummary]
+readsPrec :: Int -&gt; ReadS RenewalSummary
+$creadsPrec :: Int -&gt; ReadS RenewalSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190154"><span id="local-6989586621679190156"><span id="local-6989586621679190158"><span class="annot"><span class="annottext">Int -&gt; RenewalSummary -&gt; ShowS
+[RenewalSummary] -&gt; ShowS
+RenewalSummary -&gt; String
+(Int -&gt; RenewalSummary -&gt; ShowS)
+-&gt; (RenewalSummary -&gt; String)
+-&gt; ([RenewalSummary] -&gt; ShowS)
+-&gt; Show RenewalSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RenewalSummary] -&gt; ShowS
+$cshowList :: [RenewalSummary] -&gt; ShowS
+show :: RenewalSummary -&gt; String
+$cshow :: RenewalSummary -&gt; String
+showsPrec :: Int -&gt; RenewalSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; RenewalSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RenewalSummary -&gt; Rep RenewalSummary x)
+-&gt; (forall x. Rep RenewalSummary x -&gt; RenewalSummary)
+-&gt; Generic RenewalSummary
+forall x. Rep RenewalSummary x -&gt; RenewalSummary
+forall x. RenewalSummary -&gt; Rep RenewalSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RenewalSummary x -&gt; RenewalSummary
+$cfrom :: forall x. RenewalSummary -&gt; Rep RenewalSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'RenewalSummary' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'renewalStatusReason', 'renewalSummary_renewalStatusReason' - The reason that a renewal request was unsuccessful.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'renewalStatus', 'renewalSummary_renewalStatus' - The status of ACM\'s</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- of the certificate.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'domainValidationOptions', 'renewalSummary_domainValidationOptions' - Contains information about the validation of each domain name in the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- certificate, as it pertains to ACM\'s</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- This is different from the initial validation that occurs as a result of</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the RequestCertificate request. This field exists only when the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- certificate type is @AMAZON_ISSUED@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'updatedAt', 'renewalSummary_updatedAt' - The time at which the renewal summary was last updated.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#newRenewalSummary"><span class="hs-identifier hs-type">newRenewalSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'renewalStatus'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalStatus.html#RenewalStatus"><span class="hs-identifier hs-type">RenewalStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'domainValidationOptions'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.DomainValidation.html#DomainValidation"><span class="hs-identifier hs-type">DomainValidation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span>
+</span><span id="line-84"></span><span id="newRenewalSummary"><span class="annot"><span class="annottext">newRenewalSummary :: RenewalStatus
+-&gt; NonEmpty DomainValidation -&gt; UTCTime -&gt; RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#newRenewalSummary"><span class="hs-identifier hs-var hs-var">newRenewalSummary</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679190148"><span class="annot"><span class="annottext">RenewalStatus
+</span><a href="#local-6989586621679190148"><span class="hs-identifier hs-var">pRenewalStatus_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679190147"><span class="annot"><span class="annottext">NonEmpty DomainValidation
+</span><a href="#local-6989586621679190147"><span class="hs-identifier hs-var">pDomainValidationOptions_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679190146"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679190146"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">RenewalSummary' :: Maybe FailureReason
+-&gt; RenewalStatus
+-&gt; NonEmpty DomainValidation
+-&gt; POSIX
+-&gt; RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:renewalStatusReason:RenewalSummary' :: Maybe FailureReason
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatusReason%3ARenewalSummary%27"><span class="hs-identifier hs-var">renewalStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe FailureReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:renewalStatus:RenewalSummary' :: RenewalStatus
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatus%3ARenewalSummary%27"><span class="hs-identifier hs-var">renewalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RenewalStatus
+</span><a href="#local-6989586621679190148"><span class="hs-identifier hs-var">pRenewalStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainValidationOptions:RenewalSummary' :: NonEmpty DomainValidation
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AdomainValidationOptions%3ARenewalSummary%27"><span class="hs-identifier hs-var">domainValidationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty DomainValidation) (Identity (NonEmpty DomainValidation))
+-&gt; Tagged
+     (NonEmpty DomainValidation) (Identity (NonEmpty DomainValidation))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty DomainValidation) (Identity (NonEmpty DomainValidation))
+ -&gt; Tagged
+      (NonEmpty DomainValidation) (Identity (NonEmpty DomainValidation)))
+-&gt; NonEmpty DomainValidation -&gt; NonEmpty DomainValidation
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DomainValidation
+</span><a href="#local-6989586621679190147"><span class="hs-identifier hs-var">pDomainValidationOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:RenewalSummary' :: POSIX
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AupdatedAt%3ARenewalSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679190146"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The reason that a renewal request was unsuccessful.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_renewalStatusReason"><span class="hs-identifier hs-type">renewalSummary_renewalStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-type">FailureReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="renewalSummary_renewalStatusReason"><span class="annot"><span class="annottext">renewalSummary_renewalStatusReason :: (Maybe FailureReason -&gt; f (Maybe FailureReason))
+-&gt; RenewalSummary -&gt; f RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_renewalStatusReason"><span class="hs-identifier hs-var hs-var">renewalSummary_renewalStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewalSummary -&gt; Maybe FailureReason)
+-&gt; (RenewalSummary -&gt; Maybe FailureReason -&gt; RenewalSummary)
+-&gt; Lens
+     RenewalSummary
+     RenewalSummary
+     (Maybe FailureReason)
+     (Maybe FailureReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190139"><span class="annot"><span class="annottext">Maybe FailureReason
+renewalStatusReason :: Maybe FailureReason
+$sel:renewalStatusReason:RenewalSummary' :: RenewalSummary -&gt; Maybe FailureReason
+</span><a href="#local-6989586621679190139"><span class="hs-identifier hs-var hs-var">renewalStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679190139"><span class="hs-identifier hs-var">renewalStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190138"><span class="annot"><span class="annottext">s :: RenewalSummary
+</span><a href="#local-6989586621679190138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190137"><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679190137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewalSummary
+</span><a href="#local-6989586621679190138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:renewalStatusReason:RenewalSummary' :: Maybe FailureReason
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatusReason%3ARenewalSummary%27"><span class="hs-identifier hs-var">renewalStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679190137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The status of ACM\'s</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- of the certificate.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_renewalStatus"><span class="hs-identifier hs-type">renewalSummary_renewalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalStatus.html#RenewalStatus"><span class="hs-identifier hs-type">RenewalStatus</span></a></span><span>
+</span><span id="line-105"></span><span id="renewalSummary_renewalStatus"><span class="annot"><span class="annottext">renewalSummary_renewalStatus :: (RenewalStatus -&gt; f RenewalStatus)
+-&gt; RenewalSummary -&gt; f RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_renewalStatus"><span class="hs-identifier hs-var hs-var">renewalSummary_renewalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewalSummary -&gt; RenewalStatus)
+-&gt; (RenewalSummary -&gt; RenewalStatus -&gt; RenewalSummary)
+-&gt; Lens RenewalSummary RenewalSummary RenewalStatus RenewalStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190135"><span class="annot"><span class="annottext">RenewalStatus
+renewalStatus :: RenewalStatus
+$sel:renewalStatus:RenewalSummary' :: RenewalSummary -&gt; RenewalStatus
+</span><a href="#local-6989586621679190135"><span class="hs-identifier hs-var hs-var">renewalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewalStatus
+</span><a href="#local-6989586621679190135"><span class="hs-identifier hs-var">renewalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190134"><span class="annot"><span class="annottext">s :: RenewalSummary
+</span><a href="#local-6989586621679190134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190133"><span class="annot"><span class="annottext">RenewalStatus
+</span><a href="#local-6989586621679190133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewalSummary
+</span><a href="#local-6989586621679190134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:renewalStatus:RenewalSummary' :: RenewalStatus
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3ArenewalStatus%3ARenewalSummary%27"><span class="hs-identifier hs-var">renewalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RenewalStatus
+</span><a href="#local-6989586621679190133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Contains information about the validation of each domain name in the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- certificate, as it pertains to ACM\'s</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal&gt;.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- This is different from the initial validation that occurs as a result of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the RequestCertificate request. This field exists only when the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- certificate type is @AMAZON_ISSUED@.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_domainValidationOptions"><span class="hs-identifier hs-type">renewalSummary_domainValidationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.DomainValidation.html#DomainValidation"><span class="hs-identifier hs-type">DomainValidation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="renewalSummary_domainValidationOptions"><span class="annot"><span class="annottext">renewalSummary_domainValidationOptions :: (NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+-&gt; RenewalSummary -&gt; f RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_domainValidationOptions"><span class="hs-identifier hs-var hs-var">renewalSummary_domainValidationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewalSummary -&gt; NonEmpty DomainValidation)
+-&gt; (RenewalSummary -&gt; NonEmpty DomainValidation -&gt; RenewalSummary)
+-&gt; Lens
+     RenewalSummary
+     RenewalSummary
+     (NonEmpty DomainValidation)
+     (NonEmpty DomainValidation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190131"><span class="annot"><span class="annottext">NonEmpty DomainValidation
+domainValidationOptions :: NonEmpty DomainValidation
+$sel:domainValidationOptions:RenewalSummary' :: RenewalSummary -&gt; NonEmpty DomainValidation
+</span><a href="#local-6989586621679190131"><span class="hs-identifier hs-var hs-var">domainValidationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DomainValidation
+</span><a href="#local-6989586621679190131"><span class="hs-identifier hs-var">domainValidationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190130"><span class="annot"><span class="annottext">s :: RenewalSummary
+</span><a href="#local-6989586621679190130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190129"><span class="annot"><span class="annottext">NonEmpty DomainValidation
+</span><a href="#local-6989586621679190129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewalSummary
+</span><a href="#local-6989586621679190130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainValidationOptions:RenewalSummary' :: NonEmpty DomainValidation
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AdomainValidationOptions%3ARenewalSummary%27"><span class="hs-identifier hs-var">domainValidationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty DomainValidation
+</span><a href="#local-6989586621679190129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+ -&gt; RenewalSummary -&gt; f RenewalSummary)
+-&gt; ((NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+    -&gt; NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+-&gt; (NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+-&gt; RenewalSummary
+-&gt; f RenewalSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation))
+-&gt; NonEmpty DomainValidation -&gt; f (NonEmpty DomainValidation)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The time at which the renewal summary was last updated.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_updatedAt"><span class="hs-identifier hs-type">renewalSummary_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-118"></span><span id="renewalSummary_updatedAt"><span class="annot"><span class="annottext">renewalSummary_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; RenewalSummary -&gt; f RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#renewalSummary_updatedAt"><span class="hs-identifier hs-var hs-var">renewalSummary_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RenewalSummary -&gt; POSIX)
+-&gt; (RenewalSummary -&gt; POSIX -&gt; RenewalSummary)
+-&gt; Lens RenewalSummary RenewalSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190126"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:RenewalSummary' :: RenewalSummary -&gt; POSIX
+</span><a href="#local-6989586621679190126"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679190126"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190125"><span class="annot"><span class="annottext">s :: RenewalSummary
+</span><a href="#local-6989586621679190125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-type">RenewalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190124"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679190124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewalSummary
+</span><a href="#local-6989586621679190125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:RenewalSummary' :: POSIX
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#%24sel%3AupdatedAt%3ARenewalSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679190124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RenewalSummary -&gt; f RenewalSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RenewalSummary
+-&gt; f RenewalSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190121"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679190119"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RenewalSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RenewalSummary)
+-&gt; Value
+-&gt; Parser RenewalSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RenewalSummary&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190116"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe FailureReason
+-&gt; RenewalStatus
+-&gt; NonEmpty DomainValidation
+-&gt; POSIX
+-&gt; RenewalSummary
+</span><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary%27"><span class="hs-identifier hs-var">RenewalSummary'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FailureReason
+ -&gt; RenewalStatus
+ -&gt; NonEmpty DomainValidation
+ -&gt; POSIX
+ -&gt; RenewalSummary)
+-&gt; Parser (Maybe FailureReason)
+-&gt; Parser
+     (RenewalStatus
+      -&gt; NonEmpty DomainValidation -&gt; POSIX -&gt; RenewalSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailureReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RenewalStatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (RenewalStatus
+   -&gt; NonEmpty DomainValidation -&gt; POSIX -&gt; RenewalSummary)
+-&gt; Parser RenewalStatus
+-&gt; Parser (NonEmpty DomainValidation -&gt; POSIX -&gt; RenewalSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RenewalStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RenewalStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty DomainValidation -&gt; POSIX -&gt; RenewalSummary)
+-&gt; Parser (NonEmpty DomainValidation)
+-&gt; Parser (POSIX -&gt; RenewalSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty DomainValidation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainValidationOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; RenewalSummary)
+-&gt; Parser POSIX -&gt; Parser RenewalSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190109"><span id="local-6989586621679190111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalSummary.html#RenewalSummary"><span class="hs-identifier hs-type">RenewalSummary</span></a></span></span><span>
+</span><span id="line-135"></span></pre></body></html>

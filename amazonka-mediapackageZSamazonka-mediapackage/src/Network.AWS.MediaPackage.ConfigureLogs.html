@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaPackage.ConfigureLogs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the Channel\'s properities to configure log subscription</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaPackage.ConfigureLogs</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier">ConfigureLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogs"><span class="hs-identifier">newConfigureLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_egressAccessLogs"><span class="hs-identifier">configureLogs_egressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_ingressAccessLogs"><span class="hs-identifier">configureLogs_ingressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_id"><span class="hs-identifier">configureLogs_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogsResponse"><span class="hs-identifier">newConfigureLogsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_egressAccessLogs"><span class="hs-identifier">configureLogsResponse_egressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_arn"><span class="hs-identifier">configureLogsResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_id"><span class="hs-identifier">configureLogsResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_hlsIngest"><span class="hs-identifier">configureLogsResponse_hlsIngest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_ingressAccessLogs"><span class="hs-identifier">configureLogsResponse_ingressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_tags"><span class="hs-identifier">configureLogsResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_description"><span class="hs-identifier">configureLogsResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_httpStatus"><span class="hs-identifier">configureLogsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.html"><span class="hs-identifier">Network.AWS.MediaPackage.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | the option to configure log subscription.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newConfigureLogs' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679244348"><span id="local-6989586621679244349"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigureLogs"><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-var">ConfigureLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigureLogs%27"><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-var">ConfigureLogs'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AegressAccessLogs%3AConfigureLogs%27"><span class="annot"><span class="annottext">ConfigureLogs -&gt; Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var hs-var">egressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AingressAccessLogs%3AConfigureLogs%27"><span class="annot"><span class="annottext">ConfigureLogs -&gt; Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var hs-var">ingressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the channel to log subscription.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aid%3AConfigureLogs%27"><span class="annot"><span class="annottext">ConfigureLogs -&gt; Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogs%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244340"><span id="local-6989586621679244342"><span class="annot"><span class="annottext">ConfigureLogs -&gt; ConfigureLogs -&gt; Bool
+(ConfigureLogs -&gt; ConfigureLogs -&gt; Bool)
+-&gt; (ConfigureLogs -&gt; ConfigureLogs -&gt; Bool) -&gt; Eq ConfigureLogs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigureLogs -&gt; ConfigureLogs -&gt; Bool
+$c/= :: ConfigureLogs -&gt; ConfigureLogs -&gt; Bool
+== :: ConfigureLogs -&gt; ConfigureLogs -&gt; Bool
+$c== :: ConfigureLogs -&gt; ConfigureLogs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244331"><span id="local-6989586621679244333"><span id="local-6989586621679244335"><span id="local-6989586621679244337"><span class="annot"><span class="annottext">ReadPrec [ConfigureLogs]
+ReadPrec ConfigureLogs
+Int -&gt; ReadS ConfigureLogs
+ReadS [ConfigureLogs]
+(Int -&gt; ReadS ConfigureLogs)
+-&gt; ReadS [ConfigureLogs]
+-&gt; ReadPrec ConfigureLogs
+-&gt; ReadPrec [ConfigureLogs]
+-&gt; Read ConfigureLogs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigureLogs]
+$creadListPrec :: ReadPrec [ConfigureLogs]
+readPrec :: ReadPrec ConfigureLogs
+$creadPrec :: ReadPrec ConfigureLogs
+readList :: ReadS [ConfigureLogs]
+$creadList :: ReadS [ConfigureLogs]
+readsPrec :: Int -&gt; ReadS ConfigureLogs
+$creadsPrec :: Int -&gt; ReadS ConfigureLogs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244324"><span id="local-6989586621679244326"><span id="local-6989586621679244328"><span class="annot"><span class="annottext">Int -&gt; ConfigureLogs -&gt; ShowS
+[ConfigureLogs] -&gt; ShowS
+ConfigureLogs -&gt; String
+(Int -&gt; ConfigureLogs -&gt; ShowS)
+-&gt; (ConfigureLogs -&gt; String)
+-&gt; ([ConfigureLogs] -&gt; ShowS)
+-&gt; Show ConfigureLogs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigureLogs] -&gt; ShowS
+$cshowList :: [ConfigureLogs] -&gt; ShowS
+show :: ConfigureLogs -&gt; String
+$cshow :: ConfigureLogs -&gt; String
+showsPrec :: Int -&gt; ConfigureLogs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigureLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConfigureLogs -&gt; Rep ConfigureLogs x)
+-&gt; (forall x. Rep ConfigureLogs x -&gt; ConfigureLogs)
+-&gt; Generic ConfigureLogs
+forall x. Rep ConfigureLogs x -&gt; ConfigureLogs
+forall x. ConfigureLogs -&gt; Rep ConfigureLogs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigureLogs x -&gt; ConfigureLogs
+$cfrom :: forall x. ConfigureLogs -&gt; Rep ConfigureLogs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ConfigureLogs' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'egressAccessLogs', 'configureLogs_egressAccessLogs' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'ingressAccessLogs', 'configureLogs_ingressAccessLogs' - Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'id', 'configureLogs_id' - The ID of the channel to log subscription.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogs"><span class="hs-identifier hs-type">newConfigureLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span>
+</span><span id="line-85"></span><span id="newConfigureLogs"><span class="annot"><span class="annottext">newConfigureLogs :: Text -&gt; ConfigureLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogs"><span class="hs-identifier hs-var hs-var">newConfigureLogs</span></a></span></span><span> </span><span id="local-6989586621679244319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244319"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">ConfigureLogs' :: Maybe EgressAccessLogs
+-&gt; Maybe IngressAccessLogs -&gt; Text -&gt; ConfigureLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:egressAccessLogs:ConfigureLogs' :: Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingressAccessLogs:ConfigureLogs' :: Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ConfigureLogs' :: Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogs%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244319"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_egressAccessLogs"><span class="hs-identifier hs-type">configureLogs_egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="configureLogs_egressAccessLogs"><span class="annot"><span class="annottext">configureLogs_egressAccessLogs :: (Maybe EgressAccessLogs -&gt; f (Maybe EgressAccessLogs))
+-&gt; ConfigureLogs -&gt; f ConfigureLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_egressAccessLogs"><span class="hs-identifier hs-var hs-var">configureLogs_egressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogs -&gt; Maybe EgressAccessLogs)
+-&gt; (ConfigureLogs -&gt; Maybe EgressAccessLogs -&gt; ConfigureLogs)
+-&gt; Lens
+     ConfigureLogs
+     ConfigureLogs
+     (Maybe EgressAccessLogs)
+     (Maybe EgressAccessLogs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244316"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+egressAccessLogs :: Maybe EgressAccessLogs
+$sel:egressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244316"><span class="hs-identifier hs-var hs-var">egressAccessLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244316"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244315"><span class="annot"><span class="annottext">s :: ConfigureLogs
+</span><a href="#local-6989586621679244315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244314"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogs
+</span><a href="#local-6989586621679244315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egressAccessLogs:ConfigureLogs' :: Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_ingressAccessLogs"><span class="hs-identifier hs-type">configureLogs_ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="configureLogs_ingressAccessLogs"><span class="annot"><span class="annottext">configureLogs_ingressAccessLogs :: (Maybe IngressAccessLogs -&gt; f (Maybe IngressAccessLogs))
+-&gt; ConfigureLogs -&gt; f ConfigureLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_ingressAccessLogs"><span class="hs-identifier hs-var hs-var">configureLogs_ingressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogs -&gt; Maybe IngressAccessLogs)
+-&gt; (ConfigureLogs -&gt; Maybe IngressAccessLogs -&gt; ConfigureLogs)
+-&gt; Lens
+     ConfigureLogs
+     ConfigureLogs
+     (Maybe IngressAccessLogs)
+     (Maybe IngressAccessLogs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244313"><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+ingressAccessLogs :: Maybe IngressAccessLogs
+$sel:ingressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244313"><span class="hs-identifier hs-var hs-var">ingressAccessLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244313"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244312"><span class="annot"><span class="annottext">s :: ConfigureLogs
+</span><a href="#local-6989586621679244312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244311"><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogs
+</span><a href="#local-6989586621679244312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingressAccessLogs:ConfigureLogs' :: Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogs%27"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the channel to log subscription.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_id"><span class="hs-identifier hs-type">configureLogs_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="configureLogs_id"><span class="annot"><span class="annottext">configureLogs_id :: (Text -&gt; f Text) -&gt; ConfigureLogs -&gt; f ConfigureLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogs_id"><span class="hs-identifier hs-var hs-var">configureLogs_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogs -&gt; Text)
+-&gt; (ConfigureLogs -&gt; Text -&gt; ConfigureLogs)
+-&gt; Lens ConfigureLogs ConfigureLogs Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244310"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:ConfigureLogs' :: ConfigureLogs -&gt; Text
+</span><a href="#local-6989586621679244310"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244310"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244309"><span class="annot"><span class="annottext">s :: ConfigureLogs
+</span><a href="#local-6989586621679244309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogs
+</span><a href="#local-6989586621679244309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ConfigureLogs' :: Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogs%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679244304"><span class="annot"><span class="annottext">request :: ConfigureLogs -&gt; Request ConfigureLogs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ConfigureLogs -&gt; Request ConfigureLogs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaPackage.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679244300"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ConfigureLogs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ConfigureLogs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ConfigureLogs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ConfigureLogs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ConfigureLogs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244296"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244295"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe HlsIngest
+-&gt; Maybe IngressAccessLogs
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-var">ConfigureLogsResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EgressAccessLogs
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe HlsIngest
+ -&gt; Maybe IngressAccessLogs
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe EgressAccessLogs)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe HlsIngest
+      -&gt; Maybe IngressAccessLogs
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EgressAccessLogs)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;egressAccessLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe HlsIngest
+   -&gt; Maybe IngressAccessLogs
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe HlsIngest
+      -&gt; Maybe IngressAccessLogs
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe HlsIngest
+   -&gt; Maybe IngressAccessLogs
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe HlsIngest
+      -&gt; Maybe IngressAccessLogs
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe HlsIngest
+   -&gt; Maybe IngressAccessLogs
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe HlsIngest)
+-&gt; Either
+     String
+     (Maybe IngressAccessLogs
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HlsIngest)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsIngest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IngressAccessLogs
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe IngressAccessLogs)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Int -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IngressAccessLogs)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingressAccessLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Int -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ConfigureLogsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ConfigureLogsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ConfigureLogsResponse)
+-&gt; Either String Int -&gt; Either String ConfigureLogsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244286"><span id="local-6989586621679244288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679244279"><span class="annot"><span class="annottext">toHeaders :: ConfigureLogs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ConfigureLogs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244269"><span id="local-6989586621679244271"><span id="local-6989586621679244273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679244267"><span class="annot"><span class="annottext">toJSON :: ConfigureLogs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244263"><span id="local-6989586621679244264"><span id="local-6989586621679244265"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+Maybe IngressAccessLogs
+Text
+id :: Text
+ingressAccessLogs :: Maybe IngressAccessLogs
+egressAccessLogs :: Maybe EgressAccessLogs
+$sel:id:ConfigureLogs' :: ConfigureLogs -&gt; Text
+$sel:ingressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe IngressAccessLogs
+$sel:egressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244263"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;egressAccessLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EgressAccessLogs -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(EgressAccessLogs -&gt; Pair) -&gt; Maybe EgressAccessLogs -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244265"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingressAccessLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IngressAccessLogs -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(IngressAccessLogs -&gt; Pair)
+-&gt; Maybe IngressAccessLogs -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244264"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679244257"><span class="annot"><span class="annottext">toPath :: ConfigureLogs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs%27"><span class="hs-identifier hs-type">ConfigureLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244253"><span id="local-6989586621679244254"><span id="local-6989586621679244255"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+Maybe IngressAccessLogs
+Text
+id :: Text
+ingressAccessLogs :: Maybe IngressAccessLogs
+egressAccessLogs :: Maybe EgressAccessLogs
+$sel:id:ConfigureLogs' :: ConfigureLogs -&gt; Text
+$sel:ingressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe IngressAccessLogs
+$sel:egressAccessLogs:ConfigureLogs' :: ConfigureLogs -&gt; Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244253"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244253"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/configure_logs&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogs"><span class="hs-identifier hs-type">ConfigureLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679244249"><span class="annot"><span class="annottext">toQuery :: ConfigureLogs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ConfigureLogs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newConfigureLogsResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679244246"><span id="local-6989586621679244247"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigureLogsResponse"><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-var">ConfigureLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigureLogsResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-var">ConfigureLogsResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AegressAccessLogs%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">egressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the Channel.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Aarn%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aarn%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The ID of the Channel.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Aid%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhlsIngest%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe HlsIngest
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhlsIngest%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">hlsIngest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AingressAccessLogs%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">ingressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Atags%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Atags%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | A short text description of the Channel.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Adescription%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Adescription%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfigureLogsResponse%27"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; Int
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhttpStatus%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244234"><span id="local-6989586621679244236"><span class="annot"><span class="annottext">ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool
+(ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool)
+-&gt; (ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool)
+-&gt; Eq ConfigureLogsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool
+$c/= :: ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool
+== :: ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool
+$c== :: ConfigureLogsResponse -&gt; ConfigureLogsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244226"><span id="local-6989586621679244228"><span id="local-6989586621679244230"><span id="local-6989586621679244232"><span class="annot"><span class="annottext">ReadPrec [ConfigureLogsResponse]
+ReadPrec ConfigureLogsResponse
+Int -&gt; ReadS ConfigureLogsResponse
+ReadS [ConfigureLogsResponse]
+(Int -&gt; ReadS ConfigureLogsResponse)
+-&gt; ReadS [ConfigureLogsResponse]
+-&gt; ReadPrec ConfigureLogsResponse
+-&gt; ReadPrec [ConfigureLogsResponse]
+-&gt; Read ConfigureLogsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigureLogsResponse]
+$creadListPrec :: ReadPrec [ConfigureLogsResponse]
+readPrec :: ReadPrec ConfigureLogsResponse
+$creadPrec :: ReadPrec ConfigureLogsResponse
+readList :: ReadS [ConfigureLogsResponse]
+$creadList :: ReadS [ConfigureLogsResponse]
+readsPrec :: Int -&gt; ReadS ConfigureLogsResponse
+$creadsPrec :: Int -&gt; ReadS ConfigureLogsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244220"><span id="local-6989586621679244222"><span id="local-6989586621679244224"><span class="annot"><span class="annottext">Int -&gt; ConfigureLogsResponse -&gt; ShowS
+[ConfigureLogsResponse] -&gt; ShowS
+ConfigureLogsResponse -&gt; String
+(Int -&gt; ConfigureLogsResponse -&gt; ShowS)
+-&gt; (ConfigureLogsResponse -&gt; String)
+-&gt; ([ConfigureLogsResponse] -&gt; ShowS)
+-&gt; Show ConfigureLogsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigureLogsResponse] -&gt; ShowS
+$cshowList :: [ConfigureLogsResponse] -&gt; ShowS
+show :: ConfigureLogsResponse -&gt; String
+$cshow :: ConfigureLogsResponse -&gt; String
+showsPrec :: Int -&gt; ConfigureLogsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigureLogsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConfigureLogsResponse -&gt; Rep ConfigureLogsResponse x)
+-&gt; (forall x. Rep ConfigureLogsResponse x -&gt; ConfigureLogsResponse)
+-&gt; Generic ConfigureLogsResponse
+forall x. Rep ConfigureLogsResponse x -&gt; ConfigureLogsResponse
+forall x. ConfigureLogsResponse -&gt; Rep ConfigureLogsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigureLogsResponse x -&gt; ConfigureLogsResponse
+$cfrom :: forall x. ConfigureLogsResponse -&gt; Rep ConfigureLogsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'ConfigureLogsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'arn', 'configureLogsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'id', 'configureLogsResponse_id' - The ID of the Channel.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'hlsIngest', 'configureLogsResponse_hlsIngest' - Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'ingressAccessLogs', 'configureLogsResponse_ingressAccessLogs' - Undocumented member.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'tags', 'configureLogsResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'description', 'configureLogsResponse_description' - A short text description of the Channel.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'httpStatus', 'configureLogsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogsResponse"><span class="hs-identifier hs-type">newConfigureLogsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span>
+</span><span id="line-201"></span><span id="newConfigureLogsResponse"><span class="annot"><span class="annottext">newConfigureLogsResponse :: Int -&gt; ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#newConfigureLogsResponse"><span class="hs-identifier hs-var hs-var">newConfigureLogsResponse</span></a></span></span><span> </span><span id="local-6989586621679244217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">ConfigureLogsResponse' :: Maybe EgressAccessLogs
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe HlsIngest
+-&gt; Maybe IngressAccessLogs
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:egressAccessLogs:ConfigureLogsResponse' :: Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aarn%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsIngest:ConfigureLogsResponse' :: Maybe HlsIngest
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhlsIngest%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">hlsIngest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsIngest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingressAccessLogs:ConfigureLogsResponse' :: Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ConfigureLogsResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Atags%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Adescription%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ConfigureLogsResponse' :: Int
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhttpStatus%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244217"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_egressAccessLogs"><span class="hs-identifier hs-type">configureLogsResponse_egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.EgressAccessLogs.html#EgressAccessLogs"><span class="hs-identifier hs-type">EgressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="configureLogsResponse_egressAccessLogs"><span class="annot"><span class="annottext">configureLogsResponse_egressAccessLogs :: (Maybe EgressAccessLogs -&gt; f (Maybe EgressAccessLogs))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_egressAccessLogs"><span class="hs-identifier hs-var hs-var">configureLogsResponse_egressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe EgressAccessLogs)
+-&gt; (ConfigureLogsResponse
+    -&gt; Maybe EgressAccessLogs -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe EgressAccessLogs)
+     (Maybe EgressAccessLogs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244216"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+egressAccessLogs :: Maybe EgressAccessLogs
+$sel:egressAccessLogs:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244216"><span class="hs-identifier hs-var hs-var">egressAccessLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244216"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244215"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244214"><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egressAccessLogs:ConfigureLogsResponse' :: Maybe EgressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AegressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">egressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EgressAccessLogs
+</span><a href="#local-6989586621679244214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the Channel.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_arn"><span class="hs-identifier hs-type">configureLogsResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="configureLogsResponse_arn"><span class="annot"><span class="annottext">configureLogsResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_arn"><span class="hs-identifier hs-var hs-var">configureLogsResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe Text)
+-&gt; (ConfigureLogsResponse -&gt; Maybe Text -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244213"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679244213"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244213"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244212"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aarn%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The ID of the Channel.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_id"><span class="hs-identifier hs-type">configureLogsResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="configureLogsResponse_id"><span class="annot"><span class="annottext">configureLogsResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_id"><span class="hs-identifier hs-var hs-var">configureLogsResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe Text)
+-&gt; (ConfigureLogsResponse -&gt; Maybe Text -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244210"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679244210"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244210"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244209"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Aid%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_hlsIngest"><span class="hs-identifier hs-type">configureLogsResponse_hlsIngest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsIngest.html#HlsIngest"><span class="hs-identifier hs-type">HlsIngest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="configureLogsResponse_hlsIngest"><span class="annot"><span class="annottext">configureLogsResponse_hlsIngest :: (Maybe HlsIngest -&gt; f (Maybe HlsIngest))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_hlsIngest"><span class="hs-identifier hs-var hs-var">configureLogsResponse_hlsIngest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe HlsIngest)
+-&gt; (ConfigureLogsResponse
+    -&gt; Maybe HlsIngest -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe HlsIngest)
+     (Maybe HlsIngest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244207"><span class="annot"><span class="annottext">Maybe HlsIngest
+hlsIngest :: Maybe HlsIngest
+$sel:hlsIngest:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe HlsIngest
+</span><a href="#local-6989586621679244207"><span class="hs-identifier hs-var hs-var">hlsIngest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsIngest
+</span><a href="#local-6989586621679244207"><span class="hs-identifier hs-var">hlsIngest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244206"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244205"><span class="annot"><span class="annottext">Maybe HlsIngest
+</span><a href="#local-6989586621679244205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsIngest:ConfigureLogsResponse' :: Maybe HlsIngest
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhlsIngest%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">hlsIngest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsIngest
+</span><a href="#local-6989586621679244205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_ingressAccessLogs"><span class="hs-identifier hs-type">configureLogsResponse_ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngressAccessLogs.html#IngressAccessLogs"><span class="hs-identifier hs-type">IngressAccessLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="configureLogsResponse_ingressAccessLogs"><span class="annot"><span class="annottext">configureLogsResponse_ingressAccessLogs :: (Maybe IngressAccessLogs -&gt; f (Maybe IngressAccessLogs))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_ingressAccessLogs"><span class="hs-identifier hs-var hs-var">configureLogsResponse_ingressAccessLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe IngressAccessLogs)
+-&gt; (ConfigureLogsResponse
+    -&gt; Maybe IngressAccessLogs -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe IngressAccessLogs)
+     (Maybe IngressAccessLogs)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244204"><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+ingressAccessLogs :: Maybe IngressAccessLogs
+$sel:ingressAccessLogs:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244204"><span class="hs-identifier hs-var hs-var">ingressAccessLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244204"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244203"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244202"><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingressAccessLogs:ConfigureLogsResponse' :: Maybe IngressAccessLogs
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AingressAccessLogs%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">ingressAccessLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngressAccessLogs
+</span><a href="#local-6989586621679244202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_tags"><span class="hs-identifier hs-type">configureLogsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="configureLogsResponse_tags"><span class="annot"><span class="annottext">configureLogsResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_tags"><span class="hs-identifier hs-var hs-var">configureLogsResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (ConfigureLogsResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244201"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244201"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244201"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244200"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244199"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ConfigureLogsResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Atags%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679244199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ConfigureLogsResponse
+-&gt; f ConfigureLogsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | A short text description of the Channel.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_description"><span class="hs-identifier hs-type">configureLogsResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="configureLogsResponse_description"><span class="annot"><span class="annottext">configureLogsResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_description"><span class="hs-identifier hs-var hs-var">configureLogsResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Maybe Text)
+-&gt; (ConfigureLogsResponse -&gt; Maybe Text -&gt; ConfigureLogsResponse)
+-&gt; Lens
+     ConfigureLogsResponse
+     ConfigureLogsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244195"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679244195"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244195"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244194"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConfigureLogsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3Adescription%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_httpStatus"><span class="hs-identifier hs-type">configureLogsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span id="configureLogsResponse_httpStatus"><span class="annot"><span class="annottext">configureLogsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ConfigureLogsResponse -&gt; f ConfigureLogsResponse
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#configureLogsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">configureLogsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigureLogsResponse -&gt; Int)
+-&gt; (ConfigureLogsResponse -&gt; Int -&gt; ConfigureLogsResponse)
+-&gt; Lens ConfigureLogsResponse ConfigureLogsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244192"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ConfigureLogsResponse' :: ConfigureLogsResponse -&gt; Int
+</span><a href="#local-6989586621679244192"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244192"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244191"><span class="annot"><span class="annottext">s :: ConfigureLogsResponse
+</span><a href="#local-6989586621679244191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse%27"><span class="hs-identifier hs-type">ConfigureLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigureLogsResponse
+</span><a href="#local-6989586621679244191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfigureLogsResponse' :: Int
+</span><a href="Network.AWS.MediaPackage.ConfigureLogs.html#%24sel%3AhttpStatus%3AConfigureLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ConfigureLogs.html#ConfigureLogsResponse"><span class="hs-identifier hs-type">ConfigureLogsResponse</span></a></span></span><span>
+</span><span id="line-247"></span></pre></body></html>

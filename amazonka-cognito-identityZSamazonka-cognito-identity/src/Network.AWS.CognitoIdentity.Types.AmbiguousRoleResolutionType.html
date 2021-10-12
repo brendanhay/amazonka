@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier">AmbiguousRoleResolutionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_AuthenticatedRole"><span class="hs-identifier">AmbiguousRoleResolutionType_AuthenticatedRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_Deny"><span class="hs-identifier">AmbiguousRoleResolutionType_Deny</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679182311"><span id="local-6989586621679182312"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AmbiguousRoleResolutionType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmbiguousRoleResolutionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAmbiguousRoleResolutionType"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; Text
+</span><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#fromAmbiguousRoleResolutionType"><span class="hs-identifier hs-var hs-var">fromAmbiguousRoleResolutionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182303"><span id="local-6989586621679182305"><span id="local-6989586621679182307"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
+[AmbiguousRoleResolutionType] -&gt; ShowS
+AmbiguousRoleResolutionType -&gt; String
+(Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS)
+-&gt; (AmbiguousRoleResolutionType -&gt; String)
+-&gt; ([AmbiguousRoleResolutionType] -&gt; ShowS)
+-&gt; Show AmbiguousRoleResolutionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AmbiguousRoleResolutionType] -&gt; ShowS
+$cshowList :: [AmbiguousRoleResolutionType] -&gt; ShowS
+show :: AmbiguousRoleResolutionType -&gt; String
+$cshow :: AmbiguousRoleResolutionType -&gt; String
+showsPrec :: Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182294"><span id="local-6989586621679182296"><span id="local-6989586621679182298"><span id="local-6989586621679182300"><span class="annot"><span class="annottext">ReadPrec [AmbiguousRoleResolutionType]
+ReadPrec AmbiguousRoleResolutionType
+Int -&gt; ReadS AmbiguousRoleResolutionType
+ReadS [AmbiguousRoleResolutionType]
+(Int -&gt; ReadS AmbiguousRoleResolutionType)
+-&gt; ReadS [AmbiguousRoleResolutionType]
+-&gt; ReadPrec AmbiguousRoleResolutionType
+-&gt; ReadPrec [AmbiguousRoleResolutionType]
+-&gt; Read AmbiguousRoleResolutionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AmbiguousRoleResolutionType]
+$creadListPrec :: ReadPrec [AmbiguousRoleResolutionType]
+readPrec :: ReadPrec AmbiguousRoleResolutionType
+$creadPrec :: ReadPrec AmbiguousRoleResolutionType
+readList :: ReadS [AmbiguousRoleResolutionType]
+$creadList :: ReadS [AmbiguousRoleResolutionType]
+readsPrec :: Int -&gt; ReadS AmbiguousRoleResolutionType
+$creadsPrec :: Int -&gt; ReadS AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182289"><span id="local-6989586621679182291"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+(AmbiguousRoleResolutionType
+ -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; Eq AmbiguousRoleResolutionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c/= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+== :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c== :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182273"><span id="local-6989586621679182275"><span id="local-6989586621679182277"><span id="local-6989586621679182279"><span id="local-6989586621679182281"><span id="local-6989586621679182283"><span id="local-6989586621679182285"><span class="annot"><span class="annottext">Eq AmbiguousRoleResolutionType
+Eq AmbiguousRoleResolutionType
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Ordering)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; Bool)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType)
+-&gt; (AmbiguousRoleResolutionType
+    -&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType)
+-&gt; Ord AmbiguousRoleResolutionType
+AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; Ordering
+AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType
+$cmin :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType
+max :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType
+$cmax :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType
+&gt;= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c&gt;= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+&gt; :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c&gt; :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+&lt;= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c&lt;= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+&lt; :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+$c&lt; :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+compare :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; Ordering
+$ccompare :: AmbiguousRoleResolutionType
+-&gt; AmbiguousRoleResolutionType -&gt; Ordering
+$cp1Ord :: Eq AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AmbiguousRoleResolutionType -&gt; Rep AmbiguousRoleResolutionType x)
+-&gt; (forall x.
+    Rep AmbiguousRoleResolutionType x -&gt; AmbiguousRoleResolutionType)
+-&gt; Generic AmbiguousRoleResolutionType
+forall x.
+Rep AmbiguousRoleResolutionType x -&gt; AmbiguousRoleResolutionType
+forall x.
+AmbiguousRoleResolutionType -&gt; Rep AmbiguousRoleResolutionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AmbiguousRoleResolutionType x -&gt; AmbiguousRoleResolutionType
+$cfrom :: forall x.
+AmbiguousRoleResolutionType -&gt; Rep AmbiguousRoleResolutionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182265"><span id="local-6989586621679182267"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; Int
+AmbiguousRoleResolutionType -&gt; Int
+(Int -&gt; AmbiguousRoleResolutionType -&gt; Int)
+-&gt; (AmbiguousRoleResolutionType -&gt; Int)
+-&gt; Hashable AmbiguousRoleResolutionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AmbiguousRoleResolutionType -&gt; Int
+$chash :: AmbiguousRoleResolutionType -&gt; Int
+hashWithSalt :: Int -&gt; AmbiguousRoleResolutionType -&gt; Int
+$chashWithSalt :: Int -&gt; AmbiguousRoleResolutionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182262"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ()
+(AmbiguousRoleResolutionType -&gt; ())
+-&gt; NFData AmbiguousRoleResolutionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AmbiguousRoleResolutionType -&gt; ()
+$crnf :: AmbiguousRoleResolutionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182259"><span class="annot"><span class="annottext">Text -&gt; Either String AmbiguousRoleResolutionType
+(Text -&gt; Either String AmbiguousRoleResolutionType)
+-&gt; FromText AmbiguousRoleResolutionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AmbiguousRoleResolutionType
+$cfromText :: Text -&gt; Either String AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182256"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; Text
+(AmbiguousRoleResolutionType -&gt; Text)
+-&gt; ToText AmbiguousRoleResolutionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AmbiguousRoleResolutionType -&gt; Text
+$ctoText :: AmbiguousRoleResolutionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182253"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteString
+(AmbiguousRoleResolutionType -&gt; ByteString)
+-&gt; ToByteString AmbiguousRoleResolutionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AmbiguousRoleResolutionType -&gt; ByteString
+$ctoBS :: AmbiguousRoleResolutionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182250"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteStringBuilder
+(AmbiguousRoleResolutionType -&gt; ByteStringBuilder)
+-&gt; ToLog AmbiguousRoleResolutionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AmbiguousRoleResolutionType -&gt; ByteStringBuilder
+$cbuild :: AmbiguousRoleResolutionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182247"><span class="annot"><span class="annottext">HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
+(HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header])
+-&gt; ToHeader AmbiguousRoleResolutionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182244"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; QueryString
+(AmbiguousRoleResolutionType -&gt; QueryString)
+-&gt; ToQuery AmbiguousRoleResolutionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AmbiguousRoleResolutionType -&gt; QueryString
+$ctoQuery :: AmbiguousRoleResolutionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182239"><span id="local-6989586621679182241"><span class="annot"><span class="annottext">Value -&gt; Parser [AmbiguousRoleResolutionType]
+Value -&gt; Parser AmbiguousRoleResolutionType
+(Value -&gt; Parser AmbiguousRoleResolutionType)
+-&gt; (Value -&gt; Parser [AmbiguousRoleResolutionType])
+-&gt; FromJSON AmbiguousRoleResolutionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AmbiguousRoleResolutionType]
+$cparseJSONList :: Value -&gt; Parser [AmbiguousRoleResolutionType]
+parseJSON :: Value -&gt; Parser AmbiguousRoleResolutionType
+$cparseJSON :: Value -&gt; Parser AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182234"><span id="local-6989586621679182236"><span class="annot"><span class="annottext">FromJSONKeyFunction [AmbiguousRoleResolutionType]
+FromJSONKeyFunction AmbiguousRoleResolutionType
+FromJSONKeyFunction AmbiguousRoleResolutionType
+-&gt; FromJSONKeyFunction [AmbiguousRoleResolutionType]
+-&gt; FromJSONKey AmbiguousRoleResolutionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AmbiguousRoleResolutionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AmbiguousRoleResolutionType]
+fromJSONKey :: FromJSONKeyFunction AmbiguousRoleResolutionType
+$cfromJSONKey :: FromJSONKeyFunction AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182225"><span id="local-6989586621679182227"><span id="local-6989586621679182229"><span id="local-6989586621679182231"><span class="annot"><span class="annottext">[AmbiguousRoleResolutionType] -&gt; Encoding
+[AmbiguousRoleResolutionType] -&gt; Value
+AmbiguousRoleResolutionType -&gt; Encoding
+AmbiguousRoleResolutionType -&gt; Value
+(AmbiguousRoleResolutionType -&gt; Value)
+-&gt; (AmbiguousRoleResolutionType -&gt; Encoding)
+-&gt; ([AmbiguousRoleResolutionType] -&gt; Value)
+-&gt; ([AmbiguousRoleResolutionType] -&gt; Encoding)
+-&gt; ToJSON AmbiguousRoleResolutionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AmbiguousRoleResolutionType] -&gt; Encoding
+$ctoEncodingList :: [AmbiguousRoleResolutionType] -&gt; Encoding
+toJSONList :: [AmbiguousRoleResolutionType] -&gt; Value
+$ctoJSONList :: [AmbiguousRoleResolutionType] -&gt; Value
+toEncoding :: AmbiguousRoleResolutionType -&gt; Encoding
+$ctoEncoding :: AmbiguousRoleResolutionType -&gt; Encoding
+toJSON :: AmbiguousRoleResolutionType -&gt; Value
+$ctoJSON :: AmbiguousRoleResolutionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182220"><span id="local-6989586621679182222"><span class="annot"><span class="annottext">ToJSONKeyFunction [AmbiguousRoleResolutionType]
+ToJSONKeyFunction AmbiguousRoleResolutionType
+ToJSONKeyFunction AmbiguousRoleResolutionType
+-&gt; ToJSONKeyFunction [AmbiguousRoleResolutionType]
+-&gt; ToJSONKey AmbiguousRoleResolutionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AmbiguousRoleResolutionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AmbiguousRoleResolutionType]
+toJSONKey :: ToJSONKeyFunction AmbiguousRoleResolutionType
+$ctoJSONKey :: ToJSONKeyFunction AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182217"><span class="annot"><span class="annottext">[Node] -&gt; Either String AmbiguousRoleResolutionType
+([Node] -&gt; Either String AmbiguousRoleResolutionType)
+-&gt; FromXML AmbiguousRoleResolutionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AmbiguousRoleResolutionType
+$cparseXML :: [Node] -&gt; Either String AmbiguousRoleResolutionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182214"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; XML
+(AmbiguousRoleResolutionType -&gt; XML)
+-&gt; ToXML AmbiguousRoleResolutionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AmbiguousRoleResolutionType -&gt; XML
+$ctoXML :: AmbiguousRoleResolutionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_AuthenticatedRole"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType_AuthenticatedRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmbiguousRoleResolutionType_AuthenticatedRole"><span id="%24mAmbiguousRoleResolutionType_AuthenticatedRole"><span id="AmbiguousRoleResolutionType_AuthenticatedRole"><span class="annot"><span class="annottext">$bAmbiguousRoleResolutionType_AuthenticatedRole :: AmbiguousRoleResolutionType
+$mAmbiguousRoleResolutionType_AuthenticatedRole :: forall r.
+AmbiguousRoleResolutionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#%24bAmbiguousRoleResolutionType_AuthenticatedRole"><span class="hs-identifier hs-var hs-var hs-var">AmbiguousRoleResolutionType_AuthenticatedRole</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AuthenticatedRole&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_Deny"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType_Deny</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmbiguousRoleResolutionType_Deny"><span id="%24mAmbiguousRoleResolutionType_Deny"><span id="AmbiguousRoleResolutionType_Deny"><span class="annot"><span class="annottext">$bAmbiguousRoleResolutionType_Deny :: AmbiguousRoleResolutionType
+$mAmbiguousRoleResolutionType_Deny :: forall r.
+AmbiguousRoleResolutionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#%24bAmbiguousRoleResolutionType_Deny"><span class="hs-identifier hs-var hs-var hs-var">AmbiguousRoleResolutionType_Deny</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-identifier hs-type">AmbiguousRoleResolutionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deny&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_AuthenticatedRole"><span class="hs-pragma hs-type">AmbiguousRoleResolutionType_AuthenticatedRole</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType_Deny"><span class="hs-pragma hs-type">AmbiguousRoleResolutionType_Deny</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-pragma hs-type">AmbiguousRoleResolutionType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

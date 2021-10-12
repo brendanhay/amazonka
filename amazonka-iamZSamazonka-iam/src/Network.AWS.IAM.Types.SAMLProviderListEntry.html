@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.Types.SAMLProviderListEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.Types.SAMLProviderListEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the list of SAML providers for this account.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSAMLProviderListEntry' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679429288"><span id="local-6989586621679429289"></span></span><span class="hs-keyword">data</span><span> </span><span id="SAMLProviderListEntry"><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-var">SAMLProviderListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SAMLProviderListEntry%27"><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-var">SAMLProviderListEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the SAML provider was created.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreateDate%3ASAMLProviderListEntry%27"><span class="annot"><span class="annottext">SAMLProviderListEntry -&gt; Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AcreateDate%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the SAML provider.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aarn%3ASAMLProviderListEntry%27"><span class="annot"><span class="annottext">SAMLProviderListEntry -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3Aarn%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The expiration date and time for the SAML provider.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AvalidUntil%3ASAMLProviderListEntry%27"><span class="annot"><span class="annottext">SAMLProviderListEntry -&gt; Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AvalidUntil%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var hs-var">validUntil</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429280"><span id="local-6989586621679429282"><span class="annot"><span class="annottext">SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool
+(SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool)
+-&gt; (SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool)
+-&gt; Eq SAMLProviderListEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool
+$c/= :: SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool
+== :: SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool
+$c== :: SAMLProviderListEntry -&gt; SAMLProviderListEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429271"><span id="local-6989586621679429273"><span id="local-6989586621679429275"><span id="local-6989586621679429277"><span class="annot"><span class="annottext">ReadPrec [SAMLProviderListEntry]
+ReadPrec SAMLProviderListEntry
+Int -&gt; ReadS SAMLProviderListEntry
+ReadS [SAMLProviderListEntry]
+(Int -&gt; ReadS SAMLProviderListEntry)
+-&gt; ReadS [SAMLProviderListEntry]
+-&gt; ReadPrec SAMLProviderListEntry
+-&gt; ReadPrec [SAMLProviderListEntry]
+-&gt; Read SAMLProviderListEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SAMLProviderListEntry]
+$creadListPrec :: ReadPrec [SAMLProviderListEntry]
+readPrec :: ReadPrec SAMLProviderListEntry
+$creadPrec :: ReadPrec SAMLProviderListEntry
+readList :: ReadS [SAMLProviderListEntry]
+$creadList :: ReadS [SAMLProviderListEntry]
+readsPrec :: Int -&gt; ReadS SAMLProviderListEntry
+$creadsPrec :: Int -&gt; ReadS SAMLProviderListEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429264"><span id="local-6989586621679429266"><span id="local-6989586621679429268"><span class="annot"><span class="annottext">Int -&gt; SAMLProviderListEntry -&gt; ShowS
+[SAMLProviderListEntry] -&gt; ShowS
+SAMLProviderListEntry -&gt; String
+(Int -&gt; SAMLProviderListEntry -&gt; ShowS)
+-&gt; (SAMLProviderListEntry -&gt; String)
+-&gt; ([SAMLProviderListEntry] -&gt; ShowS)
+-&gt; Show SAMLProviderListEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SAMLProviderListEntry] -&gt; ShowS
+$cshowList :: [SAMLProviderListEntry] -&gt; ShowS
+show :: SAMLProviderListEntry -&gt; String
+$cshow :: SAMLProviderListEntry -&gt; String
+showsPrec :: Int -&gt; SAMLProviderListEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; SAMLProviderListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SAMLProviderListEntry -&gt; Rep SAMLProviderListEntry x)
+-&gt; (forall x. Rep SAMLProviderListEntry x -&gt; SAMLProviderListEntry)
+-&gt; Generic SAMLProviderListEntry
+forall x. Rep SAMLProviderListEntry x -&gt; SAMLProviderListEntry
+forall x. SAMLProviderListEntry -&gt; Rep SAMLProviderListEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SAMLProviderListEntry x -&gt; SAMLProviderListEntry
+$cfrom :: forall x. SAMLProviderListEntry -&gt; Rep SAMLProviderListEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'SAMLProviderListEntry' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'createDate', 'sAMLProviderListEntry_createDate' - The date and time when the SAML provider was created.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'arn', 'sAMLProviderListEntry_arn' - The Amazon Resource Name (ARN) of the SAML provider.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'validUntil', 'sAMLProviderListEntry_validUntil' - The expiration date and time for the SAML provider.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#newSAMLProviderListEntry"><span class="hs-identifier hs-type">newSAMLProviderListEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span>
+</span><span id="line-54"></span><span id="newSAMLProviderListEntry"><span class="annot"><span class="annottext">newSAMLProviderListEntry :: SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#newSAMLProviderListEntry"><span class="hs-identifier hs-var hs-var">newSAMLProviderListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">SAMLProviderListEntry' :: Maybe ISO8601
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createDate:SAMLProviderListEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AcreateDate%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:SAMLProviderListEntry' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3Aarn%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:validUntil:SAMLProviderListEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AvalidUntil%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">validUntil</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The date and time when the SAML provider was created.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_createDate"><span class="hs-identifier hs-type">sAMLProviderListEntry_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="sAMLProviderListEntry_createDate"><span class="annot"><span class="annottext">sAMLProviderListEntry_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SAMLProviderListEntry -&gt; f SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_createDate"><span class="hs-identifier hs-var hs-var">sAMLProviderListEntry_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLProviderListEntry -&gt; Maybe ISO8601)
+-&gt; (SAMLProviderListEntry
+    -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry)
+-&gt; Lens
+     SAMLProviderListEntry
+     SAMLProviderListEntry
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429255"><span class="annot"><span class="annottext">Maybe ISO8601
+createDate :: Maybe ISO8601
+$sel:createDate:SAMLProviderListEntry' :: SAMLProviderListEntry -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679429255"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429255"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429254"><span class="annot"><span class="annottext">s :: SAMLProviderListEntry
+</span><a href="#local-6989586621679429254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429253"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLProviderListEntry
+</span><a href="#local-6989586621679429254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:SAMLProviderListEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AcreateDate%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; SAMLProviderListEntry -&gt; f SAMLProviderListEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SAMLProviderListEntry
+-&gt; f SAMLProviderListEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the SAML provider.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_arn"><span class="hs-identifier hs-type">sAMLProviderListEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="sAMLProviderListEntry_arn"><span class="annot"><span class="annottext">sAMLProviderListEntry_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SAMLProviderListEntry -&gt; f SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_arn"><span class="hs-identifier hs-var hs-var">sAMLProviderListEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLProviderListEntry -&gt; Maybe Text)
+-&gt; (SAMLProviderListEntry -&gt; Maybe Text -&gt; SAMLProviderListEntry)
+-&gt; Lens
+     SAMLProviderListEntry
+     SAMLProviderListEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429248"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:SAMLProviderListEntry' :: SAMLProviderListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679429248"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429248"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429247"><span class="annot"><span class="annottext">s :: SAMLProviderListEntry
+</span><a href="#local-6989586621679429247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLProviderListEntry
+</span><a href="#local-6989586621679429247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SAMLProviderListEntry' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3Aarn%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The expiration date and time for the SAML provider.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_validUntil"><span class="hs-identifier hs-type">sAMLProviderListEntry_validUntil</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="sAMLProviderListEntry_validUntil"><span class="annot"><span class="annottext">sAMLProviderListEntry_validUntil :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SAMLProviderListEntry -&gt; f SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#sAMLProviderListEntry_validUntil"><span class="hs-identifier hs-var hs-var">sAMLProviderListEntry_validUntil</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLProviderListEntry -&gt; Maybe ISO8601)
+-&gt; (SAMLProviderListEntry
+    -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry)
+-&gt; Lens
+     SAMLProviderListEntry
+     SAMLProviderListEntry
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429244"><span class="annot"><span class="annottext">Maybe ISO8601
+validUntil :: Maybe ISO8601
+$sel:validUntil:SAMLProviderListEntry' :: SAMLProviderListEntry -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679429244"><span class="hs-identifier hs-var hs-var">validUntil</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429244"><span class="hs-identifier hs-var">validUntil</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429243"><span class="annot"><span class="annottext">s :: SAMLProviderListEntry
+</span><a href="#local-6989586621679429243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-type">SAMLProviderListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429242"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLProviderListEntry
+</span><a href="#local-6989586621679429243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validUntil:SAMLProviderListEntry' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#%24sel%3AvalidUntil%3ASAMLProviderListEntry%27"><span class="hs-identifier hs-var">validUntil</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679429242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; SAMLProviderListEntry -&gt; f SAMLProviderListEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SAMLProviderListEntry
+-&gt; f SAMLProviderListEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679429239"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SAMLProviderListEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679429237"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry
+</span><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry%27"><span class="hs-identifier hs-var">SAMLProviderListEntry'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe ISO8601 -&gt; SAMLProviderListEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601 -&gt; SAMLProviderListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; SAMLProviderListEntry)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String SAMLProviderListEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidUntil&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429231"><span id="local-6989586621679429233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SAMLProviderListEntry.html#SAMLProviderListEntry"><span class="hs-identifier hs-type">SAMLProviderListEntry</span></a></span></span><span>
+</span><span id="line-84"></span></pre></body></html>

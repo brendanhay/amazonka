@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkMail.Types.FolderName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkMail.Types.FolderName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier">FolderName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DELETED_ITEMS"><span class="hs-identifier">FolderName_DELETED_ITEMS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DRAFTS"><span class="hs-identifier">FolderName_DRAFTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_INBOX"><span class="hs-identifier">FolderName_INBOX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_JUNK_EMAIL"><span class="hs-identifier">FolderName_JUNK_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_SENT_ITEMS"><span class="hs-identifier">FolderName_SENT_ITEMS</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679258918"><span id="local-6989586621679258919"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FolderName"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-var">FolderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderName%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-var">FolderName'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFolderName"><span class="annot"><span class="annottext">FolderName -&gt; Text
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#fromFolderName"><span class="hs-identifier hs-var hs-var">fromFolderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258910"><span id="local-6989586621679258912"><span id="local-6989586621679258914"><span class="annot"><span class="annottext">Int -&gt; FolderName -&gt; ShowS
+[FolderName] -&gt; ShowS
+FolderName -&gt; String
+(Int -&gt; FolderName -&gt; ShowS)
+-&gt; (FolderName -&gt; String)
+-&gt; ([FolderName] -&gt; ShowS)
+-&gt; Show FolderName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FolderName] -&gt; ShowS
+$cshowList :: [FolderName] -&gt; ShowS
+show :: FolderName -&gt; String
+$cshow :: FolderName -&gt; String
+showsPrec :: Int -&gt; FolderName -&gt; ShowS
+$cshowsPrec :: Int -&gt; FolderName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679258901"><span id="local-6989586621679258903"><span id="local-6989586621679258905"><span id="local-6989586621679258907"><span class="annot"><span class="annottext">ReadPrec [FolderName]
+ReadPrec FolderName
+Int -&gt; ReadS FolderName
+ReadS [FolderName]
+(Int -&gt; ReadS FolderName)
+-&gt; ReadS [FolderName]
+-&gt; ReadPrec FolderName
+-&gt; ReadPrec [FolderName]
+-&gt; Read FolderName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FolderName]
+$creadListPrec :: ReadPrec [FolderName]
+readPrec :: ReadPrec FolderName
+$creadPrec :: ReadPrec FolderName
+readList :: ReadS [FolderName]
+$creadList :: ReadS [FolderName]
+readsPrec :: Int -&gt; ReadS FolderName
+$creadsPrec :: Int -&gt; ReadS FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679258896"><span id="local-6989586621679258898"><span class="annot"><span class="annottext">FolderName -&gt; FolderName -&gt; Bool
+(FolderName -&gt; FolderName -&gt; Bool)
+-&gt; (FolderName -&gt; FolderName -&gt; Bool) -&gt; Eq FolderName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FolderName -&gt; FolderName -&gt; Bool
+$c/= :: FolderName -&gt; FolderName -&gt; Bool
+== :: FolderName -&gt; FolderName -&gt; Bool
+$c== :: FolderName -&gt; FolderName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679258880"><span id="local-6989586621679258882"><span id="local-6989586621679258884"><span id="local-6989586621679258886"><span id="local-6989586621679258888"><span id="local-6989586621679258890"><span id="local-6989586621679258892"><span class="annot"><span class="annottext">Eq FolderName
+Eq FolderName
+-&gt; (FolderName -&gt; FolderName -&gt; Ordering)
+-&gt; (FolderName -&gt; FolderName -&gt; Bool)
+-&gt; (FolderName -&gt; FolderName -&gt; Bool)
+-&gt; (FolderName -&gt; FolderName -&gt; Bool)
+-&gt; (FolderName -&gt; FolderName -&gt; Bool)
+-&gt; (FolderName -&gt; FolderName -&gt; FolderName)
+-&gt; (FolderName -&gt; FolderName -&gt; FolderName)
+-&gt; Ord FolderName
+FolderName -&gt; FolderName -&gt; Bool
+FolderName -&gt; FolderName -&gt; Ordering
+FolderName -&gt; FolderName -&gt; FolderName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FolderName -&gt; FolderName -&gt; FolderName
+$cmin :: FolderName -&gt; FolderName -&gt; FolderName
+max :: FolderName -&gt; FolderName -&gt; FolderName
+$cmax :: FolderName -&gt; FolderName -&gt; FolderName
+&gt;= :: FolderName -&gt; FolderName -&gt; Bool
+$c&gt;= :: FolderName -&gt; FolderName -&gt; Bool
+&gt; :: FolderName -&gt; FolderName -&gt; Bool
+$c&gt; :: FolderName -&gt; FolderName -&gt; Bool
+&lt;= :: FolderName -&gt; FolderName -&gt; Bool
+$c&lt;= :: FolderName -&gt; FolderName -&gt; Bool
+&lt; :: FolderName -&gt; FolderName -&gt; Bool
+$c&lt; :: FolderName -&gt; FolderName -&gt; Bool
+compare :: FolderName -&gt; FolderName -&gt; Ordering
+$ccompare :: FolderName -&gt; FolderName -&gt; Ordering
+$cp1Ord :: Eq FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FolderName -&gt; Rep FolderName x)
+-&gt; (forall x. Rep FolderName x -&gt; FolderName) -&gt; Generic FolderName
+forall x. Rep FolderName x -&gt; FolderName
+forall x. FolderName -&gt; Rep FolderName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FolderName x -&gt; FolderName
+$cfrom :: forall x. FolderName -&gt; Rep FolderName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258872"><span id="local-6989586621679258874"><span class="annot"><span class="annottext">Int -&gt; FolderName -&gt; Int
+FolderName -&gt; Int
+(Int -&gt; FolderName -&gt; Int)
+-&gt; (FolderName -&gt; Int) -&gt; Hashable FolderName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FolderName -&gt; Int
+$chash :: FolderName -&gt; Int
+hashWithSalt :: Int -&gt; FolderName -&gt; Int
+$chashWithSalt :: Int -&gt; FolderName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679258869"><span class="annot"><span class="annottext">FolderName -&gt; ()
+(FolderName -&gt; ()) -&gt; NFData FolderName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FolderName -&gt; ()
+$crnf :: FolderName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679258866"><span class="annot"><span class="annottext">Text -&gt; Either String FolderName
+(Text -&gt; Either String FolderName) -&gt; FromText FolderName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FolderName
+$cfromText :: Text -&gt; Either String FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679258863"><span class="annot"><span class="annottext">FolderName -&gt; Text
+(FolderName -&gt; Text) -&gt; ToText FolderName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FolderName -&gt; Text
+$ctoText :: FolderName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679258860"><span class="annot"><span class="annottext">FolderName -&gt; ByteString
+(FolderName -&gt; ByteString) -&gt; ToByteString FolderName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FolderName -&gt; ByteString
+$ctoBS :: FolderName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679258857"><span class="annot"><span class="annottext">FolderName -&gt; ByteStringBuilder
+(FolderName -&gt; ByteStringBuilder) -&gt; ToLog FolderName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FolderName -&gt; ByteStringBuilder
+$cbuild :: FolderName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679258854"><span class="annot"><span class="annottext">HeaderName -&gt; FolderName -&gt; [Header]
+(HeaderName -&gt; FolderName -&gt; [Header]) -&gt; ToHeader FolderName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FolderName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FolderName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679258851"><span class="annot"><span class="annottext">FolderName -&gt; QueryString
+(FolderName -&gt; QueryString) -&gt; ToQuery FolderName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FolderName -&gt; QueryString
+$ctoQuery :: FolderName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679258846"><span id="local-6989586621679258848"><span class="annot"><span class="annottext">Value -&gt; Parser [FolderName]
+Value -&gt; Parser FolderName
+(Value -&gt; Parser FolderName)
+-&gt; (Value -&gt; Parser [FolderName]) -&gt; FromJSON FolderName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FolderName]
+$cparseJSONList :: Value -&gt; Parser [FolderName]
+parseJSON :: Value -&gt; Parser FolderName
+$cparseJSON :: Value -&gt; Parser FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679258841"><span id="local-6989586621679258843"><span class="annot"><span class="annottext">FromJSONKeyFunction [FolderName]
+FromJSONKeyFunction FolderName
+FromJSONKeyFunction FolderName
+-&gt; FromJSONKeyFunction [FolderName] -&gt; FromJSONKey FolderName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FolderName]
+$cfromJSONKeyList :: FromJSONKeyFunction [FolderName]
+fromJSONKey :: FromJSONKeyFunction FolderName
+$cfromJSONKey :: FromJSONKeyFunction FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679258832"><span id="local-6989586621679258834"><span id="local-6989586621679258836"><span id="local-6989586621679258838"><span class="annot"><span class="annottext">[FolderName] -&gt; Encoding
+[FolderName] -&gt; Value
+FolderName -&gt; Encoding
+FolderName -&gt; Value
+(FolderName -&gt; Value)
+-&gt; (FolderName -&gt; Encoding)
+-&gt; ([FolderName] -&gt; Value)
+-&gt; ([FolderName] -&gt; Encoding)
+-&gt; ToJSON FolderName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FolderName] -&gt; Encoding
+$ctoEncodingList :: [FolderName] -&gt; Encoding
+toJSONList :: [FolderName] -&gt; Value
+$ctoJSONList :: [FolderName] -&gt; Value
+toEncoding :: FolderName -&gt; Encoding
+$ctoEncoding :: FolderName -&gt; Encoding
+toJSON :: FolderName -&gt; Value
+$ctoJSON :: FolderName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679258827"><span id="local-6989586621679258829"><span class="annot"><span class="annottext">ToJSONKeyFunction [FolderName]
+ToJSONKeyFunction FolderName
+ToJSONKeyFunction FolderName
+-&gt; ToJSONKeyFunction [FolderName] -&gt; ToJSONKey FolderName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FolderName]
+$ctoJSONKeyList :: ToJSONKeyFunction [FolderName]
+toJSONKey :: ToJSONKeyFunction FolderName
+$ctoJSONKey :: ToJSONKeyFunction FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679258824"><span class="annot"><span class="annottext">[Node] -&gt; Either String FolderName
+([Node] -&gt; Either String FolderName) -&gt; FromXML FolderName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FolderName
+$cparseXML :: [Node] -&gt; Either String FolderName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679258821"><span class="annot"><span class="annottext">FolderName -&gt; XML
+(FolderName -&gt; XML) -&gt; ToXML FolderName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FolderName -&gt; XML
+$ctoXML :: FolderName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DELETED_ITEMS"><span class="hs-identifier hs-type">FolderName_DELETED_ITEMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderName_DELETED_ITEMS"><span id="%24mFolderName_DELETED_ITEMS"><span id="FolderName_DELETED_ITEMS"><span class="annot"><span class="annottext">$bFolderName_DELETED_ITEMS :: FolderName
+$mFolderName_DELETED_ITEMS :: forall r. FolderName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#%24bFolderName_DELETED_ITEMS"><span class="hs-identifier hs-var hs-var hs-var">FolderName_DELETED_ITEMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-type">FolderName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED_ITEMS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DRAFTS"><span class="hs-identifier hs-type">FolderName_DRAFTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderName_DRAFTS"><span id="%24mFolderName_DRAFTS"><span id="FolderName_DRAFTS"><span class="annot"><span class="annottext">$bFolderName_DRAFTS :: FolderName
+$mFolderName_DRAFTS :: forall r. FolderName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#%24bFolderName_DRAFTS"><span class="hs-identifier hs-var hs-var hs-var">FolderName_DRAFTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-type">FolderName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DRAFTS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_INBOX"><span class="hs-identifier hs-type">FolderName_INBOX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderName_INBOX"><span id="%24mFolderName_INBOX"><span id="FolderName_INBOX"><span class="annot"><span class="annottext">$bFolderName_INBOX :: FolderName
+$mFolderName_INBOX :: forall r. FolderName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#%24bFolderName_INBOX"><span class="hs-identifier hs-var hs-var hs-var">FolderName_INBOX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-type">FolderName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INBOX&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_JUNK_EMAIL"><span class="hs-identifier hs-type">FolderName_JUNK_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderName_JUNK_EMAIL"><span id="%24mFolderName_JUNK_EMAIL"><span id="FolderName_JUNK_EMAIL"><span class="annot"><span class="annottext">$bFolderName_JUNK_EMAIL :: FolderName
+$mFolderName_JUNK_EMAIL :: forall r. FolderName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#%24bFolderName_JUNK_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">FolderName_JUNK_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-type">FolderName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JUNK_EMAIL&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_SENT_ITEMS"><span class="hs-identifier hs-type">FolderName_SENT_ITEMS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderName_SENT_ITEMS"><span id="%24mFolderName_SENT_ITEMS"><span id="FolderName_SENT_ITEMS"><span class="annot"><span class="annottext">$bFolderName_SENT_ITEMS :: FolderName
+$mFolderName_SENT_ITEMS :: forall r. FolderName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkMail.Types.FolderName.html#%24bFolderName_SENT_ITEMS"><span class="hs-identifier hs-var hs-var hs-var">FolderName_SENT_ITEMS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-identifier hs-type">FolderName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SENT_ITEMS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DELETED_ITEMS"><span class="hs-pragma hs-type">FolderName_DELETED_ITEMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_DRAFTS"><span class="hs-pragma hs-type">FolderName_DRAFTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_INBOX"><span class="hs-pragma hs-type">FolderName_INBOX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_JUNK_EMAIL"><span class="hs-pragma hs-type">FolderName_JUNK_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName_SENT_ITEMS"><span class="hs-pragma hs-type">FolderName_SENT_ITEMS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName%27"><span class="hs-pragma hs-type">FolderName'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

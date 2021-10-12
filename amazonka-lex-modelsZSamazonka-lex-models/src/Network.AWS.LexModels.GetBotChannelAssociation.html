@@ -1,0 +1,1126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LexModels.GetBotChannelAssociation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the association between an Amazon Lex bot and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a messaging platform.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation requires permissions for the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @lex:GetBotChannelAssociation@ action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LexModels.GetBotChannelAssociation</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociation"><span class="hs-identifier">newGetBotChannelAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_name"><span class="hs-identifier">getBotChannelAssociation_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botName"><span class="hs-identifier">getBotChannelAssociation_botName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botAlias"><span class="hs-identifier">getBotChannelAssociation_botAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociationResponse"><span class="hs-identifier">newGetBotChannelAssociationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botAlias"><span class="hs-identifier">getBotChannelAssociationResponse_botAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_createdDate"><span class="hs-identifier">getBotChannelAssociationResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_status"><span class="hs-identifier">getBotChannelAssociationResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botConfiguration"><span class="hs-identifier">getBotChannelAssociationResponse_botConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botName"><span class="hs-identifier">getBotChannelAssociationResponse_botName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_name"><span class="hs-identifier">getBotChannelAssociationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_failureReason"><span class="hs-identifier">getBotChannelAssociationResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_description"><span class="hs-identifier">getBotChannelAssociationResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_type"><span class="hs-identifier">getBotChannelAssociationResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_httpStatus"><span class="hs-identifier">getBotChannelAssociationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.html"><span class="hs-identifier">Network.AWS.LexModels.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newGetBotChannelAssociation' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679324802"><span id="local-6989586621679324803"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBotChannelAssociation"><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-var">GetBotChannelAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBotChannelAssociation%27"><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-var">GetBotChannelAssociation'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the association between the bot and the channel. The name is</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- case sensitive.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aname%3AGetBotChannelAssociation%27"><span class="annot"><span class="annottext">GetBotChannelAssociation -&gt; Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Lex bot.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AbotName%3AGetBotChannelAssociation%27"><span class="annot"><span class="annottext">GetBotChannelAssociation -&gt; Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AbotAlias%3AGetBotChannelAssociation%27"><span class="annot"><span class="annottext">GetBotChannelAssociation -&gt; Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var hs-var">botAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324794"><span id="local-6989586621679324796"><span class="annot"><span class="annottext">GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool
+(GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool)
+-&gt; (GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool)
+-&gt; Eq GetBotChannelAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool
+$c/= :: GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool
+== :: GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool
+$c== :: GetBotChannelAssociation -&gt; GetBotChannelAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324785"><span id="local-6989586621679324787"><span id="local-6989586621679324789"><span id="local-6989586621679324791"><span class="annot"><span class="annottext">ReadPrec [GetBotChannelAssociation]
+ReadPrec GetBotChannelAssociation
+Int -&gt; ReadS GetBotChannelAssociation
+ReadS [GetBotChannelAssociation]
+(Int -&gt; ReadS GetBotChannelAssociation)
+-&gt; ReadS [GetBotChannelAssociation]
+-&gt; ReadPrec GetBotChannelAssociation
+-&gt; ReadPrec [GetBotChannelAssociation]
+-&gt; Read GetBotChannelAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBotChannelAssociation]
+$creadListPrec :: ReadPrec [GetBotChannelAssociation]
+readPrec :: ReadPrec GetBotChannelAssociation
+$creadPrec :: ReadPrec GetBotChannelAssociation
+readList :: ReadS [GetBotChannelAssociation]
+$creadList :: ReadS [GetBotChannelAssociation]
+readsPrec :: Int -&gt; ReadS GetBotChannelAssociation
+$creadsPrec :: Int -&gt; ReadS GetBotChannelAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324778"><span id="local-6989586621679324780"><span id="local-6989586621679324782"><span class="annot"><span class="annottext">Int -&gt; GetBotChannelAssociation -&gt; ShowS
+[GetBotChannelAssociation] -&gt; ShowS
+GetBotChannelAssociation -&gt; String
+(Int -&gt; GetBotChannelAssociation -&gt; ShowS)
+-&gt; (GetBotChannelAssociation -&gt; String)
+-&gt; ([GetBotChannelAssociation] -&gt; ShowS)
+-&gt; Show GetBotChannelAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBotChannelAssociation] -&gt; ShowS
+$cshowList :: [GetBotChannelAssociation] -&gt; ShowS
+show :: GetBotChannelAssociation -&gt; String
+$cshow :: GetBotChannelAssociation -&gt; String
+showsPrec :: Int -&gt; GetBotChannelAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBotChannelAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBotChannelAssociation -&gt; Rep GetBotChannelAssociation x)
+-&gt; (forall x.
+    Rep GetBotChannelAssociation x -&gt; GetBotChannelAssociation)
+-&gt; Generic GetBotChannelAssociation
+forall x.
+Rep GetBotChannelAssociation x -&gt; GetBotChannelAssociation
+forall x.
+GetBotChannelAssociation -&gt; Rep GetBotChannelAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBotChannelAssociation x -&gt; GetBotChannelAssociation
+$cfrom :: forall x.
+GetBotChannelAssociation -&gt; Rep GetBotChannelAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'GetBotChannelAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'name', 'getBotChannelAssociation_name' - The name of the association between the bot and the channel. The name is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- case sensitive.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'botName', 'getBotChannelAssociation_botName' - The name of the Amazon Lex bot.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'botAlias', 'getBotChannelAssociation_botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociation"><span class="hs-identifier hs-type">newGetBotChannelAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'botName'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'botAlias'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span>
+</span><span id="line-99"></span><span id="newGetBotChannelAssociation"><span class="annot"><span class="annottext">newGetBotChannelAssociation :: Text -&gt; Text -&gt; Text -&gt; GetBotChannelAssociation
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociation"><span class="hs-identifier hs-var hs-var">newGetBotChannelAssociation</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679324773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324773"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679324772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324772"><span class="hs-identifier hs-var">pBotName_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679324771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324771"><span class="hs-identifier hs-var">pBotAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">GetBotChannelAssociation' :: Text -&gt; Text -&gt; Text -&gt; GetBotChannelAssociation
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324773"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:botName:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324772"><span class="hs-identifier hs-var">pBotName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:botAlias:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">botAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324771"><span class="hs-identifier hs-var">pBotAlias_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the association between the bot and the channel. The name is</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- case sensitive.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_name"><span class="hs-identifier hs-type">getBotChannelAssociation_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="getBotChannelAssociation_name"><span class="annot"><span class="annottext">getBotChannelAssociation_name :: (Text -&gt; f Text)
+-&gt; GetBotChannelAssociation -&gt; f GetBotChannelAssociation
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_name"><span class="hs-identifier hs-var hs-var">getBotChannelAssociation_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociation -&gt; Text)
+-&gt; (GetBotChannelAssociation -&gt; Text -&gt; GetBotChannelAssociation)
+-&gt; Lens GetBotChannelAssociation GetBotChannelAssociation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324768"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+</span><a href="#local-6989586621679324768"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324768"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324767"><span class="annot"><span class="annottext">s :: GetBotChannelAssociation
+</span><a href="#local-6989586621679324767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociation
+</span><a href="#local-6989586621679324767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the Amazon Lex bot.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botName"><span class="hs-identifier hs-type">getBotChannelAssociation_botName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="getBotChannelAssociation_botName"><span class="annot"><span class="annottext">getBotChannelAssociation_botName :: (Text -&gt; f Text)
+-&gt; GetBotChannelAssociation -&gt; f GetBotChannelAssociation
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botName"><span class="hs-identifier hs-var hs-var">getBotChannelAssociation_botName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociation -&gt; Text)
+-&gt; (GetBotChannelAssociation -&gt; Text -&gt; GetBotChannelAssociation)
+-&gt; Lens GetBotChannelAssociation GetBotChannelAssociation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324765"><span class="annot"><span class="annottext">Text
+botName :: Text
+$sel:botName:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+</span><a href="#local-6989586621679324765"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324765"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324764"><span class="annot"><span class="annottext">s :: GetBotChannelAssociation
+</span><a href="#local-6989586621679324764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociation
+</span><a href="#local-6989586621679324764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botAlias"><span class="hs-identifier hs-type">getBotChannelAssociation_botAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="getBotChannelAssociation_botAlias"><span class="annot"><span class="annottext">getBotChannelAssociation_botAlias :: (Text -&gt; f Text)
+-&gt; GetBotChannelAssociation -&gt; f GetBotChannelAssociation
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociation_botAlias"><span class="hs-identifier hs-var hs-var">getBotChannelAssociation_botAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociation -&gt; Text)
+-&gt; (GetBotChannelAssociation -&gt; Text -&gt; GetBotChannelAssociation)
+-&gt; Lens GetBotChannelAssociation GetBotChannelAssociation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324762"><span class="annot"><span class="annottext">Text
+botAlias :: Text
+$sel:botAlias:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+</span><a href="#local-6989586621679324762"><span class="hs-identifier hs-var hs-var">botAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324762"><span class="hs-identifier hs-var">botAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324761"><span class="annot"><span class="annottext">s :: GetBotChannelAssociation
+</span><a href="#local-6989586621679324761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociation
+</span><a href="#local-6989586621679324761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botAlias:GetBotChannelAssociation' :: Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociation%27"><span class="hs-identifier hs-var">botAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679324756"><span class="annot"><span class="annottext">request :: GetBotChannelAssociation -&gt; Request GetBotChannelAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetBotChannelAssociation -&gt; Request GetBotChannelAssociation
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679324752"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBotChannelAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBotChannelAssociation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBotChannelAssociation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBotChannelAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBotChannelAssociation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679324748"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679324748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679324747"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ChannelStatus
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChannelType
+-&gt; Int
+-&gt; GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">GetBotChannelAssociationResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ChannelStatus
+ -&gt; Maybe (Sensitive (HashMap Text Text))
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ChannelType
+ -&gt; Int
+ -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe ChannelStatus
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe ChannelStatus
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe ChannelStatus
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ChannelStatus
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe ChannelStatus)
+-&gt; Either
+     String
+     (Maybe (Sensitive (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ChannelStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe (Sensitive (HashMap Text Text)))
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (Sensitive (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botConfiguration&quot;</span></span><span>
+</span><span id="line-136"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (Sensitive (HashMap Text Text))))
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Either String (Maybe (Sensitive (HashMap Text Text)))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;botName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChannelType
+      -&gt; Int
+      -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelType
+   -&gt; Int
+   -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ChannelType -&gt; Int -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ChannelType -&gt; Int -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ChannelType -&gt; Int -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ChannelType -&gt; Int -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String (Maybe ChannelType)
+-&gt; Either String (Int -&gt; GetBotChannelAssociationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ChannelType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBotChannelAssociationResponse)
+-&gt; Either String Int
+-&gt; Either String GetBotChannelAssociationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324738"><span id="local-6989586621679324740"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679324731"><span class="annot"><span class="annottext">toHeaders :: GetBotChannelAssociation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBotChannelAssociation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679324725"><span class="annot"><span class="annottext">toPath :: GetBotChannelAssociation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation%27"><span class="hs-identifier hs-type">GetBotChannelAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324721"><span id="local-6989586621679324722"><span id="local-6989586621679324723"><span class="annot"><span class="annottext">Text
+botAlias :: Text
+botName :: Text
+name :: Text
+$sel:botAlias:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+$sel:botName:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+$sel:name:GetBotChannelAssociation' :: GetBotChannelAssociation -&gt; Text
+</span><a href="#local-6989586621679324721"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/bots/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324722"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/aliases/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324721"><span class="hs-identifier hs-var">botAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324723"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociation"><span class="hs-identifier hs-type">GetBotChannelAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679324717"><span class="annot"><span class="annottext">toQuery :: GetBotChannelAssociation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBotChannelAssociation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newGetBotChannelAssociationResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679324714"><span id="local-6989586621679324715"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBotChannelAssociationResponse"><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-var">GetBotChannelAssociationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBotChannelAssociationResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">GetBotChannelAssociationResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AbotAlias%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">botAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The date that the association between the bot and the channel was</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AcreatedDate%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AcreatedDate%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The status of the bot channel.</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- -   @CREATED@ - The channel has been created and is ready for use.</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@ - Channel creation is in progress.</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- -   @FAILED@ - There was an error creating the channel. For information</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     about the reason for the failure, see the @failureReason@ field.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3Astatus%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe ChannelStatus
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Astatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | Provides information that the messaging platform needs to communicate</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- with the Amazon Lex bot.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AbotConfiguration%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotConfiguration%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">botConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Lex bot.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AbotName%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The name of the association between the bot and the channel.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3Aname%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- to create the association.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AfailureReason%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AfailureReason%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | A description of the association between the bot and the channel.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3Adescription%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Adescription%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The type of the messaging platform.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3Atype%27%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Maybe ChannelType
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Atype%27%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBotChannelAssociationResponse%27"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse -&gt; Int
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AhttpStatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324700"><span id="local-6989586621679324702"><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+-&gt; GetBotChannelAssociationResponse -&gt; Bool
+(GetBotChannelAssociationResponse
+ -&gt; GetBotChannelAssociationResponse -&gt; Bool)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; GetBotChannelAssociationResponse -&gt; Bool)
+-&gt; Eq GetBotChannelAssociationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBotChannelAssociationResponse
+-&gt; GetBotChannelAssociationResponse -&gt; Bool
+$c/= :: GetBotChannelAssociationResponse
+-&gt; GetBotChannelAssociationResponse -&gt; Bool
+== :: GetBotChannelAssociationResponse
+-&gt; GetBotChannelAssociationResponse -&gt; Bool
+$c== :: GetBotChannelAssociationResponse
+-&gt; GetBotChannelAssociationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324694"><span id="local-6989586621679324696"><span id="local-6989586621679324698"><span class="annot"><span class="annottext">Int -&gt; GetBotChannelAssociationResponse -&gt; ShowS
+[GetBotChannelAssociationResponse] -&gt; ShowS
+GetBotChannelAssociationResponse -&gt; String
+(Int -&gt; GetBotChannelAssociationResponse -&gt; ShowS)
+-&gt; (GetBotChannelAssociationResponse -&gt; String)
+-&gt; ([GetBotChannelAssociationResponse] -&gt; ShowS)
+-&gt; Show GetBotChannelAssociationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBotChannelAssociationResponse] -&gt; ShowS
+$cshowList :: [GetBotChannelAssociationResponse] -&gt; ShowS
+show :: GetBotChannelAssociationResponse -&gt; String
+$cshow :: GetBotChannelAssociationResponse -&gt; String
+showsPrec :: Int -&gt; GetBotChannelAssociationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBotChannelAssociationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBotChannelAssociationResponse
+ -&gt; Rep GetBotChannelAssociationResponse x)
+-&gt; (forall x.
+    Rep GetBotChannelAssociationResponse x
+    -&gt; GetBotChannelAssociationResponse)
+-&gt; Generic GetBotChannelAssociationResponse
+forall x.
+Rep GetBotChannelAssociationResponse x
+-&gt; GetBotChannelAssociationResponse
+forall x.
+GetBotChannelAssociationResponse
+-&gt; Rep GetBotChannelAssociationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBotChannelAssociationResponse x
+-&gt; GetBotChannelAssociationResponse
+$cfrom :: forall x.
+GetBotChannelAssociationResponse
+-&gt; Rep GetBotChannelAssociationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Create a value of 'GetBotChannelAssociationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'botAlias', 'getBotChannelAssociationResponse_botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'createdDate', 'getBotChannelAssociationResponse_createdDate' - The date that the association between the bot and the channel was</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'status', 'getBotChannelAssociationResponse_status' - The status of the bot channel.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   @CREATED@ - The channel has been created and is ready for use.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @IN_PROGRESS@ - Channel creation is in progress.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @FAILED@ - There was an error creating the channel. For information</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     about the reason for the failure, see the @failureReason@ field.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'botConfiguration', 'getBotChannelAssociationResponse_botConfiguration' - Provides information that the messaging platform needs to communicate</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- with the Amazon Lex bot.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'botName', 'getBotChannelAssociationResponse_botName' - The name of the Amazon Lex bot.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'name', 'getBotChannelAssociationResponse_name' - The name of the association between the bot and the channel.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'failureReason', 'getBotChannelAssociationResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- to create the association.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'description', 'getBotChannelAssociationResponse_description' - A description of the association between the bot and the channel.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'type'', 'getBotChannelAssociationResponse_type' - The type of the messaging platform.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'getBotChannelAssociationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociationResponse"><span class="hs-identifier hs-type">newGetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span>
+</span><span id="line-253"></span><span id="newGetBotChannelAssociationResponse"><span class="annot"><span class="annottext">newGetBotChannelAssociationResponse :: Int -&gt; GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#newGetBotChannelAssociationResponse"><span class="hs-identifier hs-var hs-var">newGetBotChannelAssociationResponse</span></a></span></span><span> </span><span id="local-6989586621679324691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ChannelStatus
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChannelType
+-&gt; Int
+-&gt; GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:botAlias:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:GetBotChannelAssociationResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AcreatedDate%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:GetBotChannelAssociationResponse' :: Maybe ChannelStatus
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Astatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:botConfiguration:GetBotChannelAssociationResponse' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotConfiguration%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:botName:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AfailureReason%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Adescription%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':GetBotChannelAssociationResponse' :: Maybe ChannelType
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Atype%27%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotChannelAssociationResponse' :: Int
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AhttpStatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | An alias pointing to the specific version of the Amazon Lex bot to which</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- this association is being made.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botAlias"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_botAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="getBotChannelAssociationResponse_botAlias"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_botAlias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botAlias"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_botAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe Text)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe Text -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324690"><span class="annot"><span class="annottext">Maybe Text
+botAlias :: Maybe Text
+$sel:botAlias:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324690"><span class="hs-identifier hs-var hs-var">botAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324690"><span class="hs-identifier hs-var">botAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324689"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botAlias:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotAlias%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The date that the association between the bot and the channel was</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_createdDate"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="getBotChannelAssociationResponse_createdDate"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_createdDate"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe POSIX)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe POSIX -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324687"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679324687"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679324687"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324686"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324685"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679324685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:GetBotChannelAssociationResponse' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AcreatedDate%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679324685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetBotChannelAssociationResponse
+ -&gt; f GetBotChannelAssociationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The status of the bot channel.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   @CREATED@ - The channel has been created and is ready for use.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- -   @IN_PROGRESS@ - Channel creation is in progress.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- -   @FAILED@ - There was an error creating the channel. For information</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     about the reason for the failure, see the @failureReason@ field.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_status"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="getBotChannelAssociationResponse_status"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_status :: (Maybe ChannelStatus -&gt; f (Maybe ChannelStatus))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_status"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe ChannelStatus)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe ChannelStatus -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe ChannelStatus)
+     (Maybe ChannelStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324681"><span class="annot"><span class="annottext">Maybe ChannelStatus
+status :: Maybe ChannelStatus
+$sel:status:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe ChannelStatus
+</span><a href="#local-6989586621679324681"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><a href="#local-6989586621679324681"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324680"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324679"><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><a href="#local-6989586621679324679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetBotChannelAssociationResponse' :: Maybe ChannelStatus
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Astatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><a href="#local-6989586621679324679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Provides information that the messaging platform needs to communicate</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- with the Amazon Lex bot.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botConfiguration"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_botConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="getBotChannelAssociationResponse_botConfiguration"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_botConfiguration :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botConfiguration"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_botConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse
+ -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324678"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+botConfiguration :: Maybe (Sensitive (HashMap Text Text))
+$sel:botConfiguration:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679324678"><span class="hs-identifier hs-var hs-var">botConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679324678"><span class="hs-identifier hs-var">botConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324677"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324676"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679324676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botConfiguration:GetBotChannelAssociationResponse' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotConfiguration%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679324676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; GetBotChannelAssociationResponse
+ -&gt; f GetBotChannelAssociationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The name of the Amazon Lex bot.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botName"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_botName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="getBotChannelAssociationResponse_botName"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_botName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_botName"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_botName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe Text)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe Text -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324673"><span class="annot"><span class="annottext">Maybe Text
+botName :: Maybe Text
+$sel:botName:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324673"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324673"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324672"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AbotName%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The name of the association between the bot and the channel.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_name"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="getBotChannelAssociationResponse_name"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_name"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe Text)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe Text -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324670"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324670"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324670"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324669"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Aname%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- to create the association.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_failureReason"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="getBotChannelAssociationResponse_failureReason"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_failureReason"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe Text)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe Text -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324667"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324667"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324667"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324666"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AfailureReason%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | A description of the association between the bot and the channel.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_description"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="getBotChannelAssociationResponse_description"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_description"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe Text)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe Text -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324664"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324664"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324664"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324663"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GetBotChannelAssociationResponse' :: Maybe Text
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Adescription%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The type of the messaging platform.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_type"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="getBotChannelAssociationResponse_type"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_type :: (Maybe ChannelType -&gt; f (Maybe ChannelType))
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_type"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Maybe ChannelType)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Maybe ChannelType -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     (Maybe ChannelType)
+     (Maybe ChannelType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324661"><span class="annot"><span class="annottext">Maybe ChannelType
+type' :: Maybe ChannelType
+$sel:type':GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Maybe ChannelType
+</span><a href="#local-6989586621679324661"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679324661"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324660"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324659"><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679324659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':GetBotChannelAssociationResponse' :: Maybe ChannelType
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3Atype%27%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679324659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_httpStatus"><span class="hs-identifier hs-type">getBotChannelAssociationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-317"></span><span id="getBotChannelAssociationResponse_httpStatus"><span class="annot"><span class="annottext">getBotChannelAssociationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBotChannelAssociationResponse
+-&gt; f GetBotChannelAssociationResponse
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#getBotChannelAssociationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBotChannelAssociationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBotChannelAssociationResponse -&gt; Int)
+-&gt; (GetBotChannelAssociationResponse
+    -&gt; Int -&gt; GetBotChannelAssociationResponse)
+-&gt; Lens
+     GetBotChannelAssociationResponse
+     GetBotChannelAssociationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324658"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBotChannelAssociationResponse' :: GetBotChannelAssociationResponse -&gt; Int
+</span><a href="#local-6989586621679324658"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324658"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324657"><span class="annot"><span class="annottext">s :: GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse%27"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBotChannelAssociationResponse
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBotChannelAssociationResponse' :: Int
+</span><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#%24sel%3AhttpStatus%3AGetBotChannelAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679324654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Network.AWS.LexModels.GetBotChannelAssociation.html#GetBotChannelAssociationResponse"><span class="hs-identifier hs-type">GetBotChannelAssociationResponse</span></a></span></span><span>
+</span><span id="line-322"></span></pre></body></html>

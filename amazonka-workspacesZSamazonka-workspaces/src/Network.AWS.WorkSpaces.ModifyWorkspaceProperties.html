@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.ModifyWorkspaceProperties</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the specified WorkSpace properties. For important information</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- about how to modify the size of the root and user volumes, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.ModifyWorkspaceProperties</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspaceProperties"><span class="hs-identifier">newModifyWorkspaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceId"><span class="hs-identifier">modifyWorkspaceProperties_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceProperties"><span class="hs-identifier">modifyWorkspaceProperties_workspaceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier">ModifyWorkspacePropertiesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspacePropertiesResponse"><span class="hs-identifier">newModifyWorkspacePropertiesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspacePropertiesResponse_httpStatus"><span class="hs-identifier">modifyWorkspacePropertiesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newModifyWorkspaceProperties' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679277419"><span id="local-6989586621679277420"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyWorkspaceProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-var">ModifyWorkspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyWorkspaceProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-var">ModifyWorkspaceProperties'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AworkspaceId%3AModifyWorkspaceProperties%27"><span class="annot"><span class="annottext">ModifyWorkspaceProperties -&gt; Text
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceId%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The properties of the WorkSpace.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AworkspaceProperties%3AModifyWorkspaceProperties%27"><span class="annot"><span class="annottext">ModifyWorkspaceProperties -&gt; WorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceProperties%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var hs-var">workspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277412"><span id="local-6989586621679277414"><span class="annot"><span class="annottext">ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool
+(ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool)
+-&gt; (ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool)
+-&gt; Eq ModifyWorkspaceProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool
+$c/= :: ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool
+== :: ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool
+$c== :: ModifyWorkspaceProperties -&gt; ModifyWorkspaceProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277403"><span id="local-6989586621679277405"><span id="local-6989586621679277407"><span id="local-6989586621679277409"><span class="annot"><span class="annottext">ReadPrec [ModifyWorkspaceProperties]
+ReadPrec ModifyWorkspaceProperties
+Int -&gt; ReadS ModifyWorkspaceProperties
+ReadS [ModifyWorkspaceProperties]
+(Int -&gt; ReadS ModifyWorkspaceProperties)
+-&gt; ReadS [ModifyWorkspaceProperties]
+-&gt; ReadPrec ModifyWorkspaceProperties
+-&gt; ReadPrec [ModifyWorkspaceProperties]
+-&gt; Read ModifyWorkspaceProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyWorkspaceProperties]
+$creadListPrec :: ReadPrec [ModifyWorkspaceProperties]
+readPrec :: ReadPrec ModifyWorkspaceProperties
+$creadPrec :: ReadPrec ModifyWorkspaceProperties
+readList :: ReadS [ModifyWorkspaceProperties]
+$creadList :: ReadS [ModifyWorkspaceProperties]
+readsPrec :: Int -&gt; ReadS ModifyWorkspaceProperties
+$creadsPrec :: Int -&gt; ReadS ModifyWorkspaceProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277396"><span id="local-6989586621679277398"><span id="local-6989586621679277400"><span class="annot"><span class="annottext">Int -&gt; ModifyWorkspaceProperties -&gt; ShowS
+[ModifyWorkspaceProperties] -&gt; ShowS
+ModifyWorkspaceProperties -&gt; String
+(Int -&gt; ModifyWorkspaceProperties -&gt; ShowS)
+-&gt; (ModifyWorkspaceProperties -&gt; String)
+-&gt; ([ModifyWorkspaceProperties] -&gt; ShowS)
+-&gt; Show ModifyWorkspaceProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyWorkspaceProperties] -&gt; ShowS
+$cshowList :: [ModifyWorkspaceProperties] -&gt; ShowS
+show :: ModifyWorkspaceProperties -&gt; String
+$cshow :: ModifyWorkspaceProperties -&gt; String
+showsPrec :: Int -&gt; ModifyWorkspaceProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyWorkspaceProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyWorkspaceProperties -&gt; Rep ModifyWorkspaceProperties x)
+-&gt; (forall x.
+    Rep ModifyWorkspaceProperties x -&gt; ModifyWorkspaceProperties)
+-&gt; Generic ModifyWorkspaceProperties
+forall x.
+Rep ModifyWorkspaceProperties x -&gt; ModifyWorkspaceProperties
+forall x.
+ModifyWorkspaceProperties -&gt; Rep ModifyWorkspaceProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyWorkspaceProperties x -&gt; ModifyWorkspaceProperties
+$cfrom :: forall x.
+ModifyWorkspaceProperties -&gt; Rep ModifyWorkspaceProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'ModifyWorkspaceProperties' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'workspaceId', 'modifyWorkspaceProperties_workspaceId' - The identifier of the WorkSpace.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'workspaceProperties', 'modifyWorkspaceProperties_workspaceProperties' - The properties of the WorkSpace.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspaceProperties"><span class="hs-identifier hs-type">newModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'workspaceProperties'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span>
+</span><span id="line-77"></span><span id="newModifyWorkspaceProperties"><span class="annot"><span class="annottext">newModifyWorkspaceProperties :: Text -&gt; WorkspaceProperties -&gt; ModifyWorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspaceProperties"><span class="hs-identifier hs-var hs-var">newModifyWorkspaceProperties</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679277391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277391"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679277390"><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277390"><span class="hs-identifier hs-var">pWorkspaceProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">ModifyWorkspaceProperties' :: Text -&gt; WorkspaceProperties -&gt; ModifyWorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workspaceId:ModifyWorkspaceProperties' :: Text
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceId%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277391"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:workspaceProperties:ModifyWorkspaceProperties' :: WorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceProperties%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277390"><span class="hs-identifier hs-var">pWorkspaceProperties_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceId"><span class="hs-identifier hs-type">modifyWorkspaceProperties_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="modifyWorkspaceProperties_workspaceId"><span class="annot"><span class="annottext">modifyWorkspaceProperties_workspaceId :: (Text -&gt; f Text)
+-&gt; ModifyWorkspaceProperties -&gt; f ModifyWorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceId"><span class="hs-identifier hs-var hs-var">modifyWorkspaceProperties_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyWorkspaceProperties -&gt; Text)
+-&gt; (ModifyWorkspaceProperties -&gt; Text -&gt; ModifyWorkspaceProperties)
+-&gt; Lens
+     ModifyWorkspaceProperties ModifyWorkspaceProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277387"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:ModifyWorkspaceProperties' :: ModifyWorkspaceProperties -&gt; Text
+</span><a href="#local-6989586621679277387"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277387"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277386"><span class="annot"><span class="annottext">s :: ModifyWorkspaceProperties
+</span><a href="#local-6989586621679277386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyWorkspaceProperties
+</span><a href="#local-6989586621679277386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:ModifyWorkspaceProperties' :: Text
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceId%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The properties of the WorkSpace.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceProperties"><span class="hs-identifier hs-type">modifyWorkspaceProperties_workspaceProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span>
+</span><span id="line-92"></span><span id="modifyWorkspaceProperties_workspaceProperties"><span class="annot"><span class="annottext">modifyWorkspaceProperties_workspaceProperties :: (WorkspaceProperties -&gt; f WorkspaceProperties)
+-&gt; ModifyWorkspaceProperties -&gt; f ModifyWorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspaceProperties_workspaceProperties"><span class="hs-identifier hs-var hs-var">modifyWorkspaceProperties_workspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyWorkspaceProperties -&gt; WorkspaceProperties)
+-&gt; (ModifyWorkspaceProperties
+    -&gt; WorkspaceProperties -&gt; ModifyWorkspaceProperties)
+-&gt; Lens
+     ModifyWorkspaceProperties
+     ModifyWorkspaceProperties
+     WorkspaceProperties
+     WorkspaceProperties
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277384"><span class="annot"><span class="annottext">WorkspaceProperties
+workspaceProperties :: WorkspaceProperties
+$sel:workspaceProperties:ModifyWorkspaceProperties' :: ModifyWorkspaceProperties -&gt; WorkspaceProperties
+</span><a href="#local-6989586621679277384"><span class="hs-identifier hs-var hs-var">workspaceProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277384"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277383"><span class="annot"><span class="annottext">s :: ModifyWorkspaceProperties
+</span><a href="#local-6989586621679277383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277382"><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyWorkspaceProperties
+</span><a href="#local-6989586621679277383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceProperties:ModifyWorkspaceProperties' :: WorkspaceProperties
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AworkspaceProperties%3AModifyWorkspaceProperties%27"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679277378"><span class="annot"><span class="annottext">request :: ModifyWorkspaceProperties -&gt; Request ModifyWorkspaceProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ModifyWorkspaceProperties -&gt; Request ModifyWorkspaceProperties
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679277374"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyWorkspaceProperties
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyWorkspaceProperties)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse ModifyWorkspaceProperties))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyWorkspaceProperties
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyWorkspaceProperties)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277371"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679277370"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679277370"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679277369"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679277369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ModifyWorkspacePropertiesResponse
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-var">ModifyWorkspacePropertiesResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ModifyWorkspacePropertiesResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyWorkspacePropertiesResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277371"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277362"><span id="local-6989586621679277364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679277355"><span class="annot"><span class="annottext">toHeaders :: ModifyWorkspaceProperties -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyWorkspaceProperties -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.ModifyWorkspaceProperties&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277345"><span id="local-6989586621679277347"><span id="local-6989586621679277349"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679277343"><span class="annot"><span class="annottext">toJSON :: ModifyWorkspaceProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties%27"><span class="hs-identifier hs-type">ModifyWorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277340"><span id="local-6989586621679277341"><span class="annot"><span class="annottext">Text
+WorkspaceProperties
+workspaceProperties :: WorkspaceProperties
+workspaceId :: Text
+$sel:workspaceProperties:ModifyWorkspaceProperties' :: ModifyWorkspaceProperties -&gt; WorkspaceProperties
+$sel:workspaceId:ModifyWorkspaceProperties' :: ModifyWorkspaceProperties -&gt; Text
+</span><a href="#local-6989586621679277340"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277341"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WorkspaceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679277340"><span class="hs-identifier hs-var">workspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679277334"><span class="annot"><span class="annottext">toPath :: ModifyWorkspaceProperties -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyWorkspaceProperties -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspaceProperties"><span class="hs-identifier hs-type">ModifyWorkspaceProperties</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679277330"><span class="annot"><span class="annottext">toQuery :: ModifyWorkspaceProperties -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyWorkspaceProperties -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newModifyWorkspacePropertiesResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679277327"><span id="local-6989586621679277328"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyWorkspacePropertiesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-var">ModifyWorkspacePropertiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyWorkspacePropertiesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-var">ModifyWorkspacePropertiesResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyWorkspacePropertiesResponse%27"><span class="annot"><span class="annottext">ModifyWorkspacePropertiesResponse -&gt; Int
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AhttpStatus%3AModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277322"><span id="local-6989586621679277324"><span class="annot"><span class="annottext">ModifyWorkspacePropertiesResponse
+-&gt; ModifyWorkspacePropertiesResponse -&gt; Bool
+(ModifyWorkspacePropertiesResponse
+ -&gt; ModifyWorkspacePropertiesResponse -&gt; Bool)
+-&gt; (ModifyWorkspacePropertiesResponse
+    -&gt; ModifyWorkspacePropertiesResponse -&gt; Bool)
+-&gt; Eq ModifyWorkspacePropertiesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyWorkspacePropertiesResponse
+-&gt; ModifyWorkspacePropertiesResponse -&gt; Bool
+$c/= :: ModifyWorkspacePropertiesResponse
+-&gt; ModifyWorkspacePropertiesResponse -&gt; Bool
+== :: ModifyWorkspacePropertiesResponse
+-&gt; ModifyWorkspacePropertiesResponse -&gt; Bool
+$c== :: ModifyWorkspacePropertiesResponse
+-&gt; ModifyWorkspacePropertiesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277314"><span id="local-6989586621679277316"><span id="local-6989586621679277318"><span id="local-6989586621679277320"><span class="annot"><span class="annottext">ReadPrec [ModifyWorkspacePropertiesResponse]
+ReadPrec ModifyWorkspacePropertiesResponse
+Int -&gt; ReadS ModifyWorkspacePropertiesResponse
+ReadS [ModifyWorkspacePropertiesResponse]
+(Int -&gt; ReadS ModifyWorkspacePropertiesResponse)
+-&gt; ReadS [ModifyWorkspacePropertiesResponse]
+-&gt; ReadPrec ModifyWorkspacePropertiesResponse
+-&gt; ReadPrec [ModifyWorkspacePropertiesResponse]
+-&gt; Read ModifyWorkspacePropertiesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyWorkspacePropertiesResponse]
+$creadListPrec :: ReadPrec [ModifyWorkspacePropertiesResponse]
+readPrec :: ReadPrec ModifyWorkspacePropertiesResponse
+$creadPrec :: ReadPrec ModifyWorkspacePropertiesResponse
+readList :: ReadS [ModifyWorkspacePropertiesResponse]
+$creadList :: ReadS [ModifyWorkspacePropertiesResponse]
+readsPrec :: Int -&gt; ReadS ModifyWorkspacePropertiesResponse
+$creadsPrec :: Int -&gt; ReadS ModifyWorkspacePropertiesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277308"><span id="local-6989586621679277310"><span id="local-6989586621679277312"><span class="annot"><span class="annottext">Int -&gt; ModifyWorkspacePropertiesResponse -&gt; ShowS
+[ModifyWorkspacePropertiesResponse] -&gt; ShowS
+ModifyWorkspacePropertiesResponse -&gt; String
+(Int -&gt; ModifyWorkspacePropertiesResponse -&gt; ShowS)
+-&gt; (ModifyWorkspacePropertiesResponse -&gt; String)
+-&gt; ([ModifyWorkspacePropertiesResponse] -&gt; ShowS)
+-&gt; Show ModifyWorkspacePropertiesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyWorkspacePropertiesResponse] -&gt; ShowS
+$cshowList :: [ModifyWorkspacePropertiesResponse] -&gt; ShowS
+show :: ModifyWorkspacePropertiesResponse -&gt; String
+$cshow :: ModifyWorkspacePropertiesResponse -&gt; String
+showsPrec :: Int -&gt; ModifyWorkspacePropertiesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyWorkspacePropertiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyWorkspacePropertiesResponse
+ -&gt; Rep ModifyWorkspacePropertiesResponse x)
+-&gt; (forall x.
+    Rep ModifyWorkspacePropertiesResponse x
+    -&gt; ModifyWorkspacePropertiesResponse)
+-&gt; Generic ModifyWorkspacePropertiesResponse
+forall x.
+Rep ModifyWorkspacePropertiesResponse x
+-&gt; ModifyWorkspacePropertiesResponse
+forall x.
+ModifyWorkspacePropertiesResponse
+-&gt; Rep ModifyWorkspacePropertiesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyWorkspacePropertiesResponse x
+-&gt; ModifyWorkspacePropertiesResponse
+$cfrom :: forall x.
+ModifyWorkspacePropertiesResponse
+-&gt; Rep ModifyWorkspacePropertiesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'ModifyWorkspacePropertiesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'modifyWorkspacePropertiesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">newModifyWorkspacePropertiesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newModifyWorkspacePropertiesResponse"><span class="annot"><span class="annottext">newModifyWorkspacePropertiesResponse :: Int -&gt; ModifyWorkspacePropertiesResponse
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#newModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-var hs-var">newModifyWorkspacePropertiesResponse</span></a></span></span><span> </span><span id="local-6989586621679277305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ModifyWorkspacePropertiesResponse' :: Int -&gt; ModifyWorkspacePropertiesResponse
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyWorkspacePropertiesResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AhttpStatus%3AModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspacePropertiesResponse_httpStatus"><span class="hs-identifier hs-type">modifyWorkspacePropertiesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="modifyWorkspacePropertiesResponse_httpStatus"><span class="annot"><span class="annottext">modifyWorkspacePropertiesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyWorkspacePropertiesResponse
+-&gt; f ModifyWorkspacePropertiesResponse
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#modifyWorkspacePropertiesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyWorkspacePropertiesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyWorkspacePropertiesResponse -&gt; Int)
+-&gt; (ModifyWorkspacePropertiesResponse
+    -&gt; Int -&gt; ModifyWorkspacePropertiesResponse)
+-&gt; Lens
+     ModifyWorkspacePropertiesResponse
+     ModifyWorkspacePropertiesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277304"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyWorkspacePropertiesResponse' :: ModifyWorkspacePropertiesResponse -&gt; Int
+</span><a href="#local-6989586621679277304"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277304"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277303"><span class="annot"><span class="annottext">s :: ModifyWorkspacePropertiesResponse
+</span><a href="#local-6989586621679277303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277302"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyWorkspacePropertiesResponse
+</span><a href="#local-6989586621679277303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyWorkspacePropertiesResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#%24sel%3AhttpStatus%3AModifyWorkspacePropertiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679277302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679277300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyWorkspaceProperties.html#ModifyWorkspacePropertiesResponse"><span class="hs-identifier hs-type">ModifyWorkspacePropertiesResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

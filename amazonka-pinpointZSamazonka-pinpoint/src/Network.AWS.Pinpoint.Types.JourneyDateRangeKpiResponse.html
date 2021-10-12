@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.BaseKpiResult</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides the results of a query that retrieved the data for a standard</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- engagement metric that applies to a journey, and provides information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- about that query.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newJourneyDateRangeKpiResponse' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679607622"><span id="local-6989586621679607623"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneyDateRangeKpiResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-var">JourneyDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneyDateRangeKpiResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">JourneyDateRangeKpiResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- results in a paginated response. This value is null for the Journey</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Engagement Metrics resource because the resource returns all results in</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- a single page.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnextToken%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AnextToken%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AkpiResult%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiResult%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">kpiResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AkpiName%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiName%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the journey that the metric applies to.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AjourneyId%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AjourneyId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AendTime%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AendTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstartTime%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AstartTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3AJourneyDateRangeKpiResponse%27"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AapplicationId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607610"><span id="local-6989586621679607612"><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse -&gt; JourneyDateRangeKpiResponse -&gt; Bool
+(JourneyDateRangeKpiResponse
+ -&gt; JourneyDateRangeKpiResponse -&gt; Bool)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; JourneyDateRangeKpiResponse -&gt; Bool)
+-&gt; Eq JourneyDateRangeKpiResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JourneyDateRangeKpiResponse -&gt; JourneyDateRangeKpiResponse -&gt; Bool
+$c/= :: JourneyDateRangeKpiResponse -&gt; JourneyDateRangeKpiResponse -&gt; Bool
+== :: JourneyDateRangeKpiResponse -&gt; JourneyDateRangeKpiResponse -&gt; Bool
+$c== :: JourneyDateRangeKpiResponse -&gt; JourneyDateRangeKpiResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607601"><span id="local-6989586621679607603"><span id="local-6989586621679607605"><span id="local-6989586621679607607"><span class="annot"><span class="annottext">ReadPrec [JourneyDateRangeKpiResponse]
+ReadPrec JourneyDateRangeKpiResponse
+Int -&gt; ReadS JourneyDateRangeKpiResponse
+ReadS [JourneyDateRangeKpiResponse]
+(Int -&gt; ReadS JourneyDateRangeKpiResponse)
+-&gt; ReadS [JourneyDateRangeKpiResponse]
+-&gt; ReadPrec JourneyDateRangeKpiResponse
+-&gt; ReadPrec [JourneyDateRangeKpiResponse]
+-&gt; Read JourneyDateRangeKpiResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JourneyDateRangeKpiResponse]
+$creadListPrec :: ReadPrec [JourneyDateRangeKpiResponse]
+readPrec :: ReadPrec JourneyDateRangeKpiResponse
+$creadPrec :: ReadPrec JourneyDateRangeKpiResponse
+readList :: ReadS [JourneyDateRangeKpiResponse]
+$creadList :: ReadS [JourneyDateRangeKpiResponse]
+readsPrec :: Int -&gt; ReadS JourneyDateRangeKpiResponse
+$creadsPrec :: Int -&gt; ReadS JourneyDateRangeKpiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607594"><span id="local-6989586621679607596"><span id="local-6989586621679607598"><span class="annot"><span class="annottext">Int -&gt; JourneyDateRangeKpiResponse -&gt; ShowS
+[JourneyDateRangeKpiResponse] -&gt; ShowS
+JourneyDateRangeKpiResponse -&gt; String
+(Int -&gt; JourneyDateRangeKpiResponse -&gt; ShowS)
+-&gt; (JourneyDateRangeKpiResponse -&gt; String)
+-&gt; ([JourneyDateRangeKpiResponse] -&gt; ShowS)
+-&gt; Show JourneyDateRangeKpiResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JourneyDateRangeKpiResponse] -&gt; ShowS
+$cshowList :: [JourneyDateRangeKpiResponse] -&gt; ShowS
+show :: JourneyDateRangeKpiResponse -&gt; String
+$cshow :: JourneyDateRangeKpiResponse -&gt; String
+showsPrec :: Int -&gt; JourneyDateRangeKpiResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; JourneyDateRangeKpiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ JourneyDateRangeKpiResponse -&gt; Rep JourneyDateRangeKpiResponse x)
+-&gt; (forall x.
+    Rep JourneyDateRangeKpiResponse x -&gt; JourneyDateRangeKpiResponse)
+-&gt; Generic JourneyDateRangeKpiResponse
+forall x.
+Rep JourneyDateRangeKpiResponse x -&gt; JourneyDateRangeKpiResponse
+forall x.
+JourneyDateRangeKpiResponse -&gt; Rep JourneyDateRangeKpiResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep JourneyDateRangeKpiResponse x -&gt; JourneyDateRangeKpiResponse
+$cfrom :: forall x.
+JourneyDateRangeKpiResponse -&gt; Rep JourneyDateRangeKpiResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'JourneyDateRangeKpiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'nextToken', 'journeyDateRangeKpiResponse_nextToken' - The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- results in a paginated response. This value is null for the Journey</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Engagement Metrics resource because the resource returns all results in</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- a single page.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'kpiResult', 'journeyDateRangeKpiResponse_kpiResult' - An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'kpiName', 'journeyDateRangeKpiResponse_kpiName' - The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'journeyId', 'journeyDateRangeKpiResponse_journeyId' - The unique identifier for the journey that the metric applies to.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'endTime', 'journeyDateRangeKpiResponse_endTime' - The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'startTime', 'journeyDateRangeKpiResponse_startTime' - The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'applicationId', 'journeyDateRangeKpiResponse_applicationId' - The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#newJourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">newJourneyDateRangeKpiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'kpiResult'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'kpiName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'journeyId'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'endTime'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span>
+</span><span id="line-107"></span><span id="newJourneyDateRangeKpiResponse"><span class="annot"><span class="annottext">newJourneyDateRangeKpiResponse :: BaseKpiResult
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; Text
+-&gt; JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#newJourneyDateRangeKpiResponse"><span class="hs-identifier hs-var hs-var">newJourneyDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679607588"><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607588"><span class="hs-identifier hs-var">pKpiResult_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679607587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607587"><span class="hs-identifier hs-var">pKpiName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679607586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607586"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679607585"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607585"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679607584"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607584"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679607583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607583"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse' :: Maybe Text
+-&gt; BaseKpiResult
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:JourneyDateRangeKpiResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AnextToken%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:kpiResult:JourneyDateRangeKpiResponse' :: BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiResult%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607588"><span class="hs-identifier hs-var">pKpiResult_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:kpiName:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiName%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607587"><span class="hs-identifier hs-var">pKpiName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyId:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AjourneyId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607586"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:JourneyDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AendTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607585"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:JourneyDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AstartTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679607584"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AapplicationId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607583"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- results in a paginated response. This value is null for the Journey</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Engagement Metrics resource because the resource returns all results in</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- a single page.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_nextToken"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="journeyDateRangeKpiResponse_nextToken"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_nextToken"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; Maybe Text)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; Maybe Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse
+     JourneyDateRangeKpiResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607577"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679607577"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607577"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607576"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:JourneyDateRangeKpiResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AnextToken%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | An array of objects that contains the results of the query. Each object</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- contains the value for the metric and metadata about that value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_kpiResult"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_kpiResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaseKpiResult.html#BaseKpiResult"><span class="hs-identifier hs-type">BaseKpiResult</span></a></span><span>
+</span><span id="line-135"></span><span id="journeyDateRangeKpiResponse_kpiResult"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_kpiResult :: (BaseKpiResult -&gt; f BaseKpiResult)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_kpiResult"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_kpiResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; BaseKpiResult)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; BaseKpiResult -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse
+     JourneyDateRangeKpiResponse
+     BaseKpiResult
+     BaseKpiResult
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607573"><span class="annot"><span class="annottext">BaseKpiResult
+kpiResult :: BaseKpiResult
+$sel:kpiResult:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; BaseKpiResult
+</span><a href="#local-6989586621679607573"><span class="hs-identifier hs-var hs-var">kpiResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607573"><span class="hs-identifier hs-var">kpiResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607572"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607571"><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kpiResult:JourneyDateRangeKpiResponse' :: BaseKpiResult
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiResult%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BaseKpiResult
+</span><a href="#local-6989586621679607571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the metric, also referred to as a /key performance indicator</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- (KPI)/, that the data was retrieved for. This value describes the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- associated metric and consists of two or more terms, which are comprised</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- of lowercase alphanumeric characters, separated by a hyphen. For a list</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- of possible values, see the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide&gt;.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_kpiName"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_kpiName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="journeyDateRangeKpiResponse_kpiName"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_kpiName :: (Text -&gt; f Text)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_kpiName"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_kpiName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; Text)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse JourneyDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607569"><span class="annot"><span class="annottext">Text
+kpiName :: Text
+$sel:kpiName:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607569"><span class="hs-identifier hs-var hs-var">kpiName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607569"><span class="hs-identifier hs-var">kpiName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607568"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607567"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kpiName:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AkpiName%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">kpiName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The unique identifier for the journey that the metric applies to.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_journeyId"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_journeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="journeyDateRangeKpiResponse_journeyId"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_journeyId :: (Text -&gt; f Text)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_journeyId"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_journeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; Text)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse JourneyDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607565"><span class="annot"><span class="annottext">Text
+journeyId :: Text
+$sel:journeyId:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607565"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607565"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607564"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607563"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AjourneyId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The last date and time of the date range that was used to filter the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_endTime"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-153"></span><span id="journeyDateRangeKpiResponse_endTime"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_endTime :: (UTCTime -&gt; f UTCTime)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_endTime"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; POSIX)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; POSIX -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse JourneyDateRangeKpiResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607561"><span class="annot"><span class="annottext">POSIX
+endTime :: POSIX
+$sel:endTime:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; POSIX
+</span><a href="#local-6989586621679607561"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607561"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607560"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607559"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:JourneyDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AendTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; JourneyDateRangeKpiResponse
+-&gt; f JourneyDateRangeKpiResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The first date and time of the date range that was used to filter the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- query results, in extended ISO 8601 format. The date range is inclusive.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_startTime"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-158"></span><span id="journeyDateRangeKpiResponse_startTime"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_startTime :: (UTCTime -&gt; f UTCTime)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_startTime"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; POSIX)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; POSIX -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse JourneyDateRangeKpiResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607556"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; POSIX
+</span><a href="#local-6989586621679607556"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607556"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607555"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607554"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:JourneyDateRangeKpiResponse' :: POSIX
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AstartTime%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679607554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; JourneyDateRangeKpiResponse
+-&gt; f JourneyDateRangeKpiResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The unique identifier for the application that the metric applies to.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_applicationId"><span class="hs-identifier hs-type">journeyDateRangeKpiResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="journeyDateRangeKpiResponse_applicationId"><span class="annot"><span class="annottext">journeyDateRangeKpiResponse_applicationId :: (Text -&gt; f Text)
+-&gt; JourneyDateRangeKpiResponse -&gt; f JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#journeyDateRangeKpiResponse_applicationId"><span class="hs-identifier hs-var hs-var">journeyDateRangeKpiResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JourneyDateRangeKpiResponse -&gt; Text)
+-&gt; (JourneyDateRangeKpiResponse
+    -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Lens
+     JourneyDateRangeKpiResponse JourneyDateRangeKpiResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607552"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:JourneyDateRangeKpiResponse' :: JourneyDateRangeKpiResponse -&gt; Text
+</span><a href="#local-6989586621679607552"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607552"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607551"><span class="annot"><span class="annottext">s :: JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyDateRangeKpiResponse
+</span><a href="#local-6989586621679607551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:JourneyDateRangeKpiResponse' :: Text
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#%24sel%3AapplicationId%3AJourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679607550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607547"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679607545"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneyDateRangeKpiResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JourneyDateRangeKpiResponse)
+-&gt; Value
+-&gt; Parser JourneyDateRangeKpiResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JourneyDateRangeKpiResponse&quot;</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607542"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; BaseKpiResult
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; JourneyDateRangeKpiResponse
+</span><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse%27"><span class="hs-identifier hs-var">JourneyDateRangeKpiResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; BaseKpiResult
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (BaseKpiResult
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (BaseKpiResult
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser BaseKpiResult
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BaseKpiResult
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KpiResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KpiName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JourneyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser POSIX
+-&gt; Parser (POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; JourneyDateRangeKpiResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; JourneyDateRangeKpiResponse)
+-&gt; Parser Text -&gt; Parser JourneyDateRangeKpiResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607535"><span id="local-6989586621679607537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse.html#JourneyDateRangeKpiResponse"><span class="hs-identifier hs-type">JourneyDateRangeKpiResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

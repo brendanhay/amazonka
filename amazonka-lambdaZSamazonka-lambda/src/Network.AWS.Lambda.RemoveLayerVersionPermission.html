@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Lambda.RemoveLayerVersionPermission</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a statement from the permissions policy for a version of an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see AddLayerVersionPermission.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lambda.RemoveLayerVersionPermission</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermission"><span class="hs-identifier">newRemoveLayerVersionPermission</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_revisionId"><span class="hs-identifier">removeLayerVersionPermission_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_layerName"><span class="hs-identifier">removeLayerVersionPermission_layerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_versionNumber"><span class="hs-identifier">removeLayerVersionPermission_versionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_statementId"><span class="hs-identifier">removeLayerVersionPermission_statementId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse"><span class="hs-identifier">RemoveLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermissionResponse"><span class="hs-identifier">newRemoveLayerVersionPermissionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.html"><span class="hs-identifier">Network.AWS.Lambda.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newRemoveLayerVersionPermission' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679297093"><span id="local-6989586621679297094"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveLayerVersionPermission"><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-var">RemoveLayerVersionPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveLayerVersionPermission%27"><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">RemoveLayerVersionPermission'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID specified. Use</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- this option to avoid modifying a policy that has changed since you last</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- read it.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArevisionId%3ARemoveLayerVersionPermission%27"><span class="annot"><span class="annottext">RemoveLayerVersionPermission -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3ArevisionId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlayerName%3ARemoveLayerVersionPermission%27"><span class="annot"><span class="annottext">RemoveLayerVersionPermission -&gt; Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AlayerName%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AversionNumber%3ARemoveLayerVersionPermission%27"><span class="annot"><span class="annottext">RemoveLayerVersionPermission -&gt; Integer
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AversionNumber%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The identifier that was specified when the statement was added.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AstatementId%3ARemoveLayerVersionPermission%27"><span class="annot"><span class="annottext">RemoveLayerVersionPermission -&gt; Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AstatementId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297084"><span id="local-6989586621679297086"><span class="annot"><span class="annottext">RemoveLayerVersionPermission
+-&gt; RemoveLayerVersionPermission -&gt; Bool
+(RemoveLayerVersionPermission
+ -&gt; RemoveLayerVersionPermission -&gt; Bool)
+-&gt; (RemoveLayerVersionPermission
+    -&gt; RemoveLayerVersionPermission -&gt; Bool)
+-&gt; Eq RemoveLayerVersionPermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveLayerVersionPermission
+-&gt; RemoveLayerVersionPermission -&gt; Bool
+$c/= :: RemoveLayerVersionPermission
+-&gt; RemoveLayerVersionPermission -&gt; Bool
+== :: RemoveLayerVersionPermission
+-&gt; RemoveLayerVersionPermission -&gt; Bool
+$c== :: RemoveLayerVersionPermission
+-&gt; RemoveLayerVersionPermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297075"><span id="local-6989586621679297077"><span id="local-6989586621679297079"><span id="local-6989586621679297081"><span class="annot"><span class="annottext">ReadPrec [RemoveLayerVersionPermission]
+ReadPrec RemoveLayerVersionPermission
+Int -&gt; ReadS RemoveLayerVersionPermission
+ReadS [RemoveLayerVersionPermission]
+(Int -&gt; ReadS RemoveLayerVersionPermission)
+-&gt; ReadS [RemoveLayerVersionPermission]
+-&gt; ReadPrec RemoveLayerVersionPermission
+-&gt; ReadPrec [RemoveLayerVersionPermission]
+-&gt; Read RemoveLayerVersionPermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveLayerVersionPermission]
+$creadListPrec :: ReadPrec [RemoveLayerVersionPermission]
+readPrec :: ReadPrec RemoveLayerVersionPermission
+$creadPrec :: ReadPrec RemoveLayerVersionPermission
+readList :: ReadS [RemoveLayerVersionPermission]
+$creadList :: ReadS [RemoveLayerVersionPermission]
+readsPrec :: Int -&gt; ReadS RemoveLayerVersionPermission
+$creadsPrec :: Int -&gt; ReadS RemoveLayerVersionPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297068"><span id="local-6989586621679297070"><span id="local-6989586621679297072"><span class="annot"><span class="annottext">Int -&gt; RemoveLayerVersionPermission -&gt; ShowS
+[RemoveLayerVersionPermission] -&gt; ShowS
+RemoveLayerVersionPermission -&gt; String
+(Int -&gt; RemoveLayerVersionPermission -&gt; ShowS)
+-&gt; (RemoveLayerVersionPermission -&gt; String)
+-&gt; ([RemoveLayerVersionPermission] -&gt; ShowS)
+-&gt; Show RemoveLayerVersionPermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveLayerVersionPermission] -&gt; ShowS
+$cshowList :: [RemoveLayerVersionPermission] -&gt; ShowS
+show :: RemoveLayerVersionPermission -&gt; String
+$cshow :: RemoveLayerVersionPermission -&gt; String
+showsPrec :: Int -&gt; RemoveLayerVersionPermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveLayerVersionPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveLayerVersionPermission -&gt; Rep RemoveLayerVersionPermission x)
+-&gt; (forall x.
+    Rep RemoveLayerVersionPermission x -&gt; RemoveLayerVersionPermission)
+-&gt; Generic RemoveLayerVersionPermission
+forall x.
+Rep RemoveLayerVersionPermission x -&gt; RemoveLayerVersionPermission
+forall x.
+RemoveLayerVersionPermission -&gt; Rep RemoveLayerVersionPermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveLayerVersionPermission x -&gt; RemoveLayerVersionPermission
+$cfrom :: forall x.
+RemoveLayerVersionPermission -&gt; Rep RemoveLayerVersionPermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'RemoveLayerVersionPermission' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'revisionId', 'removeLayerVersionPermission_revisionId' - Only update the policy if the revision ID matches the ID specified. Use</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- this option to avoid modifying a policy that has changed since you last</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- read it.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'layerName', 'removeLayerVersionPermission_layerName' - The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'versionNumber', 'removeLayerVersionPermission_versionNumber' - The version number.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'statementId', 'removeLayerVersionPermission_statementId' - The identifier that was specified when the statement was added.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermission"><span class="hs-identifier hs-type">newRemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'layerName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'versionNumber'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'statementId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span>
+</span><span id="line-90"></span><span id="newRemoveLayerVersionPermission"><span class="annot"><span class="annottext">newRemoveLayerVersionPermission :: Text -&gt; Integer -&gt; Text -&gt; RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermission"><span class="hs-identifier hs-var hs-var">newRemoveLayerVersionPermission</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679297063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297063"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679297062"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297062"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679297061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297061"><span class="hs-identifier hs-var">pStatementId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">RemoveLayerVersionPermission' :: Maybe Text
+-&gt; Text -&gt; Integer -&gt; Text -&gt; RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionId:RemoveLayerVersionPermission' :: Maybe Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3ArevisionId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:layerName:RemoveLayerVersionPermission' :: Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AlayerName%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297063"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionNumber:RemoveLayerVersionPermission' :: Integer
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AversionNumber%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297062"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:statementId:RemoveLayerVersionPermission' :: Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AstatementId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297061"><span class="hs-identifier hs-var">pStatementId_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID specified. Use</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- this option to avoid modifying a policy that has changed since you last</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- read it.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_revisionId"><span class="hs-identifier hs-type">removeLayerVersionPermission_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="removeLayerVersionPermission_revisionId"><span class="annot"><span class="annottext">removeLayerVersionPermission_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveLayerVersionPermission -&gt; f RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_revisionId"><span class="hs-identifier hs-var hs-var">removeLayerVersionPermission_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveLayerVersionPermission -&gt; Maybe Text)
+-&gt; (RemoveLayerVersionPermission
+    -&gt; Maybe Text -&gt; RemoveLayerVersionPermission)
+-&gt; Lens
+     RemoveLayerVersionPermission
+     RemoveLayerVersionPermission
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297058"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679297058"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297058"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297057"><span class="annot"><span class="annottext">s :: RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:RemoveLayerVersionPermission' :: Maybe Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3ArevisionId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_layerName"><span class="hs-identifier hs-type">removeLayerVersionPermission_layerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="removeLayerVersionPermission_layerName"><span class="annot"><span class="annottext">removeLayerVersionPermission_layerName :: (Text -&gt; f Text)
+-&gt; RemoveLayerVersionPermission -&gt; f RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_layerName"><span class="hs-identifier hs-var hs-var">removeLayerVersionPermission_layerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveLayerVersionPermission -&gt; Text)
+-&gt; (RemoveLayerVersionPermission
+    -&gt; Text -&gt; RemoveLayerVersionPermission)
+-&gt; Lens
+     RemoveLayerVersionPermission RemoveLayerVersionPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297055"><span class="annot"><span class="annottext">Text
+layerName :: Text
+$sel:layerName:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+</span><a href="#local-6989586621679297055"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297055"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297054"><span class="annot"><span class="annottext">s :: RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:RemoveLayerVersionPermission' :: Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AlayerName%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_versionNumber"><span class="hs-identifier hs-type">removeLayerVersionPermission_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-114"></span><span id="removeLayerVersionPermission_versionNumber"><span class="annot"><span class="annottext">removeLayerVersionPermission_versionNumber :: (Integer -&gt; f Integer)
+-&gt; RemoveLayerVersionPermission -&gt; f RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_versionNumber"><span class="hs-identifier hs-var hs-var">removeLayerVersionPermission_versionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveLayerVersionPermission -&gt; Integer)
+-&gt; (RemoveLayerVersionPermission
+    -&gt; Integer -&gt; RemoveLayerVersionPermission)
+-&gt; Lens
+     RemoveLayerVersionPermission
+     RemoveLayerVersionPermission
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297052"><span class="annot"><span class="annottext">Integer
+versionNumber :: Integer
+$sel:versionNumber:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Integer
+</span><a href="#local-6989586621679297052"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297052"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297051"><span class="annot"><span class="annottext">s :: RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297050"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:RemoveLayerVersionPermission' :: Integer
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AversionNumber%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The identifier that was specified when the statement was added.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_statementId"><span class="hs-identifier hs-type">removeLayerVersionPermission_statementId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="removeLayerVersionPermission_statementId"><span class="annot"><span class="annottext">removeLayerVersionPermission_statementId :: (Text -&gt; f Text)
+-&gt; RemoveLayerVersionPermission -&gt; f RemoveLayerVersionPermission
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#removeLayerVersionPermission_statementId"><span class="hs-identifier hs-var hs-var">removeLayerVersionPermission_statementId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveLayerVersionPermission -&gt; Text)
+-&gt; (RemoveLayerVersionPermission
+    -&gt; Text -&gt; RemoveLayerVersionPermission)
+-&gt; Lens
+     RemoveLayerVersionPermission RemoveLayerVersionPermission Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297049"><span class="annot"><span class="annottext">Text
+statementId :: Text
+$sel:statementId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+</span><a href="#local-6989586621679297049"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297049"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297048"><span class="annot"><span class="annottext">s :: RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveLayerVersionPermission
+</span><a href="#local-6989586621679297048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:RemoveLayerVersionPermission' :: Text
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#%24sel%3AstatementId%3ARemoveLayerVersionPermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-type">RemoveLayerVersionPermissionResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679297043"><span class="annot"><span class="annottext">request :: RemoveLayerVersionPermission
+-&gt; Request RemoveLayerVersionPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RemoveLayerVersionPermission
+-&gt; Request RemoveLayerVersionPermission
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679297039"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveLayerVersionPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveLayerVersionPermission)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RemoveLayerVersionPermission
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveLayerVersionPermission
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveLayerVersionPermission)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse RemoveLayerVersionPermission
+RemoveLayerVersionPermissionResponse
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">RemoveLayerVersionPermissionResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679297032"><span id="local-6989586621679297034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679297025"><span class="annot"><span class="annottext">toHeaders :: RemoveLayerVersionPermission -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RemoveLayerVersionPermission -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679297020"><span class="annot"><span class="annottext">toPath :: RemoveLayerVersionPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297015"><span id="local-6989586621679297016"><span id="local-6989586621679297017"><span id="local-6989586621679297018"><span class="annot"><span class="annottext">Integer
+Maybe Text
+Text
+statementId :: Text
+versionNumber :: Integer
+layerName :: Text
+revisionId :: Maybe Text
+$sel:statementId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+$sel:versionNumber:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Integer
+$sel:layerName:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+$sel:revisionId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679297015"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2018-10-31/layers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297017"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679297016"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policy/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297015"><span class="hs-identifier hs-var">statementId</span></a></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission"><span class="hs-identifier hs-type">RemoveLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679297011"><span class="annot"><span class="annottext">toQuery :: RemoveLayerVersionPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermission%27"><span class="hs-identifier hs-type">RemoveLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297006"><span id="local-6989586621679297007"><span id="local-6989586621679297008"><span id="local-6989586621679297009"><span class="annot"><span class="annottext">Integer
+Maybe Text
+Text
+statementId :: Text
+versionNumber :: Integer
+layerName :: Text
+revisionId :: Maybe Text
+$sel:statementId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+$sel:versionNumber:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Integer
+$sel:layerName:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Text
+$sel:revisionId:RemoveLayerVersionPermission' :: RemoveLayerVersionPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679297006"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297009"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newRemoveLayerVersionPermissionResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679297003"><span id="local-6989586621679297004"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveLayerVersionPermissionResponse"><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-var">RemoveLayerVersionPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveLayerVersionPermissionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">RemoveLayerVersionPermissionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296999"><span id="local-6989586621679297001"><span class="annot"><span class="annottext">RemoveLayerVersionPermissionResponse
+-&gt; RemoveLayerVersionPermissionResponse -&gt; Bool
+(RemoveLayerVersionPermissionResponse
+ -&gt; RemoveLayerVersionPermissionResponse -&gt; Bool)
+-&gt; (RemoveLayerVersionPermissionResponse
+    -&gt; RemoveLayerVersionPermissionResponse -&gt; Bool)
+-&gt; Eq RemoveLayerVersionPermissionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveLayerVersionPermissionResponse
+-&gt; RemoveLayerVersionPermissionResponse -&gt; Bool
+$c/= :: RemoveLayerVersionPermissionResponse
+-&gt; RemoveLayerVersionPermissionResponse -&gt; Bool
+== :: RemoveLayerVersionPermissionResponse
+-&gt; RemoveLayerVersionPermissionResponse -&gt; Bool
+$c== :: RemoveLayerVersionPermissionResponse
+-&gt; RemoveLayerVersionPermissionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296991"><span id="local-6989586621679296993"><span id="local-6989586621679296995"><span id="local-6989586621679296997"><span class="annot"><span class="annottext">ReadPrec [RemoveLayerVersionPermissionResponse]
+ReadPrec RemoveLayerVersionPermissionResponse
+Int -&gt; ReadS RemoveLayerVersionPermissionResponse
+ReadS [RemoveLayerVersionPermissionResponse]
+(Int -&gt; ReadS RemoveLayerVersionPermissionResponse)
+-&gt; ReadS [RemoveLayerVersionPermissionResponse]
+-&gt; ReadPrec RemoveLayerVersionPermissionResponse
+-&gt; ReadPrec [RemoveLayerVersionPermissionResponse]
+-&gt; Read RemoveLayerVersionPermissionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveLayerVersionPermissionResponse]
+$creadListPrec :: ReadPrec [RemoveLayerVersionPermissionResponse]
+readPrec :: ReadPrec RemoveLayerVersionPermissionResponse
+$creadPrec :: ReadPrec RemoveLayerVersionPermissionResponse
+readList :: ReadS [RemoveLayerVersionPermissionResponse]
+$creadList :: ReadS [RemoveLayerVersionPermissionResponse]
+readsPrec :: Int -&gt; ReadS RemoveLayerVersionPermissionResponse
+$creadsPrec :: Int -&gt; ReadS RemoveLayerVersionPermissionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296985"><span id="local-6989586621679296987"><span id="local-6989586621679296989"><span class="annot"><span class="annottext">Int -&gt; RemoveLayerVersionPermissionResponse -&gt; ShowS
+[RemoveLayerVersionPermissionResponse] -&gt; ShowS
+RemoveLayerVersionPermissionResponse -&gt; String
+(Int -&gt; RemoveLayerVersionPermissionResponse -&gt; ShowS)
+-&gt; (RemoveLayerVersionPermissionResponse -&gt; String)
+-&gt; ([RemoveLayerVersionPermissionResponse] -&gt; ShowS)
+-&gt; Show RemoveLayerVersionPermissionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveLayerVersionPermissionResponse] -&gt; ShowS
+$cshowList :: [RemoveLayerVersionPermissionResponse] -&gt; ShowS
+show :: RemoveLayerVersionPermissionResponse -&gt; String
+$cshow :: RemoveLayerVersionPermissionResponse -&gt; String
+showsPrec :: Int -&gt; RemoveLayerVersionPermissionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveLayerVersionPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveLayerVersionPermissionResponse
+ -&gt; Rep RemoveLayerVersionPermissionResponse x)
+-&gt; (forall x.
+    Rep RemoveLayerVersionPermissionResponse x
+    -&gt; RemoveLayerVersionPermissionResponse)
+-&gt; Generic RemoveLayerVersionPermissionResponse
+forall x.
+Rep RemoveLayerVersionPermissionResponse x
+-&gt; RemoveLayerVersionPermissionResponse
+forall x.
+RemoveLayerVersionPermissionResponse
+-&gt; Rep RemoveLayerVersionPermissionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveLayerVersionPermissionResponse x
+-&gt; RemoveLayerVersionPermissionResponse
+$cfrom :: forall x.
+RemoveLayerVersionPermissionResponse
+-&gt; Rep RemoveLayerVersionPermissionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'RemoveLayerVersionPermissionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-type">newRemoveLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-type">RemoveLayerVersionPermissionResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newRemoveLayerVersionPermissionResponse"><span class="annot"><span class="annottext">newRemoveLayerVersionPermissionResponse :: RemoveLayerVersionPermissionResponse
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#newRemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-var hs-var">newRemoveLayerVersionPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">RemoveLayerVersionPermissionResponse
+</span><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">RemoveLayerVersionPermissionResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679296981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.RemoveLayerVersionPermission.html#RemoveLayerVersionPermissionResponse"><span class="hs-identifier hs-type">RemoveLayerVersionPermissionResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

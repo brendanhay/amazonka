@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.ModelBiasJobInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.ModelBiasJobInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.EndpointInput</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Inputs for the model bias job.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newModelBiasJobInput' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621680330904"><span id="local-6989586621680330905"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelBiasJobInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-var">ModelBiasJobInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelBiasJobInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-var">ModelBiasJobInput'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AendpointInput%3AModelBiasJobInput%27"><span class="annot"><span class="annottext">ModelBiasJobInput -&gt; EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AendpointInput%3AModelBiasJobInput%27"><span class="hs-identifier hs-var hs-var">endpointInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Location of ground truth labels to use in model bias job.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroundTruthS3Input%3AModelBiasJobInput%27"><span class="annot"><span class="annottext">ModelBiasJobInput -&gt; MonitoringGroundTruthS3Input
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AgroundTruthS3Input%3AModelBiasJobInput%27"><span class="hs-identifier hs-var hs-var">groundTruthS3Input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680330897"><span id="local-6989586621680330899"><span class="annot"><span class="annottext">ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool
+(ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool)
+-&gt; (ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool)
+-&gt; Eq ModelBiasJobInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool
+$c/= :: ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool
+== :: ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool
+$c== :: ModelBiasJobInput -&gt; ModelBiasJobInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330888"><span id="local-6989586621680330890"><span id="local-6989586621680330892"><span id="local-6989586621680330894"><span class="annot"><span class="annottext">ReadPrec [ModelBiasJobInput]
+ReadPrec ModelBiasJobInput
+Int -&gt; ReadS ModelBiasJobInput
+ReadS [ModelBiasJobInput]
+(Int -&gt; ReadS ModelBiasJobInput)
+-&gt; ReadS [ModelBiasJobInput]
+-&gt; ReadPrec ModelBiasJobInput
+-&gt; ReadPrec [ModelBiasJobInput]
+-&gt; Read ModelBiasJobInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelBiasJobInput]
+$creadListPrec :: ReadPrec [ModelBiasJobInput]
+readPrec :: ReadPrec ModelBiasJobInput
+$creadPrec :: ReadPrec ModelBiasJobInput
+readList :: ReadS [ModelBiasJobInput]
+$creadList :: ReadS [ModelBiasJobInput]
+readsPrec :: Int -&gt; ReadS ModelBiasJobInput
+$creadsPrec :: Int -&gt; ReadS ModelBiasJobInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330881"><span id="local-6989586621680330883"><span id="local-6989586621680330885"><span class="annot"><span class="annottext">Int -&gt; ModelBiasJobInput -&gt; ShowS
+[ModelBiasJobInput] -&gt; ShowS
+ModelBiasJobInput -&gt; String
+(Int -&gt; ModelBiasJobInput -&gt; ShowS)
+-&gt; (ModelBiasJobInput -&gt; String)
+-&gt; ([ModelBiasJobInput] -&gt; ShowS)
+-&gt; Show ModelBiasJobInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelBiasJobInput] -&gt; ShowS
+$cshowList :: [ModelBiasJobInput] -&gt; ShowS
+show :: ModelBiasJobInput -&gt; String
+$cshow :: ModelBiasJobInput -&gt; String
+showsPrec :: Int -&gt; ModelBiasJobInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelBiasJobInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModelBiasJobInput -&gt; Rep ModelBiasJobInput x)
+-&gt; (forall x. Rep ModelBiasJobInput x -&gt; ModelBiasJobInput)
+-&gt; Generic ModelBiasJobInput
+forall x. Rep ModelBiasJobInput x -&gt; ModelBiasJobInput
+forall x. ModelBiasJobInput -&gt; Rep ModelBiasJobInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelBiasJobInput x -&gt; ModelBiasJobInput
+$cfrom :: forall x. ModelBiasJobInput -&gt; Rep ModelBiasJobInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ModelBiasJobInput' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'endpointInput', 'modelBiasJobInput_endpointInput' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'groundTruthS3Input', 'modelBiasJobInput_groundTruthS3Input' - Location of ground truth labels to use in model bias job.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#newModelBiasJobInput"><span class="hs-identifier hs-type">newModelBiasJobInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'endpointInput'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'groundTruthS3Input'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span>
+</span><span id="line-55"></span><span id="newModelBiasJobInput"><span class="annot"><span class="annottext">newModelBiasJobInput :: EndpointInput -&gt; MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#newModelBiasJobInput"><span class="hs-identifier hs-var hs-var">newModelBiasJobInput</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621680330875"><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330875"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680330874"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330874"><span class="hs-identifier hs-var">pGroundTruthS3Input_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">ModelBiasJobInput' :: EndpointInput -&gt; MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointInput:ModelBiasJobInput' :: EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AendpointInput%3AModelBiasJobInput%27"><span class="hs-identifier hs-var">endpointInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330875"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">$sel:groundTruthS3Input:ModelBiasJobInput' :: MonitoringGroundTruthS3Input
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AgroundTruthS3Input%3AModelBiasJobInput%27"><span class="hs-identifier hs-var">groundTruthS3Input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330874"><span class="hs-identifier hs-var">pGroundTruthS3Input_</span></a></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#modelBiasJobInput_endpointInput"><span class="hs-identifier hs-type">modelBiasJobInput_endpointInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span>
+</span><span id="line-65"></span><span id="modelBiasJobInput_endpointInput"><span class="annot"><span class="annottext">modelBiasJobInput_endpointInput :: (EndpointInput -&gt; f EndpointInput)
+-&gt; ModelBiasJobInput -&gt; f ModelBiasJobInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#modelBiasJobInput_endpointInput"><span class="hs-identifier hs-var hs-var">modelBiasJobInput_endpointInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelBiasJobInput -&gt; EndpointInput)
+-&gt; (ModelBiasJobInput -&gt; EndpointInput -&gt; ModelBiasJobInput)
+-&gt; Lens
+     ModelBiasJobInput ModelBiasJobInput EndpointInput EndpointInput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330870"><span class="annot"><span class="annottext">EndpointInput
+endpointInput :: EndpointInput
+$sel:endpointInput:ModelBiasJobInput' :: ModelBiasJobInput -&gt; EndpointInput
+</span><a href="#local-6989586621680330870"><span class="hs-identifier hs-var hs-var">endpointInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330870"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330869"><span class="annot"><span class="annottext">s :: ModelBiasJobInput
+</span><a href="#local-6989586621680330869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330868"><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><a href="#local-6989586621680330869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointInput:ModelBiasJobInput' :: EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AendpointInput%3AModelBiasJobInput%27"><span class="hs-identifier hs-var">endpointInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Location of ground truth labels to use in model bias job.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#modelBiasJobInput_groundTruthS3Input"><span class="hs-identifier hs-type">modelBiasJobInput_groundTruthS3Input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span><span>
+</span><span id="line-69"></span><span id="modelBiasJobInput_groundTruthS3Input"><span class="annot"><span class="annottext">modelBiasJobInput_groundTruthS3Input :: (MonitoringGroundTruthS3Input -&gt; f MonitoringGroundTruthS3Input)
+-&gt; ModelBiasJobInput -&gt; f ModelBiasJobInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#modelBiasJobInput_groundTruthS3Input"><span class="hs-identifier hs-var hs-var">modelBiasJobInput_groundTruthS3Input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelBiasJobInput -&gt; MonitoringGroundTruthS3Input)
+-&gt; (ModelBiasJobInput
+    -&gt; MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput)
+-&gt; Lens
+     ModelBiasJobInput
+     ModelBiasJobInput
+     MonitoringGroundTruthS3Input
+     MonitoringGroundTruthS3Input
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330866"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+groundTruthS3Input :: MonitoringGroundTruthS3Input
+$sel:groundTruthS3Input:ModelBiasJobInput' :: ModelBiasJobInput -&gt; MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330866"><span class="hs-identifier hs-var hs-var">groundTruthS3Input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330866"><span class="hs-identifier hs-var">groundTruthS3Input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330865"><span class="annot"><span class="annottext">s :: ModelBiasJobInput
+</span><a href="#local-6989586621680330865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330864"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><a href="#local-6989586621680330865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groundTruthS3Input:ModelBiasJobInput' :: MonitoringGroundTruthS3Input
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#%24sel%3AgroundTruthS3Input%3AModelBiasJobInput%27"><span class="hs-identifier hs-var">groundTruthS3Input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330861"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680330859"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelBiasJobInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ModelBiasJobInput)
+-&gt; Value
+-&gt; Parser ModelBiasJobInput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ModelBiasJobInput&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680330856"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">EndpointInput -&gt; MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-var">ModelBiasJobInput'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(EndpointInput
+ -&gt; MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput)
+-&gt; Parser EndpointInput
+-&gt; Parser (MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EndpointInput
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointInput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (MonitoringGroundTruthS3Input -&gt; ModelBiasJobInput)
+-&gt; Parser MonitoringGroundTruthS3Input -&gt; Parser ModelBiasJobInput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MonitoringGroundTruthS3Input
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroundTruthS3Input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330850"><span id="local-6989586621680330852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330839"><span id="local-6989586621680330841"><span id="local-6989586621680330843"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680330837"><span class="annot"><span class="annottext">toJSON :: ModelBiasJobInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput%27"><span class="hs-identifier hs-type">ModelBiasJobInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330834"><span id="local-6989586621680330835"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+EndpointInput
+groundTruthS3Input :: MonitoringGroundTruthS3Input
+endpointInput :: EndpointInput
+$sel:groundTruthS3Input:ModelBiasJobInput' :: ModelBiasJobInput -&gt; MonitoringGroundTruthS3Input
+$sel:endpointInput:ModelBiasJobInput' :: ModelBiasJobInput -&gt; EndpointInput
+</span><a href="#local-6989586621680330834"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-90"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndpointInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330835"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-92"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroundTruthS3Input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringGroundTruthS3Input -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680330834"><span class="hs-identifier hs-var">groundTruthS3Input</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span></pre></body></html>

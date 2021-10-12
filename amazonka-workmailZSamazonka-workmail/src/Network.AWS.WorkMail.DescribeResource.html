@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkMail.DescribeResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the data available for the resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkMail.DescribeResource</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier">DescribeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResource"><span class="hs-identifier">newDescribeResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_organizationId"><span class="hs-identifier">describeResource_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_resourceId"><span class="hs-identifier">describeResource_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier">newDescribeResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_resourceId"><span class="hs-identifier">describeResourceResponse_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_enabledDate"><span class="hs-identifier">describeResourceResponse_enabledDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_name"><span class="hs-identifier">describeResourceResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_state"><span class="hs-identifier">describeResourceResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_disabledDate"><span class="hs-identifier">describeResourceResponse_disabledDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_email"><span class="hs-identifier">describeResourceResponse_email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_bookingOptions"><span class="hs-identifier">describeResourceResponse_bookingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_type"><span class="hs-identifier">describeResourceResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier">describeResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeResource' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679268865"><span id="local-6989586621679268866"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResource"><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-var">DescribeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResource%27"><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-var">DescribeResource'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier associated with the organization for which the resource</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- is described.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AorganizationId%3ADescribeResource%27"><span class="annot"><span class="annottext">DescribeResource -&gt; Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AorganizationId%3ADescribeResource%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the resource to be described.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AresourceId%3ADescribeResource%27"><span class="annot"><span class="annottext">DescribeResource -&gt; Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268858"><span id="local-6989586621679268860"><span class="annot"><span class="annottext">DescribeResource -&gt; DescribeResource -&gt; Bool
+(DescribeResource -&gt; DescribeResource -&gt; Bool)
+-&gt; (DescribeResource -&gt; DescribeResource -&gt; Bool)
+-&gt; Eq DescribeResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResource -&gt; DescribeResource -&gt; Bool
+$c/= :: DescribeResource -&gt; DescribeResource -&gt; Bool
+== :: DescribeResource -&gt; DescribeResource -&gt; Bool
+$c== :: DescribeResource -&gt; DescribeResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268849"><span id="local-6989586621679268851"><span id="local-6989586621679268853"><span id="local-6989586621679268855"><span class="annot"><span class="annottext">ReadPrec [DescribeResource]
+ReadPrec DescribeResource
+Int -&gt; ReadS DescribeResource
+ReadS [DescribeResource]
+(Int -&gt; ReadS DescribeResource)
+-&gt; ReadS [DescribeResource]
+-&gt; ReadPrec DescribeResource
+-&gt; ReadPrec [DescribeResource]
+-&gt; Read DescribeResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResource]
+$creadListPrec :: ReadPrec [DescribeResource]
+readPrec :: ReadPrec DescribeResource
+$creadPrec :: ReadPrec DescribeResource
+readList :: ReadS [DescribeResource]
+$creadList :: ReadS [DescribeResource]
+readsPrec :: Int -&gt; ReadS DescribeResource
+$creadsPrec :: Int -&gt; ReadS DescribeResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268842"><span id="local-6989586621679268844"><span id="local-6989586621679268846"><span class="annot"><span class="annottext">Int -&gt; DescribeResource -&gt; ShowS
+[DescribeResource] -&gt; ShowS
+DescribeResource -&gt; String
+(Int -&gt; DescribeResource -&gt; ShowS)
+-&gt; (DescribeResource -&gt; String)
+-&gt; ([DescribeResource] -&gt; ShowS)
+-&gt; Show DescribeResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResource] -&gt; ShowS
+$cshowList :: [DescribeResource] -&gt; ShowS
+show :: DescribeResource -&gt; String
+$cshow :: DescribeResource -&gt; String
+showsPrec :: Int -&gt; DescribeResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeResource -&gt; Rep DescribeResource x)
+-&gt; (forall x. Rep DescribeResource x -&gt; DescribeResource)
+-&gt; Generic DescribeResource
+forall x. Rep DescribeResource x -&gt; DescribeResource
+forall x. DescribeResource -&gt; Rep DescribeResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeResource x -&gt; DescribeResource
+$cfrom :: forall x. DescribeResource -&gt; Rep DescribeResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeResource' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'organizationId', 'describeResource_organizationId' - The identifier associated with the organization for which the resource</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- is described.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'resourceId', 'describeResource_resourceId' - The identifier of the resource to be described.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResource"><span class="hs-identifier hs-type">newDescribeResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span>
+</span><span id="line-85"></span><span id="newDescribeResource"><span class="annot"><span class="annottext">newDescribeResource :: Text -&gt; Text -&gt; DescribeResource
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResource"><span class="hs-identifier hs-var hs-var">newDescribeResource</span></a></span></span><span> </span><span id="local-6989586621679268837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268837"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679268836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268836"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DescribeResource' :: Text -&gt; Text -&gt; DescribeResource
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:DescribeResource' :: Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AorganizationId%3ADescribeResource%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268837"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:DescribeResource' :: Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268836"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The identifier associated with the organization for which the resource</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- is described.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_organizationId"><span class="hs-identifier hs-type">describeResource_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describeResource_organizationId"><span class="annot"><span class="annottext">describeResource_organizationId :: (Text -&gt; f Text) -&gt; DescribeResource -&gt; f DescribeResource
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_organizationId"><span class="hs-identifier hs-var hs-var">describeResource_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResource -&gt; Text)
+-&gt; (DescribeResource -&gt; Text -&gt; DescribeResource)
+-&gt; Lens DescribeResource DescribeResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268833"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:DescribeResource' :: DescribeResource -&gt; Text
+</span><a href="#local-6989586621679268833"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268833"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268832"><span class="annot"><span class="annottext">s :: DescribeResource
+</span><a href="#local-6989586621679268832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResource
+</span><a href="#local-6989586621679268832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeResource' :: Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AorganizationId%3ADescribeResource%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The identifier of the resource to be described.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_resourceId"><span class="hs-identifier hs-type">describeResource_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="describeResource_resourceId"><span class="annot"><span class="annottext">describeResource_resourceId :: (Text -&gt; f Text) -&gt; DescribeResource -&gt; f DescribeResource
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResource_resourceId"><span class="hs-identifier hs-var hs-var">describeResource_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResource -&gt; Text)
+-&gt; (DescribeResource -&gt; Text -&gt; DescribeResource)
+-&gt; Lens DescribeResource DescribeResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268830"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:DescribeResource' :: DescribeResource -&gt; Text
+</span><a href="#local-6989586621679268830"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268830"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268829"><span class="annot"><span class="annottext">s :: DescribeResource
+</span><a href="#local-6989586621679268829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResource
+</span><a href="#local-6989586621679268829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeResource' :: Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679268824"><span class="annot"><span class="annottext">request :: DescribeResource -&gt; Request DescribeResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeResource -&gt; Request DescribeResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679268820"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268817"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679268816"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679268816"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679268815"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe EntityState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe BookingOptions
+-&gt; Maybe ResourceType
+-&gt; Int
+-&gt; DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-var">DescribeResourceResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe EntityState
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe BookingOptions
+ -&gt; Maybe ResourceType
+ -&gt; Int
+ -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EntityState
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe BookingOptions
+      -&gt; Maybe ResourceType
+      -&gt; Int
+      -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EntityState
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe BookingOptions
+   -&gt; Maybe ResourceType
+   -&gt; Int
+   -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe EntityState
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe BookingOptions
+      -&gt; Maybe ResourceType
+      -&gt; Int
+      -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnabledDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe EntityState
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe BookingOptions
+   -&gt; Maybe ResourceType
+   -&gt; Int
+   -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe EntityState
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe BookingOptions
+      -&gt; Maybe ResourceType
+      -&gt; Int
+      -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe EntityState
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe BookingOptions
+   -&gt; Maybe ResourceType
+   -&gt; Int
+   -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe EntityState)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe BookingOptions
+      -&gt; Maybe ResourceType
+      -&gt; Int
+      -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EntityState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe BookingOptions
+   -&gt; Maybe ResourceType
+   -&gt; Int
+   -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe BookingOptions
+      -&gt; Maybe ResourceType
+      -&gt; Int
+      -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisabledDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe BookingOptions
+   -&gt; Maybe ResourceType
+   -&gt; Int
+   -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe BookingOptions
+      -&gt; Maybe ResourceType -&gt; Int -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Email&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe BookingOptions
+   -&gt; Maybe ResourceType -&gt; Int -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe BookingOptions)
+-&gt; Either
+     String (Maybe ResourceType -&gt; Int -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BookingOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BookingOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe ResourceType -&gt; Int -&gt; DescribeResourceResponse)
+-&gt; Either String (Maybe ResourceType)
+-&gt; Either String (Int -&gt; DescribeResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268815"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeResourceResponse)
+-&gt; Either String Int -&gt; Either String DescribeResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268817"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268807"><span id="local-6989586621679268809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679268800"><span class="annot"><span class="annottext">toHeaders :: DescribeResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.DescribeResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268790"><span id="local-6989586621679268792"><span id="local-6989586621679268794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679268788"><span class="annot"><span class="annottext">toJSON :: DescribeResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource%27"><span class="hs-identifier hs-type">DescribeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268785"><span id="local-6989586621679268786"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+organizationId :: Text
+$sel:resourceId:DescribeResource' :: DescribeResource -&gt; Text
+$sel:organizationId:DescribeResource' :: DescribeResource -&gt; Text
+</span><a href="#local-6989586621679268785"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268786"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268785"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679268779"><span class="annot"><span class="annottext">toPath :: DescribeResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResource"><span class="hs-identifier hs-type">DescribeResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679268775"><span class="annot"><span class="annottext">toQuery :: DescribeResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679268772"><span id="local-6989586621679268773"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceResponse"><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-var">DescribeResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-var">DescribeResourceResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the described resource.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AresourceId%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The date and time when a resource was enabled for WorkMail, in UNIX</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AenabledDate%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AenabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The name of the described resource.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aname%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aname%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The state of the resource: enabled (registered to Amazon WorkMail),</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail), or deleted.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Astate%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe EntityState
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Astate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.EntityState.html#EntityState"><span class="hs-identifier hs-type">EntityState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The date and time when a resource was disabled from WorkMail, in UNIX</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AdisabledDate%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AdisabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The email of the described resource.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Aemail%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aemail%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The booking options for the described resource.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AbookingOptions%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe BookingOptions
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AbookingOptions%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">bookingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.BookingOptions.html#BookingOptions"><span class="hs-identifier hs-type">BookingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The type of the described resource.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Atype%27%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Maybe ResourceType
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Atype%27%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; Int
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268759"><span id="local-6989586621679268761"><span class="annot"><span class="annottext">DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+(DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool)
+-&gt; (DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool)
+-&gt; Eq DescribeResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+$c/= :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+== :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+$c== :: DescribeResourceResponse -&gt; DescribeResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268751"><span id="local-6989586621679268753"><span id="local-6989586621679268755"><span id="local-6989586621679268757"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceResponse]
+ReadPrec DescribeResourceResponse
+Int -&gt; ReadS DescribeResourceResponse
+ReadS [DescribeResourceResponse]
+(Int -&gt; ReadS DescribeResourceResponse)
+-&gt; ReadS [DescribeResourceResponse]
+-&gt; ReadPrec DescribeResourceResponse
+-&gt; ReadPrec [DescribeResourceResponse]
+-&gt; Read DescribeResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeResourceResponse]
+$creadListPrec :: ReadPrec [DescribeResourceResponse]
+readPrec :: ReadPrec DescribeResourceResponse
+$creadPrec :: ReadPrec DescribeResourceResponse
+readList :: ReadS [DescribeResourceResponse]
+$creadList :: ReadS [DescribeResourceResponse]
+readsPrec :: Int -&gt; ReadS DescribeResourceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268745"><span id="local-6989586621679268747"><span id="local-6989586621679268749"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceResponse -&gt; ShowS
+[DescribeResourceResponse] -&gt; ShowS
+DescribeResourceResponse -&gt; String
+(Int -&gt; DescribeResourceResponse -&gt; ShowS)
+-&gt; (DescribeResourceResponse -&gt; String)
+-&gt; ([DescribeResourceResponse] -&gt; ShowS)
+-&gt; Show DescribeResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeResourceResponse] -&gt; ShowS
+$cshowList :: [DescribeResourceResponse] -&gt; ShowS
+show :: DescribeResourceResponse -&gt; String
+$cshow :: DescribeResourceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeResourceResponse -&gt; Rep DescribeResourceResponse x)
+-&gt; (forall x.
+    Rep DescribeResourceResponse x -&gt; DescribeResourceResponse)
+-&gt; Generic DescribeResourceResponse
+forall x.
+Rep DescribeResourceResponse x -&gt; DescribeResourceResponse
+forall x.
+DescribeResourceResponse -&gt; Rep DescribeResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeResourceResponse x -&gt; DescribeResourceResponse
+$cfrom :: forall x.
+DescribeResourceResponse -&gt; Rep DescribeResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'DescribeResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'resourceId', 'describeResourceResponse_resourceId' - The identifier of the described resource.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'enabledDate', 'describeResourceResponse_enabledDate' - The date and time when a resource was enabled for WorkMail, in UNIX</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'name', 'describeResourceResponse_name' - The name of the described resource.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'state', 'describeResourceResponse_state' - The state of the resource: enabled (registered to Amazon WorkMail),</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail), or deleted.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'disabledDate', 'describeResourceResponse_disabledDate' - The date and time when a resource was disabled from WorkMail, in UNIX</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'email', 'describeResourceResponse_email' - The email of the described resource.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'bookingOptions', 'describeResourceResponse_bookingOptions' - The booking options for the described resource.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'type'', 'describeResourceResponse_type' - The type of the described resource.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'describeResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier hs-type">newDescribeResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newDescribeResourceResponse"><span class="annot"><span class="annottext">newDescribeResourceResponse :: Int -&gt; DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#newDescribeResourceResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679268742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceResponse' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe EntityState
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe BookingOptions
+-&gt; Maybe ResourceType
+-&gt; Int
+-&gt; DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabledDate:DescribeResourceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AenabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">enabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aname%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:DescribeResourceResponse' :: Maybe EntityState
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Astate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:disabledDate:DescribeResourceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AdisabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">disabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:email:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aemail%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:bookingOptions:DescribeResourceResponse' :: Maybe BookingOptions
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AbookingOptions%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">bookingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BookingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DescribeResourceResponse' :: Maybe ResourceType
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Atype%27%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceResponse' :: Int
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The identifier of the described resource.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_resourceId"><span class="hs-identifier hs-type">describeResourceResponse_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeResourceResponse_resourceId"><span class="annot"><span class="annottext">describeResourceResponse_resourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_resourceId"><span class="hs-identifier hs-var hs-var">describeResourceResponse_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe Text)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe Text -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268741"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679268741"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268741"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268740"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AresourceId%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The date and time when a resource was enabled for WorkMail, in UNIX</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_enabledDate"><span class="hs-identifier hs-type">describeResourceResponse_enabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeResourceResponse_enabledDate"><span class="annot"><span class="annottext">describeResourceResponse_enabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_enabledDate"><span class="hs-identifier hs-var hs-var">describeResourceResponse_enabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe POSIX)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe POSIX -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268738"><span class="annot"><span class="annottext">Maybe POSIX
+enabledDate :: Maybe POSIX
+$sel:enabledDate:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679268738"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268738"><span class="hs-identifier hs-var">enabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268737"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268736"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledDate:DescribeResourceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AenabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">enabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeResourceResponse
+-&gt; f DescribeResourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The name of the described resource.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_name"><span class="hs-identifier hs-type">describeResourceResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="describeResourceResponse_name"><span class="annot"><span class="annottext">describeResourceResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_name"><span class="hs-identifier hs-var hs-var">describeResourceResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe Text)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe Text -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268732"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679268732"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268732"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268731"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aname%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The state of the resource: enabled (registered to Amazon WorkMail),</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- disabled (deregistered or never registered to WorkMail), or deleted.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_state"><span class="hs-identifier hs-type">describeResourceResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.EntityState.html#EntityState"><span class="hs-identifier hs-type">EntityState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="describeResourceResponse_state"><span class="annot"><span class="annottext">describeResourceResponse_state :: (Maybe EntityState -&gt; f (Maybe EntityState))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_state"><span class="hs-identifier hs-var hs-var">describeResourceResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe EntityState)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe EntityState -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe EntityState)
+     (Maybe EntityState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268729"><span class="annot"><span class="annottext">Maybe EntityState
+state :: Maybe EntityState
+$sel:state:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe EntityState
+</span><a href="#local-6989586621679268729"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679268729"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268728"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268727"><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679268727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeResourceResponse' :: Maybe EntityState
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Astate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679268727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The date and time when a resource was disabled from WorkMail, in UNIX</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_disabledDate"><span class="hs-identifier hs-type">describeResourceResponse_disabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="describeResourceResponse_disabledDate"><span class="annot"><span class="annottext">describeResourceResponse_disabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_disabledDate"><span class="hs-identifier hs-var hs-var">describeResourceResponse_disabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe POSIX)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe POSIX -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268726"><span class="annot"><span class="annottext">Maybe POSIX
+disabledDate :: Maybe POSIX
+$sel:disabledDate:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679268726"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268726"><span class="hs-identifier hs-var">disabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268725"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268724"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledDate:DescribeResourceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AdisabledDate%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">disabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679268724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeResourceResponse
+-&gt; f DescribeResourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The email of the described resource.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_email"><span class="hs-identifier hs-type">describeResourceResponse_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="describeResourceResponse_email"><span class="annot"><span class="annottext">describeResourceResponse_email :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_email"><span class="hs-identifier hs-var hs-var">describeResourceResponse_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe Text)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe Text -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268723"><span class="annot"><span class="annottext">Maybe Text
+email :: Maybe Text
+$sel:email:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679268723"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268723"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268722"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:DescribeResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Aemail%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The booking options for the described resource.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_bookingOptions"><span class="hs-identifier hs-type">describeResourceResponse_bookingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.BookingOptions.html#BookingOptions"><span class="hs-identifier hs-type">BookingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describeResourceResponse_bookingOptions"><span class="annot"><span class="annottext">describeResourceResponse_bookingOptions :: (Maybe BookingOptions -&gt; f (Maybe BookingOptions))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_bookingOptions"><span class="hs-identifier hs-var hs-var">describeResourceResponse_bookingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe BookingOptions)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe BookingOptions -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe BookingOptions)
+     (Maybe BookingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268720"><span class="annot"><span class="annottext">Maybe BookingOptions
+bookingOptions :: Maybe BookingOptions
+$sel:bookingOptions:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe BookingOptions
+</span><a href="#local-6989586621679268720"><span class="hs-identifier hs-var hs-var">bookingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BookingOptions
+</span><a href="#local-6989586621679268720"><span class="hs-identifier hs-var">bookingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268719"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268718"><span class="annot"><span class="annottext">Maybe BookingOptions
+</span><a href="#local-6989586621679268718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bookingOptions:DescribeResourceResponse' :: Maybe BookingOptions
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AbookingOptions%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">bookingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BookingOptions
+</span><a href="#local-6989586621679268718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The type of the described resource.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_type"><span class="hs-identifier hs-type">describeResourceResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describeResourceResponse_type"><span class="annot"><span class="annottext">describeResourceResponse_type :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_type"><span class="hs-identifier hs-var hs-var">describeResourceResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Maybe ResourceType)
+-&gt; (DescribeResourceResponse
+    -&gt; Maybe ResourceType -&gt; DescribeResourceResponse)
+-&gt; Lens
+     DescribeResourceResponse
+     DescribeResourceResponse
+     (Maybe ResourceType)
+     (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268717"><span class="annot"><span class="annottext">Maybe ResourceType
+type' :: Maybe ResourceType
+$sel:type':DescribeResourceResponse' :: DescribeResourceResponse -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679268717"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679268717"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268716"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268715"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679268715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DescribeResourceResponse' :: Maybe ResourceType
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3Atype%27%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679268715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier hs-type">describeResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span id="describeResourceResponse_httpStatus"><span class="annot"><span class="annottext">describeResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeResourceResponse -&gt; f DescribeResourceResponse
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#describeResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeResourceResponse -&gt; Int)
+-&gt; (DescribeResourceResponse -&gt; Int -&gt; DescribeResourceResponse)
+-&gt; Lens DescribeResourceResponse DescribeResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268714"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeResourceResponse' :: DescribeResourceResponse -&gt; Int
+</span><a href="#local-6989586621679268714"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268714"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268713"><span class="annot"><span class="annottext">s :: DescribeResourceResponse
+</span><a href="#local-6989586621679268713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse%27"><span class="hs-identifier hs-type">DescribeResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceResponse
+</span><a href="#local-6989586621679268713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceResponse' :: Int
+</span><a href="Network.AWS.WorkMail.DescribeResource.html#%24sel%3AhttpStatus%3ADescribeResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679268712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DescribeResource.html#DescribeResourceResponse"><span class="hs-identifier hs-type">DescribeResourceResponse</span></a></span></span><span>
+</span><span id="line-268"></span></pre></body></html>

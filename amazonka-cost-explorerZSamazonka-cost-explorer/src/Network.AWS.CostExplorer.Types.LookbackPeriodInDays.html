@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.LookbackPeriodInDays</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.LookbackPeriodInDays</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier">LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SEVEN_DAYS"><span class="hs-identifier">LookbackPeriodInDays_SEVEN_DAYS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SIXTY_DAYS"><span class="hs-identifier">LookbackPeriodInDays_SIXTY_DAYS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_THIRTY_DAYS"><span class="hs-identifier">LookbackPeriodInDays_THIRTY_DAYS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679330488"><span id="local-6989586621679330489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookbackPeriodInDays"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-var">LookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookbackPeriodInDays%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-var">LookbackPeriodInDays'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLookbackPeriodInDays"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#fromLookbackPeriodInDays"><span class="hs-identifier hs-var hs-var">fromLookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330480"><span id="local-6989586621679330482"><span id="local-6989586621679330484"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; ShowS
+[LookbackPeriodInDays] -&gt; ShowS
+LookbackPeriodInDays -&gt; String
+(Int -&gt; LookbackPeriodInDays -&gt; ShowS)
+-&gt; (LookbackPeriodInDays -&gt; String)
+-&gt; ([LookbackPeriodInDays] -&gt; ShowS)
+-&gt; Show LookbackPeriodInDays
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LookbackPeriodInDays] -&gt; ShowS
+$cshowList :: [LookbackPeriodInDays] -&gt; ShowS
+show :: LookbackPeriodInDays -&gt; String
+$cshow :: LookbackPeriodInDays -&gt; String
+showsPrec :: Int -&gt; LookbackPeriodInDays -&gt; ShowS
+$cshowsPrec :: Int -&gt; LookbackPeriodInDays -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679330471"><span id="local-6989586621679330473"><span id="local-6989586621679330475"><span id="local-6989586621679330477"><span class="annot"><span class="annottext">ReadPrec [LookbackPeriodInDays]
+ReadPrec LookbackPeriodInDays
+Int -&gt; ReadS LookbackPeriodInDays
+ReadS [LookbackPeriodInDays]
+(Int -&gt; ReadS LookbackPeriodInDays)
+-&gt; ReadS [LookbackPeriodInDays]
+-&gt; ReadPrec LookbackPeriodInDays
+-&gt; ReadPrec [LookbackPeriodInDays]
+-&gt; Read LookbackPeriodInDays
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LookbackPeriodInDays]
+$creadListPrec :: ReadPrec [LookbackPeriodInDays]
+readPrec :: ReadPrec LookbackPeriodInDays
+$creadPrec :: ReadPrec LookbackPeriodInDays
+readList :: ReadS [LookbackPeriodInDays]
+$creadList :: ReadS [LookbackPeriodInDays]
+readsPrec :: Int -&gt; ReadS LookbackPeriodInDays
+$creadsPrec :: Int -&gt; ReadS LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330466"><span id="local-6989586621679330468"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+(LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; Eq LookbackPeriodInDays
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c/= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+== :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c== :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330450"><span id="local-6989586621679330452"><span id="local-6989586621679330454"><span id="local-6989586621679330456"><span id="local-6989586621679330458"><span id="local-6989586621679330460"><span id="local-6989586621679330462"><span class="annot"><span class="annottext">Eq LookbackPeriodInDays
+Eq LookbackPeriodInDays
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Ordering)
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
+-&gt; (LookbackPeriodInDays
+    -&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays)
+-&gt; (LookbackPeriodInDays
+    -&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays)
+-&gt; Ord LookbackPeriodInDays
+LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Ordering
+LookbackPeriodInDays
+-&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LookbackPeriodInDays
+-&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays
+$cmin :: LookbackPeriodInDays
+-&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays
+max :: LookbackPeriodInDays
+-&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays
+$cmax :: LookbackPeriodInDays
+-&gt; LookbackPeriodInDays -&gt; LookbackPeriodInDays
+&gt;= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c&gt;= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+&gt; :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c&gt; :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+&lt;= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c&lt;= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+&lt; :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+$c&lt; :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+compare :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Ordering
+$ccompare :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Ordering
+$cp1Ord :: Eq LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LookbackPeriodInDays -&gt; Rep LookbackPeriodInDays x)
+-&gt; (forall x. Rep LookbackPeriodInDays x -&gt; LookbackPeriodInDays)
+-&gt; Generic LookbackPeriodInDays
+forall x. Rep LookbackPeriodInDays x -&gt; LookbackPeriodInDays
+forall x. LookbackPeriodInDays -&gt; Rep LookbackPeriodInDays x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LookbackPeriodInDays x -&gt; LookbackPeriodInDays
+$cfrom :: forall x. LookbackPeriodInDays -&gt; Rep LookbackPeriodInDays x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330442"><span id="local-6989586621679330444"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; Int
+LookbackPeriodInDays -&gt; Int
+(Int -&gt; LookbackPeriodInDays -&gt; Int)
+-&gt; (LookbackPeriodInDays -&gt; Int) -&gt; Hashable LookbackPeriodInDays
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LookbackPeriodInDays -&gt; Int
+$chash :: LookbackPeriodInDays -&gt; Int
+hashWithSalt :: Int -&gt; LookbackPeriodInDays -&gt; Int
+$chashWithSalt :: Int -&gt; LookbackPeriodInDays -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679330439"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ()
+(LookbackPeriodInDays -&gt; ()) -&gt; NFData LookbackPeriodInDays
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LookbackPeriodInDays -&gt; ()
+$crnf :: LookbackPeriodInDays -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330436"><span class="annot"><span class="annottext">Text -&gt; Either String LookbackPeriodInDays
+(Text -&gt; Either String LookbackPeriodInDays)
+-&gt; FromText LookbackPeriodInDays
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LookbackPeriodInDays
+$cfromText :: Text -&gt; Either String LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330433"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; Text
+(LookbackPeriodInDays -&gt; Text) -&gt; ToText LookbackPeriodInDays
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LookbackPeriodInDays -&gt; Text
+$ctoText :: LookbackPeriodInDays -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330430"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteString
+(LookbackPeriodInDays -&gt; ByteString)
+-&gt; ToByteString LookbackPeriodInDays
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LookbackPeriodInDays -&gt; ByteString
+$ctoBS :: LookbackPeriodInDays -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330427"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteStringBuilder
+(LookbackPeriodInDays -&gt; ByteStringBuilder)
+-&gt; ToLog LookbackPeriodInDays
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LookbackPeriodInDays -&gt; ByteStringBuilder
+$cbuild :: LookbackPeriodInDays -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330424"><span class="annot"><span class="annottext">HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
+(HeaderName -&gt; LookbackPeriodInDays -&gt; [Header])
+-&gt; ToHeader LookbackPeriodInDays
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330421"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; QueryString
+(LookbackPeriodInDays -&gt; QueryString)
+-&gt; ToQuery LookbackPeriodInDays
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LookbackPeriodInDays -&gt; QueryString
+$ctoQuery :: LookbackPeriodInDays -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330416"><span id="local-6989586621679330418"><span class="annot"><span class="annottext">Value -&gt; Parser [LookbackPeriodInDays]
+Value -&gt; Parser LookbackPeriodInDays
+(Value -&gt; Parser LookbackPeriodInDays)
+-&gt; (Value -&gt; Parser [LookbackPeriodInDays])
+-&gt; FromJSON LookbackPeriodInDays
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LookbackPeriodInDays]
+$cparseJSONList :: Value -&gt; Parser [LookbackPeriodInDays]
+parseJSON :: Value -&gt; Parser LookbackPeriodInDays
+$cparseJSON :: Value -&gt; Parser LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330411"><span id="local-6989586621679330413"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookbackPeriodInDays]
+FromJSONKeyFunction LookbackPeriodInDays
+FromJSONKeyFunction LookbackPeriodInDays
+-&gt; FromJSONKeyFunction [LookbackPeriodInDays]
+-&gt; FromJSONKey LookbackPeriodInDays
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LookbackPeriodInDays]
+$cfromJSONKeyList :: FromJSONKeyFunction [LookbackPeriodInDays]
+fromJSONKey :: FromJSONKeyFunction LookbackPeriodInDays
+$cfromJSONKey :: FromJSONKeyFunction LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330402"><span id="local-6989586621679330404"><span id="local-6989586621679330406"><span id="local-6989586621679330408"><span class="annot"><span class="annottext">[LookbackPeriodInDays] -&gt; Encoding
+[LookbackPeriodInDays] -&gt; Value
+LookbackPeriodInDays -&gt; Encoding
+LookbackPeriodInDays -&gt; Value
+(LookbackPeriodInDays -&gt; Value)
+-&gt; (LookbackPeriodInDays -&gt; Encoding)
+-&gt; ([LookbackPeriodInDays] -&gt; Value)
+-&gt; ([LookbackPeriodInDays] -&gt; Encoding)
+-&gt; ToJSON LookbackPeriodInDays
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LookbackPeriodInDays] -&gt; Encoding
+$ctoEncodingList :: [LookbackPeriodInDays] -&gt; Encoding
+toJSONList :: [LookbackPeriodInDays] -&gt; Value
+$ctoJSONList :: [LookbackPeriodInDays] -&gt; Value
+toEncoding :: LookbackPeriodInDays -&gt; Encoding
+$ctoEncoding :: LookbackPeriodInDays -&gt; Encoding
+toJSON :: LookbackPeriodInDays -&gt; Value
+$ctoJSON :: LookbackPeriodInDays -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330397"><span id="local-6989586621679330399"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookbackPeriodInDays]
+ToJSONKeyFunction LookbackPeriodInDays
+ToJSONKeyFunction LookbackPeriodInDays
+-&gt; ToJSONKeyFunction [LookbackPeriodInDays]
+-&gt; ToJSONKey LookbackPeriodInDays
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LookbackPeriodInDays]
+$ctoJSONKeyList :: ToJSONKeyFunction [LookbackPeriodInDays]
+toJSONKey :: ToJSONKeyFunction LookbackPeriodInDays
+$ctoJSONKey :: ToJSONKeyFunction LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330394"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookbackPeriodInDays
+([Node] -&gt; Either String LookbackPeriodInDays)
+-&gt; FromXML LookbackPeriodInDays
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LookbackPeriodInDays
+$cparseXML :: [Node] -&gt; Either String LookbackPeriodInDays
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330391"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; XML
+(LookbackPeriodInDays -&gt; XML) -&gt; ToXML LookbackPeriodInDays
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LookbackPeriodInDays -&gt; XML
+$ctoXML :: LookbackPeriodInDays -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SEVEN_DAYS"><span class="hs-identifier hs-type">LookbackPeriodInDays_SEVEN_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookbackPeriodInDays_SEVEN_DAYS"><span id="%24mLookbackPeriodInDays_SEVEN_DAYS"><span id="LookbackPeriodInDays_SEVEN_DAYS"><span class="annot"><span class="annottext">$bLookbackPeriodInDays_SEVEN_DAYS :: LookbackPeriodInDays
+$mLookbackPeriodInDays_SEVEN_DAYS :: forall r. LookbackPeriodInDays -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#%24bLookbackPeriodInDays_SEVEN_DAYS"><span class="hs-identifier hs-var hs-var hs-var">LookbackPeriodInDays_SEVEN_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-type">LookbackPeriodInDays'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SEVEN_DAYS&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SIXTY_DAYS"><span class="hs-identifier hs-type">LookbackPeriodInDays_SIXTY_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookbackPeriodInDays_SIXTY_DAYS"><span id="%24mLookbackPeriodInDays_SIXTY_DAYS"><span id="LookbackPeriodInDays_SIXTY_DAYS"><span class="annot"><span class="annottext">$bLookbackPeriodInDays_SIXTY_DAYS :: LookbackPeriodInDays
+$mLookbackPeriodInDays_SIXTY_DAYS :: forall r. LookbackPeriodInDays -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#%24bLookbackPeriodInDays_SIXTY_DAYS"><span class="hs-identifier hs-var hs-var hs-var">LookbackPeriodInDays_SIXTY_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-type">LookbackPeriodInDays'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SIXTY_DAYS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_THIRTY_DAYS"><span class="hs-identifier hs-type">LookbackPeriodInDays_THIRTY_DAYS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLookbackPeriodInDays_THIRTY_DAYS"><span id="%24mLookbackPeriodInDays_THIRTY_DAYS"><span id="LookbackPeriodInDays_THIRTY_DAYS"><span class="annot"><span class="annottext">$bLookbackPeriodInDays_THIRTY_DAYS :: LookbackPeriodInDays
+$mLookbackPeriodInDays_THIRTY_DAYS :: forall r. LookbackPeriodInDays -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#%24bLookbackPeriodInDays_THIRTY_DAYS"><span class="hs-identifier hs-var hs-var hs-var">LookbackPeriodInDays_THIRTY_DAYS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-type">LookbackPeriodInDays'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;THIRTY_DAYS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SEVEN_DAYS"><span class="hs-pragma hs-type">LookbackPeriodInDays_SEVEN_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_SIXTY_DAYS"><span class="hs-pragma hs-type">LookbackPeriodInDays_SIXTY_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays_THIRTY_DAYS"><span class="hs-pragma hs-type">LookbackPeriodInDays_THIRTY_DAYS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-pragma hs-type">LookbackPeriodInDays'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

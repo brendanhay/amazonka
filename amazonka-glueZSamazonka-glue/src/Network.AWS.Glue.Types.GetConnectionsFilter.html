@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.GetConnectionsFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.GetConnectionsFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html"><span class="hs-identifier">Network.AWS.Glue.Types.ConnectionType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Filters the connection definitions that are returned by the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @GetConnections@ API operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGetConnectionsFilter' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679685789"><span id="local-6989586621679685790"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConnectionsFilter"><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-var">GetConnectionsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConnectionsFilter%27"><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-var">GetConnectionsFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of connections to return. Currently, SFTP is not supported.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconnectionType%3AGetConnectionsFilter%27"><span class="annot"><span class="annottext">GetConnectionsFilter -&gt; Maybe ConnectionType
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AconnectionType%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A criteria string that must match the criteria recorded in the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- connection definition for that connection definition to be returned.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmatchCriteria%3AGetConnectionsFilter%27"><span class="annot"><span class="annottext">GetConnectionsFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AmatchCriteria%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var hs-var">matchCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685782"><span id="local-6989586621679685784"><span class="annot"><span class="annottext">GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool
+(GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool)
+-&gt; (GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool)
+-&gt; Eq GetConnectionsFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool
+$c/= :: GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool
+== :: GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool
+$c== :: GetConnectionsFilter -&gt; GetConnectionsFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685773"><span id="local-6989586621679685775"><span id="local-6989586621679685777"><span id="local-6989586621679685779"><span class="annot"><span class="annottext">ReadPrec [GetConnectionsFilter]
+ReadPrec GetConnectionsFilter
+Int -&gt; ReadS GetConnectionsFilter
+ReadS [GetConnectionsFilter]
+(Int -&gt; ReadS GetConnectionsFilter)
+-&gt; ReadS [GetConnectionsFilter]
+-&gt; ReadPrec GetConnectionsFilter
+-&gt; ReadPrec [GetConnectionsFilter]
+-&gt; Read GetConnectionsFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConnectionsFilter]
+$creadListPrec :: ReadPrec [GetConnectionsFilter]
+readPrec :: ReadPrec GetConnectionsFilter
+$creadPrec :: ReadPrec GetConnectionsFilter
+readList :: ReadS [GetConnectionsFilter]
+$creadList :: ReadS [GetConnectionsFilter]
+readsPrec :: Int -&gt; ReadS GetConnectionsFilter
+$creadsPrec :: Int -&gt; ReadS GetConnectionsFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685766"><span id="local-6989586621679685768"><span id="local-6989586621679685770"><span class="annot"><span class="annottext">Int -&gt; GetConnectionsFilter -&gt; ShowS
+[GetConnectionsFilter] -&gt; ShowS
+GetConnectionsFilter -&gt; String
+(Int -&gt; GetConnectionsFilter -&gt; ShowS)
+-&gt; (GetConnectionsFilter -&gt; String)
+-&gt; ([GetConnectionsFilter] -&gt; ShowS)
+-&gt; Show GetConnectionsFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConnectionsFilter] -&gt; ShowS
+$cshowList :: [GetConnectionsFilter] -&gt; ShowS
+show :: GetConnectionsFilter -&gt; String
+$cshow :: GetConnectionsFilter -&gt; String
+showsPrec :: Int -&gt; GetConnectionsFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConnectionsFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetConnectionsFilter -&gt; Rep GetConnectionsFilter x)
+-&gt; (forall x. Rep GetConnectionsFilter x -&gt; GetConnectionsFilter)
+-&gt; Generic GetConnectionsFilter
+forall x. Rep GetConnectionsFilter x -&gt; GetConnectionsFilter
+forall x. GetConnectionsFilter -&gt; Rep GetConnectionsFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetConnectionsFilter x -&gt; GetConnectionsFilter
+$cfrom :: forall x. GetConnectionsFilter -&gt; Rep GetConnectionsFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'GetConnectionsFilter' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'connectionType', 'getConnectionsFilter_connectionType' - The type of connections to return. Currently, SFTP is not supported.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'matchCriteria', 'getConnectionsFilter_matchCriteria' - A criteria string that must match the criteria recorded in the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- connection definition for that connection definition to be returned.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#newGetConnectionsFilter"><span class="hs-identifier hs-type">newGetConnectionsFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span><span>
+</span><span id="line-54"></span><span id="newGetConnectionsFilter"><span class="annot"><span class="annottext">newGetConnectionsFilter :: GetConnectionsFilter
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#newGetConnectionsFilter"><span class="hs-identifier hs-var hs-var">newGetConnectionsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">GetConnectionsFilter' :: Maybe ConnectionType -&gt; Maybe [Text] -&gt; GetConnectionsFilter
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionType:GetConnectionsFilter' :: Maybe ConnectionType
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AconnectionType%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConnectionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchCriteria:GetConnectionsFilter' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AmatchCriteria%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The type of connections to return. Currently, SFTP is not supported.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#getConnectionsFilter_connectionType"><span class="hs-identifier hs-type">getConnectionsFilter_connectionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionType.html#ConnectionType"><span class="hs-identifier hs-type">ConnectionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="getConnectionsFilter_connectionType"><span class="annot"><span class="annottext">getConnectionsFilter_connectionType :: (Maybe ConnectionType -&gt; f (Maybe ConnectionType))
+-&gt; GetConnectionsFilter -&gt; f GetConnectionsFilter
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#getConnectionsFilter_connectionType"><span class="hs-identifier hs-var hs-var">getConnectionsFilter_connectionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConnectionsFilter -&gt; Maybe ConnectionType)
+-&gt; (GetConnectionsFilter
+    -&gt; Maybe ConnectionType -&gt; GetConnectionsFilter)
+-&gt; Lens
+     GetConnectionsFilter
+     GetConnectionsFilter
+     (Maybe ConnectionType)
+     (Maybe ConnectionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685757"><span class="annot"><span class="annottext">Maybe ConnectionType
+connectionType :: Maybe ConnectionType
+$sel:connectionType:GetConnectionsFilter' :: GetConnectionsFilter -&gt; Maybe ConnectionType
+</span><a href="#local-6989586621679685757"><span class="hs-identifier hs-var hs-var">connectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679685757"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685756"><span class="annot"><span class="annottext">s :: GetConnectionsFilter
+</span><a href="#local-6989586621679685756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685755"><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679685755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionsFilter
+</span><a href="#local-6989586621679685756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionType:GetConnectionsFilter' :: Maybe ConnectionType
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AconnectionType%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var">connectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679685755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | A criteria string that must match the criteria recorded in the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- connection definition for that connection definition to be returned.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#getConnectionsFilter_matchCriteria"><span class="hs-identifier hs-type">getConnectionsFilter_matchCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="getConnectionsFilter_matchCriteria"><span class="annot"><span class="annottext">getConnectionsFilter_matchCriteria :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetConnectionsFilter -&gt; f GetConnectionsFilter
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#getConnectionsFilter_matchCriteria"><span class="hs-identifier hs-var hs-var">getConnectionsFilter_matchCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConnectionsFilter -&gt; Maybe [Text])
+-&gt; (GetConnectionsFilter -&gt; Maybe [Text] -&gt; GetConnectionsFilter)
+-&gt; Lens
+     GetConnectionsFilter
+     GetConnectionsFilter
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685753"><span class="annot"><span class="annottext">Maybe [Text]
+matchCriteria :: Maybe [Text]
+$sel:matchCriteria:GetConnectionsFilter' :: GetConnectionsFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679685753"><span class="hs-identifier hs-var hs-var">matchCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679685753"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685752"><span class="annot"><span class="annottext">s :: GetConnectionsFilter
+</span><a href="#local-6989586621679685752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685751"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679685751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConnectionsFilter
+</span><a href="#local-6989586621679685752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchCriteria:GetConnectionsFilter' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#%24sel%3AmatchCriteria%3AGetConnectionsFilter%27"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679685751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetConnectionsFilter -&gt; f GetConnectionsFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetConnectionsFilter
+-&gt; f GetConnectionsFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685744"><span id="local-6989586621679685746"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685733"><span id="local-6989586621679685735"><span id="local-6989586621679685737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter"><span class="hs-identifier hs-type">GetConnectionsFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679685731"><span class="annot"><span class="annottext">toJSON :: GetConnectionsFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GetConnectionsFilter.html#GetConnectionsFilter%27"><span class="hs-identifier hs-type">GetConnectionsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685728"><span id="local-6989586621679685729"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe ConnectionType
+matchCriteria :: Maybe [Text]
+connectionType :: Maybe ConnectionType
+$sel:matchCriteria:GetConnectionsFilter' :: GetConnectionsFilter -&gt; Maybe [Text]
+$sel:connectionType:GetConnectionsFilter' :: GetConnectionsFilter -&gt; Maybe ConnectionType
+</span><a href="#local-6989586621679685728"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConnectionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>              </span><span class="annot"><span class="annottext">(ConnectionType -&gt; Pair) -&gt; Maybe ConnectionType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionType
+</span><a href="#local-6989586621679685729"><span class="hs-identifier hs-var">connectionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679685728"><span class="hs-identifier hs-var">matchCriteria</span></a></span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span></pre></body></html>

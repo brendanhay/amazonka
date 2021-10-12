@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.OutputSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.OutputSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.ArchiveOutputSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.FrameCaptureOutputSettings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.HlsOutputSettings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MediaPackageOutputSettings</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MsSmoothOutputSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.MultiplexOutputSettings</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.RtmpOutputSettings</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.UdpOutputSettings</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Output Settings</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newOutputSettings' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679920647"><span id="local-6989586621679920648"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-var">OutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-var">OutputSettings'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArtmpOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe RtmpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3ArtmpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">rtmpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmsSmoothOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe MsSmoothOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmsSmoothOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">msSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AudpOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe UdpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AudpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">udpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmediaPackageOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe MediaPackageOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmediaPackageOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">mediaPackageOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageOutputSettings.html#MediaPackageOutputSettings"><span class="hs-identifier hs-type">MediaPackageOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AframeCaptureOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe FrameCaptureOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AframeCaptureOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">frameCaptureOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureOutputSettings.html#FrameCaptureOutputSettings"><span class="hs-identifier hs-type">FrameCaptureOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AarchiveOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe ArchiveOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AarchiveOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">archiveOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AhlsOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe HlsOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AhlsOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">hlsOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSettings.html#HlsOutputSettings"><span class="hs-identifier hs-type">HlsOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmultiplexOutputSettings%3AOutputSettings%27"><span class="annot"><span class="annottext">OutputSettings -&gt; Maybe MultiplexOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmultiplexOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var hs-var">multiplexOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679920634"><span id="local-6989586621679920636"><span class="annot"><span class="annottext">OutputSettings -&gt; OutputSettings -&gt; Bool
+(OutputSettings -&gt; OutputSettings -&gt; Bool)
+-&gt; (OutputSettings -&gt; OutputSettings -&gt; Bool) -&gt; Eq OutputSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutputSettings -&gt; OutputSettings -&gt; Bool
+$c/= :: OutputSettings -&gt; OutputSettings -&gt; Bool
+== :: OutputSettings -&gt; OutputSettings -&gt; Bool
+$c== :: OutputSettings -&gt; OutputSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679920625"><span id="local-6989586621679920627"><span id="local-6989586621679920629"><span id="local-6989586621679920631"><span class="annot"><span class="annottext">ReadPrec [OutputSettings]
+ReadPrec OutputSettings
+Int -&gt; ReadS OutputSettings
+ReadS [OutputSettings]
+(Int -&gt; ReadS OutputSettings)
+-&gt; ReadS [OutputSettings]
+-&gt; ReadPrec OutputSettings
+-&gt; ReadPrec [OutputSettings]
+-&gt; Read OutputSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutputSettings]
+$creadListPrec :: ReadPrec [OutputSettings]
+readPrec :: ReadPrec OutputSettings
+$creadPrec :: ReadPrec OutputSettings
+readList :: ReadS [OutputSettings]
+$creadList :: ReadS [OutputSettings]
+readsPrec :: Int -&gt; ReadS OutputSettings
+$creadsPrec :: Int -&gt; ReadS OutputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679920618"><span id="local-6989586621679920620"><span id="local-6989586621679920622"><span class="annot"><span class="annottext">Int -&gt; OutputSettings -&gt; ShowS
+[OutputSettings] -&gt; ShowS
+OutputSettings -&gt; String
+(Int -&gt; OutputSettings -&gt; ShowS)
+-&gt; (OutputSettings -&gt; String)
+-&gt; ([OutputSettings] -&gt; ShowS)
+-&gt; Show OutputSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutputSettings] -&gt; ShowS
+$cshowList :: [OutputSettings] -&gt; ShowS
+show :: OutputSettings -&gt; String
+$cshow :: OutputSettings -&gt; String
+showsPrec :: Int -&gt; OutputSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OutputSettings -&gt; Rep OutputSettings x)
+-&gt; (forall x. Rep OutputSettings x -&gt; OutputSettings)
+-&gt; Generic OutputSettings
+forall x. Rep OutputSettings x -&gt; OutputSettings
+forall x. OutputSettings -&gt; Rep OutputSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OutputSettings x -&gt; OutputSettings
+$cfrom :: forall x. OutputSettings -&gt; Rep OutputSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'OutputSettings' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'rtmpOutputSettings', 'outputSettings_rtmpOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'msSmoothOutputSettings', 'outputSettings_msSmoothOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'udpOutputSettings', 'outputSettings_udpOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'mediaPackageOutputSettings', 'outputSettings_mediaPackageOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'frameCaptureOutputSettings', 'outputSettings_frameCaptureOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'archiveOutputSettings', 'outputSettings_archiveOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'hlsOutputSettings', 'outputSettings_hlsOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'multiplexOutputSettings', 'outputSettings_multiplexOutputSettings' - Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#newOutputSettings"><span class="hs-identifier hs-type">newOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span>
+</span><span id="line-74"></span><span id="newOutputSettings"><span class="annot"><span class="annottext">newOutputSettings :: OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#newOutputSettings"><span class="hs-identifier hs-var hs-var">newOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">OutputSettings' :: Maybe RtmpOutputSettings
+-&gt; Maybe MsSmoothOutputSettings
+-&gt; Maybe UdpOutputSettings
+-&gt; Maybe MediaPackageOutputSettings
+-&gt; Maybe FrameCaptureOutputSettings
+-&gt; Maybe ArchiveOutputSettings
+-&gt; Maybe HlsOutputSettings
+-&gt; Maybe MultiplexOutputSettings
+-&gt; OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rtmpOutputSettings:OutputSettings' :: Maybe RtmpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3ArtmpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">rtmpOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:msSmoothOutputSettings:OutputSettings' :: Maybe MsSmoothOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmsSmoothOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">msSmoothOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:udpOutputSettings:OutputSettings' :: Maybe UdpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AudpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">udpOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaPackageOutputSettings:OutputSettings' :: Maybe MediaPackageOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmediaPackageOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">mediaPackageOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameCaptureOutputSettings:OutputSettings' :: Maybe FrameCaptureOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AframeCaptureOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">frameCaptureOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:archiveOutputSettings:OutputSettings' :: Maybe ArchiveOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AarchiveOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">archiveOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsOutputSettings:OutputSettings' :: Maybe HlsOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AhlsOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">hlsOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:multiplexOutputSettings:OutputSettings' :: Maybe MultiplexOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmultiplexOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">multiplexOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_rtmpOutputSettings"><span class="hs-identifier hs-type">outputSettings_rtmpOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="outputSettings_rtmpOutputSettings"><span class="annot"><span class="annottext">outputSettings_rtmpOutputSettings :: (Maybe RtmpOutputSettings -&gt; f (Maybe RtmpOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_rtmpOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_rtmpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe RtmpOutputSettings)
+-&gt; (OutputSettings -&gt; Maybe RtmpOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe RtmpOutputSettings)
+     (Maybe RtmpOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920609"><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+rtmpOutputSettings :: Maybe RtmpOutputSettings
+$sel:rtmpOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920609"><span class="hs-identifier hs-var hs-var">rtmpOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920609"><span class="hs-identifier hs-var">rtmpOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920608"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920607"><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rtmpOutputSettings:OutputSettings' :: Maybe RtmpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3ArtmpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">rtmpOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_msSmoothOutputSettings"><span class="hs-identifier hs-type">outputSettings_msSmoothOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="outputSettings_msSmoothOutputSettings"><span class="annot"><span class="annottext">outputSettings_msSmoothOutputSettings :: (Maybe MsSmoothOutputSettings -&gt; f (Maybe MsSmoothOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_msSmoothOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_msSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe MsSmoothOutputSettings)
+-&gt; (OutputSettings
+    -&gt; Maybe MsSmoothOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe MsSmoothOutputSettings)
+     (Maybe MsSmoothOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920605"><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+msSmoothOutputSettings :: Maybe MsSmoothOutputSettings
+$sel:msSmoothOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MsSmoothOutputSettings
+</span><a href="#local-6989586621679920605"><span class="hs-identifier hs-var hs-var">msSmoothOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+</span><a href="#local-6989586621679920605"><span class="hs-identifier hs-var">msSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920604"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920603"><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+</span><a href="#local-6989586621679920603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msSmoothOutputSettings:OutputSettings' :: Maybe MsSmoothOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmsSmoothOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">msSmoothOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+</span><a href="#local-6989586621679920603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_udpOutputSettings"><span class="hs-identifier hs-type">outputSettings_udpOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpOutputSettings.html#UdpOutputSettings"><span class="hs-identifier hs-type">UdpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="outputSettings_udpOutputSettings"><span class="annot"><span class="annottext">outputSettings_udpOutputSettings :: (Maybe UdpOutputSettings -&gt; f (Maybe UdpOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_udpOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_udpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe UdpOutputSettings)
+-&gt; (OutputSettings -&gt; Maybe UdpOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe UdpOutputSettings)
+     (Maybe UdpOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920601"><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+udpOutputSettings :: Maybe UdpOutputSettings
+$sel:udpOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe UdpOutputSettings
+</span><a href="#local-6989586621679920601"><span class="hs-identifier hs-var hs-var">udpOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+</span><a href="#local-6989586621679920601"><span class="hs-identifier hs-var">udpOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920600"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920599"><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+</span><a href="#local-6989586621679920599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:udpOutputSettings:OutputSettings' :: Maybe UdpOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AudpOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">udpOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+</span><a href="#local-6989586621679920599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_mediaPackageOutputSettings"><span class="hs-identifier hs-type">outputSettings_mediaPackageOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MediaPackageOutputSettings.html#MediaPackageOutputSettings"><span class="hs-identifier hs-type">MediaPackageOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="outputSettings_mediaPackageOutputSettings"><span class="annot"><span class="annottext">outputSettings_mediaPackageOutputSettings :: (Maybe MediaPackageOutputSettings
+ -&gt; f (Maybe MediaPackageOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_mediaPackageOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_mediaPackageOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe MediaPackageOutputSettings)
+-&gt; (OutputSettings
+    -&gt; Maybe MediaPackageOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe MediaPackageOutputSettings)
+     (Maybe MediaPackageOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920597"><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+mediaPackageOutputSettings :: Maybe MediaPackageOutputSettings
+$sel:mediaPackageOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MediaPackageOutputSettings
+</span><a href="#local-6989586621679920597"><span class="hs-identifier hs-var hs-var">mediaPackageOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+</span><a href="#local-6989586621679920597"><span class="hs-identifier hs-var">mediaPackageOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920596"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920595"><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+</span><a href="#local-6989586621679920595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaPackageOutputSettings:OutputSettings' :: Maybe MediaPackageOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmediaPackageOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">mediaPackageOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+</span><a href="#local-6989586621679920595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_frameCaptureOutputSettings"><span class="hs-identifier hs-type">outputSettings_frameCaptureOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureOutputSettings.html#FrameCaptureOutputSettings"><span class="hs-identifier hs-type">FrameCaptureOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="outputSettings_frameCaptureOutputSettings"><span class="annot"><span class="annottext">outputSettings_frameCaptureOutputSettings :: (Maybe FrameCaptureOutputSettings
+ -&gt; f (Maybe FrameCaptureOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_frameCaptureOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_frameCaptureOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe FrameCaptureOutputSettings)
+-&gt; (OutputSettings
+    -&gt; Maybe FrameCaptureOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe FrameCaptureOutputSettings)
+     (Maybe FrameCaptureOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920593"><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+frameCaptureOutputSettings :: Maybe FrameCaptureOutputSettings
+$sel:frameCaptureOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe FrameCaptureOutputSettings
+</span><a href="#local-6989586621679920593"><span class="hs-identifier hs-var hs-var">frameCaptureOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+</span><a href="#local-6989586621679920593"><span class="hs-identifier hs-var">frameCaptureOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920592"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920591"><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+</span><a href="#local-6989586621679920591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameCaptureOutputSettings:OutputSettings' :: Maybe FrameCaptureOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AframeCaptureOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">frameCaptureOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+</span><a href="#local-6989586621679920591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_archiveOutputSettings"><span class="hs-identifier hs-type">outputSettings_archiveOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveOutputSettings.html#ArchiveOutputSettings"><span class="hs-identifier hs-type">ArchiveOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="outputSettings_archiveOutputSettings"><span class="annot"><span class="annottext">outputSettings_archiveOutputSettings :: (Maybe ArchiveOutputSettings -&gt; f (Maybe ArchiveOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_archiveOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_archiveOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe ArchiveOutputSettings)
+-&gt; (OutputSettings
+    -&gt; Maybe ArchiveOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe ArchiveOutputSettings)
+     (Maybe ArchiveOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920589"><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+archiveOutputSettings :: Maybe ArchiveOutputSettings
+$sel:archiveOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe ArchiveOutputSettings
+</span><a href="#local-6989586621679920589"><span class="hs-identifier hs-var hs-var">archiveOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+</span><a href="#local-6989586621679920589"><span class="hs-identifier hs-var">archiveOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920588"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920587"><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+</span><a href="#local-6989586621679920587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveOutputSettings:OutputSettings' :: Maybe ArchiveOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AarchiveOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">archiveOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+</span><a href="#local-6989586621679920587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_hlsOutputSettings"><span class="hs-identifier hs-type">outputSettings_hlsOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsOutputSettings.html#HlsOutputSettings"><span class="hs-identifier hs-type">HlsOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="outputSettings_hlsOutputSettings"><span class="annot"><span class="annottext">outputSettings_hlsOutputSettings :: (Maybe HlsOutputSettings -&gt; f (Maybe HlsOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_hlsOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_hlsOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe HlsOutputSettings)
+-&gt; (OutputSettings -&gt; Maybe HlsOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe HlsOutputSettings)
+     (Maybe HlsOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920585"><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+hlsOutputSettings :: Maybe HlsOutputSettings
+$sel:hlsOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe HlsOutputSettings
+</span><a href="#local-6989586621679920585"><span class="hs-identifier hs-var hs-var">hlsOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+</span><a href="#local-6989586621679920585"><span class="hs-identifier hs-var">hlsOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920584"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920583"><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+</span><a href="#local-6989586621679920583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsOutputSettings:OutputSettings' :: Maybe HlsOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AhlsOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">hlsOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+</span><a href="#local-6989586621679920583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_multiplexOutputSettings"><span class="hs-identifier hs-type">outputSettings_multiplexOutputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexOutputSettings.html#MultiplexOutputSettings"><span class="hs-identifier hs-type">MultiplexOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="outputSettings_multiplexOutputSettings"><span class="annot"><span class="annottext">outputSettings_multiplexOutputSettings :: (Maybe MultiplexOutputSettings
+ -&gt; f (Maybe MultiplexOutputSettings))
+-&gt; OutputSettings -&gt; f OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#outputSettings_multiplexOutputSettings"><span class="hs-identifier hs-var hs-var">outputSettings_multiplexOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputSettings -&gt; Maybe MultiplexOutputSettings)
+-&gt; (OutputSettings
+    -&gt; Maybe MultiplexOutputSettings -&gt; OutputSettings)
+-&gt; Lens
+     OutputSettings
+     OutputSettings
+     (Maybe MultiplexOutputSettings)
+     (Maybe MultiplexOutputSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920581"><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+multiplexOutputSettings :: Maybe MultiplexOutputSettings
+$sel:multiplexOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MultiplexOutputSettings
+</span><a href="#local-6989586621679920581"><span class="hs-identifier hs-var hs-var">multiplexOutputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+</span><a href="#local-6989586621679920581"><span class="hs-identifier hs-var">multiplexOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679920580"><span class="annot"><span class="annottext">s :: OutputSettings
+</span><a href="#local-6989586621679920580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679920579"><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+</span><a href="#local-6989586621679920579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputSettings
+</span><a href="#local-6989586621679920580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexOutputSettings:OutputSettings' :: Maybe MultiplexOutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#%24sel%3AmultiplexOutputSettings%3AOutputSettings%27"><span class="hs-identifier hs-var">multiplexOutputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+</span><a href="#local-6989586621679920579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679920576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679920574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser OutputSettings)
+-&gt; Value
+-&gt; Parser OutputSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;OutputSettings&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679920571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+-&gt; Maybe MsSmoothOutputSettings
+-&gt; Maybe UdpOutputSettings
+-&gt; Maybe MediaPackageOutputSettings
+-&gt; Maybe FrameCaptureOutputSettings
+-&gt; Maybe ArchiveOutputSettings
+-&gt; Maybe HlsOutputSettings
+-&gt; Maybe MultiplexOutputSettings
+-&gt; OutputSettings
+</span><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-var">OutputSettings'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RtmpOutputSettings
+ -&gt; Maybe MsSmoothOutputSettings
+ -&gt; Maybe UdpOutputSettings
+ -&gt; Maybe MediaPackageOutputSettings
+ -&gt; Maybe FrameCaptureOutputSettings
+ -&gt; Maybe ArchiveOutputSettings
+ -&gt; Maybe HlsOutputSettings
+ -&gt; Maybe MultiplexOutputSettings
+ -&gt; OutputSettings)
+-&gt; Parser (Maybe RtmpOutputSettings)
+-&gt; Parser
+     (Maybe MsSmoothOutputSettings
+      -&gt; Maybe UdpOutputSettings
+      -&gt; Maybe MediaPackageOutputSettings
+      -&gt; Maybe FrameCaptureOutputSettings
+      -&gt; Maybe ArchiveOutputSettings
+      -&gt; Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings
+      -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rtmpOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MsSmoothOutputSettings
+   -&gt; Maybe UdpOutputSettings
+   -&gt; Maybe MediaPackageOutputSettings
+   -&gt; Maybe FrameCaptureOutputSettings
+   -&gt; Maybe ArchiveOutputSettings
+   -&gt; Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings
+   -&gt; OutputSettings)
+-&gt; Parser (Maybe MsSmoothOutputSettings)
+-&gt; Parser
+     (Maybe UdpOutputSettings
+      -&gt; Maybe MediaPackageOutputSettings
+      -&gt; Maybe FrameCaptureOutputSettings
+      -&gt; Maybe ArchiveOutputSettings
+      -&gt; Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings
+      -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;msSmoothOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UdpOutputSettings
+   -&gt; Maybe MediaPackageOutputSettings
+   -&gt; Maybe FrameCaptureOutputSettings
+   -&gt; Maybe ArchiveOutputSettings
+   -&gt; Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings
+   -&gt; OutputSettings)
+-&gt; Parser (Maybe UdpOutputSettings)
+-&gt; Parser
+     (Maybe MediaPackageOutputSettings
+      -&gt; Maybe FrameCaptureOutputSettings
+      -&gt; Maybe ArchiveOutputSettings
+      -&gt; Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings
+      -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UdpOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;udpOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MediaPackageOutputSettings
+   -&gt; Maybe FrameCaptureOutputSettings
+   -&gt; Maybe ArchiveOutputSettings
+   -&gt; Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings
+   -&gt; OutputSettings)
+-&gt; Parser (Maybe MediaPackageOutputSettings)
+-&gt; Parser
+     (Maybe FrameCaptureOutputSettings
+      -&gt; Maybe ArchiveOutputSettings
+      -&gt; Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings
+      -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MediaPackageOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaPackageOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FrameCaptureOutputSettings
+   -&gt; Maybe ArchiveOutputSettings
+   -&gt; Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings
+   -&gt; OutputSettings)
+-&gt; Parser (Maybe FrameCaptureOutputSettings)
+-&gt; Parser
+     (Maybe ArchiveOutputSettings
+      -&gt; Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings
+      -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameCaptureOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameCaptureOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArchiveOutputSettings
+   -&gt; Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings
+   -&gt; OutputSettings)
+-&gt; Parser (Maybe ArchiveOutputSettings)
+-&gt; Parser
+     (Maybe HlsOutputSettings
+      -&gt; Maybe MultiplexOutputSettings -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;archiveOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsOutputSettings
+   -&gt; Maybe MultiplexOutputSettings -&gt; OutputSettings)
+-&gt; Parser (Maybe HlsOutputSettings)
+-&gt; Parser (Maybe MultiplexOutputSettings -&gt; OutputSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MultiplexOutputSettings -&gt; OutputSettings)
+-&gt; Parser (Maybe MultiplexOutputSettings) -&gt; Parser OutputSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679920571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexOutputSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiplexOutputSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679920565"><span id="local-6989586621679920567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679920562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679920554"><span id="local-6989586621679920556"><span id="local-6989586621679920558"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings"><span class="hs-identifier hs-type">OutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679920552"><span class="annot"><span class="annottext">toJSON :: OutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputSettings.html#OutputSettings%27"><span class="hs-identifier hs-type">OutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679920543"><span id="local-6989586621679920544"><span id="local-6989586621679920545"><span id="local-6989586621679920546"><span id="local-6989586621679920547"><span id="local-6989586621679920548"><span id="local-6989586621679920549"><span id="local-6989586621679920550"><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+Maybe MediaPackageOutputSettings
+Maybe MsSmoothOutputSettings
+Maybe MultiplexOutputSettings
+Maybe ArchiveOutputSettings
+Maybe RtmpOutputSettings
+Maybe HlsOutputSettings
+Maybe UdpOutputSettings
+multiplexOutputSettings :: Maybe MultiplexOutputSettings
+hlsOutputSettings :: Maybe HlsOutputSettings
+archiveOutputSettings :: Maybe ArchiveOutputSettings
+frameCaptureOutputSettings :: Maybe FrameCaptureOutputSettings
+mediaPackageOutputSettings :: Maybe MediaPackageOutputSettings
+udpOutputSettings :: Maybe UdpOutputSettings
+msSmoothOutputSettings :: Maybe MsSmoothOutputSettings
+rtmpOutputSettings :: Maybe RtmpOutputSettings
+$sel:multiplexOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MultiplexOutputSettings
+$sel:hlsOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe HlsOutputSettings
+$sel:archiveOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe ArchiveOutputSettings
+$sel:frameCaptureOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe FrameCaptureOutputSettings
+$sel:mediaPackageOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MediaPackageOutputSettings
+$sel:udpOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe UdpOutputSettings
+$sel:msSmoothOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe MsSmoothOutputSettings
+$sel:rtmpOutputSettings:OutputSettings' :: OutputSettings -&gt; Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rtmpOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RtmpOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(RtmpOutputSettings -&gt; Pair)
+-&gt; Maybe RtmpOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputSettings
+</span><a href="#local-6989586621679920550"><span class="hs-identifier hs-var">rtmpOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;msSmoothOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MsSmoothOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(MsSmoothOutputSettings -&gt; Pair)
+-&gt; Maybe MsSmoothOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothOutputSettings
+</span><a href="#local-6989586621679920549"><span class="hs-identifier hs-var">msSmoothOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;udpOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UdpOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(UdpOutputSettings -&gt; Pair)
+-&gt; Maybe UdpOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UdpOutputSettings
+</span><a href="#local-6989586621679920548"><span class="hs-identifier hs-var">udpOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaPackageOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MediaPackageOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(MediaPackageOutputSettings -&gt; Pair)
+-&gt; Maybe MediaPackageOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MediaPackageOutputSettings
+</span><a href="#local-6989586621679920547"><span class="hs-identifier hs-var">mediaPackageOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;frameCaptureOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FrameCaptureOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(FrameCaptureOutputSettings -&gt; Pair)
+-&gt; Maybe FrameCaptureOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureOutputSettings
+</span><a href="#local-6989586621679920546"><span class="hs-identifier hs-var">frameCaptureOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;archiveOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArchiveOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(ArchiveOutputSettings -&gt; Pair)
+-&gt; Maybe ArchiveOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveOutputSettings
+</span><a href="#local-6989586621679920545"><span class="hs-identifier hs-var">archiveOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(HlsOutputSettings -&gt; Pair)
+-&gt; Maybe HlsOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsOutputSettings
+</span><a href="#local-6989586621679920544"><span class="hs-identifier hs-var">hlsOutputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;multiplexOutputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiplexOutputSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">(MultiplexOutputSettings -&gt; Pair)
+-&gt; Maybe MultiplexOutputSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexOutputSettings
+</span><a href="#local-6989586621679920543"><span class="hs-identifier hs-var">multiplexOutputSettings</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span></pre></body></html>

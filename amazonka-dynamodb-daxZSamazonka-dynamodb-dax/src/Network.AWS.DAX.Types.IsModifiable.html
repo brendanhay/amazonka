@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DAX.Types.IsModifiable</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DAX.Types.IsModifiable</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier">IsModifiable</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_CONDITIONAL"><span class="hs-identifier">IsModifiable_CONDITIONAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_FALSE"><span class="hs-identifier">IsModifiable_FALSE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_TRUE"><span class="hs-identifier">IsModifiable_TRUE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679194119"><span id="local-6989586621679194120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IsModifiable"><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-var">IsModifiable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IsModifiable%27"><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable%27"><span class="hs-identifier hs-var">IsModifiable'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIsModifiable"><span class="annot"><span class="annottext">IsModifiable -&gt; Text
+</span><a href="Network.AWS.DAX.Types.IsModifiable.html#fromIsModifiable"><span class="hs-identifier hs-var hs-var">fromIsModifiable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194111"><span id="local-6989586621679194113"><span id="local-6989586621679194115"><span class="annot"><span class="annottext">Int -&gt; IsModifiable -&gt; ShowS
+[IsModifiable] -&gt; ShowS
+IsModifiable -&gt; String
+(Int -&gt; IsModifiable -&gt; ShowS)
+-&gt; (IsModifiable -&gt; String)
+-&gt; ([IsModifiable] -&gt; ShowS)
+-&gt; Show IsModifiable
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IsModifiable] -&gt; ShowS
+$cshowList :: [IsModifiable] -&gt; ShowS
+show :: IsModifiable -&gt; String
+$cshow :: IsModifiable -&gt; String
+showsPrec :: Int -&gt; IsModifiable -&gt; ShowS
+$cshowsPrec :: Int -&gt; IsModifiable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679194102"><span id="local-6989586621679194104"><span id="local-6989586621679194106"><span id="local-6989586621679194108"><span class="annot"><span class="annottext">ReadPrec [IsModifiable]
+ReadPrec IsModifiable
+Int -&gt; ReadS IsModifiable
+ReadS [IsModifiable]
+(Int -&gt; ReadS IsModifiable)
+-&gt; ReadS [IsModifiable]
+-&gt; ReadPrec IsModifiable
+-&gt; ReadPrec [IsModifiable]
+-&gt; Read IsModifiable
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IsModifiable]
+$creadListPrec :: ReadPrec [IsModifiable]
+readPrec :: ReadPrec IsModifiable
+$creadPrec :: ReadPrec IsModifiable
+readList :: ReadS [IsModifiable]
+$creadList :: ReadS [IsModifiable]
+readsPrec :: Int -&gt; ReadS IsModifiable
+$creadsPrec :: Int -&gt; ReadS IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679194097"><span id="local-6989586621679194099"><span class="annot"><span class="annottext">IsModifiable -&gt; IsModifiable -&gt; Bool
+(IsModifiable -&gt; IsModifiable -&gt; Bool)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Bool) -&gt; Eq IsModifiable
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c/= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+== :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c== :: IsModifiable -&gt; IsModifiable -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679194081"><span id="local-6989586621679194083"><span id="local-6989586621679194085"><span id="local-6989586621679194087"><span id="local-6989586621679194089"><span id="local-6989586621679194091"><span id="local-6989586621679194093"><span class="annot"><span class="annottext">Eq IsModifiable
+Eq IsModifiable
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Ordering)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Bool)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Bool)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Bool)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; Bool)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; IsModifiable)
+-&gt; (IsModifiable -&gt; IsModifiable -&gt; IsModifiable)
+-&gt; Ord IsModifiable
+IsModifiable -&gt; IsModifiable -&gt; Bool
+IsModifiable -&gt; IsModifiable -&gt; Ordering
+IsModifiable -&gt; IsModifiable -&gt; IsModifiable
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IsModifiable -&gt; IsModifiable -&gt; IsModifiable
+$cmin :: IsModifiable -&gt; IsModifiable -&gt; IsModifiable
+max :: IsModifiable -&gt; IsModifiable -&gt; IsModifiable
+$cmax :: IsModifiable -&gt; IsModifiable -&gt; IsModifiable
+&gt;= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c&gt;= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+&gt; :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c&gt; :: IsModifiable -&gt; IsModifiable -&gt; Bool
+&lt;= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c&lt;= :: IsModifiable -&gt; IsModifiable -&gt; Bool
+&lt; :: IsModifiable -&gt; IsModifiable -&gt; Bool
+$c&lt; :: IsModifiable -&gt; IsModifiable -&gt; Bool
+compare :: IsModifiable -&gt; IsModifiable -&gt; Ordering
+$ccompare :: IsModifiable -&gt; IsModifiable -&gt; Ordering
+$cp1Ord :: Eq IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IsModifiable -&gt; Rep IsModifiable x)
+-&gt; (forall x. Rep IsModifiable x -&gt; IsModifiable)
+-&gt; Generic IsModifiable
+forall x. Rep IsModifiable x -&gt; IsModifiable
+forall x. IsModifiable -&gt; Rep IsModifiable x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IsModifiable x -&gt; IsModifiable
+$cfrom :: forall x. IsModifiable -&gt; Rep IsModifiable x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679194073"><span id="local-6989586621679194075"><span class="annot"><span class="annottext">Int -&gt; IsModifiable -&gt; Int
+IsModifiable -&gt; Int
+(Int -&gt; IsModifiable -&gt; Int)
+-&gt; (IsModifiable -&gt; Int) -&gt; Hashable IsModifiable
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IsModifiable -&gt; Int
+$chash :: IsModifiable -&gt; Int
+hashWithSalt :: Int -&gt; IsModifiable -&gt; Int
+$chashWithSalt :: Int -&gt; IsModifiable -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679194070"><span class="annot"><span class="annottext">IsModifiable -&gt; ()
+(IsModifiable -&gt; ()) -&gt; NFData IsModifiable
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IsModifiable -&gt; ()
+$crnf :: IsModifiable -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679194067"><span class="annot"><span class="annottext">Text -&gt; Either String IsModifiable
+(Text -&gt; Either String IsModifiable) -&gt; FromText IsModifiable
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IsModifiable
+$cfromText :: Text -&gt; Either String IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679194064"><span class="annot"><span class="annottext">IsModifiable -&gt; Text
+(IsModifiable -&gt; Text) -&gt; ToText IsModifiable
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IsModifiable -&gt; Text
+$ctoText :: IsModifiable -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679194061"><span class="annot"><span class="annottext">IsModifiable -&gt; ByteString
+(IsModifiable -&gt; ByteString) -&gt; ToByteString IsModifiable
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IsModifiable -&gt; ByteString
+$ctoBS :: IsModifiable -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679194058"><span class="annot"><span class="annottext">IsModifiable -&gt; ByteStringBuilder
+(IsModifiable -&gt; ByteStringBuilder) -&gt; ToLog IsModifiable
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IsModifiable -&gt; ByteStringBuilder
+$cbuild :: IsModifiable -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679194055"><span class="annot"><span class="annottext">HeaderName -&gt; IsModifiable -&gt; [Header]
+(HeaderName -&gt; IsModifiable -&gt; [Header]) -&gt; ToHeader IsModifiable
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IsModifiable -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IsModifiable -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679194052"><span class="annot"><span class="annottext">IsModifiable -&gt; QueryString
+(IsModifiable -&gt; QueryString) -&gt; ToQuery IsModifiable
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IsModifiable -&gt; QueryString
+$ctoQuery :: IsModifiable -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679194047"><span id="local-6989586621679194049"><span class="annot"><span class="annottext">Value -&gt; Parser [IsModifiable]
+Value -&gt; Parser IsModifiable
+(Value -&gt; Parser IsModifiable)
+-&gt; (Value -&gt; Parser [IsModifiable]) -&gt; FromJSON IsModifiable
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IsModifiable]
+$cparseJSONList :: Value -&gt; Parser [IsModifiable]
+parseJSON :: Value -&gt; Parser IsModifiable
+$cparseJSON :: Value -&gt; Parser IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679194042"><span id="local-6989586621679194044"><span class="annot"><span class="annottext">FromJSONKeyFunction [IsModifiable]
+FromJSONKeyFunction IsModifiable
+FromJSONKeyFunction IsModifiable
+-&gt; FromJSONKeyFunction [IsModifiable] -&gt; FromJSONKey IsModifiable
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IsModifiable]
+$cfromJSONKeyList :: FromJSONKeyFunction [IsModifiable]
+fromJSONKey :: FromJSONKeyFunction IsModifiable
+$cfromJSONKey :: FromJSONKeyFunction IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679194033"><span id="local-6989586621679194035"><span id="local-6989586621679194037"><span id="local-6989586621679194039"><span class="annot"><span class="annottext">[IsModifiable] -&gt; Encoding
+[IsModifiable] -&gt; Value
+IsModifiable -&gt; Encoding
+IsModifiable -&gt; Value
+(IsModifiable -&gt; Value)
+-&gt; (IsModifiable -&gt; Encoding)
+-&gt; ([IsModifiable] -&gt; Value)
+-&gt; ([IsModifiable] -&gt; Encoding)
+-&gt; ToJSON IsModifiable
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IsModifiable] -&gt; Encoding
+$ctoEncodingList :: [IsModifiable] -&gt; Encoding
+toJSONList :: [IsModifiable] -&gt; Value
+$ctoJSONList :: [IsModifiable] -&gt; Value
+toEncoding :: IsModifiable -&gt; Encoding
+$ctoEncoding :: IsModifiable -&gt; Encoding
+toJSON :: IsModifiable -&gt; Value
+$ctoJSON :: IsModifiable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679194028"><span id="local-6989586621679194030"><span class="annot"><span class="annottext">ToJSONKeyFunction [IsModifiable]
+ToJSONKeyFunction IsModifiable
+ToJSONKeyFunction IsModifiable
+-&gt; ToJSONKeyFunction [IsModifiable] -&gt; ToJSONKey IsModifiable
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IsModifiable]
+$ctoJSONKeyList :: ToJSONKeyFunction [IsModifiable]
+toJSONKey :: ToJSONKeyFunction IsModifiable
+$ctoJSONKey :: ToJSONKeyFunction IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679194025"><span class="annot"><span class="annottext">[Node] -&gt; Either String IsModifiable
+([Node] -&gt; Either String IsModifiable) -&gt; FromXML IsModifiable
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IsModifiable
+$cparseXML :: [Node] -&gt; Either String IsModifiable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679194022"><span class="annot"><span class="annottext">IsModifiable -&gt; XML
+(IsModifiable -&gt; XML) -&gt; ToXML IsModifiable
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IsModifiable -&gt; XML
+$ctoXML :: IsModifiable -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_CONDITIONAL"><span class="hs-identifier hs-type">IsModifiable_CONDITIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-type">IsModifiable</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIsModifiable_CONDITIONAL"><span id="%24mIsModifiable_CONDITIONAL"><span id="IsModifiable_CONDITIONAL"><span class="annot"><span class="annottext">$bIsModifiable_CONDITIONAL :: IsModifiable
+$mIsModifiable_CONDITIONAL :: forall r. IsModifiable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DAX.Types.IsModifiable.html#%24bIsModifiable_CONDITIONAL"><span class="hs-identifier hs-var hs-var hs-var">IsModifiable_CONDITIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable%27"><span class="hs-identifier hs-type">IsModifiable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONDITIONAL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_FALSE"><span class="hs-identifier hs-type">IsModifiable_FALSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-type">IsModifiable</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIsModifiable_FALSE"><span id="%24mIsModifiable_FALSE"><span id="IsModifiable_FALSE"><span class="annot"><span class="annottext">$bIsModifiable_FALSE :: IsModifiable
+$mIsModifiable_FALSE :: forall r. IsModifiable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DAX.Types.IsModifiable.html#%24bIsModifiable_FALSE"><span class="hs-identifier hs-var hs-var hs-var">IsModifiable_FALSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable%27"><span class="hs-identifier hs-type">IsModifiable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FALSE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_TRUE"><span class="hs-identifier hs-type">IsModifiable_TRUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable"><span class="hs-identifier hs-type">IsModifiable</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIsModifiable_TRUE"><span id="%24mIsModifiable_TRUE"><span id="IsModifiable_TRUE"><span class="annot"><span class="annottext">$bIsModifiable_TRUE :: IsModifiable
+$mIsModifiable_TRUE :: forall r. IsModifiable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DAX.Types.IsModifiable.html#%24bIsModifiable_TRUE"><span class="hs-identifier hs-var hs-var hs-var">IsModifiable_TRUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable%27"><span class="hs-identifier hs-type">IsModifiable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRUE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_CONDITIONAL"><span class="hs-pragma hs-type">IsModifiable_CONDITIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_FALSE"><span class="hs-pragma hs-type">IsModifiable_FALSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable_TRUE"><span class="hs-pragma hs-type">IsModifiable_TRUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.Types.IsModifiable.html#IsModifiable%27"><span class="hs-pragma hs-type">IsModifiable'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Add or change the operations role used by an environment. After this</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- call is made, Elastic Beanstalk uses the associated operations role for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- permissions to downstream services during subsequent calls acting on</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- this environment. For more information, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /AWS Elastic Beanstalk Developer Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier">AssociateEnvironmentOperationsRole</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRole"><span class="hs-identifier">newAssociateEnvironmentOperationsRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_environmentName"><span class="hs-identifier">associateEnvironmentOperationsRole_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_operationsRole"><span class="hs-identifier">associateEnvironmentOperationsRole_operationsRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier">AssociateEnvironmentOperationsRoleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier">newAssociateEnvironmentOperationsRoleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Request to add or change the operations role used by an environment.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newAssociateEnvironmentOperationsRole' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679317391"><span id="local-6989586621679317392"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEnvironmentOperationsRole"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEnvironmentOperationsRole%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRole'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the environment to which to set the operations role.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AenvironmentName%3AAssociateEnvironmentOperationsRole%27"><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AenvironmentName%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- environment\'s operations role.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AoperationsRole%3AAssociateEnvironmentOperationsRole%27"><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AoperationsRole%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var hs-var">operationsRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317384"><span id="local-6989586621679317386"><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole
+-&gt; AssociateEnvironmentOperationsRole -&gt; Bool
+(AssociateEnvironmentOperationsRole
+ -&gt; AssociateEnvironmentOperationsRole -&gt; Bool)
+-&gt; (AssociateEnvironmentOperationsRole
+    -&gt; AssociateEnvironmentOperationsRole -&gt; Bool)
+-&gt; Eq AssociateEnvironmentOperationsRole
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateEnvironmentOperationsRole
+-&gt; AssociateEnvironmentOperationsRole -&gt; Bool
+$c/= :: AssociateEnvironmentOperationsRole
+-&gt; AssociateEnvironmentOperationsRole -&gt; Bool
+== :: AssociateEnvironmentOperationsRole
+-&gt; AssociateEnvironmentOperationsRole -&gt; Bool
+$c== :: AssociateEnvironmentOperationsRole
+-&gt; AssociateEnvironmentOperationsRole -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317375"><span id="local-6989586621679317377"><span id="local-6989586621679317379"><span id="local-6989586621679317381"><span class="annot"><span class="annottext">ReadPrec [AssociateEnvironmentOperationsRole]
+ReadPrec AssociateEnvironmentOperationsRole
+Int -&gt; ReadS AssociateEnvironmentOperationsRole
+ReadS [AssociateEnvironmentOperationsRole]
+(Int -&gt; ReadS AssociateEnvironmentOperationsRole)
+-&gt; ReadS [AssociateEnvironmentOperationsRole]
+-&gt; ReadPrec AssociateEnvironmentOperationsRole
+-&gt; ReadPrec [AssociateEnvironmentOperationsRole]
+-&gt; Read AssociateEnvironmentOperationsRole
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateEnvironmentOperationsRole]
+$creadListPrec :: ReadPrec [AssociateEnvironmentOperationsRole]
+readPrec :: ReadPrec AssociateEnvironmentOperationsRole
+$creadPrec :: ReadPrec AssociateEnvironmentOperationsRole
+readList :: ReadS [AssociateEnvironmentOperationsRole]
+$creadList :: ReadS [AssociateEnvironmentOperationsRole]
+readsPrec :: Int -&gt; ReadS AssociateEnvironmentOperationsRole
+$creadsPrec :: Int -&gt; ReadS AssociateEnvironmentOperationsRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317368"><span id="local-6989586621679317370"><span id="local-6989586621679317372"><span class="annot"><span class="annottext">Int -&gt; AssociateEnvironmentOperationsRole -&gt; ShowS
+[AssociateEnvironmentOperationsRole] -&gt; ShowS
+AssociateEnvironmentOperationsRole -&gt; String
+(Int -&gt; AssociateEnvironmentOperationsRole -&gt; ShowS)
+-&gt; (AssociateEnvironmentOperationsRole -&gt; String)
+-&gt; ([AssociateEnvironmentOperationsRole] -&gt; ShowS)
+-&gt; Show AssociateEnvironmentOperationsRole
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateEnvironmentOperationsRole] -&gt; ShowS
+$cshowList :: [AssociateEnvironmentOperationsRole] -&gt; ShowS
+show :: AssociateEnvironmentOperationsRole -&gt; String
+$cshow :: AssociateEnvironmentOperationsRole -&gt; String
+showsPrec :: Int -&gt; AssociateEnvironmentOperationsRole -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateEnvironmentOperationsRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateEnvironmentOperationsRole
+ -&gt; Rep AssociateEnvironmentOperationsRole x)
+-&gt; (forall x.
+    Rep AssociateEnvironmentOperationsRole x
+    -&gt; AssociateEnvironmentOperationsRole)
+-&gt; Generic AssociateEnvironmentOperationsRole
+forall x.
+Rep AssociateEnvironmentOperationsRole x
+-&gt; AssociateEnvironmentOperationsRole
+forall x.
+AssociateEnvironmentOperationsRole
+-&gt; Rep AssociateEnvironmentOperationsRole x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateEnvironmentOperationsRole x
+-&gt; AssociateEnvironmentOperationsRole
+$cfrom :: forall x.
+AssociateEnvironmentOperationsRole
+-&gt; Rep AssociateEnvironmentOperationsRole x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'AssociateEnvironmentOperationsRole' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'environmentName', 'associateEnvironmentOperationsRole_environmentName' - The name of the environment to which to set the operations role.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'operationsRole', 'associateEnvironmentOperationsRole_operationsRole' - The Amazon Resource Name (ARN) of an existing IAM role to be used as the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- environment\'s operations role.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">newAssociateEnvironmentOperationsRole</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'environmentName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'operationsRole'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span>
+</span><span id="line-81"></span><span id="newAssociateEnvironmentOperationsRole"><span class="annot"><span class="annottext">newAssociateEnvironmentOperationsRole :: Text -&gt; Text -&gt; AssociateEnvironmentOperationsRole
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRole"><span class="hs-identifier hs-var hs-var">newAssociateEnvironmentOperationsRole</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679317363"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317363"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679317362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317362"><span class="hs-identifier hs-var">pOperationsRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole' :: Text -&gt; Text -&gt; AssociateEnvironmentOperationsRole
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentName:AssociateEnvironmentOperationsRole' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AenvironmentName%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317363"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:operationsRole:AssociateEnvironmentOperationsRole' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AoperationsRole%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var">operationsRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317362"><span class="hs-identifier hs-var">pOperationsRole_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the environment to which to set the operations role.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_environmentName"><span class="hs-identifier hs-type">associateEnvironmentOperationsRole_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="associateEnvironmentOperationsRole_environmentName"><span class="annot"><span class="annottext">associateEnvironmentOperationsRole_environmentName :: (Text -&gt; f Text)
+-&gt; AssociateEnvironmentOperationsRole
+-&gt; f AssociateEnvironmentOperationsRole
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_environmentName"><span class="hs-identifier hs-var hs-var">associateEnvironmentOperationsRole_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateEnvironmentOperationsRole -&gt; Text)
+-&gt; (AssociateEnvironmentOperationsRole
+    -&gt; Text -&gt; AssociateEnvironmentOperationsRole)
+-&gt; Lens
+     AssociateEnvironmentOperationsRole
+     AssociateEnvironmentOperationsRole
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317359"><span class="annot"><span class="annottext">Text
+environmentName :: Text
+$sel:environmentName:AssociateEnvironmentOperationsRole' :: AssociateEnvironmentOperationsRole -&gt; Text
+</span><a href="#local-6989586621679317359"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317359"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317358"><span class="annot"><span class="annottext">s :: AssociateEnvironmentOperationsRole
+</span><a href="#local-6989586621679317358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole
+</span><a href="#local-6989586621679317358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:AssociateEnvironmentOperationsRole' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AenvironmentName%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- environment\'s operations role.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_operationsRole"><span class="hs-identifier hs-type">associateEnvironmentOperationsRole_operationsRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="associateEnvironmentOperationsRole_operationsRole"><span class="annot"><span class="annottext">associateEnvironmentOperationsRole_operationsRole :: (Text -&gt; f Text)
+-&gt; AssociateEnvironmentOperationsRole
+-&gt; f AssociateEnvironmentOperationsRole
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#associateEnvironmentOperationsRole_operationsRole"><span class="hs-identifier hs-var hs-var">associateEnvironmentOperationsRole_operationsRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateEnvironmentOperationsRole -&gt; Text)
+-&gt; (AssociateEnvironmentOperationsRole
+    -&gt; Text -&gt; AssociateEnvironmentOperationsRole)
+-&gt; Lens
+     AssociateEnvironmentOperationsRole
+     AssociateEnvironmentOperationsRole
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317356"><span class="annot"><span class="annottext">Text
+operationsRole :: Text
+$sel:operationsRole:AssociateEnvironmentOperationsRole' :: AssociateEnvironmentOperationsRole -&gt; Text
+</span><a href="#local-6989586621679317356"><span class="hs-identifier hs-var hs-var">operationsRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317356"><span class="hs-identifier hs-var">operationsRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317355"><span class="annot"><span class="annottext">s :: AssociateEnvironmentOperationsRole
+</span><a href="#local-6989586621679317355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRole
+</span><a href="#local-6989586621679317355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationsRole:AssociateEnvironmentOperationsRole' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#%24sel%3AoperationsRole%3AAssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-var">operationsRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRoleResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679317350"><span class="annot"><span class="annottext">request :: AssociateEnvironmentOperationsRole
+-&gt; Request AssociateEnvironmentOperationsRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateEnvironmentOperationsRole
+-&gt; Request AssociateEnvironmentOperationsRole
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679317346"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateEnvironmentOperationsRole
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateEnvironmentOperationsRole)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AssociateEnvironmentOperationsRole
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateEnvironmentOperationsRole
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateEnvironmentOperationsRole)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse AssociateEnvironmentOperationsRole
+AssociateEnvironmentOperationsRoleResponse
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse%27"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRoleResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679317339"><span id="local-6989586621679317341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679317336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679317332"><span class="annot"><span class="annottext">toHeaders :: AssociateEnvironmentOperationsRole -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateEnvironmentOperationsRole -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679317327"><span class="annot"><span class="annottext">toPath :: AssociateEnvironmentOperationsRole -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateEnvironmentOperationsRole -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679317323"><span class="annot"><span class="annottext">toQuery :: AssociateEnvironmentOperationsRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRole%27"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317320"><span id="local-6989586621679317321"><span class="annot"><span class="annottext">Text
+operationsRole :: Text
+environmentName :: Text
+$sel:operationsRole:AssociateEnvironmentOperationsRole' :: AssociateEnvironmentOperationsRole -&gt; Text
+$sel:environmentName:AssociateEnvironmentOperationsRole' :: AssociateEnvironmentOperationsRole -&gt; Text
+</span><a href="#local-6989586621679317320"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AssociateEnvironmentOperationsRole&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317321"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OperationsRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317320"><span class="hs-identifier hs-var">operationsRole</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newAssociateEnvironmentOperationsRoleResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679317317"><span id="local-6989586621679317318"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateEnvironmentOperationsRoleResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateEnvironmentOperationsRoleResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse%27"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRoleResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317313"><span id="local-6989586621679317315"><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRoleResponse
+-&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool
+(AssociateEnvironmentOperationsRoleResponse
+ -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool)
+-&gt; (AssociateEnvironmentOperationsRoleResponse
+    -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool)
+-&gt; Eq AssociateEnvironmentOperationsRoleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateEnvironmentOperationsRoleResponse
+-&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool
+$c/= :: AssociateEnvironmentOperationsRoleResponse
+-&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool
+== :: AssociateEnvironmentOperationsRoleResponse
+-&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool
+$c== :: AssociateEnvironmentOperationsRoleResponse
+-&gt; AssociateEnvironmentOperationsRoleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317305"><span id="local-6989586621679317307"><span id="local-6989586621679317309"><span id="local-6989586621679317311"><span class="annot"><span class="annottext">ReadPrec [AssociateEnvironmentOperationsRoleResponse]
+ReadPrec AssociateEnvironmentOperationsRoleResponse
+Int -&gt; ReadS AssociateEnvironmentOperationsRoleResponse
+ReadS [AssociateEnvironmentOperationsRoleResponse]
+(Int -&gt; ReadS AssociateEnvironmentOperationsRoleResponse)
+-&gt; ReadS [AssociateEnvironmentOperationsRoleResponse]
+-&gt; ReadPrec AssociateEnvironmentOperationsRoleResponse
+-&gt; ReadPrec [AssociateEnvironmentOperationsRoleResponse]
+-&gt; Read AssociateEnvironmentOperationsRoleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateEnvironmentOperationsRoleResponse]
+$creadListPrec :: ReadPrec [AssociateEnvironmentOperationsRoleResponse]
+readPrec :: ReadPrec AssociateEnvironmentOperationsRoleResponse
+$creadPrec :: ReadPrec AssociateEnvironmentOperationsRoleResponse
+readList :: ReadS [AssociateEnvironmentOperationsRoleResponse]
+$creadList :: ReadS [AssociateEnvironmentOperationsRoleResponse]
+readsPrec :: Int -&gt; ReadS AssociateEnvironmentOperationsRoleResponse
+$creadsPrec :: Int -&gt; ReadS AssociateEnvironmentOperationsRoleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317299"><span id="local-6989586621679317301"><span id="local-6989586621679317303"><span class="annot"><span class="annottext">Int -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; ShowS
+[AssociateEnvironmentOperationsRoleResponse] -&gt; ShowS
+AssociateEnvironmentOperationsRoleResponse -&gt; String
+(Int -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; ShowS)
+-&gt; (AssociateEnvironmentOperationsRoleResponse -&gt; String)
+-&gt; ([AssociateEnvironmentOperationsRoleResponse] -&gt; ShowS)
+-&gt; Show AssociateEnvironmentOperationsRoleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateEnvironmentOperationsRoleResponse] -&gt; ShowS
+$cshowList :: [AssociateEnvironmentOperationsRoleResponse] -&gt; ShowS
+show :: AssociateEnvironmentOperationsRoleResponse -&gt; String
+$cshow :: AssociateEnvironmentOperationsRoleResponse -&gt; String
+showsPrec :: Int -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateEnvironmentOperationsRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateEnvironmentOperationsRoleResponse
+ -&gt; Rep AssociateEnvironmentOperationsRoleResponse x)
+-&gt; (forall x.
+    Rep AssociateEnvironmentOperationsRoleResponse x
+    -&gt; AssociateEnvironmentOperationsRoleResponse)
+-&gt; Generic AssociateEnvironmentOperationsRoleResponse
+forall x.
+Rep AssociateEnvironmentOperationsRoleResponse x
+-&gt; AssociateEnvironmentOperationsRoleResponse
+forall x.
+AssociateEnvironmentOperationsRoleResponse
+-&gt; Rep AssociateEnvironmentOperationsRoleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateEnvironmentOperationsRoleResponse x
+-&gt; AssociateEnvironmentOperationsRoleResponse
+$cfrom :: forall x.
+AssociateEnvironmentOperationsRoleResponse
+-&gt; Rep AssociateEnvironmentOperationsRoleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'AssociateEnvironmentOperationsRoleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-type">newAssociateEnvironmentOperationsRoleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRoleResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newAssociateEnvironmentOperationsRoleResponse"><span class="annot"><span class="annottext">newAssociateEnvironmentOperationsRoleResponse :: AssociateEnvironmentOperationsRoleResponse
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#newAssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-var hs-var">newAssociateEnvironmentOperationsRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">AssociateEnvironmentOperationsRoleResponse
+</span><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse%27"><span class="hs-identifier hs-var">AssociateEnvironmentOperationsRoleResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679317295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole.html#AssociateEnvironmentOperationsRoleResponse"><span class="hs-identifier hs-type">AssociateEnvironmentOperationsRoleResponse</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

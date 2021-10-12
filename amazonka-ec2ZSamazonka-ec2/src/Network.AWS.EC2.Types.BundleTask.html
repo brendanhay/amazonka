@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.BundleTask</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.BundleTask</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html"><span class="hs-identifier">Network.AWS.EC2.Types.BundleTaskError</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html"><span class="hs-identifier">Network.AWS.EC2.Types.BundleTaskState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html"><span class="hs-identifier">Network.AWS.EC2.Types.Storage</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes a bundle task.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newBundleTask' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681119392"><span id="local-6989586621681119393"></span></span><span class="hs-keyword">data</span><span> </span><span id="BundleTask"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-var">BundleTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-var">BundleTask'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the task fails, a description of the error.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AbundleTaskError%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; Maybe BundleTaskError
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleTaskError%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">bundleTaskError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the bundle task.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AbundleId%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleId%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the instance associated with this bundle task.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstanceId%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AinstanceId%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The level of task completion, as a percent (for example, 20%).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprogress%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Aprogress%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time this task started.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstartTime%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AstartTime%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The state of the task.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astate%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; BundleTaskState
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astate%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 storage locations.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astorage%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; Storage
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astorage%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The time of the most recent update for the task.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AupdateTime%3ABundleTask%27"><span class="annot"><span class="annottext">BundleTask -&gt; ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AupdateTime%3ABundleTask%27"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681119379"><span id="local-6989586621681119381"><span class="annot"><span class="annottext">BundleTask -&gt; BundleTask -&gt; Bool
+(BundleTask -&gt; BundleTask -&gt; Bool)
+-&gt; (BundleTask -&gt; BundleTask -&gt; Bool) -&gt; Eq BundleTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BundleTask -&gt; BundleTask -&gt; Bool
+$c/= :: BundleTask -&gt; BundleTask -&gt; Bool
+== :: BundleTask -&gt; BundleTask -&gt; Bool
+$c== :: BundleTask -&gt; BundleTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119370"><span id="local-6989586621681119372"><span id="local-6989586621681119374"><span id="local-6989586621681119376"><span class="annot"><span class="annottext">ReadPrec [BundleTask]
+ReadPrec BundleTask
+Int -&gt; ReadS BundleTask
+ReadS [BundleTask]
+(Int -&gt; ReadS BundleTask)
+-&gt; ReadS [BundleTask]
+-&gt; ReadPrec BundleTask
+-&gt; ReadPrec [BundleTask]
+-&gt; Read BundleTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BundleTask]
+$creadListPrec :: ReadPrec [BundleTask]
+readPrec :: ReadPrec BundleTask
+$creadPrec :: ReadPrec BundleTask
+readList :: ReadS [BundleTask]
+$creadList :: ReadS [BundleTask]
+readsPrec :: Int -&gt; ReadS BundleTask
+$creadsPrec :: Int -&gt; ReadS BundleTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119363"><span id="local-6989586621681119365"><span id="local-6989586621681119367"><span class="annot"><span class="annottext">Int -&gt; BundleTask -&gt; ShowS
+[BundleTask] -&gt; ShowS
+BundleTask -&gt; String
+(Int -&gt; BundleTask -&gt; ShowS)
+-&gt; (BundleTask -&gt; String)
+-&gt; ([BundleTask] -&gt; ShowS)
+-&gt; Show BundleTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BundleTask] -&gt; ShowS
+$cshowList :: [BundleTask] -&gt; ShowS
+show :: BundleTask -&gt; String
+$cshow :: BundleTask -&gt; String
+showsPrec :: Int -&gt; BundleTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; BundleTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BundleTask -&gt; Rep BundleTask x)
+-&gt; (forall x. Rep BundleTask x -&gt; BundleTask) -&gt; Generic BundleTask
+forall x. Rep BundleTask x -&gt; BundleTask
+forall x. BundleTask -&gt; Rep BundleTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BundleTask x -&gt; BundleTask
+$cfrom :: forall x. BundleTask -&gt; Rep BundleTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'BundleTask' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'bundleTaskError', 'bundleTask_bundleTaskError' - If the task fails, a description of the error.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'bundleId', 'bundleTask_bundleId' - The ID of the bundle task.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'instanceId', 'bundleTask_instanceId' - The ID of the instance associated with this bundle task.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'progress', 'bundleTask_progress' - The level of task completion, as a percent (for example, 20%).</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'startTime', 'bundleTask_startTime' - The time this task started.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'state', 'bundleTask_state' - The state of the task.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'storage', 'bundleTask_storage' - The Amazon S3 storage locations.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'updateTime', 'bundleTask_updateTime' - The time of the most recent update for the task.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#newBundleTask"><span class="hs-identifier hs-type">newBundleTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'bundleId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'progress'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'state'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'storage'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'updateTime'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span>
+</span><span id="line-92"></span><span id="newBundleTask"><span class="annot"><span class="annottext">newBundleTask :: Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; BundleTaskState
+-&gt; Storage
+-&gt; UTCTime
+-&gt; BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#newBundleTask"><span class="hs-identifier hs-var hs-var">newBundleTask</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621681119357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119357"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681119356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119356"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681119355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119355"><span class="hs-identifier hs-var">pProgress_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621681119354"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621681119354"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681119353"><span class="annot"><span class="annottext">BundleTaskState
+</span><a href="#local-6989586621681119353"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621681119352"><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681119352"><span class="hs-identifier hs-var">pStorage_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621681119351"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621681119351"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">BundleTask' :: Maybe BundleTaskError
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; BundleTaskState
+-&gt; Storage
+-&gt; ISO8601
+-&gt; BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bundleTaskError:BundleTask' :: Maybe BundleTaskError
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleTaskError%3ABundleTask%27"><span class="hs-identifier hs-var">bundleTaskError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BundleTaskError
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:bundleId:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleId%3ABundleTask%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119357"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AinstanceId%3ABundleTask%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119356"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:progress:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Aprogress%3ABundleTask%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119355"><span class="hs-identifier hs-var">pProgress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:BundleTask' :: ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AstartTime%3ABundleTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621681119354"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:BundleTask' :: BundleTaskState
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astate%3ABundleTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BundleTaskState
+</span><a href="#local-6989586621681119353"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:storage:BundleTask' :: Storage
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astorage%3ABundleTask%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681119352"><span class="hs-identifier hs-var">pStorage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTime:BundleTask' :: ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AupdateTime%3ABundleTask%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621681119351"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | If the task fails, a description of the error.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_bundleTaskError"><span class="hs-identifier hs-type">bundleTask_bundleTaskError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="bundleTask_bundleTaskError"><span class="annot"><span class="annottext">bundleTask_bundleTaskError :: (Maybe BundleTaskError -&gt; f (Maybe BundleTaskError))
+-&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_bundleTaskError"><span class="hs-identifier hs-var hs-var">bundleTask_bundleTaskError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; Maybe BundleTaskError)
+-&gt; (BundleTask -&gt; Maybe BundleTaskError -&gt; BundleTask)
+-&gt; Lens
+     BundleTask
+     BundleTask
+     (Maybe BundleTaskError)
+     (Maybe BundleTaskError)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119345"><span class="annot"><span class="annottext">Maybe BundleTaskError
+bundleTaskError :: Maybe BundleTaskError
+$sel:bundleTaskError:BundleTask' :: BundleTask -&gt; Maybe BundleTaskError
+</span><a href="#local-6989586621681119345"><span class="hs-identifier hs-var hs-var">bundleTaskError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BundleTaskError
+</span><a href="#local-6989586621681119345"><span class="hs-identifier hs-var">bundleTaskError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119344"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119343"><span class="annot"><span class="annottext">Maybe BundleTaskError
+</span><a href="#local-6989586621681119343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleTaskError:BundleTask' :: Maybe BundleTaskError
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleTaskError%3ABundleTask%27"><span class="hs-identifier hs-var">bundleTaskError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BundleTaskError
+</span><a href="#local-6989586621681119343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the bundle task.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_bundleId"><span class="hs-identifier hs-type">bundleTask_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="bundleTask_bundleId"><span class="annot"><span class="annottext">bundleTask_bundleId :: (Text -&gt; f Text) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_bundleId"><span class="hs-identifier hs-var hs-var">bundleTask_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; Text)
+-&gt; (BundleTask -&gt; Text -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119341"><span class="annot"><span class="annottext">Text
+bundleId :: Text
+$sel:bundleId:BundleTask' :: BundleTask -&gt; Text
+</span><a href="#local-6989586621681119341"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119341"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119340"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AbundleId%3ABundleTask%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the instance associated with this bundle task.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_instanceId"><span class="hs-identifier hs-type">bundleTask_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="bundleTask_instanceId"><span class="annot"><span class="annottext">bundleTask_instanceId :: (Text -&gt; f Text) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_instanceId"><span class="hs-identifier hs-var hs-var">bundleTask_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; Text)
+-&gt; (BundleTask -&gt; Text -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119337"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:BundleTask' :: BundleTask -&gt; Text
+</span><a href="#local-6989586621681119337"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119337"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119336"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AinstanceId%3ABundleTask%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The level of task completion, as a percent (for example, 20%).</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_progress"><span class="hs-identifier hs-type">bundleTask_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="bundleTask_progress"><span class="annot"><span class="annottext">bundleTask_progress :: (Text -&gt; f Text) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_progress"><span class="hs-identifier hs-var hs-var">bundleTask_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; Text)
+-&gt; (BundleTask -&gt; Text -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119333"><span class="annot"><span class="annottext">Text
+progress :: Text
+$sel:progress:BundleTask' :: BundleTask -&gt; Text
+</span><a href="#local-6989586621681119333"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119333"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119332"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:BundleTask' :: Text
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Aprogress%3ABundleTask%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681119331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The time this task started.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_startTime"><span class="hs-identifier hs-type">bundleTask_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-129"></span><span id="bundleTask_startTime"><span class="annot"><span class="annottext">bundleTask_startTime :: (UTCTime -&gt; f UTCTime) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_startTime"><span class="hs-identifier hs-var hs-var">bundleTask_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; ISO8601)
+-&gt; (BundleTask -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119329"><span class="annot"><span class="annottext">ISO8601
+startTime :: ISO8601
+$sel:startTime:BundleTask' :: BundleTask -&gt; ISO8601
+</span><a href="#local-6989586621681119329"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119329"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119328"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119327"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:BundleTask' :: ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AstartTime%3ABundleTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; BundleTask -&gt; f BundleTask)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; BundleTask
+-&gt; f BundleTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The state of the task.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_state"><span class="hs-identifier hs-type">bundleTask_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskState.html#BundleTaskState"><span class="hs-identifier hs-type">BundleTaskState</span></a></span><span>
+</span><span id="line-133"></span><span id="bundleTask_state"><span class="annot"><span class="annottext">bundleTask_state :: (BundleTaskState -&gt; f BundleTaskState)
+-&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_state"><span class="hs-identifier hs-var hs-var">bundleTask_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; BundleTaskState)
+-&gt; (BundleTask -&gt; BundleTaskState -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask BundleTaskState BundleTaskState
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119324"><span class="annot"><span class="annottext">BundleTaskState
+state :: BundleTaskState
+$sel:state:BundleTask' :: BundleTask -&gt; BundleTaskState
+</span><a href="#local-6989586621681119324"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTaskState
+</span><a href="#local-6989586621681119324"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119323"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119322"><span class="annot"><span class="annottext">BundleTaskState
+</span><a href="#local-6989586621681119322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:BundleTask' :: BundleTaskState
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astate%3ABundleTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BundleTaskState
+</span><a href="#local-6989586621681119322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The Amazon S3 storage locations.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_storage"><span class="hs-identifier hs-type">bundleTask_storage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span>
+</span><span id="line-137"></span><span id="bundleTask_storage"><span class="annot"><span class="annottext">bundleTask_storage :: (Storage -&gt; f Storage) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_storage"><span class="hs-identifier hs-var hs-var">bundleTask_storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; Storage)
+-&gt; (BundleTask -&gt; Storage -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask Storage Storage
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119320"><span class="annot"><span class="annottext">Storage
+storage :: Storage
+$sel:storage:BundleTask' :: BundleTask -&gt; Storage
+</span><a href="#local-6989586621681119320"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681119320"><span class="hs-identifier hs-var">storage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119319"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119318"><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681119318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storage:BundleTask' :: Storage
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3Astorage%3ABundleTask%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681119318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The time of the most recent update for the task.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_updateTime"><span class="hs-identifier hs-type">bundleTask_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-141"></span><span id="bundleTask_updateTime"><span class="annot"><span class="annottext">bundleTask_updateTime :: (UTCTime -&gt; f UTCTime) -&gt; BundleTask -&gt; f BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#bundleTask_updateTime"><span class="hs-identifier hs-var hs-var">bundleTask_updateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTask -&gt; ISO8601)
+-&gt; (BundleTask -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Lens BundleTask BundleTask ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119316"><span class="annot"><span class="annottext">ISO8601
+updateTime :: ISO8601
+$sel:updateTime:BundleTask' :: BundleTask -&gt; ISO8601
+</span><a href="#local-6989586621681119316"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119316"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119315"><span class="annot"><span class="annottext">s :: BundleTask
+</span><a href="#local-6989586621681119315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-type">BundleTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119314"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTask
+</span><a href="#local-6989586621681119315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:BundleTask' :: ISO8601
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#%24sel%3AupdateTime%3ABundleTask%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621681119314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; BundleTask -&gt; f BundleTask)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; BundleTask
+-&gt; f BundleTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681119311"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BundleTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681119309"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">Maybe BundleTaskError
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; BundleTaskState
+-&gt; Storage
+-&gt; ISO8601
+-&gt; BundleTask
+</span><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask%27"><span class="hs-identifier hs-var">BundleTask'</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">(Maybe BundleTaskError
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ISO8601
+ -&gt; BundleTaskState
+ -&gt; Storage
+ -&gt; ISO8601
+ -&gt; BundleTask)
+-&gt; Either String (Maybe BundleTaskError)
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; BundleTaskState
+      -&gt; Storage
+      -&gt; ISO8601
+      -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BundleTaskError)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; BundleTaskState
+   -&gt; Storage
+   -&gt; ISO8601
+   -&gt; BundleTask)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; BundleTaskState
+      -&gt; Storage
+      -&gt; ISO8601
+      -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; BundleTaskState
+   -&gt; Storage
+   -&gt; ISO8601
+   -&gt; BundleTask)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; ISO8601 -&gt; BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; ISO8601 -&gt; BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (ISO8601 -&gt; BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;progress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (ISO8601 -&gt; BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Either String ISO8601
+-&gt; Either
+     String (BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either String (BundleTaskState -&gt; Storage -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Either String BundleTaskState
+-&gt; Either String (Storage -&gt; ISO8601 -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BundleTaskState
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either String (Storage -&gt; ISO8601 -&gt; BundleTask)
+-&gt; Either String Storage -&gt; Either String (ISO8601 -&gt; BundleTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Storage
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; BundleTask)
+-&gt; Either String ISO8601 -&gt; Either String BundleTask
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681119309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119302"><span id="local-6989586621681119304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTask.html#BundleTask"><span class="hs-identifier hs-type">BundleTask</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.GetJourneyExecutionMetrics</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves (queries) pre-aggregated data for a standard execution metric</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- that applies to a journey.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.GetJourneyExecutionMetrics</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetrics"><span class="hs-identifier">newGetJourneyExecutionMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_nextToken"><span class="hs-identifier">getJourneyExecutionMetrics_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_pageSize"><span class="hs-identifier">getJourneyExecutionMetrics_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_applicationId"><span class="hs-identifier">getJourneyExecutionMetrics_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_journeyId"><span class="hs-identifier">getJourneyExecutionMetrics_journeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier">GetJourneyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetricsResponse"><span class="hs-identifier">newGetJourneyExecutionMetricsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_httpStatus"><span class="hs-identifier">getJourneyExecutionMetricsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse"><span class="hs-identifier">getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetJourneyExecutionMetrics' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679628198"><span id="local-6989586621679628199"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourneyExecutionMetrics"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-var">GetJourneyExecutionMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourneyExecutionMetrics%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">GetJourneyExecutionMetrics'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AGetJourneyExecutionMetrics%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AnextToken%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3ApageSize%3AGetJourneyExecutionMetrics%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3ApageSize%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetJourneyExecutionMetrics%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetrics -&gt; Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AapplicationId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AjourneyId%3AGetJourneyExecutionMetrics%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetrics -&gt; Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679628189"><span id="local-6989586621679628191"><span class="annot"><span class="annottext">GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool
+(GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool)
+-&gt; (GetJourneyExecutionMetrics
+    -&gt; GetJourneyExecutionMetrics -&gt; Bool)
+-&gt; Eq GetJourneyExecutionMetrics
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool
+$c/= :: GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool
+== :: GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool
+$c== :: GetJourneyExecutionMetrics -&gt; GetJourneyExecutionMetrics -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679628180"><span id="local-6989586621679628182"><span id="local-6989586621679628184"><span id="local-6989586621679628186"><span class="annot"><span class="annottext">ReadPrec [GetJourneyExecutionMetrics]
+ReadPrec GetJourneyExecutionMetrics
+Int -&gt; ReadS GetJourneyExecutionMetrics
+ReadS [GetJourneyExecutionMetrics]
+(Int -&gt; ReadS GetJourneyExecutionMetrics)
+-&gt; ReadS [GetJourneyExecutionMetrics]
+-&gt; ReadPrec GetJourneyExecutionMetrics
+-&gt; ReadPrec [GetJourneyExecutionMetrics]
+-&gt; Read GetJourneyExecutionMetrics
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetJourneyExecutionMetrics]
+$creadListPrec :: ReadPrec [GetJourneyExecutionMetrics]
+readPrec :: ReadPrec GetJourneyExecutionMetrics
+$creadPrec :: ReadPrec GetJourneyExecutionMetrics
+readList :: ReadS [GetJourneyExecutionMetrics]
+$creadList :: ReadS [GetJourneyExecutionMetrics]
+readsPrec :: Int -&gt; ReadS GetJourneyExecutionMetrics
+$creadsPrec :: Int -&gt; ReadS GetJourneyExecutionMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679628173"><span id="local-6989586621679628175"><span id="local-6989586621679628177"><span class="annot"><span class="annottext">Int -&gt; GetJourneyExecutionMetrics -&gt; ShowS
+[GetJourneyExecutionMetrics] -&gt; ShowS
+GetJourneyExecutionMetrics -&gt; String
+(Int -&gt; GetJourneyExecutionMetrics -&gt; ShowS)
+-&gt; (GetJourneyExecutionMetrics -&gt; String)
+-&gt; ([GetJourneyExecutionMetrics] -&gt; ShowS)
+-&gt; Show GetJourneyExecutionMetrics
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetJourneyExecutionMetrics] -&gt; ShowS
+$cshowList :: [GetJourneyExecutionMetrics] -&gt; ShowS
+show :: GetJourneyExecutionMetrics -&gt; String
+$cshow :: GetJourneyExecutionMetrics -&gt; String
+showsPrec :: Int -&gt; GetJourneyExecutionMetrics -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetJourneyExecutionMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetJourneyExecutionMetrics -&gt; Rep GetJourneyExecutionMetrics x)
+-&gt; (forall x.
+    Rep GetJourneyExecutionMetrics x -&gt; GetJourneyExecutionMetrics)
+-&gt; Generic GetJourneyExecutionMetrics
+forall x.
+Rep GetJourneyExecutionMetrics x -&gt; GetJourneyExecutionMetrics
+forall x.
+GetJourneyExecutionMetrics -&gt; Rep GetJourneyExecutionMetrics x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetJourneyExecutionMetrics x -&gt; GetJourneyExecutionMetrics
+$cfrom :: forall x.
+GetJourneyExecutionMetrics -&gt; Rep GetJourneyExecutionMetrics x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'GetJourneyExecutionMetrics' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'getJourneyExecutionMetrics_nextToken' - The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'pageSize', 'getJourneyExecutionMetrics_pageSize' - The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'applicationId', 'getJourneyExecutionMetrics_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'journeyId', 'getJourneyExecutionMetrics_journeyId' - The unique identifier for the journey.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetrics"><span class="hs-identifier hs-type">newGetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'journeyId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span>
+</span><span id="line-97"></span><span id="newGetJourneyExecutionMetrics"><span class="annot"><span class="annottext">newGetJourneyExecutionMetrics :: Text -&gt; Text -&gt; GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetrics"><span class="hs-identifier hs-var hs-var">newGetJourneyExecutionMetrics</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679628168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628168"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679628167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628167"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">GetJourneyExecutionMetrics' :: Maybe Text
+-&gt; Maybe Text -&gt; Text -&gt; Text -&gt; GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetJourneyExecutionMetrics' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AnextToken%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:pageSize:GetJourneyExecutionMetrics' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3ApageSize%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:GetJourneyExecutionMetrics' :: Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AapplicationId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628168"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyId:GetJourneyExecutionMetrics' :: Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628167"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The string that specifies which page of results to return in a paginated</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_nextToken"><span class="hs-identifier hs-type">getJourneyExecutionMetrics_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="getJourneyExecutionMetrics_nextToken"><span class="annot"><span class="annottext">getJourneyExecutionMetrics_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetJourneyExecutionMetrics -&gt; f GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_nextToken"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetrics_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetrics -&gt; Maybe Text)
+-&gt; (GetJourneyExecutionMetrics
+    -&gt; Maybe Text -&gt; GetJourneyExecutionMetrics)
+-&gt; Lens
+     GetJourneyExecutionMetrics
+     GetJourneyExecutionMetrics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628164"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="#local-6989586621679628164"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628164"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628163"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetJourneyExecutionMetrics' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AnextToken%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_pageSize"><span class="hs-identifier hs-type">getJourneyExecutionMetrics_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getJourneyExecutionMetrics_pageSize"><span class="annot"><span class="annottext">getJourneyExecutionMetrics_pageSize :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetJourneyExecutionMetrics -&gt; f GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_pageSize"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetrics_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetrics -&gt; Maybe Text)
+-&gt; (GetJourneyExecutionMetrics
+    -&gt; Maybe Text -&gt; GetJourneyExecutionMetrics)
+-&gt; Lens
+     GetJourneyExecutionMetrics
+     GetJourneyExecutionMetrics
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628161"><span class="annot"><span class="annottext">Maybe Text
+pageSize :: Maybe Text
+$sel:pageSize:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="#local-6989586621679628161"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628161"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628160"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:GetJourneyExecutionMetrics' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3ApageSize%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_applicationId"><span class="hs-identifier hs-type">getJourneyExecutionMetrics_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="getJourneyExecutionMetrics_applicationId"><span class="annot"><span class="annottext">getJourneyExecutionMetrics_applicationId :: (Text -&gt; f Text)
+-&gt; GetJourneyExecutionMetrics -&gt; f GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_applicationId"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetrics_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetrics -&gt; Text)
+-&gt; (GetJourneyExecutionMetrics
+    -&gt; Text -&gt; GetJourneyExecutionMetrics)
+-&gt; Lens
+     GetJourneyExecutionMetrics GetJourneyExecutionMetrics Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628158"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+</span><a href="#local-6989586621679628158"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628158"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628157"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetJourneyExecutionMetrics' :: Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AapplicationId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_journeyId"><span class="hs-identifier hs-type">getJourneyExecutionMetrics_journeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="getJourneyExecutionMetrics_journeyId"><span class="annot"><span class="annottext">getJourneyExecutionMetrics_journeyId :: (Text -&gt; f Text)
+-&gt; GetJourneyExecutionMetrics -&gt; f GetJourneyExecutionMetrics
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetrics_journeyId"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetrics_journeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetrics -&gt; Text)
+-&gt; (GetJourneyExecutionMetrics
+    -&gt; Text -&gt; GetJourneyExecutionMetrics)
+-&gt; Lens
+     GetJourneyExecutionMetrics GetJourneyExecutionMetrics Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628155"><span class="annot"><span class="annottext">Text
+journeyId :: Text
+$sel:journeyId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+</span><a href="#local-6989586621679628155"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628155"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628154"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetrics
+</span><a href="#local-6989586621679628154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:GetJourneyExecutionMetrics' :: Text
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyId%3AGetJourneyExecutionMetrics%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679628149"><span class="annot"><span class="annottext">request :: GetJourneyExecutionMetrics -&gt; Request GetJourneyExecutionMetrics
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetJourneyExecutionMetrics -&gt; Request GetJourneyExecutionMetrics
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679628145"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetJourneyExecutionMetrics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetJourneyExecutionMetrics)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetJourneyExecutionMetrics))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetJourneyExecutionMetrics
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetJourneyExecutionMetrics)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679628142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628142"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679628141"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679628141"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679628140"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679628140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; JourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">GetJourneyExecutionMetricsResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; JourneyExecutionMetricsResponse
+ -&gt; GetJourneyExecutionMetricsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (JourneyExecutionMetricsResponse
+      -&gt; GetJourneyExecutionMetricsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628142"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (JourneyExecutionMetricsResponse
+   -&gt; GetJourneyExecutionMetricsResponse)
+-&gt; Either String JourneyExecutionMetricsResponse
+-&gt; Either String GetJourneyExecutionMetricsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String JourneyExecutionMetricsResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679628140"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679628132"><span id="local-6989586621679628134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679628129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679628125"><span class="annot"><span class="annottext">toHeaders :: GetJourneyExecutionMetrics -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJourneyExecutionMetrics -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679628119"><span class="annot"><span class="annottext">toPath :: GetJourneyExecutionMetrics -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628114"><span id="local-6989586621679628115"><span id="local-6989586621679628116"><span id="local-6989586621679628117"><span class="annot"><span class="annottext">Maybe Text
+Text
+journeyId :: Text
+applicationId :: Text
+pageSize :: Maybe Text
+nextToken :: Maybe Text
+$sel:journeyId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+$sel:applicationId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+$sel:pageSize:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+$sel:nextToken:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="#local-6989586621679628114"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628115"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/journeys/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679628114"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/execution-metrics&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679628110"><span class="annot"><span class="annottext">toQuery :: GetJourneyExecutionMetrics -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetrics%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628105"><span id="local-6989586621679628106"><span id="local-6989586621679628107"><span id="local-6989586621679628108"><span class="annot"><span class="annottext">Maybe Text
+Text
+journeyId :: Text
+applicationId :: Text
+pageSize :: Maybe Text
+nextToken :: Maybe Text
+$sel:journeyId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+$sel:applicationId:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Text
+$sel:pageSize:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+$sel:nextToken:GetJourneyExecutionMetrics' :: GetJourneyExecutionMetrics -&gt; Maybe Text
+</span><a href="#local-6989586621679628105"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628108"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;page-size&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679628107"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newGetJourneyExecutionMetricsResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679628102"><span id="local-6989586621679628103"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourneyExecutionMetricsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-var">GetJourneyExecutionMetricsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourneyExecutionMetricsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">GetJourneyExecutionMetricsResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJourneyExecutionMetricsResponse%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse -&gt; Int
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AhttpStatus%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AjourneyExecutionMetricsResponse%3AGetJourneyExecutionMetricsResponse%27"><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse
+-&gt; JourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyExecutionMetricsResponse%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var hs-var">journeyExecutionMetricsResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse.html#JourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">JourneyExecutionMetricsResponse</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679628096"><span id="local-6989586621679628098"><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse -&gt; Bool
+(GetJourneyExecutionMetricsResponse
+ -&gt; GetJourneyExecutionMetricsResponse -&gt; Bool)
+-&gt; (GetJourneyExecutionMetricsResponse
+    -&gt; GetJourneyExecutionMetricsResponse -&gt; Bool)
+-&gt; Eq GetJourneyExecutionMetricsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetJourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse -&gt; Bool
+$c/= :: GetJourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse -&gt; Bool
+== :: GetJourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse -&gt; Bool
+$c== :: GetJourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679628088"><span id="local-6989586621679628090"><span id="local-6989586621679628092"><span id="local-6989586621679628094"><span class="annot"><span class="annottext">ReadPrec [GetJourneyExecutionMetricsResponse]
+ReadPrec GetJourneyExecutionMetricsResponse
+Int -&gt; ReadS GetJourneyExecutionMetricsResponse
+ReadS [GetJourneyExecutionMetricsResponse]
+(Int -&gt; ReadS GetJourneyExecutionMetricsResponse)
+-&gt; ReadS [GetJourneyExecutionMetricsResponse]
+-&gt; ReadPrec GetJourneyExecutionMetricsResponse
+-&gt; ReadPrec [GetJourneyExecutionMetricsResponse]
+-&gt; Read GetJourneyExecutionMetricsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetJourneyExecutionMetricsResponse]
+$creadListPrec :: ReadPrec [GetJourneyExecutionMetricsResponse]
+readPrec :: ReadPrec GetJourneyExecutionMetricsResponse
+$creadPrec :: ReadPrec GetJourneyExecutionMetricsResponse
+readList :: ReadS [GetJourneyExecutionMetricsResponse]
+$creadList :: ReadS [GetJourneyExecutionMetricsResponse]
+readsPrec :: Int -&gt; ReadS GetJourneyExecutionMetricsResponse
+$creadsPrec :: Int -&gt; ReadS GetJourneyExecutionMetricsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679628082"><span id="local-6989586621679628084"><span id="local-6989586621679628086"><span class="annot"><span class="annottext">Int -&gt; GetJourneyExecutionMetricsResponse -&gt; ShowS
+[GetJourneyExecutionMetricsResponse] -&gt; ShowS
+GetJourneyExecutionMetricsResponse -&gt; String
+(Int -&gt; GetJourneyExecutionMetricsResponse -&gt; ShowS)
+-&gt; (GetJourneyExecutionMetricsResponse -&gt; String)
+-&gt; ([GetJourneyExecutionMetricsResponse] -&gt; ShowS)
+-&gt; Show GetJourneyExecutionMetricsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetJourneyExecutionMetricsResponse] -&gt; ShowS
+$cshowList :: [GetJourneyExecutionMetricsResponse] -&gt; ShowS
+show :: GetJourneyExecutionMetricsResponse -&gt; String
+$cshow :: GetJourneyExecutionMetricsResponse -&gt; String
+showsPrec :: Int -&gt; GetJourneyExecutionMetricsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetJourneyExecutionMetricsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetJourneyExecutionMetricsResponse
+ -&gt; Rep GetJourneyExecutionMetricsResponse x)
+-&gt; (forall x.
+    Rep GetJourneyExecutionMetricsResponse x
+    -&gt; GetJourneyExecutionMetricsResponse)
+-&gt; Generic GetJourneyExecutionMetricsResponse
+forall x.
+Rep GetJourneyExecutionMetricsResponse x
+-&gt; GetJourneyExecutionMetricsResponse
+forall x.
+GetJourneyExecutionMetricsResponse
+-&gt; Rep GetJourneyExecutionMetricsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetJourneyExecutionMetricsResponse x
+-&gt; GetJourneyExecutionMetricsResponse
+$cfrom :: forall x.
+GetJourneyExecutionMetricsResponse
+-&gt; Rep GetJourneyExecutionMetricsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'GetJourneyExecutionMetricsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'getJourneyExecutionMetricsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'journeyExecutionMetricsResponse', 'getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse' - Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">newGetJourneyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'journeyExecutionMetricsResponse'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse.html#JourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">JourneyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newGetJourneyExecutionMetricsResponse"><span class="annot"><span class="annottext">newGetJourneyExecutionMetricsResponse :: Int
+-&gt; JourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#newGetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-var hs-var">newGetJourneyExecutionMetricsResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679628079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628079"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679628078"><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628078"><span class="hs-identifier hs-var">pJourneyExecutionMetricsResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse' :: Int
+-&gt; JourneyExecutionMetricsResponse
+-&gt; GetJourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJourneyExecutionMetricsResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AhttpStatus%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628079"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyExecutionMetricsResponse:GetJourneyExecutionMetricsResponse' :: JourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyExecutionMetricsResponse%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">journeyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628078"><span class="hs-identifier hs-var">pJourneyExecutionMetricsResponse_</span></a></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_httpStatus"><span class="hs-identifier hs-type">getJourneyExecutionMetricsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="getJourneyExecutionMetricsResponse_httpStatus"><span class="annot"><span class="annottext">getJourneyExecutionMetricsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetJourneyExecutionMetricsResponse
+-&gt; f GetJourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetricsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetricsResponse -&gt; Int)
+-&gt; (GetJourneyExecutionMetricsResponse
+    -&gt; Int -&gt; GetJourneyExecutionMetricsResponse)
+-&gt; Lens
+     GetJourneyExecutionMetricsResponse
+     GetJourneyExecutionMetricsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628077"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetJourneyExecutionMetricsResponse' :: GetJourneyExecutionMetricsResponse -&gt; Int
+</span><a href="#local-6989586621679628077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628076"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJourneyExecutionMetricsResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AhttpStatus%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679628075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse"><span class="hs-identifier hs-type">getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse.html#JourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">JourneyExecutionMetricsResponse</span></a></span><span>
+</span><span id="line-215"></span><span id="getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse"><span class="annot"><span class="annottext">getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse :: (JourneyExecutionMetricsResponse
+ -&gt; f JourneyExecutionMetricsResponse)
+-&gt; GetJourneyExecutionMetricsResponse
+-&gt; f GetJourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse"><span class="hs-identifier hs-var hs-var">getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJourneyExecutionMetricsResponse
+ -&gt; JourneyExecutionMetricsResponse)
+-&gt; (GetJourneyExecutionMetricsResponse
+    -&gt; JourneyExecutionMetricsResponse
+    -&gt; GetJourneyExecutionMetricsResponse)
+-&gt; Lens
+     GetJourneyExecutionMetricsResponse
+     GetJourneyExecutionMetricsResponse
+     JourneyExecutionMetricsResponse
+     JourneyExecutionMetricsResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679628074"><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+journeyExecutionMetricsResponse :: JourneyExecutionMetricsResponse
+$sel:journeyExecutionMetricsResponse:GetJourneyExecutionMetricsResponse' :: GetJourneyExecutionMetricsResponse
+-&gt; JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628074"><span class="hs-identifier hs-var hs-var">journeyExecutionMetricsResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628074"><span class="hs-identifier hs-var">journeyExecutionMetricsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679628073"><span class="annot"><span class="annottext">s :: GetJourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679628072"><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyExecutionMetricsResponse:GetJourneyExecutionMetricsResponse' :: JourneyExecutionMetricsResponse
+</span><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#%24sel%3AjourneyExecutionMetricsResponse%3AGetJourneyExecutionMetricsResponse%27"><span class="hs-identifier hs-var">journeyExecutionMetricsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyExecutionMetricsResponse
+</span><a href="#local-6989586621679628072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679628070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourneyExecutionMetrics.html#GetJourneyExecutionMetricsResponse"><span class="hs-identifier hs-type">GetJourneyExecutionMetricsResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

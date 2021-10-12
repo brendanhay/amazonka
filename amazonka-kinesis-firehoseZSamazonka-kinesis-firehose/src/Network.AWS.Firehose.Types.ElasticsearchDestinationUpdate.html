@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html"><span class="hs-identifier">Network.AWS.Firehose.Types.CloudWatchLoggingOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html"><span class="hs-identifier">Network.AWS.Firehose.Types.ElasticsearchBufferingHints</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod.html"><span class="hs-identifier">Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchRetryOptions.html"><span class="hs-identifier">Network.AWS.Firehose.Types.ElasticsearchRetryOptions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html"><span class="hs-identifier">Network.AWS.Firehose.Types.ProcessingConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html"><span class="hs-identifier">Network.AWS.Firehose.Types.S3DestinationUpdate</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes an update for a destination in Amazon ES.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newElasticsearchDestinationUpdate' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679263367"><span id="local-6989586621679263368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchDestinationUpdate"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-var">ElasticsearchDestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchDestinationUpdate%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">ElasticsearchDestinationUpdate'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- one type per index. If you try to specify a new type for an existing</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- index that already has another type, Kinesis Data Firehose returns an</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- error during runtime.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If you upgrade Elasticsearch from 6.x to 7.x and don&#8217;t update your</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- delivery stream, Kinesis Data Firehose still delivers data to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Elasticsearch with the old index name and type name. If you want to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- update your delivery stream with a new index name, provide an empty</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- string for @TypeName@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtypeName%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AtypeName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Data Firehose for calling the Amazon ES Configuration API and for</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- indexing documents. For more information, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AroleARN%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AroleARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The endpoint to use when communicating with the cluster. Specify either</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- this @ClusterEndpoint@ or the @DomainARN@ field.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclusterEndpoint%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch index name.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AindexName%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3As3Update%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3As3Update%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon ES domain. The IAM role must have permissions</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- for&#160;@DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@&#160;after assuming the IAM role</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified in @RoleARN@. For more information, see</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Specify either @ClusterEndpoint@ or @DomainARN@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdomainARN%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AdomainARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch index rotation period. Index rotation appends a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- timestamp to @IndexName@ to facilitate the expiration of old data. For</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Default value is&#160;@OneDay@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AindexRotationPeriod%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod.html#ElasticsearchIndexRotationPeriod"><span class="hs-identifier hs-type">ElasticsearchIndexRotationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The buffering options. If no value is specified,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @ElasticsearchBufferingHints@ object default values are used.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AbufferingHints%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchBufferingHints
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AbufferingHints%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- documents to Amazon ES. The default value is 300 (5 minutes).</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AretryOptions%3AElasticsearchDestinationUpdate%27"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchRetryOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AretryOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchRetryOptions.html#ElasticsearchRetryOptions"><span class="hs-identifier hs-type">ElasticsearchRetryOptions</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263351"><span id="local-6989586621679263353"><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+-&gt; ElasticsearchDestinationUpdate -&gt; Bool
+(ElasticsearchDestinationUpdate
+ -&gt; ElasticsearchDestinationUpdate -&gt; Bool)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; ElasticsearchDestinationUpdate -&gt; Bool)
+-&gt; Eq ElasticsearchDestinationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ElasticsearchDestinationUpdate
+-&gt; ElasticsearchDestinationUpdate -&gt; Bool
+$c/= :: ElasticsearchDestinationUpdate
+-&gt; ElasticsearchDestinationUpdate -&gt; Bool
+== :: ElasticsearchDestinationUpdate
+-&gt; ElasticsearchDestinationUpdate -&gt; Bool
+$c== :: ElasticsearchDestinationUpdate
+-&gt; ElasticsearchDestinationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263342"><span id="local-6989586621679263344"><span id="local-6989586621679263346"><span id="local-6989586621679263348"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchDestinationUpdate]
+ReadPrec ElasticsearchDestinationUpdate
+Int -&gt; ReadS ElasticsearchDestinationUpdate
+ReadS [ElasticsearchDestinationUpdate]
+(Int -&gt; ReadS ElasticsearchDestinationUpdate)
+-&gt; ReadS [ElasticsearchDestinationUpdate]
+-&gt; ReadPrec ElasticsearchDestinationUpdate
+-&gt; ReadPrec [ElasticsearchDestinationUpdate]
+-&gt; Read ElasticsearchDestinationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ElasticsearchDestinationUpdate]
+$creadListPrec :: ReadPrec [ElasticsearchDestinationUpdate]
+readPrec :: ReadPrec ElasticsearchDestinationUpdate
+$creadPrec :: ReadPrec ElasticsearchDestinationUpdate
+readList :: ReadS [ElasticsearchDestinationUpdate]
+$creadList :: ReadS [ElasticsearchDestinationUpdate]
+readsPrec :: Int -&gt; ReadS ElasticsearchDestinationUpdate
+$creadsPrec :: Int -&gt; ReadS ElasticsearchDestinationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263335"><span id="local-6989586621679263337"><span id="local-6989586621679263339"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchDestinationUpdate -&gt; ShowS
+[ElasticsearchDestinationUpdate] -&gt; ShowS
+ElasticsearchDestinationUpdate -&gt; String
+(Int -&gt; ElasticsearchDestinationUpdate -&gt; ShowS)
+-&gt; (ElasticsearchDestinationUpdate -&gt; String)
+-&gt; ([ElasticsearchDestinationUpdate] -&gt; ShowS)
+-&gt; Show ElasticsearchDestinationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ElasticsearchDestinationUpdate] -&gt; ShowS
+$cshowList :: [ElasticsearchDestinationUpdate] -&gt; ShowS
+show :: ElasticsearchDestinationUpdate -&gt; String
+$cshow :: ElasticsearchDestinationUpdate -&gt; String
+showsPrec :: Int -&gt; ElasticsearchDestinationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ElasticsearchDestinationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ElasticsearchDestinationUpdate
+ -&gt; Rep ElasticsearchDestinationUpdate x)
+-&gt; (forall x.
+    Rep ElasticsearchDestinationUpdate x
+    -&gt; ElasticsearchDestinationUpdate)
+-&gt; Generic ElasticsearchDestinationUpdate
+forall x.
+Rep ElasticsearchDestinationUpdate x
+-&gt; ElasticsearchDestinationUpdate
+forall x.
+ElasticsearchDestinationUpdate
+-&gt; Rep ElasticsearchDestinationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ElasticsearchDestinationUpdate x
+-&gt; ElasticsearchDestinationUpdate
+$cfrom :: forall x.
+ElasticsearchDestinationUpdate
+-&gt; Rep ElasticsearchDestinationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'ElasticsearchDestinationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'typeName', 'elasticsearchDestinationUpdate_typeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- one type per index. If you try to specify a new type for an existing</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- index that already has another type, Kinesis Data Firehose returns an</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- error during runtime.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If you upgrade Elasticsearch from 6.x to 7.x and don&#8217;t update your</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- delivery stream, Kinesis Data Firehose still delivers data to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Elasticsearch with the old index name and type name. If you want to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- update your delivery stream with a new index name, provide an empty</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- string for @TypeName@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'roleARN', 'elasticsearchDestinationUpdate_roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Data Firehose for calling the Amazon ES Configuration API and for</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- indexing documents. For more information, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'clusterEndpoint', 'elasticsearchDestinationUpdate_clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- this @ClusterEndpoint@ or the @DomainARN@ field.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'indexName', 'elasticsearchDestinationUpdate_indexName' - The Elasticsearch index name.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 's3Update', 'elasticsearchDestinationUpdate_s3Update' - The Amazon S3 destination.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'processingConfiguration', 'elasticsearchDestinationUpdate_processingConfiguration' - The data processing configuration.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'elasticsearchDestinationUpdate_cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'domainARN', 'elasticsearchDestinationUpdate_domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for&#160;@DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@&#160;after assuming the IAM role</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- specified in @RoleARN@. For more information, see</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Specify either @ClusterEndpoint@ or @DomainARN@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'indexRotationPeriod', 'elasticsearchDestinationUpdate_indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- timestamp to @IndexName@ to facilitate the expiration of old data. For</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination&gt;.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Default value is&#160;@OneDay@.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'bufferingHints', 'elasticsearchDestinationUpdate_bufferingHints' - The buffering options. If no value is specified,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @ElasticsearchBufferingHints@ object default values are used.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'retryOptions', 'elasticsearchDestinationUpdate_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- documents to Amazon ES. The default value is 300 (5 minutes).</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#newElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">newElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span>
+</span><span id="line-146"></span><span id="newElasticsearchDestinationUpdate"><span class="annot"><span class="annottext">newElasticsearchDestinationUpdate :: ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#newElasticsearchDestinationUpdate"><span class="hs-identifier hs-var hs-var">newElasticsearchDestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe S3DestinationUpdate
+-&gt; Maybe ProcessingConfiguration
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe Text
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+-&gt; Maybe ElasticsearchBufferingHints
+-&gt; Maybe ElasticsearchRetryOptions
+-&gt; ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AtypeName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AroleARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterEndpoint:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Update:ElasticsearchDestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3As3Update%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:ElasticsearchDestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ElasticsearchDestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainARN:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AdomainARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:bufferingHints:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchBufferingHints
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AbufferingHints%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryOptions:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchRetryOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AretryOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- one type per index. If you try to specify a new type for an existing</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- index that already has another type, Kinesis Data Firehose returns an</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- error during runtime.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- If you upgrade Elasticsearch from 6.x to 7.x and don&#8217;t update your</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- delivery stream, Kinesis Data Firehose still delivers data to</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Elasticsearch with the old index name and type name. If you want to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- update your delivery stream with a new index name, provide an empty</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- string for @TypeName@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_typeName"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="elasticsearchDestinationUpdate_typeName"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_typeName"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263326"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263326"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263326"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263325"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AtypeName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Data Firehose for calling the Amazon ES Configuration API and for</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- indexing documents. For more information, see</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination&gt;</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_roleARN"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="elasticsearchDestinationUpdate_roleARN"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_roleARN"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263322"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263322"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263322"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263321"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AroleARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The endpoint to use when communicating with the cluster. Specify either</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- this @ClusterEndpoint@ or the @DomainARN@ field.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_clusterEndpoint"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="elasticsearchDestinationUpdate_clusterEndpoint"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_clusterEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_clusterEndpoint"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_clusterEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263318"><span class="annot"><span class="annottext">Maybe Text
+clusterEndpoint :: Maybe Text
+$sel:clusterEndpoint:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263318"><span class="hs-identifier hs-var hs-var">clusterEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263318"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263317"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterEndpoint:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AclusterEndpoint%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The Elasticsearch index name.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_indexName"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="elasticsearchDestinationUpdate_indexName"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_indexName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_indexName"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263314"><span class="annot"><span class="annottext">Maybe Text
+indexName :: Maybe Text
+$sel:indexName:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263314"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263314"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263313"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexName%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The Amazon S3 destination.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_s3Update"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_s3Update</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="elasticsearchDestinationUpdate_s3Update"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_s3Update :: (Maybe S3DestinationUpdate -&gt; f (Maybe S3DestinationUpdate))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_s3Update"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_s3Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe S3DestinationUpdate)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe S3DestinationUpdate -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe S3DestinationUpdate)
+     (Maybe S3DestinationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263310"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+s3Update :: Maybe S3DestinationUpdate
+$sel:s3Update:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263310"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263310"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263309"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263308"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Update:ElasticsearchDestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3As3Update%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="elasticsearchDestinationUpdate_processingConfiguration"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe ProcessingConfiguration)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe ProcessingConfiguration -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263306"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263306"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263306"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263305"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263304"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:ElasticsearchDestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AprocessingConfiguration%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="elasticsearchDestinationUpdate_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+ -&gt; f (Maybe CloudWatchLoggingOptions))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe CloudWatchLoggingOptions
+    -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe CloudWatchLoggingOptions)
+     (Maybe CloudWatchLoggingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263302"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+$sel:cloudWatchLoggingOptions:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263302"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263302"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263301"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263300"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:ElasticsearchDestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The ARN of the Amazon ES domain. The IAM role must have permissions</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- for&#160;@DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @DescribeElasticsearchDomainConfig@&#160;after assuming the IAM role</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- specified in @RoleARN@. For more information, see</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Specify either @ClusterEndpoint@ or @DomainARN@.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_domainARN"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_domainARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="elasticsearchDestinationUpdate_domainARN"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_domainARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_domainARN"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_domainARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe Text)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe Text -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263298"><span class="annot"><span class="annottext">Maybe Text
+domainARN :: Maybe Text
+$sel:domainARN:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263298"><span class="hs-identifier hs-var hs-var">domainARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263298"><span class="hs-identifier hs-var">domainARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263297"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainARN:ElasticsearchDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AdomainARN%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">domainARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The Elasticsearch index rotation period. Index rotation appends a</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- timestamp to @IndexName@ to facilitate the expiration of old data. For</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination&gt;.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Default value is&#160;@OneDay@.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_indexRotationPeriod"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod.html#ElasticsearchIndexRotationPeriod"><span class="hs-identifier hs-type">ElasticsearchIndexRotationPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="elasticsearchDestinationUpdate_indexRotationPeriod"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_indexRotationPeriod :: (Maybe ElasticsearchIndexRotationPeriod
+ -&gt; f (Maybe ElasticsearchIndexRotationPeriod))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_indexRotationPeriod"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_indexRotationPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate
+ -&gt; Maybe ElasticsearchIndexRotationPeriod)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe ElasticsearchIndexRotationPeriod
+    -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe ElasticsearchIndexRotationPeriod)
+     (Maybe ElasticsearchIndexRotationPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263294"><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+indexRotationPeriod :: Maybe ElasticsearchIndexRotationPeriod
+$sel:indexRotationPeriod:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679263294"><span class="hs-identifier hs-var hs-var">indexRotationPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679263294"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263293"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263292"><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679263292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexRotationPeriod:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchIndexRotationPeriod
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AindexRotationPeriod%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679263292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The buffering options. If no value is specified,</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- @ElasticsearchBufferingHints@ object default values are used.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_bufferingHints"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_bufferingHints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="elasticsearchDestinationUpdate_bufferingHints"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_bufferingHints :: (Maybe ElasticsearchBufferingHints
+ -&gt; f (Maybe ElasticsearchBufferingHints))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_bufferingHints"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_bufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate
+ -&gt; Maybe ElasticsearchBufferingHints)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe ElasticsearchBufferingHints
+    -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe ElasticsearchBufferingHints)
+     (Maybe ElasticsearchBufferingHints)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263290"><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+bufferingHints :: Maybe ElasticsearchBufferingHints
+$sel:bufferingHints:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679263290"><span class="hs-identifier hs-var hs-var">bufferingHints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679263290"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263289"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263288"><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679263288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferingHints:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchBufferingHints
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AbufferingHints%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679263288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- documents to Amazon ES. The default value is 300 (5 minutes).</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_retryOptions"><span class="hs-identifier hs-type">elasticsearchDestinationUpdate_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchRetryOptions.html#ElasticsearchRetryOptions"><span class="hs-identifier hs-type">ElasticsearchRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="elasticsearchDestinationUpdate_retryOptions"><span class="annot"><span class="annottext">elasticsearchDestinationUpdate_retryOptions :: (Maybe ElasticsearchRetryOptions
+ -&gt; f (Maybe ElasticsearchRetryOptions))
+-&gt; ElasticsearchDestinationUpdate
+-&gt; f ElasticsearchDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#elasticsearchDestinationUpdate_retryOptions"><span class="hs-identifier hs-var hs-var">elasticsearchDestinationUpdate_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchRetryOptions)
+-&gt; (ElasticsearchDestinationUpdate
+    -&gt; Maybe ElasticsearchRetryOptions
+    -&gt; ElasticsearchDestinationUpdate)
+-&gt; Lens
+     ElasticsearchDestinationUpdate
+     ElasticsearchDestinationUpdate
+     (Maybe ElasticsearchRetryOptions)
+     (Maybe ElasticsearchRetryOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263286"><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+retryOptions :: Maybe ElasticsearchRetryOptions
+$sel:retryOptions:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679263286"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679263286"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263285"><span class="annot"><span class="annottext">s :: ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263284"><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679263284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchDestinationUpdate
+</span><a href="#local-6989586621679263285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:ElasticsearchDestinationUpdate' :: Maybe ElasticsearchRetryOptions
+</span><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#%24sel%3AretryOptions%3AElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679263284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679263280"><span id="local-6989586621679263282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span></span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679263277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263269"><span id="local-6989586621679263271"><span id="local-6989586621679263273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679263267"><span class="annot"><span class="annottext">toJSON :: ElasticsearchDestinationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate.html#ElasticsearchDestinationUpdate%27"><span class="hs-identifier hs-type">ElasticsearchDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263255"><span id="local-6989586621679263256"><span id="local-6989586621679263257"><span id="local-6989586621679263258"><span id="local-6989586621679263259"><span id="local-6989586621679263260"><span id="local-6989586621679263261"><span id="local-6989586621679263262"><span id="local-6989586621679263263"><span id="local-6989586621679263264"><span id="local-6989586621679263265"><span class="annot"><span class="annottext">Maybe Text
+Maybe CloudWatchLoggingOptions
+Maybe ElasticsearchBufferingHints
+Maybe ElasticsearchIndexRotationPeriod
+Maybe ElasticsearchRetryOptions
+Maybe ProcessingConfiguration
+Maybe S3DestinationUpdate
+retryOptions :: Maybe ElasticsearchRetryOptions
+bufferingHints :: Maybe ElasticsearchBufferingHints
+indexRotationPeriod :: Maybe ElasticsearchIndexRotationPeriod
+domainARN :: Maybe Text
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+processingConfiguration :: Maybe ProcessingConfiguration
+s3Update :: Maybe S3DestinationUpdate
+indexName :: Maybe Text
+clusterEndpoint :: Maybe Text
+roleARN :: Maybe Text
+typeName :: Maybe Text
+$sel:retryOptions:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchRetryOptions
+$sel:bufferingHints:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ElasticsearchBufferingHints
+$sel:indexRotationPeriod:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate
+-&gt; Maybe ElasticsearchIndexRotationPeriod
+$sel:domainARN:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+$sel:cloudWatchLoggingOptions:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+$sel:processingConfiguration:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe ProcessingConfiguration
+$sel:s3Update:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe S3DestinationUpdate
+$sel:indexName:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+$sel:clusterEndpoint:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+$sel:roleARN:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+$sel:typeName:ElasticsearchDestinationUpdate' :: ElasticsearchDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679263255"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263265"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263264"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263263"><span class="hs-identifier hs-var">clusterEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263262"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Update&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3DestinationUpdate -&gt; Pair)
+-&gt; Maybe S3DestinationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679263261"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
+-&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679263260"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
+-&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679263259"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263258"><span class="hs-identifier hs-var">domainARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexRotationPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ElasticsearchIndexRotationPeriod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(ElasticsearchIndexRotationPeriod -&gt; Pair)
+-&gt; Maybe ElasticsearchIndexRotationPeriod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchIndexRotationPeriod
+</span><a href="#local-6989586621679263257"><span class="hs-identifier hs-var">indexRotationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ElasticsearchBufferingHints -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(ElasticsearchBufferingHints -&gt; Pair)
+-&gt; Maybe ElasticsearchBufferingHints -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchBufferingHints
+</span><a href="#local-6989586621679263256"><span class="hs-identifier hs-var">bufferingHints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ElasticsearchRetryOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ElasticsearchRetryOptions -&gt; Pair)
+-&gt; Maybe ElasticsearchRetryOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchRetryOptions
+</span><a href="#local-6989586621679263255"><span class="hs-identifier hs-var">retryOptions</span></a></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span></pre></body></html>

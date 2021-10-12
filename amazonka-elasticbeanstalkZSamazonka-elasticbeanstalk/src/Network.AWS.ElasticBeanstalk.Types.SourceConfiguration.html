@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.Types.SourceConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types.SourceConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A specification for an environment configuration.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSourceConfiguration' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679306590"><span id="local-6989586621679306591"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceConfiguration"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-var">SourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceConfiguration%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-var">SourceConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the configuration template.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtemplateName%3ASourceConfiguration%27"><span class="annot"><span class="annottext">SourceConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AtemplateName%3ASourceConfiguration%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the application associated with the configuration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AapplicationName%3ASourceConfiguration%27"><span class="annot"><span class="annottext">SourceConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AapplicationName%3ASourceConfiguration%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306583"><span id="local-6989586621679306585"><span class="annot"><span class="annottext">SourceConfiguration -&gt; SourceConfiguration -&gt; Bool
+(SourceConfiguration -&gt; SourceConfiguration -&gt; Bool)
+-&gt; (SourceConfiguration -&gt; SourceConfiguration -&gt; Bool)
+-&gt; Eq SourceConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceConfiguration -&gt; SourceConfiguration -&gt; Bool
+$c/= :: SourceConfiguration -&gt; SourceConfiguration -&gt; Bool
+== :: SourceConfiguration -&gt; SourceConfiguration -&gt; Bool
+$c== :: SourceConfiguration -&gt; SourceConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306574"><span id="local-6989586621679306576"><span id="local-6989586621679306578"><span id="local-6989586621679306580"><span class="annot"><span class="annottext">ReadPrec [SourceConfiguration]
+ReadPrec SourceConfiguration
+Int -&gt; ReadS SourceConfiguration
+ReadS [SourceConfiguration]
+(Int -&gt; ReadS SourceConfiguration)
+-&gt; ReadS [SourceConfiguration]
+-&gt; ReadPrec SourceConfiguration
+-&gt; ReadPrec [SourceConfiguration]
+-&gt; Read SourceConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceConfiguration]
+$creadListPrec :: ReadPrec [SourceConfiguration]
+readPrec :: ReadPrec SourceConfiguration
+$creadPrec :: ReadPrec SourceConfiguration
+readList :: ReadS [SourceConfiguration]
+$creadList :: ReadS [SourceConfiguration]
+readsPrec :: Int -&gt; ReadS SourceConfiguration
+$creadsPrec :: Int -&gt; ReadS SourceConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306567"><span id="local-6989586621679306569"><span id="local-6989586621679306571"><span class="annot"><span class="annottext">Int -&gt; SourceConfiguration -&gt; ShowS
+[SourceConfiguration] -&gt; ShowS
+SourceConfiguration -&gt; String
+(Int -&gt; SourceConfiguration -&gt; ShowS)
+-&gt; (SourceConfiguration -&gt; String)
+-&gt; ([SourceConfiguration] -&gt; ShowS)
+-&gt; Show SourceConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceConfiguration] -&gt; ShowS
+$cshowList :: [SourceConfiguration] -&gt; ShowS
+show :: SourceConfiguration -&gt; String
+$cshow :: SourceConfiguration -&gt; String
+showsPrec :: Int -&gt; SourceConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SourceConfiguration -&gt; Rep SourceConfiguration x)
+-&gt; (forall x. Rep SourceConfiguration x -&gt; SourceConfiguration)
+-&gt; Generic SourceConfiguration
+forall x. Rep SourceConfiguration x -&gt; SourceConfiguration
+forall x. SourceConfiguration -&gt; Rep SourceConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceConfiguration x -&gt; SourceConfiguration
+$cfrom :: forall x. SourceConfiguration -&gt; Rep SourceConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'SourceConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'templateName', 'sourceConfiguration_templateName' - The name of the configuration template.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'applicationName', 'sourceConfiguration_applicationName' - The name of the application associated with the configuration.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#newSourceConfiguration"><span class="hs-identifier hs-type">newSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span>
+</span><span id="line-50"></span><span id="newSourceConfiguration"><span class="annot"><span class="annottext">newSourceConfiguration :: SourceConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#newSourceConfiguration"><span class="hs-identifier hs-var hs-var">newSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">SourceConfiguration' :: Maybe Text -&gt; Maybe Text -&gt; SourceConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:SourceConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AtemplateName%3ASourceConfiguration%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:SourceConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AapplicationName%3ASourceConfiguration%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The name of the configuration template.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#sourceConfiguration_templateName"><span class="hs-identifier hs-type">sourceConfiguration_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="sourceConfiguration_templateName"><span class="annot"><span class="annottext">sourceConfiguration_templateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SourceConfiguration -&gt; f SourceConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#sourceConfiguration_templateName"><span class="hs-identifier hs-var hs-var">sourceConfiguration_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConfiguration -&gt; Maybe Text)
+-&gt; (SourceConfiguration -&gt; Maybe Text -&gt; SourceConfiguration)
+-&gt; Lens
+     SourceConfiguration SourceConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306558"><span class="annot"><span class="annottext">Maybe Text
+templateName :: Maybe Text
+$sel:templateName:SourceConfiguration' :: SourceConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679306558"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306558"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306557"><span class="annot"><span class="annottext">s :: SourceConfiguration
+</span><a href="#local-6989586621679306557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679306557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:SourceConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AtemplateName%3ASourceConfiguration%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the application associated with the configuration.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#sourceConfiguration_applicationName"><span class="hs-identifier hs-type">sourceConfiguration_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="sourceConfiguration_applicationName"><span class="annot"><span class="annottext">sourceConfiguration_applicationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SourceConfiguration -&gt; f SourceConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#sourceConfiguration_applicationName"><span class="hs-identifier hs-var hs-var">sourceConfiguration_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConfiguration -&gt; Maybe Text)
+-&gt; (SourceConfiguration -&gt; Maybe Text -&gt; SourceConfiguration)
+-&gt; Lens
+     SourceConfiguration SourceConfiguration (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306554"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+$sel:applicationName:SourceConfiguration' :: SourceConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679306554"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306554"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306553"><span class="annot"><span class="annottext">s :: SourceConfiguration
+</span><a href="#local-6989586621679306553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679306553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:SourceConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#%24sel%3AapplicationName%3ASourceConfiguration%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306548"><span id="local-6989586621679306550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679306541"><span class="annot"><span class="annottext">toQuery :: SourceConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceConfiguration.html#SourceConfiguration%27"><span class="hs-identifier hs-type">SourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306538"><span id="local-6989586621679306539"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+templateName :: Maybe Text
+$sel:applicationName:SourceConfiguration' :: SourceConfiguration -&gt; Maybe Text
+$sel:templateName:SourceConfiguration' :: SourceConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679306538"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306539"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306538"><span class="hs-identifier hs-var">applicationName</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span></pre></body></html>

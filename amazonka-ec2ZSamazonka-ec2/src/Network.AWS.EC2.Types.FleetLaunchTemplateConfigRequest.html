@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest.html"><span class="hs-identifier">Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest.html"><span class="hs-identifier">Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a launch template and overrides.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFleetLaunchTemplateConfigRequest' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681131804"><span id="local-6989586621681131805"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetLaunchTemplateConfigRequest"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-var">FleetLaunchTemplateConfigRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetLaunchTemplateConfigRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var">FleetLaunchTemplateConfigRequest'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch template to use. You must specify either the launch template</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- ID or launch template name in the request.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlaunchTemplateSpecification%3AFleetLaunchTemplateConfigRequest%27"><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest
+-&gt; Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3AlaunchTemplateSpecification%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest.html#FleetLaunchTemplateSpecificationRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateSpecificationRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Any parameters that you specify override the same parameters in the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- launch template.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For fleets of type @request@ and @maintain@, a maximum of 300 items is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- allowed across all launch templates.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aoverrides%3AFleetLaunchTemplateConfigRequest%27"><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest
+-&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3Aoverrides%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest.html#FleetLaunchTemplateOverridesRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateOverridesRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681131797"><span id="local-6989586621681131799"><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest
+-&gt; FleetLaunchTemplateConfigRequest -&gt; Bool
+(FleetLaunchTemplateConfigRequest
+ -&gt; FleetLaunchTemplateConfigRequest -&gt; Bool)
+-&gt; (FleetLaunchTemplateConfigRequest
+    -&gt; FleetLaunchTemplateConfigRequest -&gt; Bool)
+-&gt; Eq FleetLaunchTemplateConfigRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetLaunchTemplateConfigRequest
+-&gt; FleetLaunchTemplateConfigRequest -&gt; Bool
+$c/= :: FleetLaunchTemplateConfigRequest
+-&gt; FleetLaunchTemplateConfigRequest -&gt; Bool
+== :: FleetLaunchTemplateConfigRequest
+-&gt; FleetLaunchTemplateConfigRequest -&gt; Bool
+$c== :: FleetLaunchTemplateConfigRequest
+-&gt; FleetLaunchTemplateConfigRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131788"><span id="local-6989586621681131790"><span id="local-6989586621681131792"><span id="local-6989586621681131794"><span class="annot"><span class="annottext">ReadPrec [FleetLaunchTemplateConfigRequest]
+ReadPrec FleetLaunchTemplateConfigRequest
+Int -&gt; ReadS FleetLaunchTemplateConfigRequest
+ReadS [FleetLaunchTemplateConfigRequest]
+(Int -&gt; ReadS FleetLaunchTemplateConfigRequest)
+-&gt; ReadS [FleetLaunchTemplateConfigRequest]
+-&gt; ReadPrec FleetLaunchTemplateConfigRequest
+-&gt; ReadPrec [FleetLaunchTemplateConfigRequest]
+-&gt; Read FleetLaunchTemplateConfigRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetLaunchTemplateConfigRequest]
+$creadListPrec :: ReadPrec [FleetLaunchTemplateConfigRequest]
+readPrec :: ReadPrec FleetLaunchTemplateConfigRequest
+$creadPrec :: ReadPrec FleetLaunchTemplateConfigRequest
+readList :: ReadS [FleetLaunchTemplateConfigRequest]
+$creadList :: ReadS [FleetLaunchTemplateConfigRequest]
+readsPrec :: Int -&gt; ReadS FleetLaunchTemplateConfigRequest
+$creadsPrec :: Int -&gt; ReadS FleetLaunchTemplateConfigRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131781"><span id="local-6989586621681131783"><span id="local-6989586621681131785"><span class="annot"><span class="annottext">Int -&gt; FleetLaunchTemplateConfigRequest -&gt; ShowS
+[FleetLaunchTemplateConfigRequest] -&gt; ShowS
+FleetLaunchTemplateConfigRequest -&gt; String
+(Int -&gt; FleetLaunchTemplateConfigRequest -&gt; ShowS)
+-&gt; (FleetLaunchTemplateConfigRequest -&gt; String)
+-&gt; ([FleetLaunchTemplateConfigRequest] -&gt; ShowS)
+-&gt; Show FleetLaunchTemplateConfigRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetLaunchTemplateConfigRequest] -&gt; ShowS
+$cshowList :: [FleetLaunchTemplateConfigRequest] -&gt; ShowS
+show :: FleetLaunchTemplateConfigRequest -&gt; String
+$cshow :: FleetLaunchTemplateConfigRequest -&gt; String
+showsPrec :: Int -&gt; FleetLaunchTemplateConfigRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetLaunchTemplateConfigRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FleetLaunchTemplateConfigRequest
+ -&gt; Rep FleetLaunchTemplateConfigRequest x)
+-&gt; (forall x.
+    Rep FleetLaunchTemplateConfigRequest x
+    -&gt; FleetLaunchTemplateConfigRequest)
+-&gt; Generic FleetLaunchTemplateConfigRequest
+forall x.
+Rep FleetLaunchTemplateConfigRequest x
+-&gt; FleetLaunchTemplateConfigRequest
+forall x.
+FleetLaunchTemplateConfigRequest
+-&gt; Rep FleetLaunchTemplateConfigRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FleetLaunchTemplateConfigRequest x
+-&gt; FleetLaunchTemplateConfigRequest
+$cfrom :: forall x.
+FleetLaunchTemplateConfigRequest
+-&gt; Rep FleetLaunchTemplateConfigRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'FleetLaunchTemplateConfigRequest' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'launchTemplateSpecification', 'fleetLaunchTemplateConfigRequest_launchTemplateSpecification' - The launch template to use. You must specify either the launch template</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- ID or launch template name in the request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'overrides', 'fleetLaunchTemplateConfigRequest_overrides' - Any parameters that you specify override the same parameters in the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- launch template.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- For fleets of type @request@ and @maintain@, a maximum of 300 items is</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- allowed across all launch templates.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#newFleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">newFleetLaunchTemplateConfigRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span>
+</span><span id="line-63"></span><span id="newFleetLaunchTemplateConfigRequest"><span class="annot"><span class="annottext">newFleetLaunchTemplateConfigRequest :: FleetLaunchTemplateConfigRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#newFleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-var hs-var">newFleetLaunchTemplateConfigRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest' :: Maybe FleetLaunchTemplateSpecificationRequest
+-&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+-&gt; FleetLaunchTemplateConfigRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateSpecification:FleetLaunchTemplateConfigRequest' :: Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3AlaunchTemplateSpecification%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:overrides:FleetLaunchTemplateConfigRequest' :: Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3Aoverrides%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var">overrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The launch template to use. You must specify either the launch template</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- ID or launch template name in the request.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#fleetLaunchTemplateConfigRequest_launchTemplateSpecification"><span class="hs-identifier hs-type">fleetLaunchTemplateConfigRequest_launchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest.html#FleetLaunchTemplateSpecificationRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateSpecificationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="fleetLaunchTemplateConfigRequest_launchTemplateSpecification"><span class="annot"><span class="annottext">fleetLaunchTemplateConfigRequest_launchTemplateSpecification :: (Maybe FleetLaunchTemplateSpecificationRequest
+ -&gt; f (Maybe FleetLaunchTemplateSpecificationRequest))
+-&gt; FleetLaunchTemplateConfigRequest
+-&gt; f FleetLaunchTemplateConfigRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#fleetLaunchTemplateConfigRequest_launchTemplateSpecification"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateConfigRequest_launchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateConfigRequest
+ -&gt; Maybe FleetLaunchTemplateSpecificationRequest)
+-&gt; (FleetLaunchTemplateConfigRequest
+    -&gt; Maybe FleetLaunchTemplateSpecificationRequest
+    -&gt; FleetLaunchTemplateConfigRequest)
+-&gt; Lens
+     FleetLaunchTemplateConfigRequest
+     FleetLaunchTemplateConfigRequest
+     (Maybe FleetLaunchTemplateSpecificationRequest)
+     (Maybe FleetLaunchTemplateSpecificationRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131772"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+launchTemplateSpecification :: Maybe FleetLaunchTemplateSpecificationRequest
+$sel:launchTemplateSpecification:FleetLaunchTemplateConfigRequest' :: FleetLaunchTemplateConfigRequest
+-&gt; Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131772"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131772"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131771"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateConfigRequest
+</span><a href="#local-6989586621681131771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131770"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest
+</span><a href="#local-6989586621681131771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateSpecification:FleetLaunchTemplateConfigRequest' :: Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3AlaunchTemplateSpecification%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Any parameters that you specify override the same parameters in the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- launch template.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- For fleets of type @request@ and @maintain@, a maximum of 300 items is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- allowed across all launch templates.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#fleetLaunchTemplateConfigRequest_overrides"><span class="hs-identifier hs-type">fleetLaunchTemplateConfigRequest_overrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest.html#FleetLaunchTemplateOverridesRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateOverridesRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="fleetLaunchTemplateConfigRequest_overrides"><span class="annot"><span class="annottext">fleetLaunchTemplateConfigRequest_overrides :: (Maybe [FleetLaunchTemplateOverridesRequest]
+ -&gt; f (Maybe [FleetLaunchTemplateOverridesRequest]))
+-&gt; FleetLaunchTemplateConfigRequest
+-&gt; f FleetLaunchTemplateConfigRequest
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#fleetLaunchTemplateConfigRequest_overrides"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateConfigRequest_overrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateConfigRequest
+ -&gt; Maybe [FleetLaunchTemplateOverridesRequest])
+-&gt; (FleetLaunchTemplateConfigRequest
+    -&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+    -&gt; FleetLaunchTemplateConfigRequest)
+-&gt; Lens
+     FleetLaunchTemplateConfigRequest
+     FleetLaunchTemplateConfigRequest
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131768"><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+overrides :: Maybe [FleetLaunchTemplateOverridesRequest]
+$sel:overrides:FleetLaunchTemplateConfigRequest' :: FleetLaunchTemplateConfigRequest
+-&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="#local-6989586621681131768"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="#local-6989586621681131768"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131767"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateConfigRequest
+</span><a href="#local-6989586621681131767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131766"><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="#local-6989586621681131766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateConfigRequest
+</span><a href="#local-6989586621681131767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:FleetLaunchTemplateConfigRequest' :: Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#%24sel%3Aoverrides%3AFleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-var">overrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="#local-6989586621681131766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FleetLaunchTemplateOverridesRequest]
+  -&gt; f (Maybe [FleetLaunchTemplateOverridesRequest]))
+ -&gt; FleetLaunchTemplateConfigRequest
+ -&gt; f FleetLaunchTemplateConfigRequest)
+-&gt; ((Maybe [FleetLaunchTemplateOverridesRequest]
+     -&gt; f (Maybe [FleetLaunchTemplateOverridesRequest]))
+    -&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+    -&gt; f (Maybe [FleetLaunchTemplateOverridesRequest]))
+-&gt; (Maybe [FleetLaunchTemplateOverridesRequest]
+    -&gt; f (Maybe [FleetLaunchTemplateOverridesRequest]))
+-&gt; FleetLaunchTemplateConfigRequest
+-&gt; f FleetLaunchTemplateConfigRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+-&gt; Iso
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+     (Maybe [FleetLaunchTemplateOverridesRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+  [FleetLaunchTemplateOverridesRequest]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621681131759"><span id="local-6989586621681131761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621681131756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681131752"><span class="annot"><span class="annottext">toQuery :: FleetLaunchTemplateConfigRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest.html#FleetLaunchTemplateConfigRequest%27"><span class="hs-identifier hs-type">FleetLaunchTemplateConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131749"><span id="local-6989586621681131750"><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+Maybe FleetLaunchTemplateSpecificationRequest
+overrides :: Maybe [FleetLaunchTemplateOverridesRequest]
+launchTemplateSpecification :: Maybe FleetLaunchTemplateSpecificationRequest
+$sel:overrides:FleetLaunchTemplateConfigRequest' :: FleetLaunchTemplateConfigRequest
+-&gt; Maybe [FleetLaunchTemplateOverridesRequest]
+$sel:launchTemplateSpecification:FleetLaunchTemplateConfigRequest' :: FleetLaunchTemplateConfigRequest
+-&gt; Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131749"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LaunchTemplateSpecification&quot;</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe FleetLaunchTemplateSpecificationRequest -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecificationRequest
+</span><a href="#local-6989586621681131750"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [FleetLaunchTemplateOverridesRequest] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Overrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">([FleetLaunchTemplateOverridesRequest] -&gt; QueryString)
+-&gt; Maybe [FleetLaunchTemplateOverridesRequest] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FleetLaunchTemplateOverridesRequest]
+</span><a href="#local-6989586621681131749"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span></pre></body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.PolicyTemplateName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.PolicyTemplateName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName"><span class="hs-identifier">PolicyTemplateName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName_BLANK_POLICY"><span class="hs-identifier">PolicyTemplateName_BLANK_POLICY</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679791853"><span id="local-6989586621679791854"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyTemplateName"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName"><span class="hs-identifier hs-var">PolicyTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyTemplateName%27"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName%27"><span class="hs-identifier hs-var">PolicyTemplateName'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyTemplateName"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; Text
+</span><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#fromPolicyTemplateName"><span class="hs-identifier hs-var hs-var">fromPolicyTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791845"><span id="local-6989586621679791847"><span id="local-6989586621679791849"><span class="annot"><span class="annottext">Int -&gt; PolicyTemplateName -&gt; ShowS
+[PolicyTemplateName] -&gt; ShowS
+PolicyTemplateName -&gt; String
+(Int -&gt; PolicyTemplateName -&gt; ShowS)
+-&gt; (PolicyTemplateName -&gt; String)
+-&gt; ([PolicyTemplateName] -&gt; ShowS)
+-&gt; Show PolicyTemplateName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyTemplateName] -&gt; ShowS
+$cshowList :: [PolicyTemplateName] -&gt; ShowS
+show :: PolicyTemplateName -&gt; String
+$cshow :: PolicyTemplateName -&gt; String
+showsPrec :: Int -&gt; PolicyTemplateName -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyTemplateName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679791836"><span id="local-6989586621679791838"><span id="local-6989586621679791840"><span id="local-6989586621679791842"><span class="annot"><span class="annottext">ReadPrec [PolicyTemplateName]
+ReadPrec PolicyTemplateName
+Int -&gt; ReadS PolicyTemplateName
+ReadS [PolicyTemplateName]
+(Int -&gt; ReadS PolicyTemplateName)
+-&gt; ReadS [PolicyTemplateName]
+-&gt; ReadPrec PolicyTemplateName
+-&gt; ReadPrec [PolicyTemplateName]
+-&gt; Read PolicyTemplateName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyTemplateName]
+$creadListPrec :: ReadPrec [PolicyTemplateName]
+readPrec :: ReadPrec PolicyTemplateName
+$creadPrec :: ReadPrec PolicyTemplateName
+readList :: ReadS [PolicyTemplateName]
+$creadList :: ReadS [PolicyTemplateName]
+readsPrec :: Int -&gt; ReadS PolicyTemplateName
+$creadsPrec :: Int -&gt; ReadS PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679791831"><span id="local-6989586621679791833"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+(PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; Eq PolicyTemplateName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c/= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+== :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c== :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679791815"><span id="local-6989586621679791817"><span id="local-6989586621679791819"><span id="local-6989586621679791821"><span id="local-6989586621679791823"><span id="local-6989586621679791825"><span id="local-6989586621679791827"><span class="annot"><span class="annottext">Eq PolicyTemplateName
+Eq PolicyTemplateName
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Ordering)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName)
+-&gt; (PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName)
+-&gt; Ord PolicyTemplateName
+PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+PolicyTemplateName -&gt; PolicyTemplateName -&gt; Ordering
+PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName
+$cmin :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName
+max :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName
+$cmax :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; PolicyTemplateName
+&gt;= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c&gt;= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+&gt; :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c&gt; :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+&lt;= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c&lt;= :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+&lt; :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+$c&lt; :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Bool
+compare :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Ordering
+$ccompare :: PolicyTemplateName -&gt; PolicyTemplateName -&gt; Ordering
+$cp1Ord :: Eq PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PolicyTemplateName -&gt; Rep PolicyTemplateName x)
+-&gt; (forall x. Rep PolicyTemplateName x -&gt; PolicyTemplateName)
+-&gt; Generic PolicyTemplateName
+forall x. Rep PolicyTemplateName x -&gt; PolicyTemplateName
+forall x. PolicyTemplateName -&gt; Rep PolicyTemplateName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyTemplateName x -&gt; PolicyTemplateName
+$cfrom :: forall x. PolicyTemplateName -&gt; Rep PolicyTemplateName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791807"><span id="local-6989586621679791809"><span class="annot"><span class="annottext">Int -&gt; PolicyTemplateName -&gt; Int
+PolicyTemplateName -&gt; Int
+(Int -&gt; PolicyTemplateName -&gt; Int)
+-&gt; (PolicyTemplateName -&gt; Int) -&gt; Hashable PolicyTemplateName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PolicyTemplateName -&gt; Int
+$chash :: PolicyTemplateName -&gt; Int
+hashWithSalt :: Int -&gt; PolicyTemplateName -&gt; Int
+$chashWithSalt :: Int -&gt; PolicyTemplateName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679791804"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; ()
+(PolicyTemplateName -&gt; ()) -&gt; NFData PolicyTemplateName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PolicyTemplateName -&gt; ()
+$crnf :: PolicyTemplateName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679791801"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyTemplateName
+(Text -&gt; Either String PolicyTemplateName)
+-&gt; FromText PolicyTemplateName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PolicyTemplateName
+$cfromText :: Text -&gt; Either String PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679791798"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; Text
+(PolicyTemplateName -&gt; Text) -&gt; ToText PolicyTemplateName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PolicyTemplateName -&gt; Text
+$ctoText :: PolicyTemplateName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791795"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; ByteString
+(PolicyTemplateName -&gt; ByteString)
+-&gt; ToByteString PolicyTemplateName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PolicyTemplateName -&gt; ByteString
+$ctoBS :: PolicyTemplateName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791792"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; ByteStringBuilder
+(PolicyTemplateName -&gt; ByteStringBuilder)
+-&gt; ToLog PolicyTemplateName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PolicyTemplateName -&gt; ByteStringBuilder
+$cbuild :: PolicyTemplateName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791789"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyTemplateName -&gt; [Header]
+(HeaderName -&gt; PolicyTemplateName -&gt; [Header])
+-&gt; ToHeader PolicyTemplateName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PolicyTemplateName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PolicyTemplateName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791786"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; QueryString
+(PolicyTemplateName -&gt; QueryString) -&gt; ToQuery PolicyTemplateName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PolicyTemplateName -&gt; QueryString
+$ctoQuery :: PolicyTemplateName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791781"><span id="local-6989586621679791783"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyTemplateName]
+Value -&gt; Parser PolicyTemplateName
+(Value -&gt; Parser PolicyTemplateName)
+-&gt; (Value -&gt; Parser [PolicyTemplateName])
+-&gt; FromJSON PolicyTemplateName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PolicyTemplateName]
+$cparseJSONList :: Value -&gt; Parser [PolicyTemplateName]
+parseJSON :: Value -&gt; Parser PolicyTemplateName
+$cparseJSON :: Value -&gt; Parser PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791776"><span id="local-6989586621679791778"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyTemplateName]
+FromJSONKeyFunction PolicyTemplateName
+FromJSONKeyFunction PolicyTemplateName
+-&gt; FromJSONKeyFunction [PolicyTemplateName]
+-&gt; FromJSONKey PolicyTemplateName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PolicyTemplateName]
+$cfromJSONKeyList :: FromJSONKeyFunction [PolicyTemplateName]
+fromJSONKey :: FromJSONKeyFunction PolicyTemplateName
+$cfromJSONKey :: FromJSONKeyFunction PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791767"><span id="local-6989586621679791769"><span id="local-6989586621679791771"><span id="local-6989586621679791773"><span class="annot"><span class="annottext">[PolicyTemplateName] -&gt; Encoding
+[PolicyTemplateName] -&gt; Value
+PolicyTemplateName -&gt; Encoding
+PolicyTemplateName -&gt; Value
+(PolicyTemplateName -&gt; Value)
+-&gt; (PolicyTemplateName -&gt; Encoding)
+-&gt; ([PolicyTemplateName] -&gt; Value)
+-&gt; ([PolicyTemplateName] -&gt; Encoding)
+-&gt; ToJSON PolicyTemplateName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PolicyTemplateName] -&gt; Encoding
+$ctoEncodingList :: [PolicyTemplateName] -&gt; Encoding
+toJSONList :: [PolicyTemplateName] -&gt; Value
+$ctoJSONList :: [PolicyTemplateName] -&gt; Value
+toEncoding :: PolicyTemplateName -&gt; Encoding
+$ctoEncoding :: PolicyTemplateName -&gt; Encoding
+toJSON :: PolicyTemplateName -&gt; Value
+$ctoJSON :: PolicyTemplateName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791762"><span id="local-6989586621679791764"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyTemplateName]
+ToJSONKeyFunction PolicyTemplateName
+ToJSONKeyFunction PolicyTemplateName
+-&gt; ToJSONKeyFunction [PolicyTemplateName]
+-&gt; ToJSONKey PolicyTemplateName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PolicyTemplateName]
+$ctoJSONKeyList :: ToJSONKeyFunction [PolicyTemplateName]
+toJSONKey :: ToJSONKeyFunction PolicyTemplateName
+$ctoJSONKey :: ToJSONKeyFunction PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791759"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyTemplateName
+([Node] -&gt; Either String PolicyTemplateName)
+-&gt; FromXML PolicyTemplateName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PolicyTemplateName
+$cparseXML :: [Node] -&gt; Either String PolicyTemplateName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791756"><span class="annot"><span class="annottext">PolicyTemplateName -&gt; XML
+(PolicyTemplateName -&gt; XML) -&gt; ToXML PolicyTemplateName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PolicyTemplateName -&gt; XML
+$ctoXML :: PolicyTemplateName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName_BLANK_POLICY"><span class="hs-identifier hs-type">PolicyTemplateName_BLANK_POLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName"><span class="hs-identifier hs-type">PolicyTemplateName</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPolicyTemplateName_BLANK_POLICY"><span id="%24mPolicyTemplateName_BLANK_POLICY"><span id="PolicyTemplateName_BLANK_POLICY"><span class="annot"><span class="annottext">$bPolicyTemplateName_BLANK_POLICY :: PolicyTemplateName
+$mPolicyTemplateName_BLANK_POLICY :: forall r. PolicyTemplateName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#%24bPolicyTemplateName_BLANK_POLICY"><span class="hs-identifier hs-var hs-var hs-var">PolicyTemplateName_BLANK_POLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName%27"><span class="hs-identifier hs-type">PolicyTemplateName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLANK_POLICY&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName_BLANK_POLICY"><span class="hs-pragma hs-type">PolicyTemplateName_BLANK_POLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyTemplateName.html#PolicyTemplateName%27"><span class="hs-pragma hs-type">PolicyTemplateName'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

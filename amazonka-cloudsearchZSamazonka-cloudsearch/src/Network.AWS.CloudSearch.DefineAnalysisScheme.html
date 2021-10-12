@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Configures an analysis scheme that can be applied to a @text@ or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @text-array@ field to define language-specific text processing options.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon CloudSearch Developer Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudSearch.DefineAnalysisScheme</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisScheme"><span class="hs-identifier">newDefineAnalysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_domainName"><span class="hs-identifier">defineAnalysisScheme_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_analysisScheme"><span class="hs-identifier">defineAnalysisScheme_analysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier">DefineAnalysisSchemeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisSchemeResponse"><span class="hs-identifier">newDefineAnalysisSchemeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_httpStatus"><span class="hs-identifier">defineAnalysisSchemeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier">defineAnalysisSchemeResponse_analysisScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.html"><span class="hs-identifier">Network.AWS.CloudSearch.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Container for the parameters to the @DefineAnalysisScheme@ operation.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Specifies the name of the domain you want to update and the analysis</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- scheme configuration.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDefineAnalysisScheme' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679215547"><span id="local-6989586621679215548"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineAnalysisScheme"><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-var">DefineAnalysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineAnalysisScheme%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-var">DefineAnalysisScheme'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainName%3ADefineAnalysisScheme%27"><span class="annot"><span class="annottext">DefineAnalysisScheme -&gt; Text
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AdomainName%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AanalysisScheme%3ADefineAnalysisScheme%27"><span class="annot"><span class="annottext">DefineAnalysisScheme -&gt; AnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisScheme.html#AnalysisScheme"><span class="hs-identifier hs-type">AnalysisScheme</span></a></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215540"><span id="local-6989586621679215542"><span class="annot"><span class="annottext">DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool
+(DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool)
+-&gt; (DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool)
+-&gt; Eq DefineAnalysisScheme
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool
+$c/= :: DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool
+== :: DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool
+$c== :: DefineAnalysisScheme -&gt; DefineAnalysisScheme -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215531"><span id="local-6989586621679215533"><span id="local-6989586621679215535"><span id="local-6989586621679215537"><span class="annot"><span class="annottext">ReadPrec [DefineAnalysisScheme]
+ReadPrec DefineAnalysisScheme
+Int -&gt; ReadS DefineAnalysisScheme
+ReadS [DefineAnalysisScheme]
+(Int -&gt; ReadS DefineAnalysisScheme)
+-&gt; ReadS [DefineAnalysisScheme]
+-&gt; ReadPrec DefineAnalysisScheme
+-&gt; ReadPrec [DefineAnalysisScheme]
+-&gt; Read DefineAnalysisScheme
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefineAnalysisScheme]
+$creadListPrec :: ReadPrec [DefineAnalysisScheme]
+readPrec :: ReadPrec DefineAnalysisScheme
+$creadPrec :: ReadPrec DefineAnalysisScheme
+readList :: ReadS [DefineAnalysisScheme]
+$creadList :: ReadS [DefineAnalysisScheme]
+readsPrec :: Int -&gt; ReadS DefineAnalysisScheme
+$creadsPrec :: Int -&gt; ReadS DefineAnalysisScheme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215524"><span id="local-6989586621679215526"><span id="local-6989586621679215528"><span class="annot"><span class="annottext">Int -&gt; DefineAnalysisScheme -&gt; ShowS
+[DefineAnalysisScheme] -&gt; ShowS
+DefineAnalysisScheme -&gt; String
+(Int -&gt; DefineAnalysisScheme -&gt; ShowS)
+-&gt; (DefineAnalysisScheme -&gt; String)
+-&gt; ([DefineAnalysisScheme] -&gt; ShowS)
+-&gt; Show DefineAnalysisScheme
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefineAnalysisScheme] -&gt; ShowS
+$cshowList :: [DefineAnalysisScheme] -&gt; ShowS
+show :: DefineAnalysisScheme -&gt; String
+$cshow :: DefineAnalysisScheme -&gt; String
+showsPrec :: Int -&gt; DefineAnalysisScheme -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefineAnalysisScheme -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DefineAnalysisScheme -&gt; Rep DefineAnalysisScheme x)
+-&gt; (forall x. Rep DefineAnalysisScheme x -&gt; DefineAnalysisScheme)
+-&gt; Generic DefineAnalysisScheme
+forall x. Rep DefineAnalysisScheme x -&gt; DefineAnalysisScheme
+forall x. DefineAnalysisScheme -&gt; Rep DefineAnalysisScheme x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DefineAnalysisScheme x -&gt; DefineAnalysisScheme
+$cfrom :: forall x. DefineAnalysisScheme -&gt; Rep DefineAnalysisScheme x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DefineAnalysisScheme' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'domainName', 'defineAnalysisScheme_domainName' - Undocumented member.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'analysisScheme', 'defineAnalysisScheme_analysisScheme' - Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisScheme"><span class="hs-identifier hs-type">newDefineAnalysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'analysisScheme'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisScheme.html#AnalysisScheme"><span class="hs-identifier hs-type">AnalysisScheme</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span>
+</span><span id="line-82"></span><span id="newDefineAnalysisScheme"><span class="annot"><span class="annottext">newDefineAnalysisScheme :: Text -&gt; AnalysisScheme -&gt; DefineAnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisScheme"><span class="hs-identifier hs-var hs-var">newDefineAnalysisScheme</span></a></span></span><span> </span><span id="local-6989586621679215519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215519"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679215518"><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215518"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DefineAnalysisScheme' :: Text -&gt; AnalysisScheme -&gt; DefineAnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DefineAnalysisScheme' :: Text
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AdomainName%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215519"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisScheme:DefineAnalysisScheme' :: AnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215518"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_domainName"><span class="hs-identifier hs-type">defineAnalysisScheme_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="defineAnalysisScheme_domainName"><span class="annot"><span class="annottext">defineAnalysisScheme_domainName :: (Text -&gt; f Text) -&gt; DefineAnalysisScheme -&gt; f DefineAnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_domainName"><span class="hs-identifier hs-var hs-var">defineAnalysisScheme_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefineAnalysisScheme -&gt; Text)
+-&gt; (DefineAnalysisScheme -&gt; Text -&gt; DefineAnalysisScheme)
+-&gt; Lens DefineAnalysisScheme DefineAnalysisScheme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215515"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DefineAnalysisScheme' :: DefineAnalysisScheme -&gt; Text
+</span><a href="#local-6989586621679215515"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215515"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215514"><span class="annot"><span class="annottext">s :: DefineAnalysisScheme
+</span><a href="#local-6989586621679215514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineAnalysisScheme
+</span><a href="#local-6989586621679215514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DefineAnalysisScheme' :: Text
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AdomainName%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_analysisScheme"><span class="hs-identifier hs-type">defineAnalysisScheme_analysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisScheme.html#AnalysisScheme"><span class="hs-identifier hs-type">AnalysisScheme</span></a></span><span>
+</span><span id="line-94"></span><span id="defineAnalysisScheme_analysisScheme"><span class="annot"><span class="annottext">defineAnalysisScheme_analysisScheme :: (AnalysisScheme -&gt; f AnalysisScheme)
+-&gt; DefineAnalysisScheme -&gt; f DefineAnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisScheme_analysisScheme"><span class="hs-identifier hs-var hs-var">defineAnalysisScheme_analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefineAnalysisScheme -&gt; AnalysisScheme)
+-&gt; (DefineAnalysisScheme -&gt; AnalysisScheme -&gt; DefineAnalysisScheme)
+-&gt; Lens
+     DefineAnalysisScheme
+     DefineAnalysisScheme
+     AnalysisScheme
+     AnalysisScheme
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215512"><span class="annot"><span class="annottext">AnalysisScheme
+analysisScheme :: AnalysisScheme
+$sel:analysisScheme:DefineAnalysisScheme' :: DefineAnalysisScheme -&gt; AnalysisScheme
+</span><a href="#local-6989586621679215512"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215512"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215511"><span class="annot"><span class="annottext">s :: DefineAnalysisScheme
+</span><a href="#local-6989586621679215511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215510"><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineAnalysisScheme
+</span><a href="#local-6989586621679215511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisScheme:DefineAnalysisScheme' :: AnalysisScheme
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisScheme%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679215506"><span class="annot"><span class="annottext">request :: DefineAnalysisScheme -&gt; Request DefineAnalysisScheme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DefineAnalysisScheme -&gt; Request DefineAnalysisScheme
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679215502"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DefineAnalysisScheme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DefineAnalysisScheme)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DefineAnalysisScheme))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DefineAnalysisScheme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DefineAnalysisScheme)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefineAnalysisSchemeResult&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215497"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679215497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">DefineAnalysisSchemeResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse)
+-&gt; Either String AnalysisSchemeStatus
+-&gt; Either String DefineAnalysisSchemeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679215497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AnalysisSchemeStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisScheme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215489"><span id="local-6989586621679215491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679215482"><span class="annot"><span class="annottext">toHeaders :: DefineAnalysisScheme -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DefineAnalysisScheme -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679215477"><span class="annot"><span class="annottext">toPath :: DefineAnalysisScheme -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DefineAnalysisScheme -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme"><span class="hs-identifier hs-type">DefineAnalysisScheme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679215473"><span class="annot"><span class="annottext">toQuery :: DefineAnalysisScheme -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisScheme%27"><span class="hs-identifier hs-type">DefineAnalysisScheme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215470"><span id="local-6989586621679215471"><span class="annot"><span class="annottext">Text
+AnalysisScheme
+analysisScheme :: AnalysisScheme
+domainName :: Text
+$sel:analysisScheme:DefineAnalysisScheme' :: DefineAnalysisScheme -&gt; AnalysisScheme
+$sel:domainName:DefineAnalysisScheme' :: DefineAnalysisScheme -&gt; Text
+</span><a href="#local-6989586621679215470"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DefineAnalysisScheme&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2013-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215471"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AnalysisScheme&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AnalysisScheme -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">AnalysisScheme
+</span><a href="#local-6989586621679215470"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The result of a @DefineAnalysisScheme@ request. Contains the status of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the newly-configured analysis scheme.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- /See:/ 'newDefineAnalysisSchemeResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679215467"><span id="local-6989586621679215468"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineAnalysisSchemeResponse"><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-var">DefineAnalysisSchemeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineAnalysisSchemeResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">DefineAnalysisSchemeResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADefineAnalysisSchemeResponse%27"><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse -&gt; Int
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AhttpStatus%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AanalysisScheme%3ADefineAnalysisSchemeResponse%27"><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse -&gt; AnalysisSchemeStatus
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215461"><span id="local-6989586621679215463"><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse
+-&gt; DefineAnalysisSchemeResponse -&gt; Bool
+(DefineAnalysisSchemeResponse
+ -&gt; DefineAnalysisSchemeResponse -&gt; Bool)
+-&gt; (DefineAnalysisSchemeResponse
+    -&gt; DefineAnalysisSchemeResponse -&gt; Bool)
+-&gt; Eq DefineAnalysisSchemeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefineAnalysisSchemeResponse
+-&gt; DefineAnalysisSchemeResponse -&gt; Bool
+$c/= :: DefineAnalysisSchemeResponse
+-&gt; DefineAnalysisSchemeResponse -&gt; Bool
+== :: DefineAnalysisSchemeResponse
+-&gt; DefineAnalysisSchemeResponse -&gt; Bool
+$c== :: DefineAnalysisSchemeResponse
+-&gt; DefineAnalysisSchemeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215453"><span id="local-6989586621679215455"><span id="local-6989586621679215457"><span id="local-6989586621679215459"><span class="annot"><span class="annottext">ReadPrec [DefineAnalysisSchemeResponse]
+ReadPrec DefineAnalysisSchemeResponse
+Int -&gt; ReadS DefineAnalysisSchemeResponse
+ReadS [DefineAnalysisSchemeResponse]
+(Int -&gt; ReadS DefineAnalysisSchemeResponse)
+-&gt; ReadS [DefineAnalysisSchemeResponse]
+-&gt; ReadPrec DefineAnalysisSchemeResponse
+-&gt; ReadPrec [DefineAnalysisSchemeResponse]
+-&gt; Read DefineAnalysisSchemeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefineAnalysisSchemeResponse]
+$creadListPrec :: ReadPrec [DefineAnalysisSchemeResponse]
+readPrec :: ReadPrec DefineAnalysisSchemeResponse
+$creadPrec :: ReadPrec DefineAnalysisSchemeResponse
+readList :: ReadS [DefineAnalysisSchemeResponse]
+$creadList :: ReadS [DefineAnalysisSchemeResponse]
+readsPrec :: Int -&gt; ReadS DefineAnalysisSchemeResponse
+$creadsPrec :: Int -&gt; ReadS DefineAnalysisSchemeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215447"><span id="local-6989586621679215449"><span id="local-6989586621679215451"><span class="annot"><span class="annottext">Int -&gt; DefineAnalysisSchemeResponse -&gt; ShowS
+[DefineAnalysisSchemeResponse] -&gt; ShowS
+DefineAnalysisSchemeResponse -&gt; String
+(Int -&gt; DefineAnalysisSchemeResponse -&gt; ShowS)
+-&gt; (DefineAnalysisSchemeResponse -&gt; String)
+-&gt; ([DefineAnalysisSchemeResponse] -&gt; ShowS)
+-&gt; Show DefineAnalysisSchemeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefineAnalysisSchemeResponse] -&gt; ShowS
+$cshowList :: [DefineAnalysisSchemeResponse] -&gt; ShowS
+show :: DefineAnalysisSchemeResponse -&gt; String
+$cshow :: DefineAnalysisSchemeResponse -&gt; String
+showsPrec :: Int -&gt; DefineAnalysisSchemeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefineAnalysisSchemeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DefineAnalysisSchemeResponse -&gt; Rep DefineAnalysisSchemeResponse x)
+-&gt; (forall x.
+    Rep DefineAnalysisSchemeResponse x -&gt; DefineAnalysisSchemeResponse)
+-&gt; Generic DefineAnalysisSchemeResponse
+forall x.
+Rep DefineAnalysisSchemeResponse x -&gt; DefineAnalysisSchemeResponse
+forall x.
+DefineAnalysisSchemeResponse -&gt; Rep DefineAnalysisSchemeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DefineAnalysisSchemeResponse x -&gt; DefineAnalysisSchemeResponse
+$cfrom :: forall x.
+DefineAnalysisSchemeResponse -&gt; Rep DefineAnalysisSchemeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DefineAnalysisSchemeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'defineAnalysisSchemeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'analysisScheme', 'defineAnalysisSchemeResponse_analysisScheme' - Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">newDefineAnalysisSchemeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'analysisScheme'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newDefineAnalysisSchemeResponse"><span class="annot"><span class="annottext">newDefineAnalysisSchemeResponse :: Int -&gt; AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#newDefineAnalysisSchemeResponse"><span class="hs-identifier hs-var hs-var">newDefineAnalysisSchemeResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679215444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679215443"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679215443"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse' :: Int -&gt; AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DefineAnalysisSchemeResponse' :: Int
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AhttpStatus%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:analysisScheme:DefineAnalysisSchemeResponse' :: AnalysisSchemeStatus
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679215443"><span class="hs-identifier hs-var">pAnalysisScheme_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_httpStatus"><span class="hs-identifier hs-type">defineAnalysisSchemeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="defineAnalysisSchemeResponse_httpStatus"><span class="annot"><span class="annottext">defineAnalysisSchemeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DefineAnalysisSchemeResponse -&gt; f DefineAnalysisSchemeResponse
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">defineAnalysisSchemeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefineAnalysisSchemeResponse -&gt; Int)
+-&gt; (DefineAnalysisSchemeResponse
+    -&gt; Int -&gt; DefineAnalysisSchemeResponse)
+-&gt; Lens
+     DefineAnalysisSchemeResponse DefineAnalysisSchemeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215442"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DefineAnalysisSchemeResponse' :: DefineAnalysisSchemeResponse -&gt; Int
+</span><a href="#local-6989586621679215442"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215442"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215441"><span class="annot"><span class="annottext">s :: DefineAnalysisSchemeResponse
+</span><a href="#local-6989586621679215441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse
+</span><a href="#local-6989586621679215441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DefineAnalysisSchemeResponse' :: Int
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AhttpStatus%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier hs-type">defineAnalysisSchemeResponse_analysisScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisSchemeStatus.html#AnalysisSchemeStatus"><span class="hs-identifier hs-type">AnalysisSchemeStatus</span></a></span><span>
+</span><span id="line-174"></span><span id="defineAnalysisSchemeResponse_analysisScheme"><span class="annot"><span class="annottext">defineAnalysisSchemeResponse_analysisScheme :: (AnalysisSchemeStatus -&gt; f AnalysisSchemeStatus)
+-&gt; DefineAnalysisSchemeResponse -&gt; f DefineAnalysisSchemeResponse
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#defineAnalysisSchemeResponse_analysisScheme"><span class="hs-identifier hs-var hs-var">defineAnalysisSchemeResponse_analysisScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefineAnalysisSchemeResponse -&gt; AnalysisSchemeStatus)
+-&gt; (DefineAnalysisSchemeResponse
+    -&gt; AnalysisSchemeStatus -&gt; DefineAnalysisSchemeResponse)
+-&gt; Lens
+     DefineAnalysisSchemeResponse
+     DefineAnalysisSchemeResponse
+     AnalysisSchemeStatus
+     AnalysisSchemeStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215439"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+analysisScheme :: AnalysisSchemeStatus
+$sel:analysisScheme:DefineAnalysisSchemeResponse' :: DefineAnalysisSchemeResponse -&gt; AnalysisSchemeStatus
+</span><a href="#local-6989586621679215439"><span class="hs-identifier hs-var hs-var">analysisScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679215439"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215438"><span class="annot"><span class="annottext">s :: DefineAnalysisSchemeResponse
+</span><a href="#local-6989586621679215438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215437"><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679215437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineAnalysisSchemeResponse
+</span><a href="#local-6989586621679215438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisScheme:DefineAnalysisSchemeResponse' :: AnalysisSchemeStatus
+</span><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#%24sel%3AanalysisScheme%3ADefineAnalysisSchemeResponse%27"><span class="hs-identifier hs-var">analysisScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnalysisSchemeStatus
+</span><a href="#local-6989586621679215437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineAnalysisScheme.html#DefineAnalysisSchemeResponse"><span class="hs-identifier hs-type">DefineAnalysisSchemeResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

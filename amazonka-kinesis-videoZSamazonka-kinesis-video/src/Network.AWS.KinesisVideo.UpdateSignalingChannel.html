@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideo.UpdateSignalingChannel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the existing signaling channel. This is an asynchronous</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation and takes time to complete.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If the @MessageTtlSeconds@ value is updated (either increased or</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- reduced), it only applies to new messages sent via this channel after</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- it\'s been updated. Existing messages are still expired as per the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- previous @MessageTtlSeconds@ value.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideo.UpdateSignalingChannel</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannel"><span class="hs-identifier">newUpdateSignalingChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_singleMasterConfiguration"><span class="hs-identifier">updateSignalingChannel_singleMasterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_channelARN"><span class="hs-identifier">updateSignalingChannel_channelARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_currentVersion"><span class="hs-identifier">updateSignalingChannel_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier">UpdateSignalingChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannelResponse"><span class="hs-identifier">newUpdateSignalingChannelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannelResponse_httpStatus"><span class="hs-identifier">updateSignalingChannelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.html"><span class="hs-identifier">Network.AWS.KinesisVideo.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateSignalingChannel' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679181271"><span id="local-6989586621679181272"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSignalingChannel"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-var">UpdateSignalingChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSignalingChannel%27"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-var">UpdateSignalingChannel'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The structure containing the configuration for the @SINGLE_MASTER@ type</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- of the signaling channel that you want to update.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsingleMasterConfiguration%3AUpdateSignalingChannel%27"><span class="annot"><span class="annottext">UpdateSignalingChannel -&gt; Maybe SingleMasterConfiguration
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AsingleMasterConfiguration%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var hs-var">singleMasterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.html#SingleMasterConfiguration"><span class="hs-identifier hs-type">SingleMasterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel that you want to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AchannelARN%3AUpdateSignalingChannel%27"><span class="annot"><span class="annottext">UpdateSignalingChannel -&gt; Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AchannelARN%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The current version of the signaling channel that you want to update.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AUpdateSignalingChannel%27"><span class="annot"><span class="annottext">UpdateSignalingChannel -&gt; Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AcurrentVersion%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181263"><span id="local-6989586621679181265"><span class="annot"><span class="annottext">UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool
+(UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool)
+-&gt; (UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool)
+-&gt; Eq UpdateSignalingChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool
+$c/= :: UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool
+== :: UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool
+$c== :: UpdateSignalingChannel -&gt; UpdateSignalingChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181254"><span id="local-6989586621679181256"><span id="local-6989586621679181258"><span id="local-6989586621679181260"><span class="annot"><span class="annottext">ReadPrec [UpdateSignalingChannel]
+ReadPrec UpdateSignalingChannel
+Int -&gt; ReadS UpdateSignalingChannel
+ReadS [UpdateSignalingChannel]
+(Int -&gt; ReadS UpdateSignalingChannel)
+-&gt; ReadS [UpdateSignalingChannel]
+-&gt; ReadPrec UpdateSignalingChannel
+-&gt; ReadPrec [UpdateSignalingChannel]
+-&gt; Read UpdateSignalingChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSignalingChannel]
+$creadListPrec :: ReadPrec [UpdateSignalingChannel]
+readPrec :: ReadPrec UpdateSignalingChannel
+$creadPrec :: ReadPrec UpdateSignalingChannel
+readList :: ReadS [UpdateSignalingChannel]
+$creadList :: ReadS [UpdateSignalingChannel]
+readsPrec :: Int -&gt; ReadS UpdateSignalingChannel
+$creadsPrec :: Int -&gt; ReadS UpdateSignalingChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181247"><span id="local-6989586621679181249"><span id="local-6989586621679181251"><span class="annot"><span class="annottext">Int -&gt; UpdateSignalingChannel -&gt; ShowS
+[UpdateSignalingChannel] -&gt; ShowS
+UpdateSignalingChannel -&gt; String
+(Int -&gt; UpdateSignalingChannel -&gt; ShowS)
+-&gt; (UpdateSignalingChannel -&gt; String)
+-&gt; ([UpdateSignalingChannel] -&gt; ShowS)
+-&gt; Show UpdateSignalingChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSignalingChannel] -&gt; ShowS
+$cshowList :: [UpdateSignalingChannel] -&gt; ShowS
+show :: UpdateSignalingChannel -&gt; String
+$cshow :: UpdateSignalingChannel -&gt; String
+showsPrec :: Int -&gt; UpdateSignalingChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSignalingChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSignalingChannel -&gt; Rep UpdateSignalingChannel x)
+-&gt; (forall x.
+    Rep UpdateSignalingChannel x -&gt; UpdateSignalingChannel)
+-&gt; Generic UpdateSignalingChannel
+forall x. Rep UpdateSignalingChannel x -&gt; UpdateSignalingChannel
+forall x. UpdateSignalingChannel -&gt; Rep UpdateSignalingChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSignalingChannel x -&gt; UpdateSignalingChannel
+$cfrom :: forall x. UpdateSignalingChannel -&gt; Rep UpdateSignalingChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateSignalingChannel' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'singleMasterConfiguration', 'updateSignalingChannel_singleMasterConfiguration' - The structure containing the configuration for the @SINGLE_MASTER@ type</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- of the signaling channel that you want to update.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'channelARN', 'updateSignalingChannel_channelARN' - The Amazon Resource Name (ARN) of the signaling channel that you want to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'currentVersion', 'updateSignalingChannel_currentVersion' - The current version of the signaling channel that you want to update.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannel"><span class="hs-identifier hs-type">newUpdateSignalingChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'channelARN'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'currentVersion'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span>
+</span><span id="line-90"></span><span id="newUpdateSignalingChannel"><span class="annot"><span class="annottext">newUpdateSignalingChannel :: Text -&gt; Text -&gt; UpdateSignalingChannel
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannel"><span class="hs-identifier hs-var hs-var">newUpdateSignalingChannel</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679181242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181242"><span class="hs-identifier hs-var">pChannelARN_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679181241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181241"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">UpdateSignalingChannel' :: Maybe SingleMasterConfiguration
+-&gt; Text -&gt; Text -&gt; UpdateSignalingChannel
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:singleMasterConfiguration:UpdateSignalingChannel' :: Maybe SingleMasterConfiguration
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AsingleMasterConfiguration%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:channelARN:UpdateSignalingChannel' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AchannelARN%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181242"><span class="hs-identifier hs-var">pChannelARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateSignalingChannel' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AcurrentVersion%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181241"><span class="hs-identifier hs-var">pCurrentVersion_</span></a></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The structure containing the configuration for the @SINGLE_MASTER@ type</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- of the signaling channel that you want to update.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_singleMasterConfiguration"><span class="hs-identifier hs-type">updateSignalingChannel_singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.SingleMasterConfiguration.html#SingleMasterConfiguration"><span class="hs-identifier hs-type">SingleMasterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="updateSignalingChannel_singleMasterConfiguration"><span class="annot"><span class="annottext">updateSignalingChannel_singleMasterConfiguration :: (Maybe SingleMasterConfiguration
+ -&gt; f (Maybe SingleMasterConfiguration))
+-&gt; UpdateSignalingChannel -&gt; f UpdateSignalingChannel
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_singleMasterConfiguration"><span class="hs-identifier hs-var hs-var">updateSignalingChannel_singleMasterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSignalingChannel -&gt; Maybe SingleMasterConfiguration)
+-&gt; (UpdateSignalingChannel
+    -&gt; Maybe SingleMasterConfiguration -&gt; UpdateSignalingChannel)
+-&gt; Lens
+     UpdateSignalingChannel
+     UpdateSignalingChannel
+     (Maybe SingleMasterConfiguration)
+     (Maybe SingleMasterConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181238"><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+singleMasterConfiguration :: Maybe SingleMasterConfiguration
+$sel:singleMasterConfiguration:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181238"><span class="hs-identifier hs-var hs-var">singleMasterConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181238"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181237"><span class="annot"><span class="annottext">s :: UpdateSignalingChannel
+</span><a href="#local-6989586621679181237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181236"><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSignalingChannel
+</span><a href="#local-6989586621679181237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:singleMasterConfiguration:UpdateSignalingChannel' :: Maybe SingleMasterConfiguration
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AsingleMasterConfiguration%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel that you want to</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_channelARN"><span class="hs-identifier hs-type">updateSignalingChannel_channelARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateSignalingChannel_channelARN"><span class="annot"><span class="annottext">updateSignalingChannel_channelARN :: (Text -&gt; f Text)
+-&gt; UpdateSignalingChannel -&gt; f UpdateSignalingChannel
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_channelARN"><span class="hs-identifier hs-var hs-var">updateSignalingChannel_channelARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSignalingChannel -&gt; Text)
+-&gt; (UpdateSignalingChannel -&gt; Text -&gt; UpdateSignalingChannel)
+-&gt; Lens UpdateSignalingChannel UpdateSignalingChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181235"><span class="annot"><span class="annottext">Text
+channelARN :: Text
+$sel:channelARN:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Text
+</span><a href="#local-6989586621679181235"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181235"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181234"><span class="annot"><span class="annottext">s :: UpdateSignalingChannel
+</span><a href="#local-6989586621679181234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSignalingChannel
+</span><a href="#local-6989586621679181234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelARN:UpdateSignalingChannel' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AchannelARN%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The current version of the signaling channel that you want to update.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_currentVersion"><span class="hs-identifier hs-type">updateSignalingChannel_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="updateSignalingChannel_currentVersion"><span class="annot"><span class="annottext">updateSignalingChannel_currentVersion :: (Text -&gt; f Text)
+-&gt; UpdateSignalingChannel -&gt; f UpdateSignalingChannel
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannel_currentVersion"><span class="hs-identifier hs-var hs-var">updateSignalingChannel_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSignalingChannel -&gt; Text)
+-&gt; (UpdateSignalingChannel -&gt; Text -&gt; UpdateSignalingChannel)
+-&gt; Lens UpdateSignalingChannel UpdateSignalingChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181232"><span class="annot"><span class="annottext">Text
+currentVersion :: Text
+$sel:currentVersion:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Text
+</span><a href="#local-6989586621679181232"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181232"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181231"><span class="annot"><span class="annottext">s :: UpdateSignalingChannel
+</span><a href="#local-6989586621679181231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSignalingChannel
+</span><a href="#local-6989586621679181231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:UpdateSignalingChannel' :: Text
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AcurrentVersion%3AUpdateSignalingChannel%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679181226"><span class="annot"><span class="annottext">request :: UpdateSignalingChannel -&gt; Request UpdateSignalingChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSignalingChannel -&gt; Request UpdateSignalingChannel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679181222"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSignalingChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSignalingChannel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateSignalingChannel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSignalingChannel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSignalingChannel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181219"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181218"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181218"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181217"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679181217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateSignalingChannelResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse%27"><span class="hs-identifier hs-var">UpdateSignalingChannelResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateSignalingChannelResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateSignalingChannelResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181219"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181210"><span id="local-6989586621679181212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679181203"><span class="annot"><span class="annottext">toHeaders :: UpdateSignalingChannel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSignalingChannel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181194"><span id="local-6989586621679181196"><span id="local-6989586621679181198"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679181192"><span class="annot"><span class="annottext">toJSON :: UpdateSignalingChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel%27"><span class="hs-identifier hs-type">UpdateSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181188"><span id="local-6989586621679181189"><span id="local-6989586621679181190"><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+Text
+currentVersion :: Text
+channelARN :: Text
+singleMasterConfiguration :: Maybe SingleMasterConfiguration
+$sel:currentVersion:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Text
+$sel:channelARN:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Text
+$sel:singleMasterConfiguration:UpdateSignalingChannel' :: UpdateSignalingChannel -&gt; Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181188"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SingleMasterConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SingleMasterConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(SingleMasterConfiguration -&gt; Pair)
+-&gt; Maybe SingleMasterConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SingleMasterConfiguration
+</span><a href="#local-6989586621679181190"><span class="hs-identifier hs-var">singleMasterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181189"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181188"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679181182"><span class="annot"><span class="annottext">toPath :: UpdateSignalingChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSignalingChannel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/updateSignalingChannel&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannel"><span class="hs-identifier hs-type">UpdateSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679181178"><span class="annot"><span class="annottext">toQuery :: UpdateSignalingChannel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSignalingChannel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdateSignalingChannelResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679181175"><span id="local-6989586621679181176"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSignalingChannelResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-var">UpdateSignalingChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSignalingChannelResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse%27"><span class="hs-identifier hs-var">UpdateSignalingChannelResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSignalingChannelResponse%27"><span class="annot"><span class="annottext">UpdateSignalingChannelResponse -&gt; Int
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AhttpStatus%3AUpdateSignalingChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181170"><span id="local-6989586621679181172"><span class="annot"><span class="annottext">UpdateSignalingChannelResponse
+-&gt; UpdateSignalingChannelResponse -&gt; Bool
+(UpdateSignalingChannelResponse
+ -&gt; UpdateSignalingChannelResponse -&gt; Bool)
+-&gt; (UpdateSignalingChannelResponse
+    -&gt; UpdateSignalingChannelResponse -&gt; Bool)
+-&gt; Eq UpdateSignalingChannelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSignalingChannelResponse
+-&gt; UpdateSignalingChannelResponse -&gt; Bool
+$c/= :: UpdateSignalingChannelResponse
+-&gt; UpdateSignalingChannelResponse -&gt; Bool
+== :: UpdateSignalingChannelResponse
+-&gt; UpdateSignalingChannelResponse -&gt; Bool
+$c== :: UpdateSignalingChannelResponse
+-&gt; UpdateSignalingChannelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181162"><span id="local-6989586621679181164"><span id="local-6989586621679181166"><span id="local-6989586621679181168"><span class="annot"><span class="annottext">ReadPrec [UpdateSignalingChannelResponse]
+ReadPrec UpdateSignalingChannelResponse
+Int -&gt; ReadS UpdateSignalingChannelResponse
+ReadS [UpdateSignalingChannelResponse]
+(Int -&gt; ReadS UpdateSignalingChannelResponse)
+-&gt; ReadS [UpdateSignalingChannelResponse]
+-&gt; ReadPrec UpdateSignalingChannelResponse
+-&gt; ReadPrec [UpdateSignalingChannelResponse]
+-&gt; Read UpdateSignalingChannelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSignalingChannelResponse]
+$creadListPrec :: ReadPrec [UpdateSignalingChannelResponse]
+readPrec :: ReadPrec UpdateSignalingChannelResponse
+$creadPrec :: ReadPrec UpdateSignalingChannelResponse
+readList :: ReadS [UpdateSignalingChannelResponse]
+$creadList :: ReadS [UpdateSignalingChannelResponse]
+readsPrec :: Int -&gt; ReadS UpdateSignalingChannelResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSignalingChannelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181156"><span id="local-6989586621679181158"><span id="local-6989586621679181160"><span class="annot"><span class="annottext">Int -&gt; UpdateSignalingChannelResponse -&gt; ShowS
+[UpdateSignalingChannelResponse] -&gt; ShowS
+UpdateSignalingChannelResponse -&gt; String
+(Int -&gt; UpdateSignalingChannelResponse -&gt; ShowS)
+-&gt; (UpdateSignalingChannelResponse -&gt; String)
+-&gt; ([UpdateSignalingChannelResponse] -&gt; ShowS)
+-&gt; Show UpdateSignalingChannelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSignalingChannelResponse] -&gt; ShowS
+$cshowList :: [UpdateSignalingChannelResponse] -&gt; ShowS
+show :: UpdateSignalingChannelResponse -&gt; String
+$cshow :: UpdateSignalingChannelResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSignalingChannelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSignalingChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSignalingChannelResponse
+ -&gt; Rep UpdateSignalingChannelResponse x)
+-&gt; (forall x.
+    Rep UpdateSignalingChannelResponse x
+    -&gt; UpdateSignalingChannelResponse)
+-&gt; Generic UpdateSignalingChannelResponse
+forall x.
+Rep UpdateSignalingChannelResponse x
+-&gt; UpdateSignalingChannelResponse
+forall x.
+UpdateSignalingChannelResponse
+-&gt; Rep UpdateSignalingChannelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSignalingChannelResponse x
+-&gt; UpdateSignalingChannelResponse
+$cfrom :: forall x.
+UpdateSignalingChannelResponse
+-&gt; Rep UpdateSignalingChannelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdateSignalingChannelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'updateSignalingChannelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannelResponse"><span class="hs-identifier hs-type">newUpdateSignalingChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newUpdateSignalingChannelResponse"><span class="annot"><span class="annottext">newUpdateSignalingChannelResponse :: Int -&gt; UpdateSignalingChannelResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#newUpdateSignalingChannelResponse"><span class="hs-identifier hs-var hs-var">newUpdateSignalingChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679181153"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181153"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UpdateSignalingChannelResponse' :: Int -&gt; UpdateSignalingChannelResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse%27"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSignalingChannelResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AhttpStatus%3AUpdateSignalingChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181153"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannelResponse_httpStatus"><span class="hs-identifier hs-type">updateSignalingChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="updateSignalingChannelResponse_httpStatus"><span class="annot"><span class="annottext">updateSignalingChannelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSignalingChannelResponse
+-&gt; f UpdateSignalingChannelResponse
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#updateSignalingChannelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSignalingChannelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSignalingChannelResponse -&gt; Int)
+-&gt; (UpdateSignalingChannelResponse
+    -&gt; Int -&gt; UpdateSignalingChannelResponse)
+-&gt; Lens
+     UpdateSignalingChannelResponse
+     UpdateSignalingChannelResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse%27"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181152"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSignalingChannelResponse' :: UpdateSignalingChannelResponse -&gt; Int
+</span><a href="#local-6989586621679181152"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181152"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181151"><span class="annot"><span class="annottext">s :: UpdateSignalingChannelResponse
+</span><a href="#local-6989586621679181151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse%27"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSignalingChannelResponse
+</span><a href="#local-6989586621679181151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSignalingChannelResponse' :: Int
+</span><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#%24sel%3AhttpStatus%3AUpdateSignalingChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679181148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.UpdateSignalingChannel.html#UpdateSignalingChannelResponse"><span class="hs-identifier hs-type">UpdateSignalingChannelResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

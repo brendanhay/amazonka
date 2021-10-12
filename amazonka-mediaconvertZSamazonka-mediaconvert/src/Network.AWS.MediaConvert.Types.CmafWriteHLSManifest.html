@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.CmafWriteHLSManifest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.CmafWriteHLSManifest</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest"><span class="hs-identifier">CmafWriteHLSManifest</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_DISABLED"><span class="hs-identifier">CmafWriteHLSManifest_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_ENABLED"><span class="hs-identifier">CmafWriteHLSManifest_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When set to ENABLED, an Apple HLS manifest will be generated for this</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679945303"><span id="local-6989586621679945304"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafWriteHLSManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest"><span class="hs-identifier hs-var">CmafWriteHLSManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafWriteHLSManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest%27"><span class="hs-identifier hs-var">CmafWriteHLSManifest'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafWriteHLSManifest"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#fromCmafWriteHLSManifest"><span class="hs-identifier hs-var hs-var">fromCmafWriteHLSManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945295"><span id="local-6989586621679945297"><span id="local-6989586621679945299"><span class="annot"><span class="annottext">Int -&gt; CmafWriteHLSManifest -&gt; ShowS
+[CmafWriteHLSManifest] -&gt; ShowS
+CmafWriteHLSManifest -&gt; String
+(Int -&gt; CmafWriteHLSManifest -&gt; ShowS)
+-&gt; (CmafWriteHLSManifest -&gt; String)
+-&gt; ([CmafWriteHLSManifest] -&gt; ShowS)
+-&gt; Show CmafWriteHLSManifest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmafWriteHLSManifest] -&gt; ShowS
+$cshowList :: [CmafWriteHLSManifest] -&gt; ShowS
+show :: CmafWriteHLSManifest -&gt; String
+$cshow :: CmafWriteHLSManifest -&gt; String
+showsPrec :: Int -&gt; CmafWriteHLSManifest -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmafWriteHLSManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679945286"><span id="local-6989586621679945288"><span id="local-6989586621679945290"><span id="local-6989586621679945292"><span class="annot"><span class="annottext">ReadPrec [CmafWriteHLSManifest]
+ReadPrec CmafWriteHLSManifest
+Int -&gt; ReadS CmafWriteHLSManifest
+ReadS [CmafWriteHLSManifest]
+(Int -&gt; ReadS CmafWriteHLSManifest)
+-&gt; ReadS [CmafWriteHLSManifest]
+-&gt; ReadPrec CmafWriteHLSManifest
+-&gt; ReadPrec [CmafWriteHLSManifest]
+-&gt; Read CmafWriteHLSManifest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmafWriteHLSManifest]
+$creadListPrec :: ReadPrec [CmafWriteHLSManifest]
+readPrec :: ReadPrec CmafWriteHLSManifest
+$creadPrec :: ReadPrec CmafWriteHLSManifest
+readList :: ReadS [CmafWriteHLSManifest]
+$creadList :: ReadS [CmafWriteHLSManifest]
+readsPrec :: Int -&gt; ReadS CmafWriteHLSManifest
+$creadsPrec :: Int -&gt; ReadS CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679945281"><span id="local-6989586621679945283"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+(CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; Eq CmafWriteHLSManifest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c/= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+== :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c== :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679945265"><span id="local-6989586621679945267"><span id="local-6989586621679945269"><span id="local-6989586621679945271"><span id="local-6989586621679945273"><span id="local-6989586621679945275"><span id="local-6989586621679945277"><span class="annot"><span class="annottext">Eq CmafWriteHLSManifest
+Eq CmafWriteHLSManifest
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Ordering)
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; (CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool)
+-&gt; (CmafWriteHLSManifest
+    -&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest)
+-&gt; (CmafWriteHLSManifest
+    -&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest)
+-&gt; Ord CmafWriteHLSManifest
+CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Ordering
+CmafWriteHLSManifest
+-&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmafWriteHLSManifest
+-&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest
+$cmin :: CmafWriteHLSManifest
+-&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest
+max :: CmafWriteHLSManifest
+-&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest
+$cmax :: CmafWriteHLSManifest
+-&gt; CmafWriteHLSManifest -&gt; CmafWriteHLSManifest
+&gt;= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c&gt;= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+&gt; :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c&gt; :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+&lt;= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c&lt;= :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+&lt; :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+$c&lt; :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Bool
+compare :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Ordering
+$ccompare :: CmafWriteHLSManifest -&gt; CmafWriteHLSManifest -&gt; Ordering
+$cp1Ord :: Eq CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CmafWriteHLSManifest -&gt; Rep CmafWriteHLSManifest x)
+-&gt; (forall x. Rep CmafWriteHLSManifest x -&gt; CmafWriteHLSManifest)
+-&gt; Generic CmafWriteHLSManifest
+forall x. Rep CmafWriteHLSManifest x -&gt; CmafWriteHLSManifest
+forall x. CmafWriteHLSManifest -&gt; Rep CmafWriteHLSManifest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CmafWriteHLSManifest x -&gt; CmafWriteHLSManifest
+$cfrom :: forall x. CmafWriteHLSManifest -&gt; Rep CmafWriteHLSManifest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945257"><span id="local-6989586621679945259"><span class="annot"><span class="annottext">Int -&gt; CmafWriteHLSManifest -&gt; Int
+CmafWriteHLSManifest -&gt; Int
+(Int -&gt; CmafWriteHLSManifest -&gt; Int)
+-&gt; (CmafWriteHLSManifest -&gt; Int) -&gt; Hashable CmafWriteHLSManifest
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmafWriteHLSManifest -&gt; Int
+$chash :: CmafWriteHLSManifest -&gt; Int
+hashWithSalt :: Int -&gt; CmafWriteHLSManifest -&gt; Int
+$chashWithSalt :: Int -&gt; CmafWriteHLSManifest -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679945254"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; ()
+(CmafWriteHLSManifest -&gt; ()) -&gt; NFData CmafWriteHLSManifest
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmafWriteHLSManifest -&gt; ()
+$crnf :: CmafWriteHLSManifest -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679945251"><span class="annot"><span class="annottext">Text -&gt; Either String CmafWriteHLSManifest
+(Text -&gt; Either String CmafWriteHLSManifest)
+-&gt; FromText CmafWriteHLSManifest
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmafWriteHLSManifest
+$cfromText :: Text -&gt; Either String CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679945248"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; Text
+(CmafWriteHLSManifest -&gt; Text) -&gt; ToText CmafWriteHLSManifest
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmafWriteHLSManifest -&gt; Text
+$ctoText :: CmafWriteHLSManifest -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679945245"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; ByteString
+(CmafWriteHLSManifest -&gt; ByteString)
+-&gt; ToByteString CmafWriteHLSManifest
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmafWriteHLSManifest -&gt; ByteString
+$ctoBS :: CmafWriteHLSManifest -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679945242"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; ByteStringBuilder
+(CmafWriteHLSManifest -&gt; ByteStringBuilder)
+-&gt; ToLog CmafWriteHLSManifest
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmafWriteHLSManifest -&gt; ByteStringBuilder
+$cbuild :: CmafWriteHLSManifest -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679945239"><span class="annot"><span class="annottext">HeaderName -&gt; CmafWriteHLSManifest -&gt; [Header]
+(HeaderName -&gt; CmafWriteHLSManifest -&gt; [Header])
+-&gt; ToHeader CmafWriteHLSManifest
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmafWriteHLSManifest -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmafWriteHLSManifest -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679945236"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; QueryString
+(CmafWriteHLSManifest -&gt; QueryString)
+-&gt; ToQuery CmafWriteHLSManifest
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmafWriteHLSManifest -&gt; QueryString
+$ctoQuery :: CmafWriteHLSManifest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679945231"><span id="local-6989586621679945233"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafWriteHLSManifest]
+Value -&gt; Parser CmafWriteHLSManifest
+(Value -&gt; Parser CmafWriteHLSManifest)
+-&gt; (Value -&gt; Parser [CmafWriteHLSManifest])
+-&gt; FromJSON CmafWriteHLSManifest
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmafWriteHLSManifest]
+$cparseJSONList :: Value -&gt; Parser [CmafWriteHLSManifest]
+parseJSON :: Value -&gt; Parser CmafWriteHLSManifest
+$cparseJSON :: Value -&gt; Parser CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679945226"><span id="local-6989586621679945228"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafWriteHLSManifest]
+FromJSONKeyFunction CmafWriteHLSManifest
+FromJSONKeyFunction CmafWriteHLSManifest
+-&gt; FromJSONKeyFunction [CmafWriteHLSManifest]
+-&gt; FromJSONKey CmafWriteHLSManifest
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmafWriteHLSManifest]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmafWriteHLSManifest]
+fromJSONKey :: FromJSONKeyFunction CmafWriteHLSManifest
+$cfromJSONKey :: FromJSONKeyFunction CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945217"><span id="local-6989586621679945219"><span id="local-6989586621679945221"><span id="local-6989586621679945223"><span class="annot"><span class="annottext">[CmafWriteHLSManifest] -&gt; Encoding
+[CmafWriteHLSManifest] -&gt; Value
+CmafWriteHLSManifest -&gt; Encoding
+CmafWriteHLSManifest -&gt; Value
+(CmafWriteHLSManifest -&gt; Value)
+-&gt; (CmafWriteHLSManifest -&gt; Encoding)
+-&gt; ([CmafWriteHLSManifest] -&gt; Value)
+-&gt; ([CmafWriteHLSManifest] -&gt; Encoding)
+-&gt; ToJSON CmafWriteHLSManifest
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmafWriteHLSManifest] -&gt; Encoding
+$ctoEncodingList :: [CmafWriteHLSManifest] -&gt; Encoding
+toJSONList :: [CmafWriteHLSManifest] -&gt; Value
+$ctoJSONList :: [CmafWriteHLSManifest] -&gt; Value
+toEncoding :: CmafWriteHLSManifest -&gt; Encoding
+$ctoEncoding :: CmafWriteHLSManifest -&gt; Encoding
+toJSON :: CmafWriteHLSManifest -&gt; Value
+$ctoJSON :: CmafWriteHLSManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945212"><span id="local-6989586621679945214"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafWriteHLSManifest]
+ToJSONKeyFunction CmafWriteHLSManifest
+ToJSONKeyFunction CmafWriteHLSManifest
+-&gt; ToJSONKeyFunction [CmafWriteHLSManifest]
+-&gt; ToJSONKey CmafWriteHLSManifest
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmafWriteHLSManifest]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmafWriteHLSManifest]
+toJSONKey :: ToJSONKeyFunction CmafWriteHLSManifest
+$ctoJSONKey :: ToJSONKeyFunction CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945209"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafWriteHLSManifest
+([Node] -&gt; Either String CmafWriteHLSManifest)
+-&gt; FromXML CmafWriteHLSManifest
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmafWriteHLSManifest
+$cparseXML :: [Node] -&gt; Either String CmafWriteHLSManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679945206"><span class="annot"><span class="annottext">CmafWriteHLSManifest -&gt; XML
+(CmafWriteHLSManifest -&gt; XML) -&gt; ToXML CmafWriteHLSManifest
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmafWriteHLSManifest -&gt; XML
+$ctoXML :: CmafWriteHLSManifest -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_DISABLED"><span class="hs-identifier hs-type">CmafWriteHLSManifest_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest"><span class="hs-identifier hs-type">CmafWriteHLSManifest</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafWriteHLSManifest_DISABLED"><span id="%24mCmafWriteHLSManifest_DISABLED"><span id="CmafWriteHLSManifest_DISABLED"><span class="annot"><span class="annottext">$bCmafWriteHLSManifest_DISABLED :: CmafWriteHLSManifest
+$mCmafWriteHLSManifest_DISABLED :: forall r. CmafWriteHLSManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#%24bCmafWriteHLSManifest_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">CmafWriteHLSManifest_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest%27"><span class="hs-identifier hs-type">CmafWriteHLSManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_ENABLED"><span class="hs-identifier hs-type">CmafWriteHLSManifest_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest"><span class="hs-identifier hs-type">CmafWriteHLSManifest</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafWriteHLSManifest_ENABLED"><span id="%24mCmafWriteHLSManifest_ENABLED"><span id="CmafWriteHLSManifest_ENABLED"><span class="annot"><span class="annottext">$bCmafWriteHLSManifest_ENABLED :: CmafWriteHLSManifest
+$mCmafWriteHLSManifest_ENABLED :: forall r. CmafWriteHLSManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#%24bCmafWriteHLSManifest_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">CmafWriteHLSManifest_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest%27"><span class="hs-identifier hs-type">CmafWriteHLSManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_DISABLED"><span class="hs-pragma hs-type">CmafWriteHLSManifest_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest_ENABLED"><span class="hs-pragma hs-type">CmafWriteHLSManifest_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafWriteHLSManifest.html#CmafWriteHLSManifest%27"><span class="hs-pragma hs-type">CmafWriteHLSManifest'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

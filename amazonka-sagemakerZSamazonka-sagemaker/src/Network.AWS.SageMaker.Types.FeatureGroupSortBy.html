@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.FeatureGroupSortBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.FeatureGroupSortBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier">FeatureGroupSortBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_CreationTime"><span class="hs-identifier">FeatureGroupSortBy_CreationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_FeatureGroupStatus"><span class="hs-identifier">FeatureGroupSortBy_FeatureGroupStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_Name"><span class="hs-identifier">FeatureGroupSortBy_Name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_OfflineStoreStatus"><span class="hs-identifier">FeatureGroupSortBy_OfflineStoreStatus</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680303848"><span id="local-6989586621680303849"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeatureGroupSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier hs-var">FeatureGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroupSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-identifier hs-var">FeatureGroupSortBy'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeatureGroupSortBy"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#fromFeatureGroupSortBy"><span class="hs-identifier hs-var hs-var">fromFeatureGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303840"><span id="local-6989586621680303842"><span id="local-6989586621680303844"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortBy -&gt; ShowS
+[FeatureGroupSortBy] -&gt; ShowS
+FeatureGroupSortBy -&gt; String
+(Int -&gt; FeatureGroupSortBy -&gt; ShowS)
+-&gt; (FeatureGroupSortBy -&gt; String)
+-&gt; ([FeatureGroupSortBy] -&gt; ShowS)
+-&gt; Show FeatureGroupSortBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FeatureGroupSortBy] -&gt; ShowS
+$cshowList :: [FeatureGroupSortBy] -&gt; ShowS
+show :: FeatureGroupSortBy -&gt; String
+$cshow :: FeatureGroupSortBy -&gt; String
+showsPrec :: Int -&gt; FeatureGroupSortBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; FeatureGroupSortBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680303831"><span id="local-6989586621680303833"><span id="local-6989586621680303835"><span id="local-6989586621680303837"><span class="annot"><span class="annottext">ReadPrec [FeatureGroupSortBy]
+ReadPrec FeatureGroupSortBy
+Int -&gt; ReadS FeatureGroupSortBy
+ReadS [FeatureGroupSortBy]
+(Int -&gt; ReadS FeatureGroupSortBy)
+-&gt; ReadS [FeatureGroupSortBy]
+-&gt; ReadPrec FeatureGroupSortBy
+-&gt; ReadPrec [FeatureGroupSortBy]
+-&gt; Read FeatureGroupSortBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FeatureGroupSortBy]
+$creadListPrec :: ReadPrec [FeatureGroupSortBy]
+readPrec :: ReadPrec FeatureGroupSortBy
+$creadPrec :: ReadPrec FeatureGroupSortBy
+readList :: ReadS [FeatureGroupSortBy]
+$creadList :: ReadS [FeatureGroupSortBy]
+readsPrec :: Int -&gt; ReadS FeatureGroupSortBy
+$creadsPrec :: Int -&gt; ReadS FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680303826"><span id="local-6989586621680303828"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+(FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; Eq FeatureGroupSortBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c/= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+== :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c== :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680303810"><span id="local-6989586621680303812"><span id="local-6989586621680303814"><span id="local-6989586621680303816"><span id="local-6989586621680303818"><span id="local-6989586621680303820"><span id="local-6989586621680303822"><span class="annot"><span class="annottext">Eq FeatureGroupSortBy
+Eq FeatureGroupSortBy
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Ordering)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy)
+-&gt; (FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy)
+-&gt; Ord FeatureGroupSortBy
+FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Ordering
+FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy
+$cmin :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy
+max :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy
+$cmax :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; FeatureGroupSortBy
+&gt;= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c&gt;= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+&gt; :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c&gt; :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+&lt;= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c&lt;= :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+&lt; :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+$c&lt; :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Bool
+compare :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Ordering
+$ccompare :: FeatureGroupSortBy -&gt; FeatureGroupSortBy -&gt; Ordering
+$cp1Ord :: Eq FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FeatureGroupSortBy -&gt; Rep FeatureGroupSortBy x)
+-&gt; (forall x. Rep FeatureGroupSortBy x -&gt; FeatureGroupSortBy)
+-&gt; Generic FeatureGroupSortBy
+forall x. Rep FeatureGroupSortBy x -&gt; FeatureGroupSortBy
+forall x. FeatureGroupSortBy -&gt; Rep FeatureGroupSortBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FeatureGroupSortBy x -&gt; FeatureGroupSortBy
+$cfrom :: forall x. FeatureGroupSortBy -&gt; Rep FeatureGroupSortBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303802"><span id="local-6989586621680303804"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortBy -&gt; Int
+FeatureGroupSortBy -&gt; Int
+(Int -&gt; FeatureGroupSortBy -&gt; Int)
+-&gt; (FeatureGroupSortBy -&gt; Int) -&gt; Hashable FeatureGroupSortBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FeatureGroupSortBy -&gt; Int
+$chash :: FeatureGroupSortBy -&gt; Int
+hashWithSalt :: Int -&gt; FeatureGroupSortBy -&gt; Int
+$chashWithSalt :: Int -&gt; FeatureGroupSortBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303799"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; ()
+(FeatureGroupSortBy -&gt; ()) -&gt; NFData FeatureGroupSortBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FeatureGroupSortBy -&gt; ()
+$crnf :: FeatureGroupSortBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303796"><span class="annot"><span class="annottext">Text -&gt; Either String FeatureGroupSortBy
+(Text -&gt; Either String FeatureGroupSortBy)
+-&gt; FromText FeatureGroupSortBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FeatureGroupSortBy
+$cfromText :: Text -&gt; Either String FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303793"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; Text
+(FeatureGroupSortBy -&gt; Text) -&gt; ToText FeatureGroupSortBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FeatureGroupSortBy -&gt; Text
+$ctoText :: FeatureGroupSortBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303790"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; ByteString
+(FeatureGroupSortBy -&gt; ByteString)
+-&gt; ToByteString FeatureGroupSortBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FeatureGroupSortBy -&gt; ByteString
+$ctoBS :: FeatureGroupSortBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303787"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; ByteStringBuilder
+(FeatureGroupSortBy -&gt; ByteStringBuilder)
+-&gt; ToLog FeatureGroupSortBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FeatureGroupSortBy -&gt; ByteStringBuilder
+$cbuild :: FeatureGroupSortBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303784"><span class="annot"><span class="annottext">HeaderName -&gt; FeatureGroupSortBy -&gt; [Header]
+(HeaderName -&gt; FeatureGroupSortBy -&gt; [Header])
+-&gt; ToHeader FeatureGroupSortBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FeatureGroupSortBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FeatureGroupSortBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303781"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; QueryString
+(FeatureGroupSortBy -&gt; QueryString) -&gt; ToQuery FeatureGroupSortBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FeatureGroupSortBy -&gt; QueryString
+$ctoQuery :: FeatureGroupSortBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303776"><span id="local-6989586621680303778"><span class="annot"><span class="annottext">Value -&gt; Parser [FeatureGroupSortBy]
+Value -&gt; Parser FeatureGroupSortBy
+(Value -&gt; Parser FeatureGroupSortBy)
+-&gt; (Value -&gt; Parser [FeatureGroupSortBy])
+-&gt; FromJSON FeatureGroupSortBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FeatureGroupSortBy]
+$cparseJSONList :: Value -&gt; Parser [FeatureGroupSortBy]
+parseJSON :: Value -&gt; Parser FeatureGroupSortBy
+$cparseJSON :: Value -&gt; Parser FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303771"><span id="local-6989586621680303773"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeatureGroupSortBy]
+FromJSONKeyFunction FeatureGroupSortBy
+FromJSONKeyFunction FeatureGroupSortBy
+-&gt; FromJSONKeyFunction [FeatureGroupSortBy]
+-&gt; FromJSONKey FeatureGroupSortBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FeatureGroupSortBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [FeatureGroupSortBy]
+fromJSONKey :: FromJSONKeyFunction FeatureGroupSortBy
+$cfromJSONKey :: FromJSONKeyFunction FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303762"><span id="local-6989586621680303764"><span id="local-6989586621680303766"><span id="local-6989586621680303768"><span class="annot"><span class="annottext">[FeatureGroupSortBy] -&gt; Encoding
+[FeatureGroupSortBy] -&gt; Value
+FeatureGroupSortBy -&gt; Encoding
+FeatureGroupSortBy -&gt; Value
+(FeatureGroupSortBy -&gt; Value)
+-&gt; (FeatureGroupSortBy -&gt; Encoding)
+-&gt; ([FeatureGroupSortBy] -&gt; Value)
+-&gt; ([FeatureGroupSortBy] -&gt; Encoding)
+-&gt; ToJSON FeatureGroupSortBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FeatureGroupSortBy] -&gt; Encoding
+$ctoEncodingList :: [FeatureGroupSortBy] -&gt; Encoding
+toJSONList :: [FeatureGroupSortBy] -&gt; Value
+$ctoJSONList :: [FeatureGroupSortBy] -&gt; Value
+toEncoding :: FeatureGroupSortBy -&gt; Encoding
+$ctoEncoding :: FeatureGroupSortBy -&gt; Encoding
+toJSON :: FeatureGroupSortBy -&gt; Value
+$ctoJSON :: FeatureGroupSortBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680303757"><span id="local-6989586621680303759"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeatureGroupSortBy]
+ToJSONKeyFunction FeatureGroupSortBy
+ToJSONKeyFunction FeatureGroupSortBy
+-&gt; ToJSONKeyFunction [FeatureGroupSortBy]
+-&gt; ToJSONKey FeatureGroupSortBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FeatureGroupSortBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [FeatureGroupSortBy]
+toJSONKey :: ToJSONKeyFunction FeatureGroupSortBy
+$ctoJSONKey :: ToJSONKeyFunction FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680303754"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeatureGroupSortBy
+([Node] -&gt; Either String FeatureGroupSortBy)
+-&gt; FromXML FeatureGroupSortBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FeatureGroupSortBy
+$cparseXML :: [Node] -&gt; Either String FeatureGroupSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680303751"><span class="annot"><span class="annottext">FeatureGroupSortBy -&gt; XML
+(FeatureGroupSortBy -&gt; XML) -&gt; ToXML FeatureGroupSortBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FeatureGroupSortBy -&gt; XML
+$ctoXML :: FeatureGroupSortBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_CreationTime"><span class="hs-identifier hs-type">FeatureGroupSortBy_CreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier hs-type">FeatureGroupSortBy</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeatureGroupSortBy_CreationTime"><span id="%24mFeatureGroupSortBy_CreationTime"><span id="FeatureGroupSortBy_CreationTime"><span class="annot"><span class="annottext">$bFeatureGroupSortBy_CreationTime :: FeatureGroupSortBy
+$mFeatureGroupSortBy_CreationTime :: forall r. FeatureGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#%24bFeatureGroupSortBy_CreationTime"><span class="hs-identifier hs-var hs-var hs-var">FeatureGroupSortBy_CreationTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-identifier hs-type">FeatureGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreationTime&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_FeatureGroupStatus"><span class="hs-identifier hs-type">FeatureGroupSortBy_FeatureGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier hs-type">FeatureGroupSortBy</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeatureGroupSortBy_FeatureGroupStatus"><span id="%24mFeatureGroupSortBy_FeatureGroupStatus"><span id="FeatureGroupSortBy_FeatureGroupStatus"><span class="annot"><span class="annottext">$bFeatureGroupSortBy_FeatureGroupStatus :: FeatureGroupSortBy
+$mFeatureGroupSortBy_FeatureGroupStatus :: forall r. FeatureGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#%24bFeatureGroupSortBy_FeatureGroupStatus"><span class="hs-identifier hs-var hs-var hs-var">FeatureGroupSortBy_FeatureGroupStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-identifier hs-type">FeatureGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FeatureGroupStatus&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_Name"><span class="hs-identifier hs-type">FeatureGroupSortBy_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier hs-type">FeatureGroupSortBy</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeatureGroupSortBy_Name"><span id="%24mFeatureGroupSortBy_Name"><span id="FeatureGroupSortBy_Name"><span class="annot"><span class="annottext">$bFeatureGroupSortBy_Name :: FeatureGroupSortBy
+$mFeatureGroupSortBy_Name :: forall r. FeatureGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#%24bFeatureGroupSortBy_Name"><span class="hs-identifier hs-var hs-var hs-var">FeatureGroupSortBy_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-identifier hs-type">FeatureGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_OfflineStoreStatus"><span class="hs-identifier hs-type">FeatureGroupSortBy_OfflineStoreStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy"><span class="hs-identifier hs-type">FeatureGroupSortBy</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeatureGroupSortBy_OfflineStoreStatus"><span id="%24mFeatureGroupSortBy_OfflineStoreStatus"><span id="FeatureGroupSortBy_OfflineStoreStatus"><span class="annot"><span class="annottext">$bFeatureGroupSortBy_OfflineStoreStatus :: FeatureGroupSortBy
+$mFeatureGroupSortBy_OfflineStoreStatus :: forall r. FeatureGroupSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#%24bFeatureGroupSortBy_OfflineStoreStatus"><span class="hs-identifier hs-var hs-var hs-var">FeatureGroupSortBy_OfflineStoreStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-identifier hs-type">FeatureGroupSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OfflineStoreStatus&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_CreationTime"><span class="hs-pragma hs-type">FeatureGroupSortBy_CreationTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_FeatureGroupStatus"><span class="hs-pragma hs-type">FeatureGroupSortBy_FeatureGroupStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_Name"><span class="hs-pragma hs-type">FeatureGroupSortBy_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy_OfflineStoreStatus"><span class="hs-pragma hs-type">FeatureGroupSortBy_OfflineStoreStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortBy.html#FeatureGroupSortBy%27"><span class="hs-pragma hs-type">FeatureGroupSortBy'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

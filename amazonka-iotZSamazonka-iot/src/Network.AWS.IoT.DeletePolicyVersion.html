@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.DeletePolicyVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified version of the specified policy. You cannot delete</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the default version of a policy using this action. To delete the default</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- version of a policy, use DeletePolicy. To find out which version of a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- policy is marked as the default version, use ListPolicyVersions.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeletePolicyVersion&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.DeletePolicyVersion</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier">DeletePolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersion"><span class="hs-identifier">newDeletePolicyVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyName"><span class="hs-identifier">deletePolicyVersion_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyVersionId"><span class="hs-identifier">deletePolicyVersion_policyVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse"><span class="hs-identifier">DeletePolicyVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersionResponse"><span class="hs-identifier">newDeletePolicyVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The input for the DeletePolicyVersion operation.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDeletePolicyVersion' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679843031"><span id="local-6989586621679843032"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicyVersion"><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-var">DeletePolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicyVersion%27"><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-var">DeletePolicyVersion'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the policy.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApolicyName%3ADeletePolicyVersion%27"><span class="annot"><span class="annottext">DeletePolicyVersion -&gt; Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyName%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ApolicyVersionId%3ADeletePolicyVersion%27"><span class="annot"><span class="annottext">DeletePolicyVersion -&gt; Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyVersionId%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var hs-var">policyVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843024"><span id="local-6989586621679843026"><span class="annot"><span class="annottext">DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool
+(DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool)
+-&gt; (DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool)
+-&gt; Eq DeletePolicyVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool
+$c/= :: DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool
+== :: DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool
+$c== :: DeletePolicyVersion -&gt; DeletePolicyVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843015"><span id="local-6989586621679843017"><span id="local-6989586621679843019"><span id="local-6989586621679843021"><span class="annot"><span class="annottext">ReadPrec [DeletePolicyVersion]
+ReadPrec DeletePolicyVersion
+Int -&gt; ReadS DeletePolicyVersion
+ReadS [DeletePolicyVersion]
+(Int -&gt; ReadS DeletePolicyVersion)
+-&gt; ReadS [DeletePolicyVersion]
+-&gt; ReadPrec DeletePolicyVersion
+-&gt; ReadPrec [DeletePolicyVersion]
+-&gt; Read DeletePolicyVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePolicyVersion]
+$creadListPrec :: ReadPrec [DeletePolicyVersion]
+readPrec :: ReadPrec DeletePolicyVersion
+$creadPrec :: ReadPrec DeletePolicyVersion
+readList :: ReadS [DeletePolicyVersion]
+$creadList :: ReadS [DeletePolicyVersion]
+readsPrec :: Int -&gt; ReadS DeletePolicyVersion
+$creadsPrec :: Int -&gt; ReadS DeletePolicyVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843008"><span id="local-6989586621679843010"><span id="local-6989586621679843012"><span class="annot"><span class="annottext">Int -&gt; DeletePolicyVersion -&gt; ShowS
+[DeletePolicyVersion] -&gt; ShowS
+DeletePolicyVersion -&gt; String
+(Int -&gt; DeletePolicyVersion -&gt; ShowS)
+-&gt; (DeletePolicyVersion -&gt; String)
+-&gt; ([DeletePolicyVersion] -&gt; ShowS)
+-&gt; Show DeletePolicyVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePolicyVersion] -&gt; ShowS
+$cshowList :: [DeletePolicyVersion] -&gt; ShowS
+show :: DeletePolicyVersion -&gt; String
+$cshow :: DeletePolicyVersion -&gt; String
+showsPrec :: Int -&gt; DeletePolicyVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePolicyVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletePolicyVersion -&gt; Rep DeletePolicyVersion x)
+-&gt; (forall x. Rep DeletePolicyVersion x -&gt; DeletePolicyVersion)
+-&gt; Generic DeletePolicyVersion
+forall x. Rep DeletePolicyVersion x -&gt; DeletePolicyVersion
+forall x. DeletePolicyVersion -&gt; Rep DeletePolicyVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePolicyVersion x -&gt; DeletePolicyVersion
+$cfrom :: forall x. DeletePolicyVersion -&gt; Rep DeletePolicyVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeletePolicyVersion' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'policyName', 'deletePolicyVersion_policyName' - The name of the policy.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'policyVersionId', 'deletePolicyVersion_policyVersionId' - The policy version ID.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersion"><span class="hs-identifier hs-type">newDeletePolicyVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'policyVersionId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeletePolicyVersion"><span class="annot"><span class="annottext">newDeletePolicyVersion :: Text -&gt; Text -&gt; DeletePolicyVersion
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersion"><span class="hs-identifier hs-var hs-var">newDeletePolicyVersion</span></a></span></span><span> </span><span id="local-6989586621679843003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843003"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span id="local-6989586621679843002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843002"><span class="hs-identifier hs-var">pPolicyVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeletePolicyVersion' :: Text -&gt; Text -&gt; DeletePolicyVersion
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyName:DeletePolicyVersion' :: Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyName%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843003"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyVersionId:DeletePolicyVersion' :: Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyVersionId%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843002"><span class="hs-identifier hs-var">pPolicyVersionId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the policy.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyName"><span class="hs-identifier hs-type">deletePolicyVersion_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="deletePolicyVersion_policyName"><span class="annot"><span class="annottext">deletePolicyVersion_policyName :: (Text -&gt; f Text) -&gt; DeletePolicyVersion -&gt; f DeletePolicyVersion
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyName"><span class="hs-identifier hs-var hs-var">deletePolicyVersion_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePolicyVersion -&gt; Text)
+-&gt; (DeletePolicyVersion -&gt; Text -&gt; DeletePolicyVersion)
+-&gt; Lens DeletePolicyVersion DeletePolicyVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842999"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:DeletePolicyVersion' :: DeletePolicyVersion -&gt; Text
+</span><a href="#local-6989586621679842999"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842999"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842998"><span class="annot"><span class="annottext">s :: DeletePolicyVersion
+</span><a href="#local-6989586621679842998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicyVersion
+</span><a href="#local-6989586621679842998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeletePolicyVersion' :: Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyName%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyVersionId"><span class="hs-identifier hs-type">deletePolicyVersion_policyVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="deletePolicyVersion_policyVersionId"><span class="annot"><span class="annottext">deletePolicyVersion_policyVersionId :: (Text -&gt; f Text) -&gt; DeletePolicyVersion -&gt; f DeletePolicyVersion
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#deletePolicyVersion_policyVersionId"><span class="hs-identifier hs-var hs-var">deletePolicyVersion_policyVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePolicyVersion -&gt; Text)
+-&gt; (DeletePolicyVersion -&gt; Text -&gt; DeletePolicyVersion)
+-&gt; Lens DeletePolicyVersion DeletePolicyVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842996"><span class="annot"><span class="annottext">Text
+policyVersionId :: Text
+$sel:policyVersionId:DeletePolicyVersion' :: DeletePolicyVersion -&gt; Text
+</span><a href="#local-6989586621679842996"><span class="hs-identifier hs-var hs-var">policyVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842996"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842995"><span class="annot"><span class="annottext">s :: DeletePolicyVersion
+</span><a href="#local-6989586621679842995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicyVersion
+</span><a href="#local-6989586621679842995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyVersionId:DeletePolicyVersion' :: Text
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#%24sel%3ApolicyVersionId%3ADeletePolicyVersion%27"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse"><span class="hs-identifier hs-type">DeletePolicyVersionResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679842990"><span class="annot"><span class="annottext">request :: DeletePolicyVersion -&gt; Request DeletePolicyVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePolicyVersion -&gt; Request DeletePolicyVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679842986"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePolicyVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePolicyVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeletePolicyVersion
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePolicyVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeletePolicyVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeletePolicyVersion
+DeletePolicyVersionResponse
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse%27"><span class="hs-identifier hs-var">DeletePolicyVersionResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842979"><span id="local-6989586621679842981"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679842972"><span class="annot"><span class="annottext">toHeaders :: DeletePolicyVersion -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeletePolicyVersion -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679842967"><span class="annot"><span class="annottext">toPath :: DeletePolicyVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion%27"><span class="hs-identifier hs-type">DeletePolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842964"><span id="local-6989586621679842965"><span class="annot"><span class="annottext">Text
+policyVersionId :: Text
+policyName :: Text
+$sel:policyVersionId:DeletePolicyVersion' :: DeletePolicyVersion -&gt; Text
+$sel:policyName:DeletePolicyVersion' :: DeletePolicyVersion -&gt; Text
+</span><a href="#local-6989586621679842964"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policies/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842965"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/version/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842964"><span class="hs-identifier hs-var">policyVersionId</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersion"><span class="hs-identifier hs-type">DeletePolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679842960"><span class="annot"><span class="annottext">toQuery :: DeletePolicyVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePolicyVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679842957"><span id="local-6989586621679842958"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicyVersionResponse"><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse"><span class="hs-identifier hs-var">DeletePolicyVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicyVersionResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse%27"><span class="hs-identifier hs-var">DeletePolicyVersionResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842953"><span id="local-6989586621679842955"><span class="annot"><span class="annottext">DeletePolicyVersionResponse -&gt; DeletePolicyVersionResponse -&gt; Bool
+(DeletePolicyVersionResponse
+ -&gt; DeletePolicyVersionResponse -&gt; Bool)
+-&gt; (DeletePolicyVersionResponse
+    -&gt; DeletePolicyVersionResponse -&gt; Bool)
+-&gt; Eq DeletePolicyVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePolicyVersionResponse -&gt; DeletePolicyVersionResponse -&gt; Bool
+$c/= :: DeletePolicyVersionResponse -&gt; DeletePolicyVersionResponse -&gt; Bool
+== :: DeletePolicyVersionResponse -&gt; DeletePolicyVersionResponse -&gt; Bool
+$c== :: DeletePolicyVersionResponse -&gt; DeletePolicyVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842945"><span id="local-6989586621679842947"><span id="local-6989586621679842949"><span id="local-6989586621679842951"><span class="annot"><span class="annottext">ReadPrec [DeletePolicyVersionResponse]
+ReadPrec DeletePolicyVersionResponse
+Int -&gt; ReadS DeletePolicyVersionResponse
+ReadS [DeletePolicyVersionResponse]
+(Int -&gt; ReadS DeletePolicyVersionResponse)
+-&gt; ReadS [DeletePolicyVersionResponse]
+-&gt; ReadPrec DeletePolicyVersionResponse
+-&gt; ReadPrec [DeletePolicyVersionResponse]
+-&gt; Read DeletePolicyVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePolicyVersionResponse]
+$creadListPrec :: ReadPrec [DeletePolicyVersionResponse]
+readPrec :: ReadPrec DeletePolicyVersionResponse
+$creadPrec :: ReadPrec DeletePolicyVersionResponse
+readList :: ReadS [DeletePolicyVersionResponse]
+$creadList :: ReadS [DeletePolicyVersionResponse]
+readsPrec :: Int -&gt; ReadS DeletePolicyVersionResponse
+$creadsPrec :: Int -&gt; ReadS DeletePolicyVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842939"><span id="local-6989586621679842941"><span id="local-6989586621679842943"><span class="annot"><span class="annottext">Int -&gt; DeletePolicyVersionResponse -&gt; ShowS
+[DeletePolicyVersionResponse] -&gt; ShowS
+DeletePolicyVersionResponse -&gt; String
+(Int -&gt; DeletePolicyVersionResponse -&gt; ShowS)
+-&gt; (DeletePolicyVersionResponse -&gt; String)
+-&gt; ([DeletePolicyVersionResponse] -&gt; ShowS)
+-&gt; Show DeletePolicyVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePolicyVersionResponse] -&gt; ShowS
+$cshowList :: [DeletePolicyVersionResponse] -&gt; ShowS
+show :: DeletePolicyVersionResponse -&gt; String
+$cshow :: DeletePolicyVersionResponse -&gt; String
+showsPrec :: Int -&gt; DeletePolicyVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePolicyVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeletePolicyVersionResponse -&gt; Rep DeletePolicyVersionResponse x)
+-&gt; (forall x.
+    Rep DeletePolicyVersionResponse x -&gt; DeletePolicyVersionResponse)
+-&gt; Generic DeletePolicyVersionResponse
+forall x.
+Rep DeletePolicyVersionResponse x -&gt; DeletePolicyVersionResponse
+forall x.
+DeletePolicyVersionResponse -&gt; Rep DeletePolicyVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeletePolicyVersionResponse x -&gt; DeletePolicyVersionResponse
+$cfrom :: forall x.
+DeletePolicyVersionResponse -&gt; Rep DeletePolicyVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'DeletePolicyVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersionResponse"><span class="hs-identifier hs-type">newDeletePolicyVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse"><span class="hs-identifier hs-type">DeletePolicyVersionResponse</span></a></span><span>
+</span><span id="line-134"></span><span id="newDeletePolicyVersionResponse"><span class="annot"><span class="annottext">newDeletePolicyVersionResponse :: DeletePolicyVersionResponse
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#newDeletePolicyVersionResponse"><span class="hs-identifier hs-var hs-var">newDeletePolicyVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">DeletePolicyVersionResponse
+</span><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse%27"><span class="hs-identifier hs-var">DeletePolicyVersionResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeletePolicyVersion.html#DeletePolicyVersionResponse"><span class="hs-identifier hs-type">DeletePolicyVersionResponse</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

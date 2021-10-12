@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.BatchDeleteTable</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes multiple tables at once.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- After completing this operation, you no longer have access to the table</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- versions and partitions that belong to the deleted table. Glue deletes</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- these \&quot;orphaned\&quot; resources asynchronously in a timely manner, at the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- discretion of the service.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- To ensure the immediate deletion of all related resources, before</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- calling @BatchDeleteTable@, use @DeleteTableVersion@ or</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @BatchDeleteTableVersion@, and @DeletePartition@ or</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @BatchDeletePartition@, to delete any resources that belong to the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.BatchDeleteTable</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier">BatchDeleteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTable"><span class="hs-identifier">newBatchDeleteTable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_catalogId"><span class="hs-identifier">batchDeleteTable_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_databaseName"><span class="hs-identifier">batchDeleteTable_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_tablesToDelete"><span class="hs-identifier">batchDeleteTable_tablesToDelete</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier">BatchDeleteTableResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTableResponse"><span class="hs-identifier">newBatchDeleteTableResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_errors"><span class="hs-identifier">batchDeleteTableResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_httpStatus"><span class="hs-identifier">batchDeleteTableResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteTable' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679743571"><span id="local-6989586621679743572"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteTable"><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-var">BatchDeleteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteTable%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-var">BatchDeleteTable'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the table resides. If none is provided,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcatalogId%3ABatchDeleteTable%27"><span class="annot"><span class="annottext">BatchDeleteTable -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AcatalogId%3ABatchDeleteTable%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the catalog database in which the tables to delete reside.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- For Hive compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdatabaseName%3ABatchDeleteTable%27"><span class="annot"><span class="annottext">BatchDeleteTable -&gt; Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AdatabaseName%3ABatchDeleteTable%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of the table to delete.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtablesToDelete%3ABatchDeleteTable%27"><span class="annot"><span class="annottext">BatchDeleteTable -&gt; [Text]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AtablesToDelete%3ABatchDeleteTable%27"><span class="hs-identifier hs-var hs-var">tablesToDelete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743563"><span id="local-6989586621679743565"><span class="annot"><span class="annottext">BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool
+(BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool)
+-&gt; (BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool)
+-&gt; Eq BatchDeleteTable
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool
+$c/= :: BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool
+== :: BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool
+$c== :: BatchDeleteTable -&gt; BatchDeleteTable -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743554"><span id="local-6989586621679743556"><span id="local-6989586621679743558"><span id="local-6989586621679743560"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteTable]
+ReadPrec BatchDeleteTable
+Int -&gt; ReadS BatchDeleteTable
+ReadS [BatchDeleteTable]
+(Int -&gt; ReadS BatchDeleteTable)
+-&gt; ReadS [BatchDeleteTable]
+-&gt; ReadPrec BatchDeleteTable
+-&gt; ReadPrec [BatchDeleteTable]
+-&gt; Read BatchDeleteTable
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteTable]
+$creadListPrec :: ReadPrec [BatchDeleteTable]
+readPrec :: ReadPrec BatchDeleteTable
+$creadPrec :: ReadPrec BatchDeleteTable
+readList :: ReadS [BatchDeleteTable]
+$creadList :: ReadS [BatchDeleteTable]
+readsPrec :: Int -&gt; ReadS BatchDeleteTable
+$creadsPrec :: Int -&gt; ReadS BatchDeleteTable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743547"><span id="local-6989586621679743549"><span id="local-6989586621679743551"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteTable -&gt; ShowS
+[BatchDeleteTable] -&gt; ShowS
+BatchDeleteTable -&gt; String
+(Int -&gt; BatchDeleteTable -&gt; ShowS)
+-&gt; (BatchDeleteTable -&gt; String)
+-&gt; ([BatchDeleteTable] -&gt; ShowS)
+-&gt; Show BatchDeleteTable
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteTable] -&gt; ShowS
+$cshowList :: [BatchDeleteTable] -&gt; ShowS
+show :: BatchDeleteTable -&gt; String
+$cshow :: BatchDeleteTable -&gt; String
+showsPrec :: Int -&gt; BatchDeleteTable -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchDeleteTable -&gt; Rep BatchDeleteTable x)
+-&gt; (forall x. Rep BatchDeleteTable x -&gt; BatchDeleteTable)
+-&gt; Generic BatchDeleteTable
+forall x. Rep BatchDeleteTable x -&gt; BatchDeleteTable
+forall x. BatchDeleteTable -&gt; Rep BatchDeleteTable x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchDeleteTable x -&gt; BatchDeleteTable
+$cfrom :: forall x. BatchDeleteTable -&gt; Rep BatchDeleteTable x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'BatchDeleteTable' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'catalogId', 'batchDeleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'databaseName', 'batchDeleteTable_databaseName' - The name of the catalog database in which the tables to delete reside.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- For Hive compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tablesToDelete', 'batchDeleteTable_tablesToDelete' - A list of the table to delete.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTable"><span class="hs-identifier hs-type">newBatchDeleteTable</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span>
+</span><span id="line-94"></span><span id="newBatchDeleteTable"><span class="annot"><span class="annottext">newBatchDeleteTable :: Text -&gt; BatchDeleteTable
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTable"><span class="hs-identifier hs-var hs-var">newBatchDeleteTable</span></a></span></span><span> </span><span id="local-6989586621679743542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743542"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteTable' :: Maybe Text -&gt; Text -&gt; [Text] -&gt; BatchDeleteTable
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteTable' :: Maybe Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AcatalogId%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeleteTable' :: Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AdatabaseName%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743542"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tablesToDelete:BatchDeleteTable' :: [Text]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AtablesToDelete%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">tablesToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the Data Catalog where the table resides. If none is provided,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_catalogId"><span class="hs-identifier hs-type">batchDeleteTable_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="batchDeleteTable_catalogId"><span class="annot"><span class="annottext">batchDeleteTable_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchDeleteTable -&gt; f BatchDeleteTable
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_catalogId"><span class="hs-identifier hs-var hs-var">batchDeleteTable_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTable -&gt; Maybe Text)
+-&gt; (BatchDeleteTable -&gt; Maybe Text -&gt; BatchDeleteTable)
+-&gt; Lens BatchDeleteTable BatchDeleteTable (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743539"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:BatchDeleteTable' :: BatchDeleteTable -&gt; Maybe Text
+</span><a href="#local-6989586621679743539"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679743539"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743538"><span class="annot"><span class="annottext">s :: BatchDeleteTable
+</span><a href="#local-6989586621679743538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679743537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTable
+</span><a href="#local-6989586621679743538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeleteTable' :: Maybe Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AcatalogId%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679743537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the catalog database in which the tables to delete reside.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- For Hive compatibility, this name is entirely lowercase.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_databaseName"><span class="hs-identifier hs-type">batchDeleteTable_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="batchDeleteTable_databaseName"><span class="annot"><span class="annottext">batchDeleteTable_databaseName :: (Text -&gt; f Text) -&gt; BatchDeleteTable -&gt; f BatchDeleteTable
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_databaseName"><span class="hs-identifier hs-var hs-var">batchDeleteTable_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTable -&gt; Text)
+-&gt; (BatchDeleteTable -&gt; Text -&gt; BatchDeleteTable)
+-&gt; Lens BatchDeleteTable BatchDeleteTable Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743536"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:BatchDeleteTable' :: BatchDeleteTable -&gt; Text
+</span><a href="#local-6989586621679743536"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743536"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743535"><span class="annot"><span class="annottext">s :: BatchDeleteTable
+</span><a href="#local-6989586621679743535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTable
+</span><a href="#local-6989586621679743535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeleteTable' :: Text
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AdatabaseName%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A list of the table to delete.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_tablesToDelete"><span class="hs-identifier hs-type">batchDeleteTable_tablesToDelete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span id="batchDeleteTable_tablesToDelete"><span class="annot"><span class="annottext">batchDeleteTable_tablesToDelete :: ([Text] -&gt; f [Text]) -&gt; BatchDeleteTable -&gt; f BatchDeleteTable
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTable_tablesToDelete"><span class="hs-identifier hs-var hs-var">batchDeleteTable_tablesToDelete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTable -&gt; [Text])
+-&gt; (BatchDeleteTable -&gt; [Text] -&gt; BatchDeleteTable)
+-&gt; Lens BatchDeleteTable BatchDeleteTable [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743533"><span class="annot"><span class="annottext">[Text]
+tablesToDelete :: [Text]
+$sel:tablesToDelete:BatchDeleteTable' :: BatchDeleteTable -&gt; [Text]
+</span><a href="#local-6989586621679743533"><span class="hs-identifier hs-var hs-var">tablesToDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743533"><span class="hs-identifier hs-var">tablesToDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743532"><span class="annot"><span class="annottext">s :: BatchDeleteTable
+</span><a href="#local-6989586621679743532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743531"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTable
+</span><a href="#local-6989586621679743532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tablesToDelete:BatchDeleteTable' :: [Text]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AtablesToDelete%3ABatchDeleteTable%27"><span class="hs-identifier hs-var">tablesToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; BatchDeleteTable -&gt; f BatchDeleteTable)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; BatchDeleteTable
+-&gt; f BatchDeleteTable
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679743525"><span class="annot"><span class="annottext">request :: BatchDeleteTable -&gt; Request BatchDeleteTable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeleteTable -&gt; Request BatchDeleteTable
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679743521"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteTable
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchDeleteTable)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchDeleteTable))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchDeleteTable
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchDeleteTable)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679743518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743518"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679743517"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679743517"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679743516"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679743516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TableError] -&gt; Int -&gt; BatchDeleteTableResponse
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-var">BatchDeleteTableResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TableError] -&gt; Int -&gt; BatchDeleteTableResponse)
+-&gt; Either String (Maybe [TableError])
+-&gt; Either String (Int -&gt; BatchDeleteTableResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679743516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TableError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TableError]))
+-&gt; Maybe [TableError] -&gt; Either String (Maybe [TableError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TableError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchDeleteTableResponse)
+-&gt; Either String Int -&gt; Either String BatchDeleteTableResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743518"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743507"><span id="local-6989586621679743509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679743500"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteTable -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteTable -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.BatchDeleteTable&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743490"><span id="local-6989586621679743492"><span id="local-6989586621679743494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679743488"><span class="annot"><span class="annottext">toJSON :: BatchDeleteTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable%27"><span class="hs-identifier hs-type">BatchDeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743484"><span id="local-6989586621679743485"><span id="local-6989586621679743486"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Text
+tablesToDelete :: [Text]
+databaseName :: Text
+catalogId :: Maybe Text
+$sel:tablesToDelete:BatchDeleteTable' :: BatchDeleteTable -&gt; [Text]
+$sel:databaseName:BatchDeleteTable' :: BatchDeleteTable -&gt; Text
+$sel:catalogId:BatchDeleteTable' :: BatchDeleteTable -&gt; Maybe Text
+</span><a href="#local-6989586621679743484"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679743486"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679743485"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TablesToDelete&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743484"><span class="hs-identifier hs-var">tablesToDelete</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679743478"><span class="annot"><span class="annottext">toPath :: BatchDeleteTable -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteTable -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTable"><span class="hs-identifier hs-type">BatchDeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679743474"><span class="annot"><span class="annottext">toQuery :: BatchDeleteTable -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeleteTable -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteTableResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679743471"><span id="local-6989586621679743472"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteTableResponse"><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-var">BatchDeleteTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-var">BatchDeleteTableResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of errors encountered in attempting to delete the specified</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- tables.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchDeleteTableResponse%27"><span class="annot"><span class="annottext">BatchDeleteTableResponse -&gt; Maybe [TableError]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3Aerrors%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.TableError.html#TableError"><span class="hs-identifier hs-type">TableError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteTableResponse%27"><span class="annot"><span class="annottext">BatchDeleteTableResponse -&gt; Int
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AhttpStatus%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743465"><span id="local-6989586621679743467"><span class="annot"><span class="annottext">BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool
+(BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool)
+-&gt; (BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool)
+-&gt; Eq BatchDeleteTableResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool
+$c/= :: BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool
+== :: BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool
+$c== :: BatchDeleteTableResponse -&gt; BatchDeleteTableResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743457"><span id="local-6989586621679743459"><span id="local-6989586621679743461"><span id="local-6989586621679743463"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteTableResponse]
+ReadPrec BatchDeleteTableResponse
+Int -&gt; ReadS BatchDeleteTableResponse
+ReadS [BatchDeleteTableResponse]
+(Int -&gt; ReadS BatchDeleteTableResponse)
+-&gt; ReadS [BatchDeleteTableResponse]
+-&gt; ReadPrec BatchDeleteTableResponse
+-&gt; ReadPrec [BatchDeleteTableResponse]
+-&gt; Read BatchDeleteTableResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchDeleteTableResponse]
+$creadListPrec :: ReadPrec [BatchDeleteTableResponse]
+readPrec :: ReadPrec BatchDeleteTableResponse
+$creadPrec :: ReadPrec BatchDeleteTableResponse
+readList :: ReadS [BatchDeleteTableResponse]
+$creadList :: ReadS [BatchDeleteTableResponse]
+readsPrec :: Int -&gt; ReadS BatchDeleteTableResponse
+$creadsPrec :: Int -&gt; ReadS BatchDeleteTableResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743451"><span id="local-6989586621679743453"><span id="local-6989586621679743455"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteTableResponse -&gt; ShowS
+[BatchDeleteTableResponse] -&gt; ShowS
+BatchDeleteTableResponse -&gt; String
+(Int -&gt; BatchDeleteTableResponse -&gt; ShowS)
+-&gt; (BatchDeleteTableResponse -&gt; String)
+-&gt; ([BatchDeleteTableResponse] -&gt; ShowS)
+-&gt; Show BatchDeleteTableResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchDeleteTableResponse] -&gt; ShowS
+$cshowList :: [BatchDeleteTableResponse] -&gt; ShowS
+show :: BatchDeleteTableResponse -&gt; String
+$cshow :: BatchDeleteTableResponse -&gt; String
+showsPrec :: Int -&gt; BatchDeleteTableResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchDeleteTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchDeleteTableResponse -&gt; Rep BatchDeleteTableResponse x)
+-&gt; (forall x.
+    Rep BatchDeleteTableResponse x -&gt; BatchDeleteTableResponse)
+-&gt; Generic BatchDeleteTableResponse
+forall x.
+Rep BatchDeleteTableResponse x -&gt; BatchDeleteTableResponse
+forall x.
+BatchDeleteTableResponse -&gt; Rep BatchDeleteTableResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchDeleteTableResponse x -&gt; BatchDeleteTableResponse
+$cfrom :: forall x.
+BatchDeleteTableResponse -&gt; Rep BatchDeleteTableResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'BatchDeleteTableResponse' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'errors', 'batchDeleteTableResponse_errors' - A list of errors encountered in attempting to delete the specified</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- tables.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'batchDeleteTableResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTableResponse"><span class="hs-identifier hs-type">newBatchDeleteTableResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newBatchDeleteTableResponse"><span class="annot"><span class="annottext">newBatchDeleteTableResponse :: Int -&gt; BatchDeleteTableResponse
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#newBatchDeleteTableResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteTableResponse</span></a></span></span><span> </span><span id="local-6989586621679743448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteTableResponse' :: Maybe [TableError] -&gt; Int -&gt; BatchDeleteTableResponse
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteTableResponse' :: Maybe [TableError]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3Aerrors%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteTableResponse' :: Int
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AhttpStatus%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A list of errors encountered in attempting to delete the specified</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- tables.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_errors"><span class="hs-identifier hs-type">batchDeleteTableResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.TableError.html#TableError"><span class="hs-identifier hs-type">TableError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="batchDeleteTableResponse_errors"><span class="annot"><span class="annottext">batchDeleteTableResponse_errors :: (Maybe [TableError] -&gt; f (Maybe [TableError]))
+-&gt; BatchDeleteTableResponse -&gt; f BatchDeleteTableResponse
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_errors"><span class="hs-identifier hs-var hs-var">batchDeleteTableResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableResponse -&gt; Maybe [TableError])
+-&gt; (BatchDeleteTableResponse
+    -&gt; Maybe [TableError] -&gt; BatchDeleteTableResponse)
+-&gt; Lens
+     BatchDeleteTableResponse
+     BatchDeleteTableResponse
+     (Maybe [TableError])
+     (Maybe [TableError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743447"><span class="annot"><span class="annottext">Maybe [TableError]
+errors :: Maybe [TableError]
+$sel:errors:BatchDeleteTableResponse' :: BatchDeleteTableResponse -&gt; Maybe [TableError]
+</span><a href="#local-6989586621679743447"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TableError]
+</span><a href="#local-6989586621679743447"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743446"><span class="annot"><span class="annottext">s :: BatchDeleteTableResponse
+</span><a href="#local-6989586621679743446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743445"><span class="annot"><span class="annottext">Maybe [TableError]
+</span><a href="#local-6989586621679743445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableResponse
+</span><a href="#local-6989586621679743446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeleteTableResponse' :: Maybe [TableError]
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3Aerrors%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableError]
+</span><a href="#local-6989586621679743445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TableError] -&gt; f (Maybe [TableError]))
+ -&gt; BatchDeleteTableResponse -&gt; f BatchDeleteTableResponse)
+-&gt; ((Maybe [TableError] -&gt; f (Maybe [TableError]))
+    -&gt; Maybe [TableError] -&gt; f (Maybe [TableError]))
+-&gt; (Maybe [TableError] -&gt; f (Maybe [TableError]))
+-&gt; BatchDeleteTableResponse
+-&gt; f BatchDeleteTableResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TableError] [TableError] [TableError] [TableError]
+-&gt; Iso
+     (Maybe [TableError])
+     (Maybe [TableError])
+     (Maybe [TableError])
+     (Maybe [TableError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TableError] [TableError] [TableError] [TableError]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_httpStatus"><span class="hs-identifier hs-type">batchDeleteTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-201"></span><span id="batchDeleteTableResponse_httpStatus"><span class="annot"><span class="annottext">batchDeleteTableResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchDeleteTableResponse -&gt; f BatchDeleteTableResponse
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#batchDeleteTableResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchDeleteTableResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteTableResponse -&gt; Int)
+-&gt; (BatchDeleteTableResponse -&gt; Int -&gt; BatchDeleteTableResponse)
+-&gt; Lens BatchDeleteTableResponse BatchDeleteTableResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743443"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchDeleteTableResponse' :: BatchDeleteTableResponse -&gt; Int
+</span><a href="#local-6989586621679743443"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743443"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743442"><span class="annot"><span class="annottext">s :: BatchDeleteTableResponse
+</span><a href="#local-6989586621679743442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse%27"><span class="hs-identifier hs-type">BatchDeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743441"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteTableResponse
+</span><a href="#local-6989586621679743442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteTableResponse' :: Int
+</span><a href="Network.AWS.Glue.BatchDeleteTable.html#%24sel%3AhttpStatus%3ABatchDeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeleteTable.html#BatchDeleteTableResponse"><span class="hs-identifier hs-type">BatchDeleteTableResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.UpdateClassifier</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies an existing classifier (a @GrokClassifier@, an @XMLClassifier@,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a @JsonClassifier@, or a @CsvClassifier@, depending on which field is</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- present).</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.UpdateClassifier</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier">UpdateClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifier"><span class="hs-identifier">newUpdateClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_xMLClassifier"><span class="hs-identifier">updateClassifier_xMLClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_jsonClassifier"><span class="hs-identifier">updateClassifier_jsonClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_csvClassifier"><span class="hs-identifier">updateClassifier_csvClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_grokClassifier"><span class="hs-identifier">updateClassifier_grokClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier">UpdateClassifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifierResponse"><span class="hs-identifier">newUpdateClassifierResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifierResponse_httpStatus"><span class="hs-identifier">updateClassifierResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateClassifier' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679744983"><span id="local-6989586621679744984"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClassifier"><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-var">UpdateClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClassifier%27"><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-var">UpdateClassifier'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @XMLClassifier@ object with updated fields.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AxMLClassifier%3AUpdateClassifier%27"><span class="annot"><span class="annottext">UpdateClassifier -&gt; Maybe UpdateXMLClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AxMLClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var hs-var">xMLClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateXMLClassifierRequest.html#UpdateXMLClassifierRequest"><span class="hs-identifier hs-type">UpdateXMLClassifierRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A @JsonClassifier@ object with updated fields.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AjsonClassifier%3AUpdateClassifier%27"><span class="annot"><span class="annottext">UpdateClassifier -&gt; Maybe UpdateJsonClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AjsonClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateJsonClassifierRequest.html#UpdateJsonClassifierRequest"><span class="hs-identifier hs-type">UpdateJsonClassifierRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A @CsvClassifier@ object with updated fields.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcsvClassifier%3AUpdateClassifier%27"><span class="annot"><span class="annottext">UpdateClassifier -&gt; Maybe UpdateCsvClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AcsvClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var hs-var">csvClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateCsvClassifierRequest.html#UpdateCsvClassifierRequest"><span class="hs-identifier hs-type">UpdateCsvClassifierRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A @GrokClassifier@ object with updated fields.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgrokClassifier%3AUpdateClassifier%27"><span class="annot"><span class="annottext">UpdateClassifier -&gt; Maybe UpdateGrokClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AgrokClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateGrokClassifierRequest.html#UpdateGrokClassifierRequest"><span class="hs-identifier hs-type">UpdateGrokClassifierRequest</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744974"><span id="local-6989586621679744976"><span class="annot"><span class="annottext">UpdateClassifier -&gt; UpdateClassifier -&gt; Bool
+(UpdateClassifier -&gt; UpdateClassifier -&gt; Bool)
+-&gt; (UpdateClassifier -&gt; UpdateClassifier -&gt; Bool)
+-&gt; Eq UpdateClassifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateClassifier -&gt; UpdateClassifier -&gt; Bool
+$c/= :: UpdateClassifier -&gt; UpdateClassifier -&gt; Bool
+== :: UpdateClassifier -&gt; UpdateClassifier -&gt; Bool
+$c== :: UpdateClassifier -&gt; UpdateClassifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744965"><span id="local-6989586621679744967"><span id="local-6989586621679744969"><span id="local-6989586621679744971"><span class="annot"><span class="annottext">ReadPrec [UpdateClassifier]
+ReadPrec UpdateClassifier
+Int -&gt; ReadS UpdateClassifier
+ReadS [UpdateClassifier]
+(Int -&gt; ReadS UpdateClassifier)
+-&gt; ReadS [UpdateClassifier]
+-&gt; ReadPrec UpdateClassifier
+-&gt; ReadPrec [UpdateClassifier]
+-&gt; Read UpdateClassifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateClassifier]
+$creadListPrec :: ReadPrec [UpdateClassifier]
+readPrec :: ReadPrec UpdateClassifier
+$creadPrec :: ReadPrec UpdateClassifier
+readList :: ReadS [UpdateClassifier]
+$creadList :: ReadS [UpdateClassifier]
+readsPrec :: Int -&gt; ReadS UpdateClassifier
+$creadsPrec :: Int -&gt; ReadS UpdateClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744958"><span id="local-6989586621679744960"><span id="local-6989586621679744962"><span class="annot"><span class="annottext">Int -&gt; UpdateClassifier -&gt; ShowS
+[UpdateClassifier] -&gt; ShowS
+UpdateClassifier -&gt; String
+(Int -&gt; UpdateClassifier -&gt; ShowS)
+-&gt; (UpdateClassifier -&gt; String)
+-&gt; ([UpdateClassifier] -&gt; ShowS)
+-&gt; Show UpdateClassifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateClassifier] -&gt; ShowS
+$cshowList :: [UpdateClassifier] -&gt; ShowS
+show :: UpdateClassifier -&gt; String
+$cshow :: UpdateClassifier -&gt; String
+showsPrec :: Int -&gt; UpdateClassifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateClassifier -&gt; Rep UpdateClassifier x)
+-&gt; (forall x. Rep UpdateClassifier x -&gt; UpdateClassifier)
+-&gt; Generic UpdateClassifier
+forall x. Rep UpdateClassifier x -&gt; UpdateClassifier
+forall x. UpdateClassifier -&gt; Rep UpdateClassifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateClassifier x -&gt; UpdateClassifier
+$cfrom :: forall x. UpdateClassifier -&gt; Rep UpdateClassifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'UpdateClassifier' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'xMLClassifier', 'updateClassifier_xMLClassifier' - An @XMLClassifier@ object with updated fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'jsonClassifier', 'updateClassifier_jsonClassifier' - A @JsonClassifier@ object with updated fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'csvClassifier', 'updateClassifier_csvClassifier' - A @CsvClassifier@ object with updated fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'grokClassifier', 'updateClassifier_grokClassifier' - A @GrokClassifier@ object with updated fields.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifier"><span class="hs-identifier hs-type">newUpdateClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span>
+</span><span id="line-83"></span><span id="newUpdateClassifier"><span class="annot"><span class="annottext">newUpdateClassifier :: UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifier"><span class="hs-identifier hs-var hs-var">newUpdateClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateClassifier' :: Maybe UpdateXMLClassifierRequest
+-&gt; Maybe UpdateJsonClassifierRequest
+-&gt; Maybe UpdateCsvClassifierRequest
+-&gt; Maybe UpdateGrokClassifierRequest
+-&gt; UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:xMLClassifier:UpdateClassifier' :: Maybe UpdateXMLClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AxMLClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonClassifier:UpdateClassifier' :: Maybe UpdateJsonClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AjsonClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:csvClassifier:UpdateClassifier' :: Maybe UpdateCsvClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AcsvClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:grokClassifier:UpdateClassifier' :: Maybe UpdateGrokClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AgrokClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | An @XMLClassifier@ object with updated fields.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_xMLClassifier"><span class="hs-identifier hs-type">updateClassifier_xMLClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateXMLClassifierRequest.html#UpdateXMLClassifierRequest"><span class="hs-identifier hs-type">UpdateXMLClassifierRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="updateClassifier_xMLClassifier"><span class="annot"><span class="annottext">updateClassifier_xMLClassifier :: (Maybe UpdateXMLClassifierRequest
+ -&gt; f (Maybe UpdateXMLClassifierRequest))
+-&gt; UpdateClassifier -&gt; f UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_xMLClassifier"><span class="hs-identifier hs-var hs-var">updateClassifier_xMLClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClassifier -&gt; Maybe UpdateXMLClassifierRequest)
+-&gt; (UpdateClassifier
+    -&gt; Maybe UpdateXMLClassifierRequest -&gt; UpdateClassifier)
+-&gt; Lens
+     UpdateClassifier
+     UpdateClassifier
+     (Maybe UpdateXMLClassifierRequest)
+     (Maybe UpdateXMLClassifierRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744951"><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+xMLClassifier :: Maybe UpdateXMLClassifierRequest
+$sel:xMLClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744951"><span class="hs-identifier hs-var hs-var">xMLClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744951"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744950"><span class="annot"><span class="annottext">s :: UpdateClassifier
+</span><a href="#local-6989586621679744950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744949"><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClassifier
+</span><a href="#local-6989586621679744950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xMLClassifier:UpdateClassifier' :: Maybe UpdateXMLClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AxMLClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A @JsonClassifier@ object with updated fields.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_jsonClassifier"><span class="hs-identifier hs-type">updateClassifier_jsonClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateJsonClassifierRequest.html#UpdateJsonClassifierRequest"><span class="hs-identifier hs-type">UpdateJsonClassifierRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateClassifier_jsonClassifier"><span class="annot"><span class="annottext">updateClassifier_jsonClassifier :: (Maybe UpdateJsonClassifierRequest
+ -&gt; f (Maybe UpdateJsonClassifierRequest))
+-&gt; UpdateClassifier -&gt; f UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_jsonClassifier"><span class="hs-identifier hs-var hs-var">updateClassifier_jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClassifier -&gt; Maybe UpdateJsonClassifierRequest)
+-&gt; (UpdateClassifier
+    -&gt; Maybe UpdateJsonClassifierRequest -&gt; UpdateClassifier)
+-&gt; Lens
+     UpdateClassifier
+     UpdateClassifier
+     (Maybe UpdateJsonClassifierRequest)
+     (Maybe UpdateJsonClassifierRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744948"><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+jsonClassifier :: Maybe UpdateJsonClassifierRequest
+$sel:jsonClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateJsonClassifierRequest
+</span><a href="#local-6989586621679744948"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+</span><a href="#local-6989586621679744948"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744947"><span class="annot"><span class="annottext">s :: UpdateClassifier
+</span><a href="#local-6989586621679744947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744946"><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+</span><a href="#local-6989586621679744946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClassifier
+</span><a href="#local-6989586621679744947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonClassifier:UpdateClassifier' :: Maybe UpdateJsonClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AjsonClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+</span><a href="#local-6989586621679744946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A @CsvClassifier@ object with updated fields.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_csvClassifier"><span class="hs-identifier hs-type">updateClassifier_csvClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateCsvClassifierRequest.html#UpdateCsvClassifierRequest"><span class="hs-identifier hs-type">UpdateCsvClassifierRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateClassifier_csvClassifier"><span class="annot"><span class="annottext">updateClassifier_csvClassifier :: (Maybe UpdateCsvClassifierRequest
+ -&gt; f (Maybe UpdateCsvClassifierRequest))
+-&gt; UpdateClassifier -&gt; f UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_csvClassifier"><span class="hs-identifier hs-var hs-var">updateClassifier_csvClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClassifier -&gt; Maybe UpdateCsvClassifierRequest)
+-&gt; (UpdateClassifier
+    -&gt; Maybe UpdateCsvClassifierRequest -&gt; UpdateClassifier)
+-&gt; Lens
+     UpdateClassifier
+     UpdateClassifier
+     (Maybe UpdateCsvClassifierRequest)
+     (Maybe UpdateCsvClassifierRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744945"><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+csvClassifier :: Maybe UpdateCsvClassifierRequest
+$sel:csvClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateCsvClassifierRequest
+</span><a href="#local-6989586621679744945"><span class="hs-identifier hs-var hs-var">csvClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+</span><a href="#local-6989586621679744945"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744944"><span class="annot"><span class="annottext">s :: UpdateClassifier
+</span><a href="#local-6989586621679744944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744943"><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+</span><a href="#local-6989586621679744943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClassifier
+</span><a href="#local-6989586621679744944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csvClassifier:UpdateClassifier' :: Maybe UpdateCsvClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AcsvClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+</span><a href="#local-6989586621679744943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A @GrokClassifier@ object with updated fields.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_grokClassifier"><span class="hs-identifier hs-type">updateClassifier_grokClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UpdateGrokClassifierRequest.html#UpdateGrokClassifierRequest"><span class="hs-identifier hs-type">UpdateGrokClassifierRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateClassifier_grokClassifier"><span class="annot"><span class="annottext">updateClassifier_grokClassifier :: (Maybe UpdateGrokClassifierRequest
+ -&gt; f (Maybe UpdateGrokClassifierRequest))
+-&gt; UpdateClassifier -&gt; f UpdateClassifier
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifier_grokClassifier"><span class="hs-identifier hs-var hs-var">updateClassifier_grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClassifier -&gt; Maybe UpdateGrokClassifierRequest)
+-&gt; (UpdateClassifier
+    -&gt; Maybe UpdateGrokClassifierRequest -&gt; UpdateClassifier)
+-&gt; Lens
+     UpdateClassifier
+     UpdateClassifier
+     (Maybe UpdateGrokClassifierRequest)
+     (Maybe UpdateGrokClassifierRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744942"><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+grokClassifier :: Maybe UpdateGrokClassifierRequest
+$sel:grokClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateGrokClassifierRequest
+</span><a href="#local-6989586621679744942"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+</span><a href="#local-6989586621679744942"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744941"><span class="annot"><span class="annottext">s :: UpdateClassifier
+</span><a href="#local-6989586621679744941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744940"><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+</span><a href="#local-6989586621679744940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClassifier
+</span><a href="#local-6989586621679744941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grokClassifier:UpdateClassifier' :: Maybe UpdateGrokClassifierRequest
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AgrokClassifier%3AUpdateClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+</span><a href="#local-6989586621679744940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-type">UpdateClassifierResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679744936"><span class="annot"><span class="annottext">request :: UpdateClassifier -&gt; Request UpdateClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateClassifier -&gt; Request UpdateClassifier
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679744932"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateClassifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateClassifier)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateClassifier))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateClassifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateClassifier)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679744929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679744928"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679744928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679744927"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679744927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateClassifierResponse
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse%27"><span class="hs-identifier hs-var">UpdateClassifierResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateClassifierResponse)
+-&gt; Either String Int -&gt; Either String UpdateClassifierResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744920"><span id="local-6989586621679744922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679744913"><span class="annot"><span class="annottext">toHeaders :: UpdateClassifier -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateClassifier -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.UpdateClassifier&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744903"><span id="local-6989586621679744905"><span id="local-6989586621679744907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679744901"><span class="annot"><span class="annottext">toJSON :: UpdateClassifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier%27"><span class="hs-identifier hs-type">UpdateClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744896"><span id="local-6989586621679744897"><span id="local-6989586621679744898"><span id="local-6989586621679744899"><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+Maybe UpdateGrokClassifierRequest
+Maybe UpdateJsonClassifierRequest
+Maybe UpdateXMLClassifierRequest
+grokClassifier :: Maybe UpdateGrokClassifierRequest
+csvClassifier :: Maybe UpdateCsvClassifierRequest
+jsonClassifier :: Maybe UpdateJsonClassifierRequest
+xMLClassifier :: Maybe UpdateXMLClassifierRequest
+$sel:grokClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateGrokClassifierRequest
+$sel:csvClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateCsvClassifierRequest
+$sel:jsonClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateJsonClassifierRequest
+$sel:xMLClassifier:UpdateClassifier' :: UpdateClassifier -&gt; Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;XMLClassifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateXMLClassifierRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(UpdateXMLClassifierRequest -&gt; Pair)
+-&gt; Maybe UpdateXMLClassifierRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateXMLClassifierRequest
+</span><a href="#local-6989586621679744899"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JsonClassifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateJsonClassifierRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(UpdateJsonClassifierRequest -&gt; Pair)
+-&gt; Maybe UpdateJsonClassifierRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateJsonClassifierRequest
+</span><a href="#local-6989586621679744898"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CsvClassifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateCsvClassifierRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(UpdateCsvClassifierRequest -&gt; Pair)
+-&gt; Maybe UpdateCsvClassifierRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCsvClassifierRequest
+</span><a href="#local-6989586621679744897"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrokClassifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateGrokClassifierRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(UpdateGrokClassifierRequest -&gt; Pair)
+-&gt; Maybe UpdateGrokClassifierRequest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateGrokClassifierRequest
+</span><a href="#local-6989586621679744896"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679744890"><span class="annot"><span class="annottext">toPath :: UpdateClassifier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateClassifier -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifier"><span class="hs-identifier hs-type">UpdateClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679744886"><span class="annot"><span class="annottext">toQuery :: UpdateClassifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateClassifier -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUpdateClassifierResponse' smart constructor.</span><span>
+</span><span id="line-156"></span><span id="local-6989586621679744883"><span id="local-6989586621679744884"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClassifierResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-var">UpdateClassifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClassifierResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse%27"><span class="hs-identifier hs-var">UpdateClassifierResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateClassifierResponse%27"><span class="annot"><span class="annottext">UpdateClassifierResponse -&gt; Int
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AhttpStatus%3AUpdateClassifierResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744878"><span id="local-6989586621679744880"><span class="annot"><span class="annottext">UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool
+(UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool)
+-&gt; (UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool)
+-&gt; Eq UpdateClassifierResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool
+$c/= :: UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool
+== :: UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool
+$c== :: UpdateClassifierResponse -&gt; UpdateClassifierResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744870"><span id="local-6989586621679744872"><span id="local-6989586621679744874"><span id="local-6989586621679744876"><span class="annot"><span class="annottext">ReadPrec [UpdateClassifierResponse]
+ReadPrec UpdateClassifierResponse
+Int -&gt; ReadS UpdateClassifierResponse
+ReadS [UpdateClassifierResponse]
+(Int -&gt; ReadS UpdateClassifierResponse)
+-&gt; ReadS [UpdateClassifierResponse]
+-&gt; ReadPrec UpdateClassifierResponse
+-&gt; ReadPrec [UpdateClassifierResponse]
+-&gt; Read UpdateClassifierResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateClassifierResponse]
+$creadListPrec :: ReadPrec [UpdateClassifierResponse]
+readPrec :: ReadPrec UpdateClassifierResponse
+$creadPrec :: ReadPrec UpdateClassifierResponse
+readList :: ReadS [UpdateClassifierResponse]
+$creadList :: ReadS [UpdateClassifierResponse]
+readsPrec :: Int -&gt; ReadS UpdateClassifierResponse
+$creadsPrec :: Int -&gt; ReadS UpdateClassifierResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744864"><span id="local-6989586621679744866"><span id="local-6989586621679744868"><span class="annot"><span class="annottext">Int -&gt; UpdateClassifierResponse -&gt; ShowS
+[UpdateClassifierResponse] -&gt; ShowS
+UpdateClassifierResponse -&gt; String
+(Int -&gt; UpdateClassifierResponse -&gt; ShowS)
+-&gt; (UpdateClassifierResponse -&gt; String)
+-&gt; ([UpdateClassifierResponse] -&gt; ShowS)
+-&gt; Show UpdateClassifierResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateClassifierResponse] -&gt; ShowS
+$cshowList :: [UpdateClassifierResponse] -&gt; ShowS
+show :: UpdateClassifierResponse -&gt; String
+$cshow :: UpdateClassifierResponse -&gt; String
+showsPrec :: Int -&gt; UpdateClassifierResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateClassifierResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateClassifierResponse -&gt; Rep UpdateClassifierResponse x)
+-&gt; (forall x.
+    Rep UpdateClassifierResponse x -&gt; UpdateClassifierResponse)
+-&gt; Generic UpdateClassifierResponse
+forall x.
+Rep UpdateClassifierResponse x -&gt; UpdateClassifierResponse
+forall x.
+UpdateClassifierResponse -&gt; Rep UpdateClassifierResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateClassifierResponse x -&gt; UpdateClassifierResponse
+$cfrom :: forall x.
+UpdateClassifierResponse -&gt; Rep UpdateClassifierResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateClassifierResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'updateClassifierResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifierResponse"><span class="hs-identifier hs-type">newUpdateClassifierResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-type">UpdateClassifierResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newUpdateClassifierResponse"><span class="annot"><span class="annottext">newUpdateClassifierResponse :: Int -&gt; UpdateClassifierResponse
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#newUpdateClassifierResponse"><span class="hs-identifier hs-var hs-var">newUpdateClassifierResponse</span></a></span></span><span> </span><span id="local-6989586621679744861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744861"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">UpdateClassifierResponse' :: Int -&gt; UpdateClassifierResponse
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse%27"><span class="hs-identifier hs-type">UpdateClassifierResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClassifierResponse' :: Int
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AhttpStatus%3AUpdateClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744861"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifierResponse_httpStatus"><span class="hs-identifier hs-type">updateClassifierResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-type">UpdateClassifierResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="updateClassifierResponse_httpStatus"><span class="annot"><span class="annottext">updateClassifierResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateClassifierResponse -&gt; f UpdateClassifierResponse
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#updateClassifierResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateClassifierResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateClassifierResponse -&gt; Int)
+-&gt; (UpdateClassifierResponse -&gt; Int -&gt; UpdateClassifierResponse)
+-&gt; Lens UpdateClassifierResponse UpdateClassifierResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse%27"><span class="hs-identifier hs-type">UpdateClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744860"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateClassifierResponse' :: UpdateClassifierResponse -&gt; Int
+</span><a href="#local-6989586621679744860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744859"><span class="annot"><span class="annottext">s :: UpdateClassifierResponse
+</span><a href="#local-6989586621679744859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse%27"><span class="hs-identifier hs-type">UpdateClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClassifierResponse
+</span><a href="#local-6989586621679744859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClassifierResponse' :: Int
+</span><a href="Network.AWS.Glue.UpdateClassifier.html#%24sel%3AhttpStatus%3AUpdateClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-type">UpdateClassifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateClassifier.html#UpdateClassifierResponse"><span class="hs-identifier hs-type">UpdateClassifierResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

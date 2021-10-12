@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.StepFunctions.DescribeStateMachineForExecution</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the state machine associated with a specific execution.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation is eventually consistent. The results are best effort and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- may not reflect very recent updates and changes.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This API action is not supported by @EXPRESS@ state machines.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StepFunctions.DescribeStateMachineForExecution</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier">DescribeStateMachineForExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecution"><span class="hs-identifier">newDescribeStateMachineForExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecution_executionArn"><span class="hs-identifier">describeStateMachineForExecution_executionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecutionResponse"><span class="hs-identifier">newDescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_tracingConfiguration"><span class="hs-identifier">describeStateMachineForExecutionResponse_tracingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_loggingConfiguration"><span class="hs-identifier">describeStateMachineForExecutionResponse_loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_httpStatus"><span class="hs-identifier">describeStateMachineForExecutionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_stateMachineArn"><span class="hs-identifier">describeStateMachineForExecutionResponse_stateMachineArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_name"><span class="hs-identifier">describeStateMachineForExecutionResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_definition"><span class="hs-identifier">describeStateMachineForExecutionResponse_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_roleArn"><span class="hs-identifier">describeStateMachineForExecutionResponse_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_updateDate"><span class="hs-identifier">describeStateMachineForExecutionResponse_updateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeStateMachineForExecution' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679232557"><span id="local-6989586621679232558"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStateMachineForExecution"><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-var">DescribeStateMachineForExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStateMachineForExecution%27"><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution%27"><span class="hs-identifier hs-var">DescribeStateMachineForExecution'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the execution you want state machine</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- information for.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AexecutionArn%3ADescribeStateMachineForExecution%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecution -&gt; Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AexecutionArn%3ADescribeStateMachineForExecution%27"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232551"><span id="local-6989586621679232553"><span class="annot"><span class="annottext">DescribeStateMachineForExecution
+-&gt; DescribeStateMachineForExecution -&gt; Bool
+(DescribeStateMachineForExecution
+ -&gt; DescribeStateMachineForExecution -&gt; Bool)
+-&gt; (DescribeStateMachineForExecution
+    -&gt; DescribeStateMachineForExecution -&gt; Bool)
+-&gt; Eq DescribeStateMachineForExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStateMachineForExecution
+-&gt; DescribeStateMachineForExecution -&gt; Bool
+$c/= :: DescribeStateMachineForExecution
+-&gt; DescribeStateMachineForExecution -&gt; Bool
+== :: DescribeStateMachineForExecution
+-&gt; DescribeStateMachineForExecution -&gt; Bool
+$c== :: DescribeStateMachineForExecution
+-&gt; DescribeStateMachineForExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232542"><span id="local-6989586621679232544"><span id="local-6989586621679232546"><span id="local-6989586621679232548"><span class="annot"><span class="annottext">ReadPrec [DescribeStateMachineForExecution]
+ReadPrec DescribeStateMachineForExecution
+Int -&gt; ReadS DescribeStateMachineForExecution
+ReadS [DescribeStateMachineForExecution]
+(Int -&gt; ReadS DescribeStateMachineForExecution)
+-&gt; ReadS [DescribeStateMachineForExecution]
+-&gt; ReadPrec DescribeStateMachineForExecution
+-&gt; ReadPrec [DescribeStateMachineForExecution]
+-&gt; Read DescribeStateMachineForExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeStateMachineForExecution]
+$creadListPrec :: ReadPrec [DescribeStateMachineForExecution]
+readPrec :: ReadPrec DescribeStateMachineForExecution
+$creadPrec :: ReadPrec DescribeStateMachineForExecution
+readList :: ReadS [DescribeStateMachineForExecution]
+$creadList :: ReadS [DescribeStateMachineForExecution]
+readsPrec :: Int -&gt; ReadS DescribeStateMachineForExecution
+$creadsPrec :: Int -&gt; ReadS DescribeStateMachineForExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232535"><span id="local-6989586621679232537"><span id="local-6989586621679232539"><span class="annot"><span class="annottext">Int -&gt; DescribeStateMachineForExecution -&gt; ShowS
+[DescribeStateMachineForExecution] -&gt; ShowS
+DescribeStateMachineForExecution -&gt; String
+(Int -&gt; DescribeStateMachineForExecution -&gt; ShowS)
+-&gt; (DescribeStateMachineForExecution -&gt; String)
+-&gt; ([DescribeStateMachineForExecution] -&gt; ShowS)
+-&gt; Show DescribeStateMachineForExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStateMachineForExecution] -&gt; ShowS
+$cshowList :: [DescribeStateMachineForExecution] -&gt; ShowS
+show :: DescribeStateMachineForExecution -&gt; String
+$cshow :: DescribeStateMachineForExecution -&gt; String
+showsPrec :: Int -&gt; DescribeStateMachineForExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStateMachineForExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeStateMachineForExecution
+ -&gt; Rep DescribeStateMachineForExecution x)
+-&gt; (forall x.
+    Rep DescribeStateMachineForExecution x
+    -&gt; DescribeStateMachineForExecution)
+-&gt; Generic DescribeStateMachineForExecution
+forall x.
+Rep DescribeStateMachineForExecution x
+-&gt; DescribeStateMachineForExecution
+forall x.
+DescribeStateMachineForExecution
+-&gt; Rep DescribeStateMachineForExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeStateMachineForExecution x
+-&gt; DescribeStateMachineForExecution
+$cfrom :: forall x.
+DescribeStateMachineForExecution
+-&gt; Rep DescribeStateMachineForExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DescribeStateMachineForExecution' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'executionArn', 'describeStateMachineForExecution_executionArn' - The Amazon Resource Name (ARN) of the execution you want state machine</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- information for.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecution"><span class="hs-identifier hs-type">newDescribeStateMachineForExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'executionArn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribeStateMachineForExecution"><span class="annot"><span class="annottext">newDescribeStateMachineForExecution :: Text -&gt; DescribeStateMachineForExecution
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecution"><span class="hs-identifier hs-var hs-var">newDescribeStateMachineForExecution</span></a></span></span><span> </span><span id="local-6989586621679232530"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232530"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DescribeStateMachineForExecution' :: Text -&gt; DescribeStateMachineForExecution
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecution'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionArn:DescribeStateMachineForExecution' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AexecutionArn%3ADescribeStateMachineForExecution%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232530"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the execution you want state machine</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- information for.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecution_executionArn"><span class="hs-identifier hs-type">describeStateMachineForExecution_executionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeStateMachineForExecution_executionArn"><span class="annot"><span class="annottext">describeStateMachineForExecution_executionArn :: (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecution
+-&gt; f DescribeStateMachineForExecution
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecution_executionArn"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecution_executionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecution -&gt; Text)
+-&gt; (DescribeStateMachineForExecution
+    -&gt; Text -&gt; DescribeStateMachineForExecution)
+-&gt; Lens
+     DescribeStateMachineForExecution
+     DescribeStateMachineForExecution
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232527"><span class="annot"><span class="annottext">Text
+executionArn :: Text
+$sel:executionArn:DescribeStateMachineForExecution' :: DescribeStateMachineForExecution -&gt; Text
+</span><a href="#local-6989586621679232527"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232527"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232526"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecution
+</span><a href="#local-6989586621679232526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecution
+</span><a href="#local-6989586621679232526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionArn:DescribeStateMachineForExecution' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AexecutionArn%3ADescribeStateMachineForExecution%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679232521"><span class="annot"><span class="annottext">request :: DescribeStateMachineForExecution
+-&gt; Request DescribeStateMachineForExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeStateMachineForExecution
+-&gt; Request DescribeStateMachineForExecution
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679232517"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeStateMachineForExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeStateMachineForExecution)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeStateMachineForExecution))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeStateMachineForExecution
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeStateMachineForExecution)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232514"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232513"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679232513"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232512"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
+-&gt; Maybe LoggingConfiguration
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; POSIX
+-&gt; DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">DescribeStateMachineForExecutionResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TracingConfiguration
+ -&gt; Maybe LoggingConfiguration
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Sensitive Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String (Maybe TracingConfiguration)
+-&gt; Either
+     String
+     (Maybe LoggingConfiguration
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Sensitive Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TracingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tracingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LoggingConfiguration
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Sensitive Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String (Maybe LoggingConfiguration)
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Sensitive Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loggingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Sensitive Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Sensitive Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232514"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Sensitive Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Sensitive Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Sensitive Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Sensitive Text
+      -&gt; Text -&gt; POSIX -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Sensitive Text
+   -&gt; Text -&gt; POSIX -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String (Sensitive Text)
+-&gt; Either
+     String (Text -&gt; POSIX -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;definition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; POSIX -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (POSIX -&gt; DescribeStateMachineForExecutionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Either String POSIX
+-&gt; Either String DescribeStateMachineForExecutionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679232503"><span id="local-6989586621679232505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679232500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679232496"><span class="annot"><span class="annottext">toHeaders :: DescribeStateMachineForExecution -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeStateMachineForExecution -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSStepFunctions.DescribeStateMachineForExecution&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232486"><span id="local-6989586621679232488"><span id="local-6989586621679232490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679232484"><span class="annot"><span class="annottext">toJSON :: DescribeStateMachineForExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232482"><span class="annot"><span class="annottext">Text
+executionArn :: Text
+$sel:executionArn:DescribeStateMachineForExecution' :: DescribeStateMachineForExecution -&gt; Text
+</span><a href="#local-6989586621679232482"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;executionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232482"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679232476"><span class="annot"><span class="annottext">toPath :: DescribeStateMachineForExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStateMachineForExecution -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecution"><span class="hs-identifier hs-type">DescribeStateMachineForExecution</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679232472"><span class="annot"><span class="annottext">toQuery :: DescribeStateMachineForExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStateMachineForExecution -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newDescribeStateMachineForExecutionResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679232469"><span id="local-6989586621679232470"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStateMachineForExecutionResponse"><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-var">DescribeStateMachineForExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStateMachineForExecutionResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">DescribeStateMachineForExecutionResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Selects whether AWS X-Ray tracing is enabled.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AtracingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+-&gt; Maybe TracingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AtracingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">tracingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AloggingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; Int
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AhttpStatus%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine associated with the</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AstateMachineArn%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AstateMachineArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The name of the state machine associated with the execution.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Aname%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Aname%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The Amazon States Language definition of the state machine. See</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language&gt;.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Adefinition%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; Sensitive Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Adefinition%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- the execution.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AroleArn%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AroleArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The date and time the state machine associated with an execution was</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- updated. For a newly created state machine, this is the creation date.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AupdateDate%3ADescribeStateMachineForExecutionResponse%27"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse -&gt; POSIX
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AupdateDate%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232457"><span id="local-6989586621679232459"><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+-&gt; DescribeStateMachineForExecutionResponse -&gt; Bool
+(DescribeStateMachineForExecutionResponse
+ -&gt; DescribeStateMachineForExecutionResponse -&gt; Bool)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; DescribeStateMachineForExecutionResponse -&gt; Bool)
+-&gt; Eq DescribeStateMachineForExecutionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStateMachineForExecutionResponse
+-&gt; DescribeStateMachineForExecutionResponse -&gt; Bool
+$c/= :: DescribeStateMachineForExecutionResponse
+-&gt; DescribeStateMachineForExecutionResponse -&gt; Bool
+== :: DescribeStateMachineForExecutionResponse
+-&gt; DescribeStateMachineForExecutionResponse -&gt; Bool
+$c== :: DescribeStateMachineForExecutionResponse
+-&gt; DescribeStateMachineForExecutionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232451"><span id="local-6989586621679232453"><span id="local-6989586621679232455"><span class="annot"><span class="annottext">Int -&gt; DescribeStateMachineForExecutionResponse -&gt; ShowS
+[DescribeStateMachineForExecutionResponse] -&gt; ShowS
+DescribeStateMachineForExecutionResponse -&gt; String
+(Int -&gt; DescribeStateMachineForExecutionResponse -&gt; ShowS)
+-&gt; (DescribeStateMachineForExecutionResponse -&gt; String)
+-&gt; ([DescribeStateMachineForExecutionResponse] -&gt; ShowS)
+-&gt; Show DescribeStateMachineForExecutionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStateMachineForExecutionResponse] -&gt; ShowS
+$cshowList :: [DescribeStateMachineForExecutionResponse] -&gt; ShowS
+show :: DescribeStateMachineForExecutionResponse -&gt; String
+$cshow :: DescribeStateMachineForExecutionResponse -&gt; String
+showsPrec :: Int -&gt; DescribeStateMachineForExecutionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStateMachineForExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeStateMachineForExecutionResponse
+ -&gt; Rep DescribeStateMachineForExecutionResponse x)
+-&gt; (forall x.
+    Rep DescribeStateMachineForExecutionResponse x
+    -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Generic DescribeStateMachineForExecutionResponse
+forall x.
+Rep DescribeStateMachineForExecutionResponse x
+-&gt; DescribeStateMachineForExecutionResponse
+forall x.
+DescribeStateMachineForExecutionResponse
+-&gt; Rep DescribeStateMachineForExecutionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeStateMachineForExecutionResponse x
+-&gt; DescribeStateMachineForExecutionResponse
+$cfrom :: forall x.
+DescribeStateMachineForExecutionResponse
+-&gt; Rep DescribeStateMachineForExecutionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'DescribeStateMachineForExecutionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'tracingConfiguration', 'describeStateMachineForExecutionResponse_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'loggingConfiguration', 'describeStateMachineForExecutionResponse_loggingConfiguration' - Undocumented member.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'describeStateMachineForExecutionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'stateMachineArn', 'describeStateMachineForExecutionResponse_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine associated with the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'name', 'describeStateMachineForExecutionResponse_name' - The name of the state machine associated with the execution.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'definition', 'describeStateMachineForExecutionResponse_definition' - The Amazon States Language definition of the state machine. See</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language&gt;.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'roleArn', 'describeStateMachineForExecutionResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM role of the State Machine for</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- the execution.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'updateDate', 'describeStateMachineForExecutionResponse_updateDate' - The date and time the state machine associated with an execution was</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- updated. For a newly created state machine, this is the creation date.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">newDescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'stateMachineArn'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'definition'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-comment">-- | 'updateDate'</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span>
+</span><span id="line-222"></span><span id="newDescribeStateMachineForExecutionResponse"><span class="annot"><span class="annottext">newDescribeStateMachineForExecutionResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#newDescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-var hs-var">newDescribeStateMachineForExecutionResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679232448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679232447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232447"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679232446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232446"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679232445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232445"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679232444"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679232443"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679232443"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse' :: Maybe TracingConfiguration
+-&gt; Maybe LoggingConfiguration
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; POSIX
+-&gt; DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tracingConfiguration:DescribeStateMachineForExecutionResponse' :: Maybe TracingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AtracingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:loggingConfiguration:DescribeStateMachineForExecutionResponse' :: Maybe LoggingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AloggingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStateMachineForExecutionResponse' :: Int
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AhttpStatus%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateMachineArn:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AstateMachineArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232447"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Aname%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232446"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:definition:DescribeStateMachineForExecutionResponse' :: Sensitive Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Adefinition%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232445"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AroleArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateDate:DescribeStateMachineForExecutionResponse' :: POSIX
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AupdateDate%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679232443"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Selects whether AWS X-Ray tracing is enabled.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_tracingConfiguration"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_tracingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="describeStateMachineForExecutionResponse_tracingConfiguration"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_tracingConfiguration :: (Maybe TracingConfiguration -&gt; f (Maybe TracingConfiguration))
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_tracingConfiguration"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_tracingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse
+ -&gt; Maybe TracingConfiguration)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Maybe TracingConfiguration
+    -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     (Maybe TracingConfiguration)
+     (Maybe TracingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232439"><span class="annot"><span class="annottext">Maybe TracingConfiguration
+tracingConfiguration :: Maybe TracingConfiguration
+$sel:tracingConfiguration:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse
+-&gt; Maybe TracingConfiguration
+</span><a href="#local-6989586621679232439"><span class="hs-identifier hs-var hs-var">tracingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><a href="#local-6989586621679232439"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232438"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232437"><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><a href="#local-6989586621679232437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tracingConfiguration:DescribeStateMachineForExecutionResponse' :: Maybe TracingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AtracingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><a href="#local-6989586621679232437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_loggingConfiguration"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describeStateMachineForExecutionResponse_loggingConfiguration"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_loggingConfiguration :: (Maybe LoggingConfiguration -&gt; f (Maybe LoggingConfiguration))
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_loggingConfiguration"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse
+ -&gt; Maybe LoggingConfiguration)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Maybe LoggingConfiguration
+    -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     (Maybe LoggingConfiguration)
+     (Maybe LoggingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232436"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+loggingConfiguration :: Maybe LoggingConfiguration
+$sel:loggingConfiguration:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="#local-6989586621679232436"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679232436"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232435"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232434"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679232434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:DescribeStateMachineForExecutionResponse' :: Maybe LoggingConfiguration
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AloggingConfiguration%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679232434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_httpStatus"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="describeStateMachineForExecutionResponse_httpStatus"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; Int)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Int -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232433"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; Int
+</span><a href="#local-6989586621679232433"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232433"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232432"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStateMachineForExecutionResponse' :: Int
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AhttpStatus%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine associated with the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_stateMachineArn"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_stateMachineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-261"></span><span id="describeStateMachineForExecutionResponse_stateMachineArn"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_stateMachineArn :: (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_stateMachineArn"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; Text)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Text -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232430"><span class="annot"><span class="annottext">Text
+stateMachineArn :: Text
+$sel:stateMachineArn:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="#local-6989586621679232430"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232430"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232429"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AstateMachineArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The name of the state machine associated with the execution.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_name"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-265"></span><span id="describeStateMachineForExecutionResponse_name"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_name :: (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_name"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; Text)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Text -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232427"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="#local-6989586621679232427"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232427"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232426"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Aname%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The Amazon States Language definition of the state machine. See</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language&gt;.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_definition"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-270"></span><span id="describeStateMachineForExecutionResponse_definition"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_definition :: (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_definition"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; Sensitive Text)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Sensitive Text -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232424"><span class="annot"><span class="annottext">Sensitive Text
+definition :: Sensitive Text
+$sel:definition:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; Sensitive Text
+</span><a href="#local-6989586621679232424"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679232424"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232423"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232422"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679232422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:DescribeStateMachineForExecutionResponse' :: Sensitive Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3Adefinition%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679232422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; DescribeStateMachineForExecutionResponse
+ -&gt; f DescribeStateMachineForExecutionResponse)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- the execution.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_roleArn"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-275"></span><span id="describeStateMachineForExecutionResponse_roleArn"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_roleArn :: (Text -&gt; f Text)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_roleArn"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; Text)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; Text -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232420"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; Text
+</span><a href="#local-6989586621679232420"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232420"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232419"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DescribeStateMachineForExecutionResponse' :: Text
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AroleArn%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The date and time the state machine associated with an execution was</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- updated. For a newly created state machine, this is the creation date.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_updateDate"><span class="hs-identifier hs-type">describeStateMachineForExecutionResponse_updateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-280"></span><span id="describeStateMachineForExecutionResponse_updateDate"><span class="annot"><span class="annottext">describeStateMachineForExecutionResponse_updateDate :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#describeStateMachineForExecutionResponse_updateDate"><span class="hs-identifier hs-var hs-var">describeStateMachineForExecutionResponse_updateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStateMachineForExecutionResponse -&gt; POSIX)
+-&gt; (DescribeStateMachineForExecutionResponse
+    -&gt; POSIX -&gt; DescribeStateMachineForExecutionResponse)
+-&gt; Lens
+     DescribeStateMachineForExecutionResponse
+     DescribeStateMachineForExecutionResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232417"><span class="annot"><span class="annottext">POSIX
+updateDate :: POSIX
+$sel:updateDate:DescribeStateMachineForExecutionResponse' :: DescribeStateMachineForExecutionResponse -&gt; POSIX
+</span><a href="#local-6989586621679232417"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679232417"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232416"><span class="annot"><span class="annottext">s :: DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232415"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679232415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStateMachineForExecutionResponse
+</span><a href="#local-6989586621679232416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:DescribeStateMachineForExecutionResponse' :: POSIX
+</span><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#%24sel%3AupdateDate%3ADescribeStateMachineForExecutionResponse%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679232415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeStateMachineForExecutionResponse
+ -&gt; f DescribeStateMachineForExecutionResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeStateMachineForExecutionResponse
+-&gt; f DescribeStateMachineForExecutionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679232413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.DescribeStateMachineForExecution.html#DescribeStateMachineForExecutionResponse"><span class="hs-identifier hs-type">DescribeStateMachineForExecutionResponse</span></a></span></span><span>
+</span><span id="line-285"></span></pre></body></html>

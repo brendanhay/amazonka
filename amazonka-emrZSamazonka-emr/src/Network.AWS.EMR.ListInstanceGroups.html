@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EMR.ListInstanceGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides all available details about the instance groups in a cluster.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMR.ListInstanceGroups</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier">ListInstanceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroups"><span class="hs-identifier">newListInstanceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_marker"><span class="hs-identifier">listInstanceGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_clusterId"><span class="hs-identifier">listInstanceGroups_clusterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier">ListInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroupsResponse"><span class="hs-identifier">newListInstanceGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_instanceGroups"><span class="hs-identifier">listInstanceGroupsResponse_instanceGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_marker"><span class="hs-identifier">listInstanceGroupsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_httpStatus"><span class="hs-identifier">listInstanceGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.html"><span class="hs-identifier">Network.AWS.EMR.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | This input determines which instance groups to retrieve.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListInstanceGroups' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679388644"><span id="local-6989586621679388645"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstanceGroups"><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-var">ListInstanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstanceGroups%27"><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-var">ListInstanceGroups'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Amarker%3AListInstanceGroups%27"><span class="annot"><span class="annottext">ListInstanceGroups -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster for which to list the instance groups.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AclusterId%3AListInstanceGroups%27"><span class="annot"><span class="annottext">ListInstanceGroups -&gt; Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AclusterId%3AListInstanceGroups%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388637"><span id="local-6989586621679388639"><span class="annot"><span class="annottext">ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool
+(ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool)
+-&gt; (ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool)
+-&gt; Eq ListInstanceGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool
+$c/= :: ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool
+== :: ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool
+$c== :: ListInstanceGroups -&gt; ListInstanceGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388628"><span id="local-6989586621679388630"><span id="local-6989586621679388632"><span id="local-6989586621679388634"><span class="annot"><span class="annottext">ReadPrec [ListInstanceGroups]
+ReadPrec ListInstanceGroups
+Int -&gt; ReadS ListInstanceGroups
+ReadS [ListInstanceGroups]
+(Int -&gt; ReadS ListInstanceGroups)
+-&gt; ReadS [ListInstanceGroups]
+-&gt; ReadPrec ListInstanceGroups
+-&gt; ReadPrec [ListInstanceGroups]
+-&gt; Read ListInstanceGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstanceGroups]
+$creadListPrec :: ReadPrec [ListInstanceGroups]
+readPrec :: ReadPrec ListInstanceGroups
+$creadPrec :: ReadPrec ListInstanceGroups
+readList :: ReadS [ListInstanceGroups]
+$creadList :: ReadS [ListInstanceGroups]
+readsPrec :: Int -&gt; ReadS ListInstanceGroups
+$creadsPrec :: Int -&gt; ReadS ListInstanceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388621"><span id="local-6989586621679388623"><span id="local-6989586621679388625"><span class="annot"><span class="annottext">Int -&gt; ListInstanceGroups -&gt; ShowS
+[ListInstanceGroups] -&gt; ShowS
+ListInstanceGroups -&gt; String
+(Int -&gt; ListInstanceGroups -&gt; ShowS)
+-&gt; (ListInstanceGroups -&gt; String)
+-&gt; ([ListInstanceGroups] -&gt; ShowS)
+-&gt; Show ListInstanceGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstanceGroups] -&gt; ShowS
+$cshowList :: [ListInstanceGroups] -&gt; ShowS
+show :: ListInstanceGroups -&gt; String
+$cshow :: ListInstanceGroups -&gt; String
+showsPrec :: Int -&gt; ListInstanceGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstanceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListInstanceGroups -&gt; Rep ListInstanceGroups x)
+-&gt; (forall x. Rep ListInstanceGroups x -&gt; ListInstanceGroups)
+-&gt; Generic ListInstanceGroups
+forall x. Rep ListInstanceGroups x -&gt; ListInstanceGroups
+forall x. ListInstanceGroups -&gt; Rep ListInstanceGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInstanceGroups x -&gt; ListInstanceGroups
+$cfrom :: forall x. ListInstanceGroups -&gt; Rep ListInstanceGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListInstanceGroups' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'marker', 'listInstanceGroups_marker' - The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'clusterId', 'listInstanceGroups_clusterId' - The identifier of the cluster for which to list the instance groups.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroups"><span class="hs-identifier hs-type">newListInstanceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'clusterId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span>
+</span><span id="line-79"></span><span id="newListInstanceGroups"><span class="annot"><span class="annottext">newListInstanceGroups :: Text -&gt; ListInstanceGroups
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroups"><span class="hs-identifier hs-var hs-var">newListInstanceGroups</span></a></span></span><span> </span><span id="local-6989586621679388616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388616"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListInstanceGroups' :: Maybe Text -&gt; Text -&gt; ListInstanceGroups
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListInstanceGroups' :: Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:ListInstanceGroups' :: Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AclusterId%3AListInstanceGroups%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388616"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_marker"><span class="hs-identifier hs-type">listInstanceGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="listInstanceGroups_marker"><span class="annot"><span class="annottext">listInstanceGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInstanceGroups -&gt; f ListInstanceGroups
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_marker"><span class="hs-identifier hs-var hs-var">listInstanceGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroups -&gt; Maybe Text)
+-&gt; (ListInstanceGroups -&gt; Maybe Text -&gt; ListInstanceGroups)
+-&gt; Lens
+     ListInstanceGroups ListInstanceGroups (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388614"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListInstanceGroups' :: ListInstanceGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679388614"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388614"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388613"><span class="annot"><span class="annottext">s :: ListInstanceGroups
+</span><a href="#local-6989586621679388613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceGroups
+</span><a href="#local-6989586621679388613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListInstanceGroups' :: Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier of the cluster for which to list the instance groups.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_clusterId"><span class="hs-identifier hs-type">listInstanceGroups_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="listInstanceGroups_clusterId"><span class="annot"><span class="annottext">listInstanceGroups_clusterId :: (Text -&gt; f Text) -&gt; ListInstanceGroups -&gt; f ListInstanceGroups
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_clusterId"><span class="hs-identifier hs-var hs-var">listInstanceGroups_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroups -&gt; Text)
+-&gt; (ListInstanceGroups -&gt; Text -&gt; ListInstanceGroups)
+-&gt; Lens ListInstanceGroups ListInstanceGroups Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388611"><span class="annot"><span class="annottext">Text
+clusterId :: Text
+$sel:clusterId:ListInstanceGroups' :: ListInstanceGroups -&gt; Text
+</span><a href="#local-6989586621679388611"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388611"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388610"><span class="annot"><span class="annottext">s :: ListInstanceGroups
+</span><a href="#local-6989586621679388610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceGroups
+</span><a href="#local-6989586621679388610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ListInstanceGroups' :: Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AclusterId%3AListInstanceGroups%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679388605"><span class="annot"><span class="annottext">page :: ListInstanceGroups
+-&gt; AWSResponse ListInstanceGroups -&gt; Maybe ListInstanceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679388603"><span class="annot"><span class="annottext">ListInstanceGroups
+</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679388602"><span class="annot"><span class="annottext">AWSResponse ListInstanceGroups
+</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-96"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceGroups
+ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+-&gt; Getting (First Text) ListInstanceGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstanceGroupsResponse
+-&gt; Const (First Text) ListInstanceGroupsResponse
+Lens' ListInstanceGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_marker"><span class="hs-identifier hs-var">listInstanceGroupsResponse_marker</span></a></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstanceGroupsResponse
+ -&gt; Const (First Text) ListInstanceGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstanceGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstanceGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroup] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceGroups
+ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+-&gt; Getting
+     (First [InstanceGroup]) ListInstanceGroupsResponse [InstanceGroup]
+-&gt; Maybe [InstanceGroup]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InstanceGroup]
+ -&gt; Const (First [InstanceGroup]) (Maybe [InstanceGroup]))
+-&gt; ListInstanceGroupsResponse
+-&gt; Const (First [InstanceGroup]) ListInstanceGroupsResponse
+Lens' ListInstanceGroupsResponse (Maybe [InstanceGroup])
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_instanceGroups"><span class="hs-identifier hs-var">listInstanceGroupsResponse_instanceGroups</span></a></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InstanceGroup]
+  -&gt; Const (First [InstanceGroup]) (Maybe [InstanceGroup]))
+ -&gt; ListInstanceGroupsResponse
+ -&gt; Const (First [InstanceGroup]) ListInstanceGroupsResponse)
+-&gt; (([InstanceGroup]
+     -&gt; Const (First [InstanceGroup]) [InstanceGroup])
+    -&gt; Maybe [InstanceGroup]
+    -&gt; Const (First [InstanceGroup]) (Maybe [InstanceGroup]))
+-&gt; Getting
+     (First [InstanceGroup]) ListInstanceGroupsResponse [InstanceGroup]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstanceGroup] -&gt; Const (First [InstanceGroup]) [InstanceGroup])
+-&gt; Maybe [InstanceGroup]
+-&gt; Const (First [InstanceGroup]) (Maybe [InstanceGroup])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstanceGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">ListInstanceGroups -&gt; Maybe ListInstanceGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroups -&gt; Maybe ListInstanceGroups)
+-&gt; ListInstanceGroups -&gt; Maybe ListInstanceGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ListInstanceGroups
+</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ListInstanceGroups
+-&gt; (ListInstanceGroups -&gt; ListInstanceGroups) -&gt; ListInstanceGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListInstanceGroups -&gt; Identity ListInstanceGroups
+Lens
+  ListInstanceGroups ListInstanceGroups (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroups_marker"><span class="hs-identifier hs-var">listInstanceGroups_marker</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListInstanceGroups -&gt; Identity ListInstanceGroups)
+-&gt; Maybe Text -&gt; ListInstanceGroups -&gt; ListInstanceGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstanceGroups
+ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+-&gt; Getting (First Text) ListInstanceGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstanceGroupsResponse
+-&gt; Const (First Text) ListInstanceGroupsResponse
+Lens' ListInstanceGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_marker"><span class="hs-identifier hs-var">listInstanceGroupsResponse_marker</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstanceGroupsResponse
+ -&gt; Const (First Text) ListInstanceGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstanceGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679388592"><span class="annot"><span class="annottext">request :: ListInstanceGroups -&gt; Request ListInstanceGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInstanceGroups -&gt; Request ListInstanceGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388588"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListInstanceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListInstanceGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListInstanceGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListInstanceGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListInstanceGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388585"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388584"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388584"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388583"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+-&gt; Maybe Text -&gt; Int -&gt; ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ListInstanceGroupsResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceGroup]
+ -&gt; Maybe Text -&gt; Int -&gt; ListInstanceGroupsResponse)
+-&gt; Either String (Maybe [InstanceGroup])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListInstanceGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InstanceGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstanceGroup]))
+-&gt; Maybe [InstanceGroup] -&gt; Either String (Maybe [InstanceGroup])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListInstanceGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListInstanceGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInstanceGroupsResponse)
+-&gt; Either String Int -&gt; Either String ListInstanceGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388574"><span id="local-6989586621679388576"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679388567"><span class="annot"><span class="annottext">toHeaders :: ListInstanceGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInstanceGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ElasticMapReduce.ListInstanceGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388557"><span id="local-6989586621679388559"><span id="local-6989586621679388561"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679388555"><span class="annot"><span class="annottext">toJSON :: ListInstanceGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups%27"><span class="hs-identifier hs-type">ListInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388552"><span id="local-6989586621679388553"><span class="annot"><span class="annottext">Maybe Text
+Text
+clusterId :: Text
+marker :: Maybe Text
+$sel:clusterId:ListInstanceGroups' :: ListInstanceGroups -&gt; Text
+$sel:marker:ListInstanceGroups' :: ListInstanceGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679388552"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679388546"><span class="annot"><span class="annottext">toPath :: ListInstanceGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInstanceGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroups"><span class="hs-identifier hs-type">ListInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679388542"><span class="annot"><span class="annottext">toQuery :: ListInstanceGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListInstanceGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | This input determines which instance groups to retrieve.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- /See:/ 'newListInstanceGroupsResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679388539"><span id="local-6989586621679388540"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstanceGroupsResponse"><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-var">ListInstanceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstanceGroupsResponse%27"><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ListInstanceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of instance groups for the cluster and given filters.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AinstanceGroups%3AListInstanceGroupsResponse%27"><span class="annot"><span class="annottext">ListInstanceGroupsResponse -&gt; Maybe [InstanceGroup]
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AinstanceGroups%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroup.html#InstanceGroup"><span class="hs-identifier hs-type">InstanceGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3Amarker%3AListInstanceGroupsResponse%27"><span class="annot"><span class="annottext">ListInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInstanceGroupsResponse%27"><span class="annot"><span class="annottext">ListInstanceGroupsResponse -&gt; Int
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AhttpStatus%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388532"><span id="local-6989586621679388534"><span class="annot"><span class="annottext">ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool
+(ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool)
+-&gt; (ListInstanceGroupsResponse
+    -&gt; ListInstanceGroupsResponse -&gt; Bool)
+-&gt; Eq ListInstanceGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool
+$c/= :: ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool
+== :: ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool
+$c== :: ListInstanceGroupsResponse -&gt; ListInstanceGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388524"><span id="local-6989586621679388526"><span id="local-6989586621679388528"><span id="local-6989586621679388530"><span class="annot"><span class="annottext">ReadPrec [ListInstanceGroupsResponse]
+ReadPrec ListInstanceGroupsResponse
+Int -&gt; ReadS ListInstanceGroupsResponse
+ReadS [ListInstanceGroupsResponse]
+(Int -&gt; ReadS ListInstanceGroupsResponse)
+-&gt; ReadS [ListInstanceGroupsResponse]
+-&gt; ReadPrec ListInstanceGroupsResponse
+-&gt; ReadPrec [ListInstanceGroupsResponse]
+-&gt; Read ListInstanceGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstanceGroupsResponse]
+$creadListPrec :: ReadPrec [ListInstanceGroupsResponse]
+readPrec :: ReadPrec ListInstanceGroupsResponse
+$creadPrec :: ReadPrec ListInstanceGroupsResponse
+readList :: ReadS [ListInstanceGroupsResponse]
+$creadList :: ReadS [ListInstanceGroupsResponse]
+readsPrec :: Int -&gt; ReadS ListInstanceGroupsResponse
+$creadsPrec :: Int -&gt; ReadS ListInstanceGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388518"><span id="local-6989586621679388520"><span id="local-6989586621679388522"><span class="annot"><span class="annottext">Int -&gt; ListInstanceGroupsResponse -&gt; ShowS
+[ListInstanceGroupsResponse] -&gt; ShowS
+ListInstanceGroupsResponse -&gt; String
+(Int -&gt; ListInstanceGroupsResponse -&gt; ShowS)
+-&gt; (ListInstanceGroupsResponse -&gt; String)
+-&gt; ([ListInstanceGroupsResponse] -&gt; ShowS)
+-&gt; Show ListInstanceGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstanceGroupsResponse] -&gt; ShowS
+$cshowList :: [ListInstanceGroupsResponse] -&gt; ShowS
+show :: ListInstanceGroupsResponse -&gt; String
+$cshow :: ListInstanceGroupsResponse -&gt; String
+showsPrec :: Int -&gt; ListInstanceGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstanceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListInstanceGroupsResponse -&gt; Rep ListInstanceGroupsResponse x)
+-&gt; (forall x.
+    Rep ListInstanceGroupsResponse x -&gt; ListInstanceGroupsResponse)
+-&gt; Generic ListInstanceGroupsResponse
+forall x.
+Rep ListInstanceGroupsResponse x -&gt; ListInstanceGroupsResponse
+forall x.
+ListInstanceGroupsResponse -&gt; Rep ListInstanceGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListInstanceGroupsResponse x -&gt; ListInstanceGroupsResponse
+$cfrom :: forall x.
+ListInstanceGroupsResponse -&gt; Rep ListInstanceGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'ListInstanceGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'instanceGroups', 'listInstanceGroupsResponse_instanceGroups' - The list of instance groups for the cluster and given filters.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'marker', 'listInstanceGroupsResponse_marker' - The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'listInstanceGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroupsResponse"><span class="hs-identifier hs-type">newListInstanceGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newListInstanceGroupsResponse"><span class="annot"><span class="annottext">newListInstanceGroupsResponse :: Int -&gt; ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#newListInstanceGroupsResponse"><span class="hs-identifier hs-var hs-var">newListInstanceGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679388515"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse' :: Maybe [InstanceGroup]
+-&gt; Maybe Text -&gt; Int -&gt; ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceGroups:ListInstanceGroupsResponse' :: Maybe [InstanceGroup]
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AinstanceGroups%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListInstanceGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstanceGroupsResponse' :: Int
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AhttpStatus%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The list of instance groups for the cluster and given filters.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_instanceGroups"><span class="hs-identifier hs-type">listInstanceGroupsResponse_instanceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroup.html#InstanceGroup"><span class="hs-identifier hs-type">InstanceGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listInstanceGroupsResponse_instanceGroups"><span class="annot"><span class="annottext">listInstanceGroupsResponse_instanceGroups :: (Maybe [InstanceGroup] -&gt; f (Maybe [InstanceGroup]))
+-&gt; ListInstanceGroupsResponse -&gt; f ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_instanceGroups"><span class="hs-identifier hs-var hs-var">listInstanceGroupsResponse_instanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroupsResponse -&gt; Maybe [InstanceGroup])
+-&gt; (ListInstanceGroupsResponse
+    -&gt; Maybe [InstanceGroup] -&gt; ListInstanceGroupsResponse)
+-&gt; Lens' ListInstanceGroupsResponse (Maybe [InstanceGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388514"><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+instanceGroups :: Maybe [InstanceGroup]
+$sel:instanceGroups:ListInstanceGroupsResponse' :: ListInstanceGroupsResponse -&gt; Maybe [InstanceGroup]
+</span><a href="#local-6989586621679388514"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+</span><a href="#local-6989586621679388514"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388513"><span class="annot"><span class="annottext">s :: ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388512"><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+</span><a href="#local-6989586621679388512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroups:ListInstanceGroupsResponse' :: Maybe [InstanceGroup]
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AinstanceGroups%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroup]
+</span><a href="#local-6989586621679388512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceGroup] -&gt; f (Maybe [InstanceGroup]))
+ -&gt; ListInstanceGroupsResponse -&gt; f ListInstanceGroupsResponse)
+-&gt; ((Maybe [InstanceGroup] -&gt; f (Maybe [InstanceGroup]))
+    -&gt; Maybe [InstanceGroup] -&gt; f (Maybe [InstanceGroup]))
+-&gt; (Maybe [InstanceGroup] -&gt; f (Maybe [InstanceGroup]))
+-&gt; ListInstanceGroupsResponse
+-&gt; f ListInstanceGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceGroup] [InstanceGroup] [InstanceGroup] [InstanceGroup]
+-&gt; Iso
+     (Maybe [InstanceGroup])
+     (Maybe [InstanceGroup])
+     (Maybe [InstanceGroup])
+     (Maybe [InstanceGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceGroup] [InstanceGroup] [InstanceGroup] [InstanceGroup]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_marker"><span class="hs-identifier hs-type">listInstanceGroupsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listInstanceGroupsResponse_marker"><span class="annot"><span class="annottext">listInstanceGroupsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInstanceGroupsResponse -&gt; f ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_marker"><span class="hs-identifier hs-var hs-var">listInstanceGroupsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroupsResponse -&gt; Maybe Text)
+-&gt; (ListInstanceGroupsResponse
+    -&gt; Maybe Text -&gt; ListInstanceGroupsResponse)
+-&gt; Lens' ListInstanceGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388509"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListInstanceGroupsResponse' :: ListInstanceGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679388509"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388509"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388508"><span class="annot"><span class="annottext">s :: ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListInstanceGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3Amarker%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_httpStatus"><span class="hs-identifier hs-type">listInstanceGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="listInstanceGroupsResponse_httpStatus"><span class="annot"><span class="annottext">listInstanceGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListInstanceGroupsResponse -&gt; f ListInstanceGroupsResponse
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#listInstanceGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listInstanceGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstanceGroupsResponse -&gt; Int)
+-&gt; (ListInstanceGroupsResponse
+    -&gt; Int -&gt; ListInstanceGroupsResponse)
+-&gt; Lens
+     ListInstanceGroupsResponse ListInstanceGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388506"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListInstanceGroupsResponse' :: ListInstanceGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679388506"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388506"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388505"><span class="annot"><span class="annottext">s :: ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse%27"><span class="hs-identifier hs-type">ListInstanceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstanceGroupsResponse
+</span><a href="#local-6989586621679388505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstanceGroupsResponse' :: Int
+</span><a href="Network.AWS.EMR.ListInstanceGroups.html#%24sel%3AhttpStatus%3AListInstanceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ListInstanceGroups.html#ListInstanceGroupsResponse"><span class="hs-identifier hs-type">ListInstanceGroupsResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.Types.RemoteIpDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.Types.RemoteIpDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.City</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Country.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.Country</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.GeoLocation.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.GeoLocation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types.Organization</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains information about the remote IP address of the connection.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRemoteIpDetails' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298984"><span id="local-6989586621679298985"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoteIpDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-var">RemoteIpDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoteIpDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-var">RemoteIpDetails'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location information of the remote IP address.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgeoLocation%3ARemoteIpDetails%27"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; Maybe GeoLocation
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AgeoLocation%3ARemoteIpDetails%27"><span class="hs-identifier hs-var hs-var">geoLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The city information of the remote IP address.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acity%3ARemoteIpDetails%27"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; Maybe City
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acity%3ARemoteIpDetails%27"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ISP organization information of the remote IP address.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aorganization%3ARemoteIpDetails%27"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; Maybe Organization
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Aorganization%3ARemoteIpDetails%27"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The country code of the remote IP address.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acountry%3ARemoteIpDetails%27"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; Maybe Country
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acountry%3ARemoteIpDetails%27"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Country.html#Country"><span class="hs-identifier hs-type">Country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The IPv4 remote address of the connection.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AipAddressV4%3ARemoteIpDetails%27"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AipAddressV4%3ARemoteIpDetails%27"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298974"><span id="local-6989586621679298976"><span class="annot"><span class="annottext">RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool
+(RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool)
+-&gt; (RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool)
+-&gt; Eq RemoteIpDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool
+$c/= :: RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool
+== :: RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool
+$c== :: RemoteIpDetails -&gt; RemoteIpDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298965"><span id="local-6989586621679298967"><span id="local-6989586621679298969"><span id="local-6989586621679298971"><span class="annot"><span class="annottext">ReadPrec [RemoteIpDetails]
+ReadPrec RemoteIpDetails
+Int -&gt; ReadS RemoteIpDetails
+ReadS [RemoteIpDetails]
+(Int -&gt; ReadS RemoteIpDetails)
+-&gt; ReadS [RemoteIpDetails]
+-&gt; ReadPrec RemoteIpDetails
+-&gt; ReadPrec [RemoteIpDetails]
+-&gt; Read RemoteIpDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoteIpDetails]
+$creadListPrec :: ReadPrec [RemoteIpDetails]
+readPrec :: ReadPrec RemoteIpDetails
+$creadPrec :: ReadPrec RemoteIpDetails
+readList :: ReadS [RemoteIpDetails]
+$creadList :: ReadS [RemoteIpDetails]
+readsPrec :: Int -&gt; ReadS RemoteIpDetails
+$creadsPrec :: Int -&gt; ReadS RemoteIpDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298958"><span id="local-6989586621679298960"><span id="local-6989586621679298962"><span class="annot"><span class="annottext">Int -&gt; RemoteIpDetails -&gt; ShowS
+[RemoteIpDetails] -&gt; ShowS
+RemoteIpDetails -&gt; String
+(Int -&gt; RemoteIpDetails -&gt; ShowS)
+-&gt; (RemoteIpDetails -&gt; String)
+-&gt; ([RemoteIpDetails] -&gt; ShowS)
+-&gt; Show RemoteIpDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoteIpDetails] -&gt; ShowS
+$cshowList :: [RemoteIpDetails] -&gt; ShowS
+show :: RemoteIpDetails -&gt; String
+$cshow :: RemoteIpDetails -&gt; String
+showsPrec :: Int -&gt; RemoteIpDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoteIpDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RemoteIpDetails -&gt; Rep RemoteIpDetails x)
+-&gt; (forall x. Rep RemoteIpDetails x -&gt; RemoteIpDetails)
+-&gt; Generic RemoteIpDetails
+forall x. Rep RemoteIpDetails x -&gt; RemoteIpDetails
+forall x. RemoteIpDetails -&gt; Rep RemoteIpDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RemoteIpDetails x -&gt; RemoteIpDetails
+$cfrom :: forall x. RemoteIpDetails -&gt; Rep RemoteIpDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'RemoteIpDetails' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'geoLocation', 'remoteIpDetails_geoLocation' - The location information of the remote IP address.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'city', 'remoteIpDetails_city' - The city information of the remote IP address.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'organization', 'remoteIpDetails_organization' - The ISP organization information of the remote IP address.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'country', 'remoteIpDetails_country' - The country code of the remote IP address.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ipAddressV4', 'remoteIpDetails_ipAddressV4' - The IPv4 remote address of the connection.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#newRemoteIpDetails"><span class="hs-identifier hs-type">newRemoteIpDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span>
+</span><span id="line-66"></span><span id="newRemoteIpDetails"><span class="annot"><span class="annottext">newRemoteIpDetails :: RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#newRemoteIpDetails"><span class="hs-identifier hs-var hs-var">newRemoteIpDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">RemoteIpDetails' :: Maybe GeoLocation
+-&gt; Maybe City
+-&gt; Maybe Organization
+-&gt; Maybe Country
+-&gt; Maybe Text
+-&gt; RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:geoLocation:RemoteIpDetails' :: Maybe GeoLocation
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AgeoLocation%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">geoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:city:RemoteIpDetails' :: Maybe City
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acity%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe City
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:organization:RemoteIpDetails' :: Maybe Organization
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Aorganization%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">organization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:country:RemoteIpDetails' :: Maybe Country
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acountry%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Country
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddressV4:RemoteIpDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AipAddressV4%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The location information of the remote IP address.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_geoLocation"><span class="hs-identifier hs-type">remoteIpDetails_geoLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="remoteIpDetails_geoLocation"><span class="annot"><span class="annottext">remoteIpDetails_geoLocation :: (Maybe GeoLocation -&gt; f (Maybe GeoLocation))
+-&gt; RemoteIpDetails -&gt; f RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_geoLocation"><span class="hs-identifier hs-var hs-var">remoteIpDetails_geoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoteIpDetails -&gt; Maybe GeoLocation)
+-&gt; (RemoteIpDetails -&gt; Maybe GeoLocation -&gt; RemoteIpDetails)
+-&gt; Lens
+     RemoteIpDetails
+     RemoteIpDetails
+     (Maybe GeoLocation)
+     (Maybe GeoLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298949"><span class="annot"><span class="annottext">Maybe GeoLocation
+geoLocation :: Maybe GeoLocation
+$sel:geoLocation:RemoteIpDetails' :: RemoteIpDetails -&gt; Maybe GeoLocation
+</span><a href="#local-6989586621679298949"><span class="hs-identifier hs-var hs-var">geoLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><a href="#local-6989586621679298949"><span class="hs-identifier hs-var">geoLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298948"><span class="annot"><span class="annottext">s :: RemoteIpDetails
+</span><a href="#local-6989586621679298948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298947"><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><a href="#local-6989586621679298947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteIpDetails
+</span><a href="#local-6989586621679298948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocation:RemoteIpDetails' :: Maybe GeoLocation
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AgeoLocation%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">geoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><a href="#local-6989586621679298947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The city information of the remote IP address.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_city"><span class="hs-identifier hs-type">remoteIpDetails_city</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="remoteIpDetails_city"><span class="annot"><span class="annottext">remoteIpDetails_city :: (Maybe City -&gt; f (Maybe City))
+-&gt; RemoteIpDetails -&gt; f RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_city"><span class="hs-identifier hs-var hs-var">remoteIpDetails_city</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoteIpDetails -&gt; Maybe City)
+-&gt; (RemoteIpDetails -&gt; Maybe City -&gt; RemoteIpDetails)
+-&gt; Lens RemoteIpDetails RemoteIpDetails (Maybe City) (Maybe City)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298945"><span class="annot"><span class="annottext">Maybe City
+city :: Maybe City
+$sel:city:RemoteIpDetails' :: RemoteIpDetails -&gt; Maybe City
+</span><a href="#local-6989586621679298945"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe City
+</span><a href="#local-6989586621679298945"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298944"><span class="annot"><span class="annottext">s :: RemoteIpDetails
+</span><a href="#local-6989586621679298944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298943"><span class="annot"><span class="annottext">Maybe City
+</span><a href="#local-6989586621679298943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteIpDetails
+</span><a href="#local-6989586621679298944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:RemoteIpDetails' :: Maybe City
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acity%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe City
+</span><a href="#local-6989586621679298943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ISP organization information of the remote IP address.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_organization"><span class="hs-identifier hs-type">remoteIpDetails_organization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="remoteIpDetails_organization"><span class="annot"><span class="annottext">remoteIpDetails_organization :: (Maybe Organization -&gt; f (Maybe Organization))
+-&gt; RemoteIpDetails -&gt; f RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_organization"><span class="hs-identifier hs-var hs-var">remoteIpDetails_organization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoteIpDetails -&gt; Maybe Organization)
+-&gt; (RemoteIpDetails -&gt; Maybe Organization -&gt; RemoteIpDetails)
+-&gt; Lens
+     RemoteIpDetails
+     RemoteIpDetails
+     (Maybe Organization)
+     (Maybe Organization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298941"><span class="annot"><span class="annottext">Maybe Organization
+organization :: Maybe Organization
+$sel:organization:RemoteIpDetails' :: RemoteIpDetails -&gt; Maybe Organization
+</span><a href="#local-6989586621679298941"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
+</span><a href="#local-6989586621679298941"><span class="hs-identifier hs-var">organization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298940"><span class="annot"><span class="annottext">s :: RemoteIpDetails
+</span><a href="#local-6989586621679298940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298939"><span class="annot"><span class="annottext">Maybe Organization
+</span><a href="#local-6989586621679298939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteIpDetails
+</span><a href="#local-6989586621679298940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organization:RemoteIpDetails' :: Maybe Organization
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Aorganization%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">organization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
+</span><a href="#local-6989586621679298939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The country code of the remote IP address.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_country"><span class="hs-identifier hs-type">remoteIpDetails_country</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Country.html#Country"><span class="hs-identifier hs-type">Country</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="remoteIpDetails_country"><span class="annot"><span class="annottext">remoteIpDetails_country :: (Maybe Country -&gt; f (Maybe Country))
+-&gt; RemoteIpDetails -&gt; f RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_country"><span class="hs-identifier hs-var hs-var">remoteIpDetails_country</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoteIpDetails -&gt; Maybe Country)
+-&gt; (RemoteIpDetails -&gt; Maybe Country -&gt; RemoteIpDetails)
+-&gt; Lens
+     RemoteIpDetails RemoteIpDetails (Maybe Country) (Maybe Country)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298937"><span class="annot"><span class="annottext">Maybe Country
+country :: Maybe Country
+$sel:country:RemoteIpDetails' :: RemoteIpDetails -&gt; Maybe Country
+</span><a href="#local-6989586621679298937"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Country
+</span><a href="#local-6989586621679298937"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298936"><span class="annot"><span class="annottext">s :: RemoteIpDetails
+</span><a href="#local-6989586621679298936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298935"><span class="annot"><span class="annottext">Maybe Country
+</span><a href="#local-6989586621679298935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteIpDetails
+</span><a href="#local-6989586621679298936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:RemoteIpDetails' :: Maybe Country
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3Acountry%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Country
+</span><a href="#local-6989586621679298935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The IPv4 remote address of the connection.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_ipAddressV4"><span class="hs-identifier hs-type">remoteIpDetails_ipAddressV4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="remoteIpDetails_ipAddressV4"><span class="annot"><span class="annottext">remoteIpDetails_ipAddressV4 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoteIpDetails -&gt; f RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#remoteIpDetails_ipAddressV4"><span class="hs-identifier hs-var hs-var">remoteIpDetails_ipAddressV4</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoteIpDetails -&gt; Maybe Text)
+-&gt; (RemoteIpDetails -&gt; Maybe Text -&gt; RemoteIpDetails)
+-&gt; Lens RemoteIpDetails RemoteIpDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298933"><span class="annot"><span class="annottext">Maybe Text
+ipAddressV4 :: Maybe Text
+$sel:ipAddressV4:RemoteIpDetails' :: RemoteIpDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679298933"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298933"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298932"><span class="annot"><span class="annottext">s :: RemoteIpDetails
+</span><a href="#local-6989586621679298932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-type">RemoteIpDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298931"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoteIpDetails
+</span><a href="#local-6989586621679298932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressV4:RemoteIpDetails' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#%24sel%3AipAddressV4%3ARemoteIpDetails%27"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298928"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679298926"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemoteIpDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RemoteIpDetails)
+-&gt; Value
+-&gt; Parser RemoteIpDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RemoteIpDetails&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298923"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe GeoLocation
+-&gt; Maybe City
+-&gt; Maybe Organization
+-&gt; Maybe Country
+-&gt; Maybe Text
+-&gt; RemoteIpDetails
+</span><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails%27"><span class="hs-identifier hs-var">RemoteIpDetails'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GeoLocation
+ -&gt; Maybe City
+ -&gt; Maybe Organization
+ -&gt; Maybe Country
+ -&gt; Maybe Text
+ -&gt; RemoteIpDetails)
+-&gt; Parser (Maybe GeoLocation)
+-&gt; Parser
+     (Maybe City
+      -&gt; Maybe Organization
+      -&gt; Maybe Country
+      -&gt; Maybe Text
+      -&gt; RemoteIpDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GeoLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;geoLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe City
+   -&gt; Maybe Organization
+   -&gt; Maybe Country
+   -&gt; Maybe Text
+   -&gt; RemoteIpDetails)
+-&gt; Parser (Maybe City)
+-&gt; Parser
+     (Maybe Organization
+      -&gt; Maybe Country -&gt; Maybe Text -&gt; RemoteIpDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe City)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;city&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Organization
+   -&gt; Maybe Country -&gt; Maybe Text -&gt; RemoteIpDetails)
+-&gt; Parser (Maybe Organization)
+-&gt; Parser (Maybe Country -&gt; Maybe Text -&gt; RemoteIpDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Organization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;organization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Country -&gt; Maybe Text -&gt; RemoteIpDetails)
+-&gt; Parser (Maybe Country) -&gt; Parser (Maybe Text -&gt; RemoteIpDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Country)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;country&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RemoteIpDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser RemoteIpDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddressV4&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298917"><span id="local-6989586621679298919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.RemoteIpDetails.html#RemoteIpDetails"><span class="hs-identifier hs-type">RemoteIpDetails</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

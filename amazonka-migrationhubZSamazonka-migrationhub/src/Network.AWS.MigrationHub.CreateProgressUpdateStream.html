@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MigrationHub.CreateProgressUpdateStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a progress update stream which is an AWS resource used for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- access control as well as a namespace for migration task names that is</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- implicitly linked to your AWS account. It must uniquely identify the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- migration tool as it is used for all updates made by the tool; however,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- it does not need to be unique for each AWS account because it is scoped</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to the AWS account.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MigrationHub.CreateProgressUpdateStream</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStream"><span class="hs-identifier">newCreateProgressUpdateStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_dryRun"><span class="hs-identifier">createProgressUpdateStream_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_progressUpdateStreamName"><span class="hs-identifier">createProgressUpdateStream_progressUpdateStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier">CreateProgressUpdateStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStreamResponse"><span class="hs-identifier">newCreateProgressUpdateStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStreamResponse_httpStatus"><span class="hs-identifier">createProgressUpdateStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.html"><span class="hs-identifier">Network.AWS.MigrationHub.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateProgressUpdateStream' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679174321"><span id="local-6989586621679174322"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProgressUpdateStream"><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-var">CreateProgressUpdateStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProgressUpdateStream%27"><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-var">CreateProgressUpdateStream'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional boolean flag to indicate whether any effect should take place.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Used to test if the caller has permission to make the call.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateProgressUpdateStream%27"><span class="annot"><span class="annottext">CreateProgressUpdateStream -&gt; Maybe Bool
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AdryRun%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the ProgressUpdateStream. /Do not store personal data in</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- this field./</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AprogressUpdateStreamName%3ACreateProgressUpdateStream%27"><span class="annot"><span class="annottext">CreateProgressUpdateStream -&gt; Text
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AprogressUpdateStreamName%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var hs-var">progressUpdateStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174314"><span id="local-6989586621679174316"><span class="annot"><span class="annottext">CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool
+(CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool)
+-&gt; (CreateProgressUpdateStream
+    -&gt; CreateProgressUpdateStream -&gt; Bool)
+-&gt; Eq CreateProgressUpdateStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool
+$c/= :: CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool
+== :: CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool
+$c== :: CreateProgressUpdateStream -&gt; CreateProgressUpdateStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174305"><span id="local-6989586621679174307"><span id="local-6989586621679174309"><span id="local-6989586621679174311"><span class="annot"><span class="annottext">ReadPrec [CreateProgressUpdateStream]
+ReadPrec CreateProgressUpdateStream
+Int -&gt; ReadS CreateProgressUpdateStream
+ReadS [CreateProgressUpdateStream]
+(Int -&gt; ReadS CreateProgressUpdateStream)
+-&gt; ReadS [CreateProgressUpdateStream]
+-&gt; ReadPrec CreateProgressUpdateStream
+-&gt; ReadPrec [CreateProgressUpdateStream]
+-&gt; Read CreateProgressUpdateStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProgressUpdateStream]
+$creadListPrec :: ReadPrec [CreateProgressUpdateStream]
+readPrec :: ReadPrec CreateProgressUpdateStream
+$creadPrec :: ReadPrec CreateProgressUpdateStream
+readList :: ReadS [CreateProgressUpdateStream]
+$creadList :: ReadS [CreateProgressUpdateStream]
+readsPrec :: Int -&gt; ReadS CreateProgressUpdateStream
+$creadsPrec :: Int -&gt; ReadS CreateProgressUpdateStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174298"><span id="local-6989586621679174300"><span id="local-6989586621679174302"><span class="annot"><span class="annottext">Int -&gt; CreateProgressUpdateStream -&gt; ShowS
+[CreateProgressUpdateStream] -&gt; ShowS
+CreateProgressUpdateStream -&gt; String
+(Int -&gt; CreateProgressUpdateStream -&gt; ShowS)
+-&gt; (CreateProgressUpdateStream -&gt; String)
+-&gt; ([CreateProgressUpdateStream] -&gt; ShowS)
+-&gt; Show CreateProgressUpdateStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProgressUpdateStream] -&gt; ShowS
+$cshowList :: [CreateProgressUpdateStream] -&gt; ShowS
+show :: CreateProgressUpdateStream -&gt; String
+$cshow :: CreateProgressUpdateStream -&gt; String
+showsPrec :: Int -&gt; CreateProgressUpdateStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProgressUpdateStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateProgressUpdateStream -&gt; Rep CreateProgressUpdateStream x)
+-&gt; (forall x.
+    Rep CreateProgressUpdateStream x -&gt; CreateProgressUpdateStream)
+-&gt; Generic CreateProgressUpdateStream
+forall x.
+Rep CreateProgressUpdateStream x -&gt; CreateProgressUpdateStream
+forall x.
+CreateProgressUpdateStream -&gt; Rep CreateProgressUpdateStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateProgressUpdateStream x -&gt; CreateProgressUpdateStream
+$cfrom :: forall x.
+CreateProgressUpdateStream -&gt; Rep CreateProgressUpdateStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'CreateProgressUpdateStream' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'dryRun', 'createProgressUpdateStream_dryRun' - Optional boolean flag to indicate whether any effect should take place.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Used to test if the caller has permission to make the call.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'progressUpdateStreamName', 'createProgressUpdateStream_progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- this field./</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStream"><span class="hs-identifier hs-type">newCreateProgressUpdateStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'progressUpdateStreamName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span>
+</span><span id="line-82"></span><span id="newCreateProgressUpdateStream"><span class="annot"><span class="annottext">newCreateProgressUpdateStream :: Text -&gt; CreateProgressUpdateStream
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStream"><span class="hs-identifier hs-var hs-var">newCreateProgressUpdateStream</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679174293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174293"><span class="hs-identifier hs-var">pProgressUpdateStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">CreateProgressUpdateStream' :: Maybe Bool -&gt; Text -&gt; CreateProgressUpdateStream
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:CreateProgressUpdateStream' :: Maybe Bool
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AdryRun%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:progressUpdateStreamName:CreateProgressUpdateStream' :: Text
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AprogressUpdateStreamName%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var">progressUpdateStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174293"><span class="hs-identifier hs-var">pProgressUpdateStreamName_</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Optional boolean flag to indicate whether any effect should take place.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Used to test if the caller has permission to make the call.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_dryRun"><span class="hs-identifier hs-type">createProgressUpdateStream_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="createProgressUpdateStream_dryRun"><span class="annot"><span class="annottext">createProgressUpdateStream_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateProgressUpdateStream -&gt; f CreateProgressUpdateStream
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_dryRun"><span class="hs-identifier hs-var hs-var">createProgressUpdateStream_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProgressUpdateStream -&gt; Maybe Bool)
+-&gt; (CreateProgressUpdateStream
+    -&gt; Maybe Bool -&gt; CreateProgressUpdateStream)
+-&gt; Lens
+     CreateProgressUpdateStream
+     CreateProgressUpdateStream
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174290"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateProgressUpdateStream' :: CreateProgressUpdateStream -&gt; Maybe Bool
+</span><a href="#local-6989586621679174290"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174290"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174289"><span class="annot"><span class="annottext">s :: CreateProgressUpdateStream
+</span><a href="#local-6989586621679174289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174288"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProgressUpdateStream
+</span><a href="#local-6989586621679174289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateProgressUpdateStream' :: Maybe Bool
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AdryRun%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the ProgressUpdateStream. /Do not store personal data in</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- this field./</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_progressUpdateStreamName"><span class="hs-identifier hs-type">createProgressUpdateStream_progressUpdateStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="createProgressUpdateStream_progressUpdateStreamName"><span class="annot"><span class="annottext">createProgressUpdateStream_progressUpdateStreamName :: (Text -&gt; f Text)
+-&gt; CreateProgressUpdateStream -&gt; f CreateProgressUpdateStream
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStream_progressUpdateStreamName"><span class="hs-identifier hs-var hs-var">createProgressUpdateStream_progressUpdateStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProgressUpdateStream -&gt; Text)
+-&gt; (CreateProgressUpdateStream
+    -&gt; Text -&gt; CreateProgressUpdateStream)
+-&gt; Lens
+     CreateProgressUpdateStream CreateProgressUpdateStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174287"><span class="annot"><span class="annottext">Text
+progressUpdateStreamName :: Text
+$sel:progressUpdateStreamName:CreateProgressUpdateStream' :: CreateProgressUpdateStream -&gt; Text
+</span><a href="#local-6989586621679174287"><span class="hs-identifier hs-var hs-var">progressUpdateStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174287"><span class="hs-identifier hs-var">progressUpdateStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174286"><span class="annot"><span class="annottext">s :: CreateProgressUpdateStream
+</span><a href="#local-6989586621679174286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProgressUpdateStream
+</span><a href="#local-6989586621679174286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStreamName:CreateProgressUpdateStream' :: Text
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AprogressUpdateStreamName%3ACreateProgressUpdateStream%27"><span class="hs-identifier hs-var">progressUpdateStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679174281"><span class="annot"><span class="annottext">request :: CreateProgressUpdateStream -&gt; Request CreateProgressUpdateStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateProgressUpdateStream -&gt; Request CreateProgressUpdateStream
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679174277"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProgressUpdateStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProgressUpdateStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CreateProgressUpdateStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProgressUpdateStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateProgressUpdateStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174274"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174274"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174273"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679174273"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174272"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679174272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateProgressUpdateStreamResponse
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-var">CreateProgressUpdateStreamResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateProgressUpdateStreamResponse)
+-&gt; Either String Int
+-&gt; Either String CreateProgressUpdateStreamResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174274"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174265"><span id="local-6989586621679174267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679174258"><span class="annot"><span class="annottext">toHeaders :: CreateProgressUpdateStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProgressUpdateStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSMigrationHub.CreateProgressUpdateStream&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174248"><span id="local-6989586621679174250"><span id="local-6989586621679174252"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679174246"><span class="annot"><span class="annottext">toJSON :: CreateProgressUpdateStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream%27"><span class="hs-identifier hs-type">CreateProgressUpdateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174243"><span id="local-6989586621679174244"><span class="annot"><span class="annottext">Maybe Bool
+Text
+progressUpdateStreamName :: Text
+dryRun :: Maybe Bool
+$sel:progressUpdateStreamName:CreateProgressUpdateStream' :: CreateProgressUpdateStream -&gt; Text
+$sel:dryRun:CreateProgressUpdateStream' :: CreateProgressUpdateStream -&gt; Maybe Bool
+</span><a href="#local-6989586621679174243"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174244"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressUpdateStreamName&quot;</span></span><span>
+</span><span id="line-139"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174243"><span class="hs-identifier hs-var">progressUpdateStreamName</span></a></span><span>
+</span><span id="line-140"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679174237"><span class="annot"><span class="annottext">toPath :: CreateProgressUpdateStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProgressUpdateStream -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStream"><span class="hs-identifier hs-type">CreateProgressUpdateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679174233"><span class="annot"><span class="annottext">toQuery :: CreateProgressUpdateStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProgressUpdateStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newCreateProgressUpdateStreamResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679174230"><span id="local-6989586621679174231"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProgressUpdateStreamResponse"><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-var">CreateProgressUpdateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProgressUpdateStreamResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-var">CreateProgressUpdateStreamResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProgressUpdateStreamResponse%27"><span class="annot"><span class="annottext">CreateProgressUpdateStreamResponse -&gt; Int
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AhttpStatus%3ACreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174225"><span id="local-6989586621679174227"><span class="annot"><span class="annottext">CreateProgressUpdateStreamResponse
+-&gt; CreateProgressUpdateStreamResponse -&gt; Bool
+(CreateProgressUpdateStreamResponse
+ -&gt; CreateProgressUpdateStreamResponse -&gt; Bool)
+-&gt; (CreateProgressUpdateStreamResponse
+    -&gt; CreateProgressUpdateStreamResponse -&gt; Bool)
+-&gt; Eq CreateProgressUpdateStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProgressUpdateStreamResponse
+-&gt; CreateProgressUpdateStreamResponse -&gt; Bool
+$c/= :: CreateProgressUpdateStreamResponse
+-&gt; CreateProgressUpdateStreamResponse -&gt; Bool
+== :: CreateProgressUpdateStreamResponse
+-&gt; CreateProgressUpdateStreamResponse -&gt; Bool
+$c== :: CreateProgressUpdateStreamResponse
+-&gt; CreateProgressUpdateStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174217"><span id="local-6989586621679174219"><span id="local-6989586621679174221"><span id="local-6989586621679174223"><span class="annot"><span class="annottext">ReadPrec [CreateProgressUpdateStreamResponse]
+ReadPrec CreateProgressUpdateStreamResponse
+Int -&gt; ReadS CreateProgressUpdateStreamResponse
+ReadS [CreateProgressUpdateStreamResponse]
+(Int -&gt; ReadS CreateProgressUpdateStreamResponse)
+-&gt; ReadS [CreateProgressUpdateStreamResponse]
+-&gt; ReadPrec CreateProgressUpdateStreamResponse
+-&gt; ReadPrec [CreateProgressUpdateStreamResponse]
+-&gt; Read CreateProgressUpdateStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProgressUpdateStreamResponse]
+$creadListPrec :: ReadPrec [CreateProgressUpdateStreamResponse]
+readPrec :: ReadPrec CreateProgressUpdateStreamResponse
+$creadPrec :: ReadPrec CreateProgressUpdateStreamResponse
+readList :: ReadS [CreateProgressUpdateStreamResponse]
+$creadList :: ReadS [CreateProgressUpdateStreamResponse]
+readsPrec :: Int -&gt; ReadS CreateProgressUpdateStreamResponse
+$creadsPrec :: Int -&gt; ReadS CreateProgressUpdateStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174211"><span id="local-6989586621679174213"><span id="local-6989586621679174215"><span class="annot"><span class="annottext">Int -&gt; CreateProgressUpdateStreamResponse -&gt; ShowS
+[CreateProgressUpdateStreamResponse] -&gt; ShowS
+CreateProgressUpdateStreamResponse -&gt; String
+(Int -&gt; CreateProgressUpdateStreamResponse -&gt; ShowS)
+-&gt; (CreateProgressUpdateStreamResponse -&gt; String)
+-&gt; ([CreateProgressUpdateStreamResponse] -&gt; ShowS)
+-&gt; Show CreateProgressUpdateStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProgressUpdateStreamResponse] -&gt; ShowS
+$cshowList :: [CreateProgressUpdateStreamResponse] -&gt; ShowS
+show :: CreateProgressUpdateStreamResponse -&gt; String
+$cshow :: CreateProgressUpdateStreamResponse -&gt; String
+showsPrec :: Int -&gt; CreateProgressUpdateStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProgressUpdateStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateProgressUpdateStreamResponse
+ -&gt; Rep CreateProgressUpdateStreamResponse x)
+-&gt; (forall x.
+    Rep CreateProgressUpdateStreamResponse x
+    -&gt; CreateProgressUpdateStreamResponse)
+-&gt; Generic CreateProgressUpdateStreamResponse
+forall x.
+Rep CreateProgressUpdateStreamResponse x
+-&gt; CreateProgressUpdateStreamResponse
+forall x.
+CreateProgressUpdateStreamResponse
+-&gt; Rep CreateProgressUpdateStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateProgressUpdateStreamResponse x
+-&gt; CreateProgressUpdateStreamResponse
+$cfrom :: forall x.
+CreateProgressUpdateStreamResponse
+-&gt; Rep CreateProgressUpdateStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'CreateProgressUpdateStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'createProgressUpdateStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">newCreateProgressUpdateStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newCreateProgressUpdateStreamResponse"><span class="annot"><span class="annottext">newCreateProgressUpdateStreamResponse :: Int -&gt; CreateProgressUpdateStreamResponse
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#newCreateProgressUpdateStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateProgressUpdateStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679174208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">CreateProgressUpdateStreamResponse' :: Int -&gt; CreateProgressUpdateStreamResponse
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProgressUpdateStreamResponse' :: Int
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AhttpStatus%3ACreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStreamResponse_httpStatus"><span class="hs-identifier hs-type">createProgressUpdateStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span id="createProgressUpdateStreamResponse_httpStatus"><span class="annot"><span class="annottext">createProgressUpdateStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateProgressUpdateStreamResponse
+-&gt; f CreateProgressUpdateStreamResponse
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#createProgressUpdateStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProgressUpdateStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProgressUpdateStreamResponse -&gt; Int)
+-&gt; (CreateProgressUpdateStreamResponse
+    -&gt; Int -&gt; CreateProgressUpdateStreamResponse)
+-&gt; Lens
+     CreateProgressUpdateStreamResponse
+     CreateProgressUpdateStreamResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174207"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProgressUpdateStreamResponse' :: CreateProgressUpdateStreamResponse -&gt; Int
+</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174206"><span class="annot"><span class="annottext">s :: CreateProgressUpdateStreamResponse
+</span><a href="#local-6989586621679174206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174205"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProgressUpdateStreamResponse
+</span><a href="#local-6989586621679174206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProgressUpdateStreamResponse' :: Int
+</span><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#%24sel%3AhttpStatus%3ACreateProgressUpdateStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679174203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.CreateProgressUpdateStream.html#CreateProgressUpdateStreamResponse"><span class="hs-identifier hs-type">CreateProgressUpdateStreamResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

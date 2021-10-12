@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.StopFleet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops the specified fleet.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.StopFleet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier">StopFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#newStopFleet"><span class="hs-identifier">newStopFleet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#stopFleet_name"><span class="hs-identifier">stopFleet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier">StopFleetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#newStopFleetResponse"><span class="hs-identifier">newStopFleetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#stopFleetResponse_httpStatus"><span class="hs-identifier">stopFleetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.html"><span class="hs-identifier">Network.AWS.AppStream.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newStopFleet' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679293555"><span id="local-6989586621679293556"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleet"><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-var">StopFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleet%27"><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet%27"><span class="hs-identifier hs-var">StopFleet'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3AStopFleet%27"><span class="annot"><span class="annottext">StopFleet -&gt; Text
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3Aname%3AStopFleet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293549"><span id="local-6989586621679293551"><span class="annot"><span class="annottext">StopFleet -&gt; StopFleet -&gt; Bool
+(StopFleet -&gt; StopFleet -&gt; Bool)
+-&gt; (StopFleet -&gt; StopFleet -&gt; Bool) -&gt; Eq StopFleet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopFleet -&gt; StopFleet -&gt; Bool
+$c/= :: StopFleet -&gt; StopFleet -&gt; Bool
+== :: StopFleet -&gt; StopFleet -&gt; Bool
+$c== :: StopFleet -&gt; StopFleet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293540"><span id="local-6989586621679293542"><span id="local-6989586621679293544"><span id="local-6989586621679293546"><span class="annot"><span class="annottext">ReadPrec [StopFleet]
+ReadPrec StopFleet
+Int -&gt; ReadS StopFleet
+ReadS [StopFleet]
+(Int -&gt; ReadS StopFleet)
+-&gt; ReadS [StopFleet]
+-&gt; ReadPrec StopFleet
+-&gt; ReadPrec [StopFleet]
+-&gt; Read StopFleet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopFleet]
+$creadListPrec :: ReadPrec [StopFleet]
+readPrec :: ReadPrec StopFleet
+$creadPrec :: ReadPrec StopFleet
+readList :: ReadS [StopFleet]
+$creadList :: ReadS [StopFleet]
+readsPrec :: Int -&gt; ReadS StopFleet
+$creadsPrec :: Int -&gt; ReadS StopFleet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293533"><span id="local-6989586621679293535"><span id="local-6989586621679293537"><span class="annot"><span class="annottext">Int -&gt; StopFleet -&gt; ShowS
+[StopFleet] -&gt; ShowS
+StopFleet -&gt; String
+(Int -&gt; StopFleet -&gt; ShowS)
+-&gt; (StopFleet -&gt; String)
+-&gt; ([StopFleet] -&gt; ShowS)
+-&gt; Show StopFleet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopFleet] -&gt; ShowS
+$cshowList :: [StopFleet] -&gt; ShowS
+show :: StopFleet -&gt; String
+$cshow :: StopFleet -&gt; String
+showsPrec :: Int -&gt; StopFleet -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopFleet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopFleet -&gt; Rep StopFleet x)
+-&gt; (forall x. Rep StopFleet x -&gt; StopFleet) -&gt; Generic StopFleet
+forall x. Rep StopFleet x -&gt; StopFleet
+forall x. StopFleet -&gt; Rep StopFleet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopFleet x -&gt; StopFleet
+$cfrom :: forall x. StopFleet -&gt; Rep StopFleet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'StopFleet' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'stopFleet_name' - The name of the fleet.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#newStopFleet"><span class="hs-identifier hs-type">newStopFleet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span>
+</span><span id="line-68"></span><span id="newStopFleet"><span class="annot"><span class="annottext">newStopFleet :: Text -&gt; StopFleet
+</span><a href="Network.AWS.AppStream.StopFleet.html#newStopFleet"><span class="hs-identifier hs-var hs-var">newStopFleet</span></a></span></span><span> </span><span id="local-6989586621679293528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293528"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopFleet' :: Text -&gt; StopFleet
+</span><a href="Network.AWS.AppStream.StopFleet.html#StopFleet%27"><span class="hs-identifier hs-type">StopFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopFleet' :: Text
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3Aname%3AStopFleet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293528"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#stopFleet_name"><span class="hs-identifier hs-type">stopFleet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span id="stopFleet_name"><span class="annot"><span class="annottext">stopFleet_name :: (Text -&gt; f Text) -&gt; StopFleet -&gt; f StopFleet
+</span><a href="Network.AWS.AppStream.StopFleet.html#stopFleet_name"><span class="hs-identifier hs-var hs-var">stopFleet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFleet -&gt; Text)
+-&gt; (StopFleet -&gt; Text -&gt; StopFleet)
+-&gt; Lens StopFleet StopFleet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet%27"><span class="hs-identifier hs-type">StopFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293525"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StopFleet' :: StopFleet -&gt; Text
+</span><a href="#local-6989586621679293525"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293525"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293524"><span class="annot"><span class="annottext">s :: StopFleet
+</span><a href="#local-6989586621679293524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet%27"><span class="hs-identifier hs-type">StopFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleet
+</span><a href="#local-6989586621679293524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopFleet' :: Text
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3Aname%3AStopFleet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-type">StopFleetResponse</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679293519"><span class="annot"><span class="annottext">request :: StopFleet -&gt; Request StopFleet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopFleet -&gt; Request StopFleet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679293515"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopFleet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopFleet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse StopFleet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopFleet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopFleet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293512"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293511"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293511"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293510"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679293510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopFleetResponse
+</span><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse%27"><span class="hs-identifier hs-var">StopFleetResponse'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopFleetResponse)
+-&gt; Either String Int -&gt; Either String StopFleetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293512"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293503"><span id="local-6989586621679293505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679293496"><span class="annot"><span class="annottext">toHeaders :: StopFleet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopFleet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhotonAdminProxyService.StopFleet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-95"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293486"><span id="local-6989586621679293488"><span id="local-6989586621679293490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679293484"><span class="annot"><span class="annottext">toJSON :: StopFleet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet%27"><span class="hs-identifier hs-type">StopFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293482"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StopFleet' :: StopFleet -&gt; Text
+</span><a href="#local-6989586621679293482"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293482"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679293476"><span class="annot"><span class="annottext">toPath :: StopFleet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopFleet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleet"><span class="hs-identifier hs-type">StopFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679293472"><span class="annot"><span class="annottext">toQuery :: StopFleet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopFleet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newStopFleetResponse' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679293469"><span id="local-6989586621679293470"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleetResponse"><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-var">StopFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleetResponse%27"><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse%27"><span class="hs-identifier hs-var">StopFleetResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopFleetResponse%27"><span class="annot"><span class="annottext">StopFleetResponse -&gt; Int
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3AhttpStatus%3AStopFleetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293464"><span id="local-6989586621679293466"><span class="annot"><span class="annottext">StopFleetResponse -&gt; StopFleetResponse -&gt; Bool
+(StopFleetResponse -&gt; StopFleetResponse -&gt; Bool)
+-&gt; (StopFleetResponse -&gt; StopFleetResponse -&gt; Bool)
+-&gt; Eq StopFleetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopFleetResponse -&gt; StopFleetResponse -&gt; Bool
+$c/= :: StopFleetResponse -&gt; StopFleetResponse -&gt; Bool
+== :: StopFleetResponse -&gt; StopFleetResponse -&gt; Bool
+$c== :: StopFleetResponse -&gt; StopFleetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293456"><span id="local-6989586621679293458"><span id="local-6989586621679293460"><span id="local-6989586621679293462"><span class="annot"><span class="annottext">ReadPrec [StopFleetResponse]
+ReadPrec StopFleetResponse
+Int -&gt; ReadS StopFleetResponse
+ReadS [StopFleetResponse]
+(Int -&gt; ReadS StopFleetResponse)
+-&gt; ReadS [StopFleetResponse]
+-&gt; ReadPrec StopFleetResponse
+-&gt; ReadPrec [StopFleetResponse]
+-&gt; Read StopFleetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopFleetResponse]
+$creadListPrec :: ReadPrec [StopFleetResponse]
+readPrec :: ReadPrec StopFleetResponse
+$creadPrec :: ReadPrec StopFleetResponse
+readList :: ReadS [StopFleetResponse]
+$creadList :: ReadS [StopFleetResponse]
+readsPrec :: Int -&gt; ReadS StopFleetResponse
+$creadsPrec :: Int -&gt; ReadS StopFleetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293450"><span id="local-6989586621679293452"><span id="local-6989586621679293454"><span class="annot"><span class="annottext">Int -&gt; StopFleetResponse -&gt; ShowS
+[StopFleetResponse] -&gt; ShowS
+StopFleetResponse -&gt; String
+(Int -&gt; StopFleetResponse -&gt; ShowS)
+-&gt; (StopFleetResponse -&gt; String)
+-&gt; ([StopFleetResponse] -&gt; ShowS)
+-&gt; Show StopFleetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopFleetResponse] -&gt; ShowS
+$cshowList :: [StopFleetResponse] -&gt; ShowS
+show :: StopFleetResponse -&gt; String
+$cshow :: StopFleetResponse -&gt; String
+showsPrec :: Int -&gt; StopFleetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopFleetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopFleetResponse -&gt; Rep StopFleetResponse x)
+-&gt; (forall x. Rep StopFleetResponse x -&gt; StopFleetResponse)
+-&gt; Generic StopFleetResponse
+forall x. Rep StopFleetResponse x -&gt; StopFleetResponse
+forall x. StopFleetResponse -&gt; Rep StopFleetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopFleetResponse x -&gt; StopFleetResponse
+$cfrom :: forall x. StopFleetResponse -&gt; Rep StopFleetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'StopFleetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'httpStatus', 'stopFleetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#newStopFleetResponse"><span class="hs-identifier hs-type">newStopFleetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-type">StopFleetResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newStopFleetResponse"><span class="annot"><span class="annottext">newStopFleetResponse :: Int -&gt; StopFleetResponse
+</span><a href="Network.AWS.AppStream.StopFleet.html#newStopFleetResponse"><span class="hs-identifier hs-var hs-var">newStopFleetResponse</span></a></span></span><span> </span><span id="local-6989586621679293447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">StopFleetResponse' :: Int -&gt; StopFleetResponse
+</span><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse%27"><span class="hs-identifier hs-type">StopFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopFleetResponse' :: Int
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3AhttpStatus%3AStopFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#stopFleetResponse_httpStatus"><span class="hs-identifier hs-type">stopFleetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-type">StopFleetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span id="stopFleetResponse_httpStatus"><span class="annot"><span class="annottext">stopFleetResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopFleetResponse -&gt; f StopFleetResponse
+</span><a href="Network.AWS.AppStream.StopFleet.html#stopFleetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopFleetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFleetResponse -&gt; Int)
+-&gt; (StopFleetResponse -&gt; Int -&gt; StopFleetResponse)
+-&gt; Lens StopFleetResponse StopFleetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse%27"><span class="hs-identifier hs-type">StopFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293446"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopFleetResponse' :: StopFleetResponse -&gt; Int
+</span><a href="#local-6989586621679293446"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293446"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293445"><span class="annot"><span class="annottext">s :: StopFleetResponse
+</span><a href="#local-6989586621679293445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse%27"><span class="hs-identifier hs-type">StopFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetResponse
+</span><a href="#local-6989586621679293445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopFleetResponse' :: Int
+</span><a href="Network.AWS.AppStream.StopFleet.html#%24sel%3AhttpStatus%3AStopFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-type">StopFleetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopFleet.html#StopFleetResponse"><span class="hs-identifier hs-type">StopFleetResponse</span></a></span></span><span>
+</span><span id="line-144"></span></pre></body></html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoSync.SubscribeToDataset</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Subscribes to receive notifications when a dataset is modified by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- another device.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API can only be called with temporary credentials provided by</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Cognito Identity. You cannot call this API with developer credentials.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoSync.SubscribeToDataset</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier">SubscribeToDataset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDataset"><span class="hs-identifier">newSubscribeToDataset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityPoolId"><span class="hs-identifier">subscribeToDataset_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityId"><span class="hs-identifier">subscribeToDataset_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_datasetName"><span class="hs-identifier">subscribeToDataset_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_deviceId"><span class="hs-identifier">subscribeToDataset_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier">SubscribeToDatasetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDatasetResponse"><span class="hs-identifier">newSubscribeToDatasetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDatasetResponse_httpStatus"><span class="hs-identifier">subscribeToDatasetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.html"><span class="hs-identifier">Network.AWS.CognitoSync.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | A request to SubscribeToDatasetRequest.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newSubscribeToDataset' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679175633"><span id="local-6989586621679175634"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToDataset"><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-var">SubscribeToDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToDataset%27"><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-var">SubscribeToDataset'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Cognito. The ID of the pool to which the identity belongs.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ASubscribeToDataset%27"><span class="annot"><span class="annottext">SubscribeToDataset -&gt; Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityPoolId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Unique ID for this identity.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityId%3ASubscribeToDataset%27"><span class="annot"><span class="annottext">SubscribeToDataset -&gt; Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the dataset to subcribe to.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdatasetName%3ASubscribeToDataset%27"><span class="annot"><span class="annottext">SubscribeToDataset -&gt; Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdatasetName%3ASubscribeToDataset%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdeviceId%3ASubscribeToDataset%27"><span class="annot"><span class="annottext">SubscribeToDataset -&gt; Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdeviceId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175624"><span id="local-6989586621679175626"><span class="annot"><span class="annottext">SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool
+(SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool)
+-&gt; (SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool)
+-&gt; Eq SubscribeToDataset
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool
+$c/= :: SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool
+== :: SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool
+$c== :: SubscribeToDataset -&gt; SubscribeToDataset -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175615"><span id="local-6989586621679175617"><span id="local-6989586621679175619"><span id="local-6989586621679175621"><span class="annot"><span class="annottext">ReadPrec [SubscribeToDataset]
+ReadPrec SubscribeToDataset
+Int -&gt; ReadS SubscribeToDataset
+ReadS [SubscribeToDataset]
+(Int -&gt; ReadS SubscribeToDataset)
+-&gt; ReadS [SubscribeToDataset]
+-&gt; ReadPrec SubscribeToDataset
+-&gt; ReadPrec [SubscribeToDataset]
+-&gt; Read SubscribeToDataset
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscribeToDataset]
+$creadListPrec :: ReadPrec [SubscribeToDataset]
+readPrec :: ReadPrec SubscribeToDataset
+$creadPrec :: ReadPrec SubscribeToDataset
+readList :: ReadS [SubscribeToDataset]
+$creadList :: ReadS [SubscribeToDataset]
+readsPrec :: Int -&gt; ReadS SubscribeToDataset
+$creadsPrec :: Int -&gt; ReadS SubscribeToDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175608"><span id="local-6989586621679175610"><span id="local-6989586621679175612"><span class="annot"><span class="annottext">Int -&gt; SubscribeToDataset -&gt; ShowS
+[SubscribeToDataset] -&gt; ShowS
+SubscribeToDataset -&gt; String
+(Int -&gt; SubscribeToDataset -&gt; ShowS)
+-&gt; (SubscribeToDataset -&gt; String)
+-&gt; ([SubscribeToDataset] -&gt; ShowS)
+-&gt; Show SubscribeToDataset
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscribeToDataset] -&gt; ShowS
+$cshowList :: [SubscribeToDataset] -&gt; ShowS
+show :: SubscribeToDataset -&gt; String
+$cshow :: SubscribeToDataset -&gt; String
+showsPrec :: Int -&gt; SubscribeToDataset -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscribeToDataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SubscribeToDataset -&gt; Rep SubscribeToDataset x)
+-&gt; (forall x. Rep SubscribeToDataset x -&gt; SubscribeToDataset)
+-&gt; Generic SubscribeToDataset
+forall x. Rep SubscribeToDataset x -&gt; SubscribeToDataset
+forall x. SubscribeToDataset -&gt; Rep SubscribeToDataset x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubscribeToDataset x -&gt; SubscribeToDataset
+$cfrom :: forall x. SubscribeToDataset -&gt; Rep SubscribeToDataset x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'SubscribeToDataset' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'identityPoolId', 'subscribeToDataset_identityPoolId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Cognito. The ID of the pool to which the identity belongs.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'identityId', 'subscribeToDataset_identityId' - Unique ID for this identity.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'datasetName', 'subscribeToDataset_datasetName' - The name of the dataset to subcribe to.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'deviceId', 'subscribeToDataset_deviceId' - The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDataset"><span class="hs-identifier hs-type">newSubscribeToDataset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'identityId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'datasetName'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span>
+</span><span id="line-99"></span><span id="newSubscribeToDataset"><span class="annot"><span class="annottext">newSubscribeToDataset :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDataset"><span class="hs-identifier hs-var hs-var">newSubscribeToDataset</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679175603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175603"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679175602"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175602"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679175601"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175601"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679175600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175600"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">SubscribeToDataset' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityPoolId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175603"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175602"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetName:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdatasetName%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175601"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdeviceId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175600"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Cognito. The ID of the pool to which the identity belongs.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityPoolId"><span class="hs-identifier hs-type">subscribeToDataset_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="subscribeToDataset_identityPoolId"><span class="annot"><span class="annottext">subscribeToDataset_identityPoolId :: (Text -&gt; f Text) -&gt; SubscribeToDataset -&gt; f SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityPoolId"><span class="hs-identifier hs-var hs-var">subscribeToDataset_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeToDataset -&gt; Text)
+-&gt; (SubscribeToDataset -&gt; Text -&gt; SubscribeToDataset)
+-&gt; Lens SubscribeToDataset SubscribeToDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175597"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+</span><a href="#local-6989586621679175597"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175597"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175596"><span class="annot"><span class="annottext">s :: SubscribeToDataset
+</span><a href="#local-6989586621679175596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToDataset
+</span><a href="#local-6989586621679175596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityPoolId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Unique ID for this identity.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityId"><span class="hs-identifier hs-type">subscribeToDataset_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="subscribeToDataset_identityId"><span class="annot"><span class="annottext">subscribeToDataset_identityId :: (Text -&gt; f Text) -&gt; SubscribeToDataset -&gt; f SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_identityId"><span class="hs-identifier hs-var hs-var">subscribeToDataset_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeToDataset -&gt; Text)
+-&gt; (SubscribeToDataset -&gt; Text -&gt; SubscribeToDataset)
+-&gt; Lens SubscribeToDataset SubscribeToDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175594"><span class="annot"><span class="annottext">Text
+identityId :: Text
+$sel:identityId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+</span><a href="#local-6989586621679175594"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175594"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175593"><span class="annot"><span class="annottext">s :: SubscribeToDataset
+</span><a href="#local-6989586621679175593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToDataset
+</span><a href="#local-6989586621679175593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AidentityId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the dataset to subcribe to.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_datasetName"><span class="hs-identifier hs-type">subscribeToDataset_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="subscribeToDataset_datasetName"><span class="annot"><span class="annottext">subscribeToDataset_datasetName :: (Text -&gt; f Text) -&gt; SubscribeToDataset -&gt; f SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_datasetName"><span class="hs-identifier hs-var hs-var">subscribeToDataset_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeToDataset -&gt; Text)
+-&gt; (SubscribeToDataset -&gt; Text -&gt; SubscribeToDataset)
+-&gt; Lens SubscribeToDataset SubscribeToDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175591"><span class="annot"><span class="annottext">Text
+datasetName :: Text
+$sel:datasetName:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+</span><a href="#local-6989586621679175591"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175591"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175590"><span class="annot"><span class="annottext">s :: SubscribeToDataset
+</span><a href="#local-6989586621679175590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToDataset
+</span><a href="#local-6989586621679175590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdatasetName%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The unique ID generated for this device by Cognito.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_deviceId"><span class="hs-identifier hs-type">subscribeToDataset_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="subscribeToDataset_deviceId"><span class="annot"><span class="annottext">subscribeToDataset_deviceId :: (Text -&gt; f Text) -&gt; SubscribeToDataset -&gt; f SubscribeToDataset
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDataset_deviceId"><span class="hs-identifier hs-var hs-var">subscribeToDataset_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeToDataset -&gt; Text)
+-&gt; (SubscribeToDataset -&gt; Text -&gt; SubscribeToDataset)
+-&gt; Lens SubscribeToDataset SubscribeToDataset Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175588"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+</span><a href="#local-6989586621679175588"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175588"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175587"><span class="annot"><span class="annottext">s :: SubscribeToDataset
+</span><a href="#local-6989586621679175587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToDataset
+</span><a href="#local-6989586621679175587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:SubscribeToDataset' :: Text
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AdeviceId%3ASubscribeToDataset%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-type">SubscribeToDatasetResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679175582"><span class="annot"><span class="annottext">request :: SubscribeToDataset -&gt; Request SubscribeToDataset
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SubscribeToDataset -&gt; Request SubscribeToDataset
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679175578"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SubscribeToDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SubscribeToDataset)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse SubscribeToDataset))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SubscribeToDataset
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SubscribeToDataset)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175575"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175574"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175574"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175573"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679175573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SubscribeToDatasetResponse
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse%27"><span class="hs-identifier hs-var">SubscribeToDatasetResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SubscribeToDatasetResponse)
+-&gt; Either String Int -&gt; Either String SubscribeToDatasetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175575"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175566"><span id="local-6989586621679175568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679175559"><span class="annot"><span class="annottext">toHeaders :: SubscribeToDataset -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SubscribeToDataset -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175549"><span id="local-6989586621679175551"><span id="local-6989586621679175553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679175547"><span class="annot"><span class="annottext">toJSON :: SubscribeToDataset -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; SubscribeToDataset -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679175542"><span class="annot"><span class="annottext">toPath :: SubscribeToDataset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset%27"><span class="hs-identifier hs-type">SubscribeToDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175537"><span id="local-6989586621679175538"><span id="local-6989586621679175539"><span id="local-6989586621679175540"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+datasetName :: Text
+identityId :: Text
+identityPoolId :: Text
+$sel:deviceId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+$sel:datasetName:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+$sel:identityId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+$sel:identityPoolId:SubscribeToDataset' :: SubscribeToDataset -&gt; Text
+</span><a href="#local-6989586621679175537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175540"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identities/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175539"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175538"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/subscriptions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175537"><span class="hs-identifier hs-var">deviceId</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDataset"><span class="hs-identifier hs-type">SubscribeToDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679175533"><span class="annot"><span class="annottext">toQuery :: SubscribeToDataset -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SubscribeToDataset -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Response to a SubscribeToDataset request.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- /See:/ 'newSubscribeToDatasetResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679175530"><span id="local-6989586621679175531"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToDatasetResponse"><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-var">SubscribeToDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToDatasetResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse%27"><span class="hs-identifier hs-var">SubscribeToDatasetResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASubscribeToDatasetResponse%27"><span class="annot"><span class="annottext">SubscribeToDatasetResponse -&gt; Int
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AhttpStatus%3ASubscribeToDatasetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175525"><span id="local-6989586621679175527"><span class="annot"><span class="annottext">SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool
+(SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool)
+-&gt; (SubscribeToDatasetResponse
+    -&gt; SubscribeToDatasetResponse -&gt; Bool)
+-&gt; Eq SubscribeToDatasetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool
+$c/= :: SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool
+== :: SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool
+$c== :: SubscribeToDatasetResponse -&gt; SubscribeToDatasetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175517"><span id="local-6989586621679175519"><span id="local-6989586621679175521"><span id="local-6989586621679175523"><span class="annot"><span class="annottext">ReadPrec [SubscribeToDatasetResponse]
+ReadPrec SubscribeToDatasetResponse
+Int -&gt; ReadS SubscribeToDatasetResponse
+ReadS [SubscribeToDatasetResponse]
+(Int -&gt; ReadS SubscribeToDatasetResponse)
+-&gt; ReadS [SubscribeToDatasetResponse]
+-&gt; ReadPrec SubscribeToDatasetResponse
+-&gt; ReadPrec [SubscribeToDatasetResponse]
+-&gt; Read SubscribeToDatasetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscribeToDatasetResponse]
+$creadListPrec :: ReadPrec [SubscribeToDatasetResponse]
+readPrec :: ReadPrec SubscribeToDatasetResponse
+$creadPrec :: ReadPrec SubscribeToDatasetResponse
+readList :: ReadS [SubscribeToDatasetResponse]
+$creadList :: ReadS [SubscribeToDatasetResponse]
+readsPrec :: Int -&gt; ReadS SubscribeToDatasetResponse
+$creadsPrec :: Int -&gt; ReadS SubscribeToDatasetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175511"><span id="local-6989586621679175513"><span id="local-6989586621679175515"><span class="annot"><span class="annottext">Int -&gt; SubscribeToDatasetResponse -&gt; ShowS
+[SubscribeToDatasetResponse] -&gt; ShowS
+SubscribeToDatasetResponse -&gt; String
+(Int -&gt; SubscribeToDatasetResponse -&gt; ShowS)
+-&gt; (SubscribeToDatasetResponse -&gt; String)
+-&gt; ([SubscribeToDatasetResponse] -&gt; ShowS)
+-&gt; Show SubscribeToDatasetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscribeToDatasetResponse] -&gt; ShowS
+$cshowList :: [SubscribeToDatasetResponse] -&gt; ShowS
+show :: SubscribeToDatasetResponse -&gt; String
+$cshow :: SubscribeToDatasetResponse -&gt; String
+showsPrec :: Int -&gt; SubscribeToDatasetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscribeToDatasetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SubscribeToDatasetResponse -&gt; Rep SubscribeToDatasetResponse x)
+-&gt; (forall x.
+    Rep SubscribeToDatasetResponse x -&gt; SubscribeToDatasetResponse)
+-&gt; Generic SubscribeToDatasetResponse
+forall x.
+Rep SubscribeToDatasetResponse x -&gt; SubscribeToDatasetResponse
+forall x.
+SubscribeToDatasetResponse -&gt; Rep SubscribeToDatasetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SubscribeToDatasetResponse x -&gt; SubscribeToDatasetResponse
+$cfrom :: forall x.
+SubscribeToDatasetResponse -&gt; Rep SubscribeToDatasetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'SubscribeToDatasetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'subscribeToDatasetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDatasetResponse"><span class="hs-identifier hs-type">newSubscribeToDatasetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-type">SubscribeToDatasetResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newSubscribeToDatasetResponse"><span class="annot"><span class="annottext">newSubscribeToDatasetResponse :: Int -&gt; SubscribeToDatasetResponse
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#newSubscribeToDatasetResponse"><span class="hs-identifier hs-var hs-var">newSubscribeToDatasetResponse</span></a></span></span><span> </span><span id="local-6989586621679175508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">SubscribeToDatasetResponse' :: Int -&gt; SubscribeToDatasetResponse
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse%27"><span class="hs-identifier hs-type">SubscribeToDatasetResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeToDatasetResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AhttpStatus%3ASubscribeToDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDatasetResponse_httpStatus"><span class="hs-identifier hs-type">subscribeToDatasetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-type">SubscribeToDatasetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="subscribeToDatasetResponse_httpStatus"><span class="annot"><span class="annottext">subscribeToDatasetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SubscribeToDatasetResponse -&gt; f SubscribeToDatasetResponse
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#subscribeToDatasetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">subscribeToDatasetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeToDatasetResponse -&gt; Int)
+-&gt; (SubscribeToDatasetResponse
+    -&gt; Int -&gt; SubscribeToDatasetResponse)
+-&gt; Lens
+     SubscribeToDatasetResponse SubscribeToDatasetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse%27"><span class="hs-identifier hs-type">SubscribeToDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175507"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SubscribeToDatasetResponse' :: SubscribeToDatasetResponse -&gt; Int
+</span><a href="#local-6989586621679175507"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175507"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175506"><span class="annot"><span class="annottext">s :: SubscribeToDatasetResponse
+</span><a href="#local-6989586621679175506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse%27"><span class="hs-identifier hs-type">SubscribeToDatasetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToDatasetResponse
+</span><a href="#local-6989586621679175506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeToDatasetResponse' :: Int
+</span><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#%24sel%3AhttpStatus%3ASubscribeToDatasetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-type">SubscribeToDatasetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.SubscribeToDataset.html#SubscribeToDatasetResponse"><span class="hs-identifier hs-type">SubscribeToDatasetResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

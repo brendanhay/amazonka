@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.H264FieldEncoding</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.H264FieldEncoding</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding"><span class="hs-identifier">H264FieldEncoding</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_FORCE_FIELD"><span class="hs-identifier">H264FieldEncoding_FORCE_FIELD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_MBAFF"><span class="hs-identifier">H264FieldEncoding_MBAFF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_PAFF"><span class="hs-identifier">H264FieldEncoding_PAFF</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The video encoding method for your MPEG-4 AVC output. Keep the default</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- value, PAFF, to have MediaConvert use PAFF encoding for interlaced</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- create separate interlaced fields. Choose MBAFF to disable PAFF and have</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- MediaConvert use MBAFF encoding for interlaced outputs.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679961643"><span id="local-6989586621679961644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FieldEncoding"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding"><span class="hs-identifier hs-var">H264FieldEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FieldEncoding%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding%27"><span class="hs-identifier hs-var">H264FieldEncoding'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264FieldEncoding"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#fromH264FieldEncoding"><span class="hs-identifier hs-var hs-var">fromH264FieldEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961635"><span id="local-6989586621679961637"><span id="local-6989586621679961639"><span class="annot"><span class="annottext">Int -&gt; H264FieldEncoding -&gt; ShowS
+[H264FieldEncoding] -&gt; ShowS
+H264FieldEncoding -&gt; String
+(Int -&gt; H264FieldEncoding -&gt; ShowS)
+-&gt; (H264FieldEncoding -&gt; String)
+-&gt; ([H264FieldEncoding] -&gt; ShowS)
+-&gt; Show H264FieldEncoding
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264FieldEncoding] -&gt; ShowS
+$cshowList :: [H264FieldEncoding] -&gt; ShowS
+show :: H264FieldEncoding -&gt; String
+$cshow :: H264FieldEncoding -&gt; String
+showsPrec :: Int -&gt; H264FieldEncoding -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264FieldEncoding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679961626"><span id="local-6989586621679961628"><span id="local-6989586621679961630"><span id="local-6989586621679961632"><span class="annot"><span class="annottext">ReadPrec [H264FieldEncoding]
+ReadPrec H264FieldEncoding
+Int -&gt; ReadS H264FieldEncoding
+ReadS [H264FieldEncoding]
+(Int -&gt; ReadS H264FieldEncoding)
+-&gt; ReadS [H264FieldEncoding]
+-&gt; ReadPrec H264FieldEncoding
+-&gt; ReadPrec [H264FieldEncoding]
+-&gt; Read H264FieldEncoding
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264FieldEncoding]
+$creadListPrec :: ReadPrec [H264FieldEncoding]
+readPrec :: ReadPrec H264FieldEncoding
+$creadPrec :: ReadPrec H264FieldEncoding
+readList :: ReadS [H264FieldEncoding]
+$creadList :: ReadS [H264FieldEncoding]
+readsPrec :: Int -&gt; ReadS H264FieldEncoding
+$creadsPrec :: Int -&gt; ReadS H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679961621"><span id="local-6989586621679961623"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+(H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; Eq H264FieldEncoding
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c/= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+== :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c== :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679961605"><span id="local-6989586621679961607"><span id="local-6989586621679961609"><span id="local-6989586621679961611"><span id="local-6989586621679961613"><span id="local-6989586621679961615"><span id="local-6989586621679961617"><span class="annot"><span class="annottext">Eq H264FieldEncoding
+Eq H264FieldEncoding
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Ordering)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding)
+-&gt; (H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding)
+-&gt; Ord H264FieldEncoding
+H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+H264FieldEncoding -&gt; H264FieldEncoding -&gt; Ordering
+H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding
+$cmin :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding
+max :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding
+$cmax :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; H264FieldEncoding
+&gt;= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c&gt;= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+&gt; :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c&gt; :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+&lt;= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c&lt;= :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+&lt; :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+$c&lt; :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Bool
+compare :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Ordering
+$ccompare :: H264FieldEncoding -&gt; H264FieldEncoding -&gt; Ordering
+$cp1Ord :: Eq H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264FieldEncoding -&gt; Rep H264FieldEncoding x)
+-&gt; (forall x. Rep H264FieldEncoding x -&gt; H264FieldEncoding)
+-&gt; Generic H264FieldEncoding
+forall x. Rep H264FieldEncoding x -&gt; H264FieldEncoding
+forall x. H264FieldEncoding -&gt; Rep H264FieldEncoding x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264FieldEncoding x -&gt; H264FieldEncoding
+$cfrom :: forall x. H264FieldEncoding -&gt; Rep H264FieldEncoding x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961597"><span id="local-6989586621679961599"><span class="annot"><span class="annottext">Int -&gt; H264FieldEncoding -&gt; Int
+H264FieldEncoding -&gt; Int
+(Int -&gt; H264FieldEncoding -&gt; Int)
+-&gt; (H264FieldEncoding -&gt; Int) -&gt; Hashable H264FieldEncoding
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264FieldEncoding -&gt; Int
+$chash :: H264FieldEncoding -&gt; Int
+hashWithSalt :: Int -&gt; H264FieldEncoding -&gt; Int
+$chashWithSalt :: Int -&gt; H264FieldEncoding -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961594"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; ()
+(H264FieldEncoding -&gt; ()) -&gt; NFData H264FieldEncoding
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264FieldEncoding -&gt; ()
+$crnf :: H264FieldEncoding -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961591"><span class="annot"><span class="annottext">Text -&gt; Either String H264FieldEncoding
+(Text -&gt; Either String H264FieldEncoding)
+-&gt; FromText H264FieldEncoding
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264FieldEncoding
+$cfromText :: Text -&gt; Either String H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961588"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; Text
+(H264FieldEncoding -&gt; Text) -&gt; ToText H264FieldEncoding
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264FieldEncoding -&gt; Text
+$ctoText :: H264FieldEncoding -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961585"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; ByteString
+(H264FieldEncoding -&gt; ByteString) -&gt; ToByteString H264FieldEncoding
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264FieldEncoding -&gt; ByteString
+$ctoBS :: H264FieldEncoding -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961582"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; ByteStringBuilder
+(H264FieldEncoding -&gt; ByteStringBuilder) -&gt; ToLog H264FieldEncoding
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264FieldEncoding -&gt; ByteStringBuilder
+$cbuild :: H264FieldEncoding -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961579"><span class="annot"><span class="annottext">HeaderName -&gt; H264FieldEncoding -&gt; [Header]
+(HeaderName -&gt; H264FieldEncoding -&gt; [Header])
+-&gt; ToHeader H264FieldEncoding
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264FieldEncoding -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264FieldEncoding -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961576"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; QueryString
+(H264FieldEncoding -&gt; QueryString) -&gt; ToQuery H264FieldEncoding
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264FieldEncoding -&gt; QueryString
+$ctoQuery :: H264FieldEncoding -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961571"><span id="local-6989586621679961573"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FieldEncoding]
+Value -&gt; Parser H264FieldEncoding
+(Value -&gt; Parser H264FieldEncoding)
+-&gt; (Value -&gt; Parser [H264FieldEncoding])
+-&gt; FromJSON H264FieldEncoding
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264FieldEncoding]
+$cparseJSONList :: Value -&gt; Parser [H264FieldEncoding]
+parseJSON :: Value -&gt; Parser H264FieldEncoding
+$cparseJSON :: Value -&gt; Parser H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961566"><span id="local-6989586621679961568"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FieldEncoding]
+FromJSONKeyFunction H264FieldEncoding
+FromJSONKeyFunction H264FieldEncoding
+-&gt; FromJSONKeyFunction [H264FieldEncoding]
+-&gt; FromJSONKey H264FieldEncoding
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264FieldEncoding]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264FieldEncoding]
+fromJSONKey :: FromJSONKeyFunction H264FieldEncoding
+$cfromJSONKey :: FromJSONKeyFunction H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679961557"><span id="local-6989586621679961559"><span id="local-6989586621679961561"><span id="local-6989586621679961563"><span class="annot"><span class="annottext">[H264FieldEncoding] -&gt; Encoding
+[H264FieldEncoding] -&gt; Value
+H264FieldEncoding -&gt; Encoding
+H264FieldEncoding -&gt; Value
+(H264FieldEncoding -&gt; Value)
+-&gt; (H264FieldEncoding -&gt; Encoding)
+-&gt; ([H264FieldEncoding] -&gt; Value)
+-&gt; ([H264FieldEncoding] -&gt; Encoding)
+-&gt; ToJSON H264FieldEncoding
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264FieldEncoding] -&gt; Encoding
+$ctoEncodingList :: [H264FieldEncoding] -&gt; Encoding
+toJSONList :: [H264FieldEncoding] -&gt; Value
+$ctoJSONList :: [H264FieldEncoding] -&gt; Value
+toEncoding :: H264FieldEncoding -&gt; Encoding
+$ctoEncoding :: H264FieldEncoding -&gt; Encoding
+toJSON :: H264FieldEncoding -&gt; Value
+$ctoJSON :: H264FieldEncoding -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679961552"><span id="local-6989586621679961554"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FieldEncoding]
+ToJSONKeyFunction H264FieldEncoding
+ToJSONKeyFunction H264FieldEncoding
+-&gt; ToJSONKeyFunction [H264FieldEncoding]
+-&gt; ToJSONKey H264FieldEncoding
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264FieldEncoding]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264FieldEncoding]
+toJSONKey :: ToJSONKeyFunction H264FieldEncoding
+$ctoJSONKey :: ToJSONKeyFunction H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679961549"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FieldEncoding
+([Node] -&gt; Either String H264FieldEncoding)
+-&gt; FromXML H264FieldEncoding
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264FieldEncoding
+$cparseXML :: [Node] -&gt; Either String H264FieldEncoding
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679961546"><span class="annot"><span class="annottext">H264FieldEncoding -&gt; XML
+(H264FieldEncoding -&gt; XML) -&gt; ToXML H264FieldEncoding
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264FieldEncoding -&gt; XML
+$ctoXML :: H264FieldEncoding -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_FORCE_FIELD"><span class="hs-identifier hs-type">H264FieldEncoding_FORCE_FIELD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding"><span class="hs-identifier hs-type">H264FieldEncoding</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264FieldEncoding_FORCE_FIELD"><span id="%24mH264FieldEncoding_FORCE_FIELD"><span id="H264FieldEncoding_FORCE_FIELD"><span class="annot"><span class="annottext">$bH264FieldEncoding_FORCE_FIELD :: H264FieldEncoding
+$mH264FieldEncoding_FORCE_FIELD :: forall r. H264FieldEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#%24bH264FieldEncoding_FORCE_FIELD"><span class="hs-identifier hs-var hs-var hs-var">H264FieldEncoding_FORCE_FIELD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding%27"><span class="hs-identifier hs-type">H264FieldEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FORCE_FIELD&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_MBAFF"><span class="hs-identifier hs-type">H264FieldEncoding_MBAFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding"><span class="hs-identifier hs-type">H264FieldEncoding</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264FieldEncoding_MBAFF"><span id="%24mH264FieldEncoding_MBAFF"><span id="H264FieldEncoding_MBAFF"><span class="annot"><span class="annottext">$bH264FieldEncoding_MBAFF :: H264FieldEncoding
+$mH264FieldEncoding_MBAFF :: forall r. H264FieldEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#%24bH264FieldEncoding_MBAFF"><span class="hs-identifier hs-var hs-var hs-var">H264FieldEncoding_MBAFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding%27"><span class="hs-identifier hs-type">H264FieldEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MBAFF&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_PAFF"><span class="hs-identifier hs-type">H264FieldEncoding_PAFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding"><span class="hs-identifier hs-type">H264FieldEncoding</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264FieldEncoding_PAFF"><span id="%24mH264FieldEncoding_PAFF"><span id="H264FieldEncoding_PAFF"><span class="annot"><span class="annottext">$bH264FieldEncoding_PAFF :: H264FieldEncoding
+$mH264FieldEncoding_PAFF :: forall r. H264FieldEncoding -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#%24bH264FieldEncoding_PAFF"><span class="hs-identifier hs-var hs-var hs-var">H264FieldEncoding_PAFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding%27"><span class="hs-identifier hs-type">H264FieldEncoding'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PAFF&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_FORCE_FIELD"><span class="hs-pragma hs-type">H264FieldEncoding_FORCE_FIELD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_MBAFF"><span class="hs-pragma hs-type">H264FieldEncoding_MBAFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding_PAFF"><span class="hs-pragma hs-type">H264FieldEncoding_PAFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264FieldEncoding.html#H264FieldEncoding%27"><span class="hs-pragma hs-type">H264FieldEncoding'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

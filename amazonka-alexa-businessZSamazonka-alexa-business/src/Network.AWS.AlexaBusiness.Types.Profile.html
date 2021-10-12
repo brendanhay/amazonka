@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.Profile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.Profile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.DistanceUnit</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.TemperatureUnit</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.WakeWord</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A room profile with attributes.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProfile' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679374588"><span id="local-6989586621679374589"></span></span><span class="hs-keyword">data</span><span> </span><span id="Profile"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-var">Profile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Profile%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-var">Profile'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a room profile.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprofileName%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileName%3AProfile%27"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Retrieves if the profile is default or not.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AisDefault%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AisDefault%3AProfile%27"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The address of a room profile.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aaddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The locale of a room profile. (This is currently available only to a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- limited preview audience.)</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Alocale%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Alocale%3AProfile%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The temperature unit of a room profile.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtemperatureUnit%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe TemperatureUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AtemperatureUnit%3AProfile%27"><span class="hs-identifier hs-var hs-var">temperatureUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit"><span class="hs-identifier hs-type">TemperatureUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ARN of the address book.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AaddressBookArn%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AaddressBookArn%3AProfile%27"><span class="hs-identifier hs-var hs-var">addressBookArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The PSTN setting of a room profile.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ApSTNEnabled%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3ApSTNEnabled%3AProfile%27"><span class="hs-identifier hs-var hs-var">pSTNEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The setup mode of a room profile.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsetupModeDisabled%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AsetupModeDisabled%3AProfile%27"><span class="hs-identifier hs-var hs-var">setupModeDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The max volume limit of a room profile.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AmaxVolumeLimit%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmaxVolumeLimit%3AProfile%27"><span class="hs-identifier hs-var hs-var">maxVolumeLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The wake word of a room profile.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AwakeWord%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe WakeWord
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AwakeWord%3AProfile%27"><span class="hs-identifier hs-var hs-var">wakeWord</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ARN of a room profile.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AprofileArn%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileArn%3AProfile%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Meeting room settings of a room profile.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmeetingRoomConfiguration%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe MeetingRoomConfiguration
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmeetingRoomConfiguration%3AProfile%27"><span class="hs-identifier hs-var hs-var">meetingRoomConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration.html#MeetingRoomConfiguration"><span class="hs-identifier hs-type">MeetingRoomConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The time zone of a room profile.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Atimezone%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Atimezone%3AProfile%27"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Whether data retention of the profile is enabled.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdataRetentionOptIn%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdataRetentionOptIn%3AProfile%27"><span class="hs-identifier hs-var hs-var">dataRetentionOptIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The distance unit of a room profile.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdistanceUnit%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe DistanceUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdistanceUnit%3AProfile%27"><span class="hs-identifier hs-var hs-var">distanceUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-type">DistanceUnit</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374568"><span id="local-6989586621679374570"><span class="annot"><span class="annottext">Profile -&gt; Profile -&gt; Bool
+(Profile -&gt; Profile -&gt; Bool)
+-&gt; (Profile -&gt; Profile -&gt; Bool) -&gt; Eq Profile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Profile -&gt; Profile -&gt; Bool
+$c/= :: Profile -&gt; Profile -&gt; Bool
+== :: Profile -&gt; Profile -&gt; Bool
+$c== :: Profile -&gt; Profile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374559"><span id="local-6989586621679374561"><span id="local-6989586621679374563"><span id="local-6989586621679374565"><span class="annot"><span class="annottext">ReadPrec [Profile]
+ReadPrec Profile
+Int -&gt; ReadS Profile
+ReadS [Profile]
+(Int -&gt; ReadS Profile)
+-&gt; ReadS [Profile]
+-&gt; ReadPrec Profile
+-&gt; ReadPrec [Profile]
+-&gt; Read Profile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Profile]
+$creadListPrec :: ReadPrec [Profile]
+readPrec :: ReadPrec Profile
+$creadPrec :: ReadPrec Profile
+readList :: ReadS [Profile]
+$creadList :: ReadS [Profile]
+readsPrec :: Int -&gt; ReadS Profile
+$creadsPrec :: Int -&gt; ReadS Profile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374552"><span id="local-6989586621679374554"><span id="local-6989586621679374556"><span class="annot"><span class="annottext">Int -&gt; Profile -&gt; ShowS
+[Profile] -&gt; ShowS
+Profile -&gt; String
+(Int -&gt; Profile -&gt; ShowS)
+-&gt; (Profile -&gt; String) -&gt; ([Profile] -&gt; ShowS) -&gt; Show Profile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Profile] -&gt; ShowS
+$cshowList :: [Profile] -&gt; ShowS
+show :: Profile -&gt; String
+$cshow :: Profile -&gt; String
+showsPrec :: Int -&gt; Profile -&gt; ShowS
+$cshowsPrec :: Int -&gt; Profile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Profile -&gt; Rep Profile x)
+-&gt; (forall x. Rep Profile x -&gt; Profile) -&gt; Generic Profile
+forall x. Rep Profile x -&gt; Profile
+forall x. Profile -&gt; Rep Profile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Profile x -&gt; Profile
+$cfrom :: forall x. Profile -&gt; Rep Profile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'Profile' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'profileName', 'profile_profileName' - The name of a room profile.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'isDefault', 'profile_isDefault' - Retrieves if the profile is default or not.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'address', 'profile_address' - The address of a room profile.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'locale', 'profile_locale' - The locale of a room profile. (This is currently available only to a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- limited preview audience.)</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'temperatureUnit', 'profile_temperatureUnit' - The temperature unit of a room profile.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'addressBookArn', 'profile_addressBookArn' - The ARN of the address book.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'pSTNEnabled', 'profile_pSTNEnabled' - The PSTN setting of a room profile.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'setupModeDisabled', 'profile_setupModeDisabled' - The setup mode of a room profile.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'maxVolumeLimit', 'profile_maxVolumeLimit' - The max volume limit of a room profile.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'wakeWord', 'profile_wakeWord' - The wake word of a room profile.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'profileArn', 'profile_profileArn' - The ARN of a room profile.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'meetingRoomConfiguration', 'profile_meetingRoomConfiguration' - Meeting room settings of a room profile.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'timezone', 'profile_timezone' - The time zone of a room profile.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dataRetentionOptIn', 'profile_dataRetentionOptIn' - Whether data retention of the profile is enabled.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'distanceUnit', 'profile_distanceUnit' - The distance unit of a room profile.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#newProfile"><span class="hs-identifier hs-type">newProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span>
+</span><span id="line-108"></span><span id="newProfile"><span class="annot"><span class="annottext">newProfile :: Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#newProfile"><span class="hs-identifier hs-var hs-var">newProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">Profile' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TemperatureUnit
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe WakeWord
+-&gt; Maybe Text
+-&gt; Maybe MeetingRoomConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe DistanceUnit
+-&gt; Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileName:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileName%3AProfile%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefault:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AisDefault%3AProfile%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:address:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:locale:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Alocale%3AProfile%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:temperatureUnit:Profile' :: Maybe TemperatureUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AtemperatureUnit%3AProfile%27"><span class="hs-identifier hs-var">temperatureUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemperatureUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressBookArn:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AaddressBookArn%3AProfile%27"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:pSTNEnabled:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3ApSTNEnabled%3AProfile%27"><span class="hs-identifier hs-var">pSTNEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:setupModeDisabled:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AsetupModeDisabled%3AProfile%27"><span class="hs-identifier hs-var">setupModeDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxVolumeLimit:Profile' :: Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmaxVolumeLimit%3AProfile%27"><span class="hs-identifier hs-var">maxVolumeLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:wakeWord:Profile' :: Maybe WakeWord
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AwakeWord%3AProfile%27"><span class="hs-identifier hs-var">wakeWord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WakeWord
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileArn:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileArn%3AProfile%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:meetingRoomConfiguration:Profile' :: Maybe MeetingRoomConfiguration
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmeetingRoomConfiguration%3AProfile%27"><span class="hs-identifier hs-var">meetingRoomConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MeetingRoomConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:timezone:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Atimezone%3AProfile%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataRetentionOptIn:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdataRetentionOptIn%3AProfile%27"><span class="hs-identifier hs-var">dataRetentionOptIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:distanceUnit:Profile' :: Maybe DistanceUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdistanceUnit%3AProfile%27"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DistanceUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of a room profile.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_profileName"><span class="hs-identifier hs-type">profile_profileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="profile_profileName"><span class="annot"><span class="annottext">profile_profileName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_profileName"><span class="hs-identifier hs-var hs-var">profile_profileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374543"><span class="annot"><span class="annottext">Maybe Text
+profileName :: Maybe Text
+$sel:profileName:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var hs-var">profileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var">profileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374542"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileName:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileName%3AProfile%27"><span class="hs-identifier hs-var">profileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Retrieves if the profile is default or not.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_isDefault"><span class="hs-identifier hs-type">profile_isDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="profile_isDefault"><span class="annot"><span class="annottext">profile_isDefault :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_isDefault"><span class="hs-identifier hs-var hs-var">profile_isDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Bool)
+-&gt; (Profile -&gt; Maybe Bool -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374539"><span class="annot"><span class="annottext">Maybe Bool
+isDefault :: Maybe Bool
+$sel:isDefault:Profile' :: Profile -&gt; Maybe Bool
+</span><a href="#local-6989586621679374539"><span class="hs-identifier hs-var hs-var">isDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374539"><span class="hs-identifier hs-var">isDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374538"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374537"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefault:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AisDefault%3AProfile%27"><span class="hs-identifier hs-var">isDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The address of a room profile.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_address"><span class="hs-identifier hs-type">profile_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="profile_address"><span class="annot"><span class="annottext">profile_address :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_address"><span class="hs-identifier hs-var hs-var">profile_address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374535"><span class="annot"><span class="annottext">Maybe Text
+address :: Maybe Text
+$sel:address:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374535"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374535"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374534"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The locale of a room profile. (This is currently available only to a</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- limited preview audience.)</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_locale"><span class="hs-identifier hs-type">profile_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="profile_locale"><span class="annot"><span class="annottext">profile_locale :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_locale"><span class="hs-identifier hs-var hs-var">profile_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374531"><span class="annot"><span class="annottext">Maybe Text
+locale :: Maybe Text
+$sel:locale:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374531"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374531"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374530"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Alocale%3AProfile%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The temperature unit of a room profile.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_temperatureUnit"><span class="hs-identifier hs-type">profile_temperatureUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TemperatureUnit.html#TemperatureUnit"><span class="hs-identifier hs-type">TemperatureUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="profile_temperatureUnit"><span class="annot"><span class="annottext">profile_temperatureUnit :: (Maybe TemperatureUnit -&gt; f (Maybe TemperatureUnit))
+-&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_temperatureUnit"><span class="hs-identifier hs-var hs-var">profile_temperatureUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe TemperatureUnit)
+-&gt; (Profile -&gt; Maybe TemperatureUnit -&gt; Profile)
+-&gt; Lens
+     Profile Profile (Maybe TemperatureUnit) (Maybe TemperatureUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374527"><span class="annot"><span class="annottext">Maybe TemperatureUnit
+temperatureUnit :: Maybe TemperatureUnit
+$sel:temperatureUnit:Profile' :: Profile -&gt; Maybe TemperatureUnit
+</span><a href="#local-6989586621679374527"><span class="hs-identifier hs-var hs-var">temperatureUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemperatureUnit
+</span><a href="#local-6989586621679374527"><span class="hs-identifier hs-var">temperatureUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374526"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374525"><span class="annot"><span class="annottext">Maybe TemperatureUnit
+</span><a href="#local-6989586621679374525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:temperatureUnit:Profile' :: Maybe TemperatureUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AtemperatureUnit%3AProfile%27"><span class="hs-identifier hs-var">temperatureUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemperatureUnit
+</span><a href="#local-6989586621679374525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The ARN of the address book.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_addressBookArn"><span class="hs-identifier hs-type">profile_addressBookArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="profile_addressBookArn"><span class="annot"><span class="annottext">profile_addressBookArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_addressBookArn"><span class="hs-identifier hs-var hs-var">profile_addressBookArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374523"><span class="annot"><span class="annottext">Maybe Text
+addressBookArn :: Maybe Text
+$sel:addressBookArn:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374523"><span class="hs-identifier hs-var hs-var">addressBookArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374523"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374522"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBookArn:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AaddressBookArn%3AProfile%27"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The PSTN setting of a room profile.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_pSTNEnabled"><span class="hs-identifier hs-type">profile_pSTNEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="profile_pSTNEnabled"><span class="annot"><span class="annottext">profile_pSTNEnabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_pSTNEnabled"><span class="hs-identifier hs-var hs-var">profile_pSTNEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Bool)
+-&gt; (Profile -&gt; Maybe Bool -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374519"><span class="annot"><span class="annottext">Maybe Bool
+pSTNEnabled :: Maybe Bool
+$sel:pSTNEnabled:Profile' :: Profile -&gt; Maybe Bool
+</span><a href="#local-6989586621679374519"><span class="hs-identifier hs-var hs-var">pSTNEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374519"><span class="hs-identifier hs-var">pSTNEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374518"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374517"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pSTNEnabled:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3ApSTNEnabled%3AProfile%27"><span class="hs-identifier hs-var">pSTNEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The setup mode of a room profile.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_setupModeDisabled"><span class="hs-identifier hs-type">profile_setupModeDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="profile_setupModeDisabled"><span class="annot"><span class="annottext">profile_setupModeDisabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_setupModeDisabled"><span class="hs-identifier hs-var hs-var">profile_setupModeDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Bool)
+-&gt; (Profile -&gt; Maybe Bool -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374515"><span class="annot"><span class="annottext">Maybe Bool
+setupModeDisabled :: Maybe Bool
+$sel:setupModeDisabled:Profile' :: Profile -&gt; Maybe Bool
+</span><a href="#local-6989586621679374515"><span class="hs-identifier hs-var hs-var">setupModeDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374515"><span class="hs-identifier hs-var">setupModeDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374514"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374513"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setupModeDisabled:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AsetupModeDisabled%3AProfile%27"><span class="hs-identifier hs-var">setupModeDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The max volume limit of a room profile.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_maxVolumeLimit"><span class="hs-identifier hs-type">profile_maxVolumeLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="profile_maxVolumeLimit"><span class="annot"><span class="annottext">profile_maxVolumeLimit :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_maxVolumeLimit"><span class="hs-identifier hs-var hs-var">profile_maxVolumeLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Int)
+-&gt; (Profile -&gt; Maybe Int -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374511"><span class="annot"><span class="annottext">Maybe Int
+maxVolumeLimit :: Maybe Int
+$sel:maxVolumeLimit:Profile' :: Profile -&gt; Maybe Int
+</span><a href="#local-6989586621679374511"><span class="hs-identifier hs-var hs-var">maxVolumeLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374511"><span class="hs-identifier hs-var">maxVolumeLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374510"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374509"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxVolumeLimit:Profile' :: Maybe Int
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmaxVolumeLimit%3AProfile%27"><span class="hs-identifier hs-var">maxVolumeLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The wake word of a room profile.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_wakeWord"><span class="hs-identifier hs-type">profile_wakeWord</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-type">WakeWord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="profile_wakeWord"><span class="annot"><span class="annottext">profile_wakeWord :: (Maybe WakeWord -&gt; f (Maybe WakeWord)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_wakeWord"><span class="hs-identifier hs-var hs-var">profile_wakeWord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe WakeWord)
+-&gt; (Profile -&gt; Maybe WakeWord -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe WakeWord) (Maybe WakeWord)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374507"><span class="annot"><span class="annottext">Maybe WakeWord
+wakeWord :: Maybe WakeWord
+$sel:wakeWord:Profile' :: Profile -&gt; Maybe WakeWord
+</span><a href="#local-6989586621679374507"><span class="hs-identifier hs-var hs-var">wakeWord</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WakeWord
+</span><a href="#local-6989586621679374507"><span class="hs-identifier hs-var">wakeWord</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374506"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374505"><span class="annot"><span class="annottext">Maybe WakeWord
+</span><a href="#local-6989586621679374505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wakeWord:Profile' :: Maybe WakeWord
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AwakeWord%3AProfile%27"><span class="hs-identifier hs-var">wakeWord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WakeWord
+</span><a href="#local-6989586621679374505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The ARN of a room profile.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_profileArn"><span class="hs-identifier hs-type">profile_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="profile_profileArn"><span class="annot"><span class="annottext">profile_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_profileArn"><span class="hs-identifier hs-var hs-var">profile_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374503"><span class="annot"><span class="annottext">Maybe Text
+profileArn :: Maybe Text
+$sel:profileArn:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374503"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374503"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374502"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AprofileArn%3AProfile%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Meeting room settings of a room profile.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_meetingRoomConfiguration"><span class="hs-identifier hs-type">profile_meetingRoomConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration.html#MeetingRoomConfiguration"><span class="hs-identifier hs-type">MeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="profile_meetingRoomConfiguration"><span class="annot"><span class="annottext">profile_meetingRoomConfiguration :: (Maybe MeetingRoomConfiguration
+ -&gt; f (Maybe MeetingRoomConfiguration))
+-&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_meetingRoomConfiguration"><span class="hs-identifier hs-var hs-var">profile_meetingRoomConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe MeetingRoomConfiguration)
+-&gt; (Profile -&gt; Maybe MeetingRoomConfiguration -&gt; Profile)
+-&gt; Lens
+     Profile
+     Profile
+     (Maybe MeetingRoomConfiguration)
+     (Maybe MeetingRoomConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374499"><span class="annot"><span class="annottext">Maybe MeetingRoomConfiguration
+meetingRoomConfiguration :: Maybe MeetingRoomConfiguration
+$sel:meetingRoomConfiguration:Profile' :: Profile -&gt; Maybe MeetingRoomConfiguration
+</span><a href="#local-6989586621679374499"><span class="hs-identifier hs-var hs-var">meetingRoomConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MeetingRoomConfiguration
+</span><a href="#local-6989586621679374499"><span class="hs-identifier hs-var">meetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374498"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374497"><span class="annot"><span class="annottext">Maybe MeetingRoomConfiguration
+</span><a href="#local-6989586621679374497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meetingRoomConfiguration:Profile' :: Maybe MeetingRoomConfiguration
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AmeetingRoomConfiguration%3AProfile%27"><span class="hs-identifier hs-var">meetingRoomConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MeetingRoomConfiguration
+</span><a href="#local-6989586621679374497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The time zone of a room profile.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_timezone"><span class="hs-identifier hs-type">profile_timezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="profile_timezone"><span class="annot"><span class="annottext">profile_timezone :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_timezone"><span class="hs-identifier hs-var hs-var">profile_timezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374495"><span class="annot"><span class="annottext">Maybe Text
+timezone :: Maybe Text
+$sel:timezone:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679374495"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374495"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374494"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:Profile' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3Atimezone%3AProfile%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Whether data retention of the profile is enabled.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_dataRetentionOptIn"><span class="hs-identifier hs-type">profile_dataRetentionOptIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="profile_dataRetentionOptIn"><span class="annot"><span class="annottext">profile_dataRetentionOptIn :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_dataRetentionOptIn"><span class="hs-identifier hs-var hs-var">profile_dataRetentionOptIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Bool)
+-&gt; (Profile -&gt; Maybe Bool -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374491"><span class="annot"><span class="annottext">Maybe Bool
+dataRetentionOptIn :: Maybe Bool
+$sel:dataRetentionOptIn:Profile' :: Profile -&gt; Maybe Bool
+</span><a href="#local-6989586621679374491"><span class="hs-identifier hs-var hs-var">dataRetentionOptIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374491"><span class="hs-identifier hs-var">dataRetentionOptIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374490"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374489"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRetentionOptIn:Profile' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdataRetentionOptIn%3AProfile%27"><span class="hs-identifier hs-var">dataRetentionOptIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The distance unit of a room profile.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_distanceUnit"><span class="hs-identifier hs-type">profile_distanceUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-type">DistanceUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="profile_distanceUnit"><span class="annot"><span class="annottext">profile_distanceUnit :: (Maybe DistanceUnit -&gt; f (Maybe DistanceUnit))
+-&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#profile_distanceUnit"><span class="hs-identifier hs-var hs-var">profile_distanceUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe DistanceUnit)
+-&gt; (Profile -&gt; Maybe DistanceUnit -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe DistanceUnit) (Maybe DistanceUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374487"><span class="annot"><span class="annottext">Maybe DistanceUnit
+distanceUnit :: Maybe DistanceUnit
+$sel:distanceUnit:Profile' :: Profile -&gt; Maybe DistanceUnit
+</span><a href="#local-6989586621679374487"><span class="hs-identifier hs-var hs-var">distanceUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DistanceUnit
+</span><a href="#local-6989586621679374487"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374486"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679374486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374485"><span class="annot"><span class="annottext">Maybe DistanceUnit
+</span><a href="#local-6989586621679374485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679374486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distanceUnit:Profile' :: Maybe DistanceUnit
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#%24sel%3AdistanceUnit%3AProfile%27"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DistanceUnit
+</span><a href="#local-6989586621679374485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374482"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679374480"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Profile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Profile) -&gt; Value -&gt; Parser Profile
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Profile&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374477"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TemperatureUnit
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe WakeWord
+-&gt; Maybe Text
+-&gt; Maybe MeetingRoomConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe DistanceUnit
+-&gt; Profile
+</span><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile%27"><span class="hs-identifier hs-var">Profile'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe TemperatureUnit
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe WakeWord
+ -&gt; Maybe Text
+ -&gt; Maybe MeetingRoomConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe DistanceUnit
+ -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TemperatureUnit
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TemperatureUnit
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TemperatureUnit
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsDefault&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TemperatureUnit
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TemperatureUnit
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TemperatureUnit
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TemperatureUnit
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Locale&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TemperatureUnit
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe TemperatureUnit)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TemperatureUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemperatureUnit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AddressBookArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PSTNEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SetupModeDisabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe WakeWord
+      -&gt; Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxVolumeLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WakeWord
+   -&gt; Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe WakeWord)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe DistanceUnit
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WakeWord)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WakeWord&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe DistanceUnit
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe MeetingRoomConfiguration
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MeetingRoomConfiguration
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+-&gt; Parser (Maybe MeetingRoomConfiguration)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MeetingRoomConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MeetingRoomConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timezone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe DistanceUnit -&gt; Profile)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe DistanceUnit -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataRetentionOptIn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DistanceUnit -&gt; Profile)
+-&gt; Parser (Maybe DistanceUnit) -&gt; Parser Profile
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DistanceUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DistanceUnit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374471"><span id="local-6989586621679374473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

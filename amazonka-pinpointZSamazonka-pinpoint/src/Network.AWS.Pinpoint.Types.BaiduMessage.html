@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.BaiduMessage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.BaiduMessage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.Action</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the settings for a one-time message that\'s sent directly to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- an endpoint through the Baidu (Baidu Cloud Push) channel.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBaiduMessage' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679592239"><span id="local-6989586621679592240"></span></span><span class="hs-keyword">data</span><span> </span><span id="BaiduMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-var">BaiduMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BaiduMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-var">BaiduMessage'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the notification is a silent push notification, which</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- is a push notification that doesn\'t display on a recipient\'s device.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Silent push notifications can be used for cases such as updating an</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- app\'s configuration or supporting phone home functionality.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsilentPush%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsilentPush%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">silentPush</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The URL of the large icon image to display in the content view of the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- push notification.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AimageIconUrl%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">imageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The body of the notification message.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Abody%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Abody%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The icon image name of the asset saved in your app.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AiconReference%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AiconReference%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">iconReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The JSON data payload to use for the push notification, if the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- notification is a silent push notification. This payload is added to the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- data.pinpoint.jsonBody object of the notification.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adata%27%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Adata%27%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The title to display above the notification message on the recipient\'s</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Atitle%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Atitle%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The amount of time, in seconds, that the Baidu Cloud Push service should</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- store the message if the recipient\'s device is offline. The default</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- value and maximum supported time is 604,800 seconds (7 days).</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtimeToLive%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AtimeToLive%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">timeToLive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The URL of an image to display in the push notification.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AimageUrl%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The default message variables to use in the notification message. You</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- can override the default variables with individual address variables.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Asubstitutions%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asubstitutions%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The action to occur if the recipient taps the push notification. Valid</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- values are:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aaction%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aaction%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The URL to open in the recipient\'s default mobile browser, if a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- recipient taps the push notification and the value of the Action</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- property is URL.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aurl%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aurl%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The sound to play when the recipient receives the push notification. You</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- can use the default stream or specify the file name of a sound resource</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- that\'s bundled in your app. On an Android platform, the sound file must</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- reside in \/res\/raw\/.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Asound%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asound%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- content view of the push notification.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AsmallImageIconUrl%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsmallImageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">smallImageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- notification message. If specified, this value overrides all other</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- content for the message.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3ArawContent%3ABaiduMessage%27"><span class="annot"><span class="annottext">BaiduMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3ArawContent%3ABaiduMessage%27"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592220"><span id="local-6989586621679592222"><span class="annot"><span class="annottext">BaiduMessage -&gt; BaiduMessage -&gt; Bool
+(BaiduMessage -&gt; BaiduMessage -&gt; Bool)
+-&gt; (BaiduMessage -&gt; BaiduMessage -&gt; Bool) -&gt; Eq BaiduMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BaiduMessage -&gt; BaiduMessage -&gt; Bool
+$c/= :: BaiduMessage -&gt; BaiduMessage -&gt; Bool
+== :: BaiduMessage -&gt; BaiduMessage -&gt; Bool
+$c== :: BaiduMessage -&gt; BaiduMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592211"><span id="local-6989586621679592213"><span id="local-6989586621679592215"><span id="local-6989586621679592217"><span class="annot"><span class="annottext">ReadPrec [BaiduMessage]
+ReadPrec BaiduMessage
+Int -&gt; ReadS BaiduMessage
+ReadS [BaiduMessage]
+(Int -&gt; ReadS BaiduMessage)
+-&gt; ReadS [BaiduMessage]
+-&gt; ReadPrec BaiduMessage
+-&gt; ReadPrec [BaiduMessage]
+-&gt; Read BaiduMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BaiduMessage]
+$creadListPrec :: ReadPrec [BaiduMessage]
+readPrec :: ReadPrec BaiduMessage
+$creadPrec :: ReadPrec BaiduMessage
+readList :: ReadS [BaiduMessage]
+$creadList :: ReadS [BaiduMessage]
+readsPrec :: Int -&gt; ReadS BaiduMessage
+$creadsPrec :: Int -&gt; ReadS BaiduMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592204"><span id="local-6989586621679592206"><span id="local-6989586621679592208"><span class="annot"><span class="annottext">Int -&gt; BaiduMessage -&gt; ShowS
+[BaiduMessage] -&gt; ShowS
+BaiduMessage -&gt; String
+(Int -&gt; BaiduMessage -&gt; ShowS)
+-&gt; (BaiduMessage -&gt; String)
+-&gt; ([BaiduMessage] -&gt; ShowS)
+-&gt; Show BaiduMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BaiduMessage] -&gt; ShowS
+$cshowList :: [BaiduMessage] -&gt; ShowS
+show :: BaiduMessage -&gt; String
+$cshow :: BaiduMessage -&gt; String
+showsPrec :: Int -&gt; BaiduMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; BaiduMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BaiduMessage -&gt; Rep BaiduMessage x)
+-&gt; (forall x. Rep BaiduMessage x -&gt; BaiduMessage)
+-&gt; Generic BaiduMessage
+forall x. Rep BaiduMessage x -&gt; BaiduMessage
+forall x. BaiduMessage -&gt; Rep BaiduMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BaiduMessage x -&gt; BaiduMessage
+$cfrom :: forall x. BaiduMessage -&gt; Rep BaiduMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'BaiduMessage' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'silentPush', 'baiduMessage_silentPush' - Specifies whether the notification is a silent push notification, which</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- is a push notification that doesn\'t display on a recipient\'s device.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Silent push notifications can be used for cases such as updating an</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- app\'s configuration or supporting phone home functionality.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'imageIconUrl', 'baiduMessage_imageIconUrl' - The URL of the large icon image to display in the content view of the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- push notification.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'body', 'baiduMessage_body' - The body of the notification message.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'iconReference', 'baiduMessage_iconReference' - The icon image name of the asset saved in your app.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'data'', 'baiduMessage_data' - The JSON data payload to use for the push notification, if the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- notification is a silent push notification. This payload is added to the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- data.pinpoint.jsonBody object of the notification.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'title', 'baiduMessage_title' - The title to display above the notification message on the recipient\'s</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'timeToLive', 'baiduMessage_timeToLive' - The amount of time, in seconds, that the Baidu Cloud Push service should</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- store the message if the recipient\'s device is offline. The default</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- value and maximum supported time is 604,800 seconds (7 days).</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'imageUrl', 'baiduMessage_imageUrl' - The URL of an image to display in the push notification.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'substitutions', 'baiduMessage_substitutions' - The default message variables to use in the notification message. You</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- can override the default variables with individual address variables.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'action', 'baiduMessage_action' - The action to occur if the recipient taps the push notification. Valid</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- values are:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'url', 'baiduMessage_url' - The URL to open in the recipient\'s default mobile browser, if a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- recipient taps the push notification and the value of the Action</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- property is URL.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'sound', 'baiduMessage_sound' - The sound to play when the recipient receives the push notification. You</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- can use the default stream or specify the file name of a sound resource</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- that\'s bundled in your app. On an Android platform, the sound file must</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- reside in \/res\/raw\/.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'smallImageIconUrl', 'baiduMessage_smallImageIconUrl' - The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- content view of the push notification.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'rawContent', 'baiduMessage_rawContent' - The raw, JSON-formatted string to use as the payload for the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- notification message. If specified, this value overrides all other</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- content for the message.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#newBaiduMessage"><span class="hs-identifier hs-type">newBaiduMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span>
+</span><span id="line-158"></span><span id="newBaiduMessage"><span class="annot"><span class="annottext">newBaiduMessage :: BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#newBaiduMessage"><span class="hs-identifier hs-var hs-var">newBaiduMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">BaiduMessage' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe Action
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:silentPush:BaiduMessage' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsilentPush%3ABaiduMessage%27"><span class="hs-identifier hs-var">silentPush</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageIconUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Abody%3ABaiduMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:iconReference:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AiconReference%3ABaiduMessage%27"><span class="hs-identifier hs-var">iconReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':BaiduMessage' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Adata%27%3ABaiduMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Atitle%3ABaiduMessage%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeToLive:BaiduMessage' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AtimeToLive%3ABaiduMessage%27"><span class="hs-identifier hs-var">timeToLive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:substitutions:BaiduMessage' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asubstitutions%3ABaiduMessage%27"><span class="hs-identifier hs-var">substitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:BaiduMessage' :: Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aaction%3ABaiduMessage%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aurl%3ABaiduMessage%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:sound:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asound%3ABaiduMessage%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsmallImageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:rawContent:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3ArawContent%3ABaiduMessage%27"><span class="hs-identifier hs-var">rawContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Specifies whether the notification is a silent push notification, which</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- is a push notification that doesn\'t display on a recipient\'s device.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Silent push notifications can be used for cases such as updating an</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- app\'s configuration or supporting phone home functionality.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_silentPush"><span class="hs-identifier hs-type">baiduMessage_silentPush</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="baiduMessage_silentPush"><span class="annot"><span class="annottext">baiduMessage_silentPush :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_silentPush"><span class="hs-identifier hs-var hs-var">baiduMessage_silentPush</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Bool)
+-&gt; (BaiduMessage -&gt; Maybe Bool -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592195"><span class="annot"><span class="annottext">Maybe Bool
+silentPush :: Maybe Bool
+$sel:silentPush:BaiduMessage' :: BaiduMessage -&gt; Maybe Bool
+</span><a href="#local-6989586621679592195"><span class="hs-identifier hs-var hs-var">silentPush</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679592195"><span class="hs-identifier hs-var">silentPush</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592194"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592193"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679592193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:silentPush:BaiduMessage' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsilentPush%3ABaiduMessage%27"><span class="hs-identifier hs-var">silentPush</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679592193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The URL of the large icon image to display in the content view of the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- push notification.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_imageIconUrl"><span class="hs-identifier hs-type">baiduMessage_imageIconUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="baiduMessage_imageIconUrl"><span class="annot"><span class="annottext">baiduMessage_imageIconUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_imageIconUrl"><span class="hs-identifier hs-var hs-var">baiduMessage_imageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592191"><span class="annot"><span class="annottext">Maybe Text
+imageIconUrl :: Maybe Text
+$sel:imageIconUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592191"><span class="hs-identifier hs-var hs-var">imageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592191"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592190"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIconUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The body of the notification message.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_body"><span class="hs-identifier hs-type">baiduMessage_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="baiduMessage_body"><span class="annot"><span class="annottext">baiduMessage_body :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_body"><span class="hs-identifier hs-var hs-var">baiduMessage_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592187"><span class="annot"><span class="annottext">Maybe Text
+body :: Maybe Text
+$sel:body:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592187"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592187"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592186"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592185"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Abody%3ABaiduMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The icon image name of the asset saved in your app.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_iconReference"><span class="hs-identifier hs-type">baiduMessage_iconReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="baiduMessage_iconReference"><span class="annot"><span class="annottext">baiduMessage_iconReference :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_iconReference"><span class="hs-identifier hs-var hs-var">baiduMessage_iconReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592183"><span class="annot"><span class="annottext">Maybe Text
+iconReference :: Maybe Text
+$sel:iconReference:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592183"><span class="hs-identifier hs-var hs-var">iconReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592183"><span class="hs-identifier hs-var">iconReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592182"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iconReference:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AiconReference%3ABaiduMessage%27"><span class="hs-identifier hs-var">iconReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The JSON data payload to use for the push notification, if the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- notification is a silent push notification. This payload is added to the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- data.pinpoint.jsonBody object of the notification.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_data"><span class="hs-identifier hs-type">baiduMessage_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="baiduMessage_data"><span class="annot"><span class="annottext">baiduMessage_data :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_data"><span class="hs-identifier hs-var hs-var">baiduMessage_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe (HashMap Text Text))
+-&gt; (BaiduMessage -&gt; Maybe (HashMap Text Text) -&gt; BaiduMessage)
+-&gt; Lens
+     BaiduMessage
+     BaiduMessage
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592179"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+data' :: Maybe (HashMap Text Text)
+$sel:data':BaiduMessage' :: BaiduMessage -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679592179"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679592179"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592178"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592177"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679592177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':BaiduMessage' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Adata%27%3ABaiduMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679592177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; BaiduMessage -&gt; f BaiduMessage)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; BaiduMessage
+-&gt; f BaiduMessage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The title to display above the notification message on the recipient\'s</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_title"><span class="hs-identifier hs-type">baiduMessage_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="baiduMessage_title"><span class="annot"><span class="annottext">baiduMessage_title :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_title"><span class="hs-identifier hs-var hs-var">baiduMessage_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592172"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592172"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592172"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592171"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Atitle%3ABaiduMessage%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The amount of time, in seconds, that the Baidu Cloud Push service should</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- store the message if the recipient\'s device is offline. The default</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- value and maximum supported time is 604,800 seconds (7 days).</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_timeToLive"><span class="hs-identifier hs-type">baiduMessage_timeToLive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="baiduMessage_timeToLive"><span class="annot"><span class="annottext">baiduMessage_timeToLive :: (Maybe Int -&gt; f (Maybe Int)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_timeToLive"><span class="hs-identifier hs-var hs-var">baiduMessage_timeToLive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Int)
+-&gt; (BaiduMessage -&gt; Maybe Int -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592168"><span class="annot"><span class="annottext">Maybe Int
+timeToLive :: Maybe Int
+$sel:timeToLive:BaiduMessage' :: BaiduMessage -&gt; Maybe Int
+</span><a href="#local-6989586621679592168"><span class="hs-identifier hs-var hs-var">timeToLive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679592168"><span class="hs-identifier hs-var">timeToLive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592167"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592166"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679592166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeToLive:BaiduMessage' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AtimeToLive%3ABaiduMessage%27"><span class="hs-identifier hs-var">timeToLive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679592166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The URL of an image to display in the push notification.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_imageUrl"><span class="hs-identifier hs-type">baiduMessage_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="baiduMessage_imageUrl"><span class="annot"><span class="annottext">baiduMessage_imageUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_imageUrl"><span class="hs-identifier hs-var hs-var">baiduMessage_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592164"><span class="annot"><span class="annottext">Maybe Text
+imageUrl :: Maybe Text
+$sel:imageUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592164"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592164"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592163"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AimageUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The default message variables to use in the notification message. You</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- can override the default variables with individual address variables.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_substitutions"><span class="hs-identifier hs-type">baiduMessage_substitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="baiduMessage_substitutions"><span class="annot"><span class="annottext">baiduMessage_substitutions :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_substitutions"><span class="hs-identifier hs-var hs-var">baiduMessage_substitutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe (HashMap Text [Text]))
+-&gt; (BaiduMessage -&gt; Maybe (HashMap Text [Text]) -&gt; BaiduMessage)
+-&gt; Lens
+     BaiduMessage
+     BaiduMessage
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592160"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+substitutions :: Maybe (HashMap Text [Text])
+$sel:substitutions:BaiduMessage' :: BaiduMessage -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679592160"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679592160"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592159"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592158"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679592158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:substitutions:BaiduMessage' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asubstitutions%3ABaiduMessage%27"><span class="hs-identifier hs-var">substitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679592158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; BaiduMessage -&gt; f BaiduMessage)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; BaiduMessage
+-&gt; f BaiduMessage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The action to occur if the recipient taps the push notification. Valid</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- values are:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_action"><span class="hs-identifier hs-type">baiduMessage_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="baiduMessage_action"><span class="annot"><span class="annottext">baiduMessage_action :: (Maybe Action -&gt; f (Maybe Action))
+-&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_action"><span class="hs-identifier hs-var hs-var">baiduMessage_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Action)
+-&gt; (BaiduMessage -&gt; Maybe Action -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Action) (Maybe Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592156"><span class="annot"><span class="annottext">Maybe Action
+action :: Maybe Action
+$sel:action:BaiduMessage' :: BaiduMessage -&gt; Maybe Action
+</span><a href="#local-6989586621679592156"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679592156"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592155"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592154"><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679592154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:BaiduMessage' :: Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aaction%3ABaiduMessage%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679592154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The URL to open in the recipient\'s default mobile browser, if a</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- recipient taps the push notification and the value of the Action</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- property is URL.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_url"><span class="hs-identifier hs-type">baiduMessage_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="baiduMessage_url"><span class="annot"><span class="annottext">baiduMessage_url :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_url"><span class="hs-identifier hs-var hs-var">baiduMessage_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592152"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592152"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592152"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592151"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Aurl%3ABaiduMessage%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The sound to play when the recipient receives the push notification. You</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- can use the default stream or specify the file name of a sound resource</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- that\'s bundled in your app. On an Android platform, the sound file must</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- reside in \/res\/raw\/.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_sound"><span class="hs-identifier hs-type">baiduMessage_sound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="baiduMessage_sound"><span class="annot"><span class="annottext">baiduMessage_sound :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_sound"><span class="hs-identifier hs-var hs-var">baiduMessage_sound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592148"><span class="annot"><span class="annottext">Maybe Text
+sound :: Maybe Text
+$sel:sound:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592148"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592148"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592147"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592146"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sound:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3Asound%3ABaiduMessage%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- content view of the push notification.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_smallImageIconUrl"><span class="hs-identifier hs-type">baiduMessage_smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="baiduMessage_smallImageIconUrl"><span class="annot"><span class="annottext">baiduMessage_smallImageIconUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_smallImageIconUrl"><span class="hs-identifier hs-var hs-var">baiduMessage_smallImageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592144"><span class="annot"><span class="annottext">Maybe Text
+smallImageIconUrl :: Maybe Text
+$sel:smallImageIconUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592144"><span class="hs-identifier hs-var hs-var">smallImageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592144"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592143"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3AsmallImageIconUrl%3ABaiduMessage%27"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- notification message. If specified, this value overrides all other</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- content for the message.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_rawContent"><span class="hs-identifier hs-type">baiduMessage_rawContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="baiduMessage_rawContent"><span class="annot"><span class="annottext">baiduMessage_rawContent :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BaiduMessage -&gt; f BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#baiduMessage_rawContent"><span class="hs-identifier hs-var hs-var">baiduMessage_rawContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Maybe Text)
+-&gt; (BaiduMessage -&gt; Maybe Text -&gt; BaiduMessage)
+-&gt; Lens BaiduMessage BaiduMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592140"><span class="annot"><span class="annottext">Maybe Text
+rawContent :: Maybe Text
+$sel:rawContent:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679592140"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592140"><span class="hs-identifier hs-var">rawContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592139"><span class="annot"><span class="annottext">s :: BaiduMessage
+</span><a href="#local-6989586621679592139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BaiduMessage
+</span><a href="#local-6989586621679592139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawContent:BaiduMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#%24sel%3ArawContent%3ABaiduMessage%27"><span class="hs-identifier hs-var">rawContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592134"><span id="local-6989586621679592136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span></span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592123"><span id="local-6989586621679592125"><span id="local-6989586621679592127"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679592121"><span class="annot"><span class="annottext">toJSON :: BaiduMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage%27"><span class="hs-identifier hs-type">BaiduMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592106"><span id="local-6989586621679592107"><span id="local-6989586621679592108"><span id="local-6989586621679592109"><span id="local-6989586621679592110"><span id="local-6989586621679592111"><span id="local-6989586621679592112"><span id="local-6989586621679592113"><span id="local-6989586621679592114"><span id="local-6989586621679592115"><span id="local-6989586621679592116"><span id="local-6989586621679592117"><span id="local-6989586621679592118"><span id="local-6989586621679592119"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe Text
+Maybe (HashMap Text [Text])
+Maybe (HashMap Text Text)
+Maybe Action
+rawContent :: Maybe Text
+smallImageIconUrl :: Maybe Text
+sound :: Maybe Text
+url :: Maybe Text
+action :: Maybe Action
+substitutions :: Maybe (HashMap Text [Text])
+imageUrl :: Maybe Text
+timeToLive :: Maybe Int
+title :: Maybe Text
+data' :: Maybe (HashMap Text Text)
+iconReference :: Maybe Text
+body :: Maybe Text
+imageIconUrl :: Maybe Text
+silentPush :: Maybe Bool
+$sel:rawContent:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:smallImageIconUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:sound:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:url:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:action:BaiduMessage' :: BaiduMessage -&gt; Maybe Action
+$sel:substitutions:BaiduMessage' :: BaiduMessage -&gt; Maybe (HashMap Text [Text])
+$sel:imageUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:timeToLive:BaiduMessage' :: BaiduMessage -&gt; Maybe Int
+$sel:title:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:data':BaiduMessage' :: BaiduMessage -&gt; Maybe (HashMap Text Text)
+$sel:iconReference:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:body:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:imageIconUrl:BaiduMessage' :: BaiduMessage -&gt; Maybe Text
+$sel:silentPush:BaiduMessage' :: BaiduMessage -&gt; Maybe Bool
+</span><a href="#local-6989586621679592106"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-269"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SilentPush&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679592119"><span class="hs-identifier hs-var">silentPush</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageIconUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592118"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592117"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IconReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592116"><span class="hs-identifier hs-var">iconReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679592115"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592114"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeToLive&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679592113"><span class="hs-identifier hs-var">timeToLive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592112"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Substitutions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
+-&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679592111"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Action -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Pair) -&gt; Maybe Action -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679592110"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592109"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sound&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592108"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SmallImageIconUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592107"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RawContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592106"><span class="hs-identifier hs-var">rawContent</span></a></span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span></pre></body></html>

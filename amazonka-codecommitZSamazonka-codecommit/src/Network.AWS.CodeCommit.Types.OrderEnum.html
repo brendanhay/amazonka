@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.Types.OrderEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.Types.OrderEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum"><span class="hs-identifier">OrderEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Ascending"><span class="hs-identifier">OrderEnum_Ascending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Descending"><span class="hs-identifier">OrderEnum_Descending</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679350758"><span id="local-6989586621679350759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrderEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum"><span class="hs-identifier hs-var">OrderEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum%27"><span class="hs-identifier hs-var">OrderEnum'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrderEnum"><span class="annot"><span class="annottext">OrderEnum -&gt; Text
+</span><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#fromOrderEnum"><span class="hs-identifier hs-var hs-var">fromOrderEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350750"><span id="local-6989586621679350752"><span id="local-6989586621679350754"><span class="annot"><span class="annottext">Int -&gt; OrderEnum -&gt; ShowS
+[OrderEnum] -&gt; ShowS
+OrderEnum -&gt; String
+(Int -&gt; OrderEnum -&gt; ShowS)
+-&gt; (OrderEnum -&gt; String)
+-&gt; ([OrderEnum] -&gt; ShowS)
+-&gt; Show OrderEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrderEnum] -&gt; ShowS
+$cshowList :: [OrderEnum] -&gt; ShowS
+show :: OrderEnum -&gt; String
+$cshow :: OrderEnum -&gt; String
+showsPrec :: Int -&gt; OrderEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrderEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679350741"><span id="local-6989586621679350743"><span id="local-6989586621679350745"><span id="local-6989586621679350747"><span class="annot"><span class="annottext">ReadPrec [OrderEnum]
+ReadPrec OrderEnum
+Int -&gt; ReadS OrderEnum
+ReadS [OrderEnum]
+(Int -&gt; ReadS OrderEnum)
+-&gt; ReadS [OrderEnum]
+-&gt; ReadPrec OrderEnum
+-&gt; ReadPrec [OrderEnum]
+-&gt; Read OrderEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrderEnum]
+$creadListPrec :: ReadPrec [OrderEnum]
+readPrec :: ReadPrec OrderEnum
+$creadPrec :: ReadPrec OrderEnum
+readList :: ReadS [OrderEnum]
+$creadList :: ReadS [OrderEnum]
+readsPrec :: Int -&gt; ReadS OrderEnum
+$creadsPrec :: Int -&gt; ReadS OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679350736"><span id="local-6989586621679350738"><span class="annot"><span class="annottext">OrderEnum -&gt; OrderEnum -&gt; Bool
+(OrderEnum -&gt; OrderEnum -&gt; Bool)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Bool) -&gt; Eq OrderEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c/= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+== :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c== :: OrderEnum -&gt; OrderEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679350720"><span id="local-6989586621679350722"><span id="local-6989586621679350724"><span id="local-6989586621679350726"><span id="local-6989586621679350728"><span id="local-6989586621679350730"><span id="local-6989586621679350732"><span class="annot"><span class="annottext">Eq OrderEnum
+Eq OrderEnum
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Ordering)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Bool)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Bool)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Bool)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; Bool)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; OrderEnum)
+-&gt; (OrderEnum -&gt; OrderEnum -&gt; OrderEnum)
+-&gt; Ord OrderEnum
+OrderEnum -&gt; OrderEnum -&gt; Bool
+OrderEnum -&gt; OrderEnum -&gt; Ordering
+OrderEnum -&gt; OrderEnum -&gt; OrderEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OrderEnum -&gt; OrderEnum -&gt; OrderEnum
+$cmin :: OrderEnum -&gt; OrderEnum -&gt; OrderEnum
+max :: OrderEnum -&gt; OrderEnum -&gt; OrderEnum
+$cmax :: OrderEnum -&gt; OrderEnum -&gt; OrderEnum
+&gt;= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c&gt;= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+&gt; :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c&gt; :: OrderEnum -&gt; OrderEnum -&gt; Bool
+&lt;= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c&lt;= :: OrderEnum -&gt; OrderEnum -&gt; Bool
+&lt; :: OrderEnum -&gt; OrderEnum -&gt; Bool
+$c&lt; :: OrderEnum -&gt; OrderEnum -&gt; Bool
+compare :: OrderEnum -&gt; OrderEnum -&gt; Ordering
+$ccompare :: OrderEnum -&gt; OrderEnum -&gt; Ordering
+$cp1Ord :: Eq OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OrderEnum -&gt; Rep OrderEnum x)
+-&gt; (forall x. Rep OrderEnum x -&gt; OrderEnum) -&gt; Generic OrderEnum
+forall x. Rep OrderEnum x -&gt; OrderEnum
+forall x. OrderEnum -&gt; Rep OrderEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OrderEnum x -&gt; OrderEnum
+$cfrom :: forall x. OrderEnum -&gt; Rep OrderEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350712"><span id="local-6989586621679350714"><span class="annot"><span class="annottext">Int -&gt; OrderEnum -&gt; Int
+OrderEnum -&gt; Int
+(Int -&gt; OrderEnum -&gt; Int)
+-&gt; (OrderEnum -&gt; Int) -&gt; Hashable OrderEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OrderEnum -&gt; Int
+$chash :: OrderEnum -&gt; Int
+hashWithSalt :: Int -&gt; OrderEnum -&gt; Int
+$chashWithSalt :: Int -&gt; OrderEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679350709"><span class="annot"><span class="annottext">OrderEnum -&gt; ()
+(OrderEnum -&gt; ()) -&gt; NFData OrderEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OrderEnum -&gt; ()
+$crnf :: OrderEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679350706"><span class="annot"><span class="annottext">Text -&gt; Either String OrderEnum
+(Text -&gt; Either String OrderEnum) -&gt; FromText OrderEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OrderEnum
+$cfromText :: Text -&gt; Either String OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350703"><span class="annot"><span class="annottext">OrderEnum -&gt; Text
+(OrderEnum -&gt; Text) -&gt; ToText OrderEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OrderEnum -&gt; Text
+$ctoText :: OrderEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350700"><span class="annot"><span class="annottext">OrderEnum -&gt; ByteString
+(OrderEnum -&gt; ByteString) -&gt; ToByteString OrderEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OrderEnum -&gt; ByteString
+$ctoBS :: OrderEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350697"><span class="annot"><span class="annottext">OrderEnum -&gt; ByteStringBuilder
+(OrderEnum -&gt; ByteStringBuilder) -&gt; ToLog OrderEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OrderEnum -&gt; ByteStringBuilder
+$cbuild :: OrderEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679350694"><span class="annot"><span class="annottext">HeaderName -&gt; OrderEnum -&gt; [Header]
+(HeaderName -&gt; OrderEnum -&gt; [Header]) -&gt; ToHeader OrderEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OrderEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OrderEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679350691"><span class="annot"><span class="annottext">OrderEnum -&gt; QueryString
+(OrderEnum -&gt; QueryString) -&gt; ToQuery OrderEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OrderEnum -&gt; QueryString
+$ctoQuery :: OrderEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679350686"><span id="local-6989586621679350688"><span class="annot"><span class="annottext">Value -&gt; Parser [OrderEnum]
+Value -&gt; Parser OrderEnum
+(Value -&gt; Parser OrderEnum)
+-&gt; (Value -&gt; Parser [OrderEnum]) -&gt; FromJSON OrderEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OrderEnum]
+$cparseJSONList :: Value -&gt; Parser [OrderEnum]
+parseJSON :: Value -&gt; Parser OrderEnum
+$cparseJSON :: Value -&gt; Parser OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679350681"><span id="local-6989586621679350683"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrderEnum]
+FromJSONKeyFunction OrderEnum
+FromJSONKeyFunction OrderEnum
+-&gt; FromJSONKeyFunction [OrderEnum] -&gt; FromJSONKey OrderEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OrderEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [OrderEnum]
+fromJSONKey :: FromJSONKeyFunction OrderEnum
+$cfromJSONKey :: FromJSONKeyFunction OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350672"><span id="local-6989586621679350674"><span id="local-6989586621679350676"><span id="local-6989586621679350678"><span class="annot"><span class="annottext">[OrderEnum] -&gt; Encoding
+[OrderEnum] -&gt; Value
+OrderEnum -&gt; Encoding
+OrderEnum -&gt; Value
+(OrderEnum -&gt; Value)
+-&gt; (OrderEnum -&gt; Encoding)
+-&gt; ([OrderEnum] -&gt; Value)
+-&gt; ([OrderEnum] -&gt; Encoding)
+-&gt; ToJSON OrderEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OrderEnum] -&gt; Encoding
+$ctoEncodingList :: [OrderEnum] -&gt; Encoding
+toJSONList :: [OrderEnum] -&gt; Value
+$ctoJSONList :: [OrderEnum] -&gt; Value
+toEncoding :: OrderEnum -&gt; Encoding
+$ctoEncoding :: OrderEnum -&gt; Encoding
+toJSON :: OrderEnum -&gt; Value
+$ctoJSON :: OrderEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350667"><span id="local-6989586621679350669"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrderEnum]
+ToJSONKeyFunction OrderEnum
+ToJSONKeyFunction OrderEnum
+-&gt; ToJSONKeyFunction [OrderEnum] -&gt; ToJSONKey OrderEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OrderEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [OrderEnum]
+toJSONKey :: ToJSONKeyFunction OrderEnum
+$ctoJSONKey :: ToJSONKeyFunction OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350664"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrderEnum
+([Node] -&gt; Either String OrderEnum) -&gt; FromXML OrderEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OrderEnum
+$cparseXML :: [Node] -&gt; Either String OrderEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679350661"><span class="annot"><span class="annottext">OrderEnum -&gt; XML
+(OrderEnum -&gt; XML) -&gt; ToXML OrderEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OrderEnum -&gt; XML
+$ctoXML :: OrderEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Ascending"><span class="hs-identifier hs-type">OrderEnum_Ascending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum"><span class="hs-identifier hs-type">OrderEnum</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderEnum_Ascending"><span id="%24mOrderEnum_Ascending"><span id="OrderEnum_Ascending"><span class="annot"><span class="annottext">$bOrderEnum_Ascending :: OrderEnum
+$mOrderEnum_Ascending :: forall r. OrderEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#%24bOrderEnum_Ascending"><span class="hs-identifier hs-var hs-var hs-var">OrderEnum_Ascending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum%27"><span class="hs-identifier hs-type">OrderEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ascending&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Descending"><span class="hs-identifier hs-type">OrderEnum_Descending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum"><span class="hs-identifier hs-type">OrderEnum</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOrderEnum_Descending"><span id="%24mOrderEnum_Descending"><span id="OrderEnum_Descending"><span class="annot"><span class="annottext">$bOrderEnum_Descending :: OrderEnum
+$mOrderEnum_Descending :: forall r. OrderEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#%24bOrderEnum_Descending"><span class="hs-identifier hs-var hs-var hs-var">OrderEnum_Descending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum%27"><span class="hs-identifier hs-type">OrderEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;descending&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Ascending"><span class="hs-pragma hs-type">OrderEnum_Ascending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum_Descending"><span class="hs-pragma hs-type">OrderEnum_Descending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum%27"><span class="hs-pragma hs-type">OrderEnum'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

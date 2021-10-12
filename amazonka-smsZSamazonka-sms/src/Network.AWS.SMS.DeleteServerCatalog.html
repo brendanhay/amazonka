@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SMS.DeleteServerCatalog</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes all servers from your server catalog.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SMS.DeleteServerCatalog</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier">DeleteServerCatalog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalog"><span class="hs-identifier">newDeleteServerCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier">DeleteServerCatalogResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalogResponse"><span class="hs-identifier">newDeleteServerCatalogResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#deleteServerCatalogResponse_httpStatus"><span class="hs-identifier">deleteServerCatalogResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteServerCatalog' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679257399"><span id="local-6989586621679257400"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServerCatalog"><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-var">DeleteServerCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServerCatalog%27"><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog%27"><span class="hs-identifier hs-var">DeleteServerCatalog'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257394"><span id="local-6989586621679257396"><span class="annot"><span class="annottext">DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool
+(DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool)
+-&gt; (DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool)
+-&gt; Eq DeleteServerCatalog
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool
+$c/= :: DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool
+== :: DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool
+$c== :: DeleteServerCatalog -&gt; DeleteServerCatalog -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257385"><span id="local-6989586621679257387"><span id="local-6989586621679257389"><span id="local-6989586621679257391"><span class="annot"><span class="annottext">ReadPrec [DeleteServerCatalog]
+ReadPrec DeleteServerCatalog
+Int -&gt; ReadS DeleteServerCatalog
+ReadS [DeleteServerCatalog]
+(Int -&gt; ReadS DeleteServerCatalog)
+-&gt; ReadS [DeleteServerCatalog]
+-&gt; ReadPrec DeleteServerCatalog
+-&gt; ReadPrec [DeleteServerCatalog]
+-&gt; Read DeleteServerCatalog
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteServerCatalog]
+$creadListPrec :: ReadPrec [DeleteServerCatalog]
+readPrec :: ReadPrec DeleteServerCatalog
+$creadPrec :: ReadPrec DeleteServerCatalog
+readList :: ReadS [DeleteServerCatalog]
+$creadList :: ReadS [DeleteServerCatalog]
+readsPrec :: Int -&gt; ReadS DeleteServerCatalog
+$creadsPrec :: Int -&gt; ReadS DeleteServerCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257378"><span id="local-6989586621679257380"><span id="local-6989586621679257382"><span class="annot"><span class="annottext">Int -&gt; DeleteServerCatalog -&gt; ShowS
+[DeleteServerCatalog] -&gt; ShowS
+DeleteServerCatalog -&gt; String
+(Int -&gt; DeleteServerCatalog -&gt; ShowS)
+-&gt; (DeleteServerCatalog -&gt; String)
+-&gt; ([DeleteServerCatalog] -&gt; ShowS)
+-&gt; Show DeleteServerCatalog
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteServerCatalog] -&gt; ShowS
+$cshowList :: [DeleteServerCatalog] -&gt; ShowS
+show :: DeleteServerCatalog -&gt; String
+$cshow :: DeleteServerCatalog -&gt; String
+showsPrec :: Int -&gt; DeleteServerCatalog -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteServerCatalog -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteServerCatalog -&gt; Rep DeleteServerCatalog x)
+-&gt; (forall x. Rep DeleteServerCatalog x -&gt; DeleteServerCatalog)
+-&gt; Generic DeleteServerCatalog
+forall x. Rep DeleteServerCatalog x -&gt; DeleteServerCatalog
+forall x. DeleteServerCatalog -&gt; Rep DeleteServerCatalog x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteServerCatalog x -&gt; DeleteServerCatalog
+$cfrom :: forall x. DeleteServerCatalog -&gt; Rep DeleteServerCatalog x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'DeleteServerCatalog' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalog"><span class="hs-identifier hs-type">newDeleteServerCatalog</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span>
+</span><span id="line-57"></span><span id="newDeleteServerCatalog"><span class="annot"><span class="annottext">newDeleteServerCatalog :: DeleteServerCatalog
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalog"><span class="hs-identifier hs-var hs-var">newDeleteServerCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteServerCatalog
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog%27"><span class="hs-identifier hs-var">DeleteServerCatalog'</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-61"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-type">DeleteServerCatalogResponse</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679257370"><span class="annot"><span class="annottext">request :: DeleteServerCatalog -&gt; Request DeleteServerCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteServerCatalog -&gt; Request DeleteServerCatalog
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679257366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteServerCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteServerCatalog)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteServerCatalog))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteServerCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteServerCatalog)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679257362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257361"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679257361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteServerCatalogResponse
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse%27"><span class="hs-identifier hs-var">DeleteServerCatalogResponse'</span></a></span><span>
+</span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteServerCatalogResponse)
+-&gt; Either String Int -&gt; Either String DeleteServerCatalogResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257354"><span id="local-6989586621679257356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679257347"><span class="annot"><span class="annottext">toHeaders :: DeleteServerCatalog -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteServerCatalog -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-79"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-80"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSServerMigrationService_V2016_10_24.DeleteServerCatalog&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-82"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-84"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-86"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257337"><span id="local-6989586621679257339"><span id="local-6989586621679257341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679257335"><span class="annot"><span class="annottext">toJSON :: DeleteServerCatalog -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DeleteServerCatalog -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679257330"><span class="annot"><span class="annottext">toPath :: DeleteServerCatalog -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteServerCatalog -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalog"><span class="hs-identifier hs-type">DeleteServerCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679257326"><span class="annot"><span class="annottext">toQuery :: DeleteServerCatalog -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteServerCatalog -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newDeleteServerCatalogResponse' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679257323"><span id="local-6989586621679257324"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServerCatalogResponse"><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-var">DeleteServerCatalogResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServerCatalogResponse%27"><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse%27"><span class="hs-identifier hs-var">DeleteServerCatalogResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteServerCatalogResponse%27"><span class="annot"><span class="annottext">DeleteServerCatalogResponse -&gt; Int
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#%24sel%3AhttpStatus%3ADeleteServerCatalogResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257318"><span id="local-6989586621679257320"><span class="annot"><span class="annottext">DeleteServerCatalogResponse -&gt; DeleteServerCatalogResponse -&gt; Bool
+(DeleteServerCatalogResponse
+ -&gt; DeleteServerCatalogResponse -&gt; Bool)
+-&gt; (DeleteServerCatalogResponse
+    -&gt; DeleteServerCatalogResponse -&gt; Bool)
+-&gt; Eq DeleteServerCatalogResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteServerCatalogResponse -&gt; DeleteServerCatalogResponse -&gt; Bool
+$c/= :: DeleteServerCatalogResponse -&gt; DeleteServerCatalogResponse -&gt; Bool
+== :: DeleteServerCatalogResponse -&gt; DeleteServerCatalogResponse -&gt; Bool
+$c== :: DeleteServerCatalogResponse -&gt; DeleteServerCatalogResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257310"><span id="local-6989586621679257312"><span id="local-6989586621679257314"><span id="local-6989586621679257316"><span class="annot"><span class="annottext">ReadPrec [DeleteServerCatalogResponse]
+ReadPrec DeleteServerCatalogResponse
+Int -&gt; ReadS DeleteServerCatalogResponse
+ReadS [DeleteServerCatalogResponse]
+(Int -&gt; ReadS DeleteServerCatalogResponse)
+-&gt; ReadS [DeleteServerCatalogResponse]
+-&gt; ReadPrec DeleteServerCatalogResponse
+-&gt; ReadPrec [DeleteServerCatalogResponse]
+-&gt; Read DeleteServerCatalogResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteServerCatalogResponse]
+$creadListPrec :: ReadPrec [DeleteServerCatalogResponse]
+readPrec :: ReadPrec DeleteServerCatalogResponse
+$creadPrec :: ReadPrec DeleteServerCatalogResponse
+readList :: ReadS [DeleteServerCatalogResponse]
+$creadList :: ReadS [DeleteServerCatalogResponse]
+readsPrec :: Int -&gt; ReadS DeleteServerCatalogResponse
+$creadsPrec :: Int -&gt; ReadS DeleteServerCatalogResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257304"><span id="local-6989586621679257306"><span id="local-6989586621679257308"><span class="annot"><span class="annottext">Int -&gt; DeleteServerCatalogResponse -&gt; ShowS
+[DeleteServerCatalogResponse] -&gt; ShowS
+DeleteServerCatalogResponse -&gt; String
+(Int -&gt; DeleteServerCatalogResponse -&gt; ShowS)
+-&gt; (DeleteServerCatalogResponse -&gt; String)
+-&gt; ([DeleteServerCatalogResponse] -&gt; ShowS)
+-&gt; Show DeleteServerCatalogResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteServerCatalogResponse] -&gt; ShowS
+$cshowList :: [DeleteServerCatalogResponse] -&gt; ShowS
+show :: DeleteServerCatalogResponse -&gt; String
+$cshow :: DeleteServerCatalogResponse -&gt; String
+showsPrec :: Int -&gt; DeleteServerCatalogResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteServerCatalogResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteServerCatalogResponse -&gt; Rep DeleteServerCatalogResponse x)
+-&gt; (forall x.
+    Rep DeleteServerCatalogResponse x -&gt; DeleteServerCatalogResponse)
+-&gt; Generic DeleteServerCatalogResponse
+forall x.
+Rep DeleteServerCatalogResponse x -&gt; DeleteServerCatalogResponse
+forall x.
+DeleteServerCatalogResponse -&gt; Rep DeleteServerCatalogResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteServerCatalogResponse x -&gt; DeleteServerCatalogResponse
+$cfrom :: forall x.
+DeleteServerCatalogResponse -&gt; Rep DeleteServerCatalogResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'DeleteServerCatalogResponse' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'httpStatus', 'deleteServerCatalogResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalogResponse"><span class="hs-identifier hs-type">newDeleteServerCatalogResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-type">DeleteServerCatalogResponse</span></a></span><span>
+</span><span id="line-119"></span><span id="newDeleteServerCatalogResponse"><span class="annot"><span class="annottext">newDeleteServerCatalogResponse :: Int -&gt; DeleteServerCatalogResponse
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#newDeleteServerCatalogResponse"><span class="hs-identifier hs-var hs-var">newDeleteServerCatalogResponse</span></a></span></span><span> </span><span id="local-6989586621679257301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">DeleteServerCatalogResponse' :: Int -&gt; DeleteServerCatalogResponse
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse%27"><span class="hs-identifier hs-type">DeleteServerCatalogResponse'</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServerCatalogResponse' :: Int
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#%24sel%3AhttpStatus%3ADeleteServerCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#deleteServerCatalogResponse_httpStatus"><span class="hs-identifier hs-type">deleteServerCatalogResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-type">DeleteServerCatalogResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span id="deleteServerCatalogResponse_httpStatus"><span class="annot"><span class="annottext">deleteServerCatalogResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteServerCatalogResponse -&gt; f DeleteServerCatalogResponse
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#deleteServerCatalogResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteServerCatalogResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServerCatalogResponse -&gt; Int)
+-&gt; (DeleteServerCatalogResponse
+    -&gt; Int -&gt; DeleteServerCatalogResponse)
+-&gt; Lens
+     DeleteServerCatalogResponse DeleteServerCatalogResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse%27"><span class="hs-identifier hs-type">DeleteServerCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257298"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteServerCatalogResponse' :: DeleteServerCatalogResponse -&gt; Int
+</span><a href="#local-6989586621679257298"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257298"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257297"><span class="annot"><span class="annottext">s :: DeleteServerCatalogResponse
+</span><a href="#local-6989586621679257297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse%27"><span class="hs-identifier hs-type">DeleteServerCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServerCatalogResponse
+</span><a href="#local-6989586621679257297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServerCatalogResponse' :: Int
+</span><a href="Network.AWS.SMS.DeleteServerCatalog.html#%24sel%3AhttpStatus%3ADeleteServerCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-type">DeleteServerCatalogResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteServerCatalog.html#DeleteServerCatalogResponse"><span class="hs-identifier hs-type">DeleteServerCatalogResponse</span></a></span></span><span>
+</span><span id="line-130"></span></pre></body></html>

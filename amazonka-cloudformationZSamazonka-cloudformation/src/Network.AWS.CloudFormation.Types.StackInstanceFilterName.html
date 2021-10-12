@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.Types.StackInstanceFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.Types.StackInstanceFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName"><span class="hs-identifier">StackInstanceFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName_DETAILED_STATUS"><span class="hs-identifier">StackInstanceFilterName_DETAILED_STATUS</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679422050"><span id="local-6989586621679422051"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackInstanceFilterName"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName"><span class="hs-identifier hs-var">StackInstanceFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackInstanceFilterName%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName%27"><span class="hs-identifier hs-var">StackInstanceFilterName'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackInstanceFilterName"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#fromStackInstanceFilterName"><span class="hs-identifier hs-var hs-var">fromStackInstanceFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679422042"><span id="local-6989586621679422044"><span id="local-6989586621679422046"><span class="annot"><span class="annottext">Int -&gt; StackInstanceFilterName -&gt; ShowS
+[StackInstanceFilterName] -&gt; ShowS
+StackInstanceFilterName -&gt; String
+(Int -&gt; StackInstanceFilterName -&gt; ShowS)
+-&gt; (StackInstanceFilterName -&gt; String)
+-&gt; ([StackInstanceFilterName] -&gt; ShowS)
+-&gt; Show StackInstanceFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackInstanceFilterName] -&gt; ShowS
+$cshowList :: [StackInstanceFilterName] -&gt; ShowS
+show :: StackInstanceFilterName -&gt; String
+$cshow :: StackInstanceFilterName -&gt; String
+showsPrec :: Int -&gt; StackInstanceFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackInstanceFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679422033"><span id="local-6989586621679422035"><span id="local-6989586621679422037"><span id="local-6989586621679422039"><span class="annot"><span class="annottext">ReadPrec [StackInstanceFilterName]
+ReadPrec StackInstanceFilterName
+Int -&gt; ReadS StackInstanceFilterName
+ReadS [StackInstanceFilterName]
+(Int -&gt; ReadS StackInstanceFilterName)
+-&gt; ReadS [StackInstanceFilterName]
+-&gt; ReadPrec StackInstanceFilterName
+-&gt; ReadPrec [StackInstanceFilterName]
+-&gt; Read StackInstanceFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackInstanceFilterName]
+$creadListPrec :: ReadPrec [StackInstanceFilterName]
+readPrec :: ReadPrec StackInstanceFilterName
+$creadPrec :: ReadPrec StackInstanceFilterName
+readList :: ReadS [StackInstanceFilterName]
+$creadList :: ReadS [StackInstanceFilterName]
+readsPrec :: Int -&gt; ReadS StackInstanceFilterName
+$creadsPrec :: Int -&gt; ReadS StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679422028"><span id="local-6989586621679422030"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+(StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; Eq StackInstanceFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c/= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+== :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c== :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679422012"><span id="local-6989586621679422014"><span id="local-6989586621679422016"><span id="local-6989586621679422018"><span id="local-6989586621679422020"><span id="local-6989586621679422022"><span id="local-6989586621679422024"><span class="annot"><span class="annottext">Eq StackInstanceFilterName
+Eq StackInstanceFilterName
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Ordering)
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; (StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool)
+-&gt; (StackInstanceFilterName
+    -&gt; StackInstanceFilterName -&gt; StackInstanceFilterName)
+-&gt; (StackInstanceFilterName
+    -&gt; StackInstanceFilterName -&gt; StackInstanceFilterName)
+-&gt; Ord StackInstanceFilterName
+StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Ordering
+StackInstanceFilterName
+-&gt; StackInstanceFilterName -&gt; StackInstanceFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StackInstanceFilterName
+-&gt; StackInstanceFilterName -&gt; StackInstanceFilterName
+$cmin :: StackInstanceFilterName
+-&gt; StackInstanceFilterName -&gt; StackInstanceFilterName
+max :: StackInstanceFilterName
+-&gt; StackInstanceFilterName -&gt; StackInstanceFilterName
+$cmax :: StackInstanceFilterName
+-&gt; StackInstanceFilterName -&gt; StackInstanceFilterName
+&gt;= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c&gt;= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+&gt; :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c&gt; :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+&lt;= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c&lt;= :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+&lt; :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+$c&lt; :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Bool
+compare :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Ordering
+$ccompare :: StackInstanceFilterName -&gt; StackInstanceFilterName -&gt; Ordering
+$cp1Ord :: Eq StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ StackInstanceFilterName -&gt; Rep StackInstanceFilterName x)
+-&gt; (forall x.
+    Rep StackInstanceFilterName x -&gt; StackInstanceFilterName)
+-&gt; Generic StackInstanceFilterName
+forall x. Rep StackInstanceFilterName x -&gt; StackInstanceFilterName
+forall x. StackInstanceFilterName -&gt; Rep StackInstanceFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackInstanceFilterName x -&gt; StackInstanceFilterName
+$cfrom :: forall x. StackInstanceFilterName -&gt; Rep StackInstanceFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679422004"><span id="local-6989586621679422006"><span class="annot"><span class="annottext">Int -&gt; StackInstanceFilterName -&gt; Int
+StackInstanceFilterName -&gt; Int
+(Int -&gt; StackInstanceFilterName -&gt; Int)
+-&gt; (StackInstanceFilterName -&gt; Int)
+-&gt; Hashable StackInstanceFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StackInstanceFilterName -&gt; Int
+$chash :: StackInstanceFilterName -&gt; Int
+hashWithSalt :: Int -&gt; StackInstanceFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; StackInstanceFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679422001"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; ()
+(StackInstanceFilterName -&gt; ()) -&gt; NFData StackInstanceFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StackInstanceFilterName -&gt; ()
+$crnf :: StackInstanceFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679421998"><span class="annot"><span class="annottext">Text -&gt; Either String StackInstanceFilterName
+(Text -&gt; Either String StackInstanceFilterName)
+-&gt; FromText StackInstanceFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StackInstanceFilterName
+$cfromText :: Text -&gt; Either String StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679421995"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; Text
+(StackInstanceFilterName -&gt; Text) -&gt; ToText StackInstanceFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StackInstanceFilterName -&gt; Text
+$ctoText :: StackInstanceFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679421992"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; ByteString
+(StackInstanceFilterName -&gt; ByteString)
+-&gt; ToByteString StackInstanceFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StackInstanceFilterName -&gt; ByteString
+$ctoBS :: StackInstanceFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679421989"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; ByteStringBuilder
+(StackInstanceFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog StackInstanceFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StackInstanceFilterName -&gt; ByteStringBuilder
+$cbuild :: StackInstanceFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679421986"><span class="annot"><span class="annottext">HeaderName -&gt; StackInstanceFilterName -&gt; [Header]
+(HeaderName -&gt; StackInstanceFilterName -&gt; [Header])
+-&gt; ToHeader StackInstanceFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StackInstanceFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StackInstanceFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679421983"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; QueryString
+(StackInstanceFilterName -&gt; QueryString)
+-&gt; ToQuery StackInstanceFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StackInstanceFilterName -&gt; QueryString
+$ctoQuery :: StackInstanceFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679421978"><span id="local-6989586621679421980"><span class="annot"><span class="annottext">Value -&gt; Parser [StackInstanceFilterName]
+Value -&gt; Parser StackInstanceFilterName
+(Value -&gt; Parser StackInstanceFilterName)
+-&gt; (Value -&gt; Parser [StackInstanceFilterName])
+-&gt; FromJSON StackInstanceFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StackInstanceFilterName]
+$cparseJSONList :: Value -&gt; Parser [StackInstanceFilterName]
+parseJSON :: Value -&gt; Parser StackInstanceFilterName
+$cparseJSON :: Value -&gt; Parser StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679421973"><span id="local-6989586621679421975"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackInstanceFilterName]
+FromJSONKeyFunction StackInstanceFilterName
+FromJSONKeyFunction StackInstanceFilterName
+-&gt; FromJSONKeyFunction [StackInstanceFilterName]
+-&gt; FromJSONKey StackInstanceFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StackInstanceFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [StackInstanceFilterName]
+fromJSONKey :: FromJSONKeyFunction StackInstanceFilterName
+$cfromJSONKey :: FromJSONKeyFunction StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679421964"><span id="local-6989586621679421966"><span id="local-6989586621679421968"><span id="local-6989586621679421970"><span class="annot"><span class="annottext">[StackInstanceFilterName] -&gt; Encoding
+[StackInstanceFilterName] -&gt; Value
+StackInstanceFilterName -&gt; Encoding
+StackInstanceFilterName -&gt; Value
+(StackInstanceFilterName -&gt; Value)
+-&gt; (StackInstanceFilterName -&gt; Encoding)
+-&gt; ([StackInstanceFilterName] -&gt; Value)
+-&gt; ([StackInstanceFilterName] -&gt; Encoding)
+-&gt; ToJSON StackInstanceFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StackInstanceFilterName] -&gt; Encoding
+$ctoEncodingList :: [StackInstanceFilterName] -&gt; Encoding
+toJSONList :: [StackInstanceFilterName] -&gt; Value
+$ctoJSONList :: [StackInstanceFilterName] -&gt; Value
+toEncoding :: StackInstanceFilterName -&gt; Encoding
+$ctoEncoding :: StackInstanceFilterName -&gt; Encoding
+toJSON :: StackInstanceFilterName -&gt; Value
+$ctoJSON :: StackInstanceFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679421959"><span id="local-6989586621679421961"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackInstanceFilterName]
+ToJSONKeyFunction StackInstanceFilterName
+ToJSONKeyFunction StackInstanceFilterName
+-&gt; ToJSONKeyFunction [StackInstanceFilterName]
+-&gt; ToJSONKey StackInstanceFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StackInstanceFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [StackInstanceFilterName]
+toJSONKey :: ToJSONKeyFunction StackInstanceFilterName
+$ctoJSONKey :: ToJSONKeyFunction StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679421956"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackInstanceFilterName
+([Node] -&gt; Either String StackInstanceFilterName)
+-&gt; FromXML StackInstanceFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StackInstanceFilterName
+$cparseXML :: [Node] -&gt; Either String StackInstanceFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679421953"><span class="annot"><span class="annottext">StackInstanceFilterName -&gt; XML
+(StackInstanceFilterName -&gt; XML) -&gt; ToXML StackInstanceFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StackInstanceFilterName -&gt; XML
+$ctoXML :: StackInstanceFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName_DETAILED_STATUS"><span class="hs-identifier hs-type">StackInstanceFilterName_DETAILED_STATUS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName"><span class="hs-identifier hs-type">StackInstanceFilterName</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackInstanceFilterName_DETAILED_STATUS"><span id="%24mStackInstanceFilterName_DETAILED_STATUS"><span id="StackInstanceFilterName_DETAILED_STATUS"><span class="annot"><span class="annottext">$bStackInstanceFilterName_DETAILED_STATUS :: StackInstanceFilterName
+$mStackInstanceFilterName_DETAILED_STATUS :: forall r.
+StackInstanceFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#%24bStackInstanceFilterName_DETAILED_STATUS"><span class="hs-identifier hs-var hs-var hs-var">StackInstanceFilterName_DETAILED_STATUS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName%27"><span class="hs-identifier hs-type">StackInstanceFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DETAILED_STATUS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName_DETAILED_STATUS"><span class="hs-pragma hs-type">StackInstanceFilterName_DETAILED_STATUS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceFilterName.html#StackInstanceFilterName%27"><span class="hs-pragma hs-type">StackInstanceFilterName'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

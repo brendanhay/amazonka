@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html"><span class="hs-identifier">Network.AWS.Connect.Types.Channel</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains summary information about a routing profile queue.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRoutingProfileQueueConfigSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679403442"><span id="local-6989586621679403443"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoutingProfileQueueConfigSummary"><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-var">RoutingProfileQueueConfigSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingProfileQueueConfigSummary%27"><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">RoutingProfileQueueConfigSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the queue.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AqueueId%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueId%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">queueId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the queue.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AqueueArn%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueArn%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">queueArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the queue.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AqueueName%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueName%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">queueName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The order in which contacts are to be handled for the queue. For more</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Apriority%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Apriority%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The delay, in seconds, that a contact should be in the queue before they</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- are routed to an available agent. For more information, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Adelay%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Adelay%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">delay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The channels this queue supports.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Achannel%3ARoutingProfileQueueConfigSummary%27"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary -&gt; Channel
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Achannel%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403431"><span id="local-6989586621679403433"><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+-&gt; RoutingProfileQueueConfigSummary -&gt; Bool
+(RoutingProfileQueueConfigSummary
+ -&gt; RoutingProfileQueueConfigSummary -&gt; Bool)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; RoutingProfileQueueConfigSummary -&gt; Bool)
+-&gt; Eq RoutingProfileQueueConfigSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoutingProfileQueueConfigSummary
+-&gt; RoutingProfileQueueConfigSummary -&gt; Bool
+$c/= :: RoutingProfileQueueConfigSummary
+-&gt; RoutingProfileQueueConfigSummary -&gt; Bool
+== :: RoutingProfileQueueConfigSummary
+-&gt; RoutingProfileQueueConfigSummary -&gt; Bool
+$c== :: RoutingProfileQueueConfigSummary
+-&gt; RoutingProfileQueueConfigSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403422"><span id="local-6989586621679403424"><span id="local-6989586621679403426"><span id="local-6989586621679403428"><span class="annot"><span class="annottext">ReadPrec [RoutingProfileQueueConfigSummary]
+ReadPrec RoutingProfileQueueConfigSummary
+Int -&gt; ReadS RoutingProfileQueueConfigSummary
+ReadS [RoutingProfileQueueConfigSummary]
+(Int -&gt; ReadS RoutingProfileQueueConfigSummary)
+-&gt; ReadS [RoutingProfileQueueConfigSummary]
+-&gt; ReadPrec RoutingProfileQueueConfigSummary
+-&gt; ReadPrec [RoutingProfileQueueConfigSummary]
+-&gt; Read RoutingProfileQueueConfigSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoutingProfileQueueConfigSummary]
+$creadListPrec :: ReadPrec [RoutingProfileQueueConfigSummary]
+readPrec :: ReadPrec RoutingProfileQueueConfigSummary
+$creadPrec :: ReadPrec RoutingProfileQueueConfigSummary
+readList :: ReadS [RoutingProfileQueueConfigSummary]
+$creadList :: ReadS [RoutingProfileQueueConfigSummary]
+readsPrec :: Int -&gt; ReadS RoutingProfileQueueConfigSummary
+$creadsPrec :: Int -&gt; ReadS RoutingProfileQueueConfigSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403415"><span id="local-6989586621679403417"><span id="local-6989586621679403419"><span class="annot"><span class="annottext">Int -&gt; RoutingProfileQueueConfigSummary -&gt; ShowS
+[RoutingProfileQueueConfigSummary] -&gt; ShowS
+RoutingProfileQueueConfigSummary -&gt; String
+(Int -&gt; RoutingProfileQueueConfigSummary -&gt; ShowS)
+-&gt; (RoutingProfileQueueConfigSummary -&gt; String)
+-&gt; ([RoutingProfileQueueConfigSummary] -&gt; ShowS)
+-&gt; Show RoutingProfileQueueConfigSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoutingProfileQueueConfigSummary] -&gt; ShowS
+$cshowList :: [RoutingProfileQueueConfigSummary] -&gt; ShowS
+show :: RoutingProfileQueueConfigSummary -&gt; String
+$cshow :: RoutingProfileQueueConfigSummary -&gt; String
+showsPrec :: Int -&gt; RoutingProfileQueueConfigSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoutingProfileQueueConfigSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RoutingProfileQueueConfigSummary
+ -&gt; Rep RoutingProfileQueueConfigSummary x)
+-&gt; (forall x.
+    Rep RoutingProfileQueueConfigSummary x
+    -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Generic RoutingProfileQueueConfigSummary
+forall x.
+Rep RoutingProfileQueueConfigSummary x
+-&gt; RoutingProfileQueueConfigSummary
+forall x.
+RoutingProfileQueueConfigSummary
+-&gt; Rep RoutingProfileQueueConfigSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RoutingProfileQueueConfigSummary x
+-&gt; RoutingProfileQueueConfigSummary
+$cfrom :: forall x.
+RoutingProfileQueueConfigSummary
+-&gt; Rep RoutingProfileQueueConfigSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'RoutingProfileQueueConfigSummary' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'queueId', 'routingProfileQueueConfigSummary_queueId' - The identifier for the queue.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'queueArn', 'routingProfileQueueConfigSummary_queueArn' - The Amazon Resource Name (ARN) of the queue.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'queueName', 'routingProfileQueueConfigSummary_queueName' - The name of the queue.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'priority', 'routingProfileQueueConfigSummary_priority' - The order in which contacts are to be handled for the queue. For more</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'delay', 'routingProfileQueueConfigSummary_delay' - The delay, in seconds, that a contact should be in the queue before they</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- are routed to an available agent. For more information, see</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'channel', 'routingProfileQueueConfigSummary_channel' - The channels this queue supports.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#newRoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">newRoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'queueId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'queueArn'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'queueName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'priority'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'delay'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'channel'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span>
+</span><span id="line-89"></span><span id="newRoutingProfileQueueConfigSummary"><span class="annot"><span class="annottext">newRoutingProfileQueueConfigSummary :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; Channel
+-&gt; RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#newRoutingProfileQueueConfigSummary"><span class="hs-identifier hs-var hs-var">newRoutingProfileQueueConfigSummary</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679403409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403409"><span class="hs-identifier hs-var">pQueueId_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679403408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403408"><span class="hs-identifier hs-var">pQueueArn_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679403407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403407"><span class="hs-identifier hs-var">pQueueName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679403406"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403406"><span class="hs-identifier hs-var">pPriority_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679403405"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403405"><span class="hs-identifier hs-var">pDelay_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679403404"><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679403404"><span class="hs-identifier hs-var">pChannel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary' :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; Channel
+-&gt; RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueId:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueId%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403409"><span class="hs-identifier hs-var">pQueueId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:queueArn:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueArn%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403408"><span class="hs-identifier hs-var">pQueueArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:queueName:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueName%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403407"><span class="hs-identifier hs-var">pQueueName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:priority:RoutingProfileQueueConfigSummary' :: Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Apriority%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403406"><span class="hs-identifier hs-var">pPriority_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:delay:RoutingProfileQueueConfigSummary' :: Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Adelay%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">delay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403405"><span class="hs-identifier hs-var">pDelay_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:channel:RoutingProfileQueueConfigSummary' :: Channel
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Achannel%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679403404"><span class="hs-identifier hs-var">pChannel_</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The identifier for the queue.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueId"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_queueId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="routingProfileQueueConfigSummary_queueId"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_queueId :: (Text -&gt; f Text)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueId"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_queueId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Text)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Text -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403400"><span class="annot"><span class="annottext">Text
+queueId :: Text
+$sel:queueId:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="#local-6989586621679403400"><span class="hs-identifier hs-var hs-var">queueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403400"><span class="hs-identifier hs-var">queueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403399"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueId:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueId%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the queue.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueArn"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_queueArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="routingProfileQueueConfigSummary_queueArn"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_queueArn :: (Text -&gt; f Text)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueArn"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_queueArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Text)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Text -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403396"><span class="annot"><span class="annottext">Text
+queueArn :: Text
+$sel:queueArn:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="#local-6989586621679403396"><span class="hs-identifier hs-var hs-var">queueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403396"><span class="hs-identifier hs-var">queueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403395"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403394"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueArn:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueArn%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the queue.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueName"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_queueName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="routingProfileQueueConfigSummary_queueName"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_queueName :: (Text -&gt; f Text)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_queueName"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_queueName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Text)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Text -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403392"><span class="annot"><span class="annottext">Text
+queueName :: Text
+$sel:queueName:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Text
+</span><a href="#local-6989586621679403392"><span class="hs-identifier hs-var hs-var">queueName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403392"><span class="hs-identifier hs-var">queueName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403391"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueName:RoutingProfileQueueConfigSummary' :: Text
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3AqueueName%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">queueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The order in which contacts are to be handled for the queue. For more</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_priority"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-122"></span><span id="routingProfileQueueConfigSummary_priority"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_priority :: (Natural -&gt; f Natural)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_priority"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Natural)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Natural -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403388"><span class="annot"><span class="annottext">Natural
+priority :: Natural
+$sel:priority:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Natural
+</span><a href="#local-6989586621679403388"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403388"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403387"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403386"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:RoutingProfileQueueConfigSummary' :: Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Apriority%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The delay, in seconds, that a contact should be in the queue before they</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- are routed to an available agent. For more information, see</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay&gt;</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_delay"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_delay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-129"></span><span id="routingProfileQueueConfigSummary_delay"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_delay :: (Natural -&gt; f Natural)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_delay"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_delay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Natural)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Natural -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403384"><span class="annot"><span class="annottext">Natural
+delay :: Natural
+$sel:delay:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Natural
+</span><a href="#local-6989586621679403384"><span class="hs-identifier hs-var hs-var">delay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403384"><span class="hs-identifier hs-var">delay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403383"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403382"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delay:RoutingProfileQueueConfigSummary' :: Natural
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Adelay%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">delay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679403382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The channels this queue supports.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_channel"><span class="hs-identifier hs-type">routingProfileQueueConfigSummary_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span>
+</span><span id="line-133"></span><span id="routingProfileQueueConfigSummary_channel"><span class="annot"><span class="annottext">routingProfileQueueConfigSummary_channel :: (Channel -&gt; f Channel)
+-&gt; RoutingProfileQueueConfigSummary
+-&gt; f RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#routingProfileQueueConfigSummary_channel"><span class="hs-identifier hs-var hs-var">routingProfileQueueConfigSummary_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingProfileQueueConfigSummary -&gt; Channel)
+-&gt; (RoutingProfileQueueConfigSummary
+    -&gt; Channel -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Lens
+     RoutingProfileQueueConfigSummary
+     RoutingProfileQueueConfigSummary
+     Channel
+     Channel
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403380"><span class="annot"><span class="annottext">Channel
+channel :: Channel
+$sel:channel:RoutingProfileQueueConfigSummary' :: RoutingProfileQueueConfigSummary -&gt; Channel
+</span><a href="#local-6989586621679403380"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679403380"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403379"><span class="annot"><span class="annottext">s :: RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403378"><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679403378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingProfileQueueConfigSummary
+</span><a href="#local-6989586621679403379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:RoutingProfileQueueConfigSummary' :: Channel
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#%24sel%3Achannel%3ARoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679403378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679403375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679403373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RoutingProfileQueueConfigSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RoutingProfileQueueConfigSummary)
+-&gt; Value
+-&gt; Parser RoutingProfileQueueConfigSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RoutingProfileQueueConfigSummary&quot;</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; Channel
+-&gt; RoutingProfileQueueConfigSummary
+</span><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary%27"><span class="hs-identifier hs-var">RoutingProfileQueueConfigSummary'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Natural
+ -&gt; Natural
+ -&gt; Channel
+ -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Channel
+      -&gt; RoutingProfileQueueConfigSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueueId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Channel
+   -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; Channel
+      -&gt; RoutingProfileQueueConfigSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueueArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; Channel
+   -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Natural -&gt; Natural -&gt; Channel -&gt; RoutingProfileQueueConfigSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueueName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Natural -&gt; Natural -&gt; Channel -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Natural
+-&gt; Parser (Natural -&gt; Channel -&gt; RoutingProfileQueueConfigSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Channel -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Natural
+-&gt; Parser (Channel -&gt; RoutingProfileQueueConfigSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Delay&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Channel -&gt; RoutingProfileQueueConfigSummary)
+-&gt; Parser Channel -&gt; Parser RoutingProfileQueueConfigSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Channel
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679403364"><span id="local-6989586621679403366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679403361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary.html#RoutingProfileQueueConfigSummary"><span class="hs-identifier hs-type">RoutingProfileQueueConfigSummary</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

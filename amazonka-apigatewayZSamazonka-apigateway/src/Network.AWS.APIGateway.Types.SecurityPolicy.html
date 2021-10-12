@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.SecurityPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.SecurityPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier">SecurityPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_0"><span class="hs-identifier">SecurityPolicy_TLS_1_0</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_2"><span class="hs-identifier">SecurityPolicy_TLS_1_2</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679369291"><span id="local-6989586621679369292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SecurityPolicy"><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier hs-var">SecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityPolicy%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy%27"><span class="hs-identifier hs-var">SecurityPolicy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSecurityPolicy"><span class="annot"><span class="annottext">SecurityPolicy -&gt; Text
+</span><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#fromSecurityPolicy"><span class="hs-identifier hs-var hs-var">fromSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369283"><span id="local-6989586621679369285"><span id="local-6989586621679369287"><span class="annot"><span class="annottext">Int -&gt; SecurityPolicy -&gt; ShowS
+[SecurityPolicy] -&gt; ShowS
+SecurityPolicy -&gt; String
+(Int -&gt; SecurityPolicy -&gt; ShowS)
+-&gt; (SecurityPolicy -&gt; String)
+-&gt; ([SecurityPolicy] -&gt; ShowS)
+-&gt; Show SecurityPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SecurityPolicy] -&gt; ShowS
+$cshowList :: [SecurityPolicy] -&gt; ShowS
+show :: SecurityPolicy -&gt; String
+$cshow :: SecurityPolicy -&gt; String
+showsPrec :: Int -&gt; SecurityPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; SecurityPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679369274"><span id="local-6989586621679369276"><span id="local-6989586621679369278"><span id="local-6989586621679369280"><span class="annot"><span class="annottext">ReadPrec [SecurityPolicy]
+ReadPrec SecurityPolicy
+Int -&gt; ReadS SecurityPolicy
+ReadS [SecurityPolicy]
+(Int -&gt; ReadS SecurityPolicy)
+-&gt; ReadS [SecurityPolicy]
+-&gt; ReadPrec SecurityPolicy
+-&gt; ReadPrec [SecurityPolicy]
+-&gt; Read SecurityPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SecurityPolicy]
+$creadListPrec :: ReadPrec [SecurityPolicy]
+readPrec :: ReadPrec SecurityPolicy
+$creadPrec :: ReadPrec SecurityPolicy
+readList :: ReadS [SecurityPolicy]
+$creadList :: ReadS [SecurityPolicy]
+readsPrec :: Int -&gt; ReadS SecurityPolicy
+$creadsPrec :: Int -&gt; ReadS SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679369269"><span id="local-6989586621679369271"><span class="annot"><span class="annottext">SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+(SecurityPolicy -&gt; SecurityPolicy -&gt; Bool)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Bool) -&gt; Eq SecurityPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c/= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+== :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c== :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679369253"><span id="local-6989586621679369255"><span id="local-6989586621679369257"><span id="local-6989586621679369259"><span id="local-6989586621679369261"><span id="local-6989586621679369263"><span id="local-6989586621679369265"><span class="annot"><span class="annottext">Eq SecurityPolicy
+Eq SecurityPolicy
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Ordering)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Bool)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Bool)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Bool)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; Bool)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy)
+-&gt; (SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy)
+-&gt; Ord SecurityPolicy
+SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+SecurityPolicy -&gt; SecurityPolicy -&gt; Ordering
+SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy
+$cmin :: SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy
+max :: SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy
+$cmax :: SecurityPolicy -&gt; SecurityPolicy -&gt; SecurityPolicy
+&gt;= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c&gt;= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+&gt; :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c&gt; :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+&lt;= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c&lt;= :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+&lt; :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+$c&lt; :: SecurityPolicy -&gt; SecurityPolicy -&gt; Bool
+compare :: SecurityPolicy -&gt; SecurityPolicy -&gt; Ordering
+$ccompare :: SecurityPolicy -&gt; SecurityPolicy -&gt; Ordering
+$cp1Ord :: Eq SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SecurityPolicy -&gt; Rep SecurityPolicy x)
+-&gt; (forall x. Rep SecurityPolicy x -&gt; SecurityPolicy)
+-&gt; Generic SecurityPolicy
+forall x. Rep SecurityPolicy x -&gt; SecurityPolicy
+forall x. SecurityPolicy -&gt; Rep SecurityPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SecurityPolicy x -&gt; SecurityPolicy
+$cfrom :: forall x. SecurityPolicy -&gt; Rep SecurityPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369245"><span id="local-6989586621679369247"><span class="annot"><span class="annottext">Int -&gt; SecurityPolicy -&gt; Int
+SecurityPolicy -&gt; Int
+(Int -&gt; SecurityPolicy -&gt; Int)
+-&gt; (SecurityPolicy -&gt; Int) -&gt; Hashable SecurityPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SecurityPolicy -&gt; Int
+$chash :: SecurityPolicy -&gt; Int
+hashWithSalt :: Int -&gt; SecurityPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; SecurityPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369242"><span class="annot"><span class="annottext">SecurityPolicy -&gt; ()
+(SecurityPolicy -&gt; ()) -&gt; NFData SecurityPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SecurityPolicy -&gt; ()
+$crnf :: SecurityPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679369239"><span class="annot"><span class="annottext">Text -&gt; Either String SecurityPolicy
+(Text -&gt; Either String SecurityPolicy) -&gt; FromText SecurityPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SecurityPolicy
+$cfromText :: Text -&gt; Either String SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369236"><span class="annot"><span class="annottext">SecurityPolicy -&gt; Text
+(SecurityPolicy -&gt; Text) -&gt; ToText SecurityPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SecurityPolicy -&gt; Text
+$ctoText :: SecurityPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369233"><span class="annot"><span class="annottext">SecurityPolicy -&gt; ByteString
+(SecurityPolicy -&gt; ByteString) -&gt; ToByteString SecurityPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SecurityPolicy -&gt; ByteString
+$ctoBS :: SecurityPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369230"><span class="annot"><span class="annottext">SecurityPolicy -&gt; ByteStringBuilder
+(SecurityPolicy -&gt; ByteStringBuilder) -&gt; ToLog SecurityPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SecurityPolicy -&gt; ByteStringBuilder
+$cbuild :: SecurityPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369227"><span class="annot"><span class="annottext">HeaderName -&gt; SecurityPolicy -&gt; [Header]
+(HeaderName -&gt; SecurityPolicy -&gt; [Header])
+-&gt; ToHeader SecurityPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SecurityPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SecurityPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369224"><span class="annot"><span class="annottext">SecurityPolicy -&gt; QueryString
+(SecurityPolicy -&gt; QueryString) -&gt; ToQuery SecurityPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SecurityPolicy -&gt; QueryString
+$ctoQuery :: SecurityPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369219"><span id="local-6989586621679369221"><span class="annot"><span class="annottext">Value -&gt; Parser [SecurityPolicy]
+Value -&gt; Parser SecurityPolicy
+(Value -&gt; Parser SecurityPolicy)
+-&gt; (Value -&gt; Parser [SecurityPolicy]) -&gt; FromJSON SecurityPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SecurityPolicy]
+$cparseJSONList :: Value -&gt; Parser [SecurityPolicy]
+parseJSON :: Value -&gt; Parser SecurityPolicy
+$cparseJSON :: Value -&gt; Parser SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369214"><span id="local-6989586621679369216"><span class="annot"><span class="annottext">FromJSONKeyFunction [SecurityPolicy]
+FromJSONKeyFunction SecurityPolicy
+FromJSONKeyFunction SecurityPolicy
+-&gt; FromJSONKeyFunction [SecurityPolicy]
+-&gt; FromJSONKey SecurityPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SecurityPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [SecurityPolicy]
+fromJSONKey :: FromJSONKeyFunction SecurityPolicy
+$cfromJSONKey :: FromJSONKeyFunction SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369205"><span id="local-6989586621679369207"><span id="local-6989586621679369209"><span id="local-6989586621679369211"><span class="annot"><span class="annottext">[SecurityPolicy] -&gt; Encoding
+[SecurityPolicy] -&gt; Value
+SecurityPolicy -&gt; Encoding
+SecurityPolicy -&gt; Value
+(SecurityPolicy -&gt; Value)
+-&gt; (SecurityPolicy -&gt; Encoding)
+-&gt; ([SecurityPolicy] -&gt; Value)
+-&gt; ([SecurityPolicy] -&gt; Encoding)
+-&gt; ToJSON SecurityPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SecurityPolicy] -&gt; Encoding
+$ctoEncodingList :: [SecurityPolicy] -&gt; Encoding
+toJSONList :: [SecurityPolicy] -&gt; Value
+$ctoJSONList :: [SecurityPolicy] -&gt; Value
+toEncoding :: SecurityPolicy -&gt; Encoding
+$ctoEncoding :: SecurityPolicy -&gt; Encoding
+toJSON :: SecurityPolicy -&gt; Value
+$ctoJSON :: SecurityPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369200"><span id="local-6989586621679369202"><span class="annot"><span class="annottext">ToJSONKeyFunction [SecurityPolicy]
+ToJSONKeyFunction SecurityPolicy
+ToJSONKeyFunction SecurityPolicy
+-&gt; ToJSONKeyFunction [SecurityPolicy] -&gt; ToJSONKey SecurityPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SecurityPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [SecurityPolicy]
+toJSONKey :: ToJSONKeyFunction SecurityPolicy
+$ctoJSONKey :: ToJSONKeyFunction SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369197"><span class="annot"><span class="annottext">[Node] -&gt; Either String SecurityPolicy
+([Node] -&gt; Either String SecurityPolicy) -&gt; FromXML SecurityPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SecurityPolicy
+$cparseXML :: [Node] -&gt; Either String SecurityPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369194"><span class="annot"><span class="annottext">SecurityPolicy -&gt; XML
+(SecurityPolicy -&gt; XML) -&gt; ToXML SecurityPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SecurityPolicy -&gt; XML
+$ctoXML :: SecurityPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_0"><span class="hs-identifier hs-type">SecurityPolicy_TLS_1_0</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier hs-type">SecurityPolicy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityPolicy_TLS_1_0"><span id="%24mSecurityPolicy_TLS_1_0"><span id="SecurityPolicy_TLS_1_0"><span class="annot"><span class="annottext">$bSecurityPolicy_TLS_1_0 :: SecurityPolicy
+$mSecurityPolicy_TLS_1_0 :: forall r. SecurityPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#%24bSecurityPolicy_TLS_1_0"><span class="hs-identifier hs-var hs-var hs-var">SecurityPolicy_TLS_1_0</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy%27"><span class="hs-identifier hs-type">SecurityPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS_1_0&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_2"><span class="hs-identifier hs-type">SecurityPolicy_TLS_1_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy"><span class="hs-identifier hs-type">SecurityPolicy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSecurityPolicy_TLS_1_2"><span id="%24mSecurityPolicy_TLS_1_2"><span id="SecurityPolicy_TLS_1_2"><span class="annot"><span class="annottext">$bSecurityPolicy_TLS_1_2 :: SecurityPolicy
+$mSecurityPolicy_TLS_1_2 :: forall r. SecurityPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#%24bSecurityPolicy_TLS_1_2"><span class="hs-identifier hs-var hs-var hs-var">SecurityPolicy_TLS_1_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy%27"><span class="hs-identifier hs-type">SecurityPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS_1_2&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_0"><span class="hs-pragma hs-type">SecurityPolicy_TLS_1_0</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy_TLS_1_2"><span class="hs-pragma hs-type">SecurityPolicy_TLS_1_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SecurityPolicy.html#SecurityPolicy%27"><span class="hs-pragma hs-type">SecurityPolicy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.ResourceAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.ResourceAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier">ResourceAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_CREATIONPOLICY"><span class="hs-identifier">ResourceAttribute_CREATIONPOLICY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_DELETIONPOLICY"><span class="hs-identifier">ResourceAttribute_DELETIONPOLICY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_METADATA"><span class="hs-identifier">ResourceAttribute_METADATA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_PROPERTIES"><span class="hs-identifier">ResourceAttribute_PROPERTIES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_TAGS"><span class="hs-identifier">ResourceAttribute_TAGS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_UPDATEPOLICY"><span class="hs-identifier">ResourceAttribute_UPDATEPOLICY</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679405403"><span id="local-6989586621679405404"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceAttribute"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-var">ResourceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceAttribute%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-var">ResourceAttribute'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceAttribute"><span class="annot"><span class="annottext">ResourceAttribute -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#fromResourceAttribute"><span class="hs-identifier hs-var hs-var">fromResourceAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405395"><span id="local-6989586621679405397"><span id="local-6989586621679405399"><span class="annot"><span class="annottext">Int -&gt; ResourceAttribute -&gt; ShowS
+[ResourceAttribute] -&gt; ShowS
+ResourceAttribute -&gt; String
+(Int -&gt; ResourceAttribute -&gt; ShowS)
+-&gt; (ResourceAttribute -&gt; String)
+-&gt; ([ResourceAttribute] -&gt; ShowS)
+-&gt; Show ResourceAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceAttribute] -&gt; ShowS
+$cshowList :: [ResourceAttribute] -&gt; ShowS
+show :: ResourceAttribute -&gt; String
+$cshow :: ResourceAttribute -&gt; String
+showsPrec :: Int -&gt; ResourceAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679405386"><span id="local-6989586621679405388"><span id="local-6989586621679405390"><span id="local-6989586621679405392"><span class="annot"><span class="annottext">ReadPrec [ResourceAttribute]
+ReadPrec ResourceAttribute
+Int -&gt; ReadS ResourceAttribute
+ReadS [ResourceAttribute]
+(Int -&gt; ReadS ResourceAttribute)
+-&gt; ReadS [ResourceAttribute]
+-&gt; ReadPrec ResourceAttribute
+-&gt; ReadPrec [ResourceAttribute]
+-&gt; Read ResourceAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceAttribute]
+$creadListPrec :: ReadPrec [ResourceAttribute]
+readPrec :: ReadPrec ResourceAttribute
+$creadPrec :: ReadPrec ResourceAttribute
+readList :: ReadS [ResourceAttribute]
+$creadList :: ReadS [ResourceAttribute]
+readsPrec :: Int -&gt; ReadS ResourceAttribute
+$creadsPrec :: Int -&gt; ReadS ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679405381"><span id="local-6989586621679405383"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+(ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; Eq ResourceAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c/= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+== :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c== :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679405365"><span id="local-6989586621679405367"><span id="local-6989586621679405369"><span id="local-6989586621679405371"><span id="local-6989586621679405373"><span id="local-6989586621679405375"><span id="local-6989586621679405377"><span class="annot"><span class="annottext">Eq ResourceAttribute
+Eq ResourceAttribute
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Ordering)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute)
+-&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute)
+-&gt; Ord ResourceAttribute
+ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+ResourceAttribute -&gt; ResourceAttribute -&gt; Ordering
+ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute
+$cmin :: ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute
+max :: ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute
+$cmax :: ResourceAttribute -&gt; ResourceAttribute -&gt; ResourceAttribute
+&gt;= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c&gt;= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+&gt; :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c&gt; :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+&lt;= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c&lt;= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+&lt; :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+$c&lt; :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+compare :: ResourceAttribute -&gt; ResourceAttribute -&gt; Ordering
+$ccompare :: ResourceAttribute -&gt; ResourceAttribute -&gt; Ordering
+$cp1Ord :: Eq ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResourceAttribute -&gt; Rep ResourceAttribute x)
+-&gt; (forall x. Rep ResourceAttribute x -&gt; ResourceAttribute)
+-&gt; Generic ResourceAttribute
+forall x. Rep ResourceAttribute x -&gt; ResourceAttribute
+forall x. ResourceAttribute -&gt; Rep ResourceAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceAttribute x -&gt; ResourceAttribute
+$cfrom :: forall x. ResourceAttribute -&gt; Rep ResourceAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405357"><span id="local-6989586621679405359"><span class="annot"><span class="annottext">Int -&gt; ResourceAttribute -&gt; Int
+ResourceAttribute -&gt; Int
+(Int -&gt; ResourceAttribute -&gt; Int)
+-&gt; (ResourceAttribute -&gt; Int) -&gt; Hashable ResourceAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceAttribute -&gt; Int
+$chash :: ResourceAttribute -&gt; Int
+hashWithSalt :: Int -&gt; ResourceAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405354"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ()
+(ResourceAttribute -&gt; ()) -&gt; NFData ResourceAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceAttribute -&gt; ()
+$crnf :: ResourceAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405351"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceAttribute
+(Text -&gt; Either String ResourceAttribute)
+-&gt; FromText ResourceAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceAttribute
+$cfromText :: Text -&gt; Either String ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405348"><span class="annot"><span class="annottext">ResourceAttribute -&gt; Text
+(ResourceAttribute -&gt; Text) -&gt; ToText ResourceAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceAttribute -&gt; Text
+$ctoText :: ResourceAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405345"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ByteString
+(ResourceAttribute -&gt; ByteString) -&gt; ToByteString ResourceAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceAttribute -&gt; ByteString
+$ctoBS :: ResourceAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405342"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ByteStringBuilder
+(ResourceAttribute -&gt; ByteStringBuilder) -&gt; ToLog ResourceAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceAttribute -&gt; ByteStringBuilder
+$cbuild :: ResourceAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405339"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceAttribute -&gt; [Header]
+(HeaderName -&gt; ResourceAttribute -&gt; [Header])
+-&gt; ToHeader ResourceAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405336"><span class="annot"><span class="annottext">ResourceAttribute -&gt; QueryString
+(ResourceAttribute -&gt; QueryString) -&gt; ToQuery ResourceAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceAttribute -&gt; QueryString
+$ctoQuery :: ResourceAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405331"><span id="local-6989586621679405333"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceAttribute]
+Value -&gt; Parser ResourceAttribute
+(Value -&gt; Parser ResourceAttribute)
+-&gt; (Value -&gt; Parser [ResourceAttribute])
+-&gt; FromJSON ResourceAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceAttribute]
+$cparseJSONList :: Value -&gt; Parser [ResourceAttribute]
+parseJSON :: Value -&gt; Parser ResourceAttribute
+$cparseJSON :: Value -&gt; Parser ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405326"><span id="local-6989586621679405328"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceAttribute]
+FromJSONKeyFunction ResourceAttribute
+FromJSONKeyFunction ResourceAttribute
+-&gt; FromJSONKeyFunction [ResourceAttribute]
+-&gt; FromJSONKey ResourceAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceAttribute]
+fromJSONKey :: FromJSONKeyFunction ResourceAttribute
+$cfromJSONKey :: FromJSONKeyFunction ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405317"><span id="local-6989586621679405319"><span id="local-6989586621679405321"><span id="local-6989586621679405323"><span class="annot"><span class="annottext">[ResourceAttribute] -&gt; Encoding
+[ResourceAttribute] -&gt; Value
+ResourceAttribute -&gt; Encoding
+ResourceAttribute -&gt; Value
+(ResourceAttribute -&gt; Value)
+-&gt; (ResourceAttribute -&gt; Encoding)
+-&gt; ([ResourceAttribute] -&gt; Value)
+-&gt; ([ResourceAttribute] -&gt; Encoding)
+-&gt; ToJSON ResourceAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceAttribute] -&gt; Encoding
+$ctoEncodingList :: [ResourceAttribute] -&gt; Encoding
+toJSONList :: [ResourceAttribute] -&gt; Value
+$ctoJSONList :: [ResourceAttribute] -&gt; Value
+toEncoding :: ResourceAttribute -&gt; Encoding
+$ctoEncoding :: ResourceAttribute -&gt; Encoding
+toJSON :: ResourceAttribute -&gt; Value
+$ctoJSON :: ResourceAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679405312"><span id="local-6989586621679405314"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceAttribute]
+ToJSONKeyFunction ResourceAttribute
+ToJSONKeyFunction ResourceAttribute
+-&gt; ToJSONKeyFunction [ResourceAttribute]
+-&gt; ToJSONKey ResourceAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceAttribute]
+toJSONKey :: ToJSONKeyFunction ResourceAttribute
+$ctoJSONKey :: ToJSONKeyFunction ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679405309"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceAttribute
+([Node] -&gt; Either String ResourceAttribute)
+-&gt; FromXML ResourceAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceAttribute
+$cparseXML :: [Node] -&gt; Either String ResourceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679405306"><span class="annot"><span class="annottext">ResourceAttribute -&gt; XML
+(ResourceAttribute -&gt; XML) -&gt; ToXML ResourceAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceAttribute -&gt; XML
+$ctoXML :: ResourceAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_CREATIONPOLICY"><span class="hs-identifier hs-type">ResourceAttribute_CREATIONPOLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_CREATIONPOLICY"><span id="%24mResourceAttribute_CREATIONPOLICY"><span id="ResourceAttribute_CREATIONPOLICY"><span class="annot"><span class="annottext">$bResourceAttribute_CREATIONPOLICY :: ResourceAttribute
+$mResourceAttribute_CREATIONPOLICY :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_CREATIONPOLICY"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_CREATIONPOLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATIONPOLICY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_DELETIONPOLICY"><span class="hs-identifier hs-type">ResourceAttribute_DELETIONPOLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_DELETIONPOLICY"><span id="%24mResourceAttribute_DELETIONPOLICY"><span id="ResourceAttribute_DELETIONPOLICY"><span class="annot"><span class="annottext">$bResourceAttribute_DELETIONPOLICY :: ResourceAttribute
+$mResourceAttribute_DELETIONPOLICY :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_DELETIONPOLICY"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_DELETIONPOLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETIONPOLICY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_METADATA"><span class="hs-identifier hs-type">ResourceAttribute_METADATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_METADATA"><span id="%24mResourceAttribute_METADATA"><span id="ResourceAttribute_METADATA"><span class="annot"><span class="annottext">$bResourceAttribute_METADATA :: ResourceAttribute
+$mResourceAttribute_METADATA :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_METADATA"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_METADATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;METADATA&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_PROPERTIES"><span class="hs-identifier hs-type">ResourceAttribute_PROPERTIES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_PROPERTIES"><span id="%24mResourceAttribute_PROPERTIES"><span id="ResourceAttribute_PROPERTIES"><span class="annot"><span class="annottext">$bResourceAttribute_PROPERTIES :: ResourceAttribute
+$mResourceAttribute_PROPERTIES :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_PROPERTIES"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_PROPERTIES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROPERTIES&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_TAGS"><span class="hs-identifier hs-type">ResourceAttribute_TAGS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_TAGS"><span id="%24mResourceAttribute_TAGS"><span id="ResourceAttribute_TAGS"><span class="annot"><span class="annottext">$bResourceAttribute_TAGS :: ResourceAttribute
+$mResourceAttribute_TAGS :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_TAGS"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_TAGS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TAGS&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_UPDATEPOLICY"><span class="hs-identifier hs-type">ResourceAttribute_UPDATEPOLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceAttribute_UPDATEPOLICY"><span id="%24mResourceAttribute_UPDATEPOLICY"><span id="ResourceAttribute_UPDATEPOLICY"><span class="annot"><span class="annottext">$bResourceAttribute_UPDATEPOLICY :: ResourceAttribute
+$mResourceAttribute_UPDATEPOLICY :: forall r. ResourceAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#%24bResourceAttribute_UPDATEPOLICY"><span class="hs-identifier hs-var hs-var hs-var">ResourceAttribute_UPDATEPOLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATEPOLICY&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_CREATIONPOLICY"><span class="hs-pragma hs-type">ResourceAttribute_CREATIONPOLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_DELETIONPOLICY"><span class="hs-pragma hs-type">ResourceAttribute_DELETIONPOLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_METADATA"><span class="hs-pragma hs-type">ResourceAttribute_METADATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_PROPERTIES"><span class="hs-pragma hs-type">ResourceAttribute_PROPERTIES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_TAGS"><span class="hs-pragma hs-type">ResourceAttribute_TAGS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute_UPDATEPOLICY"><span class="hs-pragma hs-type">ResourceAttribute_UPDATEPOLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-pragma hs-type">ResourceAttribute'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

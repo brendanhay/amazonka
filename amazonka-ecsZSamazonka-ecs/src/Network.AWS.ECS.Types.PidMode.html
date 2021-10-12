@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.PidMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.PidMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier">PidMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Host"><span class="hs-identifier">PidMode_Host</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Task"><span class="hs-identifier">PidMode_Task</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679456714"><span id="local-6989586621679456715"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PidMode"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier hs-var">PidMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PidMode%27"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-identifier hs-var">PidMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromPidMode"><span class="annot"><span class="annottext">PidMode -&gt; Text
+</span><a href="Network.AWS.ECS.Types.PidMode.html#fromPidMode"><span class="hs-identifier hs-var hs-var">fromPidMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456706"><span id="local-6989586621679456708"><span id="local-6989586621679456710"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; ShowS
+[PidMode] -&gt; ShowS
+PidMode -&gt; String
+(Int -&gt; PidMode -&gt; ShowS)
+-&gt; (PidMode -&gt; String) -&gt; ([PidMode] -&gt; ShowS) -&gt; Show PidMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PidMode] -&gt; ShowS
+$cshowList :: [PidMode] -&gt; ShowS
+show :: PidMode -&gt; String
+$cshow :: PidMode -&gt; String
+showsPrec :: Int -&gt; PidMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; PidMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679456697"><span id="local-6989586621679456699"><span id="local-6989586621679456701"><span id="local-6989586621679456703"><span class="annot"><span class="annottext">ReadPrec [PidMode]
+ReadPrec PidMode
+Int -&gt; ReadS PidMode
+ReadS [PidMode]
+(Int -&gt; ReadS PidMode)
+-&gt; ReadS [PidMode]
+-&gt; ReadPrec PidMode
+-&gt; ReadPrec [PidMode]
+-&gt; Read PidMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PidMode]
+$creadListPrec :: ReadPrec [PidMode]
+readPrec :: ReadPrec PidMode
+$creadPrec :: ReadPrec PidMode
+readList :: ReadS [PidMode]
+$creadList :: ReadS [PidMode]
+readsPrec :: Int -&gt; ReadS PidMode
+$creadsPrec :: Int -&gt; ReadS PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679456692"><span id="local-6989586621679456694"><span class="annot"><span class="annottext">PidMode -&gt; PidMode -&gt; Bool
+(PidMode -&gt; PidMode -&gt; Bool)
+-&gt; (PidMode -&gt; PidMode -&gt; Bool) -&gt; Eq PidMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PidMode -&gt; PidMode -&gt; Bool
+$c/= :: PidMode -&gt; PidMode -&gt; Bool
+== :: PidMode -&gt; PidMode -&gt; Bool
+$c== :: PidMode -&gt; PidMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679456676"><span id="local-6989586621679456678"><span id="local-6989586621679456680"><span id="local-6989586621679456682"><span id="local-6989586621679456684"><span id="local-6989586621679456686"><span id="local-6989586621679456688"><span class="annot"><span class="annottext">Eq PidMode
+Eq PidMode
+-&gt; (PidMode -&gt; PidMode -&gt; Ordering)
+-&gt; (PidMode -&gt; PidMode -&gt; Bool)
+-&gt; (PidMode -&gt; PidMode -&gt; Bool)
+-&gt; (PidMode -&gt; PidMode -&gt; Bool)
+-&gt; (PidMode -&gt; PidMode -&gt; Bool)
+-&gt; (PidMode -&gt; PidMode -&gt; PidMode)
+-&gt; (PidMode -&gt; PidMode -&gt; PidMode)
+-&gt; Ord PidMode
+PidMode -&gt; PidMode -&gt; Bool
+PidMode -&gt; PidMode -&gt; Ordering
+PidMode -&gt; PidMode -&gt; PidMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PidMode -&gt; PidMode -&gt; PidMode
+$cmin :: PidMode -&gt; PidMode -&gt; PidMode
+max :: PidMode -&gt; PidMode -&gt; PidMode
+$cmax :: PidMode -&gt; PidMode -&gt; PidMode
+&gt;= :: PidMode -&gt; PidMode -&gt; Bool
+$c&gt;= :: PidMode -&gt; PidMode -&gt; Bool
+&gt; :: PidMode -&gt; PidMode -&gt; Bool
+$c&gt; :: PidMode -&gt; PidMode -&gt; Bool
+&lt;= :: PidMode -&gt; PidMode -&gt; Bool
+$c&lt;= :: PidMode -&gt; PidMode -&gt; Bool
+&lt; :: PidMode -&gt; PidMode -&gt; Bool
+$c&lt; :: PidMode -&gt; PidMode -&gt; Bool
+compare :: PidMode -&gt; PidMode -&gt; Ordering
+$ccompare :: PidMode -&gt; PidMode -&gt; Ordering
+$cp1Ord :: Eq PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PidMode -&gt; Rep PidMode x)
+-&gt; (forall x. Rep PidMode x -&gt; PidMode) -&gt; Generic PidMode
+forall x. Rep PidMode x -&gt; PidMode
+forall x. PidMode -&gt; Rep PidMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PidMode x -&gt; PidMode
+$cfrom :: forall x. PidMode -&gt; Rep PidMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456668"><span id="local-6989586621679456670"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; Int
+PidMode -&gt; Int
+(Int -&gt; PidMode -&gt; Int) -&gt; (PidMode -&gt; Int) -&gt; Hashable PidMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PidMode -&gt; Int
+$chash :: PidMode -&gt; Int
+hashWithSalt :: Int -&gt; PidMode -&gt; Int
+$chashWithSalt :: Int -&gt; PidMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679456665"><span class="annot"><span class="annottext">PidMode -&gt; ()
+(PidMode -&gt; ()) -&gt; NFData PidMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PidMode -&gt; ()
+$crnf :: PidMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679456662"><span class="annot"><span class="annottext">Text -&gt; Either String PidMode
+(Text -&gt; Either String PidMode) -&gt; FromText PidMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PidMode
+$cfromText :: Text -&gt; Either String PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679456659"><span class="annot"><span class="annottext">PidMode -&gt; Text
+(PidMode -&gt; Text) -&gt; ToText PidMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PidMode -&gt; Text
+$ctoText :: PidMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679456656"><span class="annot"><span class="annottext">PidMode -&gt; ByteString
+(PidMode -&gt; ByteString) -&gt; ToByteString PidMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PidMode -&gt; ByteString
+$ctoBS :: PidMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679456653"><span class="annot"><span class="annottext">PidMode -&gt; ByteStringBuilder
+(PidMode -&gt; ByteStringBuilder) -&gt; ToLog PidMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PidMode -&gt; ByteStringBuilder
+$cbuild :: PidMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679456650"><span class="annot"><span class="annottext">HeaderName -&gt; PidMode -&gt; [Header]
+(HeaderName -&gt; PidMode -&gt; [Header]) -&gt; ToHeader PidMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PidMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PidMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679456647"><span class="annot"><span class="annottext">PidMode -&gt; QueryString
+(PidMode -&gt; QueryString) -&gt; ToQuery PidMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PidMode -&gt; QueryString
+$ctoQuery :: PidMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679456642"><span id="local-6989586621679456644"><span class="annot"><span class="annottext">Value -&gt; Parser [PidMode]
+Value -&gt; Parser PidMode
+(Value -&gt; Parser PidMode)
+-&gt; (Value -&gt; Parser [PidMode]) -&gt; FromJSON PidMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PidMode]
+$cparseJSONList :: Value -&gt; Parser [PidMode]
+parseJSON :: Value -&gt; Parser PidMode
+$cparseJSON :: Value -&gt; Parser PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679456637"><span id="local-6989586621679456639"><span class="annot"><span class="annottext">FromJSONKeyFunction [PidMode]
+FromJSONKeyFunction PidMode
+FromJSONKeyFunction PidMode
+-&gt; FromJSONKeyFunction [PidMode] -&gt; FromJSONKey PidMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PidMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [PidMode]
+fromJSONKey :: FromJSONKeyFunction PidMode
+$cfromJSONKey :: FromJSONKeyFunction PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679456628"><span id="local-6989586621679456630"><span id="local-6989586621679456632"><span id="local-6989586621679456634"><span class="annot"><span class="annottext">[PidMode] -&gt; Encoding
+[PidMode] -&gt; Value
+PidMode -&gt; Encoding
+PidMode -&gt; Value
+(PidMode -&gt; Value)
+-&gt; (PidMode -&gt; Encoding)
+-&gt; ([PidMode] -&gt; Value)
+-&gt; ([PidMode] -&gt; Encoding)
+-&gt; ToJSON PidMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PidMode] -&gt; Encoding
+$ctoEncodingList :: [PidMode] -&gt; Encoding
+toJSONList :: [PidMode] -&gt; Value
+$ctoJSONList :: [PidMode] -&gt; Value
+toEncoding :: PidMode -&gt; Encoding
+$ctoEncoding :: PidMode -&gt; Encoding
+toJSON :: PidMode -&gt; Value
+$ctoJSON :: PidMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679456623"><span id="local-6989586621679456625"><span class="annot"><span class="annottext">ToJSONKeyFunction [PidMode]
+ToJSONKeyFunction PidMode
+ToJSONKeyFunction PidMode
+-&gt; ToJSONKeyFunction [PidMode] -&gt; ToJSONKey PidMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PidMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [PidMode]
+toJSONKey :: ToJSONKeyFunction PidMode
+$ctoJSONKey :: ToJSONKeyFunction PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679456620"><span class="annot"><span class="annottext">[Node] -&gt; Either String PidMode
+([Node] -&gt; Either String PidMode) -&gt; FromXML PidMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PidMode
+$cparseXML :: [Node] -&gt; Either String PidMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679456617"><span class="annot"><span class="annottext">PidMode -&gt; XML
+(PidMode -&gt; XML) -&gt; ToXML PidMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PidMode -&gt; XML
+$ctoXML :: PidMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Host"><span class="hs-identifier hs-type">PidMode_Host</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier hs-type">PidMode</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPidMode_Host"><span id="%24mPidMode_Host"><span id="PidMode_Host"><span class="annot"><span class="annottext">$bPidMode_Host :: PidMode
+$mPidMode_Host :: forall r. PidMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.PidMode.html#%24bPidMode_Host"><span class="hs-identifier hs-var hs-var hs-var">PidMode_Host</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-identifier hs-type">PidMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;host&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Task"><span class="hs-identifier hs-type">PidMode_Task</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier hs-type">PidMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPidMode_Task"><span id="%24mPidMode_Task"><span id="PidMode_Task"><span class="annot"><span class="annottext">$bPidMode_Task :: PidMode
+$mPidMode_Task :: forall r. PidMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.PidMode.html#%24bPidMode_Task"><span class="hs-identifier hs-var hs-var hs-var">PidMode_Task</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-identifier hs-type">PidMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;task&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Host"><span class="hs-pragma hs-type">PidMode_Host</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode_Task"><span class="hs-pragma hs-type">PidMode_Task</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-pragma hs-type">PidMode'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

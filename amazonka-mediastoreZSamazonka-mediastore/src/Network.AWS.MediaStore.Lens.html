@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Network.AWS.MediaStore.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaStore.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutLifecyclePolicy</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#putLifecyclePolicy_containerName"><span class="hs-identifier">putLifecyclePolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#putLifecyclePolicy_lifecyclePolicy"><span class="hs-identifier">putLifecyclePolicy_lifecyclePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#putLifecyclePolicyResponse_httpStatus"><span class="hs-identifier">putLifecyclePolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutCorsPolicy</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#putCorsPolicy_containerName"><span class="hs-identifier">putCorsPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#putCorsPolicy_corsPolicy"><span class="hs-identifier">putCorsPolicy_corsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#putCorsPolicyResponse_httpStatus"><span class="hs-identifier">putCorsPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteContainer</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainer.html#deleteContainer_containerName"><span class="hs-identifier">deleteContainer_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainer.html#deleteContainerResponse_httpStatus"><span class="hs-identifier">deleteContainerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutContainerPolicy</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutContainerPolicy.html#putContainerPolicy_containerName"><span class="hs-identifier">putContainerPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutContainerPolicy.html#putContainerPolicy_policy"><span class="hs-identifier">putContainerPolicy_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutContainerPolicy.html#putContainerPolicyResponse_httpStatus"><span class="hs-identifier">putContainerPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetCorsPolicy</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#getCorsPolicy_containerName"><span class="hs-identifier">getCorsPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#getCorsPolicyResponse_httpStatus"><span class="hs-identifier">getCorsPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#getCorsPolicyResponse_corsPolicy"><span class="hs-identifier">getCorsPolicyResponse_corsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UntagResource</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.UntagResource.html#untagResource_resource"><span class="hs-identifier">untagResource_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier">untagResource_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier">untagResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TagResource</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.TagResource.html#tagResource_resource"><span class="hs-identifier">tagResource_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.TagResource.html#tagResource_tags"><span class="hs-identifier">tagResource_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.TagResource.html#tagResourceResponse_httpStatus"><span class="hs-identifier">tagResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteMetricPolicy</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#deleteMetricPolicy_containerName"><span class="hs-identifier">deleteMetricPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#deleteMetricPolicyResponse_httpStatus"><span class="hs-identifier">deleteMetricPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeContainer</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DescribeContainer.html#describeContainer_containerName"><span class="hs-identifier">describeContainer_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DescribeContainer.html#describeContainerResponse_container"><span class="hs-identifier">describeContainerResponse_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DescribeContainer.html#describeContainerResponse_httpStatus"><span class="hs-identifier">describeContainerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetMetricPolicy</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetMetricPolicy.html#getMetricPolicy_containerName"><span class="hs-identifier">getMetricPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetMetricPolicy.html#getMetricPolicyResponse_httpStatus"><span class="hs-identifier">getMetricPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetMetricPolicy.html#getMetricPolicyResponse_metricPolicy"><span class="hs-identifier">getMetricPolicyResponse_metricPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StopAccessLogging</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.StopAccessLogging.html#stopAccessLogging_containerName"><span class="hs-identifier">stopAccessLogging_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.StopAccessLogging.html#stopAccessLoggingResponse_httpStatus"><span class="hs-identifier">stopAccessLoggingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StartAccessLogging</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#startAccessLogging_containerName"><span class="hs-identifier">startAccessLogging_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html#startAccessLoggingResponse_httpStatus"><span class="hs-identifier">startAccessLoggingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteLifecyclePolicy</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteLifecyclePolicy.html#deleteLifecyclePolicy_containerName"><span class="hs-identifier">deleteLifecyclePolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteLifecyclePolicy.html#deleteLifecyclePolicyResponse_httpStatus"><span class="hs-identifier">deleteLifecyclePolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteCorsPolicy</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#deleteCorsPolicy_containerName"><span class="hs-identifier">deleteCorsPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html#deleteCorsPolicyResponse_httpStatus"><span class="hs-identifier">deleteCorsPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetContainerPolicy</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#getContainerPolicy_containerName"><span class="hs-identifier">getContainerPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#getContainerPolicyResponse_httpStatus"><span class="hs-identifier">getContainerPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#getContainerPolicyResponse_policy"><span class="hs-identifier">getContainerPolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteContainerPolicy</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#deleteContainerPolicy_containerName"><span class="hs-identifier">deleteContainerPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#deleteContainerPolicyResponse_httpStatus"><span class="hs-identifier">deleteContainerPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListContainers</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html#listContainers_nextToken"><span class="hs-identifier">listContainers_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html#listContainers_maxResults"><span class="hs-identifier">listContainers_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html#listContainersResponse_nextToken"><span class="hs-identifier">listContainersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html#listContainersResponse_httpStatus"><span class="hs-identifier">listContainersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html#listContainersResponse_containers"><span class="hs-identifier">listContainersResponse_containers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateContainer</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#createContainer_tags"><span class="hs-identifier">createContainer_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#createContainer_containerName"><span class="hs-identifier">createContainer_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#createContainerResponse_httpStatus"><span class="hs-identifier">createContainerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#createContainerResponse_container"><span class="hs-identifier">createContainerResponse_container</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetLifecyclePolicy</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetLifecyclePolicy.html#getLifecyclePolicy_containerName"><span class="hs-identifier">getLifecyclePolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetLifecyclePolicy.html#getLifecyclePolicyResponse_httpStatus"><span class="hs-identifier">getLifecyclePolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.GetLifecyclePolicy.html#getLifecyclePolicyResponse_lifecyclePolicy"><span class="hs-identifier">getLifecyclePolicyResponse_lifecyclePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutMetricPolicy</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutMetricPolicy.html#putMetricPolicy_containerName"><span class="hs-identifier">putMetricPolicy_containerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutMetricPolicy.html#putMetricPolicy_metricPolicy"><span class="hs-identifier">putMetricPolicy_metricPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.PutMetricPolicy.html#putMetricPolicyResponse_httpStatus"><span class="hs-identifier">putMetricPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTagsForResource</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListTagsForResource.html#listTagsForResource_resource"><span class="hs-identifier">listTagsForResource_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListTagsForResource.html#listTagsForResourceResponse_tags"><span class="hs-identifier">listTagsForResourceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.ListTagsForResource.html#listTagsForResourceResponse_httpStatus"><span class="hs-identifier">listTagsForResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Container</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_creationTime"><span class="hs-identifier">container_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_status"><span class="hs-identifier">container_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_arn"><span class="hs-identifier">container_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_accessLoggingEnabled"><span class="hs-identifier">container_accessLoggingEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_name"><span class="hs-identifier">container_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_endpoint"><span class="hs-identifier">container_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CorsRule</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#corsRule_allowedMethods"><span class="hs-identifier">corsRule_allowedMethods</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#corsRule_maxAgeSeconds"><span class="hs-identifier">corsRule_maxAgeSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#corsRule_exposeHeaders"><span class="hs-identifier">corsRule_exposeHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#corsRule_allowedOrigins"><span class="hs-identifier">corsRule_allowedOrigins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#corsRule_allowedHeaders"><span class="hs-identifier">corsRule_allowedHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MetricPolicy</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#metricPolicy_metricPolicyRules"><span class="hs-identifier">metricPolicy_metricPolicyRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#metricPolicy_containerLevelMetrics"><span class="hs-identifier">metricPolicy_containerLevelMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** MetricPolicyRule</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#metricPolicyRule_objectGroup"><span class="hs-identifier">metricPolicyRule_objectGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html#metricPolicyRule_objectGroupName"><span class="hs-identifier">metricPolicyRule_objectGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Tag</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html"><span class="hs-identifier">Network.AWS.MediaStore.CreateContainer</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainer.html"><span class="hs-identifier">Network.AWS.MediaStore.DeleteContainer</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.DeleteContainerPolicy</span></a></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteCorsPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.DeleteCorsPolicy</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteLifecyclePolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.DeleteLifecyclePolicy</span></a></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.DeleteMetricPolicy</span></a></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DescribeContainer.html"><span class="hs-identifier">Network.AWS.MediaStore.DescribeContainer</span></a></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.GetContainerPolicy</span></a></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.GetCorsPolicy</span></a></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetLifecyclePolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.GetLifecyclePolicy</span></a></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetMetricPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.GetMetricPolicy</span></a></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.ListContainers.html"><span class="hs-identifier">Network.AWS.MediaStore.ListContainers</span></a></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.ListTagsForResource.html"><span class="hs-identifier">Network.AWS.MediaStore.ListTagsForResource</span></a></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutContainerPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.PutContainerPolicy</span></a></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.PutCorsPolicy</span></a></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.PutLifecyclePolicy</span></a></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutMetricPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.PutMetricPolicy</span></a></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StartAccessLogging.html"><span class="hs-identifier">Network.AWS.MediaStore.StartAccessLogging</span></a></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.StopAccessLogging.html"><span class="hs-identifier">Network.AWS.MediaStore.StopAccessLogging</span></a></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.TagResource.html"><span class="hs-identifier">Network.AWS.MediaStore.TagResource</span></a></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html"><span class="hs-identifier">Network.AWS.MediaStore.Types.Container</span></a></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html"><span class="hs-identifier">Network.AWS.MediaStore.Types.CorsRule</span></a></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html"><span class="hs-identifier">Network.AWS.MediaStore.Types.MetricPolicy</span></a></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicyRule.html"><span class="hs-identifier">Network.AWS.MediaStore.Types.MetricPolicyRule</span></a></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Tag.html"><span class="hs-identifier">Network.AWS.MediaStore.Types.Tag</span></a></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.UntagResource.html"><span class="hs-identifier">Network.AWS.MediaStore.UntagResource</span></a></span><span>
+</span><span id="line-175"></span></pre></body></html>

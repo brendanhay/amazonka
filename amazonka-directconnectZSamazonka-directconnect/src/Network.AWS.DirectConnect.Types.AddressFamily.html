@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectConnect.Types.AddressFamily</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectConnect.Types.AddressFamily</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier">AddressFamily</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv4"><span class="hs-identifier">AddressFamily_Ipv4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv6"><span class="hs-identifier">AddressFamily_Ipv6</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679277604"><span id="local-6989586621679277605"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressFamily"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-var">AddressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressFamily%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-identifier hs-var">AddressFamily'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddressFamily"><span class="annot"><span class="annottext">AddressFamily -&gt; Text
+</span><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#fromAddressFamily"><span class="hs-identifier hs-var hs-var">fromAddressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277596"><span id="local-6989586621679277598"><span id="local-6989586621679277600"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; ShowS
+[AddressFamily] -&gt; ShowS
+AddressFamily -&gt; String
+(Int -&gt; AddressFamily -&gt; ShowS)
+-&gt; (AddressFamily -&gt; String)
+-&gt; ([AddressFamily] -&gt; ShowS)
+-&gt; Show AddressFamily
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddressFamily] -&gt; ShowS
+$cshowList :: [AddressFamily] -&gt; ShowS
+show :: AddressFamily -&gt; String
+$cshow :: AddressFamily -&gt; String
+showsPrec :: Int -&gt; AddressFamily -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddressFamily -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679277587"><span id="local-6989586621679277589"><span id="local-6989586621679277591"><span id="local-6989586621679277593"><span class="annot"><span class="annottext">ReadPrec [AddressFamily]
+ReadPrec AddressFamily
+Int -&gt; ReadS AddressFamily
+ReadS [AddressFamily]
+(Int -&gt; ReadS AddressFamily)
+-&gt; ReadS [AddressFamily]
+-&gt; ReadPrec AddressFamily
+-&gt; ReadPrec [AddressFamily]
+-&gt; Read AddressFamily
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddressFamily]
+$creadListPrec :: ReadPrec [AddressFamily]
+readPrec :: ReadPrec AddressFamily
+$creadPrec :: ReadPrec AddressFamily
+readList :: ReadS [AddressFamily]
+$creadList :: ReadS [AddressFamily]
+readsPrec :: Int -&gt; ReadS AddressFamily
+$creadsPrec :: Int -&gt; ReadS AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679277582"><span id="local-6989586621679277584"><span class="annot"><span class="annottext">AddressFamily -&gt; AddressFamily -&gt; Bool
+(AddressFamily -&gt; AddressFamily -&gt; Bool)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool) -&gt; Eq AddressFamily
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c/= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+== :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c== :: AddressFamily -&gt; AddressFamily -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679277566"><span id="local-6989586621679277568"><span id="local-6989586621679277570"><span id="local-6989586621679277572"><span id="local-6989586621679277574"><span id="local-6989586621679277576"><span id="local-6989586621679277578"><span class="annot"><span class="annottext">Eq AddressFamily
+Eq AddressFamily
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Ordering)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; Bool)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; AddressFamily)
+-&gt; (AddressFamily -&gt; AddressFamily -&gt; AddressFamily)
+-&gt; Ord AddressFamily
+AddressFamily -&gt; AddressFamily -&gt; Bool
+AddressFamily -&gt; AddressFamily -&gt; Ordering
+AddressFamily -&gt; AddressFamily -&gt; AddressFamily
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AddressFamily -&gt; AddressFamily -&gt; AddressFamily
+$cmin :: AddressFamily -&gt; AddressFamily -&gt; AddressFamily
+max :: AddressFamily -&gt; AddressFamily -&gt; AddressFamily
+$cmax :: AddressFamily -&gt; AddressFamily -&gt; AddressFamily
+&gt;= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c&gt;= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+&gt; :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c&gt; :: AddressFamily -&gt; AddressFamily -&gt; Bool
+&lt;= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c&lt;= :: AddressFamily -&gt; AddressFamily -&gt; Bool
+&lt; :: AddressFamily -&gt; AddressFamily -&gt; Bool
+$c&lt; :: AddressFamily -&gt; AddressFamily -&gt; Bool
+compare :: AddressFamily -&gt; AddressFamily -&gt; Ordering
+$ccompare :: AddressFamily -&gt; AddressFamily -&gt; Ordering
+$cp1Ord :: Eq AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AddressFamily -&gt; Rep AddressFamily x)
+-&gt; (forall x. Rep AddressFamily x -&gt; AddressFamily)
+-&gt; Generic AddressFamily
+forall x. Rep AddressFamily x -&gt; AddressFamily
+forall x. AddressFamily -&gt; Rep AddressFamily x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddressFamily x -&gt; AddressFamily
+$cfrom :: forall x. AddressFamily -&gt; Rep AddressFamily x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679277558"><span id="local-6989586621679277560"><span class="annot"><span class="annottext">Int -&gt; AddressFamily -&gt; Int
+AddressFamily -&gt; Int
+(Int -&gt; AddressFamily -&gt; Int)
+-&gt; (AddressFamily -&gt; Int) -&gt; Hashable AddressFamily
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AddressFamily -&gt; Int
+$chash :: AddressFamily -&gt; Int
+hashWithSalt :: Int -&gt; AddressFamily -&gt; Int
+$chashWithSalt :: Int -&gt; AddressFamily -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679277555"><span class="annot"><span class="annottext">AddressFamily -&gt; ()
+(AddressFamily -&gt; ()) -&gt; NFData AddressFamily
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AddressFamily -&gt; ()
+$crnf :: AddressFamily -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679277552"><span class="annot"><span class="annottext">Text -&gt; Either String AddressFamily
+(Text -&gt; Either String AddressFamily) -&gt; FromText AddressFamily
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AddressFamily
+$cfromText :: Text -&gt; Either String AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679277549"><span class="annot"><span class="annottext">AddressFamily -&gt; Text
+(AddressFamily -&gt; Text) -&gt; ToText AddressFamily
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AddressFamily -&gt; Text
+$ctoText :: AddressFamily -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679277546"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteString
+(AddressFamily -&gt; ByteString) -&gt; ToByteString AddressFamily
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AddressFamily -&gt; ByteString
+$ctoBS :: AddressFamily -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679277543"><span class="annot"><span class="annottext">AddressFamily -&gt; ByteStringBuilder
+(AddressFamily -&gt; ByteStringBuilder) -&gt; ToLog AddressFamily
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AddressFamily -&gt; ByteStringBuilder
+$cbuild :: AddressFamily -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679277540"><span class="annot"><span class="annottext">HeaderName -&gt; AddressFamily -&gt; [Header]
+(HeaderName -&gt; AddressFamily -&gt; [Header]) -&gt; ToHeader AddressFamily
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AddressFamily -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AddressFamily -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679277537"><span class="annot"><span class="annottext">AddressFamily -&gt; QueryString
+(AddressFamily -&gt; QueryString) -&gt; ToQuery AddressFamily
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AddressFamily -&gt; QueryString
+$ctoQuery :: AddressFamily -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679277532"><span id="local-6989586621679277534"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressFamily]
+Value -&gt; Parser AddressFamily
+(Value -&gt; Parser AddressFamily)
+-&gt; (Value -&gt; Parser [AddressFamily]) -&gt; FromJSON AddressFamily
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AddressFamily]
+$cparseJSONList :: Value -&gt; Parser [AddressFamily]
+parseJSON :: Value -&gt; Parser AddressFamily
+$cparseJSON :: Value -&gt; Parser AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679277527"><span id="local-6989586621679277529"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressFamily]
+FromJSONKeyFunction AddressFamily
+FromJSONKeyFunction AddressFamily
+-&gt; FromJSONKeyFunction [AddressFamily] -&gt; FromJSONKey AddressFamily
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AddressFamily]
+$cfromJSONKeyList :: FromJSONKeyFunction [AddressFamily]
+fromJSONKey :: FromJSONKeyFunction AddressFamily
+$cfromJSONKey :: FromJSONKeyFunction AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679277518"><span id="local-6989586621679277520"><span id="local-6989586621679277522"><span id="local-6989586621679277524"><span class="annot"><span class="annottext">[AddressFamily] -&gt; Encoding
+[AddressFamily] -&gt; Value
+AddressFamily -&gt; Encoding
+AddressFamily -&gt; Value
+(AddressFamily -&gt; Value)
+-&gt; (AddressFamily -&gt; Encoding)
+-&gt; ([AddressFamily] -&gt; Value)
+-&gt; ([AddressFamily] -&gt; Encoding)
+-&gt; ToJSON AddressFamily
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AddressFamily] -&gt; Encoding
+$ctoEncodingList :: [AddressFamily] -&gt; Encoding
+toJSONList :: [AddressFamily] -&gt; Value
+$ctoJSONList :: [AddressFamily] -&gt; Value
+toEncoding :: AddressFamily -&gt; Encoding
+$ctoEncoding :: AddressFamily -&gt; Encoding
+toJSON :: AddressFamily -&gt; Value
+$ctoJSON :: AddressFamily -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679277513"><span id="local-6989586621679277515"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressFamily]
+ToJSONKeyFunction AddressFamily
+ToJSONKeyFunction AddressFamily
+-&gt; ToJSONKeyFunction [AddressFamily] -&gt; ToJSONKey AddressFamily
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AddressFamily]
+$ctoJSONKeyList :: ToJSONKeyFunction [AddressFamily]
+toJSONKey :: ToJSONKeyFunction AddressFamily
+$ctoJSONKey :: ToJSONKeyFunction AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679277510"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressFamily
+([Node] -&gt; Either String AddressFamily) -&gt; FromXML AddressFamily
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AddressFamily
+$cparseXML :: [Node] -&gt; Either String AddressFamily
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679277507"><span class="annot"><span class="annottext">AddressFamily -&gt; XML
+(AddressFamily -&gt; XML) -&gt; ToXML AddressFamily
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AddressFamily -&gt; XML
+$ctoXML :: AddressFamily -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv4"><span class="hs-identifier hs-type">AddressFamily_Ipv4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddressFamily_Ipv4"><span id="%24mAddressFamily_Ipv4"><span id="AddressFamily_Ipv4"><span class="annot"><span class="annottext">$bAddressFamily_Ipv4 :: AddressFamily
+$mAddressFamily_Ipv4 :: forall r. AddressFamily -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#%24bAddressFamily_Ipv4"><span class="hs-identifier hs-var hs-var hs-var">AddressFamily_Ipv4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-identifier hs-type">AddressFamily'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ipv4&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv6"><span class="hs-identifier hs-type">AddressFamily_Ipv6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAddressFamily_Ipv6"><span id="%24mAddressFamily_Ipv6"><span id="AddressFamily_Ipv6"><span class="annot"><span class="annottext">$bAddressFamily_Ipv6 :: AddressFamily
+$mAddressFamily_Ipv6 :: forall r. AddressFamily -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#%24bAddressFamily_Ipv6"><span class="hs-identifier hs-var hs-var hs-var">AddressFamily_Ipv6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-identifier hs-type">AddressFamily'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ipv6&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv4"><span class="hs-pragma hs-type">AddressFamily_Ipv4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily_Ipv6"><span class="hs-pragma hs-type">AddressFamily_Ipv6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily%27"><span class="hs-pragma hs-type">AddressFamily'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

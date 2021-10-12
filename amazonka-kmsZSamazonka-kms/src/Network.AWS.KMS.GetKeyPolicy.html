@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KMS.GetKeyPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a key policy attached to the specified KMS key.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- __Cross-account use__: No. You cannot perform this operation on a KMS</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- key in a different Amazon Web Services account.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __Required permissions__:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GetKeyPolicy&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- (key policy)</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- __Related operations__: PutKeyPolicy</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KMS.GetKeyPolicy</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier">GetKeyPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicy"><span class="hs-identifier">newGetKeyPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_keyId"><span class="hs-identifier">getKeyPolicy_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_policyName"><span class="hs-identifier">getKeyPolicy_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier">GetKeyPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicyResponse"><span class="hs-identifier">newGetKeyPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_policy"><span class="hs-identifier">getKeyPolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_httpStatus"><span class="hs-identifier">getKeyPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.html"><span class="hs-identifier">Network.AWS.KMS.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetKeyPolicy' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679255499"><span id="local-6989586621679255500"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPolicy"><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-var">GetKeyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPolicy%27"><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-var">GetKeyPolicy'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Gets the key policy for the specified KMS key.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AkeyId%3AGetKeyPolicy%27"><span class="annot"><span class="annottext">GetKeyPolicy -&gt; Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AkeyId%3AGetKeyPolicy%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the key policy. The only valid name is @default@.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- To get the names of key policies, use ListKeyPolicies.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApolicyName%3AGetKeyPolicy%27"><span class="annot"><span class="annottext">GetKeyPolicy -&gt; Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3ApolicyName%3AGetKeyPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255492"><span id="local-6989586621679255494"><span class="annot"><span class="annottext">GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool
+(GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool)
+-&gt; (GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool) -&gt; Eq GetKeyPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool
+$c/= :: GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool
+== :: GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool
+$c== :: GetKeyPolicy -&gt; GetKeyPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255483"><span id="local-6989586621679255485"><span id="local-6989586621679255487"><span id="local-6989586621679255489"><span class="annot"><span class="annottext">ReadPrec [GetKeyPolicy]
+ReadPrec GetKeyPolicy
+Int -&gt; ReadS GetKeyPolicy
+ReadS [GetKeyPolicy]
+(Int -&gt; ReadS GetKeyPolicy)
+-&gt; ReadS [GetKeyPolicy]
+-&gt; ReadPrec GetKeyPolicy
+-&gt; ReadPrec [GetKeyPolicy]
+-&gt; Read GetKeyPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetKeyPolicy]
+$creadListPrec :: ReadPrec [GetKeyPolicy]
+readPrec :: ReadPrec GetKeyPolicy
+$creadPrec :: ReadPrec GetKeyPolicy
+readList :: ReadS [GetKeyPolicy]
+$creadList :: ReadS [GetKeyPolicy]
+readsPrec :: Int -&gt; ReadS GetKeyPolicy
+$creadsPrec :: Int -&gt; ReadS GetKeyPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255476"><span id="local-6989586621679255478"><span id="local-6989586621679255480"><span class="annot"><span class="annottext">Int -&gt; GetKeyPolicy -&gt; ShowS
+[GetKeyPolicy] -&gt; ShowS
+GetKeyPolicy -&gt; String
+(Int -&gt; GetKeyPolicy -&gt; ShowS)
+-&gt; (GetKeyPolicy -&gt; String)
+-&gt; ([GetKeyPolicy] -&gt; ShowS)
+-&gt; Show GetKeyPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetKeyPolicy] -&gt; ShowS
+$cshowList :: [GetKeyPolicy] -&gt; ShowS
+show :: GetKeyPolicy -&gt; String
+$cshow :: GetKeyPolicy -&gt; String
+showsPrec :: Int -&gt; GetKeyPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetKeyPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetKeyPolicy -&gt; Rep GetKeyPolicy x)
+-&gt; (forall x. Rep GetKeyPolicy x -&gt; GetKeyPolicy)
+-&gt; Generic GetKeyPolicy
+forall x. Rep GetKeyPolicy x -&gt; GetKeyPolicy
+forall x. GetKeyPolicy -&gt; Rep GetKeyPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetKeyPolicy x -&gt; GetKeyPolicy
+$cfrom :: forall x. GetKeyPolicy -&gt; Rep GetKeyPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'GetKeyPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'keyId', 'getKeyPolicy_keyId' - Gets the key policy for the specified KMS key.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'policyName', 'getKeyPolicy_policyName' - Specifies the name of the key policy. The only valid name is @default@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- To get the names of key policies, use ListKeyPolicies.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicy"><span class="hs-identifier hs-type">newGetKeyPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'keyId'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span>
+</span><span id="line-111"></span><span id="newGetKeyPolicy"><span class="annot"><span class="annottext">newGetKeyPolicy :: Text -&gt; Text -&gt; GetKeyPolicy
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicy"><span class="hs-identifier hs-var hs-var">newGetKeyPolicy</span></a></span></span><span> </span><span id="local-6989586621679255471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679255470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">GetKeyPolicy' :: Text -&gt; Text -&gt; GetKeyPolicy
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:GetKeyPolicy' :: Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AkeyId%3AGetKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:GetKeyPolicy' :: Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3ApolicyName%3AGetKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Gets the key policy for the specified KMS key.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- To get the key ID and key ARN for a KMS key, use ListKeys or</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- DescribeKey.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_keyId"><span class="hs-identifier hs-type">getKeyPolicy_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="getKeyPolicy_keyId"><span class="annot"><span class="annottext">getKeyPolicy_keyId :: (Text -&gt; f Text) -&gt; GetKeyPolicy -&gt; f GetKeyPolicy
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_keyId"><span class="hs-identifier hs-var hs-var">getKeyPolicy_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKeyPolicy -&gt; Text)
+-&gt; (GetKeyPolicy -&gt; Text -&gt; GetKeyPolicy)
+-&gt; Lens GetKeyPolicy GetKeyPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255467"><span class="annot"><span class="annottext">Text
+keyId :: Text
+$sel:keyId:GetKeyPolicy' :: GetKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255466"><span class="annot"><span class="annottext">s :: GetKeyPolicy
+</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPolicy
+</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:GetKeyPolicy' :: Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AkeyId%3AGetKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Specifies the name of the key policy. The only valid name is @default@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- To get the names of key policies, use ListKeyPolicies.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_policyName"><span class="hs-identifier hs-type">getKeyPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="getKeyPolicy_policyName"><span class="annot"><span class="annottext">getKeyPolicy_policyName :: (Text -&gt; f Text) -&gt; GetKeyPolicy -&gt; f GetKeyPolicy
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicy_policyName"><span class="hs-identifier hs-var hs-var">getKeyPolicy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKeyPolicy -&gt; Text)
+-&gt; (GetKeyPolicy -&gt; Text -&gt; GetKeyPolicy)
+-&gt; Lens GetKeyPolicy GetKeyPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255464"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:GetKeyPolicy' :: GetKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679255464"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255464"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255463"><span class="annot"><span class="annottext">s :: GetKeyPolicy
+</span><a href="#local-6989586621679255463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPolicy
+</span><a href="#local-6989586621679255463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetKeyPolicy' :: Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3ApolicyName%3AGetKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679255458"><span class="annot"><span class="annottext">request :: GetKeyPolicy -&gt; Request GetKeyPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetKeyPolicy -&gt; Request GetKeyPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679255454"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetKeyPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetKeyPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetKeyPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetKeyPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetKeyPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255451"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255450"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255450"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255449"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetKeyPolicyResponse
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-var">GetKeyPolicyResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetKeyPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetKeyPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetKeyPolicyResponse)
+-&gt; Either String Int -&gt; Either String GetKeyPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255451"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255441"><span id="local-6989586621679255443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679255434"><span class="annot"><span class="annottext">toHeaders :: GetKeyPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetKeyPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrentService.GetKeyPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255424"><span id="local-6989586621679255426"><span id="local-6989586621679255428"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679255422"><span class="annot"><span class="annottext">toJSON :: GetKeyPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy%27"><span class="hs-identifier hs-type">GetKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255419"><span id="local-6989586621679255420"><span class="annot"><span class="annottext">Text
+policyName :: Text
+keyId :: Text
+$sel:policyName:GetKeyPolicy' :: GetKeyPolicy -&gt; Text
+$sel:keyId:GetKeyPolicy' :: GetKeyPolicy -&gt; Text
+</span><a href="#local-6989586621679255419"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255420"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255419"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679255413"><span class="annot"><span class="annottext">toPath :: GetKeyPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetKeyPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicy"><span class="hs-identifier hs-type">GetKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679255409"><span class="annot"><span class="annottext">toQuery :: GetKeyPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetKeyPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newGetKeyPolicyResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621679255406"><span id="local-6989586621679255407"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKeyPolicyResponse"><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-var">GetKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKeyPolicyResponse%27"><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-var">GetKeyPolicyResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key policy document in JSON format.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3Apolicy%3AGetKeyPolicyResponse%27"><span class="annot"><span class="annottext">GetKeyPolicyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3Apolicy%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetKeyPolicyResponse%27"><span class="annot"><span class="annottext">GetKeyPolicyResponse -&gt; Int
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AhttpStatus%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255400"><span id="local-6989586621679255402"><span class="annot"><span class="annottext">GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool
+(GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool)
+-&gt; (GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool)
+-&gt; Eq GetKeyPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool
+$c/= :: GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool
+== :: GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool
+$c== :: GetKeyPolicyResponse -&gt; GetKeyPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255392"><span id="local-6989586621679255394"><span id="local-6989586621679255396"><span id="local-6989586621679255398"><span class="annot"><span class="annottext">ReadPrec [GetKeyPolicyResponse]
+ReadPrec GetKeyPolicyResponse
+Int -&gt; ReadS GetKeyPolicyResponse
+ReadS [GetKeyPolicyResponse]
+(Int -&gt; ReadS GetKeyPolicyResponse)
+-&gt; ReadS [GetKeyPolicyResponse]
+-&gt; ReadPrec GetKeyPolicyResponse
+-&gt; ReadPrec [GetKeyPolicyResponse]
+-&gt; Read GetKeyPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetKeyPolicyResponse]
+$creadListPrec :: ReadPrec [GetKeyPolicyResponse]
+readPrec :: ReadPrec GetKeyPolicyResponse
+$creadPrec :: ReadPrec GetKeyPolicyResponse
+readList :: ReadS [GetKeyPolicyResponse]
+$creadList :: ReadS [GetKeyPolicyResponse]
+readsPrec :: Int -&gt; ReadS GetKeyPolicyResponse
+$creadsPrec :: Int -&gt; ReadS GetKeyPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255386"><span id="local-6989586621679255388"><span id="local-6989586621679255390"><span class="annot"><span class="annottext">Int -&gt; GetKeyPolicyResponse -&gt; ShowS
+[GetKeyPolicyResponse] -&gt; ShowS
+GetKeyPolicyResponse -&gt; String
+(Int -&gt; GetKeyPolicyResponse -&gt; ShowS)
+-&gt; (GetKeyPolicyResponse -&gt; String)
+-&gt; ([GetKeyPolicyResponse] -&gt; ShowS)
+-&gt; Show GetKeyPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetKeyPolicyResponse] -&gt; ShowS
+$cshowList :: [GetKeyPolicyResponse] -&gt; ShowS
+show :: GetKeyPolicyResponse -&gt; String
+$cshow :: GetKeyPolicyResponse -&gt; String
+showsPrec :: Int -&gt; GetKeyPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetKeyPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetKeyPolicyResponse -&gt; Rep GetKeyPolicyResponse x)
+-&gt; (forall x. Rep GetKeyPolicyResponse x -&gt; GetKeyPolicyResponse)
+-&gt; Generic GetKeyPolicyResponse
+forall x. Rep GetKeyPolicyResponse x -&gt; GetKeyPolicyResponse
+forall x. GetKeyPolicyResponse -&gt; Rep GetKeyPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetKeyPolicyResponse x -&gt; GetKeyPolicyResponse
+$cfrom :: forall x. GetKeyPolicyResponse -&gt; Rep GetKeyPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'GetKeyPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'policy', 'getKeyPolicyResponse_policy' - A key policy document in JSON format.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'getKeyPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicyResponse"><span class="hs-identifier hs-type">newGetKeyPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newGetKeyPolicyResponse"><span class="annot"><span class="annottext">newGetKeyPolicyResponse :: Int -&gt; GetKeyPolicyResponse
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#newGetKeyPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetKeyPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679255383"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">GetKeyPolicyResponse' :: Maybe Text -&gt; Int -&gt; GetKeyPolicyResponse
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-type">GetKeyPolicyResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:GetKeyPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3Apolicy%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetKeyPolicyResponse' :: Int
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AhttpStatus%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A key policy document in JSON format.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_policy"><span class="hs-identifier hs-type">getKeyPolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getKeyPolicyResponse_policy"><span class="annot"><span class="annottext">getKeyPolicyResponse_policy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetKeyPolicyResponse -&gt; f GetKeyPolicyResponse
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_policy"><span class="hs-identifier hs-var hs-var">getKeyPolicyResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKeyPolicyResponse -&gt; Maybe Text)
+-&gt; (GetKeyPolicyResponse -&gt; Maybe Text -&gt; GetKeyPolicyResponse)
+-&gt; Lens
+     GetKeyPolicyResponse GetKeyPolicyResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-type">GetKeyPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255382"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:GetKeyPolicyResponse' :: GetKeyPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679255382"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255382"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255381"><span class="annot"><span class="annottext">s :: GetKeyPolicyResponse
+</span><a href="#local-6989586621679255381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-type">GetKeyPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPolicyResponse
+</span><a href="#local-6989586621679255381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetKeyPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3Apolicy%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getKeyPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="getKeyPolicyResponse_httpStatus"><span class="annot"><span class="annottext">getKeyPolicyResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetKeyPolicyResponse -&gt; f GetKeyPolicyResponse
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#getKeyPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getKeyPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKeyPolicyResponse -&gt; Int)
+-&gt; (GetKeyPolicyResponse -&gt; Int -&gt; GetKeyPolicyResponse)
+-&gt; Lens GetKeyPolicyResponse GetKeyPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-type">GetKeyPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255379"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetKeyPolicyResponse' :: GetKeyPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679255379"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255379"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255378"><span class="annot"><span class="annottext">s :: GetKeyPolicyResponse
+</span><a href="#local-6989586621679255378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse%27"><span class="hs-identifier hs-type">GetKeyPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKeyPolicyResponse
+</span><a href="#local-6989586621679255378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetKeyPolicyResponse' :: Int
+</span><a href="Network.AWS.KMS.GetKeyPolicy.html#%24sel%3AhttpStatus%3AGetKeyPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GetKeyPolicy.html#GetKeyPolicyResponse"><span class="hs-identifier hs-type">GetKeyPolicyResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

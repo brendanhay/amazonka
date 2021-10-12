@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.SdkType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.SdkType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkConfigurationProperty.html"><span class="hs-identifier">Network.AWS.APIGateway.Types.SdkConfigurationProperty</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A type of SDK that API Gateway can generate.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSdkType' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679369129"><span id="local-6989586621679369130"></span></span><span class="hs-keyword">data</span><span> </span><span id="SdkType"><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-var">SdkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SdkType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-var">SdkType'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-friendly name of an SdkType instance.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfriendlyName%3ASdkType%27"><span class="annot"><span class="annottext">SdkType -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AfriendlyName%3ASdkType%27"><span class="hs-identifier hs-var hs-var">friendlyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier of an SdkType instance.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3ASdkType%27"><span class="annot"><span class="annottext">SdkType -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Aid%3ASdkType%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of configuration properties of an SdkType.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconfigurationProperties%3ASdkType%27"><span class="annot"><span class="annottext">SdkType -&gt; Maybe [SdkConfigurationProperty]
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AconfigurationProperties%3ASdkType%27"><span class="hs-identifier hs-var hs-var">configurationProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkConfigurationProperty.html#SdkConfigurationProperty"><span class="hs-identifier hs-type">SdkConfigurationProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The description of an SdkType.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3ASdkType%27"><span class="annot"><span class="annottext">SdkType -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Adescription%3ASdkType%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369120"><span id="local-6989586621679369122"><span class="annot"><span class="annottext">SdkType -&gt; SdkType -&gt; Bool
+(SdkType -&gt; SdkType -&gt; Bool)
+-&gt; (SdkType -&gt; SdkType -&gt; Bool) -&gt; Eq SdkType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SdkType -&gt; SdkType -&gt; Bool
+$c/= :: SdkType -&gt; SdkType -&gt; Bool
+== :: SdkType -&gt; SdkType -&gt; Bool
+$c== :: SdkType -&gt; SdkType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369111"><span id="local-6989586621679369113"><span id="local-6989586621679369115"><span id="local-6989586621679369117"><span class="annot"><span class="annottext">ReadPrec [SdkType]
+ReadPrec SdkType
+Int -&gt; ReadS SdkType
+ReadS [SdkType]
+(Int -&gt; ReadS SdkType)
+-&gt; ReadS [SdkType]
+-&gt; ReadPrec SdkType
+-&gt; ReadPrec [SdkType]
+-&gt; Read SdkType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SdkType]
+$creadListPrec :: ReadPrec [SdkType]
+readPrec :: ReadPrec SdkType
+$creadPrec :: ReadPrec SdkType
+readList :: ReadS [SdkType]
+$creadList :: ReadS [SdkType]
+readsPrec :: Int -&gt; ReadS SdkType
+$creadsPrec :: Int -&gt; ReadS SdkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369104"><span id="local-6989586621679369106"><span id="local-6989586621679369108"><span class="annot"><span class="annottext">Int -&gt; SdkType -&gt; ShowS
+[SdkType] -&gt; ShowS
+SdkType -&gt; String
+(Int -&gt; SdkType -&gt; ShowS)
+-&gt; (SdkType -&gt; String) -&gt; ([SdkType] -&gt; ShowS) -&gt; Show SdkType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SdkType] -&gt; ShowS
+$cshowList :: [SdkType] -&gt; ShowS
+show :: SdkType -&gt; String
+$cshow :: SdkType -&gt; String
+showsPrec :: Int -&gt; SdkType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SdkType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SdkType -&gt; Rep SdkType x)
+-&gt; (forall x. Rep SdkType x -&gt; SdkType) -&gt; Generic SdkType
+forall x. Rep SdkType x -&gt; SdkType
+forall x. SdkType -&gt; Rep SdkType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SdkType x -&gt; SdkType
+$cfrom :: forall x. SdkType -&gt; Rep SdkType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'SdkType' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'friendlyName', 'sdkType_friendlyName' - The user-friendly name of an SdkType instance.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'id', 'sdkType_id' - The identifier of an SdkType instance.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'configurationProperties', 'sdkType_configurationProperties' - A list of configuration properties of an SdkType.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'description', 'sdkType_description' - The description of an SdkType.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#newSdkType"><span class="hs-identifier hs-type">newSdkType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span>
+</span><span id="line-59"></span><span id="newSdkType"><span class="annot"><span class="annottext">newSdkType :: SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#newSdkType"><span class="hs-identifier hs-var hs-var">newSdkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">SdkType' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [SdkConfigurationProperty]
+-&gt; Maybe Text
+-&gt; SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:friendlyName:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AfriendlyName%3ASdkType%27"><span class="hs-identifier hs-var">friendlyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Aid%3ASdkType%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationProperties:SdkType' :: Maybe [SdkConfigurationProperty]
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AconfigurationProperties%3ASdkType%27"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Adescription%3ASdkType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The user-friendly name of an SdkType instance.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_friendlyName"><span class="hs-identifier hs-type">sdkType_friendlyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="sdkType_friendlyName"><span class="annot"><span class="annottext">sdkType_friendlyName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SdkType -&gt; f SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_friendlyName"><span class="hs-identifier hs-var hs-var">sdkType_friendlyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SdkType -&gt; Maybe Text)
+-&gt; (SdkType -&gt; Maybe Text -&gt; SdkType)
+-&gt; Lens SdkType SdkType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369095"><span class="annot"><span class="annottext">Maybe Text
+friendlyName :: Maybe Text
+$sel:friendlyName:SdkType' :: SdkType -&gt; Maybe Text
+</span><a href="#local-6989586621679369095"><span class="hs-identifier hs-var hs-var">friendlyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369095"><span class="hs-identifier hs-var">friendlyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369094"><span class="annot"><span class="annottext">s :: SdkType
+</span><a href="#local-6989586621679369094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369093"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SdkType
+</span><a href="#local-6989586621679369094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:friendlyName:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AfriendlyName%3ASdkType%27"><span class="hs-identifier hs-var">friendlyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The identifier of an SdkType instance.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_id"><span class="hs-identifier hs-type">sdkType_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="sdkType_id"><span class="annot"><span class="annottext">sdkType_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SdkType -&gt; f SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_id"><span class="hs-identifier hs-var hs-var">sdkType_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SdkType -&gt; Maybe Text)
+-&gt; (SdkType -&gt; Maybe Text -&gt; SdkType)
+-&gt; Lens SdkType SdkType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369091"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:SdkType' :: SdkType -&gt; Maybe Text
+</span><a href="#local-6989586621679369091"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369091"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369090"><span class="annot"><span class="annottext">s :: SdkType
+</span><a href="#local-6989586621679369090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SdkType
+</span><a href="#local-6989586621679369090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Aid%3ASdkType%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A list of configuration properties of an SdkType.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_configurationProperties"><span class="hs-identifier hs-type">sdkType_configurationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkConfigurationProperty.html#SdkConfigurationProperty"><span class="hs-identifier hs-type">SdkConfigurationProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="sdkType_configurationProperties"><span class="annot"><span class="annottext">sdkType_configurationProperties :: (Maybe [SdkConfigurationProperty]
+ -&gt; f (Maybe [SdkConfigurationProperty]))
+-&gt; SdkType -&gt; f SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_configurationProperties"><span class="hs-identifier hs-var hs-var">sdkType_configurationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SdkType -&gt; Maybe [SdkConfigurationProperty])
+-&gt; (SdkType -&gt; Maybe [SdkConfigurationProperty] -&gt; SdkType)
+-&gt; Lens
+     SdkType
+     SdkType
+     (Maybe [SdkConfigurationProperty])
+     (Maybe [SdkConfigurationProperty])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369087"><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+configurationProperties :: Maybe [SdkConfigurationProperty]
+$sel:configurationProperties:SdkType' :: SdkType -&gt; Maybe [SdkConfigurationProperty]
+</span><a href="#local-6989586621679369087"><span class="hs-identifier hs-var hs-var">configurationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+</span><a href="#local-6989586621679369087"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369086"><span class="annot"><span class="annottext">s :: SdkType
+</span><a href="#local-6989586621679369086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369085"><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+</span><a href="#local-6989586621679369085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SdkType
+</span><a href="#local-6989586621679369086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationProperties:SdkType' :: Maybe [SdkConfigurationProperty]
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3AconfigurationProperties%3ASdkType%27"><span class="hs-identifier hs-var">configurationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+</span><a href="#local-6989586621679369085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SdkConfigurationProperty]
+  -&gt; f (Maybe [SdkConfigurationProperty]))
+ -&gt; SdkType -&gt; f SdkType)
+-&gt; ((Maybe [SdkConfigurationProperty]
+     -&gt; f (Maybe [SdkConfigurationProperty]))
+    -&gt; Maybe [SdkConfigurationProperty]
+    -&gt; f (Maybe [SdkConfigurationProperty]))
+-&gt; (Maybe [SdkConfigurationProperty]
+    -&gt; f (Maybe [SdkConfigurationProperty]))
+-&gt; SdkType
+-&gt; f SdkType
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+-&gt; Iso
+     (Maybe [SdkConfigurationProperty])
+     (Maybe [SdkConfigurationProperty])
+     (Maybe [SdkConfigurationProperty])
+     (Maybe [SdkConfigurationProperty])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+  [SdkConfigurationProperty]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The description of an SdkType.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_description"><span class="hs-identifier hs-type">sdkType_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="sdkType_description"><span class="annot"><span class="annottext">sdkType_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SdkType -&gt; f SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#sdkType_description"><span class="hs-identifier hs-var hs-var">sdkType_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SdkType -&gt; Maybe Text)
+-&gt; (SdkType -&gt; Maybe Text -&gt; SdkType)
+-&gt; Lens SdkType SdkType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369080"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:SdkType' :: SdkType -&gt; Maybe Text
+</span><a href="#local-6989586621679369080"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369080"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369079"><span class="annot"><span class="annottext">s :: SdkType
+</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-type">SdkType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SdkType
+</span><a href="#local-6989586621679369079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SdkType' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#%24sel%3Adescription%3ASdkType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369075"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679369073"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SdkType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SdkType) -&gt; Value -&gt; Parser SdkType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SdkType&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369070"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [SdkConfigurationProperty]
+-&gt; Maybe Text
+-&gt; SdkType
+</span><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType%27"><span class="hs-identifier hs-var">SdkType'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [SdkConfigurationProperty]
+ -&gt; Maybe Text
+ -&gt; SdkType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [SdkConfigurationProperty] -&gt; Maybe Text -&gt; SdkType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;friendlyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [SdkConfigurationProperty] -&gt; Maybe Text -&gt; SdkType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [SdkConfigurationProperty] -&gt; Maybe Text -&gt; SdkType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [SdkConfigurationProperty] -&gt; Maybe Text -&gt; SdkType)
+-&gt; Parser (Maybe [SdkConfigurationProperty])
+-&gt; Parser (Maybe Text -&gt; SdkType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SdkConfigurationProperty]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationProperties&quot;</span></span><span>
+</span><span id="line-92"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SdkConfigurationProperty]))
+-&gt; Maybe [SdkConfigurationProperty]
+-&gt; Parser (Maybe [SdkConfigurationProperty])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SdkConfigurationProperty]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SdkType)
+-&gt; Parser (Maybe Text) -&gt; Parser SdkType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369063"><span id="local-6989586621679369065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

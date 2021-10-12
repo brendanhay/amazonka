@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html"><span class="hs-identifier">Network.AWS.FMS.Types.Route</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Violation detail for an unexpected gateway route that&#8217;s present in a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- route table.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNetworkFirewallUnexpectedGatewayRoutesViolation' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679250125"><span id="local-6989586621679250126"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-var">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the route table.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArouteTableId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3ArouteTableId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The routes that are in violation.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AviolatingRoutes%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe [Route]
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AviolatingRoutes%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var hs-var">violatingRoutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvpcId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AvpcId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Information about the gateway ID.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AgatewayId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AgatewayId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250116"><span id="local-6989586621679250118"><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool
+(NetworkFirewallUnexpectedGatewayRoutesViolation
+ -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool)
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool)
+-&gt; Eq NetworkFirewallUnexpectedGatewayRoutesViolation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool
+$c/= :: NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool
+== :: NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool
+$c== :: NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250107"><span id="local-6989586621679250109"><span id="local-6989586621679250111"><span id="local-6989586621679250113"><span class="annot"><span class="annottext">ReadPrec [NetworkFirewallUnexpectedGatewayRoutesViolation]
+ReadPrec NetworkFirewallUnexpectedGatewayRoutesViolation
+Int -&gt; ReadS NetworkFirewallUnexpectedGatewayRoutesViolation
+ReadS [NetworkFirewallUnexpectedGatewayRoutesViolation]
+(Int -&gt; ReadS NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; ReadS [NetworkFirewallUnexpectedGatewayRoutesViolation]
+-&gt; ReadPrec NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; ReadPrec [NetworkFirewallUnexpectedGatewayRoutesViolation]
+-&gt; Read NetworkFirewallUnexpectedGatewayRoutesViolation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkFirewallUnexpectedGatewayRoutesViolation]
+$creadListPrec :: ReadPrec [NetworkFirewallUnexpectedGatewayRoutesViolation]
+readPrec :: ReadPrec NetworkFirewallUnexpectedGatewayRoutesViolation
+$creadPrec :: ReadPrec NetworkFirewallUnexpectedGatewayRoutesViolation
+readList :: ReadS [NetworkFirewallUnexpectedGatewayRoutesViolation]
+$creadList :: ReadS [NetworkFirewallUnexpectedGatewayRoutesViolation]
+readsPrec :: Int -&gt; ReadS NetworkFirewallUnexpectedGatewayRoutesViolation
+$creadsPrec :: Int -&gt; ReadS NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250100"><span id="local-6989586621679250102"><span id="local-6989586621679250104"><span class="annot"><span class="annottext">Int -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; ShowS
+[NetworkFirewallUnexpectedGatewayRoutesViolation] -&gt; ShowS
+NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; String
+(Int -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; ShowS)
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; String)
+-&gt; ([NetworkFirewallUnexpectedGatewayRoutesViolation] -&gt; ShowS)
+-&gt; Show NetworkFirewallUnexpectedGatewayRoutesViolation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkFirewallUnexpectedGatewayRoutesViolation] -&gt; ShowS
+$cshowList :: [NetworkFirewallUnexpectedGatewayRoutesViolation] -&gt; ShowS
+show :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; String
+$cshow :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; String
+showsPrec :: Int -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NetworkFirewallUnexpectedGatewayRoutesViolation
+ -&gt; Rep NetworkFirewallUnexpectedGatewayRoutesViolation x)
+-&gt; (forall x.
+    Rep NetworkFirewallUnexpectedGatewayRoutesViolation x
+    -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Generic NetworkFirewallUnexpectedGatewayRoutesViolation
+forall x.
+Rep NetworkFirewallUnexpectedGatewayRoutesViolation x
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+forall x.
+NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; Rep NetworkFirewallUnexpectedGatewayRoutesViolation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NetworkFirewallUnexpectedGatewayRoutesViolation x
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+$cfrom :: forall x.
+NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; Rep NetworkFirewallUnexpectedGatewayRoutesViolation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'NetworkFirewallUnexpectedGatewayRoutesViolation' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'routeTableId', 'networkFirewallUnexpectedGatewayRoutesViolation_routeTableId' - Information about the route table.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'violatingRoutes', 'networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes' - The routes that are in violation.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'vpcId', 'networkFirewallUnexpectedGatewayRoutesViolation_vpcId' - Information about the VPC ID.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'gatewayId', 'networkFirewallUnexpectedGatewayRoutesViolation_gatewayId' - Information about the gateway ID.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#newNetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">newNetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span>
+</span><span id="line-60"></span><span id="newNetworkFirewallUnexpectedGatewayRoutesViolation"><span class="annot"><span class="annottext">newNetworkFirewallUnexpectedGatewayRoutesViolation :: NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#newNetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-var hs-var">newNetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+-&gt; Maybe [Route]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routeTableId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3ArouteTableId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:violatingRoutes:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe [Route]
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AviolatingRoutes%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">violatingRoutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Route]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AvpcId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AgatewayId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Information about the route table.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_routeTableId"><span class="hs-identifier hs-type">networkFirewallUnexpectedGatewayRoutesViolation_routeTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="networkFirewallUnexpectedGatewayRoutesViolation_routeTableId"><span class="annot"><span class="annottext">networkFirewallUnexpectedGatewayRoutesViolation_routeTableId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_routeTableId"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation_routeTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text)
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Lens
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250091"><span class="annot"><span class="annottext">Maybe Text
+routeTableId :: Maybe Text
+$sel:routeTableId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679250091"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250091"><span class="hs-identifier hs-var">routeTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250090"><span class="annot"><span class="annottext">s :: NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeTableId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3ArouteTableId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The routes that are in violation.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes"><span class="hs-identifier hs-type">networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes"><span class="annot"><span class="annottext">networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes :: (Maybe [Route] -&gt; f (Maybe [Route]))
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe [Route])
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; Maybe [Route]
+    -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Lens
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     (Maybe [Route])
+     (Maybe [Route])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250087"><span class="annot"><span class="annottext">Maybe [Route]
+violatingRoutes :: Maybe [Route]
+$sel:violatingRoutes:NetworkFirewallUnexpectedGatewayRoutesViolation' :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe [Route]
+</span><a href="#local-6989586621679250087"><span class="hs-identifier hs-var hs-var">violatingRoutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
+</span><a href="#local-6989586621679250087"><span class="hs-identifier hs-var">violatingRoutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250086"><span class="annot"><span class="annottext">s :: NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250085"><span class="annot"><span class="annottext">Maybe [Route]
+</span><a href="#local-6989586621679250085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violatingRoutes:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe [Route]
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AviolatingRoutes%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">violatingRoutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
+</span><a href="#local-6989586621679250085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Route] -&gt; f (Maybe [Route]))
+ -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+ -&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; ((Maybe [Route] -&gt; f (Maybe [Route]))
+    -&gt; Maybe [Route] -&gt; f (Maybe [Route]))
+-&gt; (Maybe [Route] -&gt; f (Maybe [Route]))
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Route] [Route] [Route] [Route]
+-&gt; Iso
+     (Maybe [Route]) (Maybe [Route]) (Maybe [Route]) (Maybe [Route])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Route] [Route] [Route] [Route]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_vpcId"><span class="hs-identifier hs-type">networkFirewallUnexpectedGatewayRoutesViolation_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="networkFirewallUnexpectedGatewayRoutesViolation_vpcId"><span class="annot"><span class="annottext">networkFirewallUnexpectedGatewayRoutesViolation_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_vpcId"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text)
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Lens
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250080"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679250080"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250080"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250079"><span class="annot"><span class="annottext">s :: NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AvpcId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Information about the gateway ID.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_gatewayId"><span class="hs-identifier hs-type">networkFirewallUnexpectedGatewayRoutesViolation_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="networkFirewallUnexpectedGatewayRoutesViolation_gatewayId"><span class="annot"><span class="annottext">networkFirewallUnexpectedGatewayRoutesViolation_gatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+-&gt; f NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#networkFirewallUnexpectedGatewayRoutesViolation_gatewayId"><span class="hs-identifier hs-var hs-var">networkFirewallUnexpectedGatewayRoutesViolation_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text)
+-&gt; (NetworkFirewallUnexpectedGatewayRoutesViolation
+    -&gt; Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Lens
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     NetworkFirewallUnexpectedGatewayRoutesViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250076"><span class="annot"><span class="annottext">Maybe Text
+gatewayId :: Maybe Text
+$sel:gatewayId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: NetworkFirewallUnexpectedGatewayRoutesViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679250076"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250076"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250075"><span class="annot"><span class="annottext">s :: NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="#local-6989586621679250075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:NetworkFirewallUnexpectedGatewayRoutesViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#%24sel%3AgatewayId%3ANetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679250071"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679250069"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Value
+-&gt; Parser NetworkFirewallUnexpectedGatewayRoutesViolation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NetworkFirewallUnexpectedGatewayRoutesViolation&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250066"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Route]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; NetworkFirewallUnexpectedGatewayRoutesViolation
+</span><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation%27"><span class="hs-identifier hs-var">NetworkFirewallUnexpectedGatewayRoutesViolation'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Route]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Route]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RouteTableId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Route]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Parser (Maybe [Route])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Route]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ViolatingRoutes&quot;</span></span><span>
+</span><span id="line-98"></span><span>                              </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Route]))
+-&gt; Maybe [Route] -&gt; Parser (Maybe [Route])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; NetworkFirewallUnexpectedGatewayRoutesViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser NetworkFirewallUnexpectedGatewayRoutesViolation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679250059"><span id="local-6989586621679250061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679250056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation.html#NetworkFirewallUnexpectedGatewayRoutesViolation"><span class="hs-identifier hs-type">NetworkFirewallUnexpectedGatewayRoutesViolation</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

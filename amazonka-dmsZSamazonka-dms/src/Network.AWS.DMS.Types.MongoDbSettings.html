@@ -1,0 +1,1167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.MongoDbSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.MongoDbSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html"><span class="hs-identifier">Network.AWS.DMS.Types.AuthMechanismValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html"><span class="hs-identifier">Network.AWS.DMS.Types.AuthTypeValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html"><span class="hs-identifier">Network.AWS.DMS.Types.NestingLevelValue</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Provides information that defines a MongoDB endpoint.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMongoDbSettings' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679433820"><span id="local-6989586621679433821"></span></span><span class="hs-keyword">data</span><span> </span><span id="MongoDbSettings"><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-var">MongoDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MongoDbSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-var">MongoDbSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MongoDB database name. This setting isn\'t used when @AuthType@ is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- set to @\&quot;no\&quot;@.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The default is @\&quot;admin\&quot;@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AauthSource%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthSource%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">authSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsecretsManagerSecretId%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerSecretId%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the server on the MongoDB source endpoint.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AserverName%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AserverName%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The KMS key identifier that is used to encrypt the content on the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- replication instance. If you don\'t specify a value for the @KmsKeyId@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- parameter, then DMS uses your default encryption key. KMS creates the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- default encryption key for your Amazon Web Services account. Your Amazon</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Web Services account has a different default encryption key for each</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AkmsKeyId%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The password for the user account you use to access the MongoDB source</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Apassword%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Apassword%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The port value for the MongoDB source endpoint.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aport%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Aport%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The user name you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Ausername%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Ausername%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The authentication mechanism you use to access the MongoDB source</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- For the default value, in MongoDB version 2.x, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @\&quot;mongodb_cr\&quot;@. For MongoDB version 3.x or later, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @\&quot;scram_sha_1\&quot;@. This setting isn\'t used when @AuthType@ is set to</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @\&quot;no\&quot;@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AauthMechanism%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe AuthMechanismValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthMechanism%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">authMechanism</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue"><span class="hs-identifier hs-type">AuthMechanismValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Secrets Manager secret that allows access to the MongoDB endpoint.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AsecretsManagerAccessRoleArn%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerAccessRoleArn%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The authentication type you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- When when set to @\&quot;no\&quot;@, user name and password parameters are not</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- used and can be empty.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AauthType%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe AuthTypeValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthType%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">authType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier hs-type">AuthTypeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Specifies the document ID. Use this setting when @NestingLevel@ is set</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- to @\&quot;none\&quot;@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Default value is @\&quot;false\&quot;@.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AextractDocId%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AextractDocId%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">extractDocId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Indicates the number of documents to preview to determine the document</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- organization. Use this setting when @NestingLevel@ is set to @\&quot;one\&quot;@.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Must be a positive value greater than @0@. Default value is @1000@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AdocsToInvestigate%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdocsToInvestigate%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">docsToInvestigate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Specifies either document or table mode.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Default value is @\&quot;none\&quot;@. Specify @\&quot;none\&quot;@ to use document mode.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Specify @\&quot;one\&quot;@ to use table mode.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AnestingLevel%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe NestingLevelValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AnestingLevel%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">nestingLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue"><span class="hs-identifier hs-type">NestingLevelValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The database name on the MongoDB source endpoint.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AdatabaseName%3AMongoDbSettings%27"><span class="annot"><span class="annottext">MongoDbSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdatabaseName%3AMongoDbSettings%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433801"><span id="local-6989586621679433803"><span class="annot"><span class="annottext">MongoDbSettings -&gt; MongoDbSettings -&gt; Bool
+(MongoDbSettings -&gt; MongoDbSettings -&gt; Bool)
+-&gt; (MongoDbSettings -&gt; MongoDbSettings -&gt; Bool)
+-&gt; Eq MongoDbSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MongoDbSettings -&gt; MongoDbSettings -&gt; Bool
+$c/= :: MongoDbSettings -&gt; MongoDbSettings -&gt; Bool
+== :: MongoDbSettings -&gt; MongoDbSettings -&gt; Bool
+$c== :: MongoDbSettings -&gt; MongoDbSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433794"><span id="local-6989586621679433796"><span id="local-6989586621679433798"><span class="annot"><span class="annottext">Int -&gt; MongoDbSettings -&gt; ShowS
+[MongoDbSettings] -&gt; ShowS
+MongoDbSettings -&gt; String
+(Int -&gt; MongoDbSettings -&gt; ShowS)
+-&gt; (MongoDbSettings -&gt; String)
+-&gt; ([MongoDbSettings] -&gt; ShowS)
+-&gt; Show MongoDbSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MongoDbSettings] -&gt; ShowS
+$cshowList :: [MongoDbSettings] -&gt; ShowS
+show :: MongoDbSettings -&gt; String
+$cshow :: MongoDbSettings -&gt; String
+showsPrec :: Int -&gt; MongoDbSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; MongoDbSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MongoDbSettings -&gt; Rep MongoDbSettings x)
+-&gt; (forall x. Rep MongoDbSettings x -&gt; MongoDbSettings)
+-&gt; Generic MongoDbSettings
+forall x. Rep MongoDbSettings x -&gt; MongoDbSettings
+forall x. MongoDbSettings -&gt; Rep MongoDbSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MongoDbSettings x -&gt; MongoDbSettings
+$cfrom :: forall x. MongoDbSettings -&gt; Rep MongoDbSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'MongoDbSettings' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'authSource', 'mongoDbSettings_authSource' - The MongoDB database name. This setting isn\'t used when @AuthType@ is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- set to @\&quot;no\&quot;@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The default is @\&quot;admin\&quot;@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'secretsManagerSecretId', 'mongoDbSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'serverName', 'mongoDbSettings_serverName' - The name of the server on the MongoDB source endpoint.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'kmsKeyId', 'mongoDbSettings_kmsKeyId' - The KMS key identifier that is used to encrypt the content on the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- replication instance. If you don\'t specify a value for the @KmsKeyId@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- parameter, then DMS uses your default encryption key. KMS creates the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- default encryption key for your Amazon Web Services account. Your Amazon</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Web Services account has a different default encryption key for each</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'password', 'mongoDbSettings_password' - The password for the user account you use to access the MongoDB source</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'port', 'mongoDbSettings_port' - The port value for the MongoDB source endpoint.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'username', 'mongoDbSettings_username' - The user name you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'authMechanism', 'mongoDbSettings_authMechanism' - The authentication mechanism you use to access the MongoDB source</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- For the default value, in MongoDB version 2.x, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @\&quot;mongodb_cr\&quot;@. For MongoDB version 3.x or later, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @\&quot;scram_sha_1\&quot;@. This setting isn\'t used when @AuthType@ is set to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @\&quot;no\&quot;@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'secretsManagerAccessRoleArn', 'mongoDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Secrets Manager secret that allows access to the MongoDB endpoint.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'authType', 'mongoDbSettings_authType' - The authentication type you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- When when set to @\&quot;no\&quot;@, user name and password parameters are not</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- used and can be empty.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'extractDocId', 'mongoDbSettings_extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- to @\&quot;none\&quot;@.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Default value is @\&quot;false\&quot;@.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'docsToInvestigate', 'mongoDbSettings_docsToInvestigate' - Indicates the number of documents to preview to determine the document</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- organization. Use this setting when @NestingLevel@ is set to @\&quot;one\&quot;@.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Must be a positive value greater than @0@. Default value is @1000@.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'nestingLevel', 'mongoDbSettings_nestingLevel' - Specifies either document or table mode.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Default value is @\&quot;none\&quot;@. Specify @\&quot;none\&quot;@ to use document mode.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Specify @\&quot;one\&quot;@ to use table mode.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'databaseName', 'mongoDbSettings_databaseName' - The database name on the MongoDB source endpoint.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#newMongoDbSettings"><span class="hs-identifier hs-type">newMongoDbSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span>
+</span><span id="line-185"></span><span id="newMongoDbSettings"><span class="annot"><span class="annottext">newMongoDbSettings :: MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#newMongoDbSettings"><span class="hs-identifier hs-var hs-var">newMongoDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">MongoDbSettings' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe AuthMechanismValue
+-&gt; Maybe Text
+-&gt; Maybe AuthTypeValue
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NestingLevelValue
+-&gt; Maybe Text
+-&gt; MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authSource:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthSource%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerSecretId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverName:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AserverName%3AMongoDbSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AkmsKeyId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:MongoDbSettings' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Apassword%3AMongoDbSettings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:MongoDbSettings' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Aport%3AMongoDbSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Ausername%3AMongoDbSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:authMechanism:MongoDbSettings' :: Maybe AuthMechanismValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthMechanism%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authMechanism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerAccessRoleArn%3AMongoDbSettings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:authType:MongoDbSettings' :: Maybe AuthTypeValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthType%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTypeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:extractDocId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AextractDocId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">extractDocId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:docsToInvestigate:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdocsToInvestigate%3AMongoDbSettings%27"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:nestingLevel:MongoDbSettings' :: Maybe NestingLevelValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AnestingLevel%3AMongoDbSettings%27"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdatabaseName%3AMongoDbSettings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The MongoDB database name. This setting isn\'t used when @AuthType@ is</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- set to @\&quot;no\&quot;@.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The default is @\&quot;admin\&quot;@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authSource"><span class="hs-identifier hs-type">mongoDbSettings_authSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="mongoDbSettings_authSource"><span class="annot"><span class="annottext">mongoDbSettings_authSource :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authSource"><span class="hs-identifier hs-var hs-var">mongoDbSettings_authSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433785"><span class="annot"><span class="annottext">Maybe Text
+authSource :: Maybe Text
+$sel:authSource:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433785"><span class="hs-identifier hs-var hs-var">authSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433785"><span class="hs-identifier hs-var">authSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433784"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authSource:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthSource%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- details.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_secretsManagerSecretId"><span class="hs-identifier hs-type">mongoDbSettings_secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="mongoDbSettings_secretsManagerSecretId"><span class="annot"><span class="annottext">mongoDbSettings_secretsManagerSecretId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_secretsManagerSecretId"><span class="hs-identifier hs-var hs-var">mongoDbSettings_secretsManagerSecretId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433781"><span class="annot"><span class="annottext">Maybe Text
+secretsManagerSecretId :: Maybe Text
+$sel:secretsManagerSecretId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433781"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433781"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433780"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerSecretId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The name of the server on the MongoDB source endpoint.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_serverName"><span class="hs-identifier hs-type">mongoDbSettings_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="mongoDbSettings_serverName"><span class="annot"><span class="annottext">mongoDbSettings_serverName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_serverName"><span class="hs-identifier hs-var hs-var">mongoDbSettings_serverName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433777"><span class="annot"><span class="annottext">Maybe Text
+serverName :: Maybe Text
+$sel:serverName:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433777"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433777"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433776"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AserverName%3AMongoDbSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The KMS key identifier that is used to encrypt the content on the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- replication instance. If you don\'t specify a value for the @KmsKeyId@</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- parameter, then DMS uses your default encryption key. KMS creates the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- default encryption key for your Amazon Web Services account. Your Amazon</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Web Services account has a different default encryption key for each</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_kmsKeyId"><span class="hs-identifier hs-type">mongoDbSettings_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="mongoDbSettings_kmsKeyId"><span class="annot"><span class="annottext">mongoDbSettings_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_kmsKeyId"><span class="hs-identifier hs-var hs-var">mongoDbSettings_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433773"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433773"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433773"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433772"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AkmsKeyId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The password for the user account you use to access the MongoDB source</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_password"><span class="hs-identifier hs-type">mongoDbSettings_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="mongoDbSettings_password"><span class="annot"><span class="annottext">mongoDbSettings_password :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_password"><span class="hs-identifier hs-var hs-var">mongoDbSettings_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe (Sensitive Text))
+-&gt; (MongoDbSettings -&gt; Maybe (Sensitive Text) -&gt; MongoDbSettings)
+-&gt; Lens
+     MongoDbSettings
+     MongoDbSettings
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433769"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+password :: Maybe (Sensitive Text)
+$sel:password:MongoDbSettings' :: MongoDbSettings -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433769"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433769"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433768"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433767"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:MongoDbSettings' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Apassword%3AMongoDbSettings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; MongoDbSettings -&gt; f MongoDbSettings)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings
+-&gt; f MongoDbSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The port value for the MongoDB source endpoint.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_port"><span class="hs-identifier hs-type">mongoDbSettings_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="mongoDbSettings_port"><span class="annot"><span class="annottext">mongoDbSettings_port :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_port"><span class="hs-identifier hs-var hs-var">mongoDbSettings_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Int)
+-&gt; (MongoDbSettings -&gt; Maybe Int -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433762"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Int
+</span><a href="#local-6989586621679433762"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433762"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433761"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433760"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:MongoDbSettings' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Aport%3AMongoDbSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The user name you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_username"><span class="hs-identifier hs-type">mongoDbSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="mongoDbSettings_username"><span class="annot"><span class="annottext">mongoDbSettings_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_username"><span class="hs-identifier hs-var hs-var">mongoDbSettings_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433758"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433758"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433758"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433757"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3Ausername%3AMongoDbSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The authentication mechanism you use to access the MongoDB source</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- For the default value, in MongoDB version 2.x, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- @\&quot;mongodb_cr\&quot;@. For MongoDB version 3.x or later, @\&quot;default\&quot;@ is</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- @\&quot;scram_sha_1\&quot;@. This setting isn\'t used when @AuthType@ is set to</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- @\&quot;no\&quot;@.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authMechanism"><span class="hs-identifier hs-type">mongoDbSettings_authMechanism</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue"><span class="hs-identifier hs-type">AuthMechanismValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="mongoDbSettings_authMechanism"><span class="annot"><span class="annottext">mongoDbSettings_authMechanism :: (Maybe AuthMechanismValue -&gt; f (Maybe AuthMechanismValue))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authMechanism"><span class="hs-identifier hs-var hs-var">mongoDbSettings_authMechanism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe AuthMechanismValue)
+-&gt; (MongoDbSettings -&gt; Maybe AuthMechanismValue -&gt; MongoDbSettings)
+-&gt; Lens
+     MongoDbSettings
+     MongoDbSettings
+     (Maybe AuthMechanismValue)
+     (Maybe AuthMechanismValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433754"><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+authMechanism :: Maybe AuthMechanismValue
+$sel:authMechanism:MongoDbSettings' :: MongoDbSettings -&gt; Maybe AuthMechanismValue
+</span><a href="#local-6989586621679433754"><span class="hs-identifier hs-var hs-var">authMechanism</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+</span><a href="#local-6989586621679433754"><span class="hs-identifier hs-var">authMechanism</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433753"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433752"><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+</span><a href="#local-6989586621679433752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authMechanism:MongoDbSettings' :: Maybe AuthMechanismValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthMechanism%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authMechanism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+</span><a href="#local-6989586621679433752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Secrets Manager secret that allows access to the MongoDB endpoint.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- You can specify one of two sets of values for these permissions. You can</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- specify the values for this setting and @SecretsManagerSecretId@. Or you</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- can specify clear-text values for @UserName@, @Password@, @ServerName@,</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- and @Port@. You can\'t specify both. For more information on creating</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @SecretsManagerSecretId@ required to access it, see</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources&gt;</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- in the /Database Migration Service User Guide/.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_secretsManagerAccessRoleArn"><span class="hs-identifier hs-type">mongoDbSettings_secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="mongoDbSettings_secretsManagerAccessRoleArn"><span class="annot"><span class="annottext">mongoDbSettings_secretsManagerAccessRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_secretsManagerAccessRoleArn"><span class="hs-identifier hs-var hs-var">mongoDbSettings_secretsManagerAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433750"><span class="annot"><span class="annottext">Maybe Text
+secretsManagerAccessRoleArn :: Maybe Text
+$sel:secretsManagerAccessRoleArn:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433749"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AsecretsManagerAccessRoleArn%3AMongoDbSettings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The authentication type you use to access the MongoDB source endpoint.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- When when set to @\&quot;no\&quot;@, user name and password parameters are not</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- used and can be empty.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authType"><span class="hs-identifier hs-type">mongoDbSettings_authType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.AuthTypeValue.html#AuthTypeValue"><span class="hs-identifier hs-type">AuthTypeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="mongoDbSettings_authType"><span class="annot"><span class="annottext">mongoDbSettings_authType :: (Maybe AuthTypeValue -&gt; f (Maybe AuthTypeValue))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_authType"><span class="hs-identifier hs-var hs-var">mongoDbSettings_authType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe AuthTypeValue)
+-&gt; (MongoDbSettings -&gt; Maybe AuthTypeValue -&gt; MongoDbSettings)
+-&gt; Lens
+     MongoDbSettings
+     MongoDbSettings
+     (Maybe AuthTypeValue)
+     (Maybe AuthTypeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433746"><span class="annot"><span class="annottext">Maybe AuthTypeValue
+authType :: Maybe AuthTypeValue
+$sel:authType:MongoDbSettings' :: MongoDbSettings -&gt; Maybe AuthTypeValue
+</span><a href="#local-6989586621679433746"><span class="hs-identifier hs-var hs-var">authType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTypeValue
+</span><a href="#local-6989586621679433746"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433745"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433744"><span class="annot"><span class="annottext">Maybe AuthTypeValue
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authType:MongoDbSettings' :: Maybe AuthTypeValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AauthType%3AMongoDbSettings%27"><span class="hs-identifier hs-var">authType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTypeValue
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | Specifies the document ID. Use this setting when @NestingLevel@ is set</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- to @\&quot;none\&quot;@.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Default value is @\&quot;false\&quot;@.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_extractDocId"><span class="hs-identifier hs-type">mongoDbSettings_extractDocId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="mongoDbSettings_extractDocId"><span class="annot"><span class="annottext">mongoDbSettings_extractDocId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_extractDocId"><span class="hs-identifier hs-var hs-var">mongoDbSettings_extractDocId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433742"><span class="annot"><span class="annottext">Maybe Text
+extractDocId :: Maybe Text
+$sel:extractDocId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433742"><span class="hs-identifier hs-var hs-var">extractDocId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433742"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433741"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433740"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extractDocId:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AextractDocId%3AMongoDbSettings%27"><span class="hs-identifier hs-var">extractDocId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Indicates the number of documents to preview to determine the document</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- organization. Use this setting when @NestingLevel@ is set to @\&quot;one\&quot;@.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Must be a positive value greater than @0@. Default value is @1000@.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_docsToInvestigate"><span class="hs-identifier hs-type">mongoDbSettings_docsToInvestigate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="mongoDbSettings_docsToInvestigate"><span class="annot"><span class="annottext">mongoDbSettings_docsToInvestigate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_docsToInvestigate"><span class="hs-identifier hs-var hs-var">mongoDbSettings_docsToInvestigate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433738"><span class="annot"><span class="annottext">Maybe Text
+docsToInvestigate :: Maybe Text
+$sel:docsToInvestigate:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433738"><span class="hs-identifier hs-var hs-var">docsToInvestigate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433738"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433737"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433736"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:docsToInvestigate:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdocsToInvestigate%3AMongoDbSettings%27"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Specifies either document or table mode.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- Default value is @\&quot;none\&quot;@. Specify @\&quot;none\&quot;@ to use document mode.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Specify @\&quot;one\&quot;@ to use table mode.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_nestingLevel"><span class="hs-identifier hs-type">mongoDbSettings_nestingLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NestingLevelValue.html#NestingLevelValue"><span class="hs-identifier hs-type">NestingLevelValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="mongoDbSettings_nestingLevel"><span class="annot"><span class="annottext">mongoDbSettings_nestingLevel :: (Maybe NestingLevelValue -&gt; f (Maybe NestingLevelValue))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_nestingLevel"><span class="hs-identifier hs-var hs-var">mongoDbSettings_nestingLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe NestingLevelValue)
+-&gt; (MongoDbSettings -&gt; Maybe NestingLevelValue -&gt; MongoDbSettings)
+-&gt; Lens
+     MongoDbSettings
+     MongoDbSettings
+     (Maybe NestingLevelValue)
+     (Maybe NestingLevelValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433734"><span class="annot"><span class="annottext">Maybe NestingLevelValue
+nestingLevel :: Maybe NestingLevelValue
+$sel:nestingLevel:MongoDbSettings' :: MongoDbSettings -&gt; Maybe NestingLevelValue
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var hs-var">nestingLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679433734"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433733"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433732"><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679433732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nestingLevel:MongoDbSettings' :: Maybe NestingLevelValue
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AnestingLevel%3AMongoDbSettings%27"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679433732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The database name on the MongoDB source endpoint.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_databaseName"><span class="hs-identifier hs-type">mongoDbSettings_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="mongoDbSettings_databaseName"><span class="annot"><span class="annottext">mongoDbSettings_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MongoDbSettings -&gt; f MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#mongoDbSettings_databaseName"><span class="hs-identifier hs-var hs-var">mongoDbSettings_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MongoDbSettings -&gt; Maybe Text)
+-&gt; (MongoDbSettings -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Lens MongoDbSettings MongoDbSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433730"><span class="annot"><span class="annottext">Maybe Text
+databaseName :: Maybe Text
+$sel:databaseName:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433730"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433730"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433729"><span class="annot"><span class="annottext">s :: MongoDbSettings
+</span><a href="#local-6989586621679433729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MongoDbSettings
+</span><a href="#local-6989586621679433729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:MongoDbSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#%24sel%3AdatabaseName%3AMongoDbSettings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433725"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679433723"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MongoDbSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MongoDbSettings)
+-&gt; Value
+-&gt; Parser MongoDbSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MongoDbSettings&quot;</span></span><span>
+</span><span id="line-305"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433720"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe AuthMechanismValue
+-&gt; Maybe Text
+-&gt; Maybe AuthTypeValue
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NestingLevelValue
+-&gt; Maybe Text
+-&gt; MongoDbSettings
+</span><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-var">MongoDbSettings'</span></a></span><span>
+</span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe AuthMechanismValue
+ -&gt; Maybe Text
+ -&gt; Maybe AuthTypeValue
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe NestingLevelValue
+ -&gt; Maybe Text
+ -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AuthMechanismValue
+      -&gt; Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthMechanismValue
+   -&gt; Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe AuthMechanismValue)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthMechanismValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthMechanism&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AuthTypeValue
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthTypeValue
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe AuthTypeValue)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NestingLevelValue
+      -&gt; Maybe Text
+      -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthTypeValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NestingLevelValue
+   -&gt; Maybe Text
+   -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe NestingLevelValue -&gt; Maybe Text -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExtractDocId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe NestingLevelValue -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe NestingLevelValue -&gt; Maybe Text -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocsToInvestigate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NestingLevelValue -&gt; Maybe Text -&gt; MongoDbSettings)
+-&gt; Parser (Maybe NestingLevelValue)
+-&gt; Parser (Maybe Text -&gt; MongoDbSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NestingLevelValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NestingLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MongoDbSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser MongoDbSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433714"><span id="local-6989586621679433716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span></span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433703"><span id="local-6989586621679433705"><span id="local-6989586621679433707"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings"><span class="hs-identifier hs-type">MongoDbSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-328"></span><span>  </span><span id="local-6989586621679433701"><span class="annot"><span class="annottext">toJSON :: MongoDbSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MongoDbSettings.html#MongoDbSettings%27"><span class="hs-identifier hs-type">MongoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433686"><span id="local-6989586621679433687"><span id="local-6989586621679433688"><span id="local-6989586621679433689"><span id="local-6989586621679433690"><span id="local-6989586621679433691"><span id="local-6989586621679433692"><span id="local-6989586621679433693"><span id="local-6989586621679433694"><span id="local-6989586621679433695"><span id="local-6989586621679433696"><span id="local-6989586621679433697"><span id="local-6989586621679433698"><span id="local-6989586621679433699"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe (Sensitive Text)
+Maybe AuthMechanismValue
+Maybe AuthTypeValue
+Maybe NestingLevelValue
+databaseName :: Maybe Text
+nestingLevel :: Maybe NestingLevelValue
+docsToInvestigate :: Maybe Text
+extractDocId :: Maybe Text
+authType :: Maybe AuthTypeValue
+secretsManagerAccessRoleArn :: Maybe Text
+authMechanism :: Maybe AuthMechanismValue
+username :: Maybe Text
+port :: Maybe Int
+password :: Maybe (Sensitive Text)
+kmsKeyId :: Maybe Text
+serverName :: Maybe Text
+secretsManagerSecretId :: Maybe Text
+authSource :: Maybe Text
+$sel:databaseName:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:nestingLevel:MongoDbSettings' :: MongoDbSettings -&gt; Maybe NestingLevelValue
+$sel:docsToInvestigate:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:extractDocId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:authType:MongoDbSettings' :: MongoDbSettings -&gt; Maybe AuthTypeValue
+$sel:secretsManagerAccessRoleArn:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:authMechanism:MongoDbSettings' :: MongoDbSettings -&gt; Maybe AuthMechanismValue
+$sel:username:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:port:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Int
+$sel:password:MongoDbSettings' :: MongoDbSettings -&gt; Maybe (Sensitive Text)
+$sel:kmsKeyId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:serverName:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:secretsManagerSecretId:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+$sel:authSource:MongoDbSettings' :: MongoDbSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679433686"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-331"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433699"><span class="hs-identifier hs-var">authSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433698"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433697"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433696"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433695"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433694"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433693"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthMechanism&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthMechanismValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AuthMechanismValue -&gt; Pair)
+-&gt; Maybe AuthMechanismValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthMechanismValue
+</span><a href="#local-6989586621679433692"><span class="hs-identifier hs-var">authMechanism</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433691"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthTypeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AuthTypeValue -&gt; Pair) -&gt; Maybe AuthTypeValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthTypeValue
+</span><a href="#local-6989586621679433690"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExtractDocId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433689"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocsToInvestigate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433688"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NestingLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NestingLevelValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NestingLevelValue -&gt; Pair)
+-&gt; Maybe NestingLevelValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679433687"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433686"><span class="hs-identifier hs-var">databaseName</span></a></span><span>
+</span><span id="line-348"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span></pre></body></html>

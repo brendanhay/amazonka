@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFormation.Types.StackDriftStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFormation.Types.StackDriftStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier">StackDriftStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_DRIFTED"><span class="hs-identifier">StackDriftStatus_DRIFTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_IN_SYNC"><span class="hs-identifier">StackDriftStatus_IN_SYNC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_NOT_CHECKED"><span class="hs-identifier">StackDriftStatus_NOT_CHECKED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_UNKNOWN"><span class="hs-identifier">StackDriftStatus_UNKNOWN</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679421230"><span id="local-6989586621679421231"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackDriftStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-var">StackDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackDriftStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-identifier hs-var">StackDriftStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackDriftStatus"><span class="annot"><span class="annottext">StackDriftStatus -&gt; Text
+</span><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#fromStackDriftStatus"><span class="hs-identifier hs-var hs-var">fromStackDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421222"><span id="local-6989586621679421224"><span id="local-6989586621679421226"><span class="annot"><span class="annottext">Int -&gt; StackDriftStatus -&gt; ShowS
+[StackDriftStatus] -&gt; ShowS
+StackDriftStatus -&gt; String
+(Int -&gt; StackDriftStatus -&gt; ShowS)
+-&gt; (StackDriftStatus -&gt; String)
+-&gt; ([StackDriftStatus] -&gt; ShowS)
+-&gt; Show StackDriftStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackDriftStatus] -&gt; ShowS
+$cshowList :: [StackDriftStatus] -&gt; ShowS
+show :: StackDriftStatus -&gt; String
+$cshow :: StackDriftStatus -&gt; String
+showsPrec :: Int -&gt; StackDriftStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackDriftStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679421213"><span id="local-6989586621679421215"><span id="local-6989586621679421217"><span id="local-6989586621679421219"><span class="annot"><span class="annottext">ReadPrec [StackDriftStatus]
+ReadPrec StackDriftStatus
+Int -&gt; ReadS StackDriftStatus
+ReadS [StackDriftStatus]
+(Int -&gt; ReadS StackDriftStatus)
+-&gt; ReadS [StackDriftStatus]
+-&gt; ReadPrec StackDriftStatus
+-&gt; ReadPrec [StackDriftStatus]
+-&gt; Read StackDriftStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackDriftStatus]
+$creadListPrec :: ReadPrec [StackDriftStatus]
+readPrec :: ReadPrec StackDriftStatus
+$creadPrec :: ReadPrec StackDriftStatus
+readList :: ReadS [StackDriftStatus]
+$creadList :: ReadS [StackDriftStatus]
+readsPrec :: Int -&gt; ReadS StackDriftStatus
+$creadsPrec :: Int -&gt; ReadS StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679421208"><span id="local-6989586621679421210"><span class="annot"><span class="annottext">StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+(StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; Eq StackDriftStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c/= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+== :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c== :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679421192"><span id="local-6989586621679421194"><span id="local-6989586621679421196"><span id="local-6989586621679421198"><span id="local-6989586621679421200"><span id="local-6989586621679421202"><span id="local-6989586621679421204"><span class="annot"><span class="annottext">Eq StackDriftStatus
+Eq StackDriftStatus
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Ordering)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; Bool)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus)
+-&gt; (StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus)
+-&gt; Ord StackDriftStatus
+StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+StackDriftStatus -&gt; StackDriftStatus -&gt; Ordering
+StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus
+$cmin :: StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus
+max :: StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus
+$cmax :: StackDriftStatus -&gt; StackDriftStatus -&gt; StackDriftStatus
+&gt;= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c&gt;= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+&gt; :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c&gt; :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+&lt;= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c&lt;= :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+&lt; :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+$c&lt; :: StackDriftStatus -&gt; StackDriftStatus -&gt; Bool
+compare :: StackDriftStatus -&gt; StackDriftStatus -&gt; Ordering
+$ccompare :: StackDriftStatus -&gt; StackDriftStatus -&gt; Ordering
+$cp1Ord :: Eq StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StackDriftStatus -&gt; Rep StackDriftStatus x)
+-&gt; (forall x. Rep StackDriftStatus x -&gt; StackDriftStatus)
+-&gt; Generic StackDriftStatus
+forall x. Rep StackDriftStatus x -&gt; StackDriftStatus
+forall x. StackDriftStatus -&gt; Rep StackDriftStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackDriftStatus x -&gt; StackDriftStatus
+$cfrom :: forall x. StackDriftStatus -&gt; Rep StackDriftStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421184"><span id="local-6989586621679421186"><span class="annot"><span class="annottext">Int -&gt; StackDriftStatus -&gt; Int
+StackDriftStatus -&gt; Int
+(Int -&gt; StackDriftStatus -&gt; Int)
+-&gt; (StackDriftStatus -&gt; Int) -&gt; Hashable StackDriftStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StackDriftStatus -&gt; Int
+$chash :: StackDriftStatus -&gt; Int
+hashWithSalt :: Int -&gt; StackDriftStatus -&gt; Int
+$chashWithSalt :: Int -&gt; StackDriftStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679421181"><span class="annot"><span class="annottext">StackDriftStatus -&gt; ()
+(StackDriftStatus -&gt; ()) -&gt; NFData StackDriftStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StackDriftStatus -&gt; ()
+$crnf :: StackDriftStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679421178"><span class="annot"><span class="annottext">Text -&gt; Either String StackDriftStatus
+(Text -&gt; Either String StackDriftStatus)
+-&gt; FromText StackDriftStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StackDriftStatus
+$cfromText :: Text -&gt; Either String StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679421175"><span class="annot"><span class="annottext">StackDriftStatus -&gt; Text
+(StackDriftStatus -&gt; Text) -&gt; ToText StackDriftStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StackDriftStatus -&gt; Text
+$ctoText :: StackDriftStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679421172"><span class="annot"><span class="annottext">StackDriftStatus -&gt; ByteString
+(StackDriftStatus -&gt; ByteString) -&gt; ToByteString StackDriftStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StackDriftStatus -&gt; ByteString
+$ctoBS :: StackDriftStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679421169"><span class="annot"><span class="annottext">StackDriftStatus -&gt; ByteStringBuilder
+(StackDriftStatus -&gt; ByteStringBuilder) -&gt; ToLog StackDriftStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StackDriftStatus -&gt; ByteStringBuilder
+$cbuild :: StackDriftStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679421166"><span class="annot"><span class="annottext">HeaderName -&gt; StackDriftStatus -&gt; [Header]
+(HeaderName -&gt; StackDriftStatus -&gt; [Header])
+-&gt; ToHeader StackDriftStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StackDriftStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StackDriftStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679421163"><span class="annot"><span class="annottext">StackDriftStatus -&gt; QueryString
+(StackDriftStatus -&gt; QueryString) -&gt; ToQuery StackDriftStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StackDriftStatus -&gt; QueryString
+$ctoQuery :: StackDriftStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679421158"><span id="local-6989586621679421160"><span class="annot"><span class="annottext">Value -&gt; Parser [StackDriftStatus]
+Value -&gt; Parser StackDriftStatus
+(Value -&gt; Parser StackDriftStatus)
+-&gt; (Value -&gt; Parser [StackDriftStatus])
+-&gt; FromJSON StackDriftStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StackDriftStatus]
+$cparseJSONList :: Value -&gt; Parser [StackDriftStatus]
+parseJSON :: Value -&gt; Parser StackDriftStatus
+$cparseJSON :: Value -&gt; Parser StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679421153"><span id="local-6989586621679421155"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackDriftStatus]
+FromJSONKeyFunction StackDriftStatus
+FromJSONKeyFunction StackDriftStatus
+-&gt; FromJSONKeyFunction [StackDriftStatus]
+-&gt; FromJSONKey StackDriftStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StackDriftStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [StackDriftStatus]
+fromJSONKey :: FromJSONKeyFunction StackDriftStatus
+$cfromJSONKey :: FromJSONKeyFunction StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679421144"><span id="local-6989586621679421146"><span id="local-6989586621679421148"><span id="local-6989586621679421150"><span class="annot"><span class="annottext">[StackDriftStatus] -&gt; Encoding
+[StackDriftStatus] -&gt; Value
+StackDriftStatus -&gt; Encoding
+StackDriftStatus -&gt; Value
+(StackDriftStatus -&gt; Value)
+-&gt; (StackDriftStatus -&gt; Encoding)
+-&gt; ([StackDriftStatus] -&gt; Value)
+-&gt; ([StackDriftStatus] -&gt; Encoding)
+-&gt; ToJSON StackDriftStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StackDriftStatus] -&gt; Encoding
+$ctoEncodingList :: [StackDriftStatus] -&gt; Encoding
+toJSONList :: [StackDriftStatus] -&gt; Value
+$ctoJSONList :: [StackDriftStatus] -&gt; Value
+toEncoding :: StackDriftStatus -&gt; Encoding
+$ctoEncoding :: StackDriftStatus -&gt; Encoding
+toJSON :: StackDriftStatus -&gt; Value
+$ctoJSON :: StackDriftStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679421139"><span id="local-6989586621679421141"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackDriftStatus]
+ToJSONKeyFunction StackDriftStatus
+ToJSONKeyFunction StackDriftStatus
+-&gt; ToJSONKeyFunction [StackDriftStatus]
+-&gt; ToJSONKey StackDriftStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StackDriftStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [StackDriftStatus]
+toJSONKey :: ToJSONKeyFunction StackDriftStatus
+$ctoJSONKey :: ToJSONKeyFunction StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679421136"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackDriftStatus
+([Node] -&gt; Either String StackDriftStatus)
+-&gt; FromXML StackDriftStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StackDriftStatus
+$cparseXML :: [Node] -&gt; Either String StackDriftStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679421133"><span class="annot"><span class="annottext">StackDriftStatus -&gt; XML
+(StackDriftStatus -&gt; XML) -&gt; ToXML StackDriftStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StackDriftStatus -&gt; XML
+$ctoXML :: StackDriftStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_DRIFTED"><span class="hs-identifier hs-type">StackDriftStatus_DRIFTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackDriftStatus_DRIFTED"><span id="%24mStackDriftStatus_DRIFTED"><span id="StackDriftStatus_DRIFTED"><span class="annot"><span class="annottext">$bStackDriftStatus_DRIFTED :: StackDriftStatus
+$mStackDriftStatus_DRIFTED :: forall r. StackDriftStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#%24bStackDriftStatus_DRIFTED"><span class="hs-identifier hs-var hs-var hs-var">StackDriftStatus_DRIFTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-identifier hs-type">StackDriftStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DRIFTED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_IN_SYNC"><span class="hs-identifier hs-type">StackDriftStatus_IN_SYNC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackDriftStatus_IN_SYNC"><span id="%24mStackDriftStatus_IN_SYNC"><span id="StackDriftStatus_IN_SYNC"><span class="annot"><span class="annottext">$bStackDriftStatus_IN_SYNC :: StackDriftStatus
+$mStackDriftStatus_IN_SYNC :: forall r. StackDriftStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#%24bStackDriftStatus_IN_SYNC"><span class="hs-identifier hs-var hs-var hs-var">StackDriftStatus_IN_SYNC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-identifier hs-type">StackDriftStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_SYNC&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_NOT_CHECKED"><span class="hs-identifier hs-type">StackDriftStatus_NOT_CHECKED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackDriftStatus_NOT_CHECKED"><span id="%24mStackDriftStatus_NOT_CHECKED"><span id="StackDriftStatus_NOT_CHECKED"><span class="annot"><span class="annottext">$bStackDriftStatus_NOT_CHECKED :: StackDriftStatus
+$mStackDriftStatus_NOT_CHECKED :: forall r. StackDriftStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#%24bStackDriftStatus_NOT_CHECKED"><span class="hs-identifier hs-var hs-var hs-var">StackDriftStatus_NOT_CHECKED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-identifier hs-type">StackDriftStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_CHECKED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_UNKNOWN"><span class="hs-identifier hs-type">StackDriftStatus_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackDriftStatus_UNKNOWN"><span id="%24mStackDriftStatus_UNKNOWN"><span id="StackDriftStatus_UNKNOWN"><span class="annot"><span class="annottext">$bStackDriftStatus_UNKNOWN :: StackDriftStatus
+$mStackDriftStatus_UNKNOWN :: forall r. StackDriftStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#%24bStackDriftStatus_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">StackDriftStatus_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-identifier hs-type">StackDriftStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_DRIFTED"><span class="hs-pragma hs-type">StackDriftStatus_DRIFTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_IN_SYNC"><span class="hs-pragma hs-type">StackDriftStatus_IN_SYNC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_NOT_CHECKED"><span class="hs-pragma hs-type">StackDriftStatus_NOT_CHECKED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus_UNKNOWN"><span class="hs-pragma hs-type">StackDriftStatus_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus%27"><span class="hs-pragma hs-type">StackDriftStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

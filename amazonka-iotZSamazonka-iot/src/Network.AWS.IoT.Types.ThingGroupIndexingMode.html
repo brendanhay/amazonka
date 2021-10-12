@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.ThingGroupIndexingMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.ThingGroupIndexingMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode"><span class="hs-identifier">ThingGroupIndexingMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_OFF"><span class="hs-identifier">ThingGroupIndexingMode_OFF</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_ON"><span class="hs-identifier">ThingGroupIndexingMode_ON</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679801568"><span id="local-6989586621679801569"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThingGroupIndexingMode"><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode"><span class="hs-identifier hs-var">ThingGroupIndexingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingGroupIndexingMode%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode%27"><span class="hs-identifier hs-var">ThingGroupIndexingMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThingGroupIndexingMode"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; Text
+</span><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#fromThingGroupIndexingMode"><span class="hs-identifier hs-var hs-var">fromThingGroupIndexingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801560"><span id="local-6989586621679801562"><span id="local-6989586621679801564"><span class="annot"><span class="annottext">Int -&gt; ThingGroupIndexingMode -&gt; ShowS
+[ThingGroupIndexingMode] -&gt; ShowS
+ThingGroupIndexingMode -&gt; String
+(Int -&gt; ThingGroupIndexingMode -&gt; ShowS)
+-&gt; (ThingGroupIndexingMode -&gt; String)
+-&gt; ([ThingGroupIndexingMode] -&gt; ShowS)
+-&gt; Show ThingGroupIndexingMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThingGroupIndexingMode] -&gt; ShowS
+$cshowList :: [ThingGroupIndexingMode] -&gt; ShowS
+show :: ThingGroupIndexingMode -&gt; String
+$cshow :: ThingGroupIndexingMode -&gt; String
+showsPrec :: Int -&gt; ThingGroupIndexingMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThingGroupIndexingMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679801551"><span id="local-6989586621679801553"><span id="local-6989586621679801555"><span id="local-6989586621679801557"><span class="annot"><span class="annottext">ReadPrec [ThingGroupIndexingMode]
+ReadPrec ThingGroupIndexingMode
+Int -&gt; ReadS ThingGroupIndexingMode
+ReadS [ThingGroupIndexingMode]
+(Int -&gt; ReadS ThingGroupIndexingMode)
+-&gt; ReadS [ThingGroupIndexingMode]
+-&gt; ReadPrec ThingGroupIndexingMode
+-&gt; ReadPrec [ThingGroupIndexingMode]
+-&gt; Read ThingGroupIndexingMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThingGroupIndexingMode]
+$creadListPrec :: ReadPrec [ThingGroupIndexingMode]
+readPrec :: ReadPrec ThingGroupIndexingMode
+$creadPrec :: ReadPrec ThingGroupIndexingMode
+readList :: ReadS [ThingGroupIndexingMode]
+$creadList :: ReadS [ThingGroupIndexingMode]
+readsPrec :: Int -&gt; ReadS ThingGroupIndexingMode
+$creadsPrec :: Int -&gt; ReadS ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679801546"><span id="local-6989586621679801548"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+(ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; Eq ThingGroupIndexingMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c/= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+== :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c== :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679801530"><span id="local-6989586621679801532"><span id="local-6989586621679801534"><span id="local-6989586621679801536"><span id="local-6989586621679801538"><span id="local-6989586621679801540"><span id="local-6989586621679801542"><span class="annot"><span class="annottext">Eq ThingGroupIndexingMode
+Eq ThingGroupIndexingMode
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Ordering)
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; (ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool)
+-&gt; (ThingGroupIndexingMode
+    -&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode)
+-&gt; (ThingGroupIndexingMode
+    -&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode)
+-&gt; Ord ThingGroupIndexingMode
+ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Ordering
+ThingGroupIndexingMode
+-&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ThingGroupIndexingMode
+-&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode
+$cmin :: ThingGroupIndexingMode
+-&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode
+max :: ThingGroupIndexingMode
+-&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode
+$cmax :: ThingGroupIndexingMode
+-&gt; ThingGroupIndexingMode -&gt; ThingGroupIndexingMode
+&gt;= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c&gt;= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+&gt; :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c&gt; :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+&lt;= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c&lt;= :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+&lt; :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+$c&lt; :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Bool
+compare :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Ordering
+$ccompare :: ThingGroupIndexingMode -&gt; ThingGroupIndexingMode -&gt; Ordering
+$cp1Ord :: Eq ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ThingGroupIndexingMode -&gt; Rep ThingGroupIndexingMode x)
+-&gt; (forall x.
+    Rep ThingGroupIndexingMode x -&gt; ThingGroupIndexingMode)
+-&gt; Generic ThingGroupIndexingMode
+forall x. Rep ThingGroupIndexingMode x -&gt; ThingGroupIndexingMode
+forall x. ThingGroupIndexingMode -&gt; Rep ThingGroupIndexingMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ThingGroupIndexingMode x -&gt; ThingGroupIndexingMode
+$cfrom :: forall x. ThingGroupIndexingMode -&gt; Rep ThingGroupIndexingMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801522"><span id="local-6989586621679801524"><span class="annot"><span class="annottext">Int -&gt; ThingGroupIndexingMode -&gt; Int
+ThingGroupIndexingMode -&gt; Int
+(Int -&gt; ThingGroupIndexingMode -&gt; Int)
+-&gt; (ThingGroupIndexingMode -&gt; Int)
+-&gt; Hashable ThingGroupIndexingMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ThingGroupIndexingMode -&gt; Int
+$chash :: ThingGroupIndexingMode -&gt; Int
+hashWithSalt :: Int -&gt; ThingGroupIndexingMode -&gt; Int
+$chashWithSalt :: Int -&gt; ThingGroupIndexingMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679801519"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; ()
+(ThingGroupIndexingMode -&gt; ()) -&gt; NFData ThingGroupIndexingMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ThingGroupIndexingMode -&gt; ()
+$crnf :: ThingGroupIndexingMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679801516"><span class="annot"><span class="annottext">Text -&gt; Either String ThingGroupIndexingMode
+(Text -&gt; Either String ThingGroupIndexingMode)
+-&gt; FromText ThingGroupIndexingMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ThingGroupIndexingMode
+$cfromText :: Text -&gt; Either String ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679801513"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; Text
+(ThingGroupIndexingMode -&gt; Text) -&gt; ToText ThingGroupIndexingMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ThingGroupIndexingMode -&gt; Text
+$ctoText :: ThingGroupIndexingMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679801510"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; ByteString
+(ThingGroupIndexingMode -&gt; ByteString)
+-&gt; ToByteString ThingGroupIndexingMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ThingGroupIndexingMode -&gt; ByteString
+$ctoBS :: ThingGroupIndexingMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679801507"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; ByteStringBuilder
+(ThingGroupIndexingMode -&gt; ByteStringBuilder)
+-&gt; ToLog ThingGroupIndexingMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ThingGroupIndexingMode -&gt; ByteStringBuilder
+$cbuild :: ThingGroupIndexingMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679801504"><span class="annot"><span class="annottext">HeaderName -&gt; ThingGroupIndexingMode -&gt; [Header]
+(HeaderName -&gt; ThingGroupIndexingMode -&gt; [Header])
+-&gt; ToHeader ThingGroupIndexingMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ThingGroupIndexingMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ThingGroupIndexingMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679801501"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; QueryString
+(ThingGroupIndexingMode -&gt; QueryString)
+-&gt; ToQuery ThingGroupIndexingMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ThingGroupIndexingMode -&gt; QueryString
+$ctoQuery :: ThingGroupIndexingMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679801496"><span id="local-6989586621679801498"><span class="annot"><span class="annottext">Value -&gt; Parser [ThingGroupIndexingMode]
+Value -&gt; Parser ThingGroupIndexingMode
+(Value -&gt; Parser ThingGroupIndexingMode)
+-&gt; (Value -&gt; Parser [ThingGroupIndexingMode])
+-&gt; FromJSON ThingGroupIndexingMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ThingGroupIndexingMode]
+$cparseJSONList :: Value -&gt; Parser [ThingGroupIndexingMode]
+parseJSON :: Value -&gt; Parser ThingGroupIndexingMode
+$cparseJSON :: Value -&gt; Parser ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679801491"><span id="local-6989586621679801493"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThingGroupIndexingMode]
+FromJSONKeyFunction ThingGroupIndexingMode
+FromJSONKeyFunction ThingGroupIndexingMode
+-&gt; FromJSONKeyFunction [ThingGroupIndexingMode]
+-&gt; FromJSONKey ThingGroupIndexingMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ThingGroupIndexingMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ThingGroupIndexingMode]
+fromJSONKey :: FromJSONKeyFunction ThingGroupIndexingMode
+$cfromJSONKey :: FromJSONKeyFunction ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679801482"><span id="local-6989586621679801484"><span id="local-6989586621679801486"><span id="local-6989586621679801488"><span class="annot"><span class="annottext">[ThingGroupIndexingMode] -&gt; Encoding
+[ThingGroupIndexingMode] -&gt; Value
+ThingGroupIndexingMode -&gt; Encoding
+ThingGroupIndexingMode -&gt; Value
+(ThingGroupIndexingMode -&gt; Value)
+-&gt; (ThingGroupIndexingMode -&gt; Encoding)
+-&gt; ([ThingGroupIndexingMode] -&gt; Value)
+-&gt; ([ThingGroupIndexingMode] -&gt; Encoding)
+-&gt; ToJSON ThingGroupIndexingMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ThingGroupIndexingMode] -&gt; Encoding
+$ctoEncodingList :: [ThingGroupIndexingMode] -&gt; Encoding
+toJSONList :: [ThingGroupIndexingMode] -&gt; Value
+$ctoJSONList :: [ThingGroupIndexingMode] -&gt; Value
+toEncoding :: ThingGroupIndexingMode -&gt; Encoding
+$ctoEncoding :: ThingGroupIndexingMode -&gt; Encoding
+toJSON :: ThingGroupIndexingMode -&gt; Value
+$ctoJSON :: ThingGroupIndexingMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679801477"><span id="local-6989586621679801479"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThingGroupIndexingMode]
+ToJSONKeyFunction ThingGroupIndexingMode
+ToJSONKeyFunction ThingGroupIndexingMode
+-&gt; ToJSONKeyFunction [ThingGroupIndexingMode]
+-&gt; ToJSONKey ThingGroupIndexingMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ThingGroupIndexingMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ThingGroupIndexingMode]
+toJSONKey :: ToJSONKeyFunction ThingGroupIndexingMode
+$ctoJSONKey :: ToJSONKeyFunction ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679801474"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThingGroupIndexingMode
+([Node] -&gt; Either String ThingGroupIndexingMode)
+-&gt; FromXML ThingGroupIndexingMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ThingGroupIndexingMode
+$cparseXML :: [Node] -&gt; Either String ThingGroupIndexingMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679801471"><span class="annot"><span class="annottext">ThingGroupIndexingMode -&gt; XML
+(ThingGroupIndexingMode -&gt; XML) -&gt; ToXML ThingGroupIndexingMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ThingGroupIndexingMode -&gt; XML
+$ctoXML :: ThingGroupIndexingMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_OFF"><span class="hs-identifier hs-type">ThingGroupIndexingMode_OFF</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode"><span class="hs-identifier hs-type">ThingGroupIndexingMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThingGroupIndexingMode_OFF"><span id="%24mThingGroupIndexingMode_OFF"><span id="ThingGroupIndexingMode_OFF"><span class="annot"><span class="annottext">$bThingGroupIndexingMode_OFF :: ThingGroupIndexingMode
+$mThingGroupIndexingMode_OFF :: forall r.
+ThingGroupIndexingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#%24bThingGroupIndexingMode_OFF"><span class="hs-identifier hs-var hs-var hs-var">ThingGroupIndexingMode_OFF</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode%27"><span class="hs-identifier hs-type">ThingGroupIndexingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFF&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_ON"><span class="hs-identifier hs-type">ThingGroupIndexingMode_ON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode"><span class="hs-identifier hs-type">ThingGroupIndexingMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThingGroupIndexingMode_ON"><span id="%24mThingGroupIndexingMode_ON"><span id="ThingGroupIndexingMode_ON"><span class="annot"><span class="annottext">$bThingGroupIndexingMode_ON :: ThingGroupIndexingMode
+$mThingGroupIndexingMode_ON :: forall r.
+ThingGroupIndexingMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#%24bThingGroupIndexingMode_ON"><span class="hs-identifier hs-var hs-var hs-var">ThingGroupIndexingMode_ON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode%27"><span class="hs-identifier hs-type">ThingGroupIndexingMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ON&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_OFF"><span class="hs-pragma hs-type">ThingGroupIndexingMode_OFF</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode_ON"><span class="hs-pragma hs-type">ThingGroupIndexingMode_ON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupIndexingMode.html#ThingGroupIndexingMode%27"><span class="hs-pragma hs-type">ThingGroupIndexingMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.CreateAuthenticationProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an authentication profile with the specified parameters.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.CreateAuthenticationProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfile"><span class="hs-identifier">newCreateAuthenticationProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileName"><span class="hs-identifier">createAuthenticationProfile_authenticationProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileContent"><span class="hs-identifier">createAuthenticationProfile_authenticationProfileContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier">CreateAuthenticationProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfileResponse"><span class="hs-identifier">newCreateAuthenticationProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileName"><span class="hs-identifier">createAuthenticationProfileResponse_authenticationProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileContent"><span class="hs-identifier">createAuthenticationProfileResponse_authenticationProfileContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_httpStatus"><span class="hs-identifier">createAuthenticationProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.html"><span class="hs-identifier">Network.AWS.Redshift.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateAuthenticationProfile' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679527410"><span id="local-6989586621679527411"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAuthenticationProfile"><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-var">CreateAuthenticationProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAuthenticationProfile%27"><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-var">CreateAuthenticationProfile'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the authentication profile to be created.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfile%27"><span class="annot"><span class="annottext">CreateAuthenticationProfile -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var hs-var">authenticationProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The content of the authentication profile in JSON format. The maximum</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- length of the JSON string is determined by a quota for your account.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfile%27"><span class="annot"><span class="annottext">CreateAuthenticationProfile -&gt; Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var hs-var">authenticationProfileContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527403"><span id="local-6989586621679527405"><span class="annot"><span class="annottext">CreateAuthenticationProfile -&gt; CreateAuthenticationProfile -&gt; Bool
+(CreateAuthenticationProfile
+ -&gt; CreateAuthenticationProfile -&gt; Bool)
+-&gt; (CreateAuthenticationProfile
+    -&gt; CreateAuthenticationProfile -&gt; Bool)
+-&gt; Eq CreateAuthenticationProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAuthenticationProfile -&gt; CreateAuthenticationProfile -&gt; Bool
+$c/= :: CreateAuthenticationProfile -&gt; CreateAuthenticationProfile -&gt; Bool
+== :: CreateAuthenticationProfile -&gt; CreateAuthenticationProfile -&gt; Bool
+$c== :: CreateAuthenticationProfile -&gt; CreateAuthenticationProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527394"><span id="local-6989586621679527396"><span id="local-6989586621679527398"><span id="local-6989586621679527400"><span class="annot"><span class="annottext">ReadPrec [CreateAuthenticationProfile]
+ReadPrec CreateAuthenticationProfile
+Int -&gt; ReadS CreateAuthenticationProfile
+ReadS [CreateAuthenticationProfile]
+(Int -&gt; ReadS CreateAuthenticationProfile)
+-&gt; ReadS [CreateAuthenticationProfile]
+-&gt; ReadPrec CreateAuthenticationProfile
+-&gt; ReadPrec [CreateAuthenticationProfile]
+-&gt; Read CreateAuthenticationProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAuthenticationProfile]
+$creadListPrec :: ReadPrec [CreateAuthenticationProfile]
+readPrec :: ReadPrec CreateAuthenticationProfile
+$creadPrec :: ReadPrec CreateAuthenticationProfile
+readList :: ReadS [CreateAuthenticationProfile]
+$creadList :: ReadS [CreateAuthenticationProfile]
+readsPrec :: Int -&gt; ReadS CreateAuthenticationProfile
+$creadsPrec :: Int -&gt; ReadS CreateAuthenticationProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527387"><span id="local-6989586621679527389"><span id="local-6989586621679527391"><span class="annot"><span class="annottext">Int -&gt; CreateAuthenticationProfile -&gt; ShowS
+[CreateAuthenticationProfile] -&gt; ShowS
+CreateAuthenticationProfile -&gt; String
+(Int -&gt; CreateAuthenticationProfile -&gt; ShowS)
+-&gt; (CreateAuthenticationProfile -&gt; String)
+-&gt; ([CreateAuthenticationProfile] -&gt; ShowS)
+-&gt; Show CreateAuthenticationProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAuthenticationProfile] -&gt; ShowS
+$cshowList :: [CreateAuthenticationProfile] -&gt; ShowS
+show :: CreateAuthenticationProfile -&gt; String
+$cshow :: CreateAuthenticationProfile -&gt; String
+showsPrec :: Int -&gt; CreateAuthenticationProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAuthenticationProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAuthenticationProfile -&gt; Rep CreateAuthenticationProfile x)
+-&gt; (forall x.
+    Rep CreateAuthenticationProfile x -&gt; CreateAuthenticationProfile)
+-&gt; Generic CreateAuthenticationProfile
+forall x.
+Rep CreateAuthenticationProfile x -&gt; CreateAuthenticationProfile
+forall x.
+CreateAuthenticationProfile -&gt; Rep CreateAuthenticationProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAuthenticationProfile x -&gt; CreateAuthenticationProfile
+$cfrom :: forall x.
+CreateAuthenticationProfile -&gt; Rep CreateAuthenticationProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'CreateAuthenticationProfile' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'authenticationProfileName', 'createAuthenticationProfile_authenticationProfileName' - The name of the authentication profile to be created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'authenticationProfileContent', 'createAuthenticationProfile_authenticationProfileContent' - The content of the authentication profile in JSON format. The maximum</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- length of the JSON string is determined by a quota for your account.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfile"><span class="hs-identifier hs-type">newCreateAuthenticationProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'authenticationProfileName'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'authenticationProfileContent'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span>
+</span><span id="line-79"></span><span id="newCreateAuthenticationProfile"><span class="annot"><span class="annottext">newCreateAuthenticationProfile :: Text -&gt; Text -&gt; CreateAuthenticationProfile
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfile"><span class="hs-identifier hs-var hs-var">newCreateAuthenticationProfile</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679527382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527382"><span class="hs-identifier hs-var">pAuthenticationProfileName_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679527381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527381"><span class="hs-identifier hs-var">pAuthenticationProfileContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">CreateAuthenticationProfile' :: Text -&gt; Text -&gt; CreateAuthenticationProfile
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationProfileName:CreateAuthenticationProfile' :: Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527382"><span class="hs-identifier hs-var">pAuthenticationProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:authenticationProfileContent:CreateAuthenticationProfile' :: Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527381"><span class="hs-identifier hs-var">pAuthenticationProfileContent_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the authentication profile to be created.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileName"><span class="hs-identifier hs-type">createAuthenticationProfile_authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="createAuthenticationProfile_authenticationProfileName"><span class="annot"><span class="annottext">createAuthenticationProfile_authenticationProfileName :: (Text -&gt; f Text)
+-&gt; CreateAuthenticationProfile -&gt; f CreateAuthenticationProfile
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileName"><span class="hs-identifier hs-var hs-var">createAuthenticationProfile_authenticationProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAuthenticationProfile -&gt; Text)
+-&gt; (CreateAuthenticationProfile
+    -&gt; Text -&gt; CreateAuthenticationProfile)
+-&gt; Lens
+     CreateAuthenticationProfile CreateAuthenticationProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527378"><span class="annot"><span class="annottext">Text
+authenticationProfileName :: Text
+$sel:authenticationProfileName:CreateAuthenticationProfile' :: CreateAuthenticationProfile -&gt; Text
+</span><a href="#local-6989586621679527378"><span class="hs-identifier hs-var hs-var">authenticationProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527378"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527377"><span class="annot"><span class="annottext">s :: CreateAuthenticationProfile
+</span><a href="#local-6989586621679527377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAuthenticationProfile
+</span><a href="#local-6989586621679527377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationProfileName:CreateAuthenticationProfile' :: Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The content of the authentication profile in JSON format. The maximum</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- length of the JSON string is determined by a quota for your account.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileContent"><span class="hs-identifier hs-type">createAuthenticationProfile_authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="createAuthenticationProfile_authenticationProfileContent"><span class="annot"><span class="annottext">createAuthenticationProfile_authenticationProfileContent :: (Text -&gt; f Text)
+-&gt; CreateAuthenticationProfile -&gt; f CreateAuthenticationProfile
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfile_authenticationProfileContent"><span class="hs-identifier hs-var hs-var">createAuthenticationProfile_authenticationProfileContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAuthenticationProfile -&gt; Text)
+-&gt; (CreateAuthenticationProfile
+    -&gt; Text -&gt; CreateAuthenticationProfile)
+-&gt; Lens
+     CreateAuthenticationProfile CreateAuthenticationProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527375"><span class="annot"><span class="annottext">Text
+authenticationProfileContent :: Text
+$sel:authenticationProfileContent:CreateAuthenticationProfile' :: CreateAuthenticationProfile -&gt; Text
+</span><a href="#local-6989586621679527375"><span class="hs-identifier hs-var hs-var">authenticationProfileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527375"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527374"><span class="annot"><span class="annottext">s :: CreateAuthenticationProfile
+</span><a href="#local-6989586621679527374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAuthenticationProfile
+</span><a href="#local-6989586621679527374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationProfileContent:CreateAuthenticationProfile' :: Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfile%27"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679527369"><span class="annot"><span class="annottext">request :: CreateAuthenticationProfile -&gt; Request CreateAuthenticationProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateAuthenticationProfile
+-&gt; Request CreateAuthenticationProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679527365"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAuthenticationProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAuthenticationProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateAuthenticationProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAuthenticationProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateAuthenticationProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateAuthenticationProfileResult&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679527362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527362"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679527361"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679527361"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679527360"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679527360"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">CreateAuthenticationProfileResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; CreateAuthenticationProfileResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateAuthenticationProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679527360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthenticationProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateAuthenticationProfileResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateAuthenticationProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679527360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthenticationProfileContent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateAuthenticationProfileResponse)
+-&gt; Either String Int
+-&gt; Either String CreateAuthenticationProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527362"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527352"><span id="local-6989586621679527354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679527345"><span class="annot"><span class="annottext">toHeaders :: CreateAuthenticationProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAuthenticationProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679527340"><span class="annot"><span class="annottext">toPath :: CreateAuthenticationProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAuthenticationProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile"><span class="hs-identifier hs-type">CreateAuthenticationProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679527336"><span class="annot"><span class="annottext">toQuery :: CreateAuthenticationProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfile%27"><span class="hs-identifier hs-type">CreateAuthenticationProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527333"><span id="local-6989586621679527334"><span class="annot"><span class="annottext">Text
+authenticationProfileContent :: Text
+authenticationProfileName :: Text
+$sel:authenticationProfileContent:CreateAuthenticationProfile' :: CreateAuthenticationProfile -&gt; Text
+$sel:authenticationProfileName:CreateAuthenticationProfile' :: CreateAuthenticationProfile -&gt; Text
+</span><a href="#local-6989586621679527333"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateAuthenticationProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AuthenticationProfileName&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527334"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AuthenticationProfileContent&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527333"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newCreateAuthenticationProfileResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679527330"><span id="local-6989586621679527331"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAuthenticationProfileResponse"><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-var">CreateAuthenticationProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAuthenticationProfileResponse%27"><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">CreateAuthenticationProfileResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the authentication profile that was created.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfileResponse%27"><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var hs-var">authenticationProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The content of the authentication profile in JSON format.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfileResponse%27"><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var hs-var">authenticationProfileContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAuthenticationProfileResponse%27"><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse -&gt; Int
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AhttpStatus%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527323"><span id="local-6989586621679527325"><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse
+-&gt; CreateAuthenticationProfileResponse -&gt; Bool
+(CreateAuthenticationProfileResponse
+ -&gt; CreateAuthenticationProfileResponse -&gt; Bool)
+-&gt; (CreateAuthenticationProfileResponse
+    -&gt; CreateAuthenticationProfileResponse -&gt; Bool)
+-&gt; Eq CreateAuthenticationProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAuthenticationProfileResponse
+-&gt; CreateAuthenticationProfileResponse -&gt; Bool
+$c/= :: CreateAuthenticationProfileResponse
+-&gt; CreateAuthenticationProfileResponse -&gt; Bool
+== :: CreateAuthenticationProfileResponse
+-&gt; CreateAuthenticationProfileResponse -&gt; Bool
+$c== :: CreateAuthenticationProfileResponse
+-&gt; CreateAuthenticationProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527315"><span id="local-6989586621679527317"><span id="local-6989586621679527319"><span id="local-6989586621679527321"><span class="annot"><span class="annottext">ReadPrec [CreateAuthenticationProfileResponse]
+ReadPrec CreateAuthenticationProfileResponse
+Int -&gt; ReadS CreateAuthenticationProfileResponse
+ReadS [CreateAuthenticationProfileResponse]
+(Int -&gt; ReadS CreateAuthenticationProfileResponse)
+-&gt; ReadS [CreateAuthenticationProfileResponse]
+-&gt; ReadPrec CreateAuthenticationProfileResponse
+-&gt; ReadPrec [CreateAuthenticationProfileResponse]
+-&gt; Read CreateAuthenticationProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAuthenticationProfileResponse]
+$creadListPrec :: ReadPrec [CreateAuthenticationProfileResponse]
+readPrec :: ReadPrec CreateAuthenticationProfileResponse
+$creadPrec :: ReadPrec CreateAuthenticationProfileResponse
+readList :: ReadS [CreateAuthenticationProfileResponse]
+$creadList :: ReadS [CreateAuthenticationProfileResponse]
+readsPrec :: Int -&gt; ReadS CreateAuthenticationProfileResponse
+$creadsPrec :: Int -&gt; ReadS CreateAuthenticationProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527309"><span id="local-6989586621679527311"><span id="local-6989586621679527313"><span class="annot"><span class="annottext">Int -&gt; CreateAuthenticationProfileResponse -&gt; ShowS
+[CreateAuthenticationProfileResponse] -&gt; ShowS
+CreateAuthenticationProfileResponse -&gt; String
+(Int -&gt; CreateAuthenticationProfileResponse -&gt; ShowS)
+-&gt; (CreateAuthenticationProfileResponse -&gt; String)
+-&gt; ([CreateAuthenticationProfileResponse] -&gt; ShowS)
+-&gt; Show CreateAuthenticationProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAuthenticationProfileResponse] -&gt; ShowS
+$cshowList :: [CreateAuthenticationProfileResponse] -&gt; ShowS
+show :: CreateAuthenticationProfileResponse -&gt; String
+$cshow :: CreateAuthenticationProfileResponse -&gt; String
+showsPrec :: Int -&gt; CreateAuthenticationProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAuthenticationProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAuthenticationProfileResponse
+ -&gt; Rep CreateAuthenticationProfileResponse x)
+-&gt; (forall x.
+    Rep CreateAuthenticationProfileResponse x
+    -&gt; CreateAuthenticationProfileResponse)
+-&gt; Generic CreateAuthenticationProfileResponse
+forall x.
+Rep CreateAuthenticationProfileResponse x
+-&gt; CreateAuthenticationProfileResponse
+forall x.
+CreateAuthenticationProfileResponse
+-&gt; Rep CreateAuthenticationProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAuthenticationProfileResponse x
+-&gt; CreateAuthenticationProfileResponse
+$cfrom :: forall x.
+CreateAuthenticationProfileResponse
+-&gt; Rep CreateAuthenticationProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'CreateAuthenticationProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'authenticationProfileName', 'createAuthenticationProfileResponse_authenticationProfileName' - The name of the authentication profile that was created.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'authenticationProfileContent', 'createAuthenticationProfileResponse_authenticationProfileContent' - The content of the authentication profile in JSON format.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'createAuthenticationProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">newCreateAuthenticationProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newCreateAuthenticationProfileResponse"><span class="annot"><span class="annottext">newCreateAuthenticationProfileResponse :: Int -&gt; CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#newCreateAuthenticationProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateAuthenticationProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679527306"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527306"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationProfileName:CreateAuthenticationProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationProfileContent:CreateAuthenticationProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAuthenticationProfileResponse' :: Int
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AhttpStatus%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527306"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The name of the authentication profile that was created.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileName"><span class="hs-identifier hs-type">createAuthenticationProfileResponse_authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="createAuthenticationProfileResponse_authenticationProfileName"><span class="annot"><span class="annottext">createAuthenticationProfileResponse_authenticationProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAuthenticationProfileResponse
+-&gt; f CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileName"><span class="hs-identifier hs-var hs-var">createAuthenticationProfileResponse_authenticationProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAuthenticationProfileResponse -&gt; Maybe Text)
+-&gt; (CreateAuthenticationProfileResponse
+    -&gt; Maybe Text -&gt; CreateAuthenticationProfileResponse)
+-&gt; Lens
+     CreateAuthenticationProfileResponse
+     CreateAuthenticationProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527305"><span class="annot"><span class="annottext">Maybe Text
+authenticationProfileName :: Maybe Text
+$sel:authenticationProfileName:CreateAuthenticationProfileResponse' :: CreateAuthenticationProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679527305"><span class="hs-identifier hs-var hs-var">authenticationProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527305"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527304"><span class="annot"><span class="annottext">s :: CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationProfileName:CreateAuthenticationProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileName%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">authenticationProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The content of the authentication profile in JSON format.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileContent"><span class="hs-identifier hs-type">createAuthenticationProfileResponse_authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="createAuthenticationProfileResponse_authenticationProfileContent"><span class="annot"><span class="annottext">createAuthenticationProfileResponse_authenticationProfileContent :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAuthenticationProfileResponse
+-&gt; f CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_authenticationProfileContent"><span class="hs-identifier hs-var hs-var">createAuthenticationProfileResponse_authenticationProfileContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAuthenticationProfileResponse -&gt; Maybe Text)
+-&gt; (CreateAuthenticationProfileResponse
+    -&gt; Maybe Text -&gt; CreateAuthenticationProfileResponse)
+-&gt; Lens
+     CreateAuthenticationProfileResponse
+     CreateAuthenticationProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527302"><span class="annot"><span class="annottext">Maybe Text
+authenticationProfileContent :: Maybe Text
+$sel:authenticationProfileContent:CreateAuthenticationProfileResponse' :: CreateAuthenticationProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679527302"><span class="hs-identifier hs-var hs-var">authenticationProfileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527302"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527301"><span class="annot"><span class="annottext">s :: CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationProfileContent:CreateAuthenticationProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AauthenticationProfileContent%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">authenticationProfileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679527300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_httpStatus"><span class="hs-identifier hs-type">createAuthenticationProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="createAuthenticationProfileResponse_httpStatus"><span class="annot"><span class="annottext">createAuthenticationProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAuthenticationProfileResponse
+-&gt; f CreateAuthenticationProfileResponse
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#createAuthenticationProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAuthenticationProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAuthenticationProfileResponse -&gt; Int)
+-&gt; (CreateAuthenticationProfileResponse
+    -&gt; Int -&gt; CreateAuthenticationProfileResponse)
+-&gt; Lens
+     CreateAuthenticationProfileResponse
+     CreateAuthenticationProfileResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527299"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAuthenticationProfileResponse' :: CreateAuthenticationProfileResponse -&gt; Int
+</span><a href="#local-6989586621679527299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527298"><span class="annot"><span class="annottext">s :: CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAuthenticationProfileResponse
+</span><a href="#local-6989586621679527298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAuthenticationProfileResponse' :: Int
+</span><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#%24sel%3AhttpStatus%3ACreateAuthenticationProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679527295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.CreateAuthenticationProfile.html#CreateAuthenticationProfileResponse"><span class="hs-identifier hs-type">CreateAuthenticationProfileResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

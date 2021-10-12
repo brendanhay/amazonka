@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Config.DescribeConfigRules</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns details about your Config rules.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.DescribeConfigRules</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier">DescribeConfigRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRules"><span class="hs-identifier">newDescribeConfigRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_nextToken"><span class="hs-identifier">describeConfigRules_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_configRuleNames"><span class="hs-identifier">describeConfigRules_configRuleNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier">DescribeConfigRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRulesResponse"><span class="hs-identifier">newDescribeConfigRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_nextToken"><span class="hs-identifier">describeConfigRulesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_configRules"><span class="hs-identifier">describeConfigRulesResponse_configRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_httpStatus"><span class="hs-identifier">describeConfigRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.html"><span class="hs-identifier">Network.AWS.Config.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDescribeConfigRules' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679426886"><span id="local-6989586621679426887"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigRules"><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-var">DescribeConfigRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigRules%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-var">DescribeConfigRules'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConfigRules%27"><span class="annot"><span class="annottext">DescribeConfigRules -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRules%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The names of the Config rules for which you want details. If you do not</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specify any names, Config returns details for all your rules.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AconfigRuleNames%3ADescribeConfigRules%27"><span class="annot"><span class="annottext">DescribeConfigRules -&gt; Maybe [Text]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRuleNames%3ADescribeConfigRules%27"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426879"><span id="local-6989586621679426881"><span class="annot"><span class="annottext">DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool
+(DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool)
+-&gt; (DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool)
+-&gt; Eq DescribeConfigRules
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool
+$c/= :: DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool
+== :: DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool
+$c== :: DescribeConfigRules -&gt; DescribeConfigRules -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426870"><span id="local-6989586621679426872"><span id="local-6989586621679426874"><span id="local-6989586621679426876"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigRules]
+ReadPrec DescribeConfigRules
+Int -&gt; ReadS DescribeConfigRules
+ReadS [DescribeConfigRules]
+(Int -&gt; ReadS DescribeConfigRules)
+-&gt; ReadS [DescribeConfigRules]
+-&gt; ReadPrec DescribeConfigRules
+-&gt; ReadPrec [DescribeConfigRules]
+-&gt; Read DescribeConfigRules
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConfigRules]
+$creadListPrec :: ReadPrec [DescribeConfigRules]
+readPrec :: ReadPrec DescribeConfigRules
+$creadPrec :: ReadPrec DescribeConfigRules
+readList :: ReadS [DescribeConfigRules]
+$creadList :: ReadS [DescribeConfigRules]
+readsPrec :: Int -&gt; ReadS DescribeConfigRules
+$creadsPrec :: Int -&gt; ReadS DescribeConfigRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426863"><span id="local-6989586621679426865"><span id="local-6989586621679426867"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigRules -&gt; ShowS
+[DescribeConfigRules] -&gt; ShowS
+DescribeConfigRules -&gt; String
+(Int -&gt; DescribeConfigRules -&gt; ShowS)
+-&gt; (DescribeConfigRules -&gt; String)
+-&gt; ([DescribeConfigRules] -&gt; ShowS)
+-&gt; Show DescribeConfigRules
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConfigRules] -&gt; ShowS
+$cshowList :: [DescribeConfigRules] -&gt; ShowS
+show :: DescribeConfigRules -&gt; String
+$cshow :: DescribeConfigRules -&gt; String
+showsPrec :: Int -&gt; DescribeConfigRules -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConfigRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeConfigRules -&gt; Rep DescribeConfigRules x)
+-&gt; (forall x. Rep DescribeConfigRules x -&gt; DescribeConfigRules)
+-&gt; Generic DescribeConfigRules
+forall x. Rep DescribeConfigRules x -&gt; DescribeConfigRules
+forall x. DescribeConfigRules -&gt; Rep DescribeConfigRules x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeConfigRules x -&gt; DescribeConfigRules
+$cfrom :: forall x. DescribeConfigRules -&gt; Rep DescribeConfigRules x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribeConfigRules' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- specify any names, Config returns details for all your rules.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRules"><span class="hs-identifier hs-type">newDescribeConfigRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span>
+</span><span id="line-81"></span><span id="newDescribeConfigRules"><span class="annot"><span class="annottext">newDescribeConfigRules :: DescribeConfigRules
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRules"><span class="hs-identifier hs-var hs-var">newDescribeConfigRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DescribeConfigRules' :: Maybe Text -&gt; Maybe [Text] -&gt; DescribeConfigRules
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigRules' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRuleNames:DescribeConfigRules' :: Maybe [Text]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRuleNames%3ADescribeConfigRules%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_nextToken"><span class="hs-identifier hs-type">describeConfigRules_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="describeConfigRules_nextToken"><span class="annot"><span class="annottext">describeConfigRules_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConfigRules -&gt; f DescribeConfigRules
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_nextToken"><span class="hs-identifier hs-var hs-var">describeConfigRules_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRules -&gt; Maybe Text)
+-&gt; (DescribeConfigRules -&gt; Maybe Text -&gt; DescribeConfigRules)
+-&gt; Lens
+     DescribeConfigRules DescribeConfigRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426857"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeConfigRules' :: DescribeConfigRules -&gt; Maybe Text
+</span><a href="#local-6989586621679426857"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426857"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426856"><span class="annot"><span class="annottext">s :: DescribeConfigRules
+</span><a href="#local-6989586621679426856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigRules
+</span><a href="#local-6989586621679426856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigRules' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The names of the Config rules for which you want details. If you do not</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- specify any names, Config returns details for all your rules.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_configRuleNames"><span class="hs-identifier hs-type">describeConfigRules_configRuleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="describeConfigRules_configRuleNames"><span class="annot"><span class="annottext">describeConfigRules_configRuleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConfigRules -&gt; f DescribeConfigRules
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_configRuleNames"><span class="hs-identifier hs-var hs-var">describeConfigRules_configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRules -&gt; Maybe [Text])
+-&gt; (DescribeConfigRules -&gt; Maybe [Text] -&gt; DescribeConfigRules)
+-&gt; Lens
+     DescribeConfigRules
+     DescribeConfigRules
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426854"><span class="annot"><span class="annottext">Maybe [Text]
+configRuleNames :: Maybe [Text]
+$sel:configRuleNames:DescribeConfigRules' :: DescribeConfigRules -&gt; Maybe [Text]
+</span><a href="#local-6989586621679426854"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426854"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426853"><span class="annot"><span class="annottext">s :: DescribeConfigRules
+</span><a href="#local-6989586621679426853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426852"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigRules
+</span><a href="#local-6989586621679426853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:DescribeConfigRules' :: Maybe [Text]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRuleNames%3ADescribeConfigRules%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeConfigRules -&gt; f DescribeConfigRules)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeConfigRules
+-&gt; f DescribeConfigRules
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679426845"><span class="annot"><span class="annottext">page :: DescribeConfigRules
+-&gt; AWSResponse DescribeConfigRules -&gt; Maybe DescribeConfigRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679426843"><span class="annot"><span class="annottext">DescribeConfigRules
+</span><a href="#local-6989586621679426843"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679426842"><span class="annot"><span class="annottext">AWSResponse DescribeConfigRules
+</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigRules
+DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+-&gt; Getting (First Text) DescribeConfigRulesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeConfigRulesResponse
+-&gt; Const (First Text) DescribeConfigRulesResponse
+Lens' DescribeConfigRulesResponse (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_nextToken"><span class="hs-identifier hs-var">describeConfigRulesResponse_nextToken</span></a></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeConfigRulesResponse
+ -&gt; Const (First Text) DescribeConfigRulesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeConfigRulesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-103"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeConfigRules
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigRule] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigRules
+DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+-&gt; Getting
+     (First [ConfigRule]) DescribeConfigRulesResponse [ConfigRule]
+-&gt; Maybe [ConfigRule]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ConfigRule]
+ -&gt; Const (First [ConfigRule]) (Maybe [ConfigRule]))
+-&gt; DescribeConfigRulesResponse
+-&gt; Const (First [ConfigRule]) DescribeConfigRulesResponse
+Lens' DescribeConfigRulesResponse (Maybe [ConfigRule])
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_configRules"><span class="hs-identifier hs-var">describeConfigRulesResponse_configRules</span></a></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ConfigRule]
+  -&gt; Const (First [ConfigRule]) (Maybe [ConfigRule]))
+ -&gt; DescribeConfigRulesResponse
+ -&gt; Const (First [ConfigRule]) DescribeConfigRulesResponse)
+-&gt; (([ConfigRule] -&gt; Const (First [ConfigRule]) [ConfigRule])
+    -&gt; Maybe [ConfigRule]
+    -&gt; Const (First [ConfigRule]) (Maybe [ConfigRule]))
+-&gt; Getting
+     (First [ConfigRule]) DescribeConfigRulesResponse [ConfigRule]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ConfigRule] -&gt; Const (First [ConfigRule]) [ConfigRule])
+-&gt; Maybe [ConfigRule]
+-&gt; Const (First [ConfigRule]) (Maybe [ConfigRule])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeConfigRules
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">DescribeConfigRules -&gt; Maybe DescribeConfigRules
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRules -&gt; Maybe DescribeConfigRules)
+-&gt; DescribeConfigRules -&gt; Maybe DescribeConfigRules
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">DescribeConfigRules
+</span><a href="#local-6989586621679426843"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">DescribeConfigRules
+-&gt; (DescribeConfigRules -&gt; DescribeConfigRules)
+-&gt; DescribeConfigRules
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeConfigRules -&gt; Identity DescribeConfigRules
+Lens
+  DescribeConfigRules DescribeConfigRules (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRules_nextToken"><span class="hs-identifier hs-var">describeConfigRules_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeConfigRules -&gt; Identity DescribeConfigRules)
+-&gt; Maybe Text -&gt; DescribeConfigRules -&gt; DescribeConfigRules
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigRules
+DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+-&gt; Getting (First Text) DescribeConfigRulesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeConfigRulesResponse
+-&gt; Const (First Text) DescribeConfigRulesResponse
+Lens' DescribeConfigRulesResponse (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_nextToken"><span class="hs-identifier hs-var">describeConfigRulesResponse_nextToken</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeConfigRulesResponse
+ -&gt; Const (First Text) DescribeConfigRulesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeConfigRulesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679426833"><span class="annot"><span class="annottext">request :: DescribeConfigRules -&gt; Request DescribeConfigRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeConfigRules -&gt; Request DescribeConfigRules
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679426829"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeConfigRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConfigRules)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeConfigRules))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeConfigRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeConfigRules)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679426825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ConfigRule] -&gt; Int -&gt; DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">DescribeConfigRulesResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ConfigRule] -&gt; Int -&gt; DescribeConfigRulesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [ConfigRule] -&gt; Int -&gt; DescribeConfigRulesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [ConfigRule] -&gt; Int -&gt; DescribeConfigRulesResponse)
+-&gt; Either String (Maybe [ConfigRule])
+-&gt; Either String (Int -&gt; DescribeConfigRulesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConfigRule]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConfigRule]))
+-&gt; Maybe [ConfigRule] -&gt; Either String (Maybe [ConfigRule])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigRule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeConfigRulesResponse)
+-&gt; Either String Int -&gt; Either String DescribeConfigRulesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426815"><span id="local-6989586621679426817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679426808"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigRules -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeConfigRules -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.DescribeConfigRules&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426798"><span id="local-6989586621679426800"><span id="local-6989586621679426802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679426796"><span class="annot"><span class="annottext">toJSON :: DescribeConfigRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules%27"><span class="hs-identifier hs-type">DescribeConfigRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426793"><span id="local-6989586621679426794"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+configRuleNames :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:configRuleNames:DescribeConfigRules' :: DescribeConfigRules -&gt; Maybe [Text]
+$sel:nextToken:DescribeConfigRules' :: DescribeConfigRules -&gt; Maybe Text
+</span><a href="#local-6989586621679426793"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426794"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigRuleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426793"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679426787"><span class="annot"><span class="annottext">toPath :: DescribeConfigRules -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConfigRules -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRules"><span class="hs-identifier hs-type">DescribeConfigRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679426783"><span class="annot"><span class="annottext">toQuery :: DescribeConfigRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConfigRules -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- /See:/ 'newDescribeConfigRulesResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679426780"><span id="local-6989586621679426781"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigRulesResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-var">DescribeConfigRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigRulesResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">DescribeConfigRulesResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConfigRulesResponse%27"><span class="annot"><span class="annottext">DescribeConfigRulesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The details about your Config rules.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AconfigRules%3ADescribeConfigRulesResponse%27"><span class="annot"><span class="annottext">DescribeConfigRulesResponse -&gt; Maybe [ConfigRule]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRules%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var hs-var">configRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigRule.html#ConfigRule"><span class="hs-identifier hs-type">ConfigRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConfigRulesResponse%27"><span class="annot"><span class="annottext">DescribeConfigRulesResponse -&gt; Int
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AhttpStatus%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426773"><span id="local-6989586621679426775"><span class="annot"><span class="annottext">DescribeConfigRulesResponse -&gt; DescribeConfigRulesResponse -&gt; Bool
+(DescribeConfigRulesResponse
+ -&gt; DescribeConfigRulesResponse -&gt; Bool)
+-&gt; (DescribeConfigRulesResponse
+    -&gt; DescribeConfigRulesResponse -&gt; Bool)
+-&gt; Eq DescribeConfigRulesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeConfigRulesResponse -&gt; DescribeConfigRulesResponse -&gt; Bool
+$c/= :: DescribeConfigRulesResponse -&gt; DescribeConfigRulesResponse -&gt; Bool
+== :: DescribeConfigRulesResponse -&gt; DescribeConfigRulesResponse -&gt; Bool
+$c== :: DescribeConfigRulesResponse -&gt; DescribeConfigRulesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426765"><span id="local-6989586621679426767"><span id="local-6989586621679426769"><span id="local-6989586621679426771"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigRulesResponse]
+ReadPrec DescribeConfigRulesResponse
+Int -&gt; ReadS DescribeConfigRulesResponse
+ReadS [DescribeConfigRulesResponse]
+(Int -&gt; ReadS DescribeConfigRulesResponse)
+-&gt; ReadS [DescribeConfigRulesResponse]
+-&gt; ReadPrec DescribeConfigRulesResponse
+-&gt; ReadPrec [DescribeConfigRulesResponse]
+-&gt; Read DescribeConfigRulesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeConfigRulesResponse]
+$creadListPrec :: ReadPrec [DescribeConfigRulesResponse]
+readPrec :: ReadPrec DescribeConfigRulesResponse
+$creadPrec :: ReadPrec DescribeConfigRulesResponse
+readList :: ReadS [DescribeConfigRulesResponse]
+$creadList :: ReadS [DescribeConfigRulesResponse]
+readsPrec :: Int -&gt; ReadS DescribeConfigRulesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeConfigRulesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426759"><span id="local-6989586621679426761"><span id="local-6989586621679426763"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigRulesResponse -&gt; ShowS
+[DescribeConfigRulesResponse] -&gt; ShowS
+DescribeConfigRulesResponse -&gt; String
+(Int -&gt; DescribeConfigRulesResponse -&gt; ShowS)
+-&gt; (DescribeConfigRulesResponse -&gt; String)
+-&gt; ([DescribeConfigRulesResponse] -&gt; ShowS)
+-&gt; Show DescribeConfigRulesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeConfigRulesResponse] -&gt; ShowS
+$cshowList :: [DescribeConfigRulesResponse] -&gt; ShowS
+show :: DescribeConfigRulesResponse -&gt; String
+$cshow :: DescribeConfigRulesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeConfigRulesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeConfigRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeConfigRulesResponse -&gt; Rep DescribeConfigRulesResponse x)
+-&gt; (forall x.
+    Rep DescribeConfigRulesResponse x -&gt; DescribeConfigRulesResponse)
+-&gt; Generic DescribeConfigRulesResponse
+forall x.
+Rep DescribeConfigRulesResponse x -&gt; DescribeConfigRulesResponse
+forall x.
+DescribeConfigRulesResponse -&gt; Rep DescribeConfigRulesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeConfigRulesResponse x -&gt; DescribeConfigRulesResponse
+$cfrom :: forall x.
+DescribeConfigRulesResponse -&gt; Rep DescribeConfigRulesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'DescribeConfigRulesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'describeConfigRulesResponse_nextToken' - The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'configRules', 'describeConfigRulesResponse_configRules' - The details about your Config rules.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'describeConfigRulesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRulesResponse"><span class="hs-identifier hs-type">newDescribeConfigRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newDescribeConfigRulesResponse"><span class="annot"><span class="annottext">newDescribeConfigRulesResponse :: Int -&gt; DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#newDescribeConfigRulesResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679426756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse' :: Maybe Text
+-&gt; Maybe [ConfigRule] -&gt; Int -&gt; DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRules:DescribeConfigRulesResponse' :: Maybe [ConfigRule]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRules%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">configRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigRulesResponse' :: Int
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AhttpStatus%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_nextToken"><span class="hs-identifier hs-type">describeConfigRulesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="describeConfigRulesResponse_nextToken"><span class="annot"><span class="annottext">describeConfigRulesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeConfigRulesResponse -&gt; f DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeConfigRulesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRulesResponse -&gt; Maybe Text)
+-&gt; (DescribeConfigRulesResponse
+    -&gt; Maybe Text -&gt; DescribeConfigRulesResponse)
+-&gt; Lens' DescribeConfigRulesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426755"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeConfigRulesResponse' :: DescribeConfigRulesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679426755"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426755"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426754"><span class="annot"><span class="annottext">s :: DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AnextToken%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The details about your Config rules.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_configRules"><span class="hs-identifier hs-type">describeConfigRulesResponse_configRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigRule.html#ConfigRule"><span class="hs-identifier hs-type">ConfigRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeConfigRulesResponse_configRules"><span class="annot"><span class="annottext">describeConfigRulesResponse_configRules :: (Maybe [ConfigRule] -&gt; f (Maybe [ConfigRule]))
+-&gt; DescribeConfigRulesResponse -&gt; f DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_configRules"><span class="hs-identifier hs-var hs-var">describeConfigRulesResponse_configRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRulesResponse -&gt; Maybe [ConfigRule])
+-&gt; (DescribeConfigRulesResponse
+    -&gt; Maybe [ConfigRule] -&gt; DescribeConfigRulesResponse)
+-&gt; Lens' DescribeConfigRulesResponse (Maybe [ConfigRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426752"><span class="annot"><span class="annottext">Maybe [ConfigRule]
+configRules :: Maybe [ConfigRule]
+$sel:configRules:DescribeConfigRulesResponse' :: DescribeConfigRulesResponse -&gt; Maybe [ConfigRule]
+</span><a href="#local-6989586621679426752"><span class="hs-identifier hs-var hs-var">configRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigRule]
+</span><a href="#local-6989586621679426752"><span class="hs-identifier hs-var">configRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426751"><span class="annot"><span class="annottext">s :: DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426750"><span class="annot"><span class="annottext">Maybe [ConfigRule]
+</span><a href="#local-6989586621679426750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRules:DescribeConfigRulesResponse' :: Maybe [ConfigRule]
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AconfigRules%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">configRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigRule]
+</span><a href="#local-6989586621679426750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigRule] -&gt; f (Maybe [ConfigRule]))
+ -&gt; DescribeConfigRulesResponse -&gt; f DescribeConfigRulesResponse)
+-&gt; ((Maybe [ConfigRule] -&gt; f (Maybe [ConfigRule]))
+    -&gt; Maybe [ConfigRule] -&gt; f (Maybe [ConfigRule]))
+-&gt; (Maybe [ConfigRule] -&gt; f (Maybe [ConfigRule]))
+-&gt; DescribeConfigRulesResponse
+-&gt; f DescribeConfigRulesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ConfigRule] [ConfigRule] [ConfigRule] [ConfigRule]
+-&gt; Iso
+     (Maybe [ConfigRule])
+     (Maybe [ConfigRule])
+     (Maybe [ConfigRule])
+     (Maybe [ConfigRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ConfigRule] [ConfigRule] [ConfigRule] [ConfigRule]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_httpStatus"><span class="hs-identifier hs-type">describeConfigRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="describeConfigRulesResponse_httpStatus"><span class="annot"><span class="annottext">describeConfigRulesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeConfigRulesResponse -&gt; f DescribeConfigRulesResponse
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#describeConfigRulesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeConfigRulesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeConfigRulesResponse -&gt; Int)
+-&gt; (DescribeConfigRulesResponse
+    -&gt; Int -&gt; DescribeConfigRulesResponse)
+-&gt; Lens
+     DescribeConfigRulesResponse DescribeConfigRulesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426749"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeConfigRulesResponse' :: DescribeConfigRulesResponse -&gt; Int
+</span><a href="#local-6989586621679426749"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426749"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426748"><span class="annot"><span class="annottext">s :: DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse%27"><span class="hs-identifier hs-type">DescribeConfigRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigRulesResponse
+</span><a href="#local-6989586621679426748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigRulesResponse' :: Int
+</span><a href="Network.AWS.Config.DescribeConfigRules.html#%24sel%3AhttpStatus%3ADescribeConfigRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigRules.html#DescribeConfigRulesResponse"><span class="hs-identifier hs-type">DescribeConfigRulesResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

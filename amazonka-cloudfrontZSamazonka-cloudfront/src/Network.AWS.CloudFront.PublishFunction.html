@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.PublishFunction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Publishes a CloudFront function by copying the function code from the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- @DEVELOPMENT@ stage to @LIVE@. This automatically updates all cache</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- behaviors that are using this function to use the newly published copy</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the @LIVE@ stage.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- When a function is published to the @LIVE@ stage, you can attach the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- function to a distribution&#8217;s cache behavior, using the function&#8217;s Amazon</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- To publish a function, you must provide the function&#8217;s name and version</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (@ETag@ value). To get these values, you can use @ListFunctions@ and</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @DescribeFunction@.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.PublishFunction</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier">PublishFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunction"><span class="hs-identifier">newPublishFunction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_name"><span class="hs-identifier">publishFunction_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_ifMatch"><span class="hs-identifier">publishFunction_ifMatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier">PublishFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunctionResponse"><span class="hs-identifier">newPublishFunctionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_functionSummary"><span class="hs-identifier">publishFunctionResponse_functionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_httpStatus"><span class="hs-identifier">publishFunctionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newPublishFunction' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679408898"><span id="local-6989586621679408899"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishFunction"><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-var">PublishFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-var">PublishFunction'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the function that you are publishing.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3APublishFunction%27"><span class="annot"><span class="annottext">PublishFunction -&gt; Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3Aname%3APublishFunction%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The current version (@ETag@ value) of the function that you are</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- publishing, which you can get using @DescribeFunction@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AifMatch%3APublishFunction%27"><span class="annot"><span class="annottext">PublishFunction -&gt; Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AifMatch%3APublishFunction%27"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408891"><span id="local-6989586621679408893"><span class="annot"><span class="annottext">PublishFunction -&gt; PublishFunction -&gt; Bool
+(PublishFunction -&gt; PublishFunction -&gt; Bool)
+-&gt; (PublishFunction -&gt; PublishFunction -&gt; Bool)
+-&gt; Eq PublishFunction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PublishFunction -&gt; PublishFunction -&gt; Bool
+$c/= :: PublishFunction -&gt; PublishFunction -&gt; Bool
+== :: PublishFunction -&gt; PublishFunction -&gt; Bool
+$c== :: PublishFunction -&gt; PublishFunction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408882"><span id="local-6989586621679408884"><span id="local-6989586621679408886"><span id="local-6989586621679408888"><span class="annot"><span class="annottext">ReadPrec [PublishFunction]
+ReadPrec PublishFunction
+Int -&gt; ReadS PublishFunction
+ReadS [PublishFunction]
+(Int -&gt; ReadS PublishFunction)
+-&gt; ReadS [PublishFunction]
+-&gt; ReadPrec PublishFunction
+-&gt; ReadPrec [PublishFunction]
+-&gt; Read PublishFunction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PublishFunction]
+$creadListPrec :: ReadPrec [PublishFunction]
+readPrec :: ReadPrec PublishFunction
+$creadPrec :: ReadPrec PublishFunction
+readList :: ReadS [PublishFunction]
+$creadList :: ReadS [PublishFunction]
+readsPrec :: Int -&gt; ReadS PublishFunction
+$creadsPrec :: Int -&gt; ReadS PublishFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408875"><span id="local-6989586621679408877"><span id="local-6989586621679408879"><span class="annot"><span class="annottext">Int -&gt; PublishFunction -&gt; ShowS
+[PublishFunction] -&gt; ShowS
+PublishFunction -&gt; String
+(Int -&gt; PublishFunction -&gt; ShowS)
+-&gt; (PublishFunction -&gt; String)
+-&gt; ([PublishFunction] -&gt; ShowS)
+-&gt; Show PublishFunction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PublishFunction] -&gt; ShowS
+$cshowList :: [PublishFunction] -&gt; ShowS
+show :: PublishFunction -&gt; String
+$cshow :: PublishFunction -&gt; String
+showsPrec :: Int -&gt; PublishFunction -&gt; ShowS
+$cshowsPrec :: Int -&gt; PublishFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PublishFunction -&gt; Rep PublishFunction x)
+-&gt; (forall x. Rep PublishFunction x -&gt; PublishFunction)
+-&gt; Generic PublishFunction
+forall x. Rep PublishFunction x -&gt; PublishFunction
+forall x. PublishFunction -&gt; Rep PublishFunction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PublishFunction x -&gt; PublishFunction
+$cfrom :: forall x. PublishFunction -&gt; Rep PublishFunction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'PublishFunction' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'publishFunction_name' - The name of the function that you are publishing.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'ifMatch', 'publishFunction_ifMatch' - The current version (@ETag@ value) of the function that you are</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- publishing, which you can get using @DescribeFunction@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunction"><span class="hs-identifier hs-type">newPublishFunction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'ifMatch'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span>
+</span><span id="line-89"></span><span id="newPublishFunction"><span class="annot"><span class="annottext">newPublishFunction :: Text -&gt; Text -&gt; PublishFunction
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunction"><span class="hs-identifier hs-var hs-var">newPublishFunction</span></a></span></span><span> </span><span id="local-6989586621679408870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408870"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679408869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408869"><span class="hs-identifier hs-var">pIfMatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">PublishFunction' :: Text -&gt; Text -&gt; PublishFunction
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:PublishFunction' :: Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3Aname%3APublishFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408870"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:ifMatch:PublishFunction' :: Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AifMatch%3APublishFunction%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408869"><span class="hs-identifier hs-var">pIfMatch_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the function that you are publishing.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_name"><span class="hs-identifier hs-type">publishFunction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="publishFunction_name"><span class="annot"><span class="annottext">publishFunction_name :: (Text -&gt; f Text) -&gt; PublishFunction -&gt; f PublishFunction
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_name"><span class="hs-identifier hs-var hs-var">publishFunction_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishFunction -&gt; Text)
+-&gt; (PublishFunction -&gt; Text -&gt; PublishFunction)
+-&gt; Lens PublishFunction PublishFunction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408866"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PublishFunction' :: PublishFunction -&gt; Text
+</span><a href="#local-6989586621679408866"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408866"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408865"><span class="annot"><span class="annottext">s :: PublishFunction
+</span><a href="#local-6989586621679408865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishFunction
+</span><a href="#local-6989586621679408865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PublishFunction' :: Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3Aname%3APublishFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The current version (@ETag@ value) of the function that you are</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- publishing, which you can get using @DescribeFunction@.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_ifMatch"><span class="hs-identifier hs-type">publishFunction_ifMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="publishFunction_ifMatch"><span class="annot"><span class="annottext">publishFunction_ifMatch :: (Text -&gt; f Text) -&gt; PublishFunction -&gt; f PublishFunction
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunction_ifMatch"><span class="hs-identifier hs-var hs-var">publishFunction_ifMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishFunction -&gt; Text)
+-&gt; (PublishFunction -&gt; Text -&gt; PublishFunction)
+-&gt; Lens PublishFunction PublishFunction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408863"><span class="annot"><span class="annottext">Text
+ifMatch :: Text
+$sel:ifMatch:PublishFunction' :: PublishFunction -&gt; Text
+</span><a href="#local-6989586621679408863"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408863"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408862"><span class="annot"><span class="annottext">s :: PublishFunction
+</span><a href="#local-6989586621679408862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408861"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishFunction
+</span><a href="#local-6989586621679408862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:PublishFunction' :: Text
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AifMatch%3APublishFunction%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679408857"><span class="annot"><span class="annottext">request :: PublishFunction -&gt; Request PublishFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PublishFunction -&gt; Request PublishFunction
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.post</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679408853"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PublishFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PublishFunction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse PublishFunction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PublishFunction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PublishFunction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408850"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679408849"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679408849"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679408848"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe FunctionSummary -&gt; Int -&gt; PublishFunctionResponse
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-var">PublishFunctionResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FunctionSummary -&gt; Int -&gt; PublishFunctionResponse)
+-&gt; Either String (Maybe FunctionSummary)
+-&gt; Either String (Int -&gt; PublishFunctionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe FunctionSummary)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408848"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PublishFunctionResponse)
+-&gt; Either String Int -&gt; Either String PublishFunctionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408850"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408840"><span id="local-6989586621679408842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679408833"><span class="annot"><span class="annottext">toHeaders :: PublishFunction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408830"><span id="local-6989586621679408831"><span class="annot"><span class="annottext">Text
+ifMatch :: Text
+name :: Text
+$sel:ifMatch:PublishFunction' :: PublishFunction -&gt; Text
+$sel:name:PublishFunction' :: PublishFunction -&gt; Text
+</span><a href="#local-6989586621679408830"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408830"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679408826"><span class="annot"><span class="annottext">toPath :: PublishFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction%27"><span class="hs-identifier hs-type">PublishFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408823"><span id="local-6989586621679408824"><span class="annot"><span class="annottext">Text
+ifMatch :: Text
+name :: Text
+$sel:ifMatch:PublishFunction' :: PublishFunction -&gt; Text
+$sel:name:PublishFunction' :: PublishFunction -&gt; Text
+</span><a href="#local-6989586621679408823"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/function/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408824"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/publish&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunction"><span class="hs-identifier hs-type">PublishFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679408819"><span class="annot"><span class="annottext">toQuery :: PublishFunction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PublishFunction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newPublishFunctionResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679408815"><span id="local-6989586621679408816"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-var">PublishFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-var">PublishFunctionResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains configuration information and metadata about a CloudFront</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AfunctionSummary%3APublishFunctionResponse%27"><span class="annot"><span class="annottext">PublishFunctionResponse -&gt; Maybe FunctionSummary
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AfunctionSummary%3APublishFunctionResponse%27"><span class="hs-identifier hs-var hs-var">functionSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionSummary.html#FunctionSummary"><span class="hs-identifier hs-type">FunctionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3APublishFunctionResponse%27"><span class="annot"><span class="annottext">PublishFunctionResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AhttpStatus%3APublishFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408809"><span id="local-6989586621679408811"><span class="annot"><span class="annottext">PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool
+(PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool)
+-&gt; (PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool)
+-&gt; Eq PublishFunctionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool
+$c/= :: PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool
+== :: PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool
+$c== :: PublishFunctionResponse -&gt; PublishFunctionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408801"><span id="local-6989586621679408803"><span id="local-6989586621679408805"><span id="local-6989586621679408807"><span class="annot"><span class="annottext">ReadPrec [PublishFunctionResponse]
+ReadPrec PublishFunctionResponse
+Int -&gt; ReadS PublishFunctionResponse
+ReadS [PublishFunctionResponse]
+(Int -&gt; ReadS PublishFunctionResponse)
+-&gt; ReadS [PublishFunctionResponse]
+-&gt; ReadPrec PublishFunctionResponse
+-&gt; ReadPrec [PublishFunctionResponse]
+-&gt; Read PublishFunctionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PublishFunctionResponse]
+$creadListPrec :: ReadPrec [PublishFunctionResponse]
+readPrec :: ReadPrec PublishFunctionResponse
+$creadPrec :: ReadPrec PublishFunctionResponse
+readList :: ReadS [PublishFunctionResponse]
+$creadList :: ReadS [PublishFunctionResponse]
+readsPrec :: Int -&gt; ReadS PublishFunctionResponse
+$creadsPrec :: Int -&gt; ReadS PublishFunctionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408795"><span id="local-6989586621679408797"><span id="local-6989586621679408799"><span class="annot"><span class="annottext">Int -&gt; PublishFunctionResponse -&gt; ShowS
+[PublishFunctionResponse] -&gt; ShowS
+PublishFunctionResponse -&gt; String
+(Int -&gt; PublishFunctionResponse -&gt; ShowS)
+-&gt; (PublishFunctionResponse -&gt; String)
+-&gt; ([PublishFunctionResponse] -&gt; ShowS)
+-&gt; Show PublishFunctionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PublishFunctionResponse] -&gt; ShowS
+$cshowList :: [PublishFunctionResponse] -&gt; ShowS
+show :: PublishFunctionResponse -&gt; String
+$cshow :: PublishFunctionResponse -&gt; String
+showsPrec :: Int -&gt; PublishFunctionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PublishFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PublishFunctionResponse -&gt; Rep PublishFunctionResponse x)
+-&gt; (forall x.
+    Rep PublishFunctionResponse x -&gt; PublishFunctionResponse)
+-&gt; Generic PublishFunctionResponse
+forall x. Rep PublishFunctionResponse x -&gt; PublishFunctionResponse
+forall x. PublishFunctionResponse -&gt; Rep PublishFunctionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PublishFunctionResponse x -&gt; PublishFunctionResponse
+$cfrom :: forall x. PublishFunctionResponse -&gt; Rep PublishFunctionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'PublishFunctionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'functionSummary', 'publishFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'publishFunctionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunctionResponse"><span class="hs-identifier hs-type">newPublishFunctionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span>
+</span><span id="line-159"></span><span id="newPublishFunctionResponse"><span class="annot"><span class="annottext">newPublishFunctionResponse :: Int -&gt; PublishFunctionResponse
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#newPublishFunctionResponse"><span class="hs-identifier hs-var hs-var">newPublishFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679408792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PublishFunctionResponse' :: Maybe FunctionSummary -&gt; Int -&gt; PublishFunctionResponse
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-type">PublishFunctionResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionSummary:PublishFunctionResponse' :: Maybe FunctionSummary
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AfunctionSummary%3APublishFunctionResponse%27"><span class="hs-identifier hs-var">functionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe FunctionSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PublishFunctionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AhttpStatus%3APublishFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Contains configuration information and metadata about a CloudFront</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_functionSummary"><span class="hs-identifier hs-type">publishFunctionResponse_functionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionSummary.html#FunctionSummary"><span class="hs-identifier hs-type">FunctionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="publishFunctionResponse_functionSummary"><span class="annot"><span class="annottext">publishFunctionResponse_functionSummary :: (Maybe FunctionSummary -&gt; f (Maybe FunctionSummary))
+-&gt; PublishFunctionResponse -&gt; f PublishFunctionResponse
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_functionSummary"><span class="hs-identifier hs-var hs-var">publishFunctionResponse_functionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishFunctionResponse -&gt; Maybe FunctionSummary)
+-&gt; (PublishFunctionResponse
+    -&gt; Maybe FunctionSummary -&gt; PublishFunctionResponse)
+-&gt; Lens
+     PublishFunctionResponse
+     PublishFunctionResponse
+     (Maybe FunctionSummary)
+     (Maybe FunctionSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-type">PublishFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408791"><span class="annot"><span class="annottext">Maybe FunctionSummary
+functionSummary :: Maybe FunctionSummary
+$sel:functionSummary:PublishFunctionResponse' :: PublishFunctionResponse -&gt; Maybe FunctionSummary
+</span><a href="#local-6989586621679408791"><span class="hs-identifier hs-var hs-var">functionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><a href="#local-6989586621679408791"><span class="hs-identifier hs-var">functionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408790"><span class="annot"><span class="annottext">s :: PublishFunctionResponse
+</span><a href="#local-6989586621679408790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-type">PublishFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408789"><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><a href="#local-6989586621679408789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishFunctionResponse
+</span><a href="#local-6989586621679408790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionSummary:PublishFunctionResponse' :: Maybe FunctionSummary
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AfunctionSummary%3APublishFunctionResponse%27"><span class="hs-identifier hs-var">functionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionSummary
+</span><a href="#local-6989586621679408789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_httpStatus"><span class="hs-identifier hs-type">publishFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="publishFunctionResponse_httpStatus"><span class="annot"><span class="annottext">publishFunctionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PublishFunctionResponse -&gt; f PublishFunctionResponse
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#publishFunctionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">publishFunctionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublishFunctionResponse -&gt; Int)
+-&gt; (PublishFunctionResponse -&gt; Int -&gt; PublishFunctionResponse)
+-&gt; Lens PublishFunctionResponse PublishFunctionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-type">PublishFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408788"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PublishFunctionResponse' :: PublishFunctionResponse -&gt; Int
+</span><a href="#local-6989586621679408788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408787"><span class="annot"><span class="annottext">s :: PublishFunctionResponse
+</span><a href="#local-6989586621679408787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse%27"><span class="hs-identifier hs-type">PublishFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishFunctionResponse
+</span><a href="#local-6989586621679408787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PublishFunctionResponse' :: Int
+</span><a href="Network.AWS.CloudFront.PublishFunction.html#%24sel%3AhttpStatus%3APublishFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.PublishFunction.html#PublishFunctionResponse"><span class="hs-identifier hs-type">PublishFunctionResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.DeleteImagePermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes permissions for the specified private image. After you delete</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- permissions for an image, AWS accounts to which you previously granted</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- these permissions can no longer use the image.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.DeleteImagePermissions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier">DeleteImagePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissions"><span class="hs-identifier">newDeleteImagePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_name"><span class="hs-identifier">deleteImagePermissions_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_sharedAccountId"><span class="hs-identifier">deleteImagePermissions_sharedAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier">DeleteImagePermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissionsResponse"><span class="hs-identifier">newDeleteImagePermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissionsResponse_httpStatus"><span class="hs-identifier">deleteImagePermissionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.html"><span class="hs-identifier">Network.AWS.AppStream.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteImagePermissions' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679299121"><span id="local-6989586621679299122"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImagePermissions"><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-var">DeleteImagePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImagePermissions%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-var">DeleteImagePermissions'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the private image.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3ADeleteImagePermissions%27"><span class="annot"><span class="annottext">DeleteImagePermissions -&gt; Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3Aname%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The 12-digit identifier of the AWS account for which to delete image</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- permissions.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsharedAccountId%3ADeleteImagePermissions%27"><span class="annot"><span class="annottext">DeleteImagePermissions -&gt; Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AsharedAccountId%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299114"><span id="local-6989586621679299116"><span class="annot"><span class="annottext">DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool
+(DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool)
+-&gt; (DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool)
+-&gt; Eq DeleteImagePermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool
+$c/= :: DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool
+== :: DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool
+$c== :: DeleteImagePermissions -&gt; DeleteImagePermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299105"><span id="local-6989586621679299107"><span id="local-6989586621679299109"><span id="local-6989586621679299111"><span class="annot"><span class="annottext">ReadPrec [DeleteImagePermissions]
+ReadPrec DeleteImagePermissions
+Int -&gt; ReadS DeleteImagePermissions
+ReadS [DeleteImagePermissions]
+(Int -&gt; ReadS DeleteImagePermissions)
+-&gt; ReadS [DeleteImagePermissions]
+-&gt; ReadPrec DeleteImagePermissions
+-&gt; ReadPrec [DeleteImagePermissions]
+-&gt; Read DeleteImagePermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteImagePermissions]
+$creadListPrec :: ReadPrec [DeleteImagePermissions]
+readPrec :: ReadPrec DeleteImagePermissions
+$creadPrec :: ReadPrec DeleteImagePermissions
+readList :: ReadS [DeleteImagePermissions]
+$creadList :: ReadS [DeleteImagePermissions]
+readsPrec :: Int -&gt; ReadS DeleteImagePermissions
+$creadsPrec :: Int -&gt; ReadS DeleteImagePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299098"><span id="local-6989586621679299100"><span id="local-6989586621679299102"><span class="annot"><span class="annottext">Int -&gt; DeleteImagePermissions -&gt; ShowS
+[DeleteImagePermissions] -&gt; ShowS
+DeleteImagePermissions -&gt; String
+(Int -&gt; DeleteImagePermissions -&gt; ShowS)
+-&gt; (DeleteImagePermissions -&gt; String)
+-&gt; ([DeleteImagePermissions] -&gt; ShowS)
+-&gt; Show DeleteImagePermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteImagePermissions] -&gt; ShowS
+$cshowList :: [DeleteImagePermissions] -&gt; ShowS
+show :: DeleteImagePermissions -&gt; String
+$cshow :: DeleteImagePermissions -&gt; String
+showsPrec :: Int -&gt; DeleteImagePermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteImagePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteImagePermissions -&gt; Rep DeleteImagePermissions x)
+-&gt; (forall x.
+    Rep DeleteImagePermissions x -&gt; DeleteImagePermissions)
+-&gt; Generic DeleteImagePermissions
+forall x. Rep DeleteImagePermissions x -&gt; DeleteImagePermissions
+forall x. DeleteImagePermissions -&gt; Rep DeleteImagePermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteImagePermissions x -&gt; DeleteImagePermissions
+$cfrom :: forall x. DeleteImagePermissions -&gt; Rep DeleteImagePermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteImagePermissions' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'deleteImagePermissions_name' - The name of the private image.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sharedAccountId', 'deleteImagePermissions_sharedAccountId' - The 12-digit identifier of the AWS account for which to delete image</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- permissions.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissions"><span class="hs-identifier hs-type">newDeleteImagePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'sharedAccountId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span>
+</span><span id="line-79"></span><span id="newDeleteImagePermissions"><span class="annot"><span class="annottext">newDeleteImagePermissions :: Text -&gt; Text -&gt; DeleteImagePermissions
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissions"><span class="hs-identifier hs-var hs-var">newDeleteImagePermissions</span></a></span></span><span> </span><span id="local-6989586621679299093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299093"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679299092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299092"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteImagePermissions' :: Text -&gt; Text -&gt; DeleteImagePermissions
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:DeleteImagePermissions' :: Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3Aname%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299093"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedAccountId:DeleteImagePermissions' :: Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AsharedAccountId%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299092"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the private image.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_name"><span class="hs-identifier hs-type">deleteImagePermissions_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteImagePermissions_name"><span class="annot"><span class="annottext">deleteImagePermissions_name :: (Text -&gt; f Text)
+-&gt; DeleteImagePermissions -&gt; f DeleteImagePermissions
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_name"><span class="hs-identifier hs-var hs-var">deleteImagePermissions_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteImagePermissions -&gt; Text)
+-&gt; (DeleteImagePermissions -&gt; Text -&gt; DeleteImagePermissions)
+-&gt; Lens DeleteImagePermissions DeleteImagePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299089"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteImagePermissions' :: DeleteImagePermissions -&gt; Text
+</span><a href="#local-6989586621679299089"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299089"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299088"><span class="annot"><span class="annottext">s :: DeleteImagePermissions
+</span><a href="#local-6989586621679299088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImagePermissions
+</span><a href="#local-6989586621679299088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteImagePermissions' :: Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3Aname%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The 12-digit identifier of the AWS account for which to delete image</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- permissions.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_sharedAccountId"><span class="hs-identifier hs-type">deleteImagePermissions_sharedAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="deleteImagePermissions_sharedAccountId"><span class="annot"><span class="annottext">deleteImagePermissions_sharedAccountId :: (Text -&gt; f Text)
+-&gt; DeleteImagePermissions -&gt; f DeleteImagePermissions
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissions_sharedAccountId"><span class="hs-identifier hs-var hs-var">deleteImagePermissions_sharedAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteImagePermissions -&gt; Text)
+-&gt; (DeleteImagePermissions -&gt; Text -&gt; DeleteImagePermissions)
+-&gt; Lens DeleteImagePermissions DeleteImagePermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299086"><span class="annot"><span class="annottext">Text
+sharedAccountId :: Text
+$sel:sharedAccountId:DeleteImagePermissions' :: DeleteImagePermissions -&gt; Text
+</span><a href="#local-6989586621679299086"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299086"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299085"><span class="annot"><span class="annottext">s :: DeleteImagePermissions
+</span><a href="#local-6989586621679299085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImagePermissions
+</span><a href="#local-6989586621679299085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:DeleteImagePermissions' :: Text
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AsharedAccountId%3ADeleteImagePermissions%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679299080"><span class="annot"><span class="annottext">request :: DeleteImagePermissions -&gt; Request DeleteImagePermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteImagePermissions -&gt; Request DeleteImagePermissions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679299076"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteImagePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteImagePermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteImagePermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteImagePermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteImagePermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299073"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299072"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299072"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299071"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679299071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteImagePermissionsResponse
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse%27"><span class="hs-identifier hs-var">DeleteImagePermissionsResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteImagePermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteImagePermissionsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299073"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299064"><span id="local-6989586621679299066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679299057"><span class="annot"><span class="annottext">toHeaders :: DeleteImagePermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteImagePermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhotonAdminProxyService.DeleteImagePermissions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299047"><span id="local-6989586621679299049"><span id="local-6989586621679299051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679299045"><span class="annot"><span class="annottext">toJSON :: DeleteImagePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions%27"><span class="hs-identifier hs-type">DeleteImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299042"><span id="local-6989586621679299043"><span class="annot"><span class="annottext">Text
+sharedAccountId :: Text
+name :: Text
+$sel:sharedAccountId:DeleteImagePermissions' :: DeleteImagePermissions -&gt; Text
+$sel:name:DeleteImagePermissions' :: DeleteImagePermissions -&gt; Text
+</span><a href="#local-6989586621679299042"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299043"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedAccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299042"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679299036"><span class="annot"><span class="annottext">toPath :: DeleteImagePermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteImagePermissions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissions"><span class="hs-identifier hs-type">DeleteImagePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679299032"><span class="annot"><span class="annottext">toQuery :: DeleteImagePermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteImagePermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDeleteImagePermissionsResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679299029"><span id="local-6989586621679299030"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImagePermissionsResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-var">DeleteImagePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImagePermissionsResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse%27"><span class="hs-identifier hs-var">DeleteImagePermissionsResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteImagePermissionsResponse%27"><span class="annot"><span class="annottext">DeleteImagePermissionsResponse -&gt; Int
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AhttpStatus%3ADeleteImagePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299024"><span id="local-6989586621679299026"><span class="annot"><span class="annottext">DeleteImagePermissionsResponse
+-&gt; DeleteImagePermissionsResponse -&gt; Bool
+(DeleteImagePermissionsResponse
+ -&gt; DeleteImagePermissionsResponse -&gt; Bool)
+-&gt; (DeleteImagePermissionsResponse
+    -&gt; DeleteImagePermissionsResponse -&gt; Bool)
+-&gt; Eq DeleteImagePermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteImagePermissionsResponse
+-&gt; DeleteImagePermissionsResponse -&gt; Bool
+$c/= :: DeleteImagePermissionsResponse
+-&gt; DeleteImagePermissionsResponse -&gt; Bool
+== :: DeleteImagePermissionsResponse
+-&gt; DeleteImagePermissionsResponse -&gt; Bool
+$c== :: DeleteImagePermissionsResponse
+-&gt; DeleteImagePermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299016"><span id="local-6989586621679299018"><span id="local-6989586621679299020"><span id="local-6989586621679299022"><span class="annot"><span class="annottext">ReadPrec [DeleteImagePermissionsResponse]
+ReadPrec DeleteImagePermissionsResponse
+Int -&gt; ReadS DeleteImagePermissionsResponse
+ReadS [DeleteImagePermissionsResponse]
+(Int -&gt; ReadS DeleteImagePermissionsResponse)
+-&gt; ReadS [DeleteImagePermissionsResponse]
+-&gt; ReadPrec DeleteImagePermissionsResponse
+-&gt; ReadPrec [DeleteImagePermissionsResponse]
+-&gt; Read DeleteImagePermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteImagePermissionsResponse]
+$creadListPrec :: ReadPrec [DeleteImagePermissionsResponse]
+readPrec :: ReadPrec DeleteImagePermissionsResponse
+$creadPrec :: ReadPrec DeleteImagePermissionsResponse
+readList :: ReadS [DeleteImagePermissionsResponse]
+$creadList :: ReadS [DeleteImagePermissionsResponse]
+readsPrec :: Int -&gt; ReadS DeleteImagePermissionsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteImagePermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299010"><span id="local-6989586621679299012"><span id="local-6989586621679299014"><span class="annot"><span class="annottext">Int -&gt; DeleteImagePermissionsResponse -&gt; ShowS
+[DeleteImagePermissionsResponse] -&gt; ShowS
+DeleteImagePermissionsResponse -&gt; String
+(Int -&gt; DeleteImagePermissionsResponse -&gt; ShowS)
+-&gt; (DeleteImagePermissionsResponse -&gt; String)
+-&gt; ([DeleteImagePermissionsResponse] -&gt; ShowS)
+-&gt; Show DeleteImagePermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteImagePermissionsResponse] -&gt; ShowS
+$cshowList :: [DeleteImagePermissionsResponse] -&gt; ShowS
+show :: DeleteImagePermissionsResponse -&gt; String
+$cshow :: DeleteImagePermissionsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteImagePermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteImagePermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteImagePermissionsResponse
+ -&gt; Rep DeleteImagePermissionsResponse x)
+-&gt; (forall x.
+    Rep DeleteImagePermissionsResponse x
+    -&gt; DeleteImagePermissionsResponse)
+-&gt; Generic DeleteImagePermissionsResponse
+forall x.
+Rep DeleteImagePermissionsResponse x
+-&gt; DeleteImagePermissionsResponse
+forall x.
+DeleteImagePermissionsResponse
+-&gt; Rep DeleteImagePermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteImagePermissionsResponse x
+-&gt; DeleteImagePermissionsResponse
+$cfrom :: forall x.
+DeleteImagePermissionsResponse
+-&gt; Rep DeleteImagePermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'DeleteImagePermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'deleteImagePermissionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissionsResponse"><span class="hs-identifier hs-type">newDeleteImagePermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newDeleteImagePermissionsResponse"><span class="annot"><span class="annottext">newDeleteImagePermissionsResponse :: Int -&gt; DeleteImagePermissionsResponse
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#newDeleteImagePermissionsResponse"><span class="hs-identifier hs-var hs-var">newDeleteImagePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679299007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteImagePermissionsResponse' :: Int -&gt; DeleteImagePermissionsResponse
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse%27"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImagePermissionsResponse' :: Int
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AhttpStatus%3ADeleteImagePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissionsResponse_httpStatus"><span class="hs-identifier hs-type">deleteImagePermissionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="deleteImagePermissionsResponse_httpStatus"><span class="annot"><span class="annottext">deleteImagePermissionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteImagePermissionsResponse
+-&gt; f DeleteImagePermissionsResponse
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#deleteImagePermissionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteImagePermissionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteImagePermissionsResponse -&gt; Int)
+-&gt; (DeleteImagePermissionsResponse
+    -&gt; Int -&gt; DeleteImagePermissionsResponse)
+-&gt; Lens
+     DeleteImagePermissionsResponse
+     DeleteImagePermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse%27"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299006"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteImagePermissionsResponse' :: DeleteImagePermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679299006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299005"><span class="annot"><span class="annottext">s :: DeleteImagePermissionsResponse
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse%27"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImagePermissionsResponse
+</span><a href="#local-6989586621679299005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImagePermissionsResponse' :: Int
+</span><a href="Network.AWS.AppStream.DeleteImagePermissions.html#%24sel%3AhttpStatus%3ADeleteImagePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679299002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImagePermissions.html#DeleteImagePermissionsResponse"><span class="hs-identifier hs-type">DeleteImagePermissionsResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

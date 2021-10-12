@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.PlatformDifference</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.PlatformDifference</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier">PlatformDifference</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_HYPERVISOR"><span class="hs-identifier">PlatformDifference_HYPERVISOR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_INSTANCE_STORE_AVAILABILITY"><span class="hs-identifier">PlatformDifference_INSTANCE_STORE_AVAILABILITY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_NETWORK_INTERFACE"><span class="hs-identifier">PlatformDifference_NETWORK_INTERFACE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_STORAGE_INTERFACE"><span class="hs-identifier">PlatformDifference_STORAGE_INTERFACE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_VIRTUALIZATION_TYPE"><span class="hs-identifier">PlatformDifference_VIRTUALIZATION_TYPE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679332707"><span id="local-6989586621679332708"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformDifference"><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-var">PlatformDifference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformDifference%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-var">PlatformDifference'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformDifference"><span class="annot"><span class="annottext">PlatformDifference -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#fromPlatformDifference"><span class="hs-identifier hs-var hs-var">fromPlatformDifference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332699"><span id="local-6989586621679332701"><span id="local-6989586621679332703"><span class="annot"><span class="annottext">Int -&gt; PlatformDifference -&gt; ShowS
+[PlatformDifference] -&gt; ShowS
+PlatformDifference -&gt; String
+(Int -&gt; PlatformDifference -&gt; ShowS)
+-&gt; (PlatformDifference -&gt; String)
+-&gt; ([PlatformDifference] -&gt; ShowS)
+-&gt; Show PlatformDifference
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlatformDifference] -&gt; ShowS
+$cshowList :: [PlatformDifference] -&gt; ShowS
+show :: PlatformDifference -&gt; String
+$cshow :: PlatformDifference -&gt; String
+showsPrec :: Int -&gt; PlatformDifference -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlatformDifference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679332690"><span id="local-6989586621679332692"><span id="local-6989586621679332694"><span id="local-6989586621679332696"><span class="annot"><span class="annottext">ReadPrec [PlatformDifference]
+ReadPrec PlatformDifference
+Int -&gt; ReadS PlatformDifference
+ReadS [PlatformDifference]
+(Int -&gt; ReadS PlatformDifference)
+-&gt; ReadS [PlatformDifference]
+-&gt; ReadPrec PlatformDifference
+-&gt; ReadPrec [PlatformDifference]
+-&gt; Read PlatformDifference
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlatformDifference]
+$creadListPrec :: ReadPrec [PlatformDifference]
+readPrec :: ReadPrec PlatformDifference
+$creadPrec :: ReadPrec PlatformDifference
+readList :: ReadS [PlatformDifference]
+$creadList :: ReadS [PlatformDifference]
+readsPrec :: Int -&gt; ReadS PlatformDifference
+$creadsPrec :: Int -&gt; ReadS PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679332685"><span id="local-6989586621679332687"><span class="annot"><span class="annottext">PlatformDifference -&gt; PlatformDifference -&gt; Bool
+(PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; Eq PlatformDifference
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c/= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+== :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c== :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679332669"><span id="local-6989586621679332671"><span id="local-6989586621679332673"><span id="local-6989586621679332675"><span id="local-6989586621679332677"><span id="local-6989586621679332679"><span id="local-6989586621679332681"><span class="annot"><span class="annottext">Eq PlatformDifference
+Eq PlatformDifference
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Ordering)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; Bool)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference)
+-&gt; (PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference)
+-&gt; Ord PlatformDifference
+PlatformDifference -&gt; PlatformDifference -&gt; Bool
+PlatformDifference -&gt; PlatformDifference -&gt; Ordering
+PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference
+$cmin :: PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference
+max :: PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference
+$cmax :: PlatformDifference -&gt; PlatformDifference -&gt; PlatformDifference
+&gt;= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c&gt;= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+&gt; :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c&gt; :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+&lt;= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c&lt;= :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+&lt; :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+$c&lt; :: PlatformDifference -&gt; PlatformDifference -&gt; Bool
+compare :: PlatformDifference -&gt; PlatformDifference -&gt; Ordering
+$ccompare :: PlatformDifference -&gt; PlatformDifference -&gt; Ordering
+$cp1Ord :: Eq PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PlatformDifference -&gt; Rep PlatformDifference x)
+-&gt; (forall x. Rep PlatformDifference x -&gt; PlatformDifference)
+-&gt; Generic PlatformDifference
+forall x. Rep PlatformDifference x -&gt; PlatformDifference
+forall x. PlatformDifference -&gt; Rep PlatformDifference x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlatformDifference x -&gt; PlatformDifference
+$cfrom :: forall x. PlatformDifference -&gt; Rep PlatformDifference x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332661"><span id="local-6989586621679332663"><span class="annot"><span class="annottext">Int -&gt; PlatformDifference -&gt; Int
+PlatformDifference -&gt; Int
+(Int -&gt; PlatformDifference -&gt; Int)
+-&gt; (PlatformDifference -&gt; Int) -&gt; Hashable PlatformDifference
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PlatformDifference -&gt; Int
+$chash :: PlatformDifference -&gt; Int
+hashWithSalt :: Int -&gt; PlatformDifference -&gt; Int
+$chashWithSalt :: Int -&gt; PlatformDifference -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679332658"><span class="annot"><span class="annottext">PlatformDifference -&gt; ()
+(PlatformDifference -&gt; ()) -&gt; NFData PlatformDifference
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PlatformDifference -&gt; ()
+$crnf :: PlatformDifference -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332655"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformDifference
+(Text -&gt; Either String PlatformDifference)
+-&gt; FromText PlatformDifference
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PlatformDifference
+$cfromText :: Text -&gt; Either String PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332652"><span class="annot"><span class="annottext">PlatformDifference -&gt; Text
+(PlatformDifference -&gt; Text) -&gt; ToText PlatformDifference
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PlatformDifference -&gt; Text
+$ctoText :: PlatformDifference -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332649"><span class="annot"><span class="annottext">PlatformDifference -&gt; ByteString
+(PlatformDifference -&gt; ByteString)
+-&gt; ToByteString PlatformDifference
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PlatformDifference -&gt; ByteString
+$ctoBS :: PlatformDifference -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332646"><span class="annot"><span class="annottext">PlatformDifference -&gt; ByteStringBuilder
+(PlatformDifference -&gt; ByteStringBuilder)
+-&gt; ToLog PlatformDifference
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PlatformDifference -&gt; ByteStringBuilder
+$cbuild :: PlatformDifference -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332643"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformDifference -&gt; [Header]
+(HeaderName -&gt; PlatformDifference -&gt; [Header])
+-&gt; ToHeader PlatformDifference
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PlatformDifference -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PlatformDifference -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332640"><span class="annot"><span class="annottext">PlatformDifference -&gt; QueryString
+(PlatformDifference -&gt; QueryString) -&gt; ToQuery PlatformDifference
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PlatformDifference -&gt; QueryString
+$ctoQuery :: PlatformDifference -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332635"><span id="local-6989586621679332637"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformDifference]
+Value -&gt; Parser PlatformDifference
+(Value -&gt; Parser PlatformDifference)
+-&gt; (Value -&gt; Parser [PlatformDifference])
+-&gt; FromJSON PlatformDifference
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PlatformDifference]
+$cparseJSONList :: Value -&gt; Parser [PlatformDifference]
+parseJSON :: Value -&gt; Parser PlatformDifference
+$cparseJSON :: Value -&gt; Parser PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332630"><span id="local-6989586621679332632"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformDifference]
+FromJSONKeyFunction PlatformDifference
+FromJSONKeyFunction PlatformDifference
+-&gt; FromJSONKeyFunction [PlatformDifference]
+-&gt; FromJSONKey PlatformDifference
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PlatformDifference]
+$cfromJSONKeyList :: FromJSONKeyFunction [PlatformDifference]
+fromJSONKey :: FromJSONKeyFunction PlatformDifference
+$cfromJSONKey :: FromJSONKeyFunction PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332621"><span id="local-6989586621679332623"><span id="local-6989586621679332625"><span id="local-6989586621679332627"><span class="annot"><span class="annottext">[PlatformDifference] -&gt; Encoding
+[PlatformDifference] -&gt; Value
+PlatformDifference -&gt; Encoding
+PlatformDifference -&gt; Value
+(PlatformDifference -&gt; Value)
+-&gt; (PlatformDifference -&gt; Encoding)
+-&gt; ([PlatformDifference] -&gt; Value)
+-&gt; ([PlatformDifference] -&gt; Encoding)
+-&gt; ToJSON PlatformDifference
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PlatformDifference] -&gt; Encoding
+$ctoEncodingList :: [PlatformDifference] -&gt; Encoding
+toJSONList :: [PlatformDifference] -&gt; Value
+$ctoJSONList :: [PlatformDifference] -&gt; Value
+toEncoding :: PlatformDifference -&gt; Encoding
+$ctoEncoding :: PlatformDifference -&gt; Encoding
+toJSON :: PlatformDifference -&gt; Value
+$ctoJSON :: PlatformDifference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332616"><span id="local-6989586621679332618"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformDifference]
+ToJSONKeyFunction PlatformDifference
+ToJSONKeyFunction PlatformDifference
+-&gt; ToJSONKeyFunction [PlatformDifference]
+-&gt; ToJSONKey PlatformDifference
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PlatformDifference]
+$ctoJSONKeyList :: ToJSONKeyFunction [PlatformDifference]
+toJSONKey :: ToJSONKeyFunction PlatformDifference
+$ctoJSONKey :: ToJSONKeyFunction PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332613"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformDifference
+([Node] -&gt; Either String PlatformDifference)
+-&gt; FromXML PlatformDifference
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PlatformDifference
+$cparseXML :: [Node] -&gt; Either String PlatformDifference
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332610"><span class="annot"><span class="annottext">PlatformDifference -&gt; XML
+(PlatformDifference -&gt; XML) -&gt; ToXML PlatformDifference
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PlatformDifference -&gt; XML
+$ctoXML :: PlatformDifference -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_HYPERVISOR"><span class="hs-identifier hs-type">PlatformDifference_HYPERVISOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformDifference_HYPERVISOR"><span id="%24mPlatformDifference_HYPERVISOR"><span id="PlatformDifference_HYPERVISOR"><span class="annot"><span class="annottext">$bPlatformDifference_HYPERVISOR :: PlatformDifference
+$mPlatformDifference_HYPERVISOR :: forall r. PlatformDifference -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#%24bPlatformDifference_HYPERVISOR"><span class="hs-identifier hs-var hs-var hs-var">PlatformDifference_HYPERVISOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-type">PlatformDifference'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HYPERVISOR&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_INSTANCE_STORE_AVAILABILITY"><span class="hs-identifier hs-type">PlatformDifference_INSTANCE_STORE_AVAILABILITY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformDifference_INSTANCE_STORE_AVAILABILITY"><span id="%24mPlatformDifference_INSTANCE_STORE_AVAILABILITY"><span id="PlatformDifference_INSTANCE_STORE_AVAILABILITY"><span class="annot"><span class="annottext">$bPlatformDifference_INSTANCE_STORE_AVAILABILITY :: PlatformDifference
+$mPlatformDifference_INSTANCE_STORE_AVAILABILITY :: forall r. PlatformDifference -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#%24bPlatformDifference_INSTANCE_STORE_AVAILABILITY"><span class="hs-identifier hs-var hs-var hs-var">PlatformDifference_INSTANCE_STORE_AVAILABILITY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-type">PlatformDifference'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSTANCE_STORE_AVAILABILITY&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_NETWORK_INTERFACE"><span class="hs-identifier hs-type">PlatformDifference_NETWORK_INTERFACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformDifference_NETWORK_INTERFACE"><span id="%24mPlatformDifference_NETWORK_INTERFACE"><span id="PlatformDifference_NETWORK_INTERFACE"><span class="annot"><span class="annottext">$bPlatformDifference_NETWORK_INTERFACE :: PlatformDifference
+$mPlatformDifference_NETWORK_INTERFACE :: forall r. PlatformDifference -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#%24bPlatformDifference_NETWORK_INTERFACE"><span class="hs-identifier hs-var hs-var hs-var">PlatformDifference_NETWORK_INTERFACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-type">PlatformDifference'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NETWORK_INTERFACE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_STORAGE_INTERFACE"><span class="hs-identifier hs-type">PlatformDifference_STORAGE_INTERFACE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformDifference_STORAGE_INTERFACE"><span id="%24mPlatformDifference_STORAGE_INTERFACE"><span id="PlatformDifference_STORAGE_INTERFACE"><span class="annot"><span class="annottext">$bPlatformDifference_STORAGE_INTERFACE :: PlatformDifference
+$mPlatformDifference_STORAGE_INTERFACE :: forall r. PlatformDifference -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#%24bPlatformDifference_STORAGE_INTERFACE"><span class="hs-identifier hs-var hs-var hs-var">PlatformDifference_STORAGE_INTERFACE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-type">PlatformDifference'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STORAGE_INTERFACE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_VIRTUALIZATION_TYPE"><span class="hs-identifier hs-type">PlatformDifference_VIRTUALIZATION_TYPE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatformDifference_VIRTUALIZATION_TYPE"><span id="%24mPlatformDifference_VIRTUALIZATION_TYPE"><span id="PlatformDifference_VIRTUALIZATION_TYPE"><span class="annot"><span class="annottext">$bPlatformDifference_VIRTUALIZATION_TYPE :: PlatformDifference
+$mPlatformDifference_VIRTUALIZATION_TYPE :: forall r. PlatformDifference -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#%24bPlatformDifference_VIRTUALIZATION_TYPE"><span class="hs-identifier hs-var hs-var hs-var">PlatformDifference_VIRTUALIZATION_TYPE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-identifier hs-type">PlatformDifference'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VIRTUALIZATION_TYPE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_HYPERVISOR"><span class="hs-pragma hs-type">PlatformDifference_HYPERVISOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_INSTANCE_STORE_AVAILABILITY"><span class="hs-pragma hs-type">PlatformDifference_INSTANCE_STORE_AVAILABILITY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_NETWORK_INTERFACE"><span class="hs-pragma hs-type">PlatformDifference_NETWORK_INTERFACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_STORAGE_INTERFACE"><span class="hs-pragma hs-type">PlatformDifference_STORAGE_INTERFACE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference_VIRTUALIZATION_TYPE"><span class="hs-pragma hs-type">PlatformDifference_VIRTUALIZATION_TYPE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PlatformDifference.html#PlatformDifference%27"><span class="hs-pragma hs-type">PlatformDifference'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

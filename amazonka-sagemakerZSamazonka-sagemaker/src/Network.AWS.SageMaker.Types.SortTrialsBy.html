@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.SortTrialsBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.SortTrialsBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy"><span class="hs-identifier">SortTrialsBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_CreationTime"><span class="hs-identifier">SortTrialsBy_CreationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_Name"><span class="hs-identifier">SortTrialsBy_Name</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680342671"><span id="local-6989586621680342672"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortTrialsBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy"><span class="hs-identifier hs-var">SortTrialsBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortTrialsBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy%27"><span class="hs-identifier hs-var">SortTrialsBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortTrialsBy"><span class="annot"><span class="annottext">SortTrialsBy -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#fromSortTrialsBy"><span class="hs-identifier hs-var hs-var">fromSortTrialsBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342663"><span id="local-6989586621680342665"><span id="local-6989586621680342667"><span class="annot"><span class="annottext">Int -&gt; SortTrialsBy -&gt; ShowS
+[SortTrialsBy] -&gt; ShowS
+SortTrialsBy -&gt; String
+(Int -&gt; SortTrialsBy -&gt; ShowS)
+-&gt; (SortTrialsBy -&gt; String)
+-&gt; ([SortTrialsBy] -&gt; ShowS)
+-&gt; Show SortTrialsBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SortTrialsBy] -&gt; ShowS
+$cshowList :: [SortTrialsBy] -&gt; ShowS
+show :: SortTrialsBy -&gt; String
+$cshow :: SortTrialsBy -&gt; String
+showsPrec :: Int -&gt; SortTrialsBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; SortTrialsBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680342654"><span id="local-6989586621680342656"><span id="local-6989586621680342658"><span id="local-6989586621680342660"><span class="annot"><span class="annottext">ReadPrec [SortTrialsBy]
+ReadPrec SortTrialsBy
+Int -&gt; ReadS SortTrialsBy
+ReadS [SortTrialsBy]
+(Int -&gt; ReadS SortTrialsBy)
+-&gt; ReadS [SortTrialsBy]
+-&gt; ReadPrec SortTrialsBy
+-&gt; ReadPrec [SortTrialsBy]
+-&gt; Read SortTrialsBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SortTrialsBy]
+$creadListPrec :: ReadPrec [SortTrialsBy]
+readPrec :: ReadPrec SortTrialsBy
+$creadPrec :: ReadPrec SortTrialsBy
+readList :: ReadS [SortTrialsBy]
+$creadList :: ReadS [SortTrialsBy]
+readsPrec :: Int -&gt; ReadS SortTrialsBy
+$creadsPrec :: Int -&gt; ReadS SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680342649"><span id="local-6989586621680342651"><span class="annot"><span class="annottext">SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+(SortTrialsBy -&gt; SortTrialsBy -&gt; Bool)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Bool) -&gt; Eq SortTrialsBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c/= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+== :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c== :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680342633"><span id="local-6989586621680342635"><span id="local-6989586621680342637"><span id="local-6989586621680342639"><span id="local-6989586621680342641"><span id="local-6989586621680342643"><span id="local-6989586621680342645"><span class="annot"><span class="annottext">Eq SortTrialsBy
+Eq SortTrialsBy
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Ordering)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Bool)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Bool)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Bool)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; Bool)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy)
+-&gt; (SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy)
+-&gt; Ord SortTrialsBy
+SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+SortTrialsBy -&gt; SortTrialsBy -&gt; Ordering
+SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy
+$cmin :: SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy
+max :: SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy
+$cmax :: SortTrialsBy -&gt; SortTrialsBy -&gt; SortTrialsBy
+&gt;= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c&gt;= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+&gt; :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c&gt; :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+&lt;= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c&lt;= :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+&lt; :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+$c&lt; :: SortTrialsBy -&gt; SortTrialsBy -&gt; Bool
+compare :: SortTrialsBy -&gt; SortTrialsBy -&gt; Ordering
+$ccompare :: SortTrialsBy -&gt; SortTrialsBy -&gt; Ordering
+$cp1Ord :: Eq SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SortTrialsBy -&gt; Rep SortTrialsBy x)
+-&gt; (forall x. Rep SortTrialsBy x -&gt; SortTrialsBy)
+-&gt; Generic SortTrialsBy
+forall x. Rep SortTrialsBy x -&gt; SortTrialsBy
+forall x. SortTrialsBy -&gt; Rep SortTrialsBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SortTrialsBy x -&gt; SortTrialsBy
+$cfrom :: forall x. SortTrialsBy -&gt; Rep SortTrialsBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342625"><span id="local-6989586621680342627"><span class="annot"><span class="annottext">Int -&gt; SortTrialsBy -&gt; Int
+SortTrialsBy -&gt; Int
+(Int -&gt; SortTrialsBy -&gt; Int)
+-&gt; (SortTrialsBy -&gt; Int) -&gt; Hashable SortTrialsBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SortTrialsBy -&gt; Int
+$chash :: SortTrialsBy -&gt; Int
+hashWithSalt :: Int -&gt; SortTrialsBy -&gt; Int
+$chashWithSalt :: Int -&gt; SortTrialsBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680342622"><span class="annot"><span class="annottext">SortTrialsBy -&gt; ()
+(SortTrialsBy -&gt; ()) -&gt; NFData SortTrialsBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SortTrialsBy -&gt; ()
+$crnf :: SortTrialsBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680342619"><span class="annot"><span class="annottext">Text -&gt; Either String SortTrialsBy
+(Text -&gt; Either String SortTrialsBy) -&gt; FromText SortTrialsBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SortTrialsBy
+$cfromText :: Text -&gt; Either String SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680342616"><span class="annot"><span class="annottext">SortTrialsBy -&gt; Text
+(SortTrialsBy -&gt; Text) -&gt; ToText SortTrialsBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SortTrialsBy -&gt; Text
+$ctoText :: SortTrialsBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680342613"><span class="annot"><span class="annottext">SortTrialsBy -&gt; ByteString
+(SortTrialsBy -&gt; ByteString) -&gt; ToByteString SortTrialsBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SortTrialsBy -&gt; ByteString
+$ctoBS :: SortTrialsBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680342610"><span class="annot"><span class="annottext">SortTrialsBy -&gt; ByteStringBuilder
+(SortTrialsBy -&gt; ByteStringBuilder) -&gt; ToLog SortTrialsBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SortTrialsBy -&gt; ByteStringBuilder
+$cbuild :: SortTrialsBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680342607"><span class="annot"><span class="annottext">HeaderName -&gt; SortTrialsBy -&gt; [Header]
+(HeaderName -&gt; SortTrialsBy -&gt; [Header]) -&gt; ToHeader SortTrialsBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SortTrialsBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SortTrialsBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680342604"><span class="annot"><span class="annottext">SortTrialsBy -&gt; QueryString
+(SortTrialsBy -&gt; QueryString) -&gt; ToQuery SortTrialsBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SortTrialsBy -&gt; QueryString
+$ctoQuery :: SortTrialsBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680342599"><span id="local-6989586621680342601"><span class="annot"><span class="annottext">Value -&gt; Parser [SortTrialsBy]
+Value -&gt; Parser SortTrialsBy
+(Value -&gt; Parser SortTrialsBy)
+-&gt; (Value -&gt; Parser [SortTrialsBy]) -&gt; FromJSON SortTrialsBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SortTrialsBy]
+$cparseJSONList :: Value -&gt; Parser [SortTrialsBy]
+parseJSON :: Value -&gt; Parser SortTrialsBy
+$cparseJSON :: Value -&gt; Parser SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680342594"><span id="local-6989586621680342596"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortTrialsBy]
+FromJSONKeyFunction SortTrialsBy
+FromJSONKeyFunction SortTrialsBy
+-&gt; FromJSONKeyFunction [SortTrialsBy] -&gt; FromJSONKey SortTrialsBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SortTrialsBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [SortTrialsBy]
+fromJSONKey :: FromJSONKeyFunction SortTrialsBy
+$cfromJSONKey :: FromJSONKeyFunction SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680342585"><span id="local-6989586621680342587"><span id="local-6989586621680342589"><span id="local-6989586621680342591"><span class="annot"><span class="annottext">[SortTrialsBy] -&gt; Encoding
+[SortTrialsBy] -&gt; Value
+SortTrialsBy -&gt; Encoding
+SortTrialsBy -&gt; Value
+(SortTrialsBy -&gt; Value)
+-&gt; (SortTrialsBy -&gt; Encoding)
+-&gt; ([SortTrialsBy] -&gt; Value)
+-&gt; ([SortTrialsBy] -&gt; Encoding)
+-&gt; ToJSON SortTrialsBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SortTrialsBy] -&gt; Encoding
+$ctoEncodingList :: [SortTrialsBy] -&gt; Encoding
+toJSONList :: [SortTrialsBy] -&gt; Value
+$ctoJSONList :: [SortTrialsBy] -&gt; Value
+toEncoding :: SortTrialsBy -&gt; Encoding
+$ctoEncoding :: SortTrialsBy -&gt; Encoding
+toJSON :: SortTrialsBy -&gt; Value
+$ctoJSON :: SortTrialsBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680342580"><span id="local-6989586621680342582"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortTrialsBy]
+ToJSONKeyFunction SortTrialsBy
+ToJSONKeyFunction SortTrialsBy
+-&gt; ToJSONKeyFunction [SortTrialsBy] -&gt; ToJSONKey SortTrialsBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SortTrialsBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [SortTrialsBy]
+toJSONKey :: ToJSONKeyFunction SortTrialsBy
+$ctoJSONKey :: ToJSONKeyFunction SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680342577"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortTrialsBy
+([Node] -&gt; Either String SortTrialsBy) -&gt; FromXML SortTrialsBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SortTrialsBy
+$cparseXML :: [Node] -&gt; Either String SortTrialsBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680342574"><span class="annot"><span class="annottext">SortTrialsBy -&gt; XML
+(SortTrialsBy -&gt; XML) -&gt; ToXML SortTrialsBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SortTrialsBy -&gt; XML
+$ctoXML :: SortTrialsBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_CreationTime"><span class="hs-identifier hs-type">SortTrialsBy_CreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy"><span class="hs-identifier hs-type">SortTrialsBy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortTrialsBy_CreationTime"><span id="%24mSortTrialsBy_CreationTime"><span id="SortTrialsBy_CreationTime"><span class="annot"><span class="annottext">$bSortTrialsBy_CreationTime :: SortTrialsBy
+$mSortTrialsBy_CreationTime :: forall r. SortTrialsBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#%24bSortTrialsBy_CreationTime"><span class="hs-identifier hs-var hs-var hs-var">SortTrialsBy_CreationTime</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy%27"><span class="hs-identifier hs-type">SortTrialsBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreationTime&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_Name"><span class="hs-identifier hs-type">SortTrialsBy_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy"><span class="hs-identifier hs-type">SortTrialsBy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortTrialsBy_Name"><span id="%24mSortTrialsBy_Name"><span id="SortTrialsBy_Name"><span class="annot"><span class="annottext">$bSortTrialsBy_Name :: SortTrialsBy
+$mSortTrialsBy_Name :: forall r. SortTrialsBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#%24bSortTrialsBy_Name"><span class="hs-identifier hs-var hs-var hs-var">SortTrialsBy_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy%27"><span class="hs-identifier hs-type">SortTrialsBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_CreationTime"><span class="hs-pragma hs-type">SortTrialsBy_CreationTime</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy_Name"><span class="hs-pragma hs-type">SortTrialsBy_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialsBy.html#SortTrialsBy%27"><span class="hs-pragma hs-type">SortTrialsBy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

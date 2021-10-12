@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.Types.Directory</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.Types.Directory</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types.DirectoryState</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Directory structure that includes the directory name and directory ARN.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDirectory' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679323729"><span id="local-6989586621679323730"></span></span><span class="hs-keyword">data</span><span> </span><span id="Directory"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-var">Directory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Directory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-var">Directory'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the directory.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADirectory%27"><span class="annot"><span class="annottext">Directory -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AdirectoryArn%3ADirectory%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the directory.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ADirectory%27"><span class="annot"><span class="annottext">Directory -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Aname%3ADirectory%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The state of the directory. Can be either @Enabled@, @Disabled@, or</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astate%3ADirectory%27"><span class="annot"><span class="annottext">Directory -&gt; Maybe DirectoryState
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Astate%3ADirectory%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time when the directory was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ADirectory%27"><span class="annot"><span class="annottext">Directory -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AcreationDateTime%3ADirectory%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323720"><span id="local-6989586621679323722"><span class="annot"><span class="annottext">Directory -&gt; Directory -&gt; Bool
+(Directory -&gt; Directory -&gt; Bool)
+-&gt; (Directory -&gt; Directory -&gt; Bool) -&gt; Eq Directory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Directory -&gt; Directory -&gt; Bool
+$c/= :: Directory -&gt; Directory -&gt; Bool
+== :: Directory -&gt; Directory -&gt; Bool
+$c== :: Directory -&gt; Directory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323711"><span id="local-6989586621679323713"><span id="local-6989586621679323715"><span id="local-6989586621679323717"><span class="annot"><span class="annottext">ReadPrec [Directory]
+ReadPrec Directory
+Int -&gt; ReadS Directory
+ReadS [Directory]
+(Int -&gt; ReadS Directory)
+-&gt; ReadS [Directory]
+-&gt; ReadPrec Directory
+-&gt; ReadPrec [Directory]
+-&gt; Read Directory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Directory]
+$creadListPrec :: ReadPrec [Directory]
+readPrec :: ReadPrec Directory
+$creadPrec :: ReadPrec Directory
+readList :: ReadS [Directory]
+$creadList :: ReadS [Directory]
+readsPrec :: Int -&gt; ReadS Directory
+$creadsPrec :: Int -&gt; ReadS Directory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323704"><span id="local-6989586621679323706"><span id="local-6989586621679323708"><span class="annot"><span class="annottext">Int -&gt; Directory -&gt; ShowS
+[Directory] -&gt; ShowS
+Directory -&gt; String
+(Int -&gt; Directory -&gt; ShowS)
+-&gt; (Directory -&gt; String)
+-&gt; ([Directory] -&gt; ShowS)
+-&gt; Show Directory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Directory] -&gt; ShowS
+$cshowList :: [Directory] -&gt; ShowS
+show :: Directory -&gt; String
+$cshow :: Directory -&gt; String
+showsPrec :: Int -&gt; Directory -&gt; ShowS
+$cshowsPrec :: Int -&gt; Directory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Directory -&gt; Rep Directory x)
+-&gt; (forall x. Rep Directory x -&gt; Directory) -&gt; Generic Directory
+forall x. Rep Directory x -&gt; Directory
+forall x. Directory -&gt; Rep Directory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Directory x -&gt; Directory
+$cfrom :: forall x. Directory -&gt; Rep Directory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Directory' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'directoryArn', 'directory_directoryArn' - The Amazon Resource Name (ARN) that is associated with the directory.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'directory_name' - The name of the directory.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'state', 'directory_state' - The state of the directory. Can be either @Enabled@, @Disabled@, or</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationDateTime', 'directory_creationDateTime' - The date and time when the directory was created.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#newDirectory"><span class="hs-identifier hs-type">newDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span>
+</span><span id="line-63"></span><span id="newDirectory"><span class="annot"><span class="annottext">newDirectory :: Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#newDirectory"><span class="hs-identifier hs-var hs-var">newDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">Directory' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:Directory' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AdirectoryArn%3ADirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Directory' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Aname%3ADirectory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Directory' :: Maybe DirectoryState
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Astate%3ADirectory%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:Directory' :: Maybe POSIX
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AcreationDateTime%3ADirectory%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the directory.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- For more information, see arns.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_directoryArn"><span class="hs-identifier hs-type">directory_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="directory_directoryArn"><span class="annot"><span class="annottext">directory_directoryArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Directory -&gt; f Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_directoryArn"><span class="hs-identifier hs-var hs-var">directory_directoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Directory -&gt; Maybe Text)
+-&gt; (Directory -&gt; Maybe Text -&gt; Directory)
+-&gt; Lens Directory Directory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323695"><span class="annot"><span class="annottext">Maybe Text
+directoryArn :: Maybe Text
+$sel:directoryArn:Directory' :: Directory -&gt; Maybe Text
+</span><a href="#local-6989586621679323695"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323695"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323694"><span class="annot"><span class="annottext">s :: Directory
+</span><a href="#local-6989586621679323694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Directory
+</span><a href="#local-6989586621679323694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:Directory' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AdirectoryArn%3ADirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the directory.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_name"><span class="hs-identifier hs-type">directory_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="directory_name"><span class="annot"><span class="annottext">directory_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Directory -&gt; f Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_name"><span class="hs-identifier hs-var hs-var">directory_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Directory -&gt; Maybe Text)
+-&gt; (Directory -&gt; Maybe Text -&gt; Directory)
+-&gt; Lens Directory Directory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323691"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Directory' :: Directory -&gt; Maybe Text
+</span><a href="#local-6989586621679323691"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323691"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323690"><span class="annot"><span class="annottext">s :: Directory
+</span><a href="#local-6989586621679323690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Directory
+</span><a href="#local-6989586621679323690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Directory' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Aname%3ADirectory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The state of the directory. Can be either @Enabled@, @Disabled@, or</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @Deleted@.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_state"><span class="hs-identifier hs-type">directory_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="directory_state"><span class="annot"><span class="annottext">directory_state :: (Maybe DirectoryState -&gt; f (Maybe DirectoryState))
+-&gt; Directory -&gt; f Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_state"><span class="hs-identifier hs-var hs-var">directory_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Directory -&gt; Maybe DirectoryState)
+-&gt; (Directory -&gt; Maybe DirectoryState -&gt; Directory)
+-&gt; Lens
+     Directory Directory (Maybe DirectoryState) (Maybe DirectoryState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323687"><span class="annot"><span class="annottext">Maybe DirectoryState
+state :: Maybe DirectoryState
+$sel:state:Directory' :: Directory -&gt; Maybe DirectoryState
+</span><a href="#local-6989586621679323687"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><a href="#local-6989586621679323687"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323686"><span class="annot"><span class="annottext">s :: Directory
+</span><a href="#local-6989586621679323686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323685"><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><a href="#local-6989586621679323685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Directory
+</span><a href="#local-6989586621679323686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Directory' :: Maybe DirectoryState
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3Astate%3ADirectory%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><a href="#local-6989586621679323685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The date and time when the directory was created.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_creationDateTime"><span class="hs-identifier hs-type">directory_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="directory_creationDateTime"><span class="annot"><span class="annottext">directory_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Directory -&gt; f Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#directory_creationDateTime"><span class="hs-identifier hs-var hs-var">directory_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Directory -&gt; Maybe POSIX)
+-&gt; (Directory -&gt; Maybe POSIX -&gt; Directory)
+-&gt; Lens Directory Directory (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323683"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:Directory' :: Directory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679323683"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323683"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323682"><span class="annot"><span class="annottext">s :: Directory
+</span><a href="#local-6989586621679323682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-type">Directory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323681"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Directory
+</span><a href="#local-6989586621679323682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:Directory' :: Maybe POSIX
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#%24sel%3AcreationDateTime%3ADirectory%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Directory -&gt; f Directory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Directory
+-&gt; f Directory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323675"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679323673"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Directory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Directory) -&gt; Value -&gt; Parser Directory
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Directory&quot;</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323670"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory
+</span><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory%27"><span class="hs-identifier hs-var">Directory'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DirectoryState -&gt; Maybe POSIX -&gt; Directory)
+-&gt; Parser (Maybe DirectoryState)
+-&gt; Parser (Maybe POSIX -&gt; Directory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DirectoryState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Directory)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Directory
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323664"><span id="local-6989586621679323666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ResponseError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ResponseError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateErrorCode.html"><span class="hs-identifier">Network.AWS.EC2.Types.LaunchTemplateErrorCode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the error that\'s returned when you cannot delete a launch</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- template version.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newResponseError' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681110106"><span id="local-6989586621681110107"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseError"><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-var">ResponseError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseError%27"><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-var">ResponseError'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message, if applicable.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AResponseError%27"><span class="annot"><span class="annottext">ResponseError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Amessage%3AResponseError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acode%3AResponseError%27"><span class="annot"><span class="annottext">ResponseError -&gt; Maybe LaunchTemplateErrorCode
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Acode%3AResponseError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateErrorCode.html#LaunchTemplateErrorCode"><span class="hs-identifier hs-type">LaunchTemplateErrorCode</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110099"><span id="local-6989586621681110101"><span class="annot"><span class="annottext">ResponseError -&gt; ResponseError -&gt; Bool
+(ResponseError -&gt; ResponseError -&gt; Bool)
+-&gt; (ResponseError -&gt; ResponseError -&gt; Bool) -&gt; Eq ResponseError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResponseError -&gt; ResponseError -&gt; Bool
+$c/= :: ResponseError -&gt; ResponseError -&gt; Bool
+== :: ResponseError -&gt; ResponseError -&gt; Bool
+$c== :: ResponseError -&gt; ResponseError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110090"><span id="local-6989586621681110092"><span id="local-6989586621681110094"><span id="local-6989586621681110096"><span class="annot"><span class="annottext">ReadPrec [ResponseError]
+ReadPrec ResponseError
+Int -&gt; ReadS ResponseError
+ReadS [ResponseError]
+(Int -&gt; ReadS ResponseError)
+-&gt; ReadS [ResponseError]
+-&gt; ReadPrec ResponseError
+-&gt; ReadPrec [ResponseError]
+-&gt; Read ResponseError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResponseError]
+$creadListPrec :: ReadPrec [ResponseError]
+readPrec :: ReadPrec ResponseError
+$creadPrec :: ReadPrec ResponseError
+readList :: ReadS [ResponseError]
+$creadList :: ReadS [ResponseError]
+readsPrec :: Int -&gt; ReadS ResponseError
+$creadsPrec :: Int -&gt; ReadS ResponseError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110083"><span id="local-6989586621681110085"><span id="local-6989586621681110087"><span class="annot"><span class="annottext">Int -&gt; ResponseError -&gt; ShowS
+[ResponseError] -&gt; ShowS
+ResponseError -&gt; String
+(Int -&gt; ResponseError -&gt; ShowS)
+-&gt; (ResponseError -&gt; String)
+-&gt; ([ResponseError] -&gt; ShowS)
+-&gt; Show ResponseError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResponseError] -&gt; ShowS
+$cshowList :: [ResponseError] -&gt; ShowS
+show :: ResponseError -&gt; String
+$cshow :: ResponseError -&gt; String
+showsPrec :: Int -&gt; ResponseError -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResponseError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResponseError -&gt; Rep ResponseError x)
+-&gt; (forall x. Rep ResponseError x -&gt; ResponseError)
+-&gt; Generic ResponseError
+forall x. Rep ResponseError x -&gt; ResponseError
+forall x. ResponseError -&gt; Rep ResponseError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResponseError x -&gt; ResponseError
+$cfrom :: forall x. ResponseError -&gt; Rep ResponseError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ResponseError' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'responseError_message' - The error message, if applicable.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'code', 'responseError_code' - The error code.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#newResponseError"><span class="hs-identifier hs-type">newResponseError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span>
+</span><span id="line-53"></span><span id="newResponseError"><span class="annot"><span class="annottext">newResponseError :: ResponseError
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#newResponseError"><span class="hs-identifier hs-var hs-var">newResponseError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">ResponseError' :: Maybe Text -&gt; Maybe LaunchTemplateErrorCode -&gt; ResponseError
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-type">ResponseError'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ResponseError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Amessage%3AResponseError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:ResponseError' :: Maybe LaunchTemplateErrorCode
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Acode%3AResponseError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The error message, if applicable.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#responseError_message"><span class="hs-identifier hs-type">responseError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="responseError_message"><span class="annot"><span class="annottext">responseError_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResponseError -&gt; f ResponseError
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#responseError_message"><span class="hs-identifier hs-var hs-var">responseError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseError -&gt; Maybe Text)
+-&gt; (ResponseError -&gt; Maybe Text -&gt; ResponseError)
+-&gt; Lens ResponseError ResponseError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-type">ResponseError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110074"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ResponseError' :: ResponseError -&gt; Maybe Text
+</span><a href="#local-6989586621681110074"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110074"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110073"><span class="annot"><span class="annottext">s :: ResponseError
+</span><a href="#local-6989586621681110073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-type">ResponseError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseError
+</span><a href="#local-6989586621681110073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ResponseError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Amessage%3AResponseError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681110072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#responseError_code"><span class="hs-identifier hs-type">responseError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateErrorCode.html#LaunchTemplateErrorCode"><span class="hs-identifier hs-type">LaunchTemplateErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="responseError_code"><span class="annot"><span class="annottext">responseError_code :: (Maybe LaunchTemplateErrorCode
+ -&gt; f (Maybe LaunchTemplateErrorCode))
+-&gt; ResponseError -&gt; f ResponseError
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#responseError_code"><span class="hs-identifier hs-var hs-var">responseError_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseError -&gt; Maybe LaunchTemplateErrorCode)
+-&gt; (ResponseError
+    -&gt; Maybe LaunchTemplateErrorCode -&gt; ResponseError)
+-&gt; Lens
+     ResponseError
+     ResponseError
+     (Maybe LaunchTemplateErrorCode)
+     (Maybe LaunchTemplateErrorCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-type">ResponseError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110070"><span class="annot"><span class="annottext">Maybe LaunchTemplateErrorCode
+code :: Maybe LaunchTemplateErrorCode
+$sel:code:ResponseError' :: ResponseError -&gt; Maybe LaunchTemplateErrorCode
+</span><a href="#local-6989586621681110070"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateErrorCode
+</span><a href="#local-6989586621681110070"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110069"><span class="annot"><span class="annottext">s :: ResponseError
+</span><a href="#local-6989586621681110069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-type">ResponseError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110068"><span class="annot"><span class="annottext">Maybe LaunchTemplateErrorCode
+</span><a href="#local-6989586621681110068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseError
+</span><a href="#local-6989586621681110069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ResponseError' :: Maybe LaunchTemplateErrorCode
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#%24sel%3Acode%3AResponseError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateErrorCode
+</span><a href="#local-6989586621681110068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681110065"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResponseError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110063"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe LaunchTemplateErrorCode -&gt; ResponseError
+</span><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError%27"><span class="hs-identifier hs-var">ResponseError'</span></a></span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe LaunchTemplateErrorCode -&gt; ResponseError)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe LaunchTemplateErrorCode -&gt; ResponseError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe LaunchTemplateErrorCode -&gt; ResponseError)
+-&gt; Either String (Maybe LaunchTemplateErrorCode)
+-&gt; Either String ResponseError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplateErrorCode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110057"><span id="local-6989586621681110059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResponseError.html#ResponseError"><span class="hs-identifier hs-type">ResponseError</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

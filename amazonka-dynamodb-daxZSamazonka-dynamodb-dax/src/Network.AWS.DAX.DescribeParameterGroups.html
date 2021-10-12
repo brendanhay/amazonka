@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DAX.DescribeParameterGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of parameter group descriptions. If a parameter group</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- name is specified, the list will contain only the descriptions for that</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DAX.DescribeParameterGroups</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier">DescribeParameterGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroups"><span class="hs-identifier">newDescribeParameterGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_nextToken"><span class="hs-identifier">describeParameterGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_maxResults"><span class="hs-identifier">describeParameterGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_parameterGroupNames"><span class="hs-identifier">describeParameterGroups_parameterGroupNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier">DescribeParameterGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroupsResponse"><span class="hs-identifier">newDescribeParameterGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_nextToken"><span class="hs-identifier">describeParameterGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_parameterGroups"><span class="hs-identifier">describeParameterGroupsResponse_parameterGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_httpStatus"><span class="hs-identifier">describeParameterGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.html"><span class="hs-identifier">Network.AWS.DAX.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeParameterGroups' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679198519"><span id="local-6989586621679198520"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeParameterGroups"><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-var">DescribeParameterGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeParameterGroups%27"><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-var">DescribeParameterGroups'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeParameterGroups%27"><span class="annot"><span class="annottext">DescribeParameterGroups -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The value for @MaxResults@ must be between 20 and 100.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeParameterGroups%27"><span class="annot"><span class="annottext">DescribeParameterGroups -&gt; Maybe Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AmaxResults%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The names of the parameter groups.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AparameterGroupNames%3ADescribeParameterGroups%27"><span class="annot"><span class="annottext">DescribeParameterGroups -&gt; Maybe [Text]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroupNames%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var hs-var">parameterGroupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198511"><span id="local-6989586621679198513"><span class="annot"><span class="annottext">DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool
+(DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool)
+-&gt; (DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool)
+-&gt; Eq DescribeParameterGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool
+$c/= :: DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool
+== :: DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool
+$c== :: DescribeParameterGroups -&gt; DescribeParameterGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198502"><span id="local-6989586621679198504"><span id="local-6989586621679198506"><span id="local-6989586621679198508"><span class="annot"><span class="annottext">ReadPrec [DescribeParameterGroups]
+ReadPrec DescribeParameterGroups
+Int -&gt; ReadS DescribeParameterGroups
+ReadS [DescribeParameterGroups]
+(Int -&gt; ReadS DescribeParameterGroups)
+-&gt; ReadS [DescribeParameterGroups]
+-&gt; ReadPrec DescribeParameterGroups
+-&gt; ReadPrec [DescribeParameterGroups]
+-&gt; Read DescribeParameterGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeParameterGroups]
+$creadListPrec :: ReadPrec [DescribeParameterGroups]
+readPrec :: ReadPrec DescribeParameterGroups
+$creadPrec :: ReadPrec DescribeParameterGroups
+readList :: ReadS [DescribeParameterGroups]
+$creadList :: ReadS [DescribeParameterGroups]
+readsPrec :: Int -&gt; ReadS DescribeParameterGroups
+$creadsPrec :: Int -&gt; ReadS DescribeParameterGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198495"><span id="local-6989586621679198497"><span id="local-6989586621679198499"><span class="annot"><span class="annottext">Int -&gt; DescribeParameterGroups -&gt; ShowS
+[DescribeParameterGroups] -&gt; ShowS
+DescribeParameterGroups -&gt; String
+(Int -&gt; DescribeParameterGroups -&gt; ShowS)
+-&gt; (DescribeParameterGroups -&gt; String)
+-&gt; ([DescribeParameterGroups] -&gt; ShowS)
+-&gt; Show DescribeParameterGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeParameterGroups] -&gt; ShowS
+$cshowList :: [DescribeParameterGroups] -&gt; ShowS
+show :: DescribeParameterGroups -&gt; String
+$cshow :: DescribeParameterGroups -&gt; String
+showsPrec :: Int -&gt; DescribeParameterGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeParameterGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeParameterGroups -&gt; Rep DescribeParameterGroups x)
+-&gt; (forall x.
+    Rep DescribeParameterGroups x -&gt; DescribeParameterGroups)
+-&gt; Generic DescribeParameterGroups
+forall x. Rep DescribeParameterGroups x -&gt; DescribeParameterGroups
+forall x. DescribeParameterGroups -&gt; Rep DescribeParameterGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeParameterGroups x -&gt; DescribeParameterGroups
+$cfrom :: forall x. DescribeParameterGroups -&gt; Rep DescribeParameterGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'DescribeParameterGroups' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'describeParameterGroups_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'describeParameterGroups_maxResults' - The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The value for @MaxResults@ must be between 20 and 100.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'parameterGroupNames', 'describeParameterGroups_parameterGroupNames' - The names of the parameter groups.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroups"><span class="hs-identifier hs-type">newDescribeParameterGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span>
+</span><span id="line-96"></span><span id="newDescribeParameterGroups"><span class="annot"><span class="annottext">newDescribeParameterGroups :: DescribeParameterGroups
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroups"><span class="hs-identifier hs-var hs-var">newDescribeParameterGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">DescribeParameterGroups' :: Maybe Text -&gt; Maybe Int -&gt; Maybe [Text] -&gt; DescribeParameterGroups
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeParameterGroups' :: Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeParameterGroups' :: Maybe Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AmaxResults%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterGroupNames:DescribeParameterGroups' :: Maybe [Text]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroupNames%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">parameterGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the response includes only results beyond the token, up to the value</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- specified by @MaxResults@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_nextToken"><span class="hs-identifier hs-type">describeParameterGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="describeParameterGroups_nextToken"><span class="annot"><span class="annottext">describeParameterGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeParameterGroups -&gt; f DescribeParameterGroups
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_nextToken"><span class="hs-identifier hs-var hs-var">describeParameterGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroups -&gt; Maybe Text)
+-&gt; (DescribeParameterGroups
+    -&gt; Maybe Text -&gt; DescribeParameterGroups)
+-&gt; Lens
+     DescribeParameterGroups
+     DescribeParameterGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198489"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679198489"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198489"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198488"><span class="annot"><span class="annottext">s :: DescribeParameterGroups
+</span><a href="#local-6989586621679198488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroups
+</span><a href="#local-6989586621679198488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeParameterGroups' :: Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- results exist than the specified @MaxResults@ value, a token is included</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The value for @MaxResults@ must be between 20 and 100.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_maxResults"><span class="hs-identifier hs-type">describeParameterGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="describeParameterGroups_maxResults"><span class="annot"><span class="annottext">describeParameterGroups_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeParameterGroups -&gt; f DescribeParameterGroups
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_maxResults"><span class="hs-identifier hs-var hs-var">describeParameterGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroups -&gt; Maybe Int)
+-&gt; (DescribeParameterGroups
+    -&gt; Maybe Int -&gt; DescribeParameterGroups)
+-&gt; Lens
+     DescribeParameterGroups
+     DescribeParameterGroups
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198486"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe Int
+</span><a href="#local-6989586621679198486"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679198486"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198485"><span class="annot"><span class="annottext">s :: DescribeParameterGroups
+</span><a href="#local-6989586621679198485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198484"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679198484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroups
+</span><a href="#local-6989586621679198485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeParameterGroups' :: Maybe Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AmaxResults%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679198484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The names of the parameter groups.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_parameterGroupNames"><span class="hs-identifier hs-type">describeParameterGroups_parameterGroupNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="describeParameterGroups_parameterGroupNames"><span class="annot"><span class="annottext">describeParameterGroups_parameterGroupNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeParameterGroups -&gt; f DescribeParameterGroups
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_parameterGroupNames"><span class="hs-identifier hs-var hs-var">describeParameterGroups_parameterGroupNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroups -&gt; Maybe [Text])
+-&gt; (DescribeParameterGroups
+    -&gt; Maybe [Text] -&gt; DescribeParameterGroups)
+-&gt; Lens
+     DescribeParameterGroups
+     DescribeParameterGroups
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198483"><span class="annot"><span class="annottext">Maybe [Text]
+parameterGroupNames :: Maybe [Text]
+$sel:parameterGroupNames:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe [Text]
+</span><a href="#local-6989586621679198483"><span class="hs-identifier hs-var hs-var">parameterGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198483"><span class="hs-identifier hs-var">parameterGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198482"><span class="annot"><span class="annottext">s :: DescribeParameterGroups
+</span><a href="#local-6989586621679198482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198481"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroups
+</span><a href="#local-6989586621679198482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupNames:DescribeParameterGroups' :: Maybe [Text]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroupNames%3ADescribeParameterGroups%27"><span class="hs-identifier hs-var">parameterGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeParameterGroups -&gt; f DescribeParameterGroups)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeParameterGroups
+-&gt; f DescribeParameterGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679198474"><span class="annot"><span class="annottext">page :: DescribeParameterGroups
+-&gt; AWSResponse DescribeParameterGroups
+-&gt; Maybe DescribeParameterGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679198472"><span class="annot"><span class="annottext">DescribeParameterGroups
+</span><a href="#local-6989586621679198472"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679198471"><span class="annot"><span class="annottext">AWSResponse DescribeParameterGroups
+</span><a href="#local-6989586621679198471"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeParameterGroups
+DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198471"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+-&gt; Getting (First Text) DescribeParameterGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeParameterGroupsResponse
+-&gt; Const (First Text) DescribeParameterGroupsResponse
+Lens' DescribeParameterGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_nextToken"><span class="hs-identifier hs-var">describeParameterGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeParameterGroupsResponse
+ -&gt; Const (First Text) DescribeParameterGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeParameterGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeParameterGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterGroup] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeParameterGroups
+DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198471"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+-&gt; Getting
+     (First [ParameterGroup])
+     DescribeParameterGroupsResponse
+     [ParameterGroup]
+-&gt; Maybe [ParameterGroup]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ParameterGroup]
+ -&gt; Const (First [ParameterGroup]) (Maybe [ParameterGroup]))
+-&gt; DescribeParameterGroupsResponse
+-&gt; Const (First [ParameterGroup]) DescribeParameterGroupsResponse
+Lens' DescribeParameterGroupsResponse (Maybe [ParameterGroup])
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_parameterGroups"><span class="hs-identifier hs-var">describeParameterGroupsResponse_parameterGroups</span></a></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ParameterGroup]
+  -&gt; Const (First [ParameterGroup]) (Maybe [ParameterGroup]))
+ -&gt; DescribeParameterGroupsResponse
+ -&gt; Const (First [ParameterGroup]) DescribeParameterGroupsResponse)
+-&gt; (([ParameterGroup]
+     -&gt; Const (First [ParameterGroup]) [ParameterGroup])
+    -&gt; Maybe [ParameterGroup]
+    -&gt; Const (First [ParameterGroup]) (Maybe [ParameterGroup]))
+-&gt; Getting
+     (First [ParameterGroup])
+     DescribeParameterGroupsResponse
+     [ParameterGroup]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ParameterGroup]
+ -&gt; Const (First [ParameterGroup]) [ParameterGroup])
+-&gt; Maybe [ParameterGroup]
+-&gt; Const (First [ParameterGroup]) (Maybe [ParameterGroup])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeParameterGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">DescribeParameterGroups -&gt; Maybe DescribeParameterGroups
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroups -&gt; Maybe DescribeParameterGroups)
+-&gt; DescribeParameterGroups -&gt; Maybe DescribeParameterGroups
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">DescribeParameterGroups
+</span><a href="#local-6989586621679198472"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">DescribeParameterGroups
+-&gt; (DescribeParameterGroups -&gt; DescribeParameterGroups)
+-&gt; DescribeParameterGroups
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeParameterGroups -&gt; Identity DescribeParameterGroups
+Lens
+  DescribeParameterGroups
+  DescribeParameterGroups
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroups_nextToken"><span class="hs-identifier hs-var">describeParameterGroups_nextToken</span></a></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeParameterGroups -&gt; Identity DescribeParameterGroups)
+-&gt; Maybe Text -&gt; DescribeParameterGroups -&gt; DescribeParameterGroups
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeParameterGroups
+DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198471"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+-&gt; Getting (First Text) DescribeParameterGroupsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeParameterGroupsResponse
+-&gt; Const (First Text) DescribeParameterGroupsResponse
+Lens' DescribeParameterGroupsResponse (Maybe Text)
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_nextToken"><span class="hs-identifier hs-var">describeParameterGroupsResponse_nextToken</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeParameterGroupsResponse
+ -&gt; Const (First Text) DescribeParameterGroupsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeParameterGroupsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679198462"><span class="annot"><span class="annottext">request :: DescribeParameterGroups -&gt; Request DescribeParameterGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeParameterGroups -&gt; Request DescribeParameterGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679198458"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeParameterGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeParameterGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeParameterGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeParameterGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeParameterGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198455"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198454"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198454"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ParameterGroup] -&gt; Int -&gt; DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">DescribeParameterGroupsResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ParameterGroup]
+ -&gt; Int
+ -&gt; DescribeParameterGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ParameterGroup] -&gt; Int -&gt; DescribeParameterGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ParameterGroup] -&gt; Int -&gt; DescribeParameterGroupsResponse)
+-&gt; Either String (Maybe [ParameterGroup])
+-&gt; Either String (Int -&gt; DescribeParameterGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ParameterGroup]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterGroups&quot;</span></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ParameterGroup]))
+-&gt; Maybe [ParameterGroup] -&gt; Either String (Maybe [ParameterGroup])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeParameterGroupsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeParameterGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198455"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198444"><span id="local-6989586621679198446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679198437"><span class="annot"><span class="annottext">toHeaders :: DescribeParameterGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeParameterGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonDAXV3.DescribeParameterGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-176"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198427"><span id="local-6989586621679198429"><span id="local-6989586621679198431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679198425"><span class="annot"><span class="annottext">toJSON :: DescribeParameterGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups%27"><span class="hs-identifier hs-type">DescribeParameterGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198421"><span id="local-6989586621679198422"><span id="local-6989586621679198423"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe Text
+parameterGroupNames :: Maybe [Text]
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:parameterGroupNames:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe [Text]
+$sel:maxResults:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe Int
+$sel:nextToken:DescribeParameterGroups' :: DescribeParameterGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679198421"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198423"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679198422"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterGroupNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198421"><span class="hs-identifier hs-var">parameterGroupNames</span></a></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679198415"><span class="annot"><span class="annottext">toPath :: DescribeParameterGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeParameterGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroups"><span class="hs-identifier hs-type">DescribeParameterGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679198411"><span class="annot"><span class="annottext">toQuery :: DescribeParameterGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeParameterGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newDescribeParameterGroupsResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621679198408"><span id="local-6989586621679198409"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeParameterGroupsResponse"><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-var">DescribeParameterGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeParameterGroupsResponse%27"><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">DescribeParameterGroupsResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeParameterGroupsResponse%27"><span class="annot"><span class="annottext">DescribeParameterGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | An array of parameter groups. Each element in the array represents one</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- parameter group.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AparameterGroups%3ADescribeParameterGroupsResponse%27"><span class="annot"><span class="annottext">DescribeParameterGroupsResponse -&gt; Maybe [ParameterGroup]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroups%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var hs-var">parameterGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.ParameterGroup.html#ParameterGroup"><span class="hs-identifier hs-type">ParameterGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeParameterGroupsResponse%27"><span class="annot"><span class="annottext">DescribeParameterGroupsResponse -&gt; Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AhttpStatus%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198401"><span id="local-6989586621679198403"><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+-&gt; DescribeParameterGroupsResponse -&gt; Bool
+(DescribeParameterGroupsResponse
+ -&gt; DescribeParameterGroupsResponse -&gt; Bool)
+-&gt; (DescribeParameterGroupsResponse
+    -&gt; DescribeParameterGroupsResponse -&gt; Bool)
+-&gt; Eq DescribeParameterGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeParameterGroupsResponse
+-&gt; DescribeParameterGroupsResponse -&gt; Bool
+$c/= :: DescribeParameterGroupsResponse
+-&gt; DescribeParameterGroupsResponse -&gt; Bool
+== :: DescribeParameterGroupsResponse
+-&gt; DescribeParameterGroupsResponse -&gt; Bool
+$c== :: DescribeParameterGroupsResponse
+-&gt; DescribeParameterGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198393"><span id="local-6989586621679198395"><span id="local-6989586621679198397"><span id="local-6989586621679198399"><span class="annot"><span class="annottext">ReadPrec [DescribeParameterGroupsResponse]
+ReadPrec DescribeParameterGroupsResponse
+Int -&gt; ReadS DescribeParameterGroupsResponse
+ReadS [DescribeParameterGroupsResponse]
+(Int -&gt; ReadS DescribeParameterGroupsResponse)
+-&gt; ReadS [DescribeParameterGroupsResponse]
+-&gt; ReadPrec DescribeParameterGroupsResponse
+-&gt; ReadPrec [DescribeParameterGroupsResponse]
+-&gt; Read DescribeParameterGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeParameterGroupsResponse]
+$creadListPrec :: ReadPrec [DescribeParameterGroupsResponse]
+readPrec :: ReadPrec DescribeParameterGroupsResponse
+$creadPrec :: ReadPrec DescribeParameterGroupsResponse
+readList :: ReadS [DescribeParameterGroupsResponse]
+$creadList :: ReadS [DescribeParameterGroupsResponse]
+readsPrec :: Int -&gt; ReadS DescribeParameterGroupsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeParameterGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198387"><span id="local-6989586621679198389"><span id="local-6989586621679198391"><span class="annot"><span class="annottext">Int -&gt; DescribeParameterGroupsResponse -&gt; ShowS
+[DescribeParameterGroupsResponse] -&gt; ShowS
+DescribeParameterGroupsResponse -&gt; String
+(Int -&gt; DescribeParameterGroupsResponse -&gt; ShowS)
+-&gt; (DescribeParameterGroupsResponse -&gt; String)
+-&gt; ([DescribeParameterGroupsResponse] -&gt; ShowS)
+-&gt; Show DescribeParameterGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeParameterGroupsResponse] -&gt; ShowS
+$cshowList :: [DescribeParameterGroupsResponse] -&gt; ShowS
+show :: DescribeParameterGroupsResponse -&gt; String
+$cshow :: DescribeParameterGroupsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeParameterGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeParameterGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeParameterGroupsResponse
+ -&gt; Rep DescribeParameterGroupsResponse x)
+-&gt; (forall x.
+    Rep DescribeParameterGroupsResponse x
+    -&gt; DescribeParameterGroupsResponse)
+-&gt; Generic DescribeParameterGroupsResponse
+forall x.
+Rep DescribeParameterGroupsResponse x
+-&gt; DescribeParameterGroupsResponse
+forall x.
+DescribeParameterGroupsResponse
+-&gt; Rep DescribeParameterGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeParameterGroupsResponse x
+-&gt; DescribeParameterGroupsResponse
+$cfrom :: forall x.
+DescribeParameterGroupsResponse
+-&gt; Rep DescribeParameterGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Create a value of 'DescribeParameterGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'nextToken', 'describeParameterGroupsResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'parameterGroups', 'describeParameterGroupsResponse_parameterGroups' - An array of parameter groups. Each element in the array represents one</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- parameter group.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'httpStatus', 'describeParameterGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroupsResponse"><span class="hs-identifier hs-type">newDescribeParameterGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span>
+</span><span id="line-227"></span><span id="newDescribeParameterGroupsResponse"><span class="annot"><span class="annottext">newDescribeParameterGroupsResponse :: Int -&gt; DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#newDescribeParameterGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeParameterGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679198384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse' :: Maybe Text
+-&gt; Maybe [ParameterGroup] -&gt; Int -&gt; DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeParameterGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterGroups:DescribeParameterGroupsResponse' :: Maybe [ParameterGroup]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroups%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">parameterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeParameterGroupsResponse' :: Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AhttpStatus%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_nextToken"><span class="hs-identifier hs-type">describeParameterGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="describeParameterGroupsResponse_nextToken"><span class="annot"><span class="annottext">describeParameterGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeParameterGroupsResponse
+-&gt; f DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeParameterGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroupsResponse -&gt; Maybe Text)
+-&gt; (DescribeParameterGroupsResponse
+    -&gt; Maybe Text -&gt; DescribeParameterGroupsResponse)
+-&gt; Lens' DescribeParameterGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198383"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeParameterGroupsResponse' :: DescribeParameterGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679198383"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198382"><span class="annot"><span class="annottext">s :: DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeParameterGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AnextToken%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | An array of parameter groups. Each element in the array represents one</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- parameter group.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_parameterGroups"><span class="hs-identifier hs-type">describeParameterGroupsResponse_parameterGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.ParameterGroup.html#ParameterGroup"><span class="hs-identifier hs-type">ParameterGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="describeParameterGroupsResponse_parameterGroups"><span class="annot"><span class="annottext">describeParameterGroupsResponse_parameterGroups :: (Maybe [ParameterGroup] -&gt; f (Maybe [ParameterGroup]))
+-&gt; DescribeParameterGroupsResponse
+-&gt; f DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_parameterGroups"><span class="hs-identifier hs-var hs-var">describeParameterGroupsResponse_parameterGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroupsResponse -&gt; Maybe [ParameterGroup])
+-&gt; (DescribeParameterGroupsResponse
+    -&gt; Maybe [ParameterGroup] -&gt; DescribeParameterGroupsResponse)
+-&gt; Lens' DescribeParameterGroupsResponse (Maybe [ParameterGroup])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198380"><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+parameterGroups :: Maybe [ParameterGroup]
+$sel:parameterGroups:DescribeParameterGroupsResponse' :: DescribeParameterGroupsResponse -&gt; Maybe [ParameterGroup]
+</span><a href="#local-6989586621679198380"><span class="hs-identifier hs-var hs-var">parameterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+</span><a href="#local-6989586621679198380"><span class="hs-identifier hs-var">parameterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198379"><span class="annot"><span class="annottext">s :: DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198378"><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+</span><a href="#local-6989586621679198378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroups:DescribeParameterGroupsResponse' :: Maybe [ParameterGroup]
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AparameterGroups%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">parameterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterGroup]
+</span><a href="#local-6989586621679198378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterGroup] -&gt; f (Maybe [ParameterGroup]))
+ -&gt; DescribeParameterGroupsResponse
+ -&gt; f DescribeParameterGroupsResponse)
+-&gt; ((Maybe [ParameterGroup] -&gt; f (Maybe [ParameterGroup]))
+    -&gt; Maybe [ParameterGroup] -&gt; f (Maybe [ParameterGroup]))
+-&gt; (Maybe [ParameterGroup] -&gt; f (Maybe [ParameterGroup]))
+-&gt; DescribeParameterGroupsResponse
+-&gt; f DescribeParameterGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ParameterGroup] [ParameterGroup] [ParameterGroup] [ParameterGroup]
+-&gt; Iso
+     (Maybe [ParameterGroup])
+     (Maybe [ParameterGroup])
+     (Maybe [ParameterGroup])
+     (Maybe [ParameterGroup])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ParameterGroup] [ParameterGroup] [ParameterGroup] [ParameterGroup]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeParameterGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="describeParameterGroupsResponse_httpStatus"><span class="annot"><span class="annottext">describeParameterGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeParameterGroupsResponse
+-&gt; f DescribeParameterGroupsResponse
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#describeParameterGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeParameterGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeParameterGroupsResponse -&gt; Int)
+-&gt; (DescribeParameterGroupsResponse
+    -&gt; Int -&gt; DescribeParameterGroupsResponse)
+-&gt; Lens
+     DescribeParameterGroupsResponse
+     DescribeParameterGroupsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198377"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeParameterGroupsResponse' :: DescribeParameterGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679198377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198376"><span class="annot"><span class="annottext">s :: DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse%27"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeParameterGroupsResponse
+</span><a href="#local-6989586621679198376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeParameterGroupsResponse' :: Int
+</span><a href="Network.AWS.DAX.DescribeParameterGroups.html#%24sel%3AhttpStatus%3ADescribeParameterGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679198373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DescribeParameterGroups.html#DescribeParameterGroupsResponse"><span class="hs-identifier hs-type">DescribeParameterGroupsResponse</span></a></span></span><span>
+</span><span id="line-251"></span></pre></body></html>

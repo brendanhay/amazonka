@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Rejects a request to associate cross-account subnets with a transit</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- gateway multicast domain.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier">newRejectTransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_dryRun"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociations_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_subnetIds"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociations_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier">newRejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_associations"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociationsResponse_associations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus"><span class="hs-identifier">rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newRejectTransitGatewayMulticastDomainAssociations' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621681174877"><span id="local-6989586621681174878"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectTransitGatewayMulticastDomainAssociations"><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-var">RejectTransitGatewayMulticastDomainAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectTransitGatewayMulticastDomainAssociations%27"><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">RejectTransitGatewayMulticastDomainAssociations'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayMulticastDomainId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdryRun%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AdryRun%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The IDs of the subnets to associate with the transit gateway multicast</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsubnetIds%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AsubnetIds%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayAttachmentId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681174868"><span id="local-6989586621681174870"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool
+(RejectTransitGatewayMulticastDomainAssociations
+ -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool)
+-&gt; (RejectTransitGatewayMulticastDomainAssociations
+    -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool)
+-&gt; Eq RejectTransitGatewayMulticastDomainAssociations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RejectTransitGatewayMulticastDomainAssociations
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool
+$c/= :: RejectTransitGatewayMulticastDomainAssociations
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool
+== :: RejectTransitGatewayMulticastDomainAssociations
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool
+$c== :: RejectTransitGatewayMulticastDomainAssociations
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681174859"><span id="local-6989586621681174861"><span id="local-6989586621681174863"><span id="local-6989586621681174865"><span class="annot"><span class="annottext">ReadPrec [RejectTransitGatewayMulticastDomainAssociations]
+ReadPrec RejectTransitGatewayMulticastDomainAssociations
+Int -&gt; ReadS RejectTransitGatewayMulticastDomainAssociations
+ReadS [RejectTransitGatewayMulticastDomainAssociations]
+(Int -&gt; ReadS RejectTransitGatewayMulticastDomainAssociations)
+-&gt; ReadS [RejectTransitGatewayMulticastDomainAssociations]
+-&gt; ReadPrec RejectTransitGatewayMulticastDomainAssociations
+-&gt; ReadPrec [RejectTransitGatewayMulticastDomainAssociations]
+-&gt; Read RejectTransitGatewayMulticastDomainAssociations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RejectTransitGatewayMulticastDomainAssociations]
+$creadListPrec :: ReadPrec [RejectTransitGatewayMulticastDomainAssociations]
+readPrec :: ReadPrec RejectTransitGatewayMulticastDomainAssociations
+$creadPrec :: ReadPrec RejectTransitGatewayMulticastDomainAssociations
+readList :: ReadS [RejectTransitGatewayMulticastDomainAssociations]
+$creadList :: ReadS [RejectTransitGatewayMulticastDomainAssociations]
+readsPrec :: Int -&gt; ReadS RejectTransitGatewayMulticastDomainAssociations
+$creadsPrec :: Int -&gt; ReadS RejectTransitGatewayMulticastDomainAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681174852"><span id="local-6989586621681174854"><span id="local-6989586621681174856"><span class="annot"><span class="annottext">Int -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; ShowS
+[RejectTransitGatewayMulticastDomainAssociations] -&gt; ShowS
+RejectTransitGatewayMulticastDomainAssociations -&gt; String
+(Int -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; ShowS)
+-&gt; (RejectTransitGatewayMulticastDomainAssociations -&gt; String)
+-&gt; ([RejectTransitGatewayMulticastDomainAssociations] -&gt; ShowS)
+-&gt; Show RejectTransitGatewayMulticastDomainAssociations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RejectTransitGatewayMulticastDomainAssociations] -&gt; ShowS
+$cshowList :: [RejectTransitGatewayMulticastDomainAssociations] -&gt; ShowS
+show :: RejectTransitGatewayMulticastDomainAssociations -&gt; String
+$cshow :: RejectTransitGatewayMulticastDomainAssociations -&gt; String
+showsPrec :: Int -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; ShowS
+$cshowsPrec :: Int -&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RejectTransitGatewayMulticastDomainAssociations
+ -&gt; Rep RejectTransitGatewayMulticastDomainAssociations x)
+-&gt; (forall x.
+    Rep RejectTransitGatewayMulticastDomainAssociations x
+    -&gt; RejectTransitGatewayMulticastDomainAssociations)
+-&gt; Generic RejectTransitGatewayMulticastDomainAssociations
+forall x.
+Rep RejectTransitGatewayMulticastDomainAssociations x
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+forall x.
+RejectTransitGatewayMulticastDomainAssociations
+-&gt; Rep RejectTransitGatewayMulticastDomainAssociations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RejectTransitGatewayMulticastDomainAssociations x
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+$cfrom :: forall x.
+RejectTransitGatewayMulticastDomainAssociations
+-&gt; Rep RejectTransitGatewayMulticastDomainAssociations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'RejectTransitGatewayMulticastDomainAssociations' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'dryRun', 'rejectTransitGatewayMulticastDomainAssociations_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'subnetIds', 'rejectTransitGatewayMulticastDomainAssociations_subnetIds' - The IDs of the subnets to associate with the transit gateway multicast</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId' - The ID of the transit gateway attachment.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">newRejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span>
+</span><span id="line-91"></span><span id="newRejectTransitGatewayMulticastDomainAssociations"><span class="annot"><span class="annottext">newRejectTransitGatewayMulticastDomainAssociations :: RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-var hs-var">newRejectTransitGatewayMulticastDomainAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayMulticastDomainId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Bool
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AdryRun%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:RejectTransitGatewayMulticastDomainAssociations' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AsubnetIds%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayAttachmentId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; f RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text)
+-&gt; (RejectTransitGatewayMulticastDomainAssociations
+    -&gt; Maybe Text -&gt; RejectTransitGatewayMulticastDomainAssociations)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociations
+     RejectTransitGatewayMulticastDomainAssociations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174845"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayMulticastDomainId :: Maybe Text
+$sel:transitGatewayMulticastDomainId:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+</span><a href="#local-6989586621681174845"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174845"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174844"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayMulticastDomainId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_dryRun"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociations_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="rejectTransitGatewayMulticastDomainAssociations_dryRun"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociations_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; f RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_dryRun"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociations_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Bool)
+-&gt; (RejectTransitGatewayMulticastDomainAssociations
+    -&gt; Maybe Bool -&gt; RejectTransitGatewayMulticastDomainAssociations)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociations
+     RejectTransitGatewayMulticastDomainAssociations
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174842"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Bool
+</span><a href="#local-6989586621681174842"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681174842"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174841"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174840"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681174840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Bool
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AdryRun%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681174840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The IDs of the subnets to associate with the transit gateway multicast</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_subnetIds"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociations_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="rejectTransitGatewayMulticastDomainAssociations_subnetIds"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociations_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; f RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_subnetIds"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociations_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe [Text])
+-&gt; (RejectTransitGatewayMulticastDomainAssociations
+    -&gt; Maybe [Text] -&gt; RejectTransitGatewayMulticastDomainAssociations)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociations
+     RejectTransitGatewayMulticastDomainAssociations
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174839"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe [Text]
+</span><a href="#local-6989586621681174839"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681174839"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174838"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174837"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681174837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:RejectTransitGatewayMulticastDomainAssociations' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AsubnetIds%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681174837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RejectTransitGatewayMulticastDomainAssociations
+ -&gt; f RejectTransitGatewayMulticastDomainAssociations)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; f RejectTransitGatewayMulticastDomainAssociations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; f RejectTransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text)
+-&gt; (RejectTransitGatewayMulticastDomainAssociations
+    -&gt; Maybe Text -&gt; RejectTransitGatewayMulticastDomainAssociations)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociations
+     RejectTransitGatewayMulticastDomainAssociations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174833"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAttachmentId :: Maybe Text
+$sel:transitGatewayAttachmentId:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+</span><a href="#local-6989586621681174833"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174833"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174832"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:RejectTransitGatewayMulticastDomainAssociations' :: Maybe Text
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AtransitGatewayAttachmentId%3ARejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681174827"><span class="annot"><span class="annottext">request :: RejectTransitGatewayMulticastDomainAssociations
+-&gt; Request RejectTransitGatewayMulticastDomainAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; Request RejectTransitGatewayMulticastDomainAssociations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681174823"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RejectTransitGatewayMulticastDomainAssociations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse RejectTransitGatewayMulticastDomainAssociations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String
+      (AWSResponse RejectTransitGatewayMulticastDomainAssociations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RejectTransitGatewayMulticastDomainAssociations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse RejectTransitGatewayMulticastDomainAssociations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681174820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174820"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681174819"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681174819"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681174818"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681174818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+-&gt; Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayMulticastDomainAssociations
+ -&gt; Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; Either String (Maybe TransitGatewayMulticastDomainAssociations)
+-&gt; Either
+     String
+     (Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681174818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text
+-&gt; Either String (Maybe TransitGatewayMulticastDomainAssociations)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String RejectTransitGatewayMulticastDomainAssociationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174820"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681174810"><span id="local-6989586621681174812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681174807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621681174803"><span class="annot"><span class="annottext">toHeaders :: RejectTransitGatewayMulticastDomainAssociations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; RejectTransitGatewayMulticastDomainAssociations
+-&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621681174798"><span class="annot"><span class="annottext">toPath :: RejectTransitGatewayMulticastDomainAssociations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; RejectTransitGatewayMulticastDomainAssociations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681174794"><span class="annot"><span class="annottext">toQuery :: RejectTransitGatewayMulticastDomainAssociations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociations%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174789"><span id="local-6989586621681174790"><span id="local-6989586621681174791"><span id="local-6989586621681174792"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+transitGatewayAttachmentId :: Maybe Text
+subnetIds :: Maybe [Text]
+dryRun :: Maybe Bool
+transitGatewayMulticastDomainId :: Maybe Text
+$sel:transitGatewayAttachmentId:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+$sel:subnetIds:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe [Text]
+$sel:dryRun:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Bool
+$sel:transitGatewayMulticastDomainId:RejectTransitGatewayMulticastDomainAssociations' :: RejectTransitGatewayMulticastDomainAssociations -&gt; Maybe Text
+</span><a href="#local-6989586621681174789"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RejectTransitGatewayMulticastDomainAssociations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>                        </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-169"></span><span>                    </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174792"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681174791"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681174790"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayAttachmentId&quot;</span></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681174789"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span>
+</span><span id="line-179"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newRejectTransitGatewayMulticastDomainAssociationsResponse' smart constructor.</span><span>
+</span><span id="line-182"></span><span id="local-6989586621681174785"><span id="local-6989586621681174786"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-var">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aassociations%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3Aassociations%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociations.html#TransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Int
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AhttpStatus%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681174779"><span id="local-6989586621681174781"><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool
+(RejectTransitGatewayMulticastDomainAssociationsResponse
+ -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool)
+-&gt; (RejectTransitGatewayMulticastDomainAssociationsResponse
+    -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool)
+-&gt; Eq RejectTransitGatewayMulticastDomainAssociationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool
+$c/= :: RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool
+== :: RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool
+$c== :: RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681174771"><span id="local-6989586621681174773"><span id="local-6989586621681174775"><span id="local-6989586621681174777"><span class="annot"><span class="annottext">ReadPrec [RejectTransitGatewayMulticastDomainAssociationsResponse]
+ReadPrec RejectTransitGatewayMulticastDomainAssociationsResponse
+Int
+-&gt; ReadS RejectTransitGatewayMulticastDomainAssociationsResponse
+ReadS [RejectTransitGatewayMulticastDomainAssociationsResponse]
+(Int
+ -&gt; ReadS RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; ReadS [RejectTransitGatewayMulticastDomainAssociationsResponse]
+-&gt; ReadPrec RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; ReadPrec
+     [RejectTransitGatewayMulticastDomainAssociationsResponse]
+-&gt; Read RejectTransitGatewayMulticastDomainAssociationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RejectTransitGatewayMulticastDomainAssociationsResponse]
+$creadListPrec :: ReadPrec [RejectTransitGatewayMulticastDomainAssociationsResponse]
+readPrec :: ReadPrec RejectTransitGatewayMulticastDomainAssociationsResponse
+$creadPrec :: ReadPrec RejectTransitGatewayMulticastDomainAssociationsResponse
+readList :: ReadS [RejectTransitGatewayMulticastDomainAssociationsResponse]
+$creadList :: ReadS [RejectTransitGatewayMulticastDomainAssociationsResponse]
+readsPrec :: Int
+-&gt; ReadS RejectTransitGatewayMulticastDomainAssociationsResponse
+$creadsPrec :: Int
+-&gt; ReadS RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681174765"><span id="local-6989586621681174767"><span id="local-6989586621681174769"><span class="annot"><span class="annottext">Int
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; ShowS
+[RejectTransitGatewayMulticastDomainAssociationsResponse] -&gt; ShowS
+RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; String
+(Int
+ -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+ -&gt; ShowS)
+-&gt; (RejectTransitGatewayMulticastDomainAssociationsResponse
+    -&gt; String)
+-&gt; ([RejectTransitGatewayMulticastDomainAssociationsResponse]
+    -&gt; ShowS)
+-&gt; Show RejectTransitGatewayMulticastDomainAssociationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RejectTransitGatewayMulticastDomainAssociationsResponse] -&gt; ShowS
+$cshowList :: [RejectTransitGatewayMulticastDomainAssociationsResponse] -&gt; ShowS
+show :: RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; String
+$cshow :: RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; String
+showsPrec :: Int
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RejectTransitGatewayMulticastDomainAssociationsResponse
+ -&gt; Rep RejectTransitGatewayMulticastDomainAssociationsResponse x)
+-&gt; (forall x.
+    Rep RejectTransitGatewayMulticastDomainAssociationsResponse x
+    -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; Generic RejectTransitGatewayMulticastDomainAssociationsResponse
+forall x.
+Rep RejectTransitGatewayMulticastDomainAssociationsResponse x
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+forall x.
+RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; Rep RejectTransitGatewayMulticastDomainAssociationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RejectTransitGatewayMulticastDomainAssociationsResponse x
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+$cfrom :: forall x.
+RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; Rep RejectTransitGatewayMulticastDomainAssociationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'RejectTransitGatewayMulticastDomainAssociationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'associations', 'rejectTransitGatewayMulticastDomainAssociationsResponse_associations' - Undocumented member.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">newRejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newRejectTransitGatewayMulticastDomainAssociationsResponse"><span class="annot"><span class="annottext">newRejectTransitGatewayMulticastDomainAssociationsResponse :: Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#newRejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-var hs-var">newRejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621681174762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse' :: Maybe TransitGatewayMulticastDomainAssociations
+-&gt; Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associations:RejectTransitGatewayMulticastDomainAssociationsResponse' :: Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3Aassociations%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:RejectTransitGatewayMulticastDomainAssociationsResponse' :: Int
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AhttpStatus%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_associations"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociationsResponse_associations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociations.html#TransitGatewayMulticastDomainAssociations"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="rejectTransitGatewayMulticastDomainAssociationsResponse_associations"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociationsResponse_associations :: (Maybe TransitGatewayMulticastDomainAssociations
+ -&gt; f (Maybe TransitGatewayMulticastDomainAssociations))
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; f RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_associations"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociationsResponse_associations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociationsResponse
+ -&gt; Maybe TransitGatewayMulticastDomainAssociations)
+-&gt; (RejectTransitGatewayMulticastDomainAssociationsResponse
+    -&gt; Maybe TransitGatewayMulticastDomainAssociations
+    -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociationsResponse
+     RejectTransitGatewayMulticastDomainAssociationsResponse
+     (Maybe TransitGatewayMulticastDomainAssociations)
+     (Maybe TransitGatewayMulticastDomainAssociations)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174761"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+associations :: Maybe TransitGatewayMulticastDomainAssociations
+$sel:associations:RejectTransitGatewayMulticastDomainAssociationsResponse' :: RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174761"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174761"><span class="hs-identifier hs-var">associations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174760"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="#local-6989586621681174760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174759"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="#local-6989586621681174760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associations:RejectTransitGatewayMulticastDomainAssociationsResponse' :: Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3Aassociations%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDomainAssociations
+</span><a href="#local-6989586621681174759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus"><span class="hs-identifier hs-type">rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus"><span class="annot"><span class="annottext">rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RejectTransitGatewayMulticastDomainAssociationsResponse
+-&gt; f RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Int)
+-&gt; (RejectTransitGatewayMulticastDomainAssociationsResponse
+    -&gt; Int -&gt; RejectTransitGatewayMulticastDomainAssociationsResponse)
+-&gt; Lens
+     RejectTransitGatewayMulticastDomainAssociationsResponse
+     RejectTransitGatewayMulticastDomainAssociationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681174758"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RejectTransitGatewayMulticastDomainAssociationsResponse' :: RejectTransitGatewayMulticastDomainAssociationsResponse -&gt; Int
+</span><a href="#local-6989586621681174758"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174758"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681174757"><span class="annot"><span class="annottext">s :: RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="#local-6989586621681174757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681174756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectTransitGatewayMulticastDomainAssociationsResponse
+</span><a href="#local-6989586621681174757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RejectTransitGatewayMulticastDomainAssociationsResponse' :: Int
+</span><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#%24sel%3AhttpStatus%3ARejectTransitGatewayMulticastDomainAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681174756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621681174754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RejectTransitGatewayMulticastDomainAssociations.html#RejectTransitGatewayMulticastDomainAssociationsResponse"><span class="hs-identifier hs-type">RejectTransitGatewayMulticastDomainAssociationsResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

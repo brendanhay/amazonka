@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Organizations.Types.CreateAccountFailureReason</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Organizations.Types.CreateAccountFailureReason</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span class="hs-identifier">CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span class="hs-identifier">CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span class="hs-identifier">CreateAccountFailureReason_EMAIL_ALREADY_EXISTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span class="hs-identifier">CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span class="hs-identifier">CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INTERNAL_FAILURE"><span class="hs-identifier">CreateAccountFailureReason_INTERNAL_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_ADDRESS"><span class="hs-identifier">CreateAccountFailureReason_INVALID_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_EMAIL"><span class="hs-identifier">CreateAccountFailureReason_INVALID_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span class="hs-identifier">CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span class="hs-identifier">CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span class="hs-identifier">CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span class="hs-identifier">CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span class="hs-identifier">CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION</span></a></span><span>
+</span><span id="line-36"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679235930"><span id="local-6989586621679235931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CreateAccountFailureReason"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-var">CreateAccountFailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountFailureReason%27"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-var">CreateAccountFailureReason'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCreateAccountFailureReason"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; Text
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#fromCreateAccountFailureReason"><span class="hs-identifier hs-var hs-var">fromCreateAccountFailureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235922"><span id="local-6989586621679235924"><span id="local-6989586621679235926"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; ShowS
+[CreateAccountFailureReason] -&gt; ShowS
+CreateAccountFailureReason -&gt; String
+(Int -&gt; CreateAccountFailureReason -&gt; ShowS)
+-&gt; (CreateAccountFailureReason -&gt; String)
+-&gt; ([CreateAccountFailureReason] -&gt; ShowS)
+-&gt; Show CreateAccountFailureReason
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAccountFailureReason] -&gt; ShowS
+$cshowList :: [CreateAccountFailureReason] -&gt; ShowS
+show :: CreateAccountFailureReason -&gt; String
+$cshow :: CreateAccountFailureReason -&gt; String
+showsPrec :: Int -&gt; CreateAccountFailureReason -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAccountFailureReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235913"><span id="local-6989586621679235915"><span id="local-6989586621679235917"><span id="local-6989586621679235919"><span class="annot"><span class="annottext">ReadPrec [CreateAccountFailureReason]
+ReadPrec CreateAccountFailureReason
+Int -&gt; ReadS CreateAccountFailureReason
+ReadS [CreateAccountFailureReason]
+(Int -&gt; ReadS CreateAccountFailureReason)
+-&gt; ReadS [CreateAccountFailureReason]
+-&gt; ReadPrec CreateAccountFailureReason
+-&gt; ReadPrec [CreateAccountFailureReason]
+-&gt; Read CreateAccountFailureReason
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAccountFailureReason]
+$creadListPrec :: ReadPrec [CreateAccountFailureReason]
+readPrec :: ReadPrec CreateAccountFailureReason
+$creadPrec :: ReadPrec CreateAccountFailureReason
+readList :: ReadS [CreateAccountFailureReason]
+$creadList :: ReadS [CreateAccountFailureReason]
+readsPrec :: Int -&gt; ReadS CreateAccountFailureReason
+$creadsPrec :: Int -&gt; ReadS CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235908"><span id="local-6989586621679235910"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+(CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; Eq CreateAccountFailureReason
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c/= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+== :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c== :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235892"><span id="local-6989586621679235894"><span id="local-6989586621679235896"><span id="local-6989586621679235898"><span id="local-6989586621679235900"><span id="local-6989586621679235902"><span id="local-6989586621679235904"><span class="annot"><span class="annottext">Eq CreateAccountFailureReason
+Eq CreateAccountFailureReason
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Ordering)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; Bool)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason)
+-&gt; (CreateAccountFailureReason
+    -&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason)
+-&gt; Ord CreateAccountFailureReason
+CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; Ordering
+CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason
+$cmin :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason
+max :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason
+$cmax :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; CreateAccountFailureReason
+&gt;= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c&gt;= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+&gt; :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c&gt; :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+&lt;= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c&lt;= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+&lt; :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+$c&lt; :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+compare :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; Ordering
+$ccompare :: CreateAccountFailureReason
+-&gt; CreateAccountFailureReason -&gt; Ordering
+$cp1Ord :: Eq CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CreateAccountFailureReason -&gt; Rep CreateAccountFailureReason x)
+-&gt; (forall x.
+    Rep CreateAccountFailureReason x -&gt; CreateAccountFailureReason)
+-&gt; Generic CreateAccountFailureReason
+forall x.
+Rep CreateAccountFailureReason x -&gt; CreateAccountFailureReason
+forall x.
+CreateAccountFailureReason -&gt; Rep CreateAccountFailureReason x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAccountFailureReason x -&gt; CreateAccountFailureReason
+$cfrom :: forall x.
+CreateAccountFailureReason -&gt; Rep CreateAccountFailureReason x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235884"><span id="local-6989586621679235886"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; Int
+CreateAccountFailureReason -&gt; Int
+(Int -&gt; CreateAccountFailureReason -&gt; Int)
+-&gt; (CreateAccountFailureReason -&gt; Int)
+-&gt; Hashable CreateAccountFailureReason
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CreateAccountFailureReason -&gt; Int
+$chash :: CreateAccountFailureReason -&gt; Int
+hashWithSalt :: Int -&gt; CreateAccountFailureReason -&gt; Int
+$chashWithSalt :: Int -&gt; CreateAccountFailureReason -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235881"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ()
+(CreateAccountFailureReason -&gt; ())
+-&gt; NFData CreateAccountFailureReason
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CreateAccountFailureReason -&gt; ()
+$crnf :: CreateAccountFailureReason -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235878"><span class="annot"><span class="annottext">Text -&gt; Either String CreateAccountFailureReason
+(Text -&gt; Either String CreateAccountFailureReason)
+-&gt; FromText CreateAccountFailureReason
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CreateAccountFailureReason
+$cfromText :: Text -&gt; Either String CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235875"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; Text
+(CreateAccountFailureReason -&gt; Text)
+-&gt; ToText CreateAccountFailureReason
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CreateAccountFailureReason -&gt; Text
+$ctoText :: CreateAccountFailureReason -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679235872"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteString
+(CreateAccountFailureReason -&gt; ByteString)
+-&gt; ToByteString CreateAccountFailureReason
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CreateAccountFailureReason -&gt; ByteString
+$ctoBS :: CreateAccountFailureReason -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679235869"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteStringBuilder
+(CreateAccountFailureReason -&gt; ByteStringBuilder)
+-&gt; ToLog CreateAccountFailureReason
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CreateAccountFailureReason -&gt; ByteStringBuilder
+$cbuild :: CreateAccountFailureReason -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679235866"><span class="annot"><span class="annottext">HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
+(HeaderName -&gt; CreateAccountFailureReason -&gt; [Header])
+-&gt; ToHeader CreateAccountFailureReason
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679235863"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; QueryString
+(CreateAccountFailureReason -&gt; QueryString)
+-&gt; ToQuery CreateAccountFailureReason
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CreateAccountFailureReason -&gt; QueryString
+$ctoQuery :: CreateAccountFailureReason -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679235858"><span id="local-6989586621679235860"><span class="annot"><span class="annottext">Value -&gt; Parser [CreateAccountFailureReason]
+Value -&gt; Parser CreateAccountFailureReason
+(Value -&gt; Parser CreateAccountFailureReason)
+-&gt; (Value -&gt; Parser [CreateAccountFailureReason])
+-&gt; FromJSON CreateAccountFailureReason
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CreateAccountFailureReason]
+$cparseJSONList :: Value -&gt; Parser [CreateAccountFailureReason]
+parseJSON :: Value -&gt; Parser CreateAccountFailureReason
+$cparseJSON :: Value -&gt; Parser CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679235853"><span id="local-6989586621679235855"><span class="annot"><span class="annottext">FromJSONKeyFunction [CreateAccountFailureReason]
+FromJSONKeyFunction CreateAccountFailureReason
+FromJSONKeyFunction CreateAccountFailureReason
+-&gt; FromJSONKeyFunction [CreateAccountFailureReason]
+-&gt; FromJSONKey CreateAccountFailureReason
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CreateAccountFailureReason]
+$cfromJSONKeyList :: FromJSONKeyFunction [CreateAccountFailureReason]
+fromJSONKey :: FromJSONKeyFunction CreateAccountFailureReason
+$cfromJSONKey :: FromJSONKeyFunction CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679235844"><span id="local-6989586621679235846"><span id="local-6989586621679235848"><span id="local-6989586621679235850"><span class="annot"><span class="annottext">[CreateAccountFailureReason] -&gt; Encoding
+[CreateAccountFailureReason] -&gt; Value
+CreateAccountFailureReason -&gt; Encoding
+CreateAccountFailureReason -&gt; Value
+(CreateAccountFailureReason -&gt; Value)
+-&gt; (CreateAccountFailureReason -&gt; Encoding)
+-&gt; ([CreateAccountFailureReason] -&gt; Value)
+-&gt; ([CreateAccountFailureReason] -&gt; Encoding)
+-&gt; ToJSON CreateAccountFailureReason
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CreateAccountFailureReason] -&gt; Encoding
+$ctoEncodingList :: [CreateAccountFailureReason] -&gt; Encoding
+toJSONList :: [CreateAccountFailureReason] -&gt; Value
+$ctoJSONList :: [CreateAccountFailureReason] -&gt; Value
+toEncoding :: CreateAccountFailureReason -&gt; Encoding
+$ctoEncoding :: CreateAccountFailureReason -&gt; Encoding
+toJSON :: CreateAccountFailureReason -&gt; Value
+$ctoJSON :: CreateAccountFailureReason -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679235839"><span id="local-6989586621679235841"><span class="annot"><span class="annottext">ToJSONKeyFunction [CreateAccountFailureReason]
+ToJSONKeyFunction CreateAccountFailureReason
+ToJSONKeyFunction CreateAccountFailureReason
+-&gt; ToJSONKeyFunction [CreateAccountFailureReason]
+-&gt; ToJSONKey CreateAccountFailureReason
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CreateAccountFailureReason]
+$ctoJSONKeyList :: ToJSONKeyFunction [CreateAccountFailureReason]
+toJSONKey :: ToJSONKeyFunction CreateAccountFailureReason
+$ctoJSONKey :: ToJSONKeyFunction CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679235836"><span class="annot"><span class="annottext">[Node] -&gt; Either String CreateAccountFailureReason
+([Node] -&gt; Either String CreateAccountFailureReason)
+-&gt; FromXML CreateAccountFailureReason
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CreateAccountFailureReason
+$cparseXML :: [Node] -&gt; Either String CreateAccountFailureReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679235833"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; XML
+(CreateAccountFailureReason -&gt; XML)
+-&gt; ToXML CreateAccountFailureReason
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CreateAccountFailureReason -&gt; XML
+$ctoXML :: CreateAccountFailureReason -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span class="hs-identifier hs-type">CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span id="%24mCreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span id="CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED :: CreateAccountFailureReason
+$mCreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCOUNT_LIMIT_EXCEEDED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span id="%24mCreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span id="CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONCURRENT_ACCOUNT_MODIFICATION&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span class="hs-identifier hs-type">CreateAccountFailureReason_EMAIL_ALREADY_EXISTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span id="%24mCreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span id="CreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_EMAIL_ALREADY_EXISTS :: CreateAccountFailureReason
+$mCreateAccountFailureReason_EMAIL_ALREADY_EXISTS :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_EMAIL_ALREADY_EXISTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL_ALREADY_EXISTS&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span id="%24mCreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span id="CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_FAILED_BUSINESS_VALIDATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_FAILED_BUSINESS_VALIDATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_BUSINESS_VALIDATION&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span class="hs-identifier hs-type">CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span id="%24mCreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span id="CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS :: CreateAccountFailureReason
+$mCreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GOVCLOUD_ACCOUNT_ALREADY_EXISTS&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INTERNAL_FAILURE"><span class="hs-identifier hs-type">CreateAccountFailureReason_INTERNAL_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_INTERNAL_FAILURE"><span id="%24mCreateAccountFailureReason_INTERNAL_FAILURE"><span id="CreateAccountFailureReason_INTERNAL_FAILURE"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_INTERNAL_FAILURE :: CreateAccountFailureReason
+$mCreateAccountFailureReason_INTERNAL_FAILURE :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_INTERNAL_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_INTERNAL_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_FAILURE&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_ADDRESS"><span class="hs-identifier hs-type">CreateAccountFailureReason_INVALID_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_INVALID_ADDRESS"><span id="%24mCreateAccountFailureReason_INVALID_ADDRESS"><span id="CreateAccountFailureReason_INVALID_ADDRESS"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_INVALID_ADDRESS :: CreateAccountFailureReason
+$mCreateAccountFailureReason_INVALID_ADDRESS :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_INVALID_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_INVALID_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVALID_ADDRESS&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_EMAIL"><span class="hs-identifier hs-type">CreateAccountFailureReason_INVALID_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_INVALID_EMAIL"><span id="%24mCreateAccountFailureReason_INVALID_EMAIL"><span id="CreateAccountFailureReason_INVALID_EMAIL"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_INVALID_EMAIL :: CreateAccountFailureReason
+$mCreateAccountFailureReason_INVALID_EMAIL :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_INVALID_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_INVALID_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVALID_EMAIL&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span id="%24mCreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span id="CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVALID_IDENTITY_FOR_BUSINESS_VALIDATION&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span id="%24mCreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span id="CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_MISSING_BUSINESS_VALIDATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_MISSING_BUSINESS_VALIDATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MISSING_BUSINESS_VALIDATION&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span class="hs-identifier hs-type">CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span id="%24mCreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span id="CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT :: CreateAccountFailureReason
+$mCreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MISSING_PAYMENT_INSTRUMENT&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span id="%24mCreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span id="CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_PENDING_BUSINESS_VALIDATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_PENDING_BUSINESS_VALIDATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_BUSINESS_VALIDATION&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span class="hs-identifier hs-type">CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-type">CreateAccountFailureReason</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span id="%24mCreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span id="CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span class="annot"><span class="annottext">$bCreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION :: CreateAccountFailureReason
+$mCreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION :: forall r.
+CreateAccountFailureReason -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#%24bCreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-type">CreateAccountFailureReason'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN_BUSINESS_VALIDATION&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED"><span class="hs-pragma hs-type">CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_EMAIL_ALREADY_EXISTS"><span class="hs-pragma hs-type">CreateAccountFailureReason_EMAIL_ALREADY_EXISTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_FAILED_BUSINESS_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS"><span class="hs-pragma hs-type">CreateAccountFailureReason_GOVCLOUD_ACCOUNT_ALREADY_EXISTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INTERNAL_FAILURE"><span class="hs-pragma hs-type">CreateAccountFailureReason_INTERNAL_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_ADDRESS"><span class="hs-pragma hs-type">CreateAccountFailureReason_INVALID_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_EMAIL"><span class="hs-pragma hs-type">CreateAccountFailureReason_INVALID_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT"><span class="hs-pragma hs-type">CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION"><span class="hs-pragma hs-type">CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-pragma hs-type">CreateAccountFailureReason'</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-126"></span></pre></body></html>

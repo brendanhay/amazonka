@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pricing.Types.FilterType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pricing.Types.FilterType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType"><span class="hs-identifier">FilterType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType_TERM_MATCH"><span class="hs-identifier">FilterType_TERM_MATCH</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679143387"><span id="local-6989586621679143388"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterType"><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType"><span class="hs-identifier hs-var">FilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterType%27"><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType%27"><span class="hs-identifier hs-var">FilterType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterType"><span class="annot"><span class="annottext">FilterType -&gt; Text
+</span><a href="Network.AWS.Pricing.Types.FilterType.html#fromFilterType"><span class="hs-identifier hs-var hs-var">fromFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679143379"><span id="local-6989586621679143381"><span id="local-6989586621679143383"><span class="annot"><span class="annottext">Int -&gt; FilterType -&gt; ShowS
+[FilterType] -&gt; ShowS
+FilterType -&gt; String
+(Int -&gt; FilterType -&gt; ShowS)
+-&gt; (FilterType -&gt; String)
+-&gt; ([FilterType] -&gt; ShowS)
+-&gt; Show FilterType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilterType] -&gt; ShowS
+$cshowList :: [FilterType] -&gt; ShowS
+show :: FilterType -&gt; String
+$cshow :: FilterType -&gt; String
+showsPrec :: Int -&gt; FilterType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679143370"><span id="local-6989586621679143372"><span id="local-6989586621679143374"><span id="local-6989586621679143376"><span class="annot"><span class="annottext">ReadPrec [FilterType]
+ReadPrec FilterType
+Int -&gt; ReadS FilterType
+ReadS [FilterType]
+(Int -&gt; ReadS FilterType)
+-&gt; ReadS [FilterType]
+-&gt; ReadPrec FilterType
+-&gt; ReadPrec [FilterType]
+-&gt; Read FilterType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilterType]
+$creadListPrec :: ReadPrec [FilterType]
+readPrec :: ReadPrec FilterType
+$creadPrec :: ReadPrec FilterType
+readList :: ReadS [FilterType]
+$creadList :: ReadS [FilterType]
+readsPrec :: Int -&gt; ReadS FilterType
+$creadsPrec :: Int -&gt; ReadS FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679143365"><span id="local-6989586621679143367"><span class="annot"><span class="annottext">FilterType -&gt; FilterType -&gt; Bool
+(FilterType -&gt; FilterType -&gt; Bool)
+-&gt; (FilterType -&gt; FilterType -&gt; Bool) -&gt; Eq FilterType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilterType -&gt; FilterType -&gt; Bool
+$c/= :: FilterType -&gt; FilterType -&gt; Bool
+== :: FilterType -&gt; FilterType -&gt; Bool
+$c== :: FilterType -&gt; FilterType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679143349"><span id="local-6989586621679143351"><span id="local-6989586621679143353"><span id="local-6989586621679143355"><span id="local-6989586621679143357"><span id="local-6989586621679143359"><span id="local-6989586621679143361"><span class="annot"><span class="annottext">Eq FilterType
+Eq FilterType
+-&gt; (FilterType -&gt; FilterType -&gt; Ordering)
+-&gt; (FilterType -&gt; FilterType -&gt; Bool)
+-&gt; (FilterType -&gt; FilterType -&gt; Bool)
+-&gt; (FilterType -&gt; FilterType -&gt; Bool)
+-&gt; (FilterType -&gt; FilterType -&gt; Bool)
+-&gt; (FilterType -&gt; FilterType -&gt; FilterType)
+-&gt; (FilterType -&gt; FilterType -&gt; FilterType)
+-&gt; Ord FilterType
+FilterType -&gt; FilterType -&gt; Bool
+FilterType -&gt; FilterType -&gt; Ordering
+FilterType -&gt; FilterType -&gt; FilterType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FilterType -&gt; FilterType -&gt; FilterType
+$cmin :: FilterType -&gt; FilterType -&gt; FilterType
+max :: FilterType -&gt; FilterType -&gt; FilterType
+$cmax :: FilterType -&gt; FilterType -&gt; FilterType
+&gt;= :: FilterType -&gt; FilterType -&gt; Bool
+$c&gt;= :: FilterType -&gt; FilterType -&gt; Bool
+&gt; :: FilterType -&gt; FilterType -&gt; Bool
+$c&gt; :: FilterType -&gt; FilterType -&gt; Bool
+&lt;= :: FilterType -&gt; FilterType -&gt; Bool
+$c&lt;= :: FilterType -&gt; FilterType -&gt; Bool
+&lt; :: FilterType -&gt; FilterType -&gt; Bool
+$c&lt; :: FilterType -&gt; FilterType -&gt; Bool
+compare :: FilterType -&gt; FilterType -&gt; Ordering
+$ccompare :: FilterType -&gt; FilterType -&gt; Ordering
+$cp1Ord :: Eq FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FilterType -&gt; Rep FilterType x)
+-&gt; (forall x. Rep FilterType x -&gt; FilterType) -&gt; Generic FilterType
+forall x. Rep FilterType x -&gt; FilterType
+forall x. FilterType -&gt; Rep FilterType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilterType x -&gt; FilterType
+$cfrom :: forall x. FilterType -&gt; Rep FilterType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679143341"><span id="local-6989586621679143343"><span class="annot"><span class="annottext">Int -&gt; FilterType -&gt; Int
+FilterType -&gt; Int
+(Int -&gt; FilterType -&gt; Int)
+-&gt; (FilterType -&gt; Int) -&gt; Hashable FilterType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FilterType -&gt; Int
+$chash :: FilterType -&gt; Int
+hashWithSalt :: Int -&gt; FilterType -&gt; Int
+$chashWithSalt :: Int -&gt; FilterType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679143338"><span class="annot"><span class="annottext">FilterType -&gt; ()
+(FilterType -&gt; ()) -&gt; NFData FilterType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FilterType -&gt; ()
+$crnf :: FilterType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679143335"><span class="annot"><span class="annottext">Text -&gt; Either String FilterType
+(Text -&gt; Either String FilterType) -&gt; FromText FilterType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FilterType
+$cfromText :: Text -&gt; Either String FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679143332"><span class="annot"><span class="annottext">FilterType -&gt; Text
+(FilterType -&gt; Text) -&gt; ToText FilterType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FilterType -&gt; Text
+$ctoText :: FilterType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679143329"><span class="annot"><span class="annottext">FilterType -&gt; ByteString
+(FilterType -&gt; ByteString) -&gt; ToByteString FilterType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FilterType -&gt; ByteString
+$ctoBS :: FilterType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679143326"><span class="annot"><span class="annottext">FilterType -&gt; ByteStringBuilder
+(FilterType -&gt; ByteStringBuilder) -&gt; ToLog FilterType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FilterType -&gt; ByteStringBuilder
+$cbuild :: FilterType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679143323"><span class="annot"><span class="annottext">HeaderName -&gt; FilterType -&gt; [Header]
+(HeaderName -&gt; FilterType -&gt; [Header]) -&gt; ToHeader FilterType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FilterType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FilterType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679143320"><span class="annot"><span class="annottext">FilterType -&gt; QueryString
+(FilterType -&gt; QueryString) -&gt; ToQuery FilterType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FilterType -&gt; QueryString
+$ctoQuery :: FilterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679143315"><span id="local-6989586621679143317"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterType]
+Value -&gt; Parser FilterType
+(Value -&gt; Parser FilterType)
+-&gt; (Value -&gt; Parser [FilterType]) -&gt; FromJSON FilterType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FilterType]
+$cparseJSONList :: Value -&gt; Parser [FilterType]
+parseJSON :: Value -&gt; Parser FilterType
+$cparseJSON :: Value -&gt; Parser FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679143310"><span id="local-6989586621679143312"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterType]
+FromJSONKeyFunction FilterType
+FromJSONKeyFunction FilterType
+-&gt; FromJSONKeyFunction [FilterType] -&gt; FromJSONKey FilterType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FilterType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FilterType]
+fromJSONKey :: FromJSONKeyFunction FilterType
+$cfromJSONKey :: FromJSONKeyFunction FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679143301"><span id="local-6989586621679143303"><span id="local-6989586621679143305"><span id="local-6989586621679143307"><span class="annot"><span class="annottext">[FilterType] -&gt; Encoding
+[FilterType] -&gt; Value
+FilterType -&gt; Encoding
+FilterType -&gt; Value
+(FilterType -&gt; Value)
+-&gt; (FilterType -&gt; Encoding)
+-&gt; ([FilterType] -&gt; Value)
+-&gt; ([FilterType] -&gt; Encoding)
+-&gt; ToJSON FilterType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FilterType] -&gt; Encoding
+$ctoEncodingList :: [FilterType] -&gt; Encoding
+toJSONList :: [FilterType] -&gt; Value
+$ctoJSONList :: [FilterType] -&gt; Value
+toEncoding :: FilterType -&gt; Encoding
+$ctoEncoding :: FilterType -&gt; Encoding
+toJSON :: FilterType -&gt; Value
+$ctoJSON :: FilterType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679143296"><span id="local-6989586621679143298"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterType]
+ToJSONKeyFunction FilterType
+ToJSONKeyFunction FilterType
+-&gt; ToJSONKeyFunction [FilterType] -&gt; ToJSONKey FilterType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FilterType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FilterType]
+toJSONKey :: ToJSONKeyFunction FilterType
+$ctoJSONKey :: ToJSONKeyFunction FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679143293"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterType
+([Node] -&gt; Either String FilterType) -&gt; FromXML FilterType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FilterType
+$cparseXML :: [Node] -&gt; Either String FilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679143290"><span class="annot"><span class="annottext">FilterType -&gt; XML
+(FilterType -&gt; XML) -&gt; ToXML FilterType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FilterType -&gt; XML
+$ctoXML :: FilterType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType_TERM_MATCH"><span class="hs-identifier hs-type">FilterType_TERM_MATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType"><span class="hs-identifier hs-type">FilterType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFilterType_TERM_MATCH"><span id="%24mFilterType_TERM_MATCH"><span id="FilterType_TERM_MATCH"><span class="annot"><span class="annottext">$bFilterType_TERM_MATCH :: FilterType
+$mFilterType_TERM_MATCH :: forall r. FilterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pricing.Types.FilterType.html#%24bFilterType_TERM_MATCH"><span class="hs-identifier hs-var hs-var hs-var">FilterType_TERM_MATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType%27"><span class="hs-identifier hs-type">FilterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERM_MATCH&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType_TERM_MATCH"><span class="hs-pragma hs-type">FilterType_TERM_MATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.Types.FilterType.html#FilterType%27"><span class="hs-pragma hs-type">FilterType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

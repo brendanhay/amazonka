@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELB.CreateLoadBalancer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a Classic Load Balancer.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can add listeners, security groups, subnets, and tags when you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- create your load balancer, or you can add them later using</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- CreateLoadBalancerListeners, ApplySecurityGroupsToLoadBalancer,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- AttachLoadBalancerToSubnets, and AddTags.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- To describe your current load balancers, see DescribeLoadBalancers. When</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- you are finished with a load balancer, you can delete it using</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- DeleteLoadBalancer.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- You can create up to 20 load balancers per region per account. You can</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- request an increase for the number of load balancers for your account.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html Limits for Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELB.CreateLoadBalancer</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancer"><span class="hs-identifier">newCreateLoadBalancer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_availabilityZones"><span class="hs-identifier">createLoadBalancer_availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_scheme"><span class="hs-identifier">createLoadBalancer_scheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_securityGroups"><span class="hs-identifier">createLoadBalancer_securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_tags"><span class="hs-identifier">createLoadBalancer_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_subnets"><span class="hs-identifier">createLoadBalancer_subnets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_loadBalancerName"><span class="hs-identifier">createLoadBalancer_loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_listeners"><span class="hs-identifier">createLoadBalancer_listeners</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier">CreateLoadBalancerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancerResponse"><span class="hs-identifier">newCreateLoadBalancerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_dNSName"><span class="hs-identifier">createLoadBalancerResponse_dNSName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_httpStatus"><span class="hs-identifier">createLoadBalancerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.html"><span class="hs-identifier">Network.AWS.ELB.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Contains the parameters for CreateLoadBalancer.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newCreateLoadBalancer' smart constructor.</span><span>
+</span><span id="line-73"></span><span id="local-6989586621679203063"><span id="local-6989586621679203064"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancer"><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-var">CreateLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancer%27"><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-var">CreateLoadBalancer'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more Availability Zones from the same region as the load</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- balancer.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- You must specify at least one Availability Zone.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- You can add more Availability Zones after you create the load balancer</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- using EnableAvailabilityZonesForLoadBalancer.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AavailabilityZones%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The type of a load balancer. Valid only for load balancers in a VPC.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- By default, Elastic Load Balancing creates an Internet-facing load</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- balancer with a DNS name that resolves to public IP addresses. For more</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- information about Internet-facing and Internal load balancers, see</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme&gt;</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- in the /Elastic Load Balancing User Guide/.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Specify @internal@ to create a load balancer with a DNS name that</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- resolves to private IP addresses.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Ascheme%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Ascheme%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">scheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The IDs of the security groups to assign to the load balancer.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AsecurityGroups%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A list of tags to assign to the load balancer.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- For more information about tagging your load balancer, see</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Atags%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Atags%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The IDs of the subnets in your VPC to attach to the load balancer.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Specify one subnet per Availability Zone specified in</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- @AvailabilityZones@.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Asubnets%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Asubnets%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- This name must be unique within your set of load balancers for the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- region, must have a maximum of 32 characters, must contain only</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- alphanumeric characters or hyphens, and cannot begin or end with a</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- hyphen.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The listeners.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Alisteners%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; [Listener]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Alisteners%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203051"><span id="local-6989586621679203053"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+(CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool)
+-&gt; (CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool)
+-&gt; Eq CreateLoadBalancer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+$c/= :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+== :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+$c== :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203042"><span id="local-6989586621679203044"><span id="local-6989586621679203046"><span id="local-6989586621679203048"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancer]
+ReadPrec CreateLoadBalancer
+Int -&gt; ReadS CreateLoadBalancer
+ReadS [CreateLoadBalancer]
+(Int -&gt; ReadS CreateLoadBalancer)
+-&gt; ReadS [CreateLoadBalancer]
+-&gt; ReadPrec CreateLoadBalancer
+-&gt; ReadPrec [CreateLoadBalancer]
+-&gt; Read CreateLoadBalancer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLoadBalancer]
+$creadListPrec :: ReadPrec [CreateLoadBalancer]
+readPrec :: ReadPrec CreateLoadBalancer
+$creadPrec :: ReadPrec CreateLoadBalancer
+readList :: ReadS [CreateLoadBalancer]
+$creadList :: ReadS [CreateLoadBalancer]
+readsPrec :: Int -&gt; ReadS CreateLoadBalancer
+$creadsPrec :: Int -&gt; ReadS CreateLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203035"><span id="local-6989586621679203037"><span id="local-6989586621679203039"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancer -&gt; ShowS
+[CreateLoadBalancer] -&gt; ShowS
+CreateLoadBalancer -&gt; String
+(Int -&gt; CreateLoadBalancer -&gt; ShowS)
+-&gt; (CreateLoadBalancer -&gt; String)
+-&gt; ([CreateLoadBalancer] -&gt; ShowS)
+-&gt; Show CreateLoadBalancer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLoadBalancer] -&gt; ShowS
+$cshowList :: [CreateLoadBalancer] -&gt; ShowS
+show :: CreateLoadBalancer -&gt; String
+$cshow :: CreateLoadBalancer -&gt; String
+showsPrec :: Int -&gt; CreateLoadBalancer -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateLoadBalancer -&gt; Rep CreateLoadBalancer x)
+-&gt; (forall x. Rep CreateLoadBalancer x -&gt; CreateLoadBalancer)
+-&gt; Generic CreateLoadBalancer
+forall x. Rep CreateLoadBalancer x -&gt; CreateLoadBalancer
+forall x. CreateLoadBalancer -&gt; Rep CreateLoadBalancer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateLoadBalancer x -&gt; CreateLoadBalancer
+$cfrom :: forall x. CreateLoadBalancer -&gt; Rep CreateLoadBalancer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Create a value of 'CreateLoadBalancer' with all optional fields omitted.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'availabilityZones', 'createLoadBalancer_availabilityZones' - One or more Availability Zones from the same region as the load</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- balancer.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- You must specify at least one Availability Zone.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- You can add more Availability Zones after you create the load balancer</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- using EnableAvailabilityZonesForLoadBalancer.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'scheme', 'createLoadBalancer_scheme' - The type of a load balancer. Valid only for load balancers in a VPC.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- By default, Elastic Load Balancing creates an Internet-facing load</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- balancer with a DNS name that resolves to public IP addresses. For more</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- information about Internet-facing and Internal load balancers, see</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme&gt;</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- in the /Elastic Load Balancing User Guide/.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Specify @internal@ to create a load balancer with a DNS name that</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- resolves to private IP addresses.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'securityGroups', 'createLoadBalancer_securityGroups' - The IDs of the security groups to assign to the load balancer.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'tags', 'createLoadBalancer_tags' - A list of tags to assign to the load balancer.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- For more information about tagging your load balancer, see</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'subnets', 'createLoadBalancer_subnets' - The IDs of the subnets in your VPC to attach to the load balancer.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Specify one subnet per Availability Zone specified in</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @AvailabilityZones@.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of the load balancer.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- This name must be unique within your set of load balancers for the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- region, must have a maximum of 32 characters, must contain only</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- alphanumeric characters or hyphens, and cannot begin or end with a</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- hyphen.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'listeners', 'createLoadBalancer_listeners' - The listeners.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancer"><span class="hs-identifier hs-type">newCreateLoadBalancer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerName'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span>
+</span><span id="line-176"></span><span id="newCreateLoadBalancer"><span class="annot"><span class="annottext">newCreateLoadBalancer :: Text -&gt; CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancer"><span class="hs-identifier hs-var hs-var">newCreateLoadBalancer</span></a></span></span><span> </span><span id="local-6989586621679203030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">CreateLoadBalancer' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; [Listener]
+-&gt; CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZones:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AavailabilityZones%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheme:CreateLoadBalancer' :: Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Ascheme%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">scheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AsecurityGroups%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateLoadBalancer' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Atags%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Asubnets%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateLoadBalancer' :: Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:listeners:CreateLoadBalancer' :: [Listener]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Alisteners%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Listener]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | One or more Availability Zones from the same region as the load</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- balancer.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- You must specify at least one Availability Zone.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- You can add more Availability Zones after you create the load balancer</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- using EnableAvailabilityZonesForLoadBalancer.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_availabilityZones"><span class="hs-identifier hs-type">createLoadBalancer_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="createLoadBalancer_availabilityZones"><span class="annot"><span class="annottext">createLoadBalancer_availabilityZones :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_availabilityZones"><span class="hs-identifier hs-var hs-var">createLoadBalancer_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Maybe [Text])
+-&gt; (CreateLoadBalancer -&gt; Maybe [Text] -&gt; CreateLoadBalancer)
+-&gt; Lens
+     CreateLoadBalancer CreateLoadBalancer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203027"><span class="annot"><span class="annottext">Maybe [Text]
+availabilityZones :: Maybe [Text]
+$sel:availabilityZones:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203026"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203025"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AavailabilityZones%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer
+-&gt; f CreateLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The type of a load balancer. Valid only for load balancers in a VPC.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- By default, Elastic Load Balancing creates an Internet-facing load</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- balancer with a DNS name that resolves to public IP addresses. For more</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- information about Internet-facing and Internal load balancers, see</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme&gt;</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- in the /Elastic Load Balancing User Guide/.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Specify @internal@ to create a load balancer with a DNS name that</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- resolves to private IP addresses.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_scheme"><span class="hs-identifier hs-type">createLoadBalancer_scheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="createLoadBalancer_scheme"><span class="annot"><span class="annottext">createLoadBalancer_scheme :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_scheme"><span class="hs-identifier hs-var hs-var">createLoadBalancer_scheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Maybe Text)
+-&gt; (CreateLoadBalancer -&gt; Maybe Text -&gt; CreateLoadBalancer)
+-&gt; Lens
+     CreateLoadBalancer CreateLoadBalancer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203021"><span class="annot"><span class="annottext">Maybe Text
+scheme :: Maybe Text
+$sel:scheme:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
+</span><a href="#local-6989586621679203021"><span class="hs-identifier hs-var hs-var">scheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203021"><span class="hs-identifier hs-var">scheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203020"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203019"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheme:CreateLoadBalancer' :: Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Ascheme%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">scheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The IDs of the security groups to assign to the load balancer.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_securityGroups"><span class="hs-identifier hs-type">createLoadBalancer_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="createLoadBalancer_securityGroups"><span class="annot"><span class="annottext">createLoadBalancer_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_securityGroups"><span class="hs-identifier hs-var hs-var">createLoadBalancer_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Maybe [Text])
+-&gt; (CreateLoadBalancer -&gt; Maybe [Text] -&gt; CreateLoadBalancer)
+-&gt; Lens
+     CreateLoadBalancer CreateLoadBalancer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203018"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroups :: Maybe [Text]
+$sel:securityGroups:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679203018"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203018"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203017"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203016"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AsecurityGroups%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer
+-&gt; f CreateLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | A list of tags to assign to the load balancer.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- For more information about tagging your load balancer, see</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_tags"><span class="hs-identifier hs-type">createLoadBalancer_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="createLoadBalancer_tags"><span class="annot"><span class="annottext">createLoadBalancer_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_tags"><span class="hs-identifier hs-var hs-var">createLoadBalancer_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Maybe (NonEmpty Tag))
+-&gt; (CreateLoadBalancer
+    -&gt; Maybe (NonEmpty Tag) -&gt; CreateLoadBalancer)
+-&gt; Lens
+     CreateLoadBalancer
+     CreateLoadBalancer
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203015"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679203015"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679203015"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203014"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203013"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679203013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLoadBalancer' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Atags%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679203013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; CreateLoadBalancer
+-&gt; f CreateLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The IDs of the subnets in your VPC to attach to the load balancer.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Specify one subnet per Availability Zone specified in</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @AvailabilityZones@.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_subnets"><span class="hs-identifier hs-type">createLoadBalancer_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="createLoadBalancer_subnets"><span class="annot"><span class="annottext">createLoadBalancer_subnets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_subnets"><span class="hs-identifier hs-var hs-var">createLoadBalancer_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Maybe [Text])
+-&gt; (CreateLoadBalancer -&gt; Maybe [Text] -&gt; CreateLoadBalancer)
+-&gt; Lens
+     CreateLoadBalancer CreateLoadBalancer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203012"><span class="annot"><span class="annottext">Maybe [Text]
+subnets :: Maybe [Text]
+$sel:subnets:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203011"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203010"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Asubnets%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateLoadBalancer
+-&gt; f CreateLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- This name must be unique within your set of load balancers for the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- region, must have a maximum of 32 characters, must contain only</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- alphanumeric characters or hyphens, and cannot begin or end with a</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- hyphen.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_loadBalancerName"><span class="hs-identifier hs-type">createLoadBalancer_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-236"></span><span id="createLoadBalancer_loadBalancerName"><span class="annot"><span class="annottext">createLoadBalancer_loadBalancerName :: (Text -&gt; f Text) -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_loadBalancerName"><span class="hs-identifier hs-var hs-var">createLoadBalancer_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; Text)
+-&gt; (CreateLoadBalancer -&gt; Text -&gt; CreateLoadBalancer)
+-&gt; Lens CreateLoadBalancer CreateLoadBalancer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203009"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Text
+</span><a href="#local-6989586621679203009"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203009"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203008"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateLoadBalancer' :: Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The listeners.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer&gt;</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_listeners"><span class="hs-identifier hs-type">createLoadBalancer_listeners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-244"></span><span id="createLoadBalancer_listeners"><span class="annot"><span class="annottext">createLoadBalancer_listeners :: ([Listener] -&gt; f [Listener])
+-&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancer_listeners"><span class="hs-identifier hs-var hs-var">createLoadBalancer_listeners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancer -&gt; [Listener])
+-&gt; (CreateLoadBalancer -&gt; [Listener] -&gt; CreateLoadBalancer)
+-&gt; Lens CreateLoadBalancer CreateLoadBalancer [Listener] [Listener]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203006"><span class="annot"><span class="annottext">[Listener]
+listeners :: [Listener]
+$sel:listeners:CreateLoadBalancer' :: CreateLoadBalancer -&gt; [Listener]
+</span><a href="#local-6989586621679203006"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Listener]
+</span><a href="#local-6989586621679203006"><span class="hs-identifier hs-var">listeners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203005"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679203005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203004"><span class="annot"><span class="annottext">[Listener]
+</span><a href="#local-6989586621679203004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679203005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listeners:CreateLoadBalancer' :: [Listener]
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3Alisteners%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Listener]
+</span><a href="#local-6989586621679203004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Listener] -&gt; f [Listener])
+ -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
+-&gt; (([Listener] -&gt; f [Listener]) -&gt; [Listener] -&gt; f [Listener])
+-&gt; ([Listener] -&gt; f [Listener])
+-&gt; CreateLoadBalancer
+-&gt; f CreateLoadBalancer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Listener] -&gt; f [Listener]) -&gt; [Listener] -&gt; f [Listener]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-248"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679203000"><span class="annot"><span class="annottext">request :: CreateLoadBalancer -&gt; Request CreateLoadBalancer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLoadBalancer -&gt; Request CreateLoadBalancer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679202996"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLoadBalancer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateLoadBalancer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLoadBalancer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLoadBalancer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateLoadBalancerResult&quot;</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202993"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202992"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202992"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202991"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679202991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateLoadBalancerResponse
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">CreateLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateLoadBalancerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateLoadBalancerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679202991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DNSName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLoadBalancerResponse)
+-&gt; Either String Int -&gt; Either String CreateLoadBalancerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202993"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202983"><span id="local-6989586621679202985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679202976"><span class="annot"><span class="annottext">toHeaders :: CreateLoadBalancer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLoadBalancer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679202971"><span class="annot"><span class="annottext">toPath :: CreateLoadBalancer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLoadBalancer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679202967"><span class="annot"><span class="annottext">toQuery :: CreateLoadBalancer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202959"><span id="local-6989586621679202960"><span id="local-6989586621679202961"><span id="local-6989586621679202962"><span id="local-6989586621679202963"><span id="local-6989586621679202964"><span id="local-6989586621679202965"><span class="annot"><span class="annottext">[Listener]
+Maybe [Text]
+Maybe (NonEmpty Tag)
+Maybe Text
+Text
+listeners :: [Listener]
+loadBalancerName :: Text
+subnets :: Maybe [Text]
+tags :: Maybe (NonEmpty Tag)
+securityGroups :: Maybe [Text]
+scheme :: Maybe Text
+availabilityZones :: Maybe [Text]
+$sel:listeners:CreateLoadBalancer' :: CreateLoadBalancer -&gt; [Listener]
+$sel:loadBalancerName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Text
+$sel:subnets:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+$sel:tags:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe (NonEmpty Tag)
+$sel:securityGroups:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+$sel:scheme:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
+$sel:availabilityZones:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679202959"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateLoadBalancer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AvailabilityZones&quot;</span></span><span>
+</span><span id="line-278"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-280"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679202965"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Scheme&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202964"><span class="hs-identifier hs-var">scheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span>
+</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-286"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679202963"><span class="hs-identifier hs-var">securityGroups</span></a></span><span>
+</span><span id="line-287"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-289"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty Tag -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; QueryString)
+-&gt; Maybe (NonEmpty Tag) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679202962"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Subnets&quot;</span></span><span>
+</span><span id="line-292"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679202961"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202960"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Listeners&quot;</span></span><span>
+</span><span id="line-296"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Listener] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Listener]
+</span><a href="#local-6989586621679202959"><span class="hs-identifier hs-var">listeners</span></a></span><span>
+</span><span id="line-297"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | Contains the output for CreateLoadBalancer.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- /See:/ 'newCreateLoadBalancerResponse' smart constructor.</span><span>
+</span><span id="line-302"></span><span id="local-6989586621679202955"><span id="local-6989586621679202956"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancerResponse"><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-var">CreateLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">CreateLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DNS name of the load balancer.</span><span>
+</span><span id="line-304"></span><span>    </span><span id="%24sel%3AdNSName%3ACreateLoadBalancerResponse%27"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AdNSName%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">dNSName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-306"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; Int
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202949"><span id="local-6989586621679202951"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+(CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool)
+-&gt; (CreateLoadBalancerResponse
+    -&gt; CreateLoadBalancerResponse -&gt; Bool)
+-&gt; Eq CreateLoadBalancerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+$c/= :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+== :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+$c== :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202941"><span id="local-6989586621679202943"><span id="local-6989586621679202945"><span id="local-6989586621679202947"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancerResponse]
+ReadPrec CreateLoadBalancerResponse
+Int -&gt; ReadS CreateLoadBalancerResponse
+ReadS [CreateLoadBalancerResponse]
+(Int -&gt; ReadS CreateLoadBalancerResponse)
+-&gt; ReadS [CreateLoadBalancerResponse]
+-&gt; ReadPrec CreateLoadBalancerResponse
+-&gt; ReadPrec [CreateLoadBalancerResponse]
+-&gt; Read CreateLoadBalancerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLoadBalancerResponse]
+$creadListPrec :: ReadPrec [CreateLoadBalancerResponse]
+readPrec :: ReadPrec CreateLoadBalancerResponse
+$creadPrec :: ReadPrec CreateLoadBalancerResponse
+readList :: ReadS [CreateLoadBalancerResponse]
+$creadList :: ReadS [CreateLoadBalancerResponse]
+readsPrec :: Int -&gt; ReadS CreateLoadBalancerResponse
+$creadsPrec :: Int -&gt; ReadS CreateLoadBalancerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202935"><span id="local-6989586621679202937"><span id="local-6989586621679202939"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancerResponse -&gt; ShowS
+[CreateLoadBalancerResponse] -&gt; ShowS
+CreateLoadBalancerResponse -&gt; String
+(Int -&gt; CreateLoadBalancerResponse -&gt; ShowS)
+-&gt; (CreateLoadBalancerResponse -&gt; String)
+-&gt; ([CreateLoadBalancerResponse] -&gt; ShowS)
+-&gt; Show CreateLoadBalancerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLoadBalancerResponse] -&gt; ShowS
+$cshowList :: [CreateLoadBalancerResponse] -&gt; ShowS
+show :: CreateLoadBalancerResponse -&gt; String
+$cshow :: CreateLoadBalancerResponse -&gt; String
+showsPrec :: Int -&gt; CreateLoadBalancerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLoadBalancerResponse -&gt; Rep CreateLoadBalancerResponse x)
+-&gt; (forall x.
+    Rep CreateLoadBalancerResponse x -&gt; CreateLoadBalancerResponse)
+-&gt; Generic CreateLoadBalancerResponse
+forall x.
+Rep CreateLoadBalancerResponse x -&gt; CreateLoadBalancerResponse
+forall x.
+CreateLoadBalancerResponse -&gt; Rep CreateLoadBalancerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLoadBalancerResponse x -&gt; CreateLoadBalancerResponse
+$cfrom :: forall x.
+CreateLoadBalancerResponse -&gt; Rep CreateLoadBalancerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- Create a value of 'CreateLoadBalancerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- 'dNSName', 'createLoadBalancerResponse_dNSName' - The DNS name of the load balancer.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'httpStatus', 'createLoadBalancerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancerResponse"><span class="hs-identifier hs-type">newCreateLoadBalancerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span>
+</span><span id="line-325"></span><span id="newCreateLoadBalancerResponse"><span class="annot"><span class="annottext">newCreateLoadBalancerResponse :: Int -&gt; CreateLoadBalancerResponse
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#newCreateLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newCreateLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679202932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse' :: Maybe Text -&gt; Int -&gt; CreateLoadBalancerResponse
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dNSName:CreateLoadBalancerResponse' :: Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AdNSName%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">dNSName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoadBalancerResponse' :: Int
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The DNS name of the load balancer.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_dNSName"><span class="hs-identifier hs-type">createLoadBalancerResponse_dNSName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span id="createLoadBalancerResponse_dNSName"><span class="annot"><span class="annottext">createLoadBalancerResponse_dNSName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLoadBalancerResponse -&gt; f CreateLoadBalancerResponse
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_dNSName"><span class="hs-identifier hs-var hs-var">createLoadBalancerResponse_dNSName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancerResponse -&gt; Maybe Text)
+-&gt; (CreateLoadBalancerResponse
+    -&gt; Maybe Text -&gt; CreateLoadBalancerResponse)
+-&gt; Lens
+     CreateLoadBalancerResponse
+     CreateLoadBalancerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202931"><span class="annot"><span class="annottext">Maybe Text
+dNSName :: Maybe Text
+$sel:dNSName:CreateLoadBalancerResponse' :: CreateLoadBalancerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679202931"><span class="hs-identifier hs-var hs-var">dNSName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202931"><span class="hs-identifier hs-var">dNSName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202930"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
+</span><a href="#local-6989586621679202930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
+</span><a href="#local-6989586621679202930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSName:CreateLoadBalancerResponse' :: Maybe Text
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AdNSName%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">dNSName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-type">createLoadBalancerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-338"></span><span id="createLoadBalancerResponse_httpStatus"><span class="annot"><span class="annottext">createLoadBalancerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateLoadBalancerResponse -&gt; f CreateLoadBalancerResponse
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#createLoadBalancerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLoadBalancerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLoadBalancerResponse -&gt; Int)
+-&gt; (CreateLoadBalancerResponse
+    -&gt; Int -&gt; CreateLoadBalancerResponse)
+-&gt; Lens
+     CreateLoadBalancerResponse CreateLoadBalancerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202928"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLoadBalancerResponse' :: CreateLoadBalancerResponse -&gt; Int
+</span><a href="#local-6989586621679202928"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202928"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202927"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
+</span><a href="#local-6989586621679202927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202926"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
+</span><a href="#local-6989586621679202927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoadBalancerResponse' :: Int
+</span><a href="Network.AWS.ELB.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-341"></span></pre></body></html>

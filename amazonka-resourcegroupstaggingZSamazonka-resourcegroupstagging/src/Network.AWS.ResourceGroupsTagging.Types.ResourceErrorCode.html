@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode"><span class="hs-identifier">ResourceErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InternalServiceException"><span class="hs-identifier">ResourceErrorCode_InternalServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InvalidParameterException"><span class="hs-identifier">ResourceErrorCode_InvalidParameterException</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679156377"><span id="local-6989586621679156378"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceErrorCode"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode"><span class="hs-identifier hs-var">ResourceErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceErrorCode%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode%27"><span class="hs-identifier hs-var">ResourceErrorCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceErrorCode"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#fromResourceErrorCode"><span class="hs-identifier hs-var hs-var">fromResourceErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156369"><span id="local-6989586621679156371"><span id="local-6989586621679156373"><span class="annot"><span class="annottext">Int -&gt; ResourceErrorCode -&gt; ShowS
+[ResourceErrorCode] -&gt; ShowS
+ResourceErrorCode -&gt; String
+(Int -&gt; ResourceErrorCode -&gt; ShowS)
+-&gt; (ResourceErrorCode -&gt; String)
+-&gt; ([ResourceErrorCode] -&gt; ShowS)
+-&gt; Show ResourceErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceErrorCode] -&gt; ShowS
+$cshowList :: [ResourceErrorCode] -&gt; ShowS
+show :: ResourceErrorCode -&gt; String
+$cshow :: ResourceErrorCode -&gt; String
+showsPrec :: Int -&gt; ResourceErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679156360"><span id="local-6989586621679156362"><span id="local-6989586621679156364"><span id="local-6989586621679156366"><span class="annot"><span class="annottext">ReadPrec [ResourceErrorCode]
+ReadPrec ResourceErrorCode
+Int -&gt; ReadS ResourceErrorCode
+ReadS [ResourceErrorCode]
+(Int -&gt; ReadS ResourceErrorCode)
+-&gt; ReadS [ResourceErrorCode]
+-&gt; ReadPrec ResourceErrorCode
+-&gt; ReadPrec [ResourceErrorCode]
+-&gt; Read ResourceErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceErrorCode]
+$creadListPrec :: ReadPrec [ResourceErrorCode]
+readPrec :: ReadPrec ResourceErrorCode
+$creadPrec :: ReadPrec ResourceErrorCode
+readList :: ReadS [ResourceErrorCode]
+$creadList :: ReadS [ResourceErrorCode]
+readsPrec :: Int -&gt; ReadS ResourceErrorCode
+$creadsPrec :: Int -&gt; ReadS ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679156355"><span id="local-6989586621679156357"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+(ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; Eq ResourceErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c/= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+== :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c== :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679156339"><span id="local-6989586621679156341"><span id="local-6989586621679156343"><span id="local-6989586621679156345"><span id="local-6989586621679156347"><span id="local-6989586621679156349"><span id="local-6989586621679156351"><span class="annot"><span class="annottext">Eq ResourceErrorCode
+Eq ResourceErrorCode
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Ordering)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode)
+-&gt; (ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode)
+-&gt; Ord ResourceErrorCode
+ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+ResourceErrorCode -&gt; ResourceErrorCode -&gt; Ordering
+ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode
+$cmin :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode
+max :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode
+$cmax :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; ResourceErrorCode
+&gt;= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c&gt;= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+&gt; :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c&gt; :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+&lt;= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c&lt;= :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+&lt; :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+$c&lt; :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Bool
+compare :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Ordering
+$ccompare :: ResourceErrorCode -&gt; ResourceErrorCode -&gt; Ordering
+$cp1Ord :: Eq ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResourceErrorCode -&gt; Rep ResourceErrorCode x)
+-&gt; (forall x. Rep ResourceErrorCode x -&gt; ResourceErrorCode)
+-&gt; Generic ResourceErrorCode
+forall x. Rep ResourceErrorCode x -&gt; ResourceErrorCode
+forall x. ResourceErrorCode -&gt; Rep ResourceErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceErrorCode x -&gt; ResourceErrorCode
+$cfrom :: forall x. ResourceErrorCode -&gt; Rep ResourceErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679156331"><span id="local-6989586621679156333"><span class="annot"><span class="annottext">Int -&gt; ResourceErrorCode -&gt; Int
+ResourceErrorCode -&gt; Int
+(Int -&gt; ResourceErrorCode -&gt; Int)
+-&gt; (ResourceErrorCode -&gt; Int) -&gt; Hashable ResourceErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceErrorCode -&gt; Int
+$chash :: ResourceErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; ResourceErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679156328"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; ()
+(ResourceErrorCode -&gt; ()) -&gt; NFData ResourceErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceErrorCode -&gt; ()
+$crnf :: ResourceErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679156325"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceErrorCode
+(Text -&gt; Either String ResourceErrorCode)
+-&gt; FromText ResourceErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceErrorCode
+$cfromText :: Text -&gt; Either String ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679156322"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; Text
+(ResourceErrorCode -&gt; Text) -&gt; ToText ResourceErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceErrorCode -&gt; Text
+$ctoText :: ResourceErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679156319"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; ByteString
+(ResourceErrorCode -&gt; ByteString) -&gt; ToByteString ResourceErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceErrorCode -&gt; ByteString
+$ctoBS :: ResourceErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679156316"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; ByteStringBuilder
+(ResourceErrorCode -&gt; ByteStringBuilder) -&gt; ToLog ResourceErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceErrorCode -&gt; ByteStringBuilder
+$cbuild :: ResourceErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679156313"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceErrorCode -&gt; [Header]
+(HeaderName -&gt; ResourceErrorCode -&gt; [Header])
+-&gt; ToHeader ResourceErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679156310"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; QueryString
+(ResourceErrorCode -&gt; QueryString) -&gt; ToQuery ResourceErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceErrorCode -&gt; QueryString
+$ctoQuery :: ResourceErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679156305"><span id="local-6989586621679156307"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceErrorCode]
+Value -&gt; Parser ResourceErrorCode
+(Value -&gt; Parser ResourceErrorCode)
+-&gt; (Value -&gt; Parser [ResourceErrorCode])
+-&gt; FromJSON ResourceErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceErrorCode]
+$cparseJSONList :: Value -&gt; Parser [ResourceErrorCode]
+parseJSON :: Value -&gt; Parser ResourceErrorCode
+$cparseJSON :: Value -&gt; Parser ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679156300"><span id="local-6989586621679156302"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceErrorCode]
+FromJSONKeyFunction ResourceErrorCode
+FromJSONKeyFunction ResourceErrorCode
+-&gt; FromJSONKeyFunction [ResourceErrorCode]
+-&gt; FromJSONKey ResourceErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceErrorCode]
+fromJSONKey :: FromJSONKeyFunction ResourceErrorCode
+$cfromJSONKey :: FromJSONKeyFunction ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679156291"><span id="local-6989586621679156293"><span id="local-6989586621679156295"><span id="local-6989586621679156297"><span class="annot"><span class="annottext">[ResourceErrorCode] -&gt; Encoding
+[ResourceErrorCode] -&gt; Value
+ResourceErrorCode -&gt; Encoding
+ResourceErrorCode -&gt; Value
+(ResourceErrorCode -&gt; Value)
+-&gt; (ResourceErrorCode -&gt; Encoding)
+-&gt; ([ResourceErrorCode] -&gt; Value)
+-&gt; ([ResourceErrorCode] -&gt; Encoding)
+-&gt; ToJSON ResourceErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceErrorCode] -&gt; Encoding
+$ctoEncodingList :: [ResourceErrorCode] -&gt; Encoding
+toJSONList :: [ResourceErrorCode] -&gt; Value
+$ctoJSONList :: [ResourceErrorCode] -&gt; Value
+toEncoding :: ResourceErrorCode -&gt; Encoding
+$ctoEncoding :: ResourceErrorCode -&gt; Encoding
+toJSON :: ResourceErrorCode -&gt; Value
+$ctoJSON :: ResourceErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679156286"><span id="local-6989586621679156288"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceErrorCode]
+ToJSONKeyFunction ResourceErrorCode
+ToJSONKeyFunction ResourceErrorCode
+-&gt; ToJSONKeyFunction [ResourceErrorCode]
+-&gt; ToJSONKey ResourceErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceErrorCode]
+toJSONKey :: ToJSONKeyFunction ResourceErrorCode
+$ctoJSONKey :: ToJSONKeyFunction ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679156283"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceErrorCode
+([Node] -&gt; Either String ResourceErrorCode)
+-&gt; FromXML ResourceErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceErrorCode
+$cparseXML :: [Node] -&gt; Either String ResourceErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679156280"><span class="annot"><span class="annottext">ResourceErrorCode -&gt; XML
+(ResourceErrorCode -&gt; XML) -&gt; ToXML ResourceErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceErrorCode -&gt; XML
+$ctoXML :: ResourceErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InternalServiceException"><span class="hs-identifier hs-type">ResourceErrorCode_InternalServiceException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode"><span class="hs-identifier hs-type">ResourceErrorCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceErrorCode_InternalServiceException"><span id="%24mResourceErrorCode_InternalServiceException"><span id="ResourceErrorCode_InternalServiceException"><span class="annot"><span class="annottext">$bResourceErrorCode_InternalServiceException :: ResourceErrorCode
+$mResourceErrorCode_InternalServiceException :: forall r. ResourceErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#%24bResourceErrorCode_InternalServiceException"><span class="hs-identifier hs-var hs-var hs-var">ResourceErrorCode_InternalServiceException</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode%27"><span class="hs-identifier hs-type">ResourceErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InternalServiceException&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InvalidParameterException"><span class="hs-identifier hs-type">ResourceErrorCode_InvalidParameterException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode"><span class="hs-identifier hs-type">ResourceErrorCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceErrorCode_InvalidParameterException"><span id="%24mResourceErrorCode_InvalidParameterException"><span id="ResourceErrorCode_InvalidParameterException"><span class="annot"><span class="annottext">$bResourceErrorCode_InvalidParameterException :: ResourceErrorCode
+$mResourceErrorCode_InvalidParameterException :: forall r. ResourceErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#%24bResourceErrorCode_InvalidParameterException"><span class="hs-identifier hs-var hs-var hs-var">ResourceErrorCode_InvalidParameterException</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode%27"><span class="hs-identifier hs-type">ResourceErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidParameterException&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InternalServiceException"><span class="hs-pragma hs-type">ResourceErrorCode_InternalServiceException</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode_InvalidParameterException"><span class="hs-pragma hs-type">ResourceErrorCode_InvalidParameterException</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode.html#ResourceErrorCode%27"><span class="hs-pragma hs-type">ResourceErrorCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

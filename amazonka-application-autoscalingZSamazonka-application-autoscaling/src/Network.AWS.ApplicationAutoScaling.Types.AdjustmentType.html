@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationAutoScaling.Types.AdjustmentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationAutoScaling.Types.AdjustmentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier">AdjustmentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ChangeInCapacity"><span class="hs-identifier">AdjustmentType_ChangeInCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ExactCapacity"><span class="hs-identifier">AdjustmentType_ExactCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_PercentChangeInCapacity"><span class="hs-identifier">AdjustmentType_PercentChangeInCapacity</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679183141"><span id="local-6989586621679183142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdjustmentType"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-var">AdjustmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdjustmentType%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-var">AdjustmentType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAdjustmentType"><span class="annot"><span class="annottext">AdjustmentType -&gt; Text
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#fromAdjustmentType"><span class="hs-identifier hs-var hs-var">fromAdjustmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183133"><span id="local-6989586621679183135"><span id="local-6989586621679183137"><span class="annot"><span class="annottext">Int -&gt; AdjustmentType -&gt; ShowS
+[AdjustmentType] -&gt; ShowS
+AdjustmentType -&gt; String
+(Int -&gt; AdjustmentType -&gt; ShowS)
+-&gt; (AdjustmentType -&gt; String)
+-&gt; ([AdjustmentType] -&gt; ShowS)
+-&gt; Show AdjustmentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdjustmentType] -&gt; ShowS
+$cshowList :: [AdjustmentType] -&gt; ShowS
+show :: AdjustmentType -&gt; String
+$cshow :: AdjustmentType -&gt; String
+showsPrec :: Int -&gt; AdjustmentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdjustmentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679183124"><span id="local-6989586621679183126"><span id="local-6989586621679183128"><span id="local-6989586621679183130"><span class="annot"><span class="annottext">ReadPrec [AdjustmentType]
+ReadPrec AdjustmentType
+Int -&gt; ReadS AdjustmentType
+ReadS [AdjustmentType]
+(Int -&gt; ReadS AdjustmentType)
+-&gt; ReadS [AdjustmentType]
+-&gt; ReadPrec AdjustmentType
+-&gt; ReadPrec [AdjustmentType]
+-&gt; Read AdjustmentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AdjustmentType]
+$creadListPrec :: ReadPrec [AdjustmentType]
+readPrec :: ReadPrec AdjustmentType
+$creadPrec :: ReadPrec AdjustmentType
+readList :: ReadS [AdjustmentType]
+$creadList :: ReadS [AdjustmentType]
+readsPrec :: Int -&gt; ReadS AdjustmentType
+$creadsPrec :: Int -&gt; ReadS AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183119"><span id="local-6989586621679183121"><span class="annot"><span class="annottext">AdjustmentType -&gt; AdjustmentType -&gt; Bool
+(AdjustmentType -&gt; AdjustmentType -&gt; Bool)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool) -&gt; Eq AdjustmentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c/= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+== :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c== :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183103"><span id="local-6989586621679183105"><span id="local-6989586621679183107"><span id="local-6989586621679183109"><span id="local-6989586621679183111"><span id="local-6989586621679183113"><span id="local-6989586621679183115"><span class="annot"><span class="annottext">Eq AdjustmentType
+Eq AdjustmentType
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Ordering)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType)
+-&gt; (AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType)
+-&gt; Ord AdjustmentType
+AdjustmentType -&gt; AdjustmentType -&gt; Bool
+AdjustmentType -&gt; AdjustmentType -&gt; Ordering
+AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType
+$cmin :: AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType
+max :: AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType
+$cmax :: AdjustmentType -&gt; AdjustmentType -&gt; AdjustmentType
+&gt;= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c&gt;= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+&gt; :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c&gt; :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+&lt;= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c&lt;= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+&lt; :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+$c&lt; :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
+compare :: AdjustmentType -&gt; AdjustmentType -&gt; Ordering
+$ccompare :: AdjustmentType -&gt; AdjustmentType -&gt; Ordering
+$cp1Ord :: Eq AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AdjustmentType -&gt; Rep AdjustmentType x)
+-&gt; (forall x. Rep AdjustmentType x -&gt; AdjustmentType)
+-&gt; Generic AdjustmentType
+forall x. Rep AdjustmentType x -&gt; AdjustmentType
+forall x. AdjustmentType -&gt; Rep AdjustmentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AdjustmentType x -&gt; AdjustmentType
+$cfrom :: forall x. AdjustmentType -&gt; Rep AdjustmentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183095"><span id="local-6989586621679183097"><span class="annot"><span class="annottext">Int -&gt; AdjustmentType -&gt; Int
+AdjustmentType -&gt; Int
+(Int -&gt; AdjustmentType -&gt; Int)
+-&gt; (AdjustmentType -&gt; Int) -&gt; Hashable AdjustmentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AdjustmentType -&gt; Int
+$chash :: AdjustmentType -&gt; Int
+hashWithSalt :: Int -&gt; AdjustmentType -&gt; Int
+$chashWithSalt :: Int -&gt; AdjustmentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679183092"><span class="annot"><span class="annottext">AdjustmentType -&gt; ()
+(AdjustmentType -&gt; ()) -&gt; NFData AdjustmentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AdjustmentType -&gt; ()
+$crnf :: AdjustmentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183089"><span class="annot"><span class="annottext">Text -&gt; Either String AdjustmentType
+(Text -&gt; Either String AdjustmentType) -&gt; FromText AdjustmentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AdjustmentType
+$cfromText :: Text -&gt; Either String AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183086"><span class="annot"><span class="annottext">AdjustmentType -&gt; Text
+(AdjustmentType -&gt; Text) -&gt; ToText AdjustmentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AdjustmentType -&gt; Text
+$ctoText :: AdjustmentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183083"><span class="annot"><span class="annottext">AdjustmentType -&gt; ByteString
+(AdjustmentType -&gt; ByteString) -&gt; ToByteString AdjustmentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AdjustmentType -&gt; ByteString
+$ctoBS :: AdjustmentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183080"><span class="annot"><span class="annottext">AdjustmentType -&gt; ByteStringBuilder
+(AdjustmentType -&gt; ByteStringBuilder) -&gt; ToLog AdjustmentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AdjustmentType -&gt; ByteStringBuilder
+$cbuild :: AdjustmentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183077"><span class="annot"><span class="annottext">HeaderName -&gt; AdjustmentType -&gt; [Header]
+(HeaderName -&gt; AdjustmentType -&gt; [Header])
+-&gt; ToHeader AdjustmentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AdjustmentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AdjustmentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183074"><span class="annot"><span class="annottext">AdjustmentType -&gt; QueryString
+(AdjustmentType -&gt; QueryString) -&gt; ToQuery AdjustmentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AdjustmentType -&gt; QueryString
+$ctoQuery :: AdjustmentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183069"><span id="local-6989586621679183071"><span class="annot"><span class="annottext">Value -&gt; Parser [AdjustmentType]
+Value -&gt; Parser AdjustmentType
+(Value -&gt; Parser AdjustmentType)
+-&gt; (Value -&gt; Parser [AdjustmentType]) -&gt; FromJSON AdjustmentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AdjustmentType]
+$cparseJSONList :: Value -&gt; Parser [AdjustmentType]
+parseJSON :: Value -&gt; Parser AdjustmentType
+$cparseJSON :: Value -&gt; Parser AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183064"><span id="local-6989586621679183066"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdjustmentType]
+FromJSONKeyFunction AdjustmentType
+FromJSONKeyFunction AdjustmentType
+-&gt; FromJSONKeyFunction [AdjustmentType]
+-&gt; FromJSONKey AdjustmentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AdjustmentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AdjustmentType]
+fromJSONKey :: FromJSONKeyFunction AdjustmentType
+$cfromJSONKey :: FromJSONKeyFunction AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183055"><span id="local-6989586621679183057"><span id="local-6989586621679183059"><span id="local-6989586621679183061"><span class="annot"><span class="annottext">[AdjustmentType] -&gt; Encoding
+[AdjustmentType] -&gt; Value
+AdjustmentType -&gt; Encoding
+AdjustmentType -&gt; Value
+(AdjustmentType -&gt; Value)
+-&gt; (AdjustmentType -&gt; Encoding)
+-&gt; ([AdjustmentType] -&gt; Value)
+-&gt; ([AdjustmentType] -&gt; Encoding)
+-&gt; ToJSON AdjustmentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AdjustmentType] -&gt; Encoding
+$ctoEncodingList :: [AdjustmentType] -&gt; Encoding
+toJSONList :: [AdjustmentType] -&gt; Value
+$ctoJSONList :: [AdjustmentType] -&gt; Value
+toEncoding :: AdjustmentType -&gt; Encoding
+$ctoEncoding :: AdjustmentType -&gt; Encoding
+toJSON :: AdjustmentType -&gt; Value
+$ctoJSON :: AdjustmentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183050"><span id="local-6989586621679183052"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdjustmentType]
+ToJSONKeyFunction AdjustmentType
+ToJSONKeyFunction AdjustmentType
+-&gt; ToJSONKeyFunction [AdjustmentType] -&gt; ToJSONKey AdjustmentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AdjustmentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AdjustmentType]
+toJSONKey :: ToJSONKeyFunction AdjustmentType
+$ctoJSONKey :: ToJSONKeyFunction AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183047"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdjustmentType
+([Node] -&gt; Either String AdjustmentType) -&gt; FromXML AdjustmentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AdjustmentType
+$cparseXML :: [Node] -&gt; Either String AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183044"><span class="annot"><span class="annottext">AdjustmentType -&gt; XML
+(AdjustmentType -&gt; XML) -&gt; ToXML AdjustmentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AdjustmentType -&gt; XML
+$ctoXML :: AdjustmentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ChangeInCapacity"><span class="hs-identifier hs-type">AdjustmentType_ChangeInCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAdjustmentType_ChangeInCapacity"><span id="%24mAdjustmentType_ChangeInCapacity"><span id="AdjustmentType_ChangeInCapacity"><span class="annot"><span class="annottext">$bAdjustmentType_ChangeInCapacity :: AdjustmentType
+$mAdjustmentType_ChangeInCapacity :: forall r. AdjustmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#%24bAdjustmentType_ChangeInCapacity"><span class="hs-identifier hs-var hs-var hs-var">AdjustmentType_ChangeInCapacity</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ChangeInCapacity&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ExactCapacity"><span class="hs-identifier hs-type">AdjustmentType_ExactCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAdjustmentType_ExactCapacity"><span id="%24mAdjustmentType_ExactCapacity"><span id="AdjustmentType_ExactCapacity"><span class="annot"><span class="annottext">$bAdjustmentType_ExactCapacity :: AdjustmentType
+$mAdjustmentType_ExactCapacity :: forall r. AdjustmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#%24bAdjustmentType_ExactCapacity"><span class="hs-identifier hs-var hs-var hs-var">AdjustmentType_ExactCapacity</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExactCapacity&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_PercentChangeInCapacity"><span class="hs-identifier hs-type">AdjustmentType_PercentChangeInCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAdjustmentType_PercentChangeInCapacity"><span id="%24mAdjustmentType_PercentChangeInCapacity"><span id="AdjustmentType_PercentChangeInCapacity"><span class="annot"><span class="annottext">$bAdjustmentType_PercentChangeInCapacity :: AdjustmentType
+$mAdjustmentType_PercentChangeInCapacity :: forall r. AdjustmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#%24bAdjustmentType_PercentChangeInCapacity"><span class="hs-identifier hs-var hs-var hs-var">AdjustmentType_PercentChangeInCapacity</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PercentChangeInCapacity&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ChangeInCapacity"><span class="hs-pragma hs-type">AdjustmentType_ChangeInCapacity</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_ExactCapacity"><span class="hs-pragma hs-type">AdjustmentType_ExactCapacity</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType_PercentChangeInCapacity"><span class="hs-pragma hs-type">AdjustmentType_PercentChangeInCapacity</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-pragma hs-type">AdjustmentType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

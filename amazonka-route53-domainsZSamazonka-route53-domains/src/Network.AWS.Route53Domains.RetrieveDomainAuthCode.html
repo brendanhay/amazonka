@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation returns the AuthCode for the domain. To transfer a domain</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to another registrar, you provide this value to the new registrar.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Domains.RetrieveDomainAuthCode</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCode"><span class="hs-identifier">newRetrieveDomainAuthCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCode_domainName"><span class="hs-identifier">retrieveDomainAuthCode_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier">RetrieveDomainAuthCodeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCodeResponse"><span class="hs-identifier">newRetrieveDomainAuthCodeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_httpStatus"><span class="hs-identifier">retrieveDomainAuthCodeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_authCode"><span class="hs-identifier">retrieveDomainAuthCodeResponse_authCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.html"><span class="hs-identifier">Network.AWS.Route53Domains.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | A request for the authorization code for the specified domain. To</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- transfer a domain to another registrar, you provide this value to the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- new registrar.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newRetrieveDomainAuthCode' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679212049"><span id="local-6989586621679212050"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetrieveDomainAuthCode"><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-var">RetrieveDomainAuthCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetrieveDomainAuthCode%27"><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode%27"><span class="hs-identifier hs-var">RetrieveDomainAuthCode'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain that you want to get an authorization code for.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdomainName%3ARetrieveDomainAuthCode%27"><span class="annot"><span class="annottext">RetrieveDomainAuthCode -&gt; Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AdomainName%3ARetrieveDomainAuthCode%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212043"><span id="local-6989586621679212045"><span class="annot"><span class="annottext">RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool
+(RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool)
+-&gt; (RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool)
+-&gt; Eq RetrieveDomainAuthCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool
+$c/= :: RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool
+== :: RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool
+$c== :: RetrieveDomainAuthCode -&gt; RetrieveDomainAuthCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212034"><span id="local-6989586621679212036"><span id="local-6989586621679212038"><span id="local-6989586621679212040"><span class="annot"><span class="annottext">ReadPrec [RetrieveDomainAuthCode]
+ReadPrec RetrieveDomainAuthCode
+Int -&gt; ReadS RetrieveDomainAuthCode
+ReadS [RetrieveDomainAuthCode]
+(Int -&gt; ReadS RetrieveDomainAuthCode)
+-&gt; ReadS [RetrieveDomainAuthCode]
+-&gt; ReadPrec RetrieveDomainAuthCode
+-&gt; ReadPrec [RetrieveDomainAuthCode]
+-&gt; Read RetrieveDomainAuthCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RetrieveDomainAuthCode]
+$creadListPrec :: ReadPrec [RetrieveDomainAuthCode]
+readPrec :: ReadPrec RetrieveDomainAuthCode
+$creadPrec :: ReadPrec RetrieveDomainAuthCode
+readList :: ReadS [RetrieveDomainAuthCode]
+$creadList :: ReadS [RetrieveDomainAuthCode]
+readsPrec :: Int -&gt; ReadS RetrieveDomainAuthCode
+$creadsPrec :: Int -&gt; ReadS RetrieveDomainAuthCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212027"><span id="local-6989586621679212029"><span id="local-6989586621679212031"><span class="annot"><span class="annottext">Int -&gt; RetrieveDomainAuthCode -&gt; ShowS
+[RetrieveDomainAuthCode] -&gt; ShowS
+RetrieveDomainAuthCode -&gt; String
+(Int -&gt; RetrieveDomainAuthCode -&gt; ShowS)
+-&gt; (RetrieveDomainAuthCode -&gt; String)
+-&gt; ([RetrieveDomainAuthCode] -&gt; ShowS)
+-&gt; Show RetrieveDomainAuthCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetrieveDomainAuthCode] -&gt; ShowS
+$cshowList :: [RetrieveDomainAuthCode] -&gt; ShowS
+show :: RetrieveDomainAuthCode -&gt; String
+$cshow :: RetrieveDomainAuthCode -&gt; String
+showsPrec :: Int -&gt; RetrieveDomainAuthCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetrieveDomainAuthCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RetrieveDomainAuthCode -&gt; Rep RetrieveDomainAuthCode x)
+-&gt; (forall x.
+    Rep RetrieveDomainAuthCode x -&gt; RetrieveDomainAuthCode)
+-&gt; Generic RetrieveDomainAuthCode
+forall x. Rep RetrieveDomainAuthCode x -&gt; RetrieveDomainAuthCode
+forall x. RetrieveDomainAuthCode -&gt; Rep RetrieveDomainAuthCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RetrieveDomainAuthCode x -&gt; RetrieveDomainAuthCode
+$cfrom :: forall x. RetrieveDomainAuthCode -&gt; Rep RetrieveDomainAuthCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'RetrieveDomainAuthCode' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'domainName', 'retrieveDomainAuthCode_domainName' - The name of the domain that you want to get an authorization code for.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCode"><span class="hs-identifier hs-type">newRetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span>
+</span><span id="line-74"></span><span id="newRetrieveDomainAuthCode"><span class="annot"><span class="annottext">newRetrieveDomainAuthCode :: Text -&gt; RetrieveDomainAuthCode
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCode"><span class="hs-identifier hs-var hs-var">newRetrieveDomainAuthCode</span></a></span></span><span> </span><span id="local-6989586621679212022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212022"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">RetrieveDomainAuthCode' :: Text -&gt; RetrieveDomainAuthCode
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RetrieveDomainAuthCode' :: Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AdomainName%3ARetrieveDomainAuthCode%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212022"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the domain that you want to get an authorization code for.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCode_domainName"><span class="hs-identifier hs-type">retrieveDomainAuthCode_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="retrieveDomainAuthCode_domainName"><span class="annot"><span class="annottext">retrieveDomainAuthCode_domainName :: (Text -&gt; f Text)
+-&gt; RetrieveDomainAuthCode -&gt; f RetrieveDomainAuthCode
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCode_domainName"><span class="hs-identifier hs-var hs-var">retrieveDomainAuthCode_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveDomainAuthCode -&gt; Text)
+-&gt; (RetrieveDomainAuthCode -&gt; Text -&gt; RetrieveDomainAuthCode)
+-&gt; Lens RetrieveDomainAuthCode RetrieveDomainAuthCode Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212019"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:RetrieveDomainAuthCode' :: RetrieveDomainAuthCode -&gt; Text
+</span><a href="#local-6989586621679212019"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212019"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212018"><span class="annot"><span class="annottext">s :: RetrieveDomainAuthCode
+</span><a href="#local-6989586621679212018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveDomainAuthCode
+</span><a href="#local-6989586621679212018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RetrieveDomainAuthCode' :: Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AdomainName%3ARetrieveDomainAuthCode%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679212013"><span class="annot"><span class="annottext">request :: RetrieveDomainAuthCode -&gt; Request RetrieveDomainAuthCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RetrieveDomainAuthCode -&gt; Request RetrieveDomainAuthCode
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679212009"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RetrieveDomainAuthCode
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RetrieveDomainAuthCode)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RetrieveDomainAuthCode))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RetrieveDomainAuthCode
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RetrieveDomainAuthCode)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212006"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212005"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212005"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212004"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Sensitive Text -&gt; RetrieveDomainAuthCodeResponse
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">RetrieveDomainAuthCodeResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Sensitive Text -&gt; RetrieveDomainAuthCodeResponse)
+-&gt; Either String Int
+-&gt; Either String (Sensitive Text -&gt; RetrieveDomainAuthCodeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212006"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Sensitive Text -&gt; RetrieveDomainAuthCodeResponse)
+-&gt; Either String (Sensitive Text)
+-&gt; Either String RetrieveDomainAuthCodeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211996"><span id="local-6989586621679211998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679211989"><span class="annot"><span class="annottext">toHeaders :: RetrieveDomainAuthCode -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RetrieveDomainAuthCode -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Domains_v20140515.RetrieveDomainAuthCode&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211979"><span id="local-6989586621679211981"><span id="local-6989586621679211983"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679211977"><span class="annot"><span class="annottext">toJSON :: RetrieveDomainAuthCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211975"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:RetrieveDomainAuthCode' :: RetrieveDomainAuthCode -&gt; Text
+</span><a href="#local-6989586621679211975"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211975"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679211969"><span class="annot"><span class="annottext">toPath :: RetrieveDomainAuthCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RetrieveDomainAuthCode -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCode"><span class="hs-identifier hs-type">RetrieveDomainAuthCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679211965"><span class="annot"><span class="annottext">toQuery :: RetrieveDomainAuthCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RetrieveDomainAuthCode -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The RetrieveDomainAuthCode response includes the following element.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- /See:/ 'newRetrieveDomainAuthCodeResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679211962"><span id="local-6989586621679211963"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetrieveDomainAuthCodeResponse"><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-var">RetrieveDomainAuthCodeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetrieveDomainAuthCodeResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">RetrieveDomainAuthCodeResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARetrieveDomainAuthCodeResponse%27"><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse -&gt; Int
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AhttpStatus%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The authorization code for the domain.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AauthCode%3ARetrieveDomainAuthCodeResponse%27"><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse -&gt; Sensitive Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AauthCode%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211956"><span id="local-6989586621679211958"><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse
+-&gt; RetrieveDomainAuthCodeResponse -&gt; Bool
+(RetrieveDomainAuthCodeResponse
+ -&gt; RetrieveDomainAuthCodeResponse -&gt; Bool)
+-&gt; (RetrieveDomainAuthCodeResponse
+    -&gt; RetrieveDomainAuthCodeResponse -&gt; Bool)
+-&gt; Eq RetrieveDomainAuthCodeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RetrieveDomainAuthCodeResponse
+-&gt; RetrieveDomainAuthCodeResponse -&gt; Bool
+$c/= :: RetrieveDomainAuthCodeResponse
+-&gt; RetrieveDomainAuthCodeResponse -&gt; Bool
+== :: RetrieveDomainAuthCodeResponse
+-&gt; RetrieveDomainAuthCodeResponse -&gt; Bool
+$c== :: RetrieveDomainAuthCodeResponse
+-&gt; RetrieveDomainAuthCodeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211950"><span id="local-6989586621679211952"><span id="local-6989586621679211954"><span class="annot"><span class="annottext">Int -&gt; RetrieveDomainAuthCodeResponse -&gt; ShowS
+[RetrieveDomainAuthCodeResponse] -&gt; ShowS
+RetrieveDomainAuthCodeResponse -&gt; String
+(Int -&gt; RetrieveDomainAuthCodeResponse -&gt; ShowS)
+-&gt; (RetrieveDomainAuthCodeResponse -&gt; String)
+-&gt; ([RetrieveDomainAuthCodeResponse] -&gt; ShowS)
+-&gt; Show RetrieveDomainAuthCodeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RetrieveDomainAuthCodeResponse] -&gt; ShowS
+$cshowList :: [RetrieveDomainAuthCodeResponse] -&gt; ShowS
+show :: RetrieveDomainAuthCodeResponse -&gt; String
+$cshow :: RetrieveDomainAuthCodeResponse -&gt; String
+showsPrec :: Int -&gt; RetrieveDomainAuthCodeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RetrieveDomainAuthCodeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RetrieveDomainAuthCodeResponse
+ -&gt; Rep RetrieveDomainAuthCodeResponse x)
+-&gt; (forall x.
+    Rep RetrieveDomainAuthCodeResponse x
+    -&gt; RetrieveDomainAuthCodeResponse)
+-&gt; Generic RetrieveDomainAuthCodeResponse
+forall x.
+Rep RetrieveDomainAuthCodeResponse x
+-&gt; RetrieveDomainAuthCodeResponse
+forall x.
+RetrieveDomainAuthCodeResponse
+-&gt; Rep RetrieveDomainAuthCodeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RetrieveDomainAuthCodeResponse x
+-&gt; RetrieveDomainAuthCodeResponse
+$cfrom :: forall x.
+RetrieveDomainAuthCodeResponse
+-&gt; Rep RetrieveDomainAuthCodeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'RetrieveDomainAuthCodeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'httpStatus', 'retrieveDomainAuthCodeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'authCode', 'retrieveDomainAuthCodeResponse_authCode' - The authorization code for the domain.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">newRetrieveDomainAuthCodeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'authCode'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newRetrieveDomainAuthCodeResponse"><span class="annot"><span class="annottext">newRetrieveDomainAuthCodeResponse :: Int -&gt; Text -&gt; RetrieveDomainAuthCodeResponse
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#newRetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-var hs-var">newRetrieveDomainAuthCodeResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679211947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679211946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211946"><span class="hs-identifier hs-var">pAuthCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse' :: Int -&gt; Sensitive Text -&gt; RetrieveDomainAuthCodeResponse
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RetrieveDomainAuthCodeResponse' :: Int
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AhttpStatus%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:authCode:RetrieveDomainAuthCodeResponse' :: Sensitive Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AauthCode%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">authCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211946"><span class="hs-identifier hs-var">pAuthCode_</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_httpStatus"><span class="hs-identifier hs-type">retrieveDomainAuthCodeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="retrieveDomainAuthCodeResponse_httpStatus"><span class="annot"><span class="annottext">retrieveDomainAuthCodeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RetrieveDomainAuthCodeResponse
+-&gt; f RetrieveDomainAuthCodeResponse
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">retrieveDomainAuthCodeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveDomainAuthCodeResponse -&gt; Int)
+-&gt; (RetrieveDomainAuthCodeResponse
+    -&gt; Int -&gt; RetrieveDomainAuthCodeResponse)
+-&gt; Lens
+     RetrieveDomainAuthCodeResponse
+     RetrieveDomainAuthCodeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211943"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RetrieveDomainAuthCodeResponse' :: RetrieveDomainAuthCodeResponse -&gt; Int
+</span><a href="#local-6989586621679211943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211942"><span class="annot"><span class="annottext">s :: RetrieveDomainAuthCodeResponse
+</span><a href="#local-6989586621679211942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse
+</span><a href="#local-6989586621679211942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetrieveDomainAuthCodeResponse' :: Int
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AhttpStatus%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The authorization code for the domain.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_authCode"><span class="hs-identifier hs-type">retrieveDomainAuthCodeResponse_authCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="retrieveDomainAuthCodeResponse_authCode"><span class="annot"><span class="annottext">retrieveDomainAuthCodeResponse_authCode :: (Text -&gt; f Text)
+-&gt; RetrieveDomainAuthCodeResponse
+-&gt; f RetrieveDomainAuthCodeResponse
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#retrieveDomainAuthCodeResponse_authCode"><span class="hs-identifier hs-var hs-var">retrieveDomainAuthCodeResponse_authCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RetrieveDomainAuthCodeResponse -&gt; Sensitive Text)
+-&gt; (RetrieveDomainAuthCodeResponse
+    -&gt; Sensitive Text -&gt; RetrieveDomainAuthCodeResponse)
+-&gt; Lens
+     RetrieveDomainAuthCodeResponse
+     RetrieveDomainAuthCodeResponse
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211940"><span class="annot"><span class="annottext">Sensitive Text
+authCode :: Sensitive Text
+$sel:authCode:RetrieveDomainAuthCodeResponse' :: RetrieveDomainAuthCodeResponse -&gt; Sensitive Text
+</span><a href="#local-6989586621679211940"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679211940"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211939"><span class="annot"><span class="annottext">s :: RetrieveDomainAuthCodeResponse
+</span><a href="#local-6989586621679211939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211938"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679211938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetrieveDomainAuthCodeResponse
+</span><a href="#local-6989586621679211939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authCode:RetrieveDomainAuthCodeResponse' :: Sensitive Text
+</span><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#%24sel%3AauthCode%3ARetrieveDomainAuthCodeResponse%27"><span class="hs-identifier hs-var">authCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679211938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; RetrieveDomainAuthCodeResponse
+ -&gt; f RetrieveDomainAuthCodeResponse)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; RetrieveDomainAuthCodeResponse
+-&gt; f RetrieveDomainAuthCodeResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679211935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.RetrieveDomainAuthCode.html#RetrieveDomainAuthCodeResponse"><span class="hs-identifier hs-type">RetrieveDomainAuthCodeResponse</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

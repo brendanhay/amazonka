@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchLogs.Types.MetricTransformation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchLogs.Types.MetricTransformation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html"><span class="hs-identifier">Network.AWS.CloudWatchLogs.Types.StandardUnit</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Indicates how to transform ingested log events to metric data in a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- CloudWatch metric.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMetricTransformation' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679223092"><span id="local-6989586621679223093"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricTransformation"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-var">MetricTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricTransformation%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-var">MetricTransformation'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unit to assign to the metric. If you omit this, the unit is set as</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @None@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aunit%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Aunit%3AMetricTransformation%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The fields to use as dimensions for the metric. One metric filter can</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- include as many as three dimensions.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Metrics extracted from log events are charged as custom metrics. To</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- prevent unexpected high charges, do not specify high-cardinality fields</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- such as @IPAddress@ or @requestID@ as dimensions. Each different value</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- found for a dimension is treated as a separate metric and accrues</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- charges as a separate custom metric.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- To help prevent accidental high charges, Amazon disables a metric filter</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- if it generates 1000 different name\/value pairs for the dimensions that</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- you have specified within a certain amount of time.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- You can also set up a billing alarm to alert you if your charges are</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- higher than expected. For more information, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges&gt;.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adimensions%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Adimensions%3AMetricTransformation%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | (Optional) The value to emit when a filter pattern does not match a log</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- event. This value can be null.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdefaultValue%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Maybe Double
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AdefaultValue%3AMetricTransformation%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the CloudWatch metric.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AmetricName%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricName%3AMetricTransformation%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A custom namespace to contain your metric in CloudWatch. Use namespaces</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- to group together metrics that are similar. For more information, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces&gt;.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmetricNamespace%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricNamespace%3AMetricTransformation%27"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The value to publish to the CloudWatch metric when a filter pattern</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- matches a log event.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmetricValue%3AMetricTransformation%27"><span class="annot"><span class="annottext">MetricTransformation -&gt; Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricValue%3AMetricTransformation%27"><span class="hs-identifier hs-var hs-var">metricValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223081"><span id="local-6989586621679223083"><span class="annot"><span class="annottext">MetricTransformation -&gt; MetricTransformation -&gt; Bool
+(MetricTransformation -&gt; MetricTransformation -&gt; Bool)
+-&gt; (MetricTransformation -&gt; MetricTransformation -&gt; Bool)
+-&gt; Eq MetricTransformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricTransformation -&gt; MetricTransformation -&gt; Bool
+$c/= :: MetricTransformation -&gt; MetricTransformation -&gt; Bool
+== :: MetricTransformation -&gt; MetricTransformation -&gt; Bool
+$c== :: MetricTransformation -&gt; MetricTransformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223072"><span id="local-6989586621679223074"><span id="local-6989586621679223076"><span id="local-6989586621679223078"><span class="annot"><span class="annottext">ReadPrec [MetricTransformation]
+ReadPrec MetricTransformation
+Int -&gt; ReadS MetricTransformation
+ReadS [MetricTransformation]
+(Int -&gt; ReadS MetricTransformation)
+-&gt; ReadS [MetricTransformation]
+-&gt; ReadPrec MetricTransformation
+-&gt; ReadPrec [MetricTransformation]
+-&gt; Read MetricTransformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricTransformation]
+$creadListPrec :: ReadPrec [MetricTransformation]
+readPrec :: ReadPrec MetricTransformation
+$creadPrec :: ReadPrec MetricTransformation
+readList :: ReadS [MetricTransformation]
+$creadList :: ReadS [MetricTransformation]
+readsPrec :: Int -&gt; ReadS MetricTransformation
+$creadsPrec :: Int -&gt; ReadS MetricTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223065"><span id="local-6989586621679223067"><span id="local-6989586621679223069"><span class="annot"><span class="annottext">Int -&gt; MetricTransformation -&gt; ShowS
+[MetricTransformation] -&gt; ShowS
+MetricTransformation -&gt; String
+(Int -&gt; MetricTransformation -&gt; ShowS)
+-&gt; (MetricTransformation -&gt; String)
+-&gt; ([MetricTransformation] -&gt; ShowS)
+-&gt; Show MetricTransformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricTransformation] -&gt; ShowS
+$cshowList :: [MetricTransformation] -&gt; ShowS
+show :: MetricTransformation -&gt; String
+$cshow :: MetricTransformation -&gt; String
+showsPrec :: Int -&gt; MetricTransformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricTransformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricTransformation -&gt; Rep MetricTransformation x)
+-&gt; (forall x. Rep MetricTransformation x -&gt; MetricTransformation)
+-&gt; Generic MetricTransformation
+forall x. Rep MetricTransformation x -&gt; MetricTransformation
+forall x. MetricTransformation -&gt; Rep MetricTransformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricTransformation x -&gt; MetricTransformation
+$cfrom :: forall x. MetricTransformation -&gt; Rep MetricTransformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'MetricTransformation' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'unit', 'metricTransformation_unit' - The unit to assign to the metric. If you omit this, the unit is set as</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @None@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'dimensions', 'metricTransformation_dimensions' - The fields to use as dimensions for the metric. One metric filter can</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- include as many as three dimensions.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Metrics extracted from log events are charged as custom metrics. To</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- prevent unexpected high charges, do not specify high-cardinality fields</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- such as @IPAddress@ or @requestID@ as dimensions. Each different value</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- found for a dimension is treated as a separate metric and accrues</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- charges as a separate custom metric.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- To help prevent accidental high charges, Amazon disables a metric filter</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- if it generates 1000 different name\/value pairs for the dimensions that</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- you have specified within a certain amount of time.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- You can also set up a billing alarm to alert you if your charges are</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- higher than expected. For more information, see</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges&gt;.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'defaultValue', 'metricTransformation_defaultValue' - (Optional) The value to emit when a filter pattern does not match a log</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- event. This value can be null.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'metricName', 'metricTransformation_metricName' - The name of the CloudWatch metric.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'metricNamespace', 'metricTransformation_metricNamespace' - A custom namespace to contain your metric in CloudWatch. Use namespaces</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- to group together metrics that are similar. For more information, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces&gt;.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'metricValue', 'metricTransformation_metricValue' - The value to publish to the CloudWatch metric when a filter pattern</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- matches a log event.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#newMetricTransformation"><span class="hs-identifier hs-type">newMetricTransformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'metricNamespace'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'metricValue'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span>
+</span><span id="line-114"></span><span id="newMetricTransformation"><span class="annot"><span class="annottext">newMetricTransformation :: Text -&gt; Text -&gt; Text -&gt; MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#newMetricTransformation"><span class="hs-identifier hs-var hs-var">newMetricTransformation</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679223059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223059"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679223058"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223058"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679223057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223057"><span class="hs-identifier hs-var">pMetricValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">MetricTransformation' :: Maybe StandardUnit
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Double
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unit:MetricTransformation' :: Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Aunit%3AMetricTransformation%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensions:MetricTransformation' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Adimensions%3AMetricTransformation%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultValue:MetricTransformation' :: Maybe Double
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AdefaultValue%3AMetricTransformation%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricName%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223059"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricNamespace:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricNamespace%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223058"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricValue:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricValue%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223057"><span class="hs-identifier hs-var">pMetricValue_</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The unit to assign to the metric. If you omit this, the unit is set as</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @None@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_unit"><span class="hs-identifier hs-type">metricTransformation_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="metricTransformation_unit"><span class="annot"><span class="annottext">metricTransformation_unit :: (Maybe StandardUnit -&gt; f (Maybe StandardUnit))
+-&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_unit"><span class="hs-identifier hs-var hs-var">metricTransformation_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Maybe StandardUnit)
+-&gt; (MetricTransformation
+    -&gt; Maybe StandardUnit -&gt; MetricTransformation)
+-&gt; Lens
+     MetricTransformation
+     MetricTransformation
+     (Maybe StandardUnit)
+     (Maybe StandardUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223053"><span class="annot"><span class="annottext">Maybe StandardUnit
+unit :: Maybe StandardUnit
+$sel:unit:MetricTransformation' :: MetricTransformation -&gt; Maybe StandardUnit
+</span><a href="#local-6989586621679223053"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679223053"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223052"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223051"><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679223051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricTransformation' :: Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Aunit%3AMetricTransformation%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679223051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The fields to use as dimensions for the metric. One metric filter can</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- include as many as three dimensions.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Metrics extracted from log events are charged as custom metrics. To</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- prevent unexpected high charges, do not specify high-cardinality fields</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- such as @IPAddress@ or @requestID@ as dimensions. Each different value</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- found for a dimension is treated as a separate metric and accrues</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- charges as a separate custom metric.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- To help prevent accidental high charges, Amazon disables a metric filter</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- if it generates 1000 different name\/value pairs for the dimensions that</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- you have specified within a certain amount of time.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- You can also set up a billing alarm to alert you if your charges are</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- higher than expected. For more information, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges&gt;.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_dimensions"><span class="hs-identifier hs-type">metricTransformation_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="metricTransformation_dimensions"><span class="annot"><span class="annottext">metricTransformation_dimensions :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_dimensions"><span class="hs-identifier hs-var hs-var">metricTransformation_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Maybe (HashMap Text Text))
+-&gt; (MetricTransformation
+    -&gt; Maybe (HashMap Text Text) -&gt; MetricTransformation)
+-&gt; Lens
+     MetricTransformation
+     MetricTransformation
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223049"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+dimensions :: Maybe (HashMap Text Text)
+$sel:dimensions:MetricTransformation' :: MetricTransformation -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679223049"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679223049"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223048"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223047"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679223047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:MetricTransformation' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3Adimensions%3AMetricTransformation%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679223047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; MetricTransformation -&gt; f MetricTransformation)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; MetricTransformation
+-&gt; f MetricTransformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | (Optional) The value to emit when a filter pattern does not match a log</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- event. This value can be null.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_defaultValue"><span class="hs-identifier hs-type">metricTransformation_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="metricTransformation_defaultValue"><span class="annot"><span class="annottext">metricTransformation_defaultValue :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_defaultValue"><span class="hs-identifier hs-var hs-var">metricTransformation_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Maybe Double)
+-&gt; (MetricTransformation -&gt; Maybe Double -&gt; MetricTransformation)
+-&gt; Lens
+     MetricTransformation
+     MetricTransformation
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223042"><span class="annot"><span class="annottext">Maybe Double
+defaultValue :: Maybe Double
+$sel:defaultValue:MetricTransformation' :: MetricTransformation -&gt; Maybe Double
+</span><a href="#local-6989586621679223042"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679223042"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223041"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223040"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679223040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:MetricTransformation' :: Maybe Double
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AdefaultValue%3AMetricTransformation%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679223040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The name of the CloudWatch metric.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricName"><span class="hs-identifier hs-type">metricTransformation_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="metricTransformation_metricName"><span class="annot"><span class="annottext">metricTransformation_metricName :: (Text -&gt; f Text) -&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricName"><span class="hs-identifier hs-var hs-var">metricTransformation_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Text)
+-&gt; (MetricTransformation -&gt; Text -&gt; MetricTransformation)
+-&gt; Lens MetricTransformation MetricTransformation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223038"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:MetricTransformation' :: MetricTransformation -&gt; Text
+</span><a href="#local-6989586621679223038"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223038"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223037"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricName%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A custom namespace to contain your metric in CloudWatch. Use namespaces</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- to group together metrics that are similar. For more information, see</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces&gt;.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricNamespace"><span class="hs-identifier hs-type">metricTransformation_metricNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-164"></span><span id="metricTransformation_metricNamespace"><span class="annot"><span class="annottext">metricTransformation_metricNamespace :: (Text -&gt; f Text) -&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricNamespace"><span class="hs-identifier hs-var hs-var">metricTransformation_metricNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Text)
+-&gt; (MetricTransformation -&gt; Text -&gt; MetricTransformation)
+-&gt; Lens MetricTransformation MetricTransformation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223034"><span class="annot"><span class="annottext">Text
+metricNamespace :: Text
+$sel:metricNamespace:MetricTransformation' :: MetricTransformation -&gt; Text
+</span><a href="#local-6989586621679223034"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223034"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223033"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricNamespace:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricNamespace%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The value to publish to the CloudWatch metric when a filter pattern</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- matches a log event.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricValue"><span class="hs-identifier hs-type">metricTransformation_metricValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span id="metricTransformation_metricValue"><span class="annot"><span class="annottext">metricTransformation_metricValue :: (Text -&gt; f Text) -&gt; MetricTransformation -&gt; f MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#metricTransformation_metricValue"><span class="hs-identifier hs-var hs-var">metricTransformation_metricValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricTransformation -&gt; Text)
+-&gt; (MetricTransformation -&gt; Text -&gt; MetricTransformation)
+-&gt; Lens MetricTransformation MetricTransformation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223030"><span class="annot"><span class="annottext">Text
+metricValue :: Text
+$sel:metricValue:MetricTransformation' :: MetricTransformation -&gt; Text
+</span><a href="#local-6989586621679223030"><span class="hs-identifier hs-var hs-var">metricValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223030"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223029"><span class="annot"><span class="annottext">s :: MetricTransformation
+</span><a href="#local-6989586621679223029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricTransformation
+</span><a href="#local-6989586621679223029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricValue:MetricTransformation' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#%24sel%3AmetricValue%3AMetricTransformation%27"><span class="hs-identifier hs-var">metricValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223025"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679223023"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricTransformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MetricTransformation)
+-&gt; Value
+-&gt; Parser MetricTransformation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MetricTransformation&quot;</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223020"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe StandardUnit
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Double
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; MetricTransformation
+</span><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-var">MetricTransformation'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StandardUnit
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Double
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; MetricTransformation)
+-&gt; Parser (Maybe StandardUnit)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Double -&gt; Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StandardUnit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Double -&gt; Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Double -&gt; Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double -&gt; Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; MetricTransformation)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; MetricTransformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; MetricTransformation)
+-&gt; Parser Text -&gt; Parser (Text -&gt; MetricTransformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricNamespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; MetricTransformation)
+-&gt; Parser Text -&gt; Parser MetricTransformation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223012"><span id="local-6989586621679223014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223001"><span id="local-6989586621679223003"><span id="local-6989586621679223005"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679222999"><span class="annot"><span class="annottext">toJSON :: MetricTransformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation%27"><span class="hs-identifier hs-type">MetricTransformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222992"><span id="local-6989586621679222993"><span id="local-6989586621679222994"><span id="local-6989586621679222995"><span id="local-6989586621679222996"><span id="local-6989586621679222997"><span class="annot"><span class="annottext">Maybe Double
+Maybe (HashMap Text Text)
+Maybe StandardUnit
+Text
+metricValue :: Text
+metricNamespace :: Text
+metricName :: Text
+defaultValue :: Maybe Double
+dimensions :: Maybe (HashMap Text Text)
+unit :: Maybe StandardUnit
+$sel:metricValue:MetricTransformation' :: MetricTransformation -&gt; Text
+$sel:metricNamespace:MetricTransformation' :: MetricTransformation -&gt; Text
+$sel:metricName:MetricTransformation' :: MetricTransformation -&gt; Text
+$sel:defaultValue:MetricTransformation' :: MetricTransformation -&gt; Maybe Double
+$sel:dimensions:MetricTransformation' :: MetricTransformation -&gt; Maybe (HashMap Text Text)
+$sel:unit:MetricTransformation' :: MetricTransformation -&gt; Maybe StandardUnit
+</span><a href="#local-6989586621679222992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StandardUnit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StandardUnit -&gt; Pair) -&gt; Maybe StandardUnit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679222997"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679222996"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-198"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222992"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span></pre></body></html>

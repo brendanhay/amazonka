@@ -1,0 +1,710 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchLogs.CreateExportTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an export task, which allows you to efficiently export data from</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a log group to an Amazon S3 bucket. When you perform a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @CreateExportTask@ operation, you must use credentials that have</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- permission to write to the S3 bucket that you specify as the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This is an asynchronous call. If all the required information is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- provided, this operation initiates an export task and responds with the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- ID of the task. After the task has started, you can use</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html DescribeExportTasks&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- to get the status of the export task. Each account can only have one</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- active (@RUNNING@ or @PENDING@) export task at a time. To cancel an</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- export task, use</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html CancelExportTask&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- You can export logs from multiple log groups or multiple time ranges to</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- the same S3 bucket. To separate out log data for each export task, you</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- can specify a prefix to be used as the Amazon S3 key prefix for all</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- exported objects.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Exporting to S3 buckets that are encrypted with AES-256 is supported.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Exporting to S3 buckets encrypted with SSE-KMS is not supported.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchLogs.CreateExportTask</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier">CreateExportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTask"><span class="hs-identifier">newCreateExportTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logStreamNamePrefix"><span class="hs-identifier">createExportTask_logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_taskName"><span class="hs-identifier">createExportTask_taskName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destinationPrefix"><span class="hs-identifier">createExportTask_destinationPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logGroupName"><span class="hs-identifier">createExportTask_logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_from"><span class="hs-identifier">createExportTask_from</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_to"><span class="hs-identifier">createExportTask_to</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destination"><span class="hs-identifier">createExportTask_destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier">CreateExportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTaskResponse"><span class="hs-identifier">newCreateExportTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_taskId"><span class="hs-identifier">createExportTaskResponse_taskId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_httpStatus"><span class="hs-identifier">createExportTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.html"><span class="hs-identifier">Network.AWS.CloudWatchLogs.Types</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newCreateExportTask' smart constructor.</span><span>
+</span><span id="line-77"></span><span id="local-6989586621679232783"><span id="local-6989586621679232784"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExportTask"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-var">CreateExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExportTask%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-var">CreateExportTask'</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Export only log streams that match the provided prefix. If you don\'t</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- specify a value, no prefix filter is applied.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AlogStreamNamePrefix%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogStreamNamePrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The name of the export task.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AtaskName%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskName%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">taskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The prefix used as the start of the key for every object exported. If</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- you don\'t specify a value, the default is @exportedlogs@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AdestinationPrefix%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AdestinationPrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">destinationPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogGroupName%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The start time of the range for the request, expressed as the number of</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- earlier than this time are not exported.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Afrom%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Afrom%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The end time of the range for the request, expreswatchlogsdocused as the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- timestamp later than this time are not exported.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Ato%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Ato%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The name of S3 bucket for the exported log data. The bucket must be in</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- the same Amazon Web Services region.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Adestination%3ACreateExportTask%27"><span class="annot"><span class="annottext">CreateExportTask -&gt; Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Adestination%3ACreateExportTask%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232771"><span id="local-6989586621679232773"><span class="annot"><span class="annottext">CreateExportTask -&gt; CreateExportTask -&gt; Bool
+(CreateExportTask -&gt; CreateExportTask -&gt; Bool)
+-&gt; (CreateExportTask -&gt; CreateExportTask -&gt; Bool)
+-&gt; Eq CreateExportTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExportTask -&gt; CreateExportTask -&gt; Bool
+$c/= :: CreateExportTask -&gt; CreateExportTask -&gt; Bool
+== :: CreateExportTask -&gt; CreateExportTask -&gt; Bool
+$c== :: CreateExportTask -&gt; CreateExportTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232762"><span id="local-6989586621679232764"><span id="local-6989586621679232766"><span id="local-6989586621679232768"><span class="annot"><span class="annottext">ReadPrec [CreateExportTask]
+ReadPrec CreateExportTask
+Int -&gt; ReadS CreateExportTask
+ReadS [CreateExportTask]
+(Int -&gt; ReadS CreateExportTask)
+-&gt; ReadS [CreateExportTask]
+-&gt; ReadPrec CreateExportTask
+-&gt; ReadPrec [CreateExportTask]
+-&gt; Read CreateExportTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExportTask]
+$creadListPrec :: ReadPrec [CreateExportTask]
+readPrec :: ReadPrec CreateExportTask
+$creadPrec :: ReadPrec CreateExportTask
+readList :: ReadS [CreateExportTask]
+$creadList :: ReadS [CreateExportTask]
+readsPrec :: Int -&gt; ReadS CreateExportTask
+$creadsPrec :: Int -&gt; ReadS CreateExportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232755"><span id="local-6989586621679232757"><span id="local-6989586621679232759"><span class="annot"><span class="annottext">Int -&gt; CreateExportTask -&gt; ShowS
+[CreateExportTask] -&gt; ShowS
+CreateExportTask -&gt; String
+(Int -&gt; CreateExportTask -&gt; ShowS)
+-&gt; (CreateExportTask -&gt; String)
+-&gt; ([CreateExportTask] -&gt; ShowS)
+-&gt; Show CreateExportTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExportTask] -&gt; ShowS
+$cshowList :: [CreateExportTask] -&gt; ShowS
+show :: CreateExportTask -&gt; String
+$cshow :: CreateExportTask -&gt; String
+showsPrec :: Int -&gt; CreateExportTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateExportTask -&gt; Rep CreateExportTask x)
+-&gt; (forall x. Rep CreateExportTask x -&gt; CreateExportTask)
+-&gt; Generic CreateExportTask
+forall x. Rep CreateExportTask x -&gt; CreateExportTask
+forall x. CreateExportTask -&gt; Rep CreateExportTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateExportTask x -&gt; CreateExportTask
+$cfrom :: forall x. CreateExportTask -&gt; Rep CreateExportTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'CreateExportTask' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'logStreamNamePrefix', 'createExportTask_logStreamNamePrefix' - Export only log streams that match the provided prefix. If you don\'t</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- specify a value, no prefix filter is applied.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'taskName', 'createExportTask_taskName' - The name of the export task.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'destinationPrefix', 'createExportTask_destinationPrefix' - The prefix used as the start of the key for every object exported. If</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- you don\'t specify a value, the default is @exportedlogs@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'logGroupName', 'createExportTask_logGroupName' - The name of the log group.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'from', 'createExportTask_from' - The start time of the range for the request, expressed as the number of</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- earlier than this time are not exported.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'to', 'createExportTask_to' - The end time of the range for the request, expreswatchlogsdocused as the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- timestamp later than this time are not exported.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'destination', 'createExportTask_destination' - The name of S3 bucket for the exported log data. The bucket must be in</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the same Amazon Web Services region.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTask"><span class="hs-identifier hs-type">newCreateExportTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'logGroupName'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'from'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-comment">-- | 'to'</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'destination'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span>
+</span><span id="line-140"></span><span id="newCreateExportTask"><span class="annot"><span class="annottext">newCreateExportTask :: Text -&gt; Natural -&gt; Natural -&gt; Text -&gt; CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTask"><span class="hs-identifier hs-var hs-var">newCreateExportTask</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679232750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232750"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679232749"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232749"><span class="hs-identifier hs-var">pFrom_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679232748"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232748"><span class="hs-identifier hs-var">pTo_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679232747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232747"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">CreateExportTask' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; Text
+-&gt; CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogStreamNamePrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskName:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskName%3ACreateExportTask%27"><span class="hs-identifier hs-var">taskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationPrefix:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AdestinationPrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var">destinationPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:logGroupName:CreateExportTask' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogGroupName%3ACreateExportTask%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232750"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:from:CreateExportTask' :: Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Afrom%3ACreateExportTask%27"><span class="hs-identifier hs-var">from</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232749"><span class="hs-identifier hs-var">pFrom_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:to:CreateExportTask' :: Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Ato%3ACreateExportTask%27"><span class="hs-identifier hs-var">to</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232748"><span class="hs-identifier hs-var">pTo_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:destination:CreateExportTask' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Adestination%3ACreateExportTask%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232747"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Export only log streams that match the provided prefix. If you don\'t</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- specify a value, no prefix filter is applied.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logStreamNamePrefix"><span class="hs-identifier hs-type">createExportTask_logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="createExportTask_logStreamNamePrefix"><span class="annot"><span class="annottext">createExportTask_logStreamNamePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logStreamNamePrefix"><span class="hs-identifier hs-var hs-var">createExportTask_logStreamNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Maybe Text)
+-&gt; (CreateExportTask -&gt; Maybe Text -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232744"><span class="annot"><span class="annottext">Maybe Text
+logStreamNamePrefix :: Maybe Text
+$sel:logStreamNamePrefix:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679232744"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232744"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232743"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogStreamNamePrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The name of the export task.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_taskName"><span class="hs-identifier hs-type">createExportTask_taskName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="createExportTask_taskName"><span class="annot"><span class="annottext">createExportTask_taskName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_taskName"><span class="hs-identifier hs-var hs-var">createExportTask_taskName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Maybe Text)
+-&gt; (CreateExportTask -&gt; Maybe Text -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232741"><span class="annot"><span class="annottext">Maybe Text
+taskName :: Maybe Text
+$sel:taskName:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679232741"><span class="hs-identifier hs-var hs-var">taskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232741"><span class="hs-identifier hs-var">taskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232740"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskName:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskName%3ACreateExportTask%27"><span class="hs-identifier hs-var">taskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The prefix used as the start of the key for every object exported. If</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- you don\'t specify a value, the default is @exportedlogs@.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destinationPrefix"><span class="hs-identifier hs-type">createExportTask_destinationPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="createExportTask_destinationPrefix"><span class="annot"><span class="annottext">createExportTask_destinationPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destinationPrefix"><span class="hs-identifier hs-var hs-var">createExportTask_destinationPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Maybe Text)
+-&gt; (CreateExportTask -&gt; Maybe Text -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232738"><span class="annot"><span class="annottext">Maybe Text
+destinationPrefix :: Maybe Text
+$sel:destinationPrefix:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679232738"><span class="hs-identifier hs-var hs-var">destinationPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232738"><span class="hs-identifier hs-var">destinationPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232737"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232736"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPrefix:CreateExportTask' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AdestinationPrefix%3ACreateExportTask%27"><span class="hs-identifier hs-var">destinationPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The name of the log group.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logGroupName"><span class="hs-identifier hs-type">createExportTask_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="createExportTask_logGroupName"><span class="annot"><span class="annottext">createExportTask_logGroupName :: (Text -&gt; f Text) -&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_logGroupName"><span class="hs-identifier hs-var hs-var">createExportTask_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Text)
+-&gt; (CreateExportTask -&gt; Text -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232735"><span class="annot"><span class="annottext">Text
+logGroupName :: Text
+$sel:logGroupName:CreateExportTask' :: CreateExportTask -&gt; Text
+</span><a href="#local-6989586621679232735"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232735"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232734"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateExportTask' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AlogGroupName%3ACreateExportTask%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The start time of the range for the request, expressed as the number of</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- earlier than this time are not exported.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_from"><span class="hs-identifier hs-type">createExportTask_from</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-178"></span><span id="createExportTask_from"><span class="annot"><span class="annottext">createExportTask_from :: (Natural -&gt; f Natural) -&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_from"><span class="hs-identifier hs-var hs-var">createExportTask_from</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Natural)
+-&gt; (CreateExportTask -&gt; Natural -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232732"><span class="annot"><span class="annottext">Natural
+from :: Natural
+$sel:from:CreateExportTask' :: CreateExportTask -&gt; Natural
+</span><a href="#local-6989586621679232732"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232732"><span class="hs-identifier hs-var">from</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232731"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232730"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:from:CreateExportTask' :: Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Afrom%3ACreateExportTask%27"><span class="hs-identifier hs-var">from</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The end time of the range for the request, expreswatchlogsdocused as the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- timestamp later than this time are not exported.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_to"><span class="hs-identifier hs-type">createExportTask_to</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-184"></span><span id="createExportTask_to"><span class="annot"><span class="annottext">createExportTask_to :: (Natural -&gt; f Natural) -&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_to"><span class="hs-identifier hs-var hs-var">createExportTask_to</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Natural)
+-&gt; (CreateExportTask -&gt; Natural -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232729"><span class="annot"><span class="annottext">Natural
+to :: Natural
+$sel:to:CreateExportTask' :: CreateExportTask -&gt; Natural
+</span><a href="#local-6989586621679232729"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232729"><span class="hs-identifier hs-var">to</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232728"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232727"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:to:CreateExportTask' :: Natural
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Ato%3ACreateExportTask%27"><span class="hs-identifier hs-var">to</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The name of S3 bucket for the exported log data. The bucket must be in</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- the same Amazon Web Services region.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destination"><span class="hs-identifier hs-type">createExportTask_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-189"></span><span id="createExportTask_destination"><span class="annot"><span class="annottext">createExportTask_destination :: (Text -&gt; f Text) -&gt; CreateExportTask -&gt; f CreateExportTask
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTask_destination"><span class="hs-identifier hs-var hs-var">createExportTask_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTask -&gt; Text)
+-&gt; (CreateExportTask -&gt; Text -&gt; CreateExportTask)
+-&gt; Lens CreateExportTask CreateExportTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232726"><span class="annot"><span class="annottext">Text
+destination :: Text
+$sel:destination:CreateExportTask' :: CreateExportTask -&gt; Text
+</span><a href="#local-6989586621679232726"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232726"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232725"><span class="annot"><span class="annottext">s :: CreateExportTask
+</span><a href="#local-6989586621679232725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTask
+</span><a href="#local-6989586621679232725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:CreateExportTask' :: Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3Adestination%3ACreateExportTask%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-193"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679232720"><span class="annot"><span class="annottext">request :: CreateExportTask -&gt; Request CreateExportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateExportTask -&gt; Request CreateExportTask
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679232716"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateExportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateExportTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateExportTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateExportTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateExportTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232713"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232712"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679232712"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232711"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateExportTaskResponse
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-var">CreateExportTaskResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateExportTaskResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateExportTaskResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateExportTaskResponse)
+-&gt; Either String Int -&gt; Either String CreateExportTaskResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232713"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232703"><span id="local-6989586621679232705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span></span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679232696"><span class="annot"><span class="annottext">toHeaders :: CreateExportTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateExportTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-212"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Logs_20140328.CreateExportTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-215"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232686"><span id="local-6989586621679232688"><span id="local-6989586621679232690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679232684"><span class="annot"><span class="annottext">toJSON :: CreateExportTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask%27"><span class="hs-identifier hs-type">CreateExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232676"><span id="local-6989586621679232677"><span id="local-6989586621679232678"><span id="local-6989586621679232679"><span id="local-6989586621679232680"><span id="local-6989586621679232681"><span id="local-6989586621679232682"><span class="annot"><span class="annottext">Natural
+Maybe Text
+Text
+destination :: Text
+to :: Natural
+from :: Natural
+logGroupName :: Text
+destinationPrefix :: Maybe Text
+taskName :: Maybe Text
+logStreamNamePrefix :: Maybe Text
+$sel:destination:CreateExportTask' :: CreateExportTask -&gt; Text
+$sel:to:CreateExportTask' :: CreateExportTask -&gt; Natural
+$sel:from:CreateExportTask' :: CreateExportTask -&gt; Natural
+$sel:logGroupName:CreateExportTask' :: CreateExportTask -&gt; Text
+$sel:destinationPrefix:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+$sel:taskName:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+$sel:logStreamNamePrefix:CreateExportTask' :: CreateExportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679232676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232682"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232681"><span class="hs-identifier hs-var">taskName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232680"><span class="hs-identifier hs-var">destinationPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232679"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;from&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232678"><span class="hs-identifier hs-var">from</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;to&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679232677"><span class="hs-identifier hs-var">to</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232676"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679232670"><span class="annot"><span class="annottext">toPath :: CreateExportTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateExportTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTask"><span class="hs-identifier hs-type">CreateExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679232666"><span class="annot"><span class="annottext">toQuery :: CreateExportTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateExportTask -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | /See:/ 'newCreateExportTaskResponse' smart constructor.</span><span>
+</span><span id="line-246"></span><span id="local-6989586621679232663"><span id="local-6989586621679232664"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExportTaskResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-var">CreateExportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExportTaskResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-var">CreateExportTaskResponse'</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the export task.</span><span>
+</span><span id="line-248"></span><span>    </span><span id="%24sel%3AtaskId%3ACreateExportTaskResponse%27"><span class="annot"><span class="annottext">CreateExportTaskResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskId%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateExportTaskResponse%27"><span class="annot"><span class="annottext">CreateExportTaskResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AhttpStatus%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232657"><span id="local-6989586621679232659"><span class="annot"><span class="annottext">CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool
+(CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool)
+-&gt; (CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool)
+-&gt; Eq CreateExportTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool
+$c/= :: CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool
+== :: CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool
+$c== :: CreateExportTaskResponse -&gt; CreateExportTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232649"><span id="local-6989586621679232651"><span id="local-6989586621679232653"><span id="local-6989586621679232655"><span class="annot"><span class="annottext">ReadPrec [CreateExportTaskResponse]
+ReadPrec CreateExportTaskResponse
+Int -&gt; ReadS CreateExportTaskResponse
+ReadS [CreateExportTaskResponse]
+(Int -&gt; ReadS CreateExportTaskResponse)
+-&gt; ReadS [CreateExportTaskResponse]
+-&gt; ReadPrec CreateExportTaskResponse
+-&gt; ReadPrec [CreateExportTaskResponse]
+-&gt; Read CreateExportTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExportTaskResponse]
+$creadListPrec :: ReadPrec [CreateExportTaskResponse]
+readPrec :: ReadPrec CreateExportTaskResponse
+$creadPrec :: ReadPrec CreateExportTaskResponse
+readList :: ReadS [CreateExportTaskResponse]
+$creadList :: ReadS [CreateExportTaskResponse]
+readsPrec :: Int -&gt; ReadS CreateExportTaskResponse
+$creadsPrec :: Int -&gt; ReadS CreateExportTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232643"><span id="local-6989586621679232645"><span id="local-6989586621679232647"><span class="annot"><span class="annottext">Int -&gt; CreateExportTaskResponse -&gt; ShowS
+[CreateExportTaskResponse] -&gt; ShowS
+CreateExportTaskResponse -&gt; String
+(Int -&gt; CreateExportTaskResponse -&gt; ShowS)
+-&gt; (CreateExportTaskResponse -&gt; String)
+-&gt; ([CreateExportTaskResponse] -&gt; ShowS)
+-&gt; Show CreateExportTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExportTaskResponse] -&gt; ShowS
+$cshowList :: [CreateExportTaskResponse] -&gt; ShowS
+show :: CreateExportTaskResponse -&gt; String
+$cshow :: CreateExportTaskResponse -&gt; String
+showsPrec :: Int -&gt; CreateExportTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExportTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateExportTaskResponse -&gt; Rep CreateExportTaskResponse x)
+-&gt; (forall x.
+    Rep CreateExportTaskResponse x -&gt; CreateExportTaskResponse)
+-&gt; Generic CreateExportTaskResponse
+forall x.
+Rep CreateExportTaskResponse x -&gt; CreateExportTaskResponse
+forall x.
+CreateExportTaskResponse -&gt; Rep CreateExportTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateExportTaskResponse x -&gt; CreateExportTaskResponse
+$cfrom :: forall x.
+CreateExportTaskResponse -&gt; Rep CreateExportTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Create a value of 'CreateExportTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'taskId', 'createExportTaskResponse_taskId' - The ID of the export task.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'createExportTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTaskResponse"><span class="hs-identifier hs-type">newCreateExportTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newCreateExportTaskResponse"><span class="annot"><span class="annottext">newCreateExportTaskResponse :: Int -&gt; CreateExportTaskResponse
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#newCreateExportTaskResponse"><span class="hs-identifier hs-var hs-var">newCreateExportTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679232640"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232640"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">CreateExportTaskResponse' :: Maybe Text -&gt; Int -&gt; CreateExportTaskResponse
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-type">CreateExportTaskResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskId:CreateExportTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskId%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExportTaskResponse' :: Int
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AhttpStatus%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232640"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The ID of the export task.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_taskId"><span class="hs-identifier hs-type">createExportTaskResponse_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="createExportTaskResponse_taskId"><span class="annot"><span class="annottext">createExportTaskResponse_taskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateExportTaskResponse -&gt; f CreateExportTaskResponse
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_taskId"><span class="hs-identifier hs-var hs-var">createExportTaskResponse_taskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTaskResponse -&gt; Maybe Text)
+-&gt; (CreateExportTaskResponse
+    -&gt; Maybe Text -&gt; CreateExportTaskResponse)
+-&gt; Lens
+     CreateExportTaskResponse
+     CreateExportTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-type">CreateExportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232639"><span class="annot"><span class="annottext">Maybe Text
+taskId :: Maybe Text
+$sel:taskId:CreateExportTaskResponse' :: CreateExportTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679232639"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232639"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232638"><span class="annot"><span class="annottext">s :: CreateExportTaskResponse
+</span><a href="#local-6989586621679232638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-type">CreateExportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTaskResponse
+</span><a href="#local-6989586621679232638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:CreateExportTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AtaskId%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_httpStatus"><span class="hs-identifier hs-type">createExportTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-281"></span><span id="createExportTaskResponse_httpStatus"><span class="annot"><span class="annottext">createExportTaskResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateExportTaskResponse -&gt; f CreateExportTaskResponse
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#createExportTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createExportTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportTaskResponse -&gt; Int)
+-&gt; (CreateExportTaskResponse -&gt; Int -&gt; CreateExportTaskResponse)
+-&gt; Lens CreateExportTaskResponse CreateExportTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-type">CreateExportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232636"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateExportTaskResponse' :: CreateExportTaskResponse -&gt; Int
+</span><a href="#local-6989586621679232636"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232636"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232635"><span class="annot"><span class="annottext">s :: CreateExportTaskResponse
+</span><a href="#local-6989586621679232635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse%27"><span class="hs-identifier hs-type">CreateExportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportTaskResponse
+</span><a href="#local-6989586621679232635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExportTaskResponse' :: Int
+</span><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#%24sel%3AhttpStatus%3ACreateExportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateExportTask.html#CreateExportTaskResponse"><span class="hs-identifier hs-type">CreateExportTaskResponse</span></a></span></span><span>
+</span><span id="line-284"></span></pre></body></html>

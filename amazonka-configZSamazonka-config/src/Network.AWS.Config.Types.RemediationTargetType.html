@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Config.Types.RemediationTargetType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.Types.RemediationTargetType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType"><span class="hs-identifier">RemediationTargetType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType_SSM_DOCUMENT"><span class="hs-identifier">RemediationTargetType_SSM_DOCUMENT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679405346"><span id="local-6989586621679405347"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RemediationTargetType"><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType"><span class="hs-identifier hs-var">RemediationTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationTargetType%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType%27"><span class="hs-identifier hs-var">RemediationTargetType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRemediationTargetType"><span class="annot"><span class="annottext">RemediationTargetType -&gt; Text
+</span><a href="Network.AWS.Config.Types.RemediationTargetType.html#fromRemediationTargetType"><span class="hs-identifier hs-var hs-var">fromRemediationTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405338"><span id="local-6989586621679405340"><span id="local-6989586621679405342"><span class="annot"><span class="annottext">Int -&gt; RemediationTargetType -&gt; ShowS
+[RemediationTargetType] -&gt; ShowS
+RemediationTargetType -&gt; String
+(Int -&gt; RemediationTargetType -&gt; ShowS)
+-&gt; (RemediationTargetType -&gt; String)
+-&gt; ([RemediationTargetType] -&gt; ShowS)
+-&gt; Show RemediationTargetType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemediationTargetType] -&gt; ShowS
+$cshowList :: [RemediationTargetType] -&gt; ShowS
+show :: RemediationTargetType -&gt; String
+$cshow :: RemediationTargetType -&gt; String
+showsPrec :: Int -&gt; RemediationTargetType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemediationTargetType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679405329"><span id="local-6989586621679405331"><span id="local-6989586621679405333"><span id="local-6989586621679405335"><span class="annot"><span class="annottext">ReadPrec [RemediationTargetType]
+ReadPrec RemediationTargetType
+Int -&gt; ReadS RemediationTargetType
+ReadS [RemediationTargetType]
+(Int -&gt; ReadS RemediationTargetType)
+-&gt; ReadS [RemediationTargetType]
+-&gt; ReadPrec RemediationTargetType
+-&gt; ReadPrec [RemediationTargetType]
+-&gt; Read RemediationTargetType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemediationTargetType]
+$creadListPrec :: ReadPrec [RemediationTargetType]
+readPrec :: ReadPrec RemediationTargetType
+$creadPrec :: ReadPrec RemediationTargetType
+readList :: ReadS [RemediationTargetType]
+$creadList :: ReadS [RemediationTargetType]
+readsPrec :: Int -&gt; ReadS RemediationTargetType
+$creadsPrec :: Int -&gt; ReadS RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679405324"><span id="local-6989586621679405326"><span class="annot"><span class="annottext">RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+(RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; Eq RemediationTargetType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c/= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+== :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c== :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405308"><span id="local-6989586621679405310"><span id="local-6989586621679405312"><span id="local-6989586621679405314"><span id="local-6989586621679405316"><span id="local-6989586621679405318"><span id="local-6989586621679405320"><span class="annot"><span class="annottext">Eq RemediationTargetType
+Eq RemediationTargetType
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Ordering)
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; (RemediationTargetType -&gt; RemediationTargetType -&gt; Bool)
+-&gt; (RemediationTargetType
+    -&gt; RemediationTargetType -&gt; RemediationTargetType)
+-&gt; (RemediationTargetType
+    -&gt; RemediationTargetType -&gt; RemediationTargetType)
+-&gt; Ord RemediationTargetType
+RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+RemediationTargetType -&gt; RemediationTargetType -&gt; Ordering
+RemediationTargetType
+-&gt; RemediationTargetType -&gt; RemediationTargetType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RemediationTargetType
+-&gt; RemediationTargetType -&gt; RemediationTargetType
+$cmin :: RemediationTargetType
+-&gt; RemediationTargetType -&gt; RemediationTargetType
+max :: RemediationTargetType
+-&gt; RemediationTargetType -&gt; RemediationTargetType
+$cmax :: RemediationTargetType
+-&gt; RemediationTargetType -&gt; RemediationTargetType
+&gt;= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c&gt;= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+&gt; :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c&gt; :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+&lt;= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c&lt;= :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+&lt; :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+$c&lt; :: RemediationTargetType -&gt; RemediationTargetType -&gt; Bool
+compare :: RemediationTargetType -&gt; RemediationTargetType -&gt; Ordering
+$ccompare :: RemediationTargetType -&gt; RemediationTargetType -&gt; Ordering
+$cp1Ord :: Eq RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RemediationTargetType -&gt; Rep RemediationTargetType x)
+-&gt; (forall x. Rep RemediationTargetType x -&gt; RemediationTargetType)
+-&gt; Generic RemediationTargetType
+forall x. Rep RemediationTargetType x -&gt; RemediationTargetType
+forall x. RemediationTargetType -&gt; Rep RemediationTargetType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RemediationTargetType x -&gt; RemediationTargetType
+$cfrom :: forall x. RemediationTargetType -&gt; Rep RemediationTargetType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405300"><span id="local-6989586621679405302"><span class="annot"><span class="annottext">Int -&gt; RemediationTargetType -&gt; Int
+RemediationTargetType -&gt; Int
+(Int -&gt; RemediationTargetType -&gt; Int)
+-&gt; (RemediationTargetType -&gt; Int) -&gt; Hashable RemediationTargetType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RemediationTargetType -&gt; Int
+$chash :: RemediationTargetType -&gt; Int
+hashWithSalt :: Int -&gt; RemediationTargetType -&gt; Int
+$chashWithSalt :: Int -&gt; RemediationTargetType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679405297"><span class="annot"><span class="annottext">RemediationTargetType -&gt; ()
+(RemediationTargetType -&gt; ()) -&gt; NFData RemediationTargetType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RemediationTargetType -&gt; ()
+$crnf :: RemediationTargetType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679405294"><span class="annot"><span class="annottext">Text -&gt; Either String RemediationTargetType
+(Text -&gt; Either String RemediationTargetType)
+-&gt; FromText RemediationTargetType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RemediationTargetType
+$cfromText :: Text -&gt; Either String RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405291"><span class="annot"><span class="annottext">RemediationTargetType -&gt; Text
+(RemediationTargetType -&gt; Text) -&gt; ToText RemediationTargetType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RemediationTargetType -&gt; Text
+$ctoText :: RemediationTargetType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405288"><span class="annot"><span class="annottext">RemediationTargetType -&gt; ByteString
+(RemediationTargetType -&gt; ByteString)
+-&gt; ToByteString RemediationTargetType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RemediationTargetType -&gt; ByteString
+$ctoBS :: RemediationTargetType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405285"><span class="annot"><span class="annottext">RemediationTargetType -&gt; ByteStringBuilder
+(RemediationTargetType -&gt; ByteStringBuilder)
+-&gt; ToLog RemediationTargetType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RemediationTargetType -&gt; ByteStringBuilder
+$cbuild :: RemediationTargetType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405282"><span class="annot"><span class="annottext">HeaderName -&gt; RemediationTargetType -&gt; [Header]
+(HeaderName -&gt; RemediationTargetType -&gt; [Header])
+-&gt; ToHeader RemediationTargetType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RemediationTargetType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RemediationTargetType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405279"><span class="annot"><span class="annottext">RemediationTargetType -&gt; QueryString
+(RemediationTargetType -&gt; QueryString)
+-&gt; ToQuery RemediationTargetType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RemediationTargetType -&gt; QueryString
+$ctoQuery :: RemediationTargetType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405274"><span id="local-6989586621679405276"><span class="annot"><span class="annottext">Value -&gt; Parser [RemediationTargetType]
+Value -&gt; Parser RemediationTargetType
+(Value -&gt; Parser RemediationTargetType)
+-&gt; (Value -&gt; Parser [RemediationTargetType])
+-&gt; FromJSON RemediationTargetType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RemediationTargetType]
+$cparseJSONList :: Value -&gt; Parser [RemediationTargetType]
+parseJSON :: Value -&gt; Parser RemediationTargetType
+$cparseJSON :: Value -&gt; Parser RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405269"><span id="local-6989586621679405271"><span class="annot"><span class="annottext">FromJSONKeyFunction [RemediationTargetType]
+FromJSONKeyFunction RemediationTargetType
+FromJSONKeyFunction RemediationTargetType
+-&gt; FromJSONKeyFunction [RemediationTargetType]
+-&gt; FromJSONKey RemediationTargetType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RemediationTargetType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RemediationTargetType]
+fromJSONKey :: FromJSONKeyFunction RemediationTargetType
+$cfromJSONKey :: FromJSONKeyFunction RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405260"><span id="local-6989586621679405262"><span id="local-6989586621679405264"><span id="local-6989586621679405266"><span class="annot"><span class="annottext">[RemediationTargetType] -&gt; Encoding
+[RemediationTargetType] -&gt; Value
+RemediationTargetType -&gt; Encoding
+RemediationTargetType -&gt; Value
+(RemediationTargetType -&gt; Value)
+-&gt; (RemediationTargetType -&gt; Encoding)
+-&gt; ([RemediationTargetType] -&gt; Value)
+-&gt; ([RemediationTargetType] -&gt; Encoding)
+-&gt; ToJSON RemediationTargetType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RemediationTargetType] -&gt; Encoding
+$ctoEncodingList :: [RemediationTargetType] -&gt; Encoding
+toJSONList :: [RemediationTargetType] -&gt; Value
+$ctoJSONList :: [RemediationTargetType] -&gt; Value
+toEncoding :: RemediationTargetType -&gt; Encoding
+$ctoEncoding :: RemediationTargetType -&gt; Encoding
+toJSON :: RemediationTargetType -&gt; Value
+$ctoJSON :: RemediationTargetType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405255"><span id="local-6989586621679405257"><span class="annot"><span class="annottext">ToJSONKeyFunction [RemediationTargetType]
+ToJSONKeyFunction RemediationTargetType
+ToJSONKeyFunction RemediationTargetType
+-&gt; ToJSONKeyFunction [RemediationTargetType]
+-&gt; ToJSONKey RemediationTargetType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RemediationTargetType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RemediationTargetType]
+toJSONKey :: ToJSONKeyFunction RemediationTargetType
+$ctoJSONKey :: ToJSONKeyFunction RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405252"><span class="annot"><span class="annottext">[Node] -&gt; Either String RemediationTargetType
+([Node] -&gt; Either String RemediationTargetType)
+-&gt; FromXML RemediationTargetType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RemediationTargetType
+$cparseXML :: [Node] -&gt; Either String RemediationTargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405249"><span class="annot"><span class="annottext">RemediationTargetType -&gt; XML
+(RemediationTargetType -&gt; XML) -&gt; ToXML RemediationTargetType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RemediationTargetType -&gt; XML
+$ctoXML :: RemediationTargetType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType_SSM_DOCUMENT"><span class="hs-identifier hs-type">RemediationTargetType_SSM_DOCUMENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType"><span class="hs-identifier hs-type">RemediationTargetType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRemediationTargetType_SSM_DOCUMENT"><span id="%24mRemediationTargetType_SSM_DOCUMENT"><span id="RemediationTargetType_SSM_DOCUMENT"><span class="annot"><span class="annottext">$bRemediationTargetType_SSM_DOCUMENT :: RemediationTargetType
+$mRemediationTargetType_SSM_DOCUMENT :: forall r.
+RemediationTargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.RemediationTargetType.html#%24bRemediationTargetType_SSM_DOCUMENT"><span class="hs-identifier hs-var hs-var hs-var">RemediationTargetType_SSM_DOCUMENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType%27"><span class="hs-identifier hs-type">RemediationTargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSM_DOCUMENT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType_SSM_DOCUMENT"><span class="hs-pragma hs-type">RemediationTargetType_SSM_DOCUMENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationTargetType.html#RemediationTargetType%27"><span class="hs-pragma hs-type">RemediationTargetType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

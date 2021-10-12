@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType"><span class="hs-identifier">CostCategorySplitChargeRuleParameterType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span class="hs-identifier">CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679326949"><span id="local-6989586621679326950"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CostCategorySplitChargeRuleParameterType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType"><span class="hs-identifier hs-var">CostCategorySplitChargeRuleParameterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategorySplitChargeRuleParameterType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType%27"><span class="hs-identifier hs-var">CostCategorySplitChargeRuleParameterType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCostCategorySplitChargeRuleParameterType"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; Text
+</span><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#fromCostCategorySplitChargeRuleParameterType"><span class="hs-identifier hs-var hs-var">fromCostCategorySplitChargeRuleParameterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326941"><span id="local-6989586621679326943"><span id="local-6989586621679326945"><span class="annot"><span class="annottext">Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; ShowS
+[CostCategorySplitChargeRuleParameterType] -&gt; ShowS
+CostCategorySplitChargeRuleParameterType -&gt; String
+(Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; ShowS)
+-&gt; (CostCategorySplitChargeRuleParameterType -&gt; String)
+-&gt; ([CostCategorySplitChargeRuleParameterType] -&gt; ShowS)
+-&gt; Show CostCategorySplitChargeRuleParameterType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CostCategorySplitChargeRuleParameterType] -&gt; ShowS
+$cshowList :: [CostCategorySplitChargeRuleParameterType] -&gt; ShowS
+show :: CostCategorySplitChargeRuleParameterType -&gt; String
+$cshow :: CostCategorySplitChargeRuleParameterType -&gt; String
+showsPrec :: Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679326932"><span id="local-6989586621679326934"><span id="local-6989586621679326936"><span id="local-6989586621679326938"><span class="annot"><span class="annottext">ReadPrec [CostCategorySplitChargeRuleParameterType]
+ReadPrec CostCategorySplitChargeRuleParameterType
+Int -&gt; ReadS CostCategorySplitChargeRuleParameterType
+ReadS [CostCategorySplitChargeRuleParameterType]
+(Int -&gt; ReadS CostCategorySplitChargeRuleParameterType)
+-&gt; ReadS [CostCategorySplitChargeRuleParameterType]
+-&gt; ReadPrec CostCategorySplitChargeRuleParameterType
+-&gt; ReadPrec [CostCategorySplitChargeRuleParameterType]
+-&gt; Read CostCategorySplitChargeRuleParameterType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CostCategorySplitChargeRuleParameterType]
+$creadListPrec :: ReadPrec [CostCategorySplitChargeRuleParameterType]
+readPrec :: ReadPrec CostCategorySplitChargeRuleParameterType
+$creadPrec :: ReadPrec CostCategorySplitChargeRuleParameterType
+readList :: ReadS [CostCategorySplitChargeRuleParameterType]
+$creadList :: ReadS [CostCategorySplitChargeRuleParameterType]
+readsPrec :: Int -&gt; ReadS CostCategorySplitChargeRuleParameterType
+$creadsPrec :: Int -&gt; ReadS CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326927"><span id="local-6989586621679326929"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+(CostCategorySplitChargeRuleParameterType
+ -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; Eq CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c/= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+== :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c== :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326911"><span id="local-6989586621679326913"><span id="local-6989586621679326915"><span id="local-6989586621679326917"><span id="local-6989586621679326919"><span id="local-6989586621679326921"><span id="local-6989586621679326923"><span class="annot"><span class="annottext">Eq CostCategorySplitChargeRuleParameterType
+Eq CostCategorySplitChargeRuleParameterType
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Ordering)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType)
+-&gt; (CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType
+    -&gt; CostCategorySplitChargeRuleParameterType)
+-&gt; Ord CostCategorySplitChargeRuleParameterType
+CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Ordering
+CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+$cmin :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+max :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+$cmax :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType
+&gt;= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c&gt;= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+&gt; :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c&gt; :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+&lt;= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c&lt;= :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+&lt; :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+$c&lt; :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Bool
+compare :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Ordering
+$ccompare :: CostCategorySplitChargeRuleParameterType
+-&gt; CostCategorySplitChargeRuleParameterType -&gt; Ordering
+$cp1Ord :: Eq CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CostCategorySplitChargeRuleParameterType
+ -&gt; Rep CostCategorySplitChargeRuleParameterType x)
+-&gt; (forall x.
+    Rep CostCategorySplitChargeRuleParameterType x
+    -&gt; CostCategorySplitChargeRuleParameterType)
+-&gt; Generic CostCategorySplitChargeRuleParameterType
+forall x.
+Rep CostCategorySplitChargeRuleParameterType x
+-&gt; CostCategorySplitChargeRuleParameterType
+forall x.
+CostCategorySplitChargeRuleParameterType
+-&gt; Rep CostCategorySplitChargeRuleParameterType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CostCategorySplitChargeRuleParameterType x
+-&gt; CostCategorySplitChargeRuleParameterType
+$cfrom :: forall x.
+CostCategorySplitChargeRuleParameterType
+-&gt; Rep CostCategorySplitChargeRuleParameterType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326903"><span id="local-6989586621679326905"><span class="annot"><span class="annottext">Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; Int
+CostCategorySplitChargeRuleParameterType -&gt; Int
+(Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; Int)
+-&gt; (CostCategorySplitChargeRuleParameterType -&gt; Int)
+-&gt; Hashable CostCategorySplitChargeRuleParameterType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CostCategorySplitChargeRuleParameterType -&gt; Int
+$chash :: CostCategorySplitChargeRuleParameterType -&gt; Int
+hashWithSalt :: Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; Int
+$chashWithSalt :: Int -&gt; CostCategorySplitChargeRuleParameterType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326900"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; ()
+(CostCategorySplitChargeRuleParameterType -&gt; ())
+-&gt; NFData CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CostCategorySplitChargeRuleParameterType -&gt; ()
+$crnf :: CostCategorySplitChargeRuleParameterType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326897"><span class="annot"><span class="annottext">Text -&gt; Either String CostCategorySplitChargeRuleParameterType
+(Text -&gt; Either String CostCategorySplitChargeRuleParameterType)
+-&gt; FromText CostCategorySplitChargeRuleParameterType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CostCategorySplitChargeRuleParameterType
+$cfromText :: Text -&gt; Either String CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326894"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; Text
+(CostCategorySplitChargeRuleParameterType -&gt; Text)
+-&gt; ToText CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CostCategorySplitChargeRuleParameterType -&gt; Text
+$ctoText :: CostCategorySplitChargeRuleParameterType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326891"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; ByteString
+(CostCategorySplitChargeRuleParameterType -&gt; ByteString)
+-&gt; ToByteString CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CostCategorySplitChargeRuleParameterType -&gt; ByteString
+$ctoBS :: CostCategorySplitChargeRuleParameterType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326888"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; ByteStringBuilder
+(CostCategorySplitChargeRuleParameterType -&gt; ByteStringBuilder)
+-&gt; ToLog CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CostCategorySplitChargeRuleParameterType -&gt; ByteStringBuilder
+$cbuild :: CostCategorySplitChargeRuleParameterType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326885"><span class="annot"><span class="annottext">HeaderName -&gt; CostCategorySplitChargeRuleParameterType -&gt; [Header]
+(HeaderName
+ -&gt; CostCategorySplitChargeRuleParameterType -&gt; [Header])
+-&gt; ToHeader CostCategorySplitChargeRuleParameterType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CostCategorySplitChargeRuleParameterType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CostCategorySplitChargeRuleParameterType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326882"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; QueryString
+(CostCategorySplitChargeRuleParameterType -&gt; QueryString)
+-&gt; ToQuery CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CostCategorySplitChargeRuleParameterType -&gt; QueryString
+$ctoQuery :: CostCategorySplitChargeRuleParameterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326877"><span id="local-6989586621679326879"><span class="annot"><span class="annottext">Value -&gt; Parser [CostCategorySplitChargeRuleParameterType]
+Value -&gt; Parser CostCategorySplitChargeRuleParameterType
+(Value -&gt; Parser CostCategorySplitChargeRuleParameterType)
+-&gt; (Value -&gt; Parser [CostCategorySplitChargeRuleParameterType])
+-&gt; FromJSON CostCategorySplitChargeRuleParameterType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CostCategorySplitChargeRuleParameterType]
+$cparseJSONList :: Value -&gt; Parser [CostCategorySplitChargeRuleParameterType]
+parseJSON :: Value -&gt; Parser CostCategorySplitChargeRuleParameterType
+$cparseJSON :: Value -&gt; Parser CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326872"><span id="local-6989586621679326874"><span class="annot"><span class="annottext">FromJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+FromJSONKeyFunction CostCategorySplitChargeRuleParameterType
+FromJSONKeyFunction CostCategorySplitChargeRuleParameterType
+-&gt; FromJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+-&gt; FromJSONKey CostCategorySplitChargeRuleParameterType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+fromJSONKey :: FromJSONKeyFunction CostCategorySplitChargeRuleParameterType
+$cfromJSONKey :: FromJSONKeyFunction CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326863"><span id="local-6989586621679326865"><span id="local-6989586621679326867"><span id="local-6989586621679326869"><span class="annot"><span class="annottext">[CostCategorySplitChargeRuleParameterType] -&gt; Encoding
+[CostCategorySplitChargeRuleParameterType] -&gt; Value
+CostCategorySplitChargeRuleParameterType -&gt; Encoding
+CostCategorySplitChargeRuleParameterType -&gt; Value
+(CostCategorySplitChargeRuleParameterType -&gt; Value)
+-&gt; (CostCategorySplitChargeRuleParameterType -&gt; Encoding)
+-&gt; ([CostCategorySplitChargeRuleParameterType] -&gt; Value)
+-&gt; ([CostCategorySplitChargeRuleParameterType] -&gt; Encoding)
+-&gt; ToJSON CostCategorySplitChargeRuleParameterType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CostCategorySplitChargeRuleParameterType] -&gt; Encoding
+$ctoEncodingList :: [CostCategorySplitChargeRuleParameterType] -&gt; Encoding
+toJSONList :: [CostCategorySplitChargeRuleParameterType] -&gt; Value
+$ctoJSONList :: [CostCategorySplitChargeRuleParameterType] -&gt; Value
+toEncoding :: CostCategorySplitChargeRuleParameterType -&gt; Encoding
+$ctoEncoding :: CostCategorySplitChargeRuleParameterType -&gt; Encoding
+toJSON :: CostCategorySplitChargeRuleParameterType -&gt; Value
+$ctoJSON :: CostCategorySplitChargeRuleParameterType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326858"><span id="local-6989586621679326860"><span class="annot"><span class="annottext">ToJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+ToJSONKeyFunction CostCategorySplitChargeRuleParameterType
+ToJSONKeyFunction CostCategorySplitChargeRuleParameterType
+-&gt; ToJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+-&gt; ToJSONKey CostCategorySplitChargeRuleParameterType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CostCategorySplitChargeRuleParameterType]
+toJSONKey :: ToJSONKeyFunction CostCategorySplitChargeRuleParameterType
+$ctoJSONKey :: ToJSONKeyFunction CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326855"><span class="annot"><span class="annottext">[Node] -&gt; Either String CostCategorySplitChargeRuleParameterType
+([Node] -&gt; Either String CostCategorySplitChargeRuleParameterType)
+-&gt; FromXML CostCategorySplitChargeRuleParameterType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CostCategorySplitChargeRuleParameterType
+$cparseXML :: [Node] -&gt; Either String CostCategorySplitChargeRuleParameterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326852"><span class="annot"><span class="annottext">CostCategorySplitChargeRuleParameterType -&gt; XML
+(CostCategorySplitChargeRuleParameterType -&gt; XML)
+-&gt; ToXML CostCategorySplitChargeRuleParameterType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CostCategorySplitChargeRuleParameterType -&gt; XML
+$ctoXML :: CostCategorySplitChargeRuleParameterType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span class="hs-identifier hs-type">CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType"><span class="hs-identifier hs-type">CostCategorySplitChargeRuleParameterType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span id="%24mCostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span id="CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span class="annot"><span class="annottext">$bCostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES :: CostCategorySplitChargeRuleParameterType
+$mCostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES :: forall r.
+CostCategorySplitChargeRuleParameterType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#%24bCostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span class="hs-identifier hs-var hs-var hs-var">CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType%27"><span class="hs-identifier hs-type">CostCategorySplitChargeRuleParameterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALLOCATION_PERCENTAGES&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES"><span class="hs-pragma hs-type">CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType.html#CostCategorySplitChargeRuleParameterType%27"><span class="hs-pragma hs-type">CostCategorySplitChargeRuleParameterType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

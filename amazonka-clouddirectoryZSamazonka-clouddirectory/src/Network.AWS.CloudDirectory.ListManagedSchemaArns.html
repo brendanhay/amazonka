@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.ListManagedSchemaArns</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the major version families of each managed schema. If a major</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- version ARN is provided as SchemaArn, the minor version revisions in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that family are listed instead.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.ListManagedSchemaArns</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArns"><span class="hs-identifier">newListManagedSchemaArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_nextToken"><span class="hs-identifier">listManagedSchemaArns_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_schemaArn"><span class="hs-identifier">listManagedSchemaArns_schemaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_maxResults"><span class="hs-identifier">listManagedSchemaArns_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier">ListManagedSchemaArnsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArnsResponse"><span class="hs-identifier">newListManagedSchemaArnsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_schemaArns"><span class="hs-identifier">listManagedSchemaArnsResponse_schemaArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_nextToken"><span class="hs-identifier">listManagedSchemaArnsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_httpStatus"><span class="hs-identifier">listManagedSchemaArnsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListManagedSchemaArns' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679339601"><span id="local-6989586621679339602"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListManagedSchemaArns"><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-var">ListManagedSchemaArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListManagedSchemaArns%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-var">ListManagedSchemaArns'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListManagedSchemaArns%27"><span class="annot"><span class="annottext">ListManagedSchemaArns -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The response for ListManagedSchemaArns. When this parameter is used, all</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- minor version ARNs for a major version are listed.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AschemaArn%3AListManagedSchemaArns%27"><span class="annot"><span class="annottext">ListManagedSchemaArns -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArn%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListManagedSchemaArns%27"><span class="annot"><span class="annottext">ListManagedSchemaArns -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AmaxResults%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339593"><span id="local-6989586621679339595"><span class="annot"><span class="annottext">ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool
+(ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool)
+-&gt; (ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool)
+-&gt; Eq ListManagedSchemaArns
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool
+$c/= :: ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool
+== :: ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool
+$c== :: ListManagedSchemaArns -&gt; ListManagedSchemaArns -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339584"><span id="local-6989586621679339586"><span id="local-6989586621679339588"><span id="local-6989586621679339590"><span class="annot"><span class="annottext">ReadPrec [ListManagedSchemaArns]
+ReadPrec ListManagedSchemaArns
+Int -&gt; ReadS ListManagedSchemaArns
+ReadS [ListManagedSchemaArns]
+(Int -&gt; ReadS ListManagedSchemaArns)
+-&gt; ReadS [ListManagedSchemaArns]
+-&gt; ReadPrec ListManagedSchemaArns
+-&gt; ReadPrec [ListManagedSchemaArns]
+-&gt; Read ListManagedSchemaArns
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListManagedSchemaArns]
+$creadListPrec :: ReadPrec [ListManagedSchemaArns]
+readPrec :: ReadPrec ListManagedSchemaArns
+$creadPrec :: ReadPrec ListManagedSchemaArns
+readList :: ReadS [ListManagedSchemaArns]
+$creadList :: ReadS [ListManagedSchemaArns]
+readsPrec :: Int -&gt; ReadS ListManagedSchemaArns
+$creadsPrec :: Int -&gt; ReadS ListManagedSchemaArns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339577"><span id="local-6989586621679339579"><span id="local-6989586621679339581"><span class="annot"><span class="annottext">Int -&gt; ListManagedSchemaArns -&gt; ShowS
+[ListManagedSchemaArns] -&gt; ShowS
+ListManagedSchemaArns -&gt; String
+(Int -&gt; ListManagedSchemaArns -&gt; ShowS)
+-&gt; (ListManagedSchemaArns -&gt; String)
+-&gt; ([ListManagedSchemaArns] -&gt; ShowS)
+-&gt; Show ListManagedSchemaArns
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListManagedSchemaArns] -&gt; ShowS
+$cshowList :: [ListManagedSchemaArns] -&gt; ShowS
+show :: ListManagedSchemaArns -&gt; String
+$cshow :: ListManagedSchemaArns -&gt; String
+showsPrec :: Int -&gt; ListManagedSchemaArns -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListManagedSchemaArns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListManagedSchemaArns -&gt; Rep ListManagedSchemaArns x)
+-&gt; (forall x. Rep ListManagedSchemaArns x -&gt; ListManagedSchemaArns)
+-&gt; Generic ListManagedSchemaArns
+forall x. Rep ListManagedSchemaArns x -&gt; ListManagedSchemaArns
+forall x. ListManagedSchemaArns -&gt; Rep ListManagedSchemaArns x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListManagedSchemaArns x -&gt; ListManagedSchemaArns
+$cfrom :: forall x. ListManagedSchemaArns -&gt; Rep ListManagedSchemaArns x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListManagedSchemaArns' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listManagedSchemaArns_nextToken' - The pagination token.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'schemaArn', 'listManagedSchemaArns_schemaArn' - The response for ListManagedSchemaArns. When this parameter is used, all</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- minor version ARNs for a major version are listed.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'listManagedSchemaArns_maxResults' - The maximum number of results to retrieve.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArns"><span class="hs-identifier hs-type">newListManagedSchemaArns</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span>
+</span><span id="line-84"></span><span id="newListManagedSchemaArns"><span class="annot"><span class="annottext">newListManagedSchemaArns :: ListManagedSchemaArns
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArns"><span class="hs-identifier hs-var hs-var">newListManagedSchemaArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListManagedSchemaArns' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListManagedSchemaArns
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListManagedSchemaArns' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:ListManagedSchemaArns' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArn%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListManagedSchemaArns' :: Maybe Natural
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AmaxResults%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_nextToken"><span class="hs-identifier hs-type">listManagedSchemaArns_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listManagedSchemaArns_nextToken"><span class="annot"><span class="annottext">listManagedSchemaArns_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListManagedSchemaArns -&gt; f ListManagedSchemaArns
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_nextToken"><span class="hs-identifier hs-var hs-var">listManagedSchemaArns_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArns -&gt; Maybe Text)
+-&gt; (ListManagedSchemaArns -&gt; Maybe Text -&gt; ListManagedSchemaArns)
+-&gt; Lens
+     ListManagedSchemaArns
+     ListManagedSchemaArns
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339571"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Text
+</span><a href="#local-6989586621679339571"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339571"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339570"><span class="annot"><span class="annottext">s :: ListManagedSchemaArns
+</span><a href="#local-6989586621679339570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArns
+</span><a href="#local-6989586621679339570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListManagedSchemaArns' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The response for ListManagedSchemaArns. When this parameter is used, all</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- minor version ARNs for a major version are listed.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_schemaArn"><span class="hs-identifier hs-type">listManagedSchemaArns_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listManagedSchemaArns_schemaArn"><span class="annot"><span class="annottext">listManagedSchemaArns_schemaArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListManagedSchemaArns -&gt; f ListManagedSchemaArns
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_schemaArn"><span class="hs-identifier hs-var hs-var">listManagedSchemaArns_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArns -&gt; Maybe Text)
+-&gt; (ListManagedSchemaArns -&gt; Maybe Text -&gt; ListManagedSchemaArns)
+-&gt; Lens
+     ListManagedSchemaArns
+     ListManagedSchemaArns
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339568"><span class="annot"><span class="annottext">Maybe Text
+schemaArn :: Maybe Text
+$sel:schemaArn:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Text
+</span><a href="#local-6989586621679339568"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339568"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339567"><span class="annot"><span class="annottext">s :: ListManagedSchemaArns
+</span><a href="#local-6989586621679339567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArns
+</span><a href="#local-6989586621679339567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:ListManagedSchemaArns' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArn%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_maxResults"><span class="hs-identifier hs-type">listManagedSchemaArns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listManagedSchemaArns_maxResults"><span class="annot"><span class="annottext">listManagedSchemaArns_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListManagedSchemaArns -&gt; f ListManagedSchemaArns
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_maxResults"><span class="hs-identifier hs-var hs-var">listManagedSchemaArns_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArns -&gt; Maybe Natural)
+-&gt; (ListManagedSchemaArns
+    -&gt; Maybe Natural -&gt; ListManagedSchemaArns)
+-&gt; Lens
+     ListManagedSchemaArns
+     ListManagedSchemaArns
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339565"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Natural
+</span><a href="#local-6989586621679339565"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679339565"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339564"><span class="annot"><span class="annottext">s :: ListManagedSchemaArns
+</span><a href="#local-6989586621679339564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339563"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679339563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArns
+</span><a href="#local-6989586621679339564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListManagedSchemaArns' :: Maybe Natural
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AmaxResults%3AListManagedSchemaArns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679339563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679339559"><span class="annot"><span class="annottext">page :: ListManagedSchemaArns
+-&gt; AWSResponse ListManagedSchemaArns -&gt; Maybe ListManagedSchemaArns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679339557"><span class="annot"><span class="annottext">ListManagedSchemaArns
+</span><a href="#local-6989586621679339557"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679339556"><span class="annot"><span class="annottext">AWSResponse ListManagedSchemaArns
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListManagedSchemaArns
+ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+-&gt; Getting (First Text) ListManagedSchemaArnsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListManagedSchemaArnsResponse
+-&gt; Const (First Text) ListManagedSchemaArnsResponse
+Lens' ListManagedSchemaArnsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_nextToken"><span class="hs-identifier hs-var">listManagedSchemaArnsResponse_nextToken</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListManagedSchemaArnsResponse
+ -&gt; Const (First Text) ListManagedSchemaArnsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListManagedSchemaArnsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListManagedSchemaArns
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListManagedSchemaArns
+ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+-&gt; Getting (First [Text]) ListManagedSchemaArnsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListManagedSchemaArnsResponse
+-&gt; Const (First [Text]) ListManagedSchemaArnsResponse
+Lens' ListManagedSchemaArnsResponse (Maybe [Text])
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_schemaArns"><span class="hs-identifier hs-var">listManagedSchemaArnsResponse_schemaArns</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListManagedSchemaArnsResponse
+ -&gt; Const (First [Text]) ListManagedSchemaArnsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListManagedSchemaArnsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListManagedSchemaArns
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">ListManagedSchemaArns -&gt; Maybe ListManagedSchemaArns
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArns -&gt; Maybe ListManagedSchemaArns)
+-&gt; ListManagedSchemaArns -&gt; Maybe ListManagedSchemaArns
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListManagedSchemaArns
+</span><a href="#local-6989586621679339557"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListManagedSchemaArns
+-&gt; (ListManagedSchemaArns -&gt; ListManagedSchemaArns)
+-&gt; ListManagedSchemaArns
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListManagedSchemaArns -&gt; Identity ListManagedSchemaArns
+Lens
+  ListManagedSchemaArns
+  ListManagedSchemaArns
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArns_nextToken"><span class="hs-identifier hs-var">listManagedSchemaArns_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListManagedSchemaArns -&gt; Identity ListManagedSchemaArns)
+-&gt; Maybe Text -&gt; ListManagedSchemaArns -&gt; ListManagedSchemaArns
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListManagedSchemaArns
+ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+-&gt; Getting (First Text) ListManagedSchemaArnsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListManagedSchemaArnsResponse
+-&gt; Const (First Text) ListManagedSchemaArnsResponse
+Lens' ListManagedSchemaArnsResponse (Maybe Text)
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_nextToken"><span class="hs-identifier hs-var">listManagedSchemaArnsResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListManagedSchemaArnsResponse
+ -&gt; Const (First Text) ListManagedSchemaArnsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListManagedSchemaArnsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679339546"><span class="annot"><span class="annottext">request :: ListManagedSchemaArns -&gt; Request ListManagedSchemaArns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListManagedSchemaArns -&gt; Request ListManagedSchemaArns
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679339542"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListManagedSchemaArns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListManagedSchemaArns)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListManagedSchemaArns))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListManagedSchemaArns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListManagedSchemaArns)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339539"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679339538"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679339538"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679339537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">ListManagedSchemaArnsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text -&gt; Int -&gt; ListManagedSchemaArnsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListManagedSchemaArnsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListManagedSchemaArnsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListManagedSchemaArnsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListManagedSchemaArnsResponse)
+-&gt; Either String Int -&gt; Either String ListManagedSchemaArnsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339539"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339528"><span id="local-6989586621679339530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679339521"><span class="annot"><span class="annottext">toHeaders :: ListManagedSchemaArns -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListManagedSchemaArns -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339512"><span id="local-6989586621679339514"><span id="local-6989586621679339516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679339510"><span class="annot"><span class="annottext">toJSON :: ListManagedSchemaArns -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns%27"><span class="hs-identifier hs-type">ListManagedSchemaArns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339506"><span id="local-6989586621679339507"><span id="local-6989586621679339508"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+schemaArn :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Natural
+$sel:schemaArn:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Text
+$sel:nextToken:ListManagedSchemaArns' :: ListManagedSchemaArns -&gt; Maybe Text
+</span><a href="#local-6989586621679339506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339508"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339507"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679339506"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679339500"><span class="annot"><span class="annottext">toPath :: ListManagedSchemaArns -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListManagedSchemaArns -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/schema/managed&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArns"><span class="hs-identifier hs-type">ListManagedSchemaArns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679339496"><span class="annot"><span class="annottext">toQuery :: ListManagedSchemaArns -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListManagedSchemaArns -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListManagedSchemaArnsResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679339493"><span id="local-6989586621679339494"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListManagedSchemaArnsResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-var">ListManagedSchemaArnsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListManagedSchemaArnsResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">ListManagedSchemaArnsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARNs for all AWS managed schemas.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AschemaArns%3AListManagedSchemaArnsResponse%27"><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArns%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var hs-var">schemaArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AnextToken%3AListManagedSchemaArnsResponse%27"><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListManagedSchemaArnsResponse%27"><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse -&gt; Int
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AhttpStatus%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339486"><span id="local-6989586621679339488"><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+-&gt; ListManagedSchemaArnsResponse -&gt; Bool
+(ListManagedSchemaArnsResponse
+ -&gt; ListManagedSchemaArnsResponse -&gt; Bool)
+-&gt; (ListManagedSchemaArnsResponse
+    -&gt; ListManagedSchemaArnsResponse -&gt; Bool)
+-&gt; Eq ListManagedSchemaArnsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListManagedSchemaArnsResponse
+-&gt; ListManagedSchemaArnsResponse -&gt; Bool
+$c/= :: ListManagedSchemaArnsResponse
+-&gt; ListManagedSchemaArnsResponse -&gt; Bool
+== :: ListManagedSchemaArnsResponse
+-&gt; ListManagedSchemaArnsResponse -&gt; Bool
+$c== :: ListManagedSchemaArnsResponse
+-&gt; ListManagedSchemaArnsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339478"><span id="local-6989586621679339480"><span id="local-6989586621679339482"><span id="local-6989586621679339484"><span class="annot"><span class="annottext">ReadPrec [ListManagedSchemaArnsResponse]
+ReadPrec ListManagedSchemaArnsResponse
+Int -&gt; ReadS ListManagedSchemaArnsResponse
+ReadS [ListManagedSchemaArnsResponse]
+(Int -&gt; ReadS ListManagedSchemaArnsResponse)
+-&gt; ReadS [ListManagedSchemaArnsResponse]
+-&gt; ReadPrec ListManagedSchemaArnsResponse
+-&gt; ReadPrec [ListManagedSchemaArnsResponse]
+-&gt; Read ListManagedSchemaArnsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListManagedSchemaArnsResponse]
+$creadListPrec :: ReadPrec [ListManagedSchemaArnsResponse]
+readPrec :: ReadPrec ListManagedSchemaArnsResponse
+$creadPrec :: ReadPrec ListManagedSchemaArnsResponse
+readList :: ReadS [ListManagedSchemaArnsResponse]
+$creadList :: ReadS [ListManagedSchemaArnsResponse]
+readsPrec :: Int -&gt; ReadS ListManagedSchemaArnsResponse
+$creadsPrec :: Int -&gt; ReadS ListManagedSchemaArnsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339472"><span id="local-6989586621679339474"><span id="local-6989586621679339476"><span class="annot"><span class="annottext">Int -&gt; ListManagedSchemaArnsResponse -&gt; ShowS
+[ListManagedSchemaArnsResponse] -&gt; ShowS
+ListManagedSchemaArnsResponse -&gt; String
+(Int -&gt; ListManagedSchemaArnsResponse -&gt; ShowS)
+-&gt; (ListManagedSchemaArnsResponse -&gt; String)
+-&gt; ([ListManagedSchemaArnsResponse] -&gt; ShowS)
+-&gt; Show ListManagedSchemaArnsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListManagedSchemaArnsResponse] -&gt; ShowS
+$cshowList :: [ListManagedSchemaArnsResponse] -&gt; ShowS
+show :: ListManagedSchemaArnsResponse -&gt; String
+$cshow :: ListManagedSchemaArnsResponse -&gt; String
+showsPrec :: Int -&gt; ListManagedSchemaArnsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListManagedSchemaArnsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListManagedSchemaArnsResponse
+ -&gt; Rep ListManagedSchemaArnsResponse x)
+-&gt; (forall x.
+    Rep ListManagedSchemaArnsResponse x
+    -&gt; ListManagedSchemaArnsResponse)
+-&gt; Generic ListManagedSchemaArnsResponse
+forall x.
+Rep ListManagedSchemaArnsResponse x
+-&gt; ListManagedSchemaArnsResponse
+forall x.
+ListManagedSchemaArnsResponse
+-&gt; Rep ListManagedSchemaArnsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListManagedSchemaArnsResponse x
+-&gt; ListManagedSchemaArnsResponse
+$cfrom :: forall x.
+ListManagedSchemaArnsResponse
+-&gt; Rep ListManagedSchemaArnsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'ListManagedSchemaArnsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'schemaArns', 'listManagedSchemaArnsResponse_schemaArns' - The ARNs for all AWS managed schemas.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'nextToken', 'listManagedSchemaArnsResponse_nextToken' - The pagination token.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'listManagedSchemaArnsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">newListManagedSchemaArnsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newListManagedSchemaArnsResponse"><span class="annot"><span class="annottext">newListManagedSchemaArnsResponse :: Int -&gt; ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#newListManagedSchemaArnsResponse"><span class="hs-identifier hs-var hs-var">newListManagedSchemaArnsResponse</span></a></span></span><span> </span><span id="local-6989586621679339469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaArns:ListManagedSchemaArnsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArns%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">schemaArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListManagedSchemaArnsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListManagedSchemaArnsResponse' :: Int
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AhttpStatus%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The ARNs for all AWS managed schemas.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_schemaArns"><span class="hs-identifier hs-type">listManagedSchemaArnsResponse_schemaArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listManagedSchemaArnsResponse_schemaArns"><span class="annot"><span class="annottext">listManagedSchemaArnsResponse_schemaArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListManagedSchemaArnsResponse -&gt; f ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_schemaArns"><span class="hs-identifier hs-var hs-var">listManagedSchemaArnsResponse_schemaArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArnsResponse -&gt; Maybe [Text])
+-&gt; (ListManagedSchemaArnsResponse
+    -&gt; Maybe [Text] -&gt; ListManagedSchemaArnsResponse)
+-&gt; Lens' ListManagedSchemaArnsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339468"><span class="annot"><span class="annottext">Maybe [Text]
+schemaArns :: Maybe [Text]
+$sel:schemaArns:ListManagedSchemaArnsResponse' :: ListManagedSchemaArnsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679339468"><span class="hs-identifier hs-var hs-var">schemaArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679339468"><span class="hs-identifier hs-var">schemaArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339467"><span class="annot"><span class="annottext">s :: ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339466"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679339466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArns:ListManagedSchemaArnsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AschemaArns%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">schemaArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679339466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListManagedSchemaArnsResponse
+ -&gt; f ListManagedSchemaArnsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListManagedSchemaArnsResponse
+-&gt; f ListManagedSchemaArnsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_nextToken"><span class="hs-identifier hs-type">listManagedSchemaArnsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listManagedSchemaArnsResponse_nextToken"><span class="annot"><span class="annottext">listManagedSchemaArnsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListManagedSchemaArnsResponse -&gt; f ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listManagedSchemaArnsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArnsResponse -&gt; Maybe Text)
+-&gt; (ListManagedSchemaArnsResponse
+    -&gt; Maybe Text -&gt; ListManagedSchemaArnsResponse)
+-&gt; Lens' ListManagedSchemaArnsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339463"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListManagedSchemaArnsResponse' :: ListManagedSchemaArnsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679339463"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339463"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339462"><span class="annot"><span class="annottext">s :: ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListManagedSchemaArnsResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AnextToken%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_httpStatus"><span class="hs-identifier hs-type">listManagedSchemaArnsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="listManagedSchemaArnsResponse_httpStatus"><span class="annot"><span class="annottext">listManagedSchemaArnsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListManagedSchemaArnsResponse -&gt; f ListManagedSchemaArnsResponse
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#listManagedSchemaArnsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listManagedSchemaArnsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListManagedSchemaArnsResponse -&gt; Int)
+-&gt; (ListManagedSchemaArnsResponse
+    -&gt; Int -&gt; ListManagedSchemaArnsResponse)
+-&gt; Lens
+     ListManagedSchemaArnsResponse ListManagedSchemaArnsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339460"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListManagedSchemaArnsResponse' :: ListManagedSchemaArnsResponse -&gt; Int
+</span><a href="#local-6989586621679339460"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339460"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339459"><span class="annot"><span class="annottext">s :: ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListManagedSchemaArnsResponse
+</span><a href="#local-6989586621679339459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListManagedSchemaArnsResponse' :: Int
+</span><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#%24sel%3AhttpStatus%3AListManagedSchemaArnsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListManagedSchemaArns.html#ListManagedSchemaArnsResponse"><span class="hs-identifier hs-type">ListManagedSchemaArnsResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

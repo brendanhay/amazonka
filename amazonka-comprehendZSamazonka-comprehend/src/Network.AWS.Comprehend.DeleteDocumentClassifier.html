@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.DeleteDocumentClassifier</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a previously created document classifier</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Only those classifiers that are in terminated states (IN_ERROR, TRAINED)</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- will be deleted. If an active inference job is using the model, a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @ResourceInUseException@ will be returned.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This is an asynchronous action that puts the classifier into a DELETING</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- state, and it is then removed by a background job. Once removed, the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- classifier disappears from your account and is no longer available for</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.DeleteDocumentClassifier</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifier"><span class="hs-identifier">newDeleteDocumentClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifier_documentClassifierArn"><span class="hs-identifier">deleteDocumentClassifier_documentClassifierArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier">DeleteDocumentClassifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifierResponse"><span class="hs-identifier">newDeleteDocumentClassifierResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifierResponse_httpStatus"><span class="hs-identifier">deleteDocumentClassifierResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.html"><span class="hs-identifier">Network.AWS.Comprehend.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteDocumentClassifier' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679364440"><span id="local-6989586621679364441"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentClassifier"><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-var">DeleteDocumentClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentClassifier%27"><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier%27"><span class="hs-identifier hs-var">DeleteDocumentClassifier'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the document classifier.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdocumentClassifierArn%3ADeleteDocumentClassifier%27"><span class="annot"><span class="annottext">DeleteDocumentClassifier -&gt; Text
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3ADeleteDocumentClassifier%27"><span class="hs-identifier hs-var hs-var">documentClassifierArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364434"><span id="local-6989586621679364436"><span class="annot"><span class="annottext">DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool
+(DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool)
+-&gt; (DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool)
+-&gt; Eq DeleteDocumentClassifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool
+$c/= :: DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool
+== :: DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool
+$c== :: DeleteDocumentClassifier -&gt; DeleteDocumentClassifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364425"><span id="local-6989586621679364427"><span id="local-6989586621679364429"><span id="local-6989586621679364431"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentClassifier]
+ReadPrec DeleteDocumentClassifier
+Int -&gt; ReadS DeleteDocumentClassifier
+ReadS [DeleteDocumentClassifier]
+(Int -&gt; ReadS DeleteDocumentClassifier)
+-&gt; ReadS [DeleteDocumentClassifier]
+-&gt; ReadPrec DeleteDocumentClassifier
+-&gt; ReadPrec [DeleteDocumentClassifier]
+-&gt; Read DeleteDocumentClassifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDocumentClassifier]
+$creadListPrec :: ReadPrec [DeleteDocumentClassifier]
+readPrec :: ReadPrec DeleteDocumentClassifier
+$creadPrec :: ReadPrec DeleteDocumentClassifier
+readList :: ReadS [DeleteDocumentClassifier]
+$creadList :: ReadS [DeleteDocumentClassifier]
+readsPrec :: Int -&gt; ReadS DeleteDocumentClassifier
+$creadsPrec :: Int -&gt; ReadS DeleteDocumentClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364418"><span id="local-6989586621679364420"><span id="local-6989586621679364422"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentClassifier -&gt; ShowS
+[DeleteDocumentClassifier] -&gt; ShowS
+DeleteDocumentClassifier -&gt; String
+(Int -&gt; DeleteDocumentClassifier -&gt; ShowS)
+-&gt; (DeleteDocumentClassifier -&gt; String)
+-&gt; ([DeleteDocumentClassifier] -&gt; ShowS)
+-&gt; Show DeleteDocumentClassifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDocumentClassifier] -&gt; ShowS
+$cshowList :: [DeleteDocumentClassifier] -&gt; ShowS
+show :: DeleteDocumentClassifier -&gt; String
+$cshow :: DeleteDocumentClassifier -&gt; String
+showsPrec :: Int -&gt; DeleteDocumentClassifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDocumentClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDocumentClassifier -&gt; Rep DeleteDocumentClassifier x)
+-&gt; (forall x.
+    Rep DeleteDocumentClassifier x -&gt; DeleteDocumentClassifier)
+-&gt; Generic DeleteDocumentClassifier
+forall x.
+Rep DeleteDocumentClassifier x -&gt; DeleteDocumentClassifier
+forall x.
+DeleteDocumentClassifier -&gt; Rep DeleteDocumentClassifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDocumentClassifier x -&gt; DeleteDocumentClassifier
+$cfrom :: forall x.
+DeleteDocumentClassifier -&gt; Rep DeleteDocumentClassifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteDocumentClassifier' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'documentClassifierArn', 'deleteDocumentClassifier_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifier"><span class="hs-identifier hs-type">newDeleteDocumentClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'documentClassifierArn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span>
+</span><span id="line-77"></span><span id="newDeleteDocumentClassifier"><span class="annot"><span class="annottext">newDeleteDocumentClassifier :: Text -&gt; DeleteDocumentClassifier
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifier"><span class="hs-identifier hs-var hs-var">newDeleteDocumentClassifier</span></a></span></span><span> </span><span id="local-6989586621679364413"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364413"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeleteDocumentClassifier' :: Text -&gt; DeleteDocumentClassifier
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier%27"><span class="hs-identifier hs-type">DeleteDocumentClassifier'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentClassifierArn:DeleteDocumentClassifier' :: Text
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3ADeleteDocumentClassifier%27"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364413"><span class="hs-identifier hs-var">pDocumentClassifierArn_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the document classifier.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifier_documentClassifierArn"><span class="hs-identifier hs-type">deleteDocumentClassifier_documentClassifierArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="deleteDocumentClassifier_documentClassifierArn"><span class="annot"><span class="annottext">deleteDocumentClassifier_documentClassifierArn :: (Text -&gt; f Text)
+-&gt; DeleteDocumentClassifier -&gt; f DeleteDocumentClassifier
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifier_documentClassifierArn"><span class="hs-identifier hs-var hs-var">deleteDocumentClassifier_documentClassifierArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDocumentClassifier -&gt; Text)
+-&gt; (DeleteDocumentClassifier -&gt; Text -&gt; DeleteDocumentClassifier)
+-&gt; Lens DeleteDocumentClassifier DeleteDocumentClassifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier%27"><span class="hs-identifier hs-type">DeleteDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364410"><span class="annot"><span class="annottext">Text
+documentClassifierArn :: Text
+$sel:documentClassifierArn:DeleteDocumentClassifier' :: DeleteDocumentClassifier -&gt; Text
+</span><a href="#local-6989586621679364410"><span class="hs-identifier hs-var hs-var">documentClassifierArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364410"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364409"><span class="annot"><span class="annottext">s :: DeleteDocumentClassifier
+</span><a href="#local-6989586621679364409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier%27"><span class="hs-identifier hs-type">DeleteDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentClassifier
+</span><a href="#local-6989586621679364409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassifierArn:DeleteDocumentClassifier' :: Text
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AdocumentClassifierArn%3ADeleteDocumentClassifier%27"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679364404"><span class="annot"><span class="annottext">request :: DeleteDocumentClassifier -&gt; Request DeleteDocumentClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteDocumentClassifier -&gt; Request DeleteDocumentClassifier
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679364400"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDocumentClassifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDocumentClassifier)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteDocumentClassifier))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDocumentClassifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDocumentClassifier)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364397"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364397"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364396"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679364396"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364395"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679364395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentClassifierResponse
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-var">DeleteDocumentClassifierResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDocumentClassifierResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteDocumentClassifierResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364388"><span id="local-6989586621679364390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679364381"><span class="annot"><span class="annottext">toHeaders :: DeleteDocumentClassifier -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDocumentClassifier -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.DeleteDocumentClassifier&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364371"><span id="local-6989586621679364373"><span id="local-6989586621679364375"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679364369"><span class="annot"><span class="annottext">toJSON :: DeleteDocumentClassifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier%27"><span class="hs-identifier hs-type">DeleteDocumentClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364367"><span class="annot"><span class="annottext">Text
+documentClassifierArn :: Text
+$sel:documentClassifierArn:DeleteDocumentClassifier' :: DeleteDocumentClassifier -&gt; Text
+</span><a href="#local-6989586621679364367"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentClassifierArn&quot;</span></span><span>
+</span><span id="line-124"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364367"><span class="hs-identifier hs-var">documentClassifierArn</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679364361"><span class="annot"><span class="annottext">toPath :: DeleteDocumentClassifier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDocumentClassifier -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifier"><span class="hs-identifier hs-type">DeleteDocumentClassifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679364357"><span class="annot"><span class="annottext">toQuery :: DeleteDocumentClassifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDocumentClassifier -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDeleteDocumentClassifierResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679364354"><span id="local-6989586621679364355"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentClassifierResponse"><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-var">DeleteDocumentClassifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentClassifierResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-var">DeleteDocumentClassifierResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDocumentClassifierResponse%27"><span class="annot"><span class="annottext">DeleteDocumentClassifierResponse -&gt; Int
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AhttpStatus%3ADeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364349"><span id="local-6989586621679364351"><span class="annot"><span class="annottext">DeleteDocumentClassifierResponse
+-&gt; DeleteDocumentClassifierResponse -&gt; Bool
+(DeleteDocumentClassifierResponse
+ -&gt; DeleteDocumentClassifierResponse -&gt; Bool)
+-&gt; (DeleteDocumentClassifierResponse
+    -&gt; DeleteDocumentClassifierResponse -&gt; Bool)
+-&gt; Eq DeleteDocumentClassifierResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDocumentClassifierResponse
+-&gt; DeleteDocumentClassifierResponse -&gt; Bool
+$c/= :: DeleteDocumentClassifierResponse
+-&gt; DeleteDocumentClassifierResponse -&gt; Bool
+== :: DeleteDocumentClassifierResponse
+-&gt; DeleteDocumentClassifierResponse -&gt; Bool
+$c== :: DeleteDocumentClassifierResponse
+-&gt; DeleteDocumentClassifierResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364341"><span id="local-6989586621679364343"><span id="local-6989586621679364345"><span id="local-6989586621679364347"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentClassifierResponse]
+ReadPrec DeleteDocumentClassifierResponse
+Int -&gt; ReadS DeleteDocumentClassifierResponse
+ReadS [DeleteDocumentClassifierResponse]
+(Int -&gt; ReadS DeleteDocumentClassifierResponse)
+-&gt; ReadS [DeleteDocumentClassifierResponse]
+-&gt; ReadPrec DeleteDocumentClassifierResponse
+-&gt; ReadPrec [DeleteDocumentClassifierResponse]
+-&gt; Read DeleteDocumentClassifierResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDocumentClassifierResponse]
+$creadListPrec :: ReadPrec [DeleteDocumentClassifierResponse]
+readPrec :: ReadPrec DeleteDocumentClassifierResponse
+$creadPrec :: ReadPrec DeleteDocumentClassifierResponse
+readList :: ReadS [DeleteDocumentClassifierResponse]
+$creadList :: ReadS [DeleteDocumentClassifierResponse]
+readsPrec :: Int -&gt; ReadS DeleteDocumentClassifierResponse
+$creadsPrec :: Int -&gt; ReadS DeleteDocumentClassifierResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364335"><span id="local-6989586621679364337"><span id="local-6989586621679364339"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentClassifierResponse -&gt; ShowS
+[DeleteDocumentClassifierResponse] -&gt; ShowS
+DeleteDocumentClassifierResponse -&gt; String
+(Int -&gt; DeleteDocumentClassifierResponse -&gt; ShowS)
+-&gt; (DeleteDocumentClassifierResponse -&gt; String)
+-&gt; ([DeleteDocumentClassifierResponse] -&gt; ShowS)
+-&gt; Show DeleteDocumentClassifierResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDocumentClassifierResponse] -&gt; ShowS
+$cshowList :: [DeleteDocumentClassifierResponse] -&gt; ShowS
+show :: DeleteDocumentClassifierResponse -&gt; String
+$cshow :: DeleteDocumentClassifierResponse -&gt; String
+showsPrec :: Int -&gt; DeleteDocumentClassifierResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDocumentClassifierResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDocumentClassifierResponse
+ -&gt; Rep DeleteDocumentClassifierResponse x)
+-&gt; (forall x.
+    Rep DeleteDocumentClassifierResponse x
+    -&gt; DeleteDocumentClassifierResponse)
+-&gt; Generic DeleteDocumentClassifierResponse
+forall x.
+Rep DeleteDocumentClassifierResponse x
+-&gt; DeleteDocumentClassifierResponse
+forall x.
+DeleteDocumentClassifierResponse
+-&gt; Rep DeleteDocumentClassifierResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDocumentClassifierResponse x
+-&gt; DeleteDocumentClassifierResponse
+$cfrom :: forall x.
+DeleteDocumentClassifierResponse
+-&gt; Rep DeleteDocumentClassifierResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DeleteDocumentClassifierResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'deleteDocumentClassifierResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">newDeleteDocumentClassifierResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newDeleteDocumentClassifierResponse"><span class="annot"><span class="annottext">newDeleteDocumentClassifierResponse :: Int -&gt; DeleteDocumentClassifierResponse
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#newDeleteDocumentClassifierResponse"><span class="hs-identifier hs-var hs-var">newDeleteDocumentClassifierResponse</span></a></span></span><span> </span><span id="local-6989586621679364332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DeleteDocumentClassifierResponse' :: Int -&gt; DeleteDocumentClassifierResponse
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDocumentClassifierResponse' :: Int
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AhttpStatus%3ADeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifierResponse_httpStatus"><span class="hs-identifier hs-type">deleteDocumentClassifierResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="deleteDocumentClassifierResponse_httpStatus"><span class="annot"><span class="annottext">deleteDocumentClassifierResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteDocumentClassifierResponse
+-&gt; f DeleteDocumentClassifierResponse
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#deleteDocumentClassifierResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteDocumentClassifierResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDocumentClassifierResponse -&gt; Int)
+-&gt; (DeleteDocumentClassifierResponse
+    -&gt; Int -&gt; DeleteDocumentClassifierResponse)
+-&gt; Lens
+     DeleteDocumentClassifierResponse
+     DeleteDocumentClassifierResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364331"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteDocumentClassifierResponse' :: DeleteDocumentClassifierResponse -&gt; Int
+</span><a href="#local-6989586621679364331"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364331"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364330"><span class="annot"><span class="annottext">s :: DeleteDocumentClassifierResponse
+</span><a href="#local-6989586621679364330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364329"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentClassifierResponse
+</span><a href="#local-6989586621679364330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDocumentClassifierResponse' :: Int
+</span><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#%24sel%3AhttpStatus%3ADeleteDocumentClassifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679364327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DeleteDocumentClassifier.html#DeleteDocumentClassifierResponse"><span class="hs-identifier hs-type">DeleteDocumentClassifierResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

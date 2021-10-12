@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.OpsItemFilterOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.OpsItemFilterOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier">OpsItemFilterOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Contains"><span class="hs-identifier">OpsItemFilterOperator_Contains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Equal"><span class="hs-identifier">OpsItemFilterOperator_Equal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_GreaterThan"><span class="hs-identifier">OpsItemFilterOperator_GreaterThan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_LessThan"><span class="hs-identifier">OpsItemFilterOperator_LessThan</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679802102"><span id="local-6989586621679802103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemFilterOperator"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-var">OpsItemFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemFilterOperator%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-var">OpsItemFilterOperator'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOpsItemFilterOperator"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; Text
+</span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#fromOpsItemFilterOperator"><span class="hs-identifier hs-var hs-var">fromOpsItemFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679802094"><span id="local-6989586621679802096"><span id="local-6989586621679802098"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; ShowS
+[OpsItemFilterOperator] -&gt; ShowS
+OpsItemFilterOperator -&gt; String
+(Int -&gt; OpsItemFilterOperator -&gt; ShowS)
+-&gt; (OpsItemFilterOperator -&gt; String)
+-&gt; ([OpsItemFilterOperator] -&gt; ShowS)
+-&gt; Show OpsItemFilterOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OpsItemFilterOperator] -&gt; ShowS
+$cshowList :: [OpsItemFilterOperator] -&gt; ShowS
+show :: OpsItemFilterOperator -&gt; String
+$cshow :: OpsItemFilterOperator -&gt; String
+showsPrec :: Int -&gt; OpsItemFilterOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; OpsItemFilterOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679802085"><span id="local-6989586621679802087"><span id="local-6989586621679802089"><span id="local-6989586621679802091"><span class="annot"><span class="annottext">ReadPrec [OpsItemFilterOperator]
+ReadPrec OpsItemFilterOperator
+Int -&gt; ReadS OpsItemFilterOperator
+ReadS [OpsItemFilterOperator]
+(Int -&gt; ReadS OpsItemFilterOperator)
+-&gt; ReadS [OpsItemFilterOperator]
+-&gt; ReadPrec OpsItemFilterOperator
+-&gt; ReadPrec [OpsItemFilterOperator]
+-&gt; Read OpsItemFilterOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OpsItemFilterOperator]
+$creadListPrec :: ReadPrec [OpsItemFilterOperator]
+readPrec :: ReadPrec OpsItemFilterOperator
+$creadPrec :: ReadPrec OpsItemFilterOperator
+readList :: ReadS [OpsItemFilterOperator]
+$creadList :: ReadS [OpsItemFilterOperator]
+readsPrec :: Int -&gt; ReadS OpsItemFilterOperator
+$creadsPrec :: Int -&gt; ReadS OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679802080"><span id="local-6989586621679802082"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+(OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; Eq OpsItemFilterOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c/= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+== :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c== :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679802064"><span id="local-6989586621679802066"><span id="local-6989586621679802068"><span id="local-6989586621679802070"><span id="local-6989586621679802072"><span id="local-6989586621679802074"><span id="local-6989586621679802076"><span class="annot"><span class="annottext">Eq OpsItemFilterOperator
+Eq OpsItemFilterOperator
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Ordering)
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
+-&gt; (OpsItemFilterOperator
+    -&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator)
+-&gt; (OpsItemFilterOperator
+    -&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator)
+-&gt; Ord OpsItemFilterOperator
+OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Ordering
+OpsItemFilterOperator
+-&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OpsItemFilterOperator
+-&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator
+$cmin :: OpsItemFilterOperator
+-&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator
+max :: OpsItemFilterOperator
+-&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator
+$cmax :: OpsItemFilterOperator
+-&gt; OpsItemFilterOperator -&gt; OpsItemFilterOperator
+&gt;= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c&gt;= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+&gt; :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c&gt; :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+&lt;= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c&lt;= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+&lt; :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+$c&lt; :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+compare :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Ordering
+$ccompare :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Ordering
+$cp1Ord :: Eq OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OpsItemFilterOperator -&gt; Rep OpsItemFilterOperator x)
+-&gt; (forall x. Rep OpsItemFilterOperator x -&gt; OpsItemFilterOperator)
+-&gt; Generic OpsItemFilterOperator
+forall x. Rep OpsItemFilterOperator x -&gt; OpsItemFilterOperator
+forall x. OpsItemFilterOperator -&gt; Rep OpsItemFilterOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OpsItemFilterOperator x -&gt; OpsItemFilterOperator
+$cfrom :: forall x. OpsItemFilterOperator -&gt; Rep OpsItemFilterOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679802056"><span id="local-6989586621679802058"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; Int
+OpsItemFilterOperator -&gt; Int
+(Int -&gt; OpsItemFilterOperator -&gt; Int)
+-&gt; (OpsItemFilterOperator -&gt; Int) -&gt; Hashable OpsItemFilterOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OpsItemFilterOperator -&gt; Int
+$chash :: OpsItemFilterOperator -&gt; Int
+hashWithSalt :: Int -&gt; OpsItemFilterOperator -&gt; Int
+$chashWithSalt :: Int -&gt; OpsItemFilterOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679802053"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ()
+(OpsItemFilterOperator -&gt; ()) -&gt; NFData OpsItemFilterOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OpsItemFilterOperator -&gt; ()
+$crnf :: OpsItemFilterOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679802050"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemFilterOperator
+(Text -&gt; Either String OpsItemFilterOperator)
+-&gt; FromText OpsItemFilterOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OpsItemFilterOperator
+$cfromText :: Text -&gt; Either String OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679802047"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; Text
+(OpsItemFilterOperator -&gt; Text) -&gt; ToText OpsItemFilterOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OpsItemFilterOperator -&gt; Text
+$ctoText :: OpsItemFilterOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679802044"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteString
+(OpsItemFilterOperator -&gt; ByteString)
+-&gt; ToByteString OpsItemFilterOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OpsItemFilterOperator -&gt; ByteString
+$ctoBS :: OpsItemFilterOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679802041"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteStringBuilder
+(OpsItemFilterOperator -&gt; ByteStringBuilder)
+-&gt; ToLog OpsItemFilterOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OpsItemFilterOperator -&gt; ByteStringBuilder
+$cbuild :: OpsItemFilterOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679802038"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
+(HeaderName -&gt; OpsItemFilterOperator -&gt; [Header])
+-&gt; ToHeader OpsItemFilterOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679802035"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; QueryString
+(OpsItemFilterOperator -&gt; QueryString)
+-&gt; ToQuery OpsItemFilterOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OpsItemFilterOperator -&gt; QueryString
+$ctoQuery :: OpsItemFilterOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679802030"><span id="local-6989586621679802032"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemFilterOperator]
+Value -&gt; Parser OpsItemFilterOperator
+(Value -&gt; Parser OpsItemFilterOperator)
+-&gt; (Value -&gt; Parser [OpsItemFilterOperator])
+-&gt; FromJSON OpsItemFilterOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OpsItemFilterOperator]
+$cparseJSONList :: Value -&gt; Parser [OpsItemFilterOperator]
+parseJSON :: Value -&gt; Parser OpsItemFilterOperator
+$cparseJSON :: Value -&gt; Parser OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679802025"><span id="local-6989586621679802027"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemFilterOperator]
+FromJSONKeyFunction OpsItemFilterOperator
+FromJSONKeyFunction OpsItemFilterOperator
+-&gt; FromJSONKeyFunction [OpsItemFilterOperator]
+-&gt; FromJSONKey OpsItemFilterOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OpsItemFilterOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [OpsItemFilterOperator]
+fromJSONKey :: FromJSONKeyFunction OpsItemFilterOperator
+$cfromJSONKey :: FromJSONKeyFunction OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679802016"><span id="local-6989586621679802018"><span id="local-6989586621679802020"><span id="local-6989586621679802022"><span class="annot"><span class="annottext">[OpsItemFilterOperator] -&gt; Encoding
+[OpsItemFilterOperator] -&gt; Value
+OpsItemFilterOperator -&gt; Encoding
+OpsItemFilterOperator -&gt; Value
+(OpsItemFilterOperator -&gt; Value)
+-&gt; (OpsItemFilterOperator -&gt; Encoding)
+-&gt; ([OpsItemFilterOperator] -&gt; Value)
+-&gt; ([OpsItemFilterOperator] -&gt; Encoding)
+-&gt; ToJSON OpsItemFilterOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OpsItemFilterOperator] -&gt; Encoding
+$ctoEncodingList :: [OpsItemFilterOperator] -&gt; Encoding
+toJSONList :: [OpsItemFilterOperator] -&gt; Value
+$ctoJSONList :: [OpsItemFilterOperator] -&gt; Value
+toEncoding :: OpsItemFilterOperator -&gt; Encoding
+$ctoEncoding :: OpsItemFilterOperator -&gt; Encoding
+toJSON :: OpsItemFilterOperator -&gt; Value
+$ctoJSON :: OpsItemFilterOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679802011"><span id="local-6989586621679802013"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemFilterOperator]
+ToJSONKeyFunction OpsItemFilterOperator
+ToJSONKeyFunction OpsItemFilterOperator
+-&gt; ToJSONKeyFunction [OpsItemFilterOperator]
+-&gt; ToJSONKey OpsItemFilterOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OpsItemFilterOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [OpsItemFilterOperator]
+toJSONKey :: ToJSONKeyFunction OpsItemFilterOperator
+$ctoJSONKey :: ToJSONKeyFunction OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679802008"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemFilterOperator
+([Node] -&gt; Either String OpsItemFilterOperator)
+-&gt; FromXML OpsItemFilterOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OpsItemFilterOperator
+$cparseXML :: [Node] -&gt; Either String OpsItemFilterOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679802005"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; XML
+(OpsItemFilterOperator -&gt; XML) -&gt; ToXML OpsItemFilterOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OpsItemFilterOperator -&gt; XML
+$ctoXML :: OpsItemFilterOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Contains"><span class="hs-identifier hs-type">OpsItemFilterOperator_Contains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-type">OpsItemFilterOperator</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOpsItemFilterOperator_Contains"><span id="%24mOpsItemFilterOperator_Contains"><span id="OpsItemFilterOperator_Contains"><span class="annot"><span class="annottext">$bOpsItemFilterOperator_Contains :: OpsItemFilterOperator
+$mOpsItemFilterOperator_Contains :: forall r.
+OpsItemFilterOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#%24bOpsItemFilterOperator_Contains"><span class="hs-identifier hs-var hs-var hs-var">OpsItemFilterOperator_Contains</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-type">OpsItemFilterOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Contains&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Equal"><span class="hs-identifier hs-type">OpsItemFilterOperator_Equal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-type">OpsItemFilterOperator</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOpsItemFilterOperator_Equal"><span id="%24mOpsItemFilterOperator_Equal"><span id="OpsItemFilterOperator_Equal"><span class="annot"><span class="annottext">$bOpsItemFilterOperator_Equal :: OpsItemFilterOperator
+$mOpsItemFilterOperator_Equal :: forall r.
+OpsItemFilterOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#%24bOpsItemFilterOperator_Equal"><span class="hs-identifier hs-var hs-var hs-var">OpsItemFilterOperator_Equal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-type">OpsItemFilterOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Equal&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_GreaterThan"><span class="hs-identifier hs-type">OpsItemFilterOperator_GreaterThan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-type">OpsItemFilterOperator</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOpsItemFilterOperator_GreaterThan"><span id="%24mOpsItemFilterOperator_GreaterThan"><span id="OpsItemFilterOperator_GreaterThan"><span class="annot"><span class="annottext">$bOpsItemFilterOperator_GreaterThan :: OpsItemFilterOperator
+$mOpsItemFilterOperator_GreaterThan :: forall r.
+OpsItemFilterOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#%24bOpsItemFilterOperator_GreaterThan"><span class="hs-identifier hs-var hs-var hs-var">OpsItemFilterOperator_GreaterThan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-type">OpsItemFilterOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GreaterThan&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_LessThan"><span class="hs-identifier hs-type">OpsItemFilterOperator_LessThan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-type">OpsItemFilterOperator</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOpsItemFilterOperator_LessThan"><span id="%24mOpsItemFilterOperator_LessThan"><span id="OpsItemFilterOperator_LessThan"><span class="annot"><span class="annottext">$bOpsItemFilterOperator_LessThan :: OpsItemFilterOperator
+$mOpsItemFilterOperator_LessThan :: forall r.
+OpsItemFilterOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#%24bOpsItemFilterOperator_LessThan"><span class="hs-identifier hs-var hs-var hs-var">OpsItemFilterOperator_LessThan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-type">OpsItemFilterOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LessThan&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Contains"><span class="hs-pragma hs-type">OpsItemFilterOperator_Contains</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_Equal"><span class="hs-pragma hs-type">OpsItemFilterOperator_Equal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_GreaterThan"><span class="hs-pragma hs-type">OpsItemFilterOperator_GreaterThan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator_LessThan"><span class="hs-pragma hs-type">OpsItemFilterOperator_LessThan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-pragma hs-type">OpsItemFilterOperator'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

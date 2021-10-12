@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.StartReplicationTaskTypeValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.StartReplicationTaskTypeValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Reload_target"><span class="hs-identifier">StartReplicationTaskTypeValue_Reload_target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Resume_processing"><span class="hs-identifier">StartReplicationTaskTypeValue_Resume_processing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Start_replication"><span class="hs-identifier">StartReplicationTaskTypeValue_Start_replication</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679439382"><span id="local-6989586621679439383"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StartReplicationTaskTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-var">StartReplicationTaskTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartReplicationTaskTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue%27"><span class="hs-identifier hs-var">StartReplicationTaskTypeValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStartReplicationTaskTypeValue"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; Text
+</span><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#fromStartReplicationTaskTypeValue"><span class="hs-identifier hs-var hs-var">fromStartReplicationTaskTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439374"><span id="local-6989586621679439376"><span id="local-6989586621679439378"><span class="annot"><span class="annottext">Int -&gt; StartReplicationTaskTypeValue -&gt; ShowS
+[StartReplicationTaskTypeValue] -&gt; ShowS
+StartReplicationTaskTypeValue -&gt; String
+(Int -&gt; StartReplicationTaskTypeValue -&gt; ShowS)
+-&gt; (StartReplicationTaskTypeValue -&gt; String)
+-&gt; ([StartReplicationTaskTypeValue] -&gt; ShowS)
+-&gt; Show StartReplicationTaskTypeValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartReplicationTaskTypeValue] -&gt; ShowS
+$cshowList :: [StartReplicationTaskTypeValue] -&gt; ShowS
+show :: StartReplicationTaskTypeValue -&gt; String
+$cshow :: StartReplicationTaskTypeValue -&gt; String
+showsPrec :: Int -&gt; StartReplicationTaskTypeValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartReplicationTaskTypeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679439365"><span id="local-6989586621679439367"><span id="local-6989586621679439369"><span id="local-6989586621679439371"><span class="annot"><span class="annottext">ReadPrec [StartReplicationTaskTypeValue]
+ReadPrec StartReplicationTaskTypeValue
+Int -&gt; ReadS StartReplicationTaskTypeValue
+ReadS [StartReplicationTaskTypeValue]
+(Int -&gt; ReadS StartReplicationTaskTypeValue)
+-&gt; ReadS [StartReplicationTaskTypeValue]
+-&gt; ReadPrec StartReplicationTaskTypeValue
+-&gt; ReadPrec [StartReplicationTaskTypeValue]
+-&gt; Read StartReplicationTaskTypeValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartReplicationTaskTypeValue]
+$creadListPrec :: ReadPrec [StartReplicationTaskTypeValue]
+readPrec :: ReadPrec StartReplicationTaskTypeValue
+$creadPrec :: ReadPrec StartReplicationTaskTypeValue
+readList :: ReadS [StartReplicationTaskTypeValue]
+$creadList :: ReadS [StartReplicationTaskTypeValue]
+readsPrec :: Int -&gt; ReadS StartReplicationTaskTypeValue
+$creadsPrec :: Int -&gt; ReadS StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679439360"><span id="local-6989586621679439362"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+(StartReplicationTaskTypeValue
+ -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; Eq StartReplicationTaskTypeValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c/= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+== :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c== :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679439344"><span id="local-6989586621679439346"><span id="local-6989586621679439348"><span id="local-6989586621679439350"><span id="local-6989586621679439352"><span id="local-6989586621679439354"><span id="local-6989586621679439356"><span class="annot"><span class="annottext">Eq StartReplicationTaskTypeValue
+Eq StartReplicationTaskTypeValue
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Ordering)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; Bool)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue)
+-&gt; (StartReplicationTaskTypeValue
+    -&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue)
+-&gt; Ord StartReplicationTaskTypeValue
+StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Ordering
+StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue
+$cmin :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue
+max :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue
+$cmax :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTaskTypeValue
+&gt;= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c&gt;= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+&gt; :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c&gt; :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+&lt;= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c&lt;= :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+&lt; :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+$c&lt; :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Bool
+compare :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Ordering
+$ccompare :: StartReplicationTaskTypeValue
+-&gt; StartReplicationTaskTypeValue -&gt; Ordering
+$cp1Ord :: Eq StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ StartReplicationTaskTypeValue
+ -&gt; Rep StartReplicationTaskTypeValue x)
+-&gt; (forall x.
+    Rep StartReplicationTaskTypeValue x
+    -&gt; StartReplicationTaskTypeValue)
+-&gt; Generic StartReplicationTaskTypeValue
+forall x.
+Rep StartReplicationTaskTypeValue x
+-&gt; StartReplicationTaskTypeValue
+forall x.
+StartReplicationTaskTypeValue
+-&gt; Rep StartReplicationTaskTypeValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartReplicationTaskTypeValue x
+-&gt; StartReplicationTaskTypeValue
+$cfrom :: forall x.
+StartReplicationTaskTypeValue
+-&gt; Rep StartReplicationTaskTypeValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439336"><span id="local-6989586621679439338"><span class="annot"><span class="annottext">Int -&gt; StartReplicationTaskTypeValue -&gt; Int
+StartReplicationTaskTypeValue -&gt; Int
+(Int -&gt; StartReplicationTaskTypeValue -&gt; Int)
+-&gt; (StartReplicationTaskTypeValue -&gt; Int)
+-&gt; Hashable StartReplicationTaskTypeValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StartReplicationTaskTypeValue -&gt; Int
+$chash :: StartReplicationTaskTypeValue -&gt; Int
+hashWithSalt :: Int -&gt; StartReplicationTaskTypeValue -&gt; Int
+$chashWithSalt :: Int -&gt; StartReplicationTaskTypeValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679439333"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; ()
+(StartReplicationTaskTypeValue -&gt; ())
+-&gt; NFData StartReplicationTaskTypeValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StartReplicationTaskTypeValue -&gt; ()
+$crnf :: StartReplicationTaskTypeValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679439330"><span class="annot"><span class="annottext">Text -&gt; Either String StartReplicationTaskTypeValue
+(Text -&gt; Either String StartReplicationTaskTypeValue)
+-&gt; FromText StartReplicationTaskTypeValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StartReplicationTaskTypeValue
+$cfromText :: Text -&gt; Either String StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679439327"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; Text
+(StartReplicationTaskTypeValue -&gt; Text)
+-&gt; ToText StartReplicationTaskTypeValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StartReplicationTaskTypeValue -&gt; Text
+$ctoText :: StartReplicationTaskTypeValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679439324"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; ByteString
+(StartReplicationTaskTypeValue -&gt; ByteString)
+-&gt; ToByteString StartReplicationTaskTypeValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StartReplicationTaskTypeValue -&gt; ByteString
+$ctoBS :: StartReplicationTaskTypeValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679439321"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; ByteStringBuilder
+(StartReplicationTaskTypeValue -&gt; ByteStringBuilder)
+-&gt; ToLog StartReplicationTaskTypeValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StartReplicationTaskTypeValue -&gt; ByteStringBuilder
+$cbuild :: StartReplicationTaskTypeValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679439318"><span class="annot"><span class="annottext">HeaderName -&gt; StartReplicationTaskTypeValue -&gt; [Header]
+(HeaderName -&gt; StartReplicationTaskTypeValue -&gt; [Header])
+-&gt; ToHeader StartReplicationTaskTypeValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StartReplicationTaskTypeValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StartReplicationTaskTypeValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679439315"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; QueryString
+(StartReplicationTaskTypeValue -&gt; QueryString)
+-&gt; ToQuery StartReplicationTaskTypeValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StartReplicationTaskTypeValue -&gt; QueryString
+$ctoQuery :: StartReplicationTaskTypeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679439310"><span id="local-6989586621679439312"><span class="annot"><span class="annottext">Value -&gt; Parser [StartReplicationTaskTypeValue]
+Value -&gt; Parser StartReplicationTaskTypeValue
+(Value -&gt; Parser StartReplicationTaskTypeValue)
+-&gt; (Value -&gt; Parser [StartReplicationTaskTypeValue])
+-&gt; FromJSON StartReplicationTaskTypeValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StartReplicationTaskTypeValue]
+$cparseJSONList :: Value -&gt; Parser [StartReplicationTaskTypeValue]
+parseJSON :: Value -&gt; Parser StartReplicationTaskTypeValue
+$cparseJSON :: Value -&gt; Parser StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679439305"><span id="local-6989586621679439307"><span class="annot"><span class="annottext">FromJSONKeyFunction [StartReplicationTaskTypeValue]
+FromJSONKeyFunction StartReplicationTaskTypeValue
+FromJSONKeyFunction StartReplicationTaskTypeValue
+-&gt; FromJSONKeyFunction [StartReplicationTaskTypeValue]
+-&gt; FromJSONKey StartReplicationTaskTypeValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StartReplicationTaskTypeValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [StartReplicationTaskTypeValue]
+fromJSONKey :: FromJSONKeyFunction StartReplicationTaskTypeValue
+$cfromJSONKey :: FromJSONKeyFunction StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679439296"><span id="local-6989586621679439298"><span id="local-6989586621679439300"><span id="local-6989586621679439302"><span class="annot"><span class="annottext">[StartReplicationTaskTypeValue] -&gt; Encoding
+[StartReplicationTaskTypeValue] -&gt; Value
+StartReplicationTaskTypeValue -&gt; Encoding
+StartReplicationTaskTypeValue -&gt; Value
+(StartReplicationTaskTypeValue -&gt; Value)
+-&gt; (StartReplicationTaskTypeValue -&gt; Encoding)
+-&gt; ([StartReplicationTaskTypeValue] -&gt; Value)
+-&gt; ([StartReplicationTaskTypeValue] -&gt; Encoding)
+-&gt; ToJSON StartReplicationTaskTypeValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StartReplicationTaskTypeValue] -&gt; Encoding
+$ctoEncodingList :: [StartReplicationTaskTypeValue] -&gt; Encoding
+toJSONList :: [StartReplicationTaskTypeValue] -&gt; Value
+$ctoJSONList :: [StartReplicationTaskTypeValue] -&gt; Value
+toEncoding :: StartReplicationTaskTypeValue -&gt; Encoding
+$ctoEncoding :: StartReplicationTaskTypeValue -&gt; Encoding
+toJSON :: StartReplicationTaskTypeValue -&gt; Value
+$ctoJSON :: StartReplicationTaskTypeValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679439291"><span id="local-6989586621679439293"><span class="annot"><span class="annottext">ToJSONKeyFunction [StartReplicationTaskTypeValue]
+ToJSONKeyFunction StartReplicationTaskTypeValue
+ToJSONKeyFunction StartReplicationTaskTypeValue
+-&gt; ToJSONKeyFunction [StartReplicationTaskTypeValue]
+-&gt; ToJSONKey StartReplicationTaskTypeValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StartReplicationTaskTypeValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [StartReplicationTaskTypeValue]
+toJSONKey :: ToJSONKeyFunction StartReplicationTaskTypeValue
+$ctoJSONKey :: ToJSONKeyFunction StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679439288"><span class="annot"><span class="annottext">[Node] -&gt; Either String StartReplicationTaskTypeValue
+([Node] -&gt; Either String StartReplicationTaskTypeValue)
+-&gt; FromXML StartReplicationTaskTypeValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StartReplicationTaskTypeValue
+$cparseXML :: [Node] -&gt; Either String StartReplicationTaskTypeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679439285"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue -&gt; XML
+(StartReplicationTaskTypeValue -&gt; XML)
+-&gt; ToXML StartReplicationTaskTypeValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StartReplicationTaskTypeValue -&gt; XML
+$ctoXML :: StartReplicationTaskTypeValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Reload_target"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue_Reload_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStartReplicationTaskTypeValue_Reload_target"><span id="%24mStartReplicationTaskTypeValue_Reload_target"><span id="StartReplicationTaskTypeValue_Reload_target"><span class="annot"><span class="annottext">$bStartReplicationTaskTypeValue_Reload_target :: StartReplicationTaskTypeValue
+$mStartReplicationTaskTypeValue_Reload_target :: forall r.
+StartReplicationTaskTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#%24bStartReplicationTaskTypeValue_Reload_target"><span class="hs-identifier hs-var hs-var hs-var">StartReplicationTaskTypeValue_Reload_target</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue%27"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;reload-target&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Resume_processing"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue_Resume_processing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStartReplicationTaskTypeValue_Resume_processing"><span id="%24mStartReplicationTaskTypeValue_Resume_processing"><span id="StartReplicationTaskTypeValue_Resume_processing"><span class="annot"><span class="annottext">$bStartReplicationTaskTypeValue_Resume_processing :: StartReplicationTaskTypeValue
+$mStartReplicationTaskTypeValue_Resume_processing :: forall r.
+StartReplicationTaskTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#%24bStartReplicationTaskTypeValue_Resume_processing"><span class="hs-identifier hs-var hs-var hs-var">StartReplicationTaskTypeValue_Resume_processing</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue%27"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;resume-processing&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Start_replication"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue_Start_replication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStartReplicationTaskTypeValue_Start_replication"><span id="%24mStartReplicationTaskTypeValue_Start_replication"><span id="StartReplicationTaskTypeValue_Start_replication"><span class="annot"><span class="annottext">$bStartReplicationTaskTypeValue_Start_replication :: StartReplicationTaskTypeValue
+$mStartReplicationTaskTypeValue_Start_replication :: forall r.
+StartReplicationTaskTypeValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#%24bStartReplicationTaskTypeValue_Start_replication"><span class="hs-identifier hs-var hs-var hs-var">StartReplicationTaskTypeValue_Start_replication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue%27"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;start-replication&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Reload_target"><span class="hs-pragma hs-type">StartReplicationTaskTypeValue_Reload_target</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Resume_processing"><span class="hs-pragma hs-type">StartReplicationTaskTypeValue_Resume_processing</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue_Start_replication"><span class="hs-pragma hs-type">StartReplicationTaskTypeValue_Start_replication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue%27"><span class="hs-pragma hs-type">StartReplicationTaskTypeValue'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

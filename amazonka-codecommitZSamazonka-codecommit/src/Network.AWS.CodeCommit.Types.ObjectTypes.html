@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.Types.ObjectTypes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.Types.ObjectTypes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types.ObjectTypeEnum</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the type of an object in a merge operation.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newObjectTypes' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679350344"><span id="local-6989586621679350345"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectTypes"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-var">ObjectTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectTypes%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-var">ObjectTypes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the object in the source branch.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Asource%3AObjectTypes%27"><span class="annot"><span class="annottext">ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Asource%3AObjectTypes%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of the object in the destination branch.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Adestination%3AObjectTypes%27"><span class="annot"><span class="annottext">ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Adestination%3AObjectTypes%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of the object in the base commit of the merge.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Abase%3AObjectTypes%27"><span class="annot"><span class="annottext">ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Abase%3AObjectTypes%27"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350336"><span id="local-6989586621679350338"><span class="annot"><span class="annottext">ObjectTypes -&gt; ObjectTypes -&gt; Bool
+(ObjectTypes -&gt; ObjectTypes -&gt; Bool)
+-&gt; (ObjectTypes -&gt; ObjectTypes -&gt; Bool) -&gt; Eq ObjectTypes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ObjectTypes -&gt; ObjectTypes -&gt; Bool
+$c/= :: ObjectTypes -&gt; ObjectTypes -&gt; Bool
+== :: ObjectTypes -&gt; ObjectTypes -&gt; Bool
+$c== :: ObjectTypes -&gt; ObjectTypes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350327"><span id="local-6989586621679350329"><span id="local-6989586621679350331"><span id="local-6989586621679350333"><span class="annot"><span class="annottext">ReadPrec [ObjectTypes]
+ReadPrec ObjectTypes
+Int -&gt; ReadS ObjectTypes
+ReadS [ObjectTypes]
+(Int -&gt; ReadS ObjectTypes)
+-&gt; ReadS [ObjectTypes]
+-&gt; ReadPrec ObjectTypes
+-&gt; ReadPrec [ObjectTypes]
+-&gt; Read ObjectTypes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ObjectTypes]
+$creadListPrec :: ReadPrec [ObjectTypes]
+readPrec :: ReadPrec ObjectTypes
+$creadPrec :: ReadPrec ObjectTypes
+readList :: ReadS [ObjectTypes]
+$creadList :: ReadS [ObjectTypes]
+readsPrec :: Int -&gt; ReadS ObjectTypes
+$creadsPrec :: Int -&gt; ReadS ObjectTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350320"><span id="local-6989586621679350322"><span id="local-6989586621679350324"><span class="annot"><span class="annottext">Int -&gt; ObjectTypes -&gt; ShowS
+[ObjectTypes] -&gt; ShowS
+ObjectTypes -&gt; String
+(Int -&gt; ObjectTypes -&gt; ShowS)
+-&gt; (ObjectTypes -&gt; String)
+-&gt; ([ObjectTypes] -&gt; ShowS)
+-&gt; Show ObjectTypes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ObjectTypes] -&gt; ShowS
+$cshowList :: [ObjectTypes] -&gt; ShowS
+show :: ObjectTypes -&gt; String
+$cshow :: ObjectTypes -&gt; String
+showsPrec :: Int -&gt; ObjectTypes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ObjectTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ObjectTypes -&gt; Rep ObjectTypes x)
+-&gt; (forall x. Rep ObjectTypes x -&gt; ObjectTypes)
+-&gt; Generic ObjectTypes
+forall x. Rep ObjectTypes x -&gt; ObjectTypes
+forall x. ObjectTypes -&gt; Rep ObjectTypes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ObjectTypes x -&gt; ObjectTypes
+$cfrom :: forall x. ObjectTypes -&gt; Rep ObjectTypes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ObjectTypes' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'source', 'objectTypes_source' - The type of the object in the source branch.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'destination', 'objectTypes_destination' - The type of the object in the destination branch.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'base', 'objectTypes_base' - The type of the object in the base commit of the merge.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#newObjectTypes"><span class="hs-identifier hs-type">newObjectTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span>
+</span><span id="line-55"></span><span id="newObjectTypes"><span class="annot"><span class="annottext">newObjectTypes :: ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#newObjectTypes"><span class="hs-identifier hs-var hs-var">newObjectTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ObjectTypes' :: Maybe ObjectTypeEnum
+-&gt; Maybe ObjectTypeEnum -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:source:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Asource%3AObjectTypes%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Adestination%3AObjectTypes%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:base:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Abase%3AObjectTypes%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The type of the object in the source branch.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_source"><span class="hs-identifier hs-type">objectTypes_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="objectTypes_source"><span class="annot"><span class="annottext">objectTypes_source :: (Maybe ObjectTypeEnum -&gt; f (Maybe ObjectTypeEnum))
+-&gt; ObjectTypes -&gt; f ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_source"><span class="hs-identifier hs-var hs-var">objectTypes_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectTypes -&gt; Maybe ObjectTypeEnum)
+-&gt; (ObjectTypes -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Lens
+     ObjectTypes
+     ObjectTypes
+     (Maybe ObjectTypeEnum)
+     (Maybe ObjectTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350311"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+source :: Maybe ObjectTypeEnum
+$sel:source:ObjectTypes' :: ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350311"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350311"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350310"><span class="annot"><span class="annottext">s :: ObjectTypes
+</span><a href="#local-6989586621679350310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350309"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectTypes
+</span><a href="#local-6989586621679350310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Asource%3AObjectTypes%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The type of the object in the destination branch.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_destination"><span class="hs-identifier hs-type">objectTypes_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="objectTypes_destination"><span class="annot"><span class="annottext">objectTypes_destination :: (Maybe ObjectTypeEnum -&gt; f (Maybe ObjectTypeEnum))
+-&gt; ObjectTypes -&gt; f ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_destination"><span class="hs-identifier hs-var hs-var">objectTypes_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectTypes -&gt; Maybe ObjectTypeEnum)
+-&gt; (ObjectTypes -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Lens
+     ObjectTypes
+     ObjectTypes
+     (Maybe ObjectTypeEnum)
+     (Maybe ObjectTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350307"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+destination :: Maybe ObjectTypeEnum
+$sel:destination:ObjectTypes' :: ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350307"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350307"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350306"><span class="annot"><span class="annottext">s :: ObjectTypes
+</span><a href="#local-6989586621679350306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350305"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectTypes
+</span><a href="#local-6989586621679350306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Adestination%3AObjectTypes%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The type of the object in the base commit of the merge.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_base"><span class="hs-identifier hs-type">objectTypes_base</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-type">ObjectTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="objectTypes_base"><span class="annot"><span class="annottext">objectTypes_base :: (Maybe ObjectTypeEnum -&gt; f (Maybe ObjectTypeEnum))
+-&gt; ObjectTypes -&gt; f ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#objectTypes_base"><span class="hs-identifier hs-var hs-var">objectTypes_base</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectTypes -&gt; Maybe ObjectTypeEnum)
+-&gt; (ObjectTypes -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Lens
+     ObjectTypes
+     ObjectTypes
+     (Maybe ObjectTypeEnum)
+     (Maybe ObjectTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350303"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+base :: Maybe ObjectTypeEnum
+$sel:base:ObjectTypes' :: ObjectTypes -&gt; Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350303"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350303"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350302"><span class="annot"><span class="annottext">s :: ObjectTypes
+</span><a href="#local-6989586621679350302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-type">ObjectTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350301"><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectTypes
+</span><a href="#local-6989586621679350302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base:ObjectTypes' :: Maybe ObjectTypeEnum
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#%24sel%3Abase%3AObjectTypes%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+</span><a href="#local-6989586621679350301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350298"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679350296"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ObjectTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ObjectTypes) -&gt; Value -&gt; Parser ObjectTypes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ObjectTypes&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350293"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe ObjectTypeEnum
+-&gt; Maybe ObjectTypeEnum -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes
+</span><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes%27"><span class="hs-identifier hs-var">ObjectTypes'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ObjectTypeEnum
+ -&gt; Maybe ObjectTypeEnum -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Parser (Maybe ObjectTypeEnum)
+-&gt; Parser
+     (Maybe ObjectTypeEnum -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectTypeEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ObjectTypeEnum -&gt; Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Parser (Maybe ObjectTypeEnum)
+-&gt; Parser (Maybe ObjectTypeEnum -&gt; ObjectTypes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectTypeEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ObjectTypeEnum -&gt; ObjectTypes)
+-&gt; Parser (Maybe ObjectTypeEnum) -&gt; Parser ObjectTypes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectTypeEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;base&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350287"><span id="local-6989586621679350289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

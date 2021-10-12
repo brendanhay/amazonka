@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SMS.NotifyAppValidationOutput</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides information to AWS SMS about whether application validation is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- successful.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SMS.NotifyAppValidationOutput</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutput"><span class="hs-identifier">newNotifyAppValidationOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_notificationContext"><span class="hs-identifier">notifyAppValidationOutput_notificationContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_appId"><span class="hs-identifier">notifyAppValidationOutput_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier">NotifyAppValidationOutputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutputResponse"><span class="hs-identifier">newNotifyAppValidationOutputResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutputResponse_httpStatus"><span class="hs-identifier">notifyAppValidationOutputResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newNotifyAppValidationOutput' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679253410"><span id="local-6989586621679253411"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotifyAppValidationOutput"><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-var">NotifyAppValidationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotifyAppValidationOutput%27"><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-var">NotifyAppValidationOutput'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The notification information.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AnotificationContext%3ANotifyAppValidationOutput%27"><span class="annot"><span class="annottext">NotifyAppValidationOutput -&gt; Maybe NotificationContext
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AnotificationContext%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var hs-var">notificationContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.NotificationContext.html#NotificationContext"><span class="hs-identifier hs-type">NotificationContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the application.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AappId%3ANotifyAppValidationOutput%27"><span class="annot"><span class="annottext">NotifyAppValidationOutput -&gt; Text
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AappId%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253403"><span id="local-6989586621679253405"><span class="annot"><span class="annottext">NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool
+(NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool)
+-&gt; (NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool)
+-&gt; Eq NotifyAppValidationOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool
+$c/= :: NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool
+== :: NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool
+$c== :: NotifyAppValidationOutput -&gt; NotifyAppValidationOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253394"><span id="local-6989586621679253396"><span id="local-6989586621679253398"><span id="local-6989586621679253400"><span class="annot"><span class="annottext">ReadPrec [NotifyAppValidationOutput]
+ReadPrec NotifyAppValidationOutput
+Int -&gt; ReadS NotifyAppValidationOutput
+ReadS [NotifyAppValidationOutput]
+(Int -&gt; ReadS NotifyAppValidationOutput)
+-&gt; ReadS [NotifyAppValidationOutput]
+-&gt; ReadPrec NotifyAppValidationOutput
+-&gt; ReadPrec [NotifyAppValidationOutput]
+-&gt; Read NotifyAppValidationOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotifyAppValidationOutput]
+$creadListPrec :: ReadPrec [NotifyAppValidationOutput]
+readPrec :: ReadPrec NotifyAppValidationOutput
+$creadPrec :: ReadPrec NotifyAppValidationOutput
+readList :: ReadS [NotifyAppValidationOutput]
+$creadList :: ReadS [NotifyAppValidationOutput]
+readsPrec :: Int -&gt; ReadS NotifyAppValidationOutput
+$creadsPrec :: Int -&gt; ReadS NotifyAppValidationOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253387"><span id="local-6989586621679253389"><span id="local-6989586621679253391"><span class="annot"><span class="annottext">Int -&gt; NotifyAppValidationOutput -&gt; ShowS
+[NotifyAppValidationOutput] -&gt; ShowS
+NotifyAppValidationOutput -&gt; String
+(Int -&gt; NotifyAppValidationOutput -&gt; ShowS)
+-&gt; (NotifyAppValidationOutput -&gt; String)
+-&gt; ([NotifyAppValidationOutput] -&gt; ShowS)
+-&gt; Show NotifyAppValidationOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotifyAppValidationOutput] -&gt; ShowS
+$cshowList :: [NotifyAppValidationOutput] -&gt; ShowS
+show :: NotifyAppValidationOutput -&gt; String
+$cshow :: NotifyAppValidationOutput -&gt; String
+showsPrec :: Int -&gt; NotifyAppValidationOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotifyAppValidationOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NotifyAppValidationOutput -&gt; Rep NotifyAppValidationOutput x)
+-&gt; (forall x.
+    Rep NotifyAppValidationOutput x -&gt; NotifyAppValidationOutput)
+-&gt; Generic NotifyAppValidationOutput
+forall x.
+Rep NotifyAppValidationOutput x -&gt; NotifyAppValidationOutput
+forall x.
+NotifyAppValidationOutput -&gt; Rep NotifyAppValidationOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NotifyAppValidationOutput x -&gt; NotifyAppValidationOutput
+$cfrom :: forall x.
+NotifyAppValidationOutput -&gt; Rep NotifyAppValidationOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'NotifyAppValidationOutput' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'notificationContext', 'notifyAppValidationOutput_notificationContext' - The notification information.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'appId', 'notifyAppValidationOutput_appId' - The ID of the application.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutput"><span class="hs-identifier hs-type">newNotifyAppValidationOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span>
+</span><span id="line-74"></span><span id="newNotifyAppValidationOutput"><span class="annot"><span class="annottext">newNotifyAppValidationOutput :: Text -&gt; NotifyAppValidationOutput
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutput"><span class="hs-identifier hs-var hs-var">newNotifyAppValidationOutput</span></a></span></span><span> </span><span id="local-6989586621679253382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253382"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">NotifyAppValidationOutput' :: Maybe NotificationContext -&gt; Text -&gt; NotifyAppValidationOutput
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationContext:NotifyAppValidationOutput' :: Maybe NotificationContext
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AnotificationContext%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var">notificationContext</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe NotificationContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:NotifyAppValidationOutput' :: Text
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AappId%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253382"><span class="hs-identifier hs-var">pAppId_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The notification information.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_notificationContext"><span class="hs-identifier hs-type">notifyAppValidationOutput_notificationContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.NotificationContext.html#NotificationContext"><span class="hs-identifier hs-type">NotificationContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="notifyAppValidationOutput_notificationContext"><span class="annot"><span class="annottext">notifyAppValidationOutput_notificationContext :: (Maybe NotificationContext -&gt; f (Maybe NotificationContext))
+-&gt; NotifyAppValidationOutput -&gt; f NotifyAppValidationOutput
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_notificationContext"><span class="hs-identifier hs-var hs-var">notifyAppValidationOutput_notificationContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyAppValidationOutput -&gt; Maybe NotificationContext)
+-&gt; (NotifyAppValidationOutput
+    -&gt; Maybe NotificationContext -&gt; NotifyAppValidationOutput)
+-&gt; Lens
+     NotifyAppValidationOutput
+     NotifyAppValidationOutput
+     (Maybe NotificationContext)
+     (Maybe NotificationContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253379"><span class="annot"><span class="annottext">Maybe NotificationContext
+notificationContext :: Maybe NotificationContext
+$sel:notificationContext:NotifyAppValidationOutput' :: NotifyAppValidationOutput -&gt; Maybe NotificationContext
+</span><a href="#local-6989586621679253379"><span class="hs-identifier hs-var hs-var">notificationContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationContext
+</span><a href="#local-6989586621679253379"><span class="hs-identifier hs-var">notificationContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253378"><span class="annot"><span class="annottext">s :: NotifyAppValidationOutput
+</span><a href="#local-6989586621679253378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253377"><span class="annot"><span class="annottext">Maybe NotificationContext
+</span><a href="#local-6989586621679253377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyAppValidationOutput
+</span><a href="#local-6989586621679253378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationContext:NotifyAppValidationOutput' :: Maybe NotificationContext
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AnotificationContext%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var">notificationContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationContext
+</span><a href="#local-6989586621679253377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ID of the application.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_appId"><span class="hs-identifier hs-type">notifyAppValidationOutput_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="notifyAppValidationOutput_appId"><span class="annot"><span class="annottext">notifyAppValidationOutput_appId :: (Text -&gt; f Text)
+-&gt; NotifyAppValidationOutput -&gt; f NotifyAppValidationOutput
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutput_appId"><span class="hs-identifier hs-var hs-var">notifyAppValidationOutput_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyAppValidationOutput -&gt; Text)
+-&gt; (NotifyAppValidationOutput -&gt; Text -&gt; NotifyAppValidationOutput)
+-&gt; Lens
+     NotifyAppValidationOutput NotifyAppValidationOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253376"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:NotifyAppValidationOutput' :: NotifyAppValidationOutput -&gt; Text
+</span><a href="#local-6989586621679253376"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253376"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253375"><span class="annot"><span class="annottext">s :: NotifyAppValidationOutput
+</span><a href="#local-6989586621679253375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyAppValidationOutput
+</span><a href="#local-6989586621679253375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:NotifyAppValidationOutput' :: Text
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AappId%3ANotifyAppValidationOutput%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679253370"><span class="annot"><span class="annottext">request :: NotifyAppValidationOutput -&gt; Request NotifyAppValidationOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; NotifyAppValidationOutput -&gt; Request NotifyAppValidationOutput
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679253366"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy NotifyAppValidationOutput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse NotifyAppValidationOutput)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse NotifyAppValidationOutput))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy NotifyAppValidationOutput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse NotifyAppValidationOutput)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253362"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253361"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679253361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; NotifyAppValidationOutputResponse
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-var">NotifyAppValidationOutputResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; NotifyAppValidationOutputResponse)
+-&gt; Either String Int
+-&gt; Either String NotifyAppValidationOutputResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253354"><span id="local-6989586621679253356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679253347"><span class="annot"><span class="annottext">toHeaders :: NotifyAppValidationOutput -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; NotifyAppValidationOutput -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253337"><span id="local-6989586621679253339"><span id="local-6989586621679253341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679253335"><span class="annot"><span class="annottext">toJSON :: NotifyAppValidationOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput%27"><span class="hs-identifier hs-type">NotifyAppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253332"><span id="local-6989586621679253333"><span class="annot"><span class="annottext">Maybe NotificationContext
+Text
+appId :: Text
+notificationContext :: Maybe NotificationContext
+$sel:appId:NotifyAppValidationOutput' :: NotifyAppValidationOutput -&gt; Text
+$sel:notificationContext:NotifyAppValidationOutput' :: NotifyAppValidationOutput -&gt; Maybe NotificationContext
+</span><a href="#local-6989586621679253332"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notificationContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationContext -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(NotificationContext -&gt; Pair)
+-&gt; Maybe NotificationContext -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationContext
+</span><a href="#local-6989586621679253333"><span class="hs-identifier hs-var">notificationContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253332"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679253326"><span class="annot"><span class="annottext">toPath :: NotifyAppValidationOutput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NotifyAppValidationOutput -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutput"><span class="hs-identifier hs-type">NotifyAppValidationOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679253322"><span class="annot"><span class="annottext">toQuery :: NotifyAppValidationOutput -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; NotifyAppValidationOutput -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newNotifyAppValidationOutputResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679253319"><span id="local-6989586621679253320"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotifyAppValidationOutputResponse"><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-var">NotifyAppValidationOutputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotifyAppValidationOutputResponse%27"><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-var">NotifyAppValidationOutputResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ANotifyAppValidationOutputResponse%27"><span class="annot"><span class="annottext">NotifyAppValidationOutputResponse -&gt; Int
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AhttpStatus%3ANotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253314"><span id="local-6989586621679253316"><span class="annot"><span class="annottext">NotifyAppValidationOutputResponse
+-&gt; NotifyAppValidationOutputResponse -&gt; Bool
+(NotifyAppValidationOutputResponse
+ -&gt; NotifyAppValidationOutputResponse -&gt; Bool)
+-&gt; (NotifyAppValidationOutputResponse
+    -&gt; NotifyAppValidationOutputResponse -&gt; Bool)
+-&gt; Eq NotifyAppValidationOutputResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotifyAppValidationOutputResponse
+-&gt; NotifyAppValidationOutputResponse -&gt; Bool
+$c/= :: NotifyAppValidationOutputResponse
+-&gt; NotifyAppValidationOutputResponse -&gt; Bool
+== :: NotifyAppValidationOutputResponse
+-&gt; NotifyAppValidationOutputResponse -&gt; Bool
+$c== :: NotifyAppValidationOutputResponse
+-&gt; NotifyAppValidationOutputResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253306"><span id="local-6989586621679253308"><span id="local-6989586621679253310"><span id="local-6989586621679253312"><span class="annot"><span class="annottext">ReadPrec [NotifyAppValidationOutputResponse]
+ReadPrec NotifyAppValidationOutputResponse
+Int -&gt; ReadS NotifyAppValidationOutputResponse
+ReadS [NotifyAppValidationOutputResponse]
+(Int -&gt; ReadS NotifyAppValidationOutputResponse)
+-&gt; ReadS [NotifyAppValidationOutputResponse]
+-&gt; ReadPrec NotifyAppValidationOutputResponse
+-&gt; ReadPrec [NotifyAppValidationOutputResponse]
+-&gt; Read NotifyAppValidationOutputResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotifyAppValidationOutputResponse]
+$creadListPrec :: ReadPrec [NotifyAppValidationOutputResponse]
+readPrec :: ReadPrec NotifyAppValidationOutputResponse
+$creadPrec :: ReadPrec NotifyAppValidationOutputResponse
+readList :: ReadS [NotifyAppValidationOutputResponse]
+$creadList :: ReadS [NotifyAppValidationOutputResponse]
+readsPrec :: Int -&gt; ReadS NotifyAppValidationOutputResponse
+$creadsPrec :: Int -&gt; ReadS NotifyAppValidationOutputResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253300"><span id="local-6989586621679253302"><span id="local-6989586621679253304"><span class="annot"><span class="annottext">Int -&gt; NotifyAppValidationOutputResponse -&gt; ShowS
+[NotifyAppValidationOutputResponse] -&gt; ShowS
+NotifyAppValidationOutputResponse -&gt; String
+(Int -&gt; NotifyAppValidationOutputResponse -&gt; ShowS)
+-&gt; (NotifyAppValidationOutputResponse -&gt; String)
+-&gt; ([NotifyAppValidationOutputResponse] -&gt; ShowS)
+-&gt; Show NotifyAppValidationOutputResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotifyAppValidationOutputResponse] -&gt; ShowS
+$cshowList :: [NotifyAppValidationOutputResponse] -&gt; ShowS
+show :: NotifyAppValidationOutputResponse -&gt; String
+$cshow :: NotifyAppValidationOutputResponse -&gt; String
+showsPrec :: Int -&gt; NotifyAppValidationOutputResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotifyAppValidationOutputResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NotifyAppValidationOutputResponse
+ -&gt; Rep NotifyAppValidationOutputResponse x)
+-&gt; (forall x.
+    Rep NotifyAppValidationOutputResponse x
+    -&gt; NotifyAppValidationOutputResponse)
+-&gt; Generic NotifyAppValidationOutputResponse
+forall x.
+Rep NotifyAppValidationOutputResponse x
+-&gt; NotifyAppValidationOutputResponse
+forall x.
+NotifyAppValidationOutputResponse
+-&gt; Rep NotifyAppValidationOutputResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NotifyAppValidationOutputResponse x
+-&gt; NotifyAppValidationOutputResponse
+$cfrom :: forall x.
+NotifyAppValidationOutputResponse
+-&gt; Rep NotifyAppValidationOutputResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'NotifyAppValidationOutputResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'notifyAppValidationOutputResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">newNotifyAppValidationOutputResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newNotifyAppValidationOutputResponse"><span class="annot"><span class="annottext">newNotifyAppValidationOutputResponse :: Int -&gt; NotifyAppValidationOutputResponse
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#newNotifyAppValidationOutputResponse"><span class="hs-identifier hs-var hs-var">newNotifyAppValidationOutputResponse</span></a></span></span><span> </span><span id="local-6989586621679253297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">NotifyAppValidationOutputResponse' :: Int -&gt; NotifyAppValidationOutputResponse
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:NotifyAppValidationOutputResponse' :: Int
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AhttpStatus%3ANotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutputResponse_httpStatus"><span class="hs-identifier hs-type">notifyAppValidationOutputResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span id="notifyAppValidationOutputResponse_httpStatus"><span class="annot"><span class="annottext">notifyAppValidationOutputResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; NotifyAppValidationOutputResponse
+-&gt; f NotifyAppValidationOutputResponse
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#notifyAppValidationOutputResponse_httpStatus"><span class="hs-identifier hs-var hs-var">notifyAppValidationOutputResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyAppValidationOutputResponse -&gt; Int)
+-&gt; (NotifyAppValidationOutputResponse
+    -&gt; Int -&gt; NotifyAppValidationOutputResponse)
+-&gt; Lens
+     NotifyAppValidationOutputResponse
+     NotifyAppValidationOutputResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253296"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:NotifyAppValidationOutputResponse' :: NotifyAppValidationOutputResponse -&gt; Int
+</span><a href="#local-6989586621679253296"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253296"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253295"><span class="annot"><span class="annottext">s :: NotifyAppValidationOutputResponse
+</span><a href="#local-6989586621679253295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyAppValidationOutputResponse
+</span><a href="#local-6989586621679253295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:NotifyAppValidationOutputResponse' :: Int
+</span><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#%24sel%3AhttpStatus%3ANotifyAppValidationOutputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679253292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.NotifyAppValidationOutput.html#NotifyAppValidationOutputResponse"><span class="hs-identifier hs-type">NotifyAppValidationOutputResponse</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

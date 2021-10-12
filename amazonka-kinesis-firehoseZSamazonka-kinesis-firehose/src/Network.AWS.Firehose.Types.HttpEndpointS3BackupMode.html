@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.HttpEndpointS3BackupMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.HttpEndpointS3BackupMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier">HttpEndpointS3BackupMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_AllData"><span class="hs-identifier">HttpEndpointS3BackupMode_AllData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_FailedDataOnly"><span class="hs-identifier">HttpEndpointS3BackupMode_FailedDataOnly</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679257782"><span id="local-6989586621679257783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HttpEndpointS3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-var">HttpEndpointS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointS3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode%27"><span class="hs-identifier hs-var">HttpEndpointS3BackupMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHttpEndpointS3BackupMode"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#fromHttpEndpointS3BackupMode"><span class="hs-identifier hs-var hs-var">fromHttpEndpointS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257774"><span id="local-6989586621679257776"><span id="local-6989586621679257778"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointS3BackupMode -&gt; ShowS
+[HttpEndpointS3BackupMode] -&gt; ShowS
+HttpEndpointS3BackupMode -&gt; String
+(Int -&gt; HttpEndpointS3BackupMode -&gt; ShowS)
+-&gt; (HttpEndpointS3BackupMode -&gt; String)
+-&gt; ([HttpEndpointS3BackupMode] -&gt; ShowS)
+-&gt; Show HttpEndpointS3BackupMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpEndpointS3BackupMode] -&gt; ShowS
+$cshowList :: [HttpEndpointS3BackupMode] -&gt; ShowS
+show :: HttpEndpointS3BackupMode -&gt; String
+$cshow :: HttpEndpointS3BackupMode -&gt; String
+showsPrec :: Int -&gt; HttpEndpointS3BackupMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpEndpointS3BackupMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679257765"><span id="local-6989586621679257767"><span id="local-6989586621679257769"><span id="local-6989586621679257771"><span class="annot"><span class="annottext">ReadPrec [HttpEndpointS3BackupMode]
+ReadPrec HttpEndpointS3BackupMode
+Int -&gt; ReadS HttpEndpointS3BackupMode
+ReadS [HttpEndpointS3BackupMode]
+(Int -&gt; ReadS HttpEndpointS3BackupMode)
+-&gt; ReadS [HttpEndpointS3BackupMode]
+-&gt; ReadPrec HttpEndpointS3BackupMode
+-&gt; ReadPrec [HttpEndpointS3BackupMode]
+-&gt; Read HttpEndpointS3BackupMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpEndpointS3BackupMode]
+$creadListPrec :: ReadPrec [HttpEndpointS3BackupMode]
+readPrec :: ReadPrec HttpEndpointS3BackupMode
+$creadPrec :: ReadPrec HttpEndpointS3BackupMode
+readList :: ReadS [HttpEndpointS3BackupMode]
+$creadList :: ReadS [HttpEndpointS3BackupMode]
+readsPrec :: Int -&gt; ReadS HttpEndpointS3BackupMode
+$creadsPrec :: Int -&gt; ReadS HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257760"><span id="local-6989586621679257762"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+(HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; (HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; Eq HttpEndpointS3BackupMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c/= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+== :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c== :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679257744"><span id="local-6989586621679257746"><span id="local-6989586621679257748"><span id="local-6989586621679257750"><span id="local-6989586621679257752"><span id="local-6989586621679257754"><span id="local-6989586621679257756"><span class="annot"><span class="annottext">Eq HttpEndpointS3BackupMode
+Eq HttpEndpointS3BackupMode
+-&gt; (HttpEndpointS3BackupMode
+    -&gt; HttpEndpointS3BackupMode -&gt; Ordering)
+-&gt; (HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; (HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; (HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; (HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool)
+-&gt; (HttpEndpointS3BackupMode
+    -&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode)
+-&gt; (HttpEndpointS3BackupMode
+    -&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode)
+-&gt; Ord HttpEndpointS3BackupMode
+HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Ordering
+HttpEndpointS3BackupMode
+-&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HttpEndpointS3BackupMode
+-&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode
+$cmin :: HttpEndpointS3BackupMode
+-&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode
+max :: HttpEndpointS3BackupMode
+-&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode
+$cmax :: HttpEndpointS3BackupMode
+-&gt; HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode
+&gt;= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c&gt;= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+&gt; :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c&gt; :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+&lt;= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c&lt;= :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+&lt; :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+$c&lt; :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Bool
+compare :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Ordering
+$ccompare :: HttpEndpointS3BackupMode -&gt; HttpEndpointS3BackupMode -&gt; Ordering
+$cp1Ord :: Eq HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HttpEndpointS3BackupMode -&gt; Rep HttpEndpointS3BackupMode x)
+-&gt; (forall x.
+    Rep HttpEndpointS3BackupMode x -&gt; HttpEndpointS3BackupMode)
+-&gt; Generic HttpEndpointS3BackupMode
+forall x.
+Rep HttpEndpointS3BackupMode x -&gt; HttpEndpointS3BackupMode
+forall x.
+HttpEndpointS3BackupMode -&gt; Rep HttpEndpointS3BackupMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HttpEndpointS3BackupMode x -&gt; HttpEndpointS3BackupMode
+$cfrom :: forall x.
+HttpEndpointS3BackupMode -&gt; Rep HttpEndpointS3BackupMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257736"><span id="local-6989586621679257738"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointS3BackupMode -&gt; Int
+HttpEndpointS3BackupMode -&gt; Int
+(Int -&gt; HttpEndpointS3BackupMode -&gt; Int)
+-&gt; (HttpEndpointS3BackupMode -&gt; Int)
+-&gt; Hashable HttpEndpointS3BackupMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HttpEndpointS3BackupMode -&gt; Int
+$chash :: HttpEndpointS3BackupMode -&gt; Int
+hashWithSalt :: Int -&gt; HttpEndpointS3BackupMode -&gt; Int
+$chashWithSalt :: Int -&gt; HttpEndpointS3BackupMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679257733"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; ()
+(HttpEndpointS3BackupMode -&gt; ()) -&gt; NFData HttpEndpointS3BackupMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HttpEndpointS3BackupMode -&gt; ()
+$crnf :: HttpEndpointS3BackupMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257730"><span class="annot"><span class="annottext">Text -&gt; Either String HttpEndpointS3BackupMode
+(Text -&gt; Either String HttpEndpointS3BackupMode)
+-&gt; FromText HttpEndpointS3BackupMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HttpEndpointS3BackupMode
+$cfromText :: Text -&gt; Either String HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257727"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; Text
+(HttpEndpointS3BackupMode -&gt; Text)
+-&gt; ToText HttpEndpointS3BackupMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HttpEndpointS3BackupMode -&gt; Text
+$ctoText :: HttpEndpointS3BackupMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257724"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; ByteString
+(HttpEndpointS3BackupMode -&gt; ByteString)
+-&gt; ToByteString HttpEndpointS3BackupMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HttpEndpointS3BackupMode -&gt; ByteString
+$ctoBS :: HttpEndpointS3BackupMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257721"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; ByteStringBuilder
+(HttpEndpointS3BackupMode -&gt; ByteStringBuilder)
+-&gt; ToLog HttpEndpointS3BackupMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HttpEndpointS3BackupMode -&gt; ByteStringBuilder
+$cbuild :: HttpEndpointS3BackupMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257718"><span class="annot"><span class="annottext">HeaderName -&gt; HttpEndpointS3BackupMode -&gt; [Header]
+(HeaderName -&gt; HttpEndpointS3BackupMode -&gt; [Header])
+-&gt; ToHeader HttpEndpointS3BackupMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HttpEndpointS3BackupMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HttpEndpointS3BackupMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257715"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; QueryString
+(HttpEndpointS3BackupMode -&gt; QueryString)
+-&gt; ToQuery HttpEndpointS3BackupMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HttpEndpointS3BackupMode -&gt; QueryString
+$ctoQuery :: HttpEndpointS3BackupMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257710"><span id="local-6989586621679257712"><span class="annot"><span class="annottext">Value -&gt; Parser [HttpEndpointS3BackupMode]
+Value -&gt; Parser HttpEndpointS3BackupMode
+(Value -&gt; Parser HttpEndpointS3BackupMode)
+-&gt; (Value -&gt; Parser [HttpEndpointS3BackupMode])
+-&gt; FromJSON HttpEndpointS3BackupMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HttpEndpointS3BackupMode]
+$cparseJSONList :: Value -&gt; Parser [HttpEndpointS3BackupMode]
+parseJSON :: Value -&gt; Parser HttpEndpointS3BackupMode
+$cparseJSON :: Value -&gt; Parser HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257705"><span id="local-6989586621679257707"><span class="annot"><span class="annottext">FromJSONKeyFunction [HttpEndpointS3BackupMode]
+FromJSONKeyFunction HttpEndpointS3BackupMode
+FromJSONKeyFunction HttpEndpointS3BackupMode
+-&gt; FromJSONKeyFunction [HttpEndpointS3BackupMode]
+-&gt; FromJSONKey HttpEndpointS3BackupMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HttpEndpointS3BackupMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [HttpEndpointS3BackupMode]
+fromJSONKey :: FromJSONKeyFunction HttpEndpointS3BackupMode
+$cfromJSONKey :: FromJSONKeyFunction HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257696"><span id="local-6989586621679257698"><span id="local-6989586621679257700"><span id="local-6989586621679257702"><span class="annot"><span class="annottext">[HttpEndpointS3BackupMode] -&gt; Encoding
+[HttpEndpointS3BackupMode] -&gt; Value
+HttpEndpointS3BackupMode -&gt; Encoding
+HttpEndpointS3BackupMode -&gt; Value
+(HttpEndpointS3BackupMode -&gt; Value)
+-&gt; (HttpEndpointS3BackupMode -&gt; Encoding)
+-&gt; ([HttpEndpointS3BackupMode] -&gt; Value)
+-&gt; ([HttpEndpointS3BackupMode] -&gt; Encoding)
+-&gt; ToJSON HttpEndpointS3BackupMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HttpEndpointS3BackupMode] -&gt; Encoding
+$ctoEncodingList :: [HttpEndpointS3BackupMode] -&gt; Encoding
+toJSONList :: [HttpEndpointS3BackupMode] -&gt; Value
+$ctoJSONList :: [HttpEndpointS3BackupMode] -&gt; Value
+toEncoding :: HttpEndpointS3BackupMode -&gt; Encoding
+$ctoEncoding :: HttpEndpointS3BackupMode -&gt; Encoding
+toJSON :: HttpEndpointS3BackupMode -&gt; Value
+$ctoJSON :: HttpEndpointS3BackupMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257691"><span id="local-6989586621679257693"><span class="annot"><span class="annottext">ToJSONKeyFunction [HttpEndpointS3BackupMode]
+ToJSONKeyFunction HttpEndpointS3BackupMode
+ToJSONKeyFunction HttpEndpointS3BackupMode
+-&gt; ToJSONKeyFunction [HttpEndpointS3BackupMode]
+-&gt; ToJSONKey HttpEndpointS3BackupMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HttpEndpointS3BackupMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [HttpEndpointS3BackupMode]
+toJSONKey :: ToJSONKeyFunction HttpEndpointS3BackupMode
+$ctoJSONKey :: ToJSONKeyFunction HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257688"><span class="annot"><span class="annottext">[Node] -&gt; Either String HttpEndpointS3BackupMode
+([Node] -&gt; Either String HttpEndpointS3BackupMode)
+-&gt; FromXML HttpEndpointS3BackupMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HttpEndpointS3BackupMode
+$cparseXML :: [Node] -&gt; Either String HttpEndpointS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257685"><span class="annot"><span class="annottext">HttpEndpointS3BackupMode -&gt; XML
+(HttpEndpointS3BackupMode -&gt; XML) -&gt; ToXML HttpEndpointS3BackupMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HttpEndpointS3BackupMode -&gt; XML
+$ctoXML :: HttpEndpointS3BackupMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_AllData"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode_AllData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpEndpointS3BackupMode_AllData"><span id="%24mHttpEndpointS3BackupMode_AllData"><span id="HttpEndpointS3BackupMode_AllData"><span class="annot"><span class="annottext">$bHttpEndpointS3BackupMode_AllData :: HttpEndpointS3BackupMode
+$mHttpEndpointS3BackupMode_AllData :: forall r.
+HttpEndpointS3BackupMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#%24bHttpEndpointS3BackupMode_AllData"><span class="hs-identifier hs-var hs-var hs-var">HttpEndpointS3BackupMode_AllData</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode%27"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AllData&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_FailedDataOnly"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode_FailedDataOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHttpEndpointS3BackupMode_FailedDataOnly"><span id="%24mHttpEndpointS3BackupMode_FailedDataOnly"><span id="HttpEndpointS3BackupMode_FailedDataOnly"><span class="annot"><span class="annottext">$bHttpEndpointS3BackupMode_FailedDataOnly :: HttpEndpointS3BackupMode
+$mHttpEndpointS3BackupMode_FailedDataOnly :: forall r.
+HttpEndpointS3BackupMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#%24bHttpEndpointS3BackupMode_FailedDataOnly"><span class="hs-identifier hs-var hs-var hs-var">HttpEndpointS3BackupMode_FailedDataOnly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode%27"><span class="hs-identifier hs-type">HttpEndpointS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FailedDataOnly&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_AllData"><span class="hs-pragma hs-type">HttpEndpointS3BackupMode_AllData</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode_FailedDataOnly"><span class="hs-pragma hs-type">HttpEndpointS3BackupMode_FailedDataOnly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointS3BackupMode.html#HttpEndpointS3BackupMode%27"><span class="hs-pragma hs-type">HttpEndpointS3BackupMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

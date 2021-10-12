@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier">Mpeg2GopSizeUnits</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_FRAMES"><span class="hs-identifier">Mpeg2GopSizeUnits_FRAMES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_SECONDS"><span class="hs-identifier">Mpeg2GopSizeUnits_SECONDS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specify the units for GOP size (GopSize). If you don\'t specify a value</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- here, by default the encoder measures GOP size in frames.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679987012"><span id="local-6989586621679987013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2GopSizeUnits"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier hs-var">Mpeg2GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2GopSizeUnits%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits%27"><span class="hs-identifier hs-var">Mpeg2GopSizeUnits'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2GopSizeUnits"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#fromMpeg2GopSizeUnits"><span class="hs-identifier hs-var hs-var">fromMpeg2GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987004"><span id="local-6989586621679987006"><span id="local-6989586621679987008"><span class="annot"><span class="annottext">Int -&gt; Mpeg2GopSizeUnits -&gt; ShowS
+[Mpeg2GopSizeUnits] -&gt; ShowS
+Mpeg2GopSizeUnits -&gt; String
+(Int -&gt; Mpeg2GopSizeUnits -&gt; ShowS)
+-&gt; (Mpeg2GopSizeUnits -&gt; String)
+-&gt; ([Mpeg2GopSizeUnits] -&gt; ShowS)
+-&gt; Show Mpeg2GopSizeUnits
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mpeg2GopSizeUnits] -&gt; ShowS
+$cshowList :: [Mpeg2GopSizeUnits] -&gt; ShowS
+show :: Mpeg2GopSizeUnits -&gt; String
+$cshow :: Mpeg2GopSizeUnits -&gt; String
+showsPrec :: Int -&gt; Mpeg2GopSizeUnits -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mpeg2GopSizeUnits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679986995"><span id="local-6989586621679986997"><span id="local-6989586621679986999"><span id="local-6989586621679987001"><span class="annot"><span class="annottext">ReadPrec [Mpeg2GopSizeUnits]
+ReadPrec Mpeg2GopSizeUnits
+Int -&gt; ReadS Mpeg2GopSizeUnits
+ReadS [Mpeg2GopSizeUnits]
+(Int -&gt; ReadS Mpeg2GopSizeUnits)
+-&gt; ReadS [Mpeg2GopSizeUnits]
+-&gt; ReadPrec Mpeg2GopSizeUnits
+-&gt; ReadPrec [Mpeg2GopSizeUnits]
+-&gt; Read Mpeg2GopSizeUnits
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mpeg2GopSizeUnits]
+$creadListPrec :: ReadPrec [Mpeg2GopSizeUnits]
+readPrec :: ReadPrec Mpeg2GopSizeUnits
+$creadPrec :: ReadPrec Mpeg2GopSizeUnits
+readList :: ReadS [Mpeg2GopSizeUnits]
+$creadList :: ReadS [Mpeg2GopSizeUnits]
+readsPrec :: Int -&gt; ReadS Mpeg2GopSizeUnits
+$creadsPrec :: Int -&gt; ReadS Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679986990"><span id="local-6989586621679986992"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+(Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; Eq Mpeg2GopSizeUnits
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c/= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+== :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c== :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679986974"><span id="local-6989586621679986976"><span id="local-6989586621679986978"><span id="local-6989586621679986980"><span id="local-6989586621679986982"><span id="local-6989586621679986984"><span id="local-6989586621679986986"><span class="annot"><span class="annottext">Eq Mpeg2GopSizeUnits
+Eq Mpeg2GopSizeUnits
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Ordering)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits)
+-&gt; (Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits)
+-&gt; Ord Mpeg2GopSizeUnits
+Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Ordering
+Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits
+$cmin :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits
+max :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits
+$cmax :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits
+&gt;= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c&gt;= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+&gt; :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c&gt; :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+&lt;= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c&lt;= :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+&lt; :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+$c&lt; :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Bool
+compare :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Ordering
+$ccompare :: Mpeg2GopSizeUnits -&gt; Mpeg2GopSizeUnits -&gt; Ordering
+$cp1Ord :: Eq Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Mpeg2GopSizeUnits -&gt; Rep Mpeg2GopSizeUnits x)
+-&gt; (forall x. Rep Mpeg2GopSizeUnits x -&gt; Mpeg2GopSizeUnits)
+-&gt; Generic Mpeg2GopSizeUnits
+forall x. Rep Mpeg2GopSizeUnits x -&gt; Mpeg2GopSizeUnits
+forall x. Mpeg2GopSizeUnits -&gt; Rep Mpeg2GopSizeUnits x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mpeg2GopSizeUnits x -&gt; Mpeg2GopSizeUnits
+$cfrom :: forall x. Mpeg2GopSizeUnits -&gt; Rep Mpeg2GopSizeUnits x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986966"><span id="local-6989586621679986968"><span class="annot"><span class="annottext">Int -&gt; Mpeg2GopSizeUnits -&gt; Int
+Mpeg2GopSizeUnits -&gt; Int
+(Int -&gt; Mpeg2GopSizeUnits -&gt; Int)
+-&gt; (Mpeg2GopSizeUnits -&gt; Int) -&gt; Hashable Mpeg2GopSizeUnits
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mpeg2GopSizeUnits -&gt; Int
+$chash :: Mpeg2GopSizeUnits -&gt; Int
+hashWithSalt :: Int -&gt; Mpeg2GopSizeUnits -&gt; Int
+$chashWithSalt :: Int -&gt; Mpeg2GopSizeUnits -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679986963"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; ()
+(Mpeg2GopSizeUnits -&gt; ()) -&gt; NFData Mpeg2GopSizeUnits
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mpeg2GopSizeUnits -&gt; ()
+$crnf :: Mpeg2GopSizeUnits -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679986960"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2GopSizeUnits
+(Text -&gt; Either String Mpeg2GopSizeUnits)
+-&gt; FromText Mpeg2GopSizeUnits
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mpeg2GopSizeUnits
+$cfromText :: Text -&gt; Either String Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679986957"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; Text
+(Mpeg2GopSizeUnits -&gt; Text) -&gt; ToText Mpeg2GopSizeUnits
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mpeg2GopSizeUnits -&gt; Text
+$ctoText :: Mpeg2GopSizeUnits -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986954"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; ByteString
+(Mpeg2GopSizeUnits -&gt; ByteString) -&gt; ToByteString Mpeg2GopSizeUnits
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mpeg2GopSizeUnits -&gt; ByteString
+$ctoBS :: Mpeg2GopSizeUnits -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986951"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; ByteStringBuilder
+(Mpeg2GopSizeUnits -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2GopSizeUnits
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mpeg2GopSizeUnits -&gt; ByteStringBuilder
+$cbuild :: Mpeg2GopSizeUnits -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986948"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2GopSizeUnits -&gt; [Header]
+(HeaderName -&gt; Mpeg2GopSizeUnits -&gt; [Header])
+-&gt; ToHeader Mpeg2GopSizeUnits
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mpeg2GopSizeUnits -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mpeg2GopSizeUnits -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986945"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; QueryString
+(Mpeg2GopSizeUnits -&gt; QueryString) -&gt; ToQuery Mpeg2GopSizeUnits
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mpeg2GopSizeUnits -&gt; QueryString
+$ctoQuery :: Mpeg2GopSizeUnits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986940"><span id="local-6989586621679986942"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2GopSizeUnits]
+Value -&gt; Parser Mpeg2GopSizeUnits
+(Value -&gt; Parser Mpeg2GopSizeUnits)
+-&gt; (Value -&gt; Parser [Mpeg2GopSizeUnits])
+-&gt; FromJSON Mpeg2GopSizeUnits
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mpeg2GopSizeUnits]
+$cparseJSONList :: Value -&gt; Parser [Mpeg2GopSizeUnits]
+parseJSON :: Value -&gt; Parser Mpeg2GopSizeUnits
+$cparseJSON :: Value -&gt; Parser Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986935"><span id="local-6989586621679986937"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2GopSizeUnits]
+FromJSONKeyFunction Mpeg2GopSizeUnits
+FromJSONKeyFunction Mpeg2GopSizeUnits
+-&gt; FromJSONKeyFunction [Mpeg2GopSizeUnits]
+-&gt; FromJSONKey Mpeg2GopSizeUnits
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mpeg2GopSizeUnits]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2GopSizeUnits]
+fromJSONKey :: FromJSONKeyFunction Mpeg2GopSizeUnits
+$cfromJSONKey :: FromJSONKeyFunction Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986926"><span id="local-6989586621679986928"><span id="local-6989586621679986930"><span id="local-6989586621679986932"><span class="annot"><span class="annottext">[Mpeg2GopSizeUnits] -&gt; Encoding
+[Mpeg2GopSizeUnits] -&gt; Value
+Mpeg2GopSizeUnits -&gt; Encoding
+Mpeg2GopSizeUnits -&gt; Value
+(Mpeg2GopSizeUnits -&gt; Value)
+-&gt; (Mpeg2GopSizeUnits -&gt; Encoding)
+-&gt; ([Mpeg2GopSizeUnits] -&gt; Value)
+-&gt; ([Mpeg2GopSizeUnits] -&gt; Encoding)
+-&gt; ToJSON Mpeg2GopSizeUnits
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mpeg2GopSizeUnits] -&gt; Encoding
+$ctoEncodingList :: [Mpeg2GopSizeUnits] -&gt; Encoding
+toJSONList :: [Mpeg2GopSizeUnits] -&gt; Value
+$ctoJSONList :: [Mpeg2GopSizeUnits] -&gt; Value
+toEncoding :: Mpeg2GopSizeUnits -&gt; Encoding
+$ctoEncoding :: Mpeg2GopSizeUnits -&gt; Encoding
+toJSON :: Mpeg2GopSizeUnits -&gt; Value
+$ctoJSON :: Mpeg2GopSizeUnits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986921"><span id="local-6989586621679986923"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2GopSizeUnits]
+ToJSONKeyFunction Mpeg2GopSizeUnits
+ToJSONKeyFunction Mpeg2GopSizeUnits
+-&gt; ToJSONKeyFunction [Mpeg2GopSizeUnits]
+-&gt; ToJSONKey Mpeg2GopSizeUnits
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mpeg2GopSizeUnits]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2GopSizeUnits]
+toJSONKey :: ToJSONKeyFunction Mpeg2GopSizeUnits
+$ctoJSONKey :: ToJSONKeyFunction Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986918"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2GopSizeUnits
+([Node] -&gt; Either String Mpeg2GopSizeUnits)
+-&gt; FromXML Mpeg2GopSizeUnits
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mpeg2GopSizeUnits
+$cparseXML :: [Node] -&gt; Either String Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986915"><span class="annot"><span class="annottext">Mpeg2GopSizeUnits -&gt; XML
+(Mpeg2GopSizeUnits -&gt; XML) -&gt; ToXML Mpeg2GopSizeUnits
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mpeg2GopSizeUnits -&gt; XML
+$ctoXML :: Mpeg2GopSizeUnits -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_FRAMES"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits_FRAMES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2GopSizeUnits_FRAMES"><span id="%24mMpeg2GopSizeUnits_FRAMES"><span id="Mpeg2GopSizeUnits_FRAMES"><span class="annot"><span class="annottext">$bMpeg2GopSizeUnits_FRAMES :: Mpeg2GopSizeUnits
+$mMpeg2GopSizeUnits_FRAMES :: forall r. Mpeg2GopSizeUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#%24bMpeg2GopSizeUnits_FRAMES"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2GopSizeUnits_FRAMES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits%27"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FRAMES&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_SECONDS"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits_SECONDS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2GopSizeUnits_SECONDS"><span id="%24mMpeg2GopSizeUnits_SECONDS"><span id="Mpeg2GopSizeUnits_SECONDS"><span class="annot"><span class="annottext">$bMpeg2GopSizeUnits_SECONDS :: Mpeg2GopSizeUnits
+$mMpeg2GopSizeUnits_SECONDS :: forall r. Mpeg2GopSizeUnits -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#%24bMpeg2GopSizeUnits_SECONDS"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2GopSizeUnits_SECONDS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits%27"><span class="hs-identifier hs-type">Mpeg2GopSizeUnits'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECONDS&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_FRAMES"><span class="hs-pragma hs-type">Mpeg2GopSizeUnits_FRAMES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits_SECONDS"><span class="hs-pragma hs-type">Mpeg2GopSizeUnits_SECONDS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits.html#Mpeg2GopSizeUnits%27"><span class="hs-pragma hs-type">Mpeg2GopSizeUnits'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

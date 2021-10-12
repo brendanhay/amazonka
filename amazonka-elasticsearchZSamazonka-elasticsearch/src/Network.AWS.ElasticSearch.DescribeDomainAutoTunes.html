@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticSearch.DescribeDomainAutoTunes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides scheduled Auto-Tune action details for the Elasticsearch</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- domain, such as Auto-Tune action type, description, severity, and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- scheduled date.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticSearch.DescribeDomainAutoTunes</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunes"><span class="hs-identifier">newDescribeDomainAutoTunes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_nextToken"><span class="hs-identifier">describeDomainAutoTunes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_maxResults"><span class="hs-identifier">describeDomainAutoTunes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_domainName"><span class="hs-identifier">describeDomainAutoTunes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier">DescribeDomainAutoTunesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunesResponse"><span class="hs-identifier">newDescribeDomainAutoTunesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_nextToken"><span class="hs-identifier">describeDomainAutoTunesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_autoTunes"><span class="hs-identifier">describeDomainAutoTunesResponse_autoTunes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_httpStatus"><span class="hs-identifier">describeDomainAutoTunesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.html"><span class="hs-identifier">Network.AWS.ElasticSearch.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Container for the parameters to the @DescribeDomainAutoTunes@ operation.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeDomainAutoTunes' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679312224"><span id="local-6989586621679312225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDomainAutoTunes"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-var">DescribeDomainAutoTunes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDomainAutoTunes%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">DescribeDomainAutoTunes'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | NextToken is sent in case the earlier API call results contain the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- NextToken. It is used for pagination.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDomainAutoTunes%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunes -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Set this value to limit the number of results returned. If not</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- specified, defaults to 100.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeDomainAutoTunes%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunes -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AmaxResults%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specifies the domain name for which you want Auto-Tune action details.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdomainName%3ADescribeDomainAutoTunes%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunes -&gt; Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AdomainName%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312216"><span id="local-6989586621679312218"><span class="annot"><span class="annottext">DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool
+(DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool)
+-&gt; (DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool)
+-&gt; Eq DescribeDomainAutoTunes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool
+$c/= :: DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool
+== :: DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool
+$c== :: DescribeDomainAutoTunes -&gt; DescribeDomainAutoTunes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312207"><span id="local-6989586621679312209"><span id="local-6989586621679312211"><span id="local-6989586621679312213"><span class="annot"><span class="annottext">ReadPrec [DescribeDomainAutoTunes]
+ReadPrec DescribeDomainAutoTunes
+Int -&gt; ReadS DescribeDomainAutoTunes
+ReadS [DescribeDomainAutoTunes]
+(Int -&gt; ReadS DescribeDomainAutoTunes)
+-&gt; ReadS [DescribeDomainAutoTunes]
+-&gt; ReadPrec DescribeDomainAutoTunes
+-&gt; ReadPrec [DescribeDomainAutoTunes]
+-&gt; Read DescribeDomainAutoTunes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDomainAutoTunes]
+$creadListPrec :: ReadPrec [DescribeDomainAutoTunes]
+readPrec :: ReadPrec DescribeDomainAutoTunes
+$creadPrec :: ReadPrec DescribeDomainAutoTunes
+readList :: ReadS [DescribeDomainAutoTunes]
+$creadList :: ReadS [DescribeDomainAutoTunes]
+readsPrec :: Int -&gt; ReadS DescribeDomainAutoTunes
+$creadsPrec :: Int -&gt; ReadS DescribeDomainAutoTunes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312200"><span id="local-6989586621679312202"><span id="local-6989586621679312204"><span class="annot"><span class="annottext">Int -&gt; DescribeDomainAutoTunes -&gt; ShowS
+[DescribeDomainAutoTunes] -&gt; ShowS
+DescribeDomainAutoTunes -&gt; String
+(Int -&gt; DescribeDomainAutoTunes -&gt; ShowS)
+-&gt; (DescribeDomainAutoTunes -&gt; String)
+-&gt; ([DescribeDomainAutoTunes] -&gt; ShowS)
+-&gt; Show DescribeDomainAutoTunes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDomainAutoTunes] -&gt; ShowS
+$cshowList :: [DescribeDomainAutoTunes] -&gt; ShowS
+show :: DescribeDomainAutoTunes -&gt; String
+$cshow :: DescribeDomainAutoTunes -&gt; String
+showsPrec :: Int -&gt; DescribeDomainAutoTunes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDomainAutoTunes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDomainAutoTunes -&gt; Rep DescribeDomainAutoTunes x)
+-&gt; (forall x.
+    Rep DescribeDomainAutoTunes x -&gt; DescribeDomainAutoTunes)
+-&gt; Generic DescribeDomainAutoTunes
+forall x. Rep DescribeDomainAutoTunes x -&gt; DescribeDomainAutoTunes
+forall x. DescribeDomainAutoTunes -&gt; Rep DescribeDomainAutoTunes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDomainAutoTunes x -&gt; DescribeDomainAutoTunes
+$cfrom :: forall x. DescribeDomainAutoTunes -&gt; Rep DescribeDomainAutoTunes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribeDomainAutoTunes' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'describeDomainAutoTunes_nextToken' - NextToken is sent in case the earlier API call results contain the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- NextToken. It is used for pagination.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxResults', 'describeDomainAutoTunes_maxResults' - Set this value to limit the number of results returned. If not</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- specified, defaults to 100.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'domainName', 'describeDomainAutoTunes_domainName' - Specifies the domain name for which you want Auto-Tune action details.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunes"><span class="hs-identifier hs-type">newDescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span>
+</span><span id="line-88"></span><span id="newDescribeDomainAutoTunes"><span class="annot"><span class="annottext">newDescribeDomainAutoTunes :: Text -&gt; DescribeDomainAutoTunes
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunes"><span class="hs-identifier hs-var hs-var">newDescribeDomainAutoTunes</span></a></span></span><span> </span><span id="local-6989586621679312195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312195"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DescribeDomainAutoTunes' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; DescribeDomainAutoTunes
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDomainAutoTunes' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeDomainAutoTunes' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AmaxResults%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:DescribeDomainAutoTunes' :: Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AdomainName%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312195"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | NextToken is sent in case the earlier API call results contain the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- NextToken. It is used for pagination.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_nextToken"><span class="hs-identifier hs-type">describeDomainAutoTunes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="describeDomainAutoTunes_nextToken"><span class="annot"><span class="annottext">describeDomainAutoTunes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDomainAutoTunes -&gt; f DescribeDomainAutoTunes
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_nextToken"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunes -&gt; Maybe Text)
+-&gt; (DescribeDomainAutoTunes
+    -&gt; Maybe Text -&gt; DescribeDomainAutoTunes)
+-&gt; Lens
+     DescribeDomainAutoTunes
+     DescribeDomainAutoTunes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312192"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Maybe Text
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312191"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDomainAutoTunes' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Set this value to limit the number of results returned. If not</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- specified, defaults to 100.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_maxResults"><span class="hs-identifier hs-type">describeDomainAutoTunes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeDomainAutoTunes_maxResults"><span class="annot"><span class="annottext">describeDomainAutoTunes_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeDomainAutoTunes -&gt; f DescribeDomainAutoTunes
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_maxResults"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunes -&gt; Maybe Int)
+-&gt; (DescribeDomainAutoTunes
+    -&gt; Maybe Int -&gt; DescribeDomainAutoTunes)
+-&gt; Lens
+     DescribeDomainAutoTunes
+     DescribeDomainAutoTunes
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312189"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Maybe Int
+</span><a href="#local-6989586621679312189"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312189"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312188"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312187"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeDomainAutoTunes' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AmaxResults%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Specifies the domain name for which you want Auto-Tune action details.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_domainName"><span class="hs-identifier hs-type">describeDomainAutoTunes_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="describeDomainAutoTunes_domainName"><span class="annot"><span class="annottext">describeDomainAutoTunes_domainName :: (Text -&gt; f Text)
+-&gt; DescribeDomainAutoTunes -&gt; f DescribeDomainAutoTunes
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunes_domainName"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunes_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunes -&gt; Text)
+-&gt; (DescribeDomainAutoTunes -&gt; Text -&gt; DescribeDomainAutoTunes)
+-&gt; Lens DescribeDomainAutoTunes DescribeDomainAutoTunes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312186"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Text
+</span><a href="#local-6989586621679312186"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312186"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312185"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312184"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunes
+</span><a href="#local-6989586621679312185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DescribeDomainAutoTunes' :: Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AdomainName%3ADescribeDomainAutoTunes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312180"><span class="annot"><span class="annottext">request :: DescribeDomainAutoTunes -&gt; Request DescribeDomainAutoTunes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDomainAutoTunes -&gt; Request DescribeDomainAutoTunes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312176"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDomainAutoTunes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDomainAutoTunes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDomainAutoTunes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDomainAutoTunes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDomainAutoTunes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312173"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312173"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312172"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312172"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312171"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [AutoTune] -&gt; Int -&gt; DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">DescribeDomainAutoTunesResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [AutoTune] -&gt; Int -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [AutoTune] -&gt; Int -&gt; DescribeDomainAutoTunesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [AutoTune] -&gt; Int -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Either String (Maybe [AutoTune])
+-&gt; Either String (Int -&gt; DescribeDomainAutoTunesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AutoTune]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoTunes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AutoTune]))
+-&gt; Maybe [AutoTune] -&gt; Either String (Maybe [AutoTune])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTune]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDomainAutoTunesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312173"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312162"><span id="local-6989586621679312164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679312155"><span class="annot"><span class="annottext">toHeaders :: DescribeDomainAutoTunes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDomainAutoTunes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679312150"><span class="annot"><span class="annottext">toPath :: DescribeDomainAutoTunes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312146"><span id="local-6989586621679312147"><span id="local-6989586621679312148"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+domainName :: Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:domainName:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Text
+$sel:maxResults:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Maybe Int
+$sel:nextToken:DescribeDomainAutoTunes' :: DescribeDomainAutoTunes -&gt; Maybe Text
+</span><a href="#local-6989586621679312146"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-01-01/es/domain/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312146"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/autoTunes&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunes"><span class="hs-identifier hs-type">DescribeDomainAutoTunes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312142"><span class="annot"><span class="annottext">toQuery :: DescribeDomainAutoTunes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDomainAutoTunes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The result of @DescribeDomainAutoTunes@ request. See the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- /See:/ 'newDescribeDomainAutoTunesResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679312139"><span id="local-6989586621679312140"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDomainAutoTunesResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-var">DescribeDomainAutoTunesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDomainAutoTunesResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">DescribeDomainAutoTunesResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDomainAutoTunesResponse%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | Specifies the list of setting adjustments that Auto-Tune has made to the</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- domain. See the</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AautoTunes%3ADescribeDomainAutoTunesResponse%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse -&gt; Maybe [AutoTune]
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AautoTunes%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var hs-var">autoTunes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTune.html#AutoTune"><span class="hs-identifier hs-type">AutoTune</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDomainAutoTunesResponse%27"><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse -&gt; Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AhttpStatus%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312132"><span id="local-6989586621679312134"><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse
+-&gt; DescribeDomainAutoTunesResponse -&gt; Bool
+(DescribeDomainAutoTunesResponse
+ -&gt; DescribeDomainAutoTunesResponse -&gt; Bool)
+-&gt; (DescribeDomainAutoTunesResponse
+    -&gt; DescribeDomainAutoTunesResponse -&gt; Bool)
+-&gt; Eq DescribeDomainAutoTunesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDomainAutoTunesResponse
+-&gt; DescribeDomainAutoTunesResponse -&gt; Bool
+$c/= :: DescribeDomainAutoTunesResponse
+-&gt; DescribeDomainAutoTunesResponse -&gt; Bool
+== :: DescribeDomainAutoTunesResponse
+-&gt; DescribeDomainAutoTunesResponse -&gt; Bool
+$c== :: DescribeDomainAutoTunesResponse
+-&gt; DescribeDomainAutoTunesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312124"><span id="local-6989586621679312126"><span id="local-6989586621679312128"><span id="local-6989586621679312130"><span class="annot"><span class="annottext">ReadPrec [DescribeDomainAutoTunesResponse]
+ReadPrec DescribeDomainAutoTunesResponse
+Int -&gt; ReadS DescribeDomainAutoTunesResponse
+ReadS [DescribeDomainAutoTunesResponse]
+(Int -&gt; ReadS DescribeDomainAutoTunesResponse)
+-&gt; ReadS [DescribeDomainAutoTunesResponse]
+-&gt; ReadPrec DescribeDomainAutoTunesResponse
+-&gt; ReadPrec [DescribeDomainAutoTunesResponse]
+-&gt; Read DescribeDomainAutoTunesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDomainAutoTunesResponse]
+$creadListPrec :: ReadPrec [DescribeDomainAutoTunesResponse]
+readPrec :: ReadPrec DescribeDomainAutoTunesResponse
+$creadPrec :: ReadPrec DescribeDomainAutoTunesResponse
+readList :: ReadS [DescribeDomainAutoTunesResponse]
+$creadList :: ReadS [DescribeDomainAutoTunesResponse]
+readsPrec :: Int -&gt; ReadS DescribeDomainAutoTunesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDomainAutoTunesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312118"><span id="local-6989586621679312120"><span id="local-6989586621679312122"><span class="annot"><span class="annottext">Int -&gt; DescribeDomainAutoTunesResponse -&gt; ShowS
+[DescribeDomainAutoTunesResponse] -&gt; ShowS
+DescribeDomainAutoTunesResponse -&gt; String
+(Int -&gt; DescribeDomainAutoTunesResponse -&gt; ShowS)
+-&gt; (DescribeDomainAutoTunesResponse -&gt; String)
+-&gt; ([DescribeDomainAutoTunesResponse] -&gt; ShowS)
+-&gt; Show DescribeDomainAutoTunesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDomainAutoTunesResponse] -&gt; ShowS
+$cshowList :: [DescribeDomainAutoTunesResponse] -&gt; ShowS
+show :: DescribeDomainAutoTunesResponse -&gt; String
+$cshow :: DescribeDomainAutoTunesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDomainAutoTunesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDomainAutoTunesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDomainAutoTunesResponse
+ -&gt; Rep DescribeDomainAutoTunesResponse x)
+-&gt; (forall x.
+    Rep DescribeDomainAutoTunesResponse x
+    -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Generic DescribeDomainAutoTunesResponse
+forall x.
+Rep DescribeDomainAutoTunesResponse x
+-&gt; DescribeDomainAutoTunesResponse
+forall x.
+DescribeDomainAutoTunesResponse
+-&gt; Rep DescribeDomainAutoTunesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDomainAutoTunesResponse x
+-&gt; DescribeDomainAutoTunesResponse
+$cfrom :: forall x.
+DescribeDomainAutoTunesResponse
+-&gt; Rep DescribeDomainAutoTunesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'DescribeDomainAutoTunesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'nextToken', 'describeDomainAutoTunesResponse_nextToken' - Specifies an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'autoTunes', 'describeDomainAutoTunesResponse_autoTunes' - Specifies the list of setting adjustments that Auto-Tune has made to the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- domain. See the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'describeDomainAutoTunesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">newDescribeDomainAutoTunesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newDescribeDomainAutoTunesResponse"><span class="annot"><span class="annottext">newDescribeDomainAutoTunesResponse :: Int -&gt; DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#newDescribeDomainAutoTunesResponse"><span class="hs-identifier hs-var hs-var">newDescribeDomainAutoTunesResponse</span></a></span></span><span> </span><span id="local-6989586621679312115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse' :: Maybe Text
+-&gt; Maybe [AutoTune] -&gt; Int -&gt; DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDomainAutoTunesResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoTunes:DescribeDomainAutoTunesResponse' :: Maybe [AutoTune]
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AautoTunes%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">autoTunes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTune]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDomainAutoTunesResponse' :: Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AhttpStatus%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Specifies an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_nextToken"><span class="hs-identifier hs-type">describeDomainAutoTunesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="describeDomainAutoTunesResponse_nextToken"><span class="annot"><span class="annottext">describeDomainAutoTunesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDomainAutoTunesResponse
+-&gt; f DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunesResponse -&gt; Maybe Text)
+-&gt; (DescribeDomainAutoTunesResponse
+    -&gt; Maybe Text -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Lens
+     DescribeDomainAutoTunesResponse
+     DescribeDomainAutoTunesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312114"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeDomainAutoTunesResponse' :: DescribeDomainAutoTunesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679312114"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312114"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312113"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312112"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDomainAutoTunesResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AnextToken%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Specifies the list of setting adjustments that Auto-Tune has made to the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- domain. See the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_autoTunes"><span class="hs-identifier hs-type">describeDomainAutoTunesResponse_autoTunes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTune.html#AutoTune"><span class="hs-identifier hs-type">AutoTune</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="describeDomainAutoTunesResponse_autoTunes"><span class="annot"><span class="annottext">describeDomainAutoTunesResponse_autoTunes :: (Maybe [AutoTune] -&gt; f (Maybe [AutoTune]))
+-&gt; DescribeDomainAutoTunesResponse
+-&gt; f DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_autoTunes"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunesResponse_autoTunes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunesResponse -&gt; Maybe [AutoTune])
+-&gt; (DescribeDomainAutoTunesResponse
+    -&gt; Maybe [AutoTune] -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Lens
+     DescribeDomainAutoTunesResponse
+     DescribeDomainAutoTunesResponse
+     (Maybe [AutoTune])
+     (Maybe [AutoTune])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312111"><span class="annot"><span class="annottext">Maybe [AutoTune]
+autoTunes :: Maybe [AutoTune]
+$sel:autoTunes:DescribeDomainAutoTunesResponse' :: DescribeDomainAutoTunesResponse -&gt; Maybe [AutoTune]
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var hs-var">autoTunes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTune]
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var">autoTunes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312110"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312109"><span class="annot"><span class="annottext">Maybe [AutoTune]
+</span><a href="#local-6989586621679312109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoTunes:DescribeDomainAutoTunesResponse' :: Maybe [AutoTune]
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AautoTunes%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">autoTunes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTune]
+</span><a href="#local-6989586621679312109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoTune] -&gt; f (Maybe [AutoTune]))
+ -&gt; DescribeDomainAutoTunesResponse
+ -&gt; f DescribeDomainAutoTunesResponse)
+-&gt; ((Maybe [AutoTune] -&gt; f (Maybe [AutoTune]))
+    -&gt; Maybe [AutoTune] -&gt; f (Maybe [AutoTune]))
+-&gt; (Maybe [AutoTune] -&gt; f (Maybe [AutoTune]))
+-&gt; DescribeDomainAutoTunesResponse
+-&gt; f DescribeDomainAutoTunesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AutoTune] [AutoTune] [AutoTune] [AutoTune]
+-&gt; Iso
+     (Maybe [AutoTune])
+     (Maybe [AutoTune])
+     (Maybe [AutoTune])
+     (Maybe [AutoTune])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AutoTune] [AutoTune] [AutoTune] [AutoTune]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_httpStatus"><span class="hs-identifier hs-type">describeDomainAutoTunesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-201"></span><span id="describeDomainAutoTunesResponse_httpStatus"><span class="annot"><span class="annottext">describeDomainAutoTunesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDomainAutoTunesResponse
+-&gt; f DescribeDomainAutoTunesResponse
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#describeDomainAutoTunesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDomainAutoTunesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDomainAutoTunesResponse -&gt; Int)
+-&gt; (DescribeDomainAutoTunesResponse
+    -&gt; Int -&gt; DescribeDomainAutoTunesResponse)
+-&gt; Lens
+     DescribeDomainAutoTunesResponse
+     DescribeDomainAutoTunesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312105"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDomainAutoTunesResponse' :: DescribeDomainAutoTunesResponse -&gt; Int
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312104"><span class="annot"><span class="annottext">s :: DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDomainAutoTunesResponse
+</span><a href="#local-6989586621679312104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDomainAutoTunesResponse' :: Int
+</span><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#%24sel%3AhttpStatus%3ADescribeDomainAutoTunesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679312101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.DescribeDomainAutoTunes.html#DescribeDomainAutoTunesResponse"><span class="hs-identifier hs-type">DescribeDomainAutoTunesResponse</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.Types.Endpoint</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.Types.Endpoint</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html"><span class="hs-identifier">Network.AWS.Redshift.Types.VpcEndpoint</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a connection endpoint.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEndpoint' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679501993"><span id="local-6989586621679501994"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DNS address of the Cluster.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aaddress%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Describes a connection endpoint.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AvpcEndpoints%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe [VpcEndpoint]
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3AvpcEndpoints%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">vpcEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html#VpcEndpoint"><span class="hs-identifier hs-type">VpcEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The port that the database engine is listening on.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aport%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aport%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679501985"><span id="local-6989586621679501987"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
+(Endpoint -&gt; Endpoint -&gt; Bool)
+-&gt; (Endpoint -&gt; Endpoint -&gt; Bool) -&gt; Eq Endpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Endpoint -&gt; Endpoint -&gt; Bool
+$c/= :: Endpoint -&gt; Endpoint -&gt; Bool
+== :: Endpoint -&gt; Endpoint -&gt; Bool
+$c== :: Endpoint -&gt; Endpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679501976"><span id="local-6989586621679501978"><span id="local-6989586621679501980"><span id="local-6989586621679501982"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
+ReadPrec Endpoint
+Int -&gt; ReadS Endpoint
+ReadS [Endpoint]
+(Int -&gt; ReadS Endpoint)
+-&gt; ReadS [Endpoint]
+-&gt; ReadPrec Endpoint
+-&gt; ReadPrec [Endpoint]
+-&gt; Read Endpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Endpoint]
+$creadListPrec :: ReadPrec [Endpoint]
+readPrec :: ReadPrec Endpoint
+$creadPrec :: ReadPrec Endpoint
+readList :: ReadS [Endpoint]
+$creadList :: ReadS [Endpoint]
+readsPrec :: Int -&gt; ReadS Endpoint
+$creadsPrec :: Int -&gt; ReadS Endpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679501969"><span id="local-6989586621679501971"><span id="local-6989586621679501973"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
+[Endpoint] -&gt; ShowS
+Endpoint -&gt; String
+(Int -&gt; Endpoint -&gt; ShowS)
+-&gt; (Endpoint -&gt; String) -&gt; ([Endpoint] -&gt; ShowS) -&gt; Show Endpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Endpoint] -&gt; ShowS
+$cshowList :: [Endpoint] -&gt; ShowS
+show :: Endpoint -&gt; String
+$cshow :: Endpoint -&gt; String
+showsPrec :: Int -&gt; Endpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; Endpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Endpoint -&gt; Rep Endpoint x)
+-&gt; (forall x. Rep Endpoint x -&gt; Endpoint) -&gt; Generic Endpoint
+forall x. Rep Endpoint x -&gt; Endpoint
+forall x. Endpoint -&gt; Rep Endpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Endpoint x -&gt; Endpoint
+$cfrom :: forall x. Endpoint -&gt; Rep Endpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'Endpoint' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'address', 'endpoint_address' - The DNS address of the Cluster.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'vpcEndpoints', 'endpoint_vpcEndpoints' - Describes a connection endpoint.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'port', 'endpoint_port' - The port that the database engine is listening on.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-type">newEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
+</span><span id="line-56"></span><span id="newEndpoint"><span class="annot"><span class="annottext">newEndpoint :: Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-var hs-var">newEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Endpoint' :: Maybe Text -&gt; Maybe [VpcEndpoint] -&gt; Maybe Int -&gt; Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:address:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpoints:Endpoint' :: Maybe [VpcEndpoint]
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3AvpcEndpoints%3AEndpoint%27"><span class="hs-identifier hs-var">vpcEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcEndpoint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:Endpoint' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aport%3AEndpoint%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The DNS address of the Cluster.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_address"><span class="hs-identifier hs-type">endpoint_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="endpoint_address"><span class="annot"><span class="annottext">endpoint_address :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_address"><span class="hs-identifier hs-var hs-var">endpoint_address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Text)
+-&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501960"><span class="annot"><span class="annottext">Maybe Text
+address :: Maybe Text
+$sel:address:Endpoint' :: Endpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679501960"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679501960"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501959"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679501959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679501958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679501959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Endpoint' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679501958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Describes a connection endpoint.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_vpcEndpoints"><span class="hs-identifier hs-type">endpoint_vpcEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html#VpcEndpoint"><span class="hs-identifier hs-type">VpcEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="endpoint_vpcEndpoints"><span class="annot"><span class="annottext">endpoint_vpcEndpoints :: (Maybe [VpcEndpoint] -&gt; f (Maybe [VpcEndpoint]))
+-&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_vpcEndpoints"><span class="hs-identifier hs-var hs-var">endpoint_vpcEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe [VpcEndpoint])
+-&gt; (Endpoint -&gt; Maybe [VpcEndpoint] -&gt; Endpoint)
+-&gt; Lens
+     Endpoint Endpoint (Maybe [VpcEndpoint]) (Maybe [VpcEndpoint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501956"><span class="annot"><span class="annottext">Maybe [VpcEndpoint]
+vpcEndpoints :: Maybe [VpcEndpoint]
+$sel:vpcEndpoints:Endpoint' :: Endpoint -&gt; Maybe [VpcEndpoint]
+</span><a href="#local-6989586621679501956"><span class="hs-identifier hs-var hs-var">vpcEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcEndpoint]
+</span><a href="#local-6989586621679501956"><span class="hs-identifier hs-var">vpcEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501955"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679501955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501954"><span class="annot"><span class="annottext">Maybe [VpcEndpoint]
+</span><a href="#local-6989586621679501954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679501955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpoints:Endpoint' :: Maybe [VpcEndpoint]
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3AvpcEndpoints%3AEndpoint%27"><span class="hs-identifier hs-var">vpcEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcEndpoint]
+</span><a href="#local-6989586621679501954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcEndpoint] -&gt; f (Maybe [VpcEndpoint]))
+ -&gt; Endpoint -&gt; f Endpoint)
+-&gt; ((Maybe [VpcEndpoint] -&gt; f (Maybe [VpcEndpoint]))
+    -&gt; Maybe [VpcEndpoint] -&gt; f (Maybe [VpcEndpoint]))
+-&gt; (Maybe [VpcEndpoint] -&gt; f (Maybe [VpcEndpoint]))
+-&gt; Endpoint
+-&gt; f Endpoint
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [VpcEndpoint] [VpcEndpoint] [VpcEndpoint] [VpcEndpoint]
+-&gt; Iso
+     (Maybe [VpcEndpoint])
+     (Maybe [VpcEndpoint])
+     (Maybe [VpcEndpoint])
+     (Maybe [VpcEndpoint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [VpcEndpoint] [VpcEndpoint] [VpcEndpoint] [VpcEndpoint]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The port that the database engine is listening on.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_port"><span class="hs-identifier hs-type">endpoint_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="endpoint_port"><span class="annot"><span class="annottext">endpoint_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Endpoint -&gt; f Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#endpoint_port"><span class="hs-identifier hs-var hs-var">endpoint_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Maybe Int)
+-&gt; (Endpoint -&gt; Maybe Int -&gt; Endpoint)
+-&gt; Lens Endpoint Endpoint (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501949"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:Endpoint' :: Endpoint -&gt; Maybe Int
+</span><a href="#local-6989586621679501949"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679501949"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501948"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679501948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501947"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679501947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679501948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Endpoint' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#%24sel%3Aport%3AEndpoint%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679501947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679501944"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Endpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679501942"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679501942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [VpcEndpoint] -&gt; Maybe Int -&gt; Endpoint
+</span><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [VpcEndpoint] -&gt; Maybe Int -&gt; Endpoint)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [VpcEndpoint] -&gt; Maybe Int -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679501942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [VpcEndpoint] -&gt; Maybe Int -&gt; Endpoint)
+-&gt; Either String (Maybe [VpcEndpoint])
+-&gt; Either String (Maybe Int -&gt; Endpoint)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679501942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcEndpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [VpcEndpoint]))
+-&gt; Either String (Maybe [VpcEndpoint])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [VpcEndpoint])
+-&gt; [Node] -&gt; Either String (Maybe [VpcEndpoint])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [VpcEndpoint]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Endpoint)
+-&gt; Either String (Maybe Int) -&gt; Either String Endpoint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679501942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679501933"><span id="local-6989586621679501935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679501930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

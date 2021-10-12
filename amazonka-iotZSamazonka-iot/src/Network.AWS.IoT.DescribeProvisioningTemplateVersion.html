@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.DescribeProvisioningTemplateVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a fleet provisioning template version.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeProvisioningTemplateVersion&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.DescribeProvisioningTemplateVersion</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier">DescribeProvisioningTemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersion"><span class="hs-identifier">newDescribeProvisioningTemplateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_templateName"><span class="hs-identifier">describeProvisioningTemplateVersion_templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_versionId"><span class="hs-identifier">describeProvisioningTemplateVersion_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersionResponse"><span class="hs-identifier">newDescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_creationDate"><span class="hs-identifier">describeProvisioningTemplateVersionResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_versionId"><span class="hs-identifier">describeProvisioningTemplateVersionResponse_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_isDefaultVersion"><span class="hs-identifier">describeProvisioningTemplateVersionResponse_isDefaultVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_templateBody"><span class="hs-identifier">describeProvisioningTemplateVersionResponse_templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_httpStatus"><span class="hs-identifier">describeProvisioningTemplateVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeProvisioningTemplateVersion' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679835344"><span id="local-6989586621679835345"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProvisioningTemplateVersion"><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-var">DescribeProvisioningTemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProvisioningTemplateVersion%27"><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var">DescribeProvisioningTemplateVersion'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The template name.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtemplateName%3ADescribeProvisioningTemplateVersion%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion -&gt; Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateName%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The fleet provisioning template version ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AversionId%3ADescribeProvisioningTemplateVersion%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion -&gt; Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835337"><span id="local-6989586621679835339"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion
+-&gt; DescribeProvisioningTemplateVersion -&gt; Bool
+(DescribeProvisioningTemplateVersion
+ -&gt; DescribeProvisioningTemplateVersion -&gt; Bool)
+-&gt; (DescribeProvisioningTemplateVersion
+    -&gt; DescribeProvisioningTemplateVersion -&gt; Bool)
+-&gt; Eq DescribeProvisioningTemplateVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProvisioningTemplateVersion
+-&gt; DescribeProvisioningTemplateVersion -&gt; Bool
+$c/= :: DescribeProvisioningTemplateVersion
+-&gt; DescribeProvisioningTemplateVersion -&gt; Bool
+== :: DescribeProvisioningTemplateVersion
+-&gt; DescribeProvisioningTemplateVersion -&gt; Bool
+$c== :: DescribeProvisioningTemplateVersion
+-&gt; DescribeProvisioningTemplateVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835328"><span id="local-6989586621679835330"><span id="local-6989586621679835332"><span id="local-6989586621679835334"><span class="annot"><span class="annottext">ReadPrec [DescribeProvisioningTemplateVersion]
+ReadPrec DescribeProvisioningTemplateVersion
+Int -&gt; ReadS DescribeProvisioningTemplateVersion
+ReadS [DescribeProvisioningTemplateVersion]
+(Int -&gt; ReadS DescribeProvisioningTemplateVersion)
+-&gt; ReadS [DescribeProvisioningTemplateVersion]
+-&gt; ReadPrec DescribeProvisioningTemplateVersion
+-&gt; ReadPrec [DescribeProvisioningTemplateVersion]
+-&gt; Read DescribeProvisioningTemplateVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProvisioningTemplateVersion]
+$creadListPrec :: ReadPrec [DescribeProvisioningTemplateVersion]
+readPrec :: ReadPrec DescribeProvisioningTemplateVersion
+$creadPrec :: ReadPrec DescribeProvisioningTemplateVersion
+readList :: ReadS [DescribeProvisioningTemplateVersion]
+$creadList :: ReadS [DescribeProvisioningTemplateVersion]
+readsPrec :: Int -&gt; ReadS DescribeProvisioningTemplateVersion
+$creadsPrec :: Int -&gt; ReadS DescribeProvisioningTemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835321"><span id="local-6989586621679835323"><span id="local-6989586621679835325"><span class="annot"><span class="annottext">Int -&gt; DescribeProvisioningTemplateVersion -&gt; ShowS
+[DescribeProvisioningTemplateVersion] -&gt; ShowS
+DescribeProvisioningTemplateVersion -&gt; String
+(Int -&gt; DescribeProvisioningTemplateVersion -&gt; ShowS)
+-&gt; (DescribeProvisioningTemplateVersion -&gt; String)
+-&gt; ([DescribeProvisioningTemplateVersion] -&gt; ShowS)
+-&gt; Show DescribeProvisioningTemplateVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProvisioningTemplateVersion] -&gt; ShowS
+$cshowList :: [DescribeProvisioningTemplateVersion] -&gt; ShowS
+show :: DescribeProvisioningTemplateVersion -&gt; String
+$cshow :: DescribeProvisioningTemplateVersion -&gt; String
+showsPrec :: Int -&gt; DescribeProvisioningTemplateVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProvisioningTemplateVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProvisioningTemplateVersion
+ -&gt; Rep DescribeProvisioningTemplateVersion x)
+-&gt; (forall x.
+    Rep DescribeProvisioningTemplateVersion x
+    -&gt; DescribeProvisioningTemplateVersion)
+-&gt; Generic DescribeProvisioningTemplateVersion
+forall x.
+Rep DescribeProvisioningTemplateVersion x
+-&gt; DescribeProvisioningTemplateVersion
+forall x.
+DescribeProvisioningTemplateVersion
+-&gt; Rep DescribeProvisioningTemplateVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeProvisioningTemplateVersion x
+-&gt; DescribeProvisioningTemplateVersion
+$cfrom :: forall x.
+DescribeProvisioningTemplateVersion
+-&gt; Rep DescribeProvisioningTemplateVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribeProvisioningTemplateVersion' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'templateName', 'describeProvisioningTemplateVersion_templateName' - The template name.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'versionId', 'describeProvisioningTemplateVersion_versionId' - The fleet provisioning template version ID.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">newDescribeProvisioningTemplateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'versionId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span>
+</span><span id="line-83"></span><span id="newDescribeProvisioningTemplateVersion"><span class="annot"><span class="annottext">newDescribeProvisioningTemplateVersion :: Text -&gt; Int -&gt; DescribeProvisioningTemplateVersion
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersion"><span class="hs-identifier hs-var hs-var">newDescribeProvisioningTemplateVersion</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679835316"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835316"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679835315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835315"><span class="hs-identifier hs-var">pVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion' :: Text -&gt; Int -&gt; DescribeProvisioningTemplateVersion
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:DescribeProvisioningTemplateVersion' :: Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateName%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835316"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionId:DescribeProvisioningTemplateVersion' :: Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835315"><span class="hs-identifier hs-var">pVersionId_</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The template name.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_templateName"><span class="hs-identifier hs-type">describeProvisioningTemplateVersion_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="describeProvisioningTemplateVersion_templateName"><span class="annot"><span class="annottext">describeProvisioningTemplateVersion_templateName :: (Text -&gt; f Text)
+-&gt; DescribeProvisioningTemplateVersion
+-&gt; f DescribeProvisioningTemplateVersion
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_templateName"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersion_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersion -&gt; Text)
+-&gt; (DescribeProvisioningTemplateVersion
+    -&gt; Text -&gt; DescribeProvisioningTemplateVersion)
+-&gt; Lens
+     DescribeProvisioningTemplateVersion
+     DescribeProvisioningTemplateVersion
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835312"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:DescribeProvisioningTemplateVersion' :: DescribeProvisioningTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679835312"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835312"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835311"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersion
+</span><a href="#local-6989586621679835311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835310"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion
+</span><a href="#local-6989586621679835311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DescribeProvisioningTemplateVersion' :: Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateName%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The fleet provisioning template version ID.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_versionId"><span class="hs-identifier hs-type">describeProvisioningTemplateVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-98"></span><span id="describeProvisioningTemplateVersion_versionId"><span class="annot"><span class="annottext">describeProvisioningTemplateVersion_versionId :: (Int -&gt; f Int)
+-&gt; DescribeProvisioningTemplateVersion
+-&gt; f DescribeProvisioningTemplateVersion
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersion_versionId"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersion_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersion -&gt; Int)
+-&gt; (DescribeProvisioningTemplateVersion
+    -&gt; Int -&gt; DescribeProvisioningTemplateVersion)
+-&gt; Lens
+     DescribeProvisioningTemplateVersion
+     DescribeProvisioningTemplateVersion
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835309"><span class="annot"><span class="annottext">Int
+versionId :: Int
+$sel:versionId:DescribeProvisioningTemplateVersion' :: DescribeProvisioningTemplateVersion -&gt; Int
+</span><a href="#local-6989586621679835309"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835309"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835308"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersion
+</span><a href="#local-6989586621679835308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersion
+</span><a href="#local-6989586621679835308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DescribeProvisioningTemplateVersion' :: Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679835303"><span class="annot"><span class="annottext">request :: DescribeProvisioningTemplateVersion
+-&gt; Request DescribeProvisioningTemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeProvisioningTemplateVersion
+-&gt; Request DescribeProvisioningTemplateVersion
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679835299"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeProvisioningTemplateVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeProvisioningTemplateVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeProvisioningTemplateVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeProvisioningTemplateVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeProvisioningTemplateVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679835296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835296"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679835295"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679835295"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679835294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">DescribeProvisioningTemplateVersionResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProvisioningTemplateVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProvisioningTemplateVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; DescribeProvisioningTemplateVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isDefaultVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeProvisioningTemplateVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateBody&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeProvisioningTemplateVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835296"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679835286"><span id="local-6989586621679835288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679835283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679835279"><span class="annot"><span class="annottext">toHeaders :: DescribeProvisioningTemplateVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeProvisioningTemplateVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679835274"><span class="annot"><span class="annottext">toPath :: DescribeProvisioningTemplateVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835271"><span id="local-6989586621679835272"><span class="annot"><span class="annottext">Int
+Text
+versionId :: Int
+templateName :: Text
+$sel:versionId:DescribeProvisioningTemplateVersion' :: DescribeProvisioningTemplateVersion -&gt; Int
+$sel:templateName:DescribeProvisioningTemplateVersion' :: DescribeProvisioningTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679835271"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/provisioning-templates/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679835272"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835271"><span class="hs-identifier hs-var">versionId</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersion"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersion</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679835267"><span class="annot"><span class="annottext">toQuery :: DescribeProvisioningTemplateVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeProvisioningTemplateVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newDescribeProvisioningTemplateVersionResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679835264"><span id="local-6989586621679835265"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProvisioningTemplateVersionResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-var">DescribeProvisioningTemplateVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProvisioningTemplateVersionResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">DescribeProvisioningTemplateVersionResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the fleet provisioning template version was created.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AcreationDate%3ADescribeProvisioningTemplateVersionResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AcreationDate%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The fleet provisioning template version ID.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AversionId%3ADescribeProvisioningTemplateVersionResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse -&gt; Maybe Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | True if the fleet provisioning template version is the default version.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AisDefaultVersion%3ADescribeProvisioningTemplateVersionResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AisDefaultVersion%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The JSON formatted contents of the fleet provisioning template version.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AtemplateBody%3ADescribeProvisioningTemplateVersionResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateBody%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeProvisioningTemplateVersionResponse%27"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse -&gt; Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AhttpStatus%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835255"><span id="local-6989586621679835257"><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+-&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool
+(DescribeProvisioningTemplateVersionResponse
+ -&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool)
+-&gt; Eq DescribeProvisioningTemplateVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProvisioningTemplateVersionResponse
+-&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool
+$c/= :: DescribeProvisioningTemplateVersionResponse
+-&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool
+== :: DescribeProvisioningTemplateVersionResponse
+-&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool
+$c== :: DescribeProvisioningTemplateVersionResponse
+-&gt; DescribeProvisioningTemplateVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835247"><span id="local-6989586621679835249"><span id="local-6989586621679835251"><span id="local-6989586621679835253"><span class="annot"><span class="annottext">ReadPrec [DescribeProvisioningTemplateVersionResponse]
+ReadPrec DescribeProvisioningTemplateVersionResponse
+Int -&gt; ReadS DescribeProvisioningTemplateVersionResponse
+ReadS [DescribeProvisioningTemplateVersionResponse]
+(Int -&gt; ReadS DescribeProvisioningTemplateVersionResponse)
+-&gt; ReadS [DescribeProvisioningTemplateVersionResponse]
+-&gt; ReadPrec DescribeProvisioningTemplateVersionResponse
+-&gt; ReadPrec [DescribeProvisioningTemplateVersionResponse]
+-&gt; Read DescribeProvisioningTemplateVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProvisioningTemplateVersionResponse]
+$creadListPrec :: ReadPrec [DescribeProvisioningTemplateVersionResponse]
+readPrec :: ReadPrec DescribeProvisioningTemplateVersionResponse
+$creadPrec :: ReadPrec DescribeProvisioningTemplateVersionResponse
+readList :: ReadS [DescribeProvisioningTemplateVersionResponse]
+$creadList :: ReadS [DescribeProvisioningTemplateVersionResponse]
+readsPrec :: Int -&gt; ReadS DescribeProvisioningTemplateVersionResponse
+$creadsPrec :: Int -&gt; ReadS DescribeProvisioningTemplateVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835241"><span id="local-6989586621679835243"><span id="local-6989586621679835245"><span class="annot"><span class="annottext">Int -&gt; DescribeProvisioningTemplateVersionResponse -&gt; ShowS
+[DescribeProvisioningTemplateVersionResponse] -&gt; ShowS
+DescribeProvisioningTemplateVersionResponse -&gt; String
+(Int -&gt; DescribeProvisioningTemplateVersionResponse -&gt; ShowS)
+-&gt; (DescribeProvisioningTemplateVersionResponse -&gt; String)
+-&gt; ([DescribeProvisioningTemplateVersionResponse] -&gt; ShowS)
+-&gt; Show DescribeProvisioningTemplateVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProvisioningTemplateVersionResponse] -&gt; ShowS
+$cshowList :: [DescribeProvisioningTemplateVersionResponse] -&gt; ShowS
+show :: DescribeProvisioningTemplateVersionResponse -&gt; String
+$cshow :: DescribeProvisioningTemplateVersionResponse -&gt; String
+showsPrec :: Int -&gt; DescribeProvisioningTemplateVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProvisioningTemplateVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProvisioningTemplateVersionResponse
+ -&gt; Rep DescribeProvisioningTemplateVersionResponse x)
+-&gt; (forall x.
+    Rep DescribeProvisioningTemplateVersionResponse x
+    -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Generic DescribeProvisioningTemplateVersionResponse
+forall x.
+Rep DescribeProvisioningTemplateVersionResponse x
+-&gt; DescribeProvisioningTemplateVersionResponse
+forall x.
+DescribeProvisioningTemplateVersionResponse
+-&gt; Rep DescribeProvisioningTemplateVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeProvisioningTemplateVersionResponse x
+-&gt; DescribeProvisioningTemplateVersionResponse
+$cfrom :: forall x.
+DescribeProvisioningTemplateVersionResponse
+-&gt; Rep DescribeProvisioningTemplateVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'DescribeProvisioningTemplateVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'creationDate', 'describeProvisioningTemplateVersionResponse_creationDate' - The date when the fleet provisioning template version was created.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'versionId', 'describeProvisioningTemplateVersionResponse_versionId' - The fleet provisioning template version ID.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'isDefaultVersion', 'describeProvisioningTemplateVersionResponse_isDefaultVersion' - True if the fleet provisioning template version is the default version.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'templateBody', 'describeProvisioningTemplateVersionResponse_templateBody' - The JSON formatted contents of the fleet provisioning template version.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'describeProvisioningTemplateVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">newDescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newDescribeProvisioningTemplateVersionResponse"><span class="annot"><span class="annottext">newDescribeProvisioningTemplateVersionResponse :: Int -&gt; DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#newDescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-var hs-var">newDescribeProvisioningTemplateVersionResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679835238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse' :: Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationDate:DescribeProvisioningTemplateVersionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AcreationDate%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionId:DescribeProvisioningTemplateVersionResponse' :: Maybe Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:isDefaultVersion:DescribeProvisioningTemplateVersionResponse' :: Maybe Bool
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AisDefaultVersion%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateBody:DescribeProvisioningTemplateVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateBody%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProvisioningTemplateVersionResponse' :: Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AhttpStatus%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835238"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The date when the fleet provisioning template version was created.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_creationDate"><span class="hs-identifier hs-type">describeProvisioningTemplateVersionResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeProvisioningTemplateVersionResponse_creationDate"><span class="annot"><span class="annottext">describeProvisioningTemplateVersionResponse_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_creationDate"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersionResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersionResponse -&gt; Maybe POSIX)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; Maybe POSIX -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Lens
+     DescribeProvisioningTemplateVersionResponse
+     DescribeProvisioningTemplateVersionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835237"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:DescribeProvisioningTemplateVersionResponse' :: DescribeProvisioningTemplateVersionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679835237"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679835237"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835236"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835235"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679835235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeProvisioningTemplateVersionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AcreationDate%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679835235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeProvisioningTemplateVersionResponse
+ -&gt; f DescribeProvisioningTemplateVersionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The fleet provisioning template version ID.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_versionId"><span class="hs-identifier hs-type">describeProvisioningTemplateVersionResponse_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeProvisioningTemplateVersionResponse_versionId"><span class="annot"><span class="annottext">describeProvisioningTemplateVersionResponse_versionId :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_versionId"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersionResponse_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersionResponse -&gt; Maybe Int)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; Maybe Int -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Lens
+     DescribeProvisioningTemplateVersionResponse
+     DescribeProvisioningTemplateVersionResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835231"><span class="annot"><span class="annottext">Maybe Int
+versionId :: Maybe Int
+$sel:versionId:DescribeProvisioningTemplateVersionResponse' :: DescribeProvisioningTemplateVersionResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679835231"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679835231"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835230"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835229"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679835229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DescribeProvisioningTemplateVersionResponse' :: Maybe Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AversionId%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679835229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | True if the fleet provisioning template version is the default version.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_isDefaultVersion"><span class="hs-identifier hs-type">describeProvisioningTemplateVersionResponse_isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeProvisioningTemplateVersionResponse_isDefaultVersion"><span class="annot"><span class="annottext">describeProvisioningTemplateVersionResponse_isDefaultVersion :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_isDefaultVersion"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersionResponse_isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersionResponse -&gt; Maybe Bool)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; Maybe Bool -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Lens
+     DescribeProvisioningTemplateVersionResponse
+     DescribeProvisioningTemplateVersionResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835228"><span class="annot"><span class="annottext">Maybe Bool
+isDefaultVersion :: Maybe Bool
+$sel:isDefaultVersion:DescribeProvisioningTemplateVersionResponse' :: DescribeProvisioningTemplateVersionResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679835228"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679835228"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835227"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835226"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679835226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:DescribeProvisioningTemplateVersionResponse' :: Maybe Bool
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AisDefaultVersion%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679835226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The JSON formatted contents of the fleet provisioning template version.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_templateBody"><span class="hs-identifier hs-type">describeProvisioningTemplateVersionResponse_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="describeProvisioningTemplateVersionResponse_templateBody"><span class="annot"><span class="annottext">describeProvisioningTemplateVersionResponse_templateBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_templateBody"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersionResponse_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersionResponse -&gt; Maybe Text)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; Maybe Text -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Lens
+     DescribeProvisioningTemplateVersionResponse
+     DescribeProvisioningTemplateVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835225"><span class="annot"><span class="annottext">Maybe Text
+templateBody :: Maybe Text
+$sel:templateBody:DescribeProvisioningTemplateVersionResponse' :: DescribeProvisioningTemplateVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679835225"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835225"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835224"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835223"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:DescribeProvisioningTemplateVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AtemplateBody%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_httpStatus"><span class="hs-identifier hs-type">describeProvisioningTemplateVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="describeProvisioningTemplateVersionResponse_httpStatus"><span class="annot"><span class="annottext">describeProvisioningTemplateVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeProvisioningTemplateVersionResponse
+-&gt; f DescribeProvisioningTemplateVersionResponse
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#describeProvisioningTemplateVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeProvisioningTemplateVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProvisioningTemplateVersionResponse -&gt; Int)
+-&gt; (DescribeProvisioningTemplateVersionResponse
+    -&gt; Int -&gt; DescribeProvisioningTemplateVersionResponse)
+-&gt; Lens
+     DescribeProvisioningTemplateVersionResponse
+     DescribeProvisioningTemplateVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835222"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeProvisioningTemplateVersionResponse' :: DescribeProvisioningTemplateVersionResponse -&gt; Int
+</span><a href="#local-6989586621679835222"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835222"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835221"><span class="annot"><span class="annottext">s :: DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProvisioningTemplateVersionResponse
+</span><a href="#local-6989586621679835221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProvisioningTemplateVersionResponse' :: Int
+</span><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#%24sel%3AhttpStatus%3ADescribeProvisioningTemplateVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679835218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeProvisioningTemplateVersion.html#DescribeProvisioningTemplateVersionResponse"><span class="hs-identifier hs-type">DescribeProvisioningTemplateVersionResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

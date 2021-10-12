@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified cache parameter group. You cannot delete a cache</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- parameter group if it is associated with any cache clusters. You cannot</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- delete the default cache parameter groups in your account.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.DeleteCacheParameterGroup</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroup"><span class="hs-identifier">newDeleteCacheParameterGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#deleteCacheParameterGroup_cacheParameterGroupName"><span class="hs-identifier">deleteCacheParameterGroup_cacheParameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse"><span class="hs-identifier">DeleteCacheParameterGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroupResponse"><span class="hs-identifier">newDeleteCacheParameterGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | Represents the input of a @DeleteCacheParameterGroup@ operation.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newDeleteCacheParameterGroup' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679420511"><span id="local-6989586621679420512"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCacheParameterGroup"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-var">DeleteCacheParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCacheParameterGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup%27"><span class="hs-identifier hs-var">DeleteCacheParameterGroup'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cache parameter group to delete.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- The specified cache security group must not be associated with any</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- clusters.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcacheParameterGroupName%3ADeleteCacheParameterGroup%27"><span class="annot"><span class="annottext">DeleteCacheParameterGroup -&gt; Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#%24sel%3AcacheParameterGroupName%3ADeleteCacheParameterGroup%27"><span class="hs-identifier hs-var hs-var">cacheParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420505"><span id="local-6989586621679420507"><span class="annot"><span class="annottext">DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool
+(DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool)
+-&gt; (DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool)
+-&gt; Eq DeleteCacheParameterGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool
+$c/= :: DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool
+== :: DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool
+$c== :: DeleteCacheParameterGroup -&gt; DeleteCacheParameterGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420496"><span id="local-6989586621679420498"><span id="local-6989586621679420500"><span id="local-6989586621679420502"><span class="annot"><span class="annottext">ReadPrec [DeleteCacheParameterGroup]
+ReadPrec DeleteCacheParameterGroup
+Int -&gt; ReadS DeleteCacheParameterGroup
+ReadS [DeleteCacheParameterGroup]
+(Int -&gt; ReadS DeleteCacheParameterGroup)
+-&gt; ReadS [DeleteCacheParameterGroup]
+-&gt; ReadPrec DeleteCacheParameterGroup
+-&gt; ReadPrec [DeleteCacheParameterGroup]
+-&gt; Read DeleteCacheParameterGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCacheParameterGroup]
+$creadListPrec :: ReadPrec [DeleteCacheParameterGroup]
+readPrec :: ReadPrec DeleteCacheParameterGroup
+$creadPrec :: ReadPrec DeleteCacheParameterGroup
+readList :: ReadS [DeleteCacheParameterGroup]
+$creadList :: ReadS [DeleteCacheParameterGroup]
+readsPrec :: Int -&gt; ReadS DeleteCacheParameterGroup
+$creadsPrec :: Int -&gt; ReadS DeleteCacheParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420489"><span id="local-6989586621679420491"><span id="local-6989586621679420493"><span class="annot"><span class="annottext">Int -&gt; DeleteCacheParameterGroup -&gt; ShowS
+[DeleteCacheParameterGroup] -&gt; ShowS
+DeleteCacheParameterGroup -&gt; String
+(Int -&gt; DeleteCacheParameterGroup -&gt; ShowS)
+-&gt; (DeleteCacheParameterGroup -&gt; String)
+-&gt; ([DeleteCacheParameterGroup] -&gt; ShowS)
+-&gt; Show DeleteCacheParameterGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCacheParameterGroup] -&gt; ShowS
+$cshowList :: [DeleteCacheParameterGroup] -&gt; ShowS
+show :: DeleteCacheParameterGroup -&gt; String
+$cshow :: DeleteCacheParameterGroup -&gt; String
+showsPrec :: Int -&gt; DeleteCacheParameterGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCacheParameterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCacheParameterGroup -&gt; Rep DeleteCacheParameterGroup x)
+-&gt; (forall x.
+    Rep DeleteCacheParameterGroup x -&gt; DeleteCacheParameterGroup)
+-&gt; Generic DeleteCacheParameterGroup
+forall x.
+Rep DeleteCacheParameterGroup x -&gt; DeleteCacheParameterGroup
+forall x.
+DeleteCacheParameterGroup -&gt; Rep DeleteCacheParameterGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCacheParameterGroup x -&gt; DeleteCacheParameterGroup
+$cfrom :: forall x.
+DeleteCacheParameterGroup -&gt; Rep DeleteCacheParameterGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteCacheParameterGroup' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'cacheParameterGroupName', 'deleteCacheParameterGroup_cacheParameterGroupName' - The name of the cache parameter group to delete.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The specified cache security group must not be associated with any</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- clusters.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroup"><span class="hs-identifier hs-type">newDeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'cacheParameterGroupName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeleteCacheParameterGroup"><span class="annot"><span class="annottext">newDeleteCacheParameterGroup :: Text -&gt; DeleteCacheParameterGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroup"><span class="hs-identifier hs-var hs-var">newDeleteCacheParameterGroup</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679420484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420484"><span class="hs-identifier hs-var">pCacheParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">DeleteCacheParameterGroup' :: Text -&gt; DeleteCacheParameterGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup%27"><span class="hs-identifier hs-type">DeleteCacheParameterGroup'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheParameterGroupName:DeleteCacheParameterGroup' :: Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#%24sel%3AcacheParameterGroupName%3ADeleteCacheParameterGroup%27"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420484"><span class="hs-identifier hs-var">pCacheParameterGroupName_</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the cache parameter group to delete.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The specified cache security group must not be associated with any</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- clusters.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#deleteCacheParameterGroup_cacheParameterGroupName"><span class="hs-identifier hs-type">deleteCacheParameterGroup_cacheParameterGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteCacheParameterGroup_cacheParameterGroupName"><span class="annot"><span class="annottext">deleteCacheParameterGroup_cacheParameterGroupName :: (Text -&gt; f Text)
+-&gt; DeleteCacheParameterGroup -&gt; f DeleteCacheParameterGroup
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#deleteCacheParameterGroup_cacheParameterGroupName"><span class="hs-identifier hs-var hs-var">deleteCacheParameterGroup_cacheParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCacheParameterGroup -&gt; Text)
+-&gt; (DeleteCacheParameterGroup -&gt; Text -&gt; DeleteCacheParameterGroup)
+-&gt; Lens
+     DeleteCacheParameterGroup DeleteCacheParameterGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup%27"><span class="hs-identifier hs-type">DeleteCacheParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420481"><span class="annot"><span class="annottext">Text
+cacheParameterGroupName :: Text
+$sel:cacheParameterGroupName:DeleteCacheParameterGroup' :: DeleteCacheParameterGroup -&gt; Text
+</span><a href="#local-6989586621679420481"><span class="hs-identifier hs-var hs-var">cacheParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420481"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420480"><span class="annot"><span class="annottext">s :: DeleteCacheParameterGroup
+</span><a href="#local-6989586621679420480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup%27"><span class="hs-identifier hs-type">DeleteCacheParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCacheParameterGroup
+</span><a href="#local-6989586621679420480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheParameterGroupName:DeleteCacheParameterGroup' :: Text
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#%24sel%3AcacheParameterGroupName%3ADeleteCacheParameterGroup%27"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse"><span class="hs-identifier hs-type">DeleteCacheParameterGroupResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679420475"><span class="annot"><span class="annottext">request :: DeleteCacheParameterGroup -&gt; Request DeleteCacheParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteCacheParameterGroup -&gt; Request DeleteCacheParameterGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679420471"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCacheParameterGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCacheParameterGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteCacheParameterGroup
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCacheParameterGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCacheParameterGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteCacheParameterGroup
+DeleteCacheParameterGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheParameterGroupResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420464"><span id="local-6989586621679420466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679420457"><span class="annot"><span class="annottext">toHeaders :: DeleteCacheParameterGroup -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteCacheParameterGroup -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679420452"><span class="annot"><span class="annottext">toPath :: DeleteCacheParameterGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCacheParameterGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup"><span class="hs-identifier hs-type">DeleteCacheParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679420448"><span class="annot"><span class="annottext">toQuery :: DeleteCacheParameterGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroup%27"><span class="hs-identifier hs-type">DeleteCacheParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420446"><span class="annot"><span class="annottext">Text
+cacheParameterGroupName :: Text
+$sel:cacheParameterGroupName:DeleteCacheParameterGroup' :: DeleteCacheParameterGroup -&gt; Text
+</span><a href="#local-6989586621679420446"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteCacheParameterGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CacheParameterGroupName&quot;</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420446"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteCacheParameterGroupResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679420443"><span id="local-6989586621679420444"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCacheParameterGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse"><span class="hs-identifier hs-var">DeleteCacheParameterGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCacheParameterGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheParameterGroupResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420439"><span id="local-6989586621679420441"><span class="annot"><span class="annottext">DeleteCacheParameterGroupResponse
+-&gt; DeleteCacheParameterGroupResponse -&gt; Bool
+(DeleteCacheParameterGroupResponse
+ -&gt; DeleteCacheParameterGroupResponse -&gt; Bool)
+-&gt; (DeleteCacheParameterGroupResponse
+    -&gt; DeleteCacheParameterGroupResponse -&gt; Bool)
+-&gt; Eq DeleteCacheParameterGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCacheParameterGroupResponse
+-&gt; DeleteCacheParameterGroupResponse -&gt; Bool
+$c/= :: DeleteCacheParameterGroupResponse
+-&gt; DeleteCacheParameterGroupResponse -&gt; Bool
+== :: DeleteCacheParameterGroupResponse
+-&gt; DeleteCacheParameterGroupResponse -&gt; Bool
+$c== :: DeleteCacheParameterGroupResponse
+-&gt; DeleteCacheParameterGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420431"><span id="local-6989586621679420433"><span id="local-6989586621679420435"><span id="local-6989586621679420437"><span class="annot"><span class="annottext">ReadPrec [DeleteCacheParameterGroupResponse]
+ReadPrec DeleteCacheParameterGroupResponse
+Int -&gt; ReadS DeleteCacheParameterGroupResponse
+ReadS [DeleteCacheParameterGroupResponse]
+(Int -&gt; ReadS DeleteCacheParameterGroupResponse)
+-&gt; ReadS [DeleteCacheParameterGroupResponse]
+-&gt; ReadPrec DeleteCacheParameterGroupResponse
+-&gt; ReadPrec [DeleteCacheParameterGroupResponse]
+-&gt; Read DeleteCacheParameterGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCacheParameterGroupResponse]
+$creadListPrec :: ReadPrec [DeleteCacheParameterGroupResponse]
+readPrec :: ReadPrec DeleteCacheParameterGroupResponse
+$creadPrec :: ReadPrec DeleteCacheParameterGroupResponse
+readList :: ReadS [DeleteCacheParameterGroupResponse]
+$creadList :: ReadS [DeleteCacheParameterGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteCacheParameterGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCacheParameterGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420425"><span id="local-6989586621679420427"><span id="local-6989586621679420429"><span class="annot"><span class="annottext">Int -&gt; DeleteCacheParameterGroupResponse -&gt; ShowS
+[DeleteCacheParameterGroupResponse] -&gt; ShowS
+DeleteCacheParameterGroupResponse -&gt; String
+(Int -&gt; DeleteCacheParameterGroupResponse -&gt; ShowS)
+-&gt; (DeleteCacheParameterGroupResponse -&gt; String)
+-&gt; ([DeleteCacheParameterGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteCacheParameterGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCacheParameterGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteCacheParameterGroupResponse] -&gt; ShowS
+show :: DeleteCacheParameterGroupResponse -&gt; String
+$cshow :: DeleteCacheParameterGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCacheParameterGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCacheParameterGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCacheParameterGroupResponse
+ -&gt; Rep DeleteCacheParameterGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteCacheParameterGroupResponse x
+    -&gt; DeleteCacheParameterGroupResponse)
+-&gt; Generic DeleteCacheParameterGroupResponse
+forall x.
+Rep DeleteCacheParameterGroupResponse x
+-&gt; DeleteCacheParameterGroupResponse
+forall x.
+DeleteCacheParameterGroupResponse
+-&gt; Rep DeleteCacheParameterGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCacheParameterGroupResponse x
+-&gt; DeleteCacheParameterGroupResponse
+$cfrom :: forall x.
+DeleteCacheParameterGroupResponse
+-&gt; Rep DeleteCacheParameterGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'DeleteCacheParameterGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroupResponse"><span class="hs-identifier hs-type">newDeleteCacheParameterGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse"><span class="hs-identifier hs-type">DeleteCacheParameterGroupResponse</span></a></span><span>
+</span><span id="line-131"></span><span id="newDeleteCacheParameterGroupResponse"><span class="annot"><span class="annottext">newDeleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#newDeleteCacheParameterGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteCacheParameterGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DeleteCacheParameterGroupResponse
+</span><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse%27"><span class="hs-identifier hs-var">DeleteCacheParameterGroupResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679420421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DeleteCacheParameterGroup.html#DeleteCacheParameterGroupResponse"><span class="hs-identifier hs-type">DeleteCacheParameterGroupResponse</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

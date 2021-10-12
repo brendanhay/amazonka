@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.Types.UserStackAssociationErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.Types.UserStackAssociationErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier">UserStackAssociationErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span class="hs-identifier">UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_INTERNAL_ERROR"><span class="hs-identifier">UserStackAssociationErrorCode_INTERNAL_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_STACK_NOT_FOUND"><span class="hs-identifier">UserStackAssociationErrorCode_STACK_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span class="hs-identifier">UserStackAssociationErrorCode_USER_NAME_NOT_FOUND</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679291187"><span id="local-6989586621679291188"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserStackAssociationErrorCode"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier hs-var">UserStackAssociationErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStackAssociationErrorCode%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-identifier hs-var">UserStackAssociationErrorCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserStackAssociationErrorCode"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; Text
+</span><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#fromUserStackAssociationErrorCode"><span class="hs-identifier hs-var hs-var">fromUserStackAssociationErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291179"><span id="local-6989586621679291181"><span id="local-6989586621679291183"><span class="annot"><span class="annottext">Int -&gt; UserStackAssociationErrorCode -&gt; ShowS
+[UserStackAssociationErrorCode] -&gt; ShowS
+UserStackAssociationErrorCode -&gt; String
+(Int -&gt; UserStackAssociationErrorCode -&gt; ShowS)
+-&gt; (UserStackAssociationErrorCode -&gt; String)
+-&gt; ([UserStackAssociationErrorCode] -&gt; ShowS)
+-&gt; Show UserStackAssociationErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserStackAssociationErrorCode] -&gt; ShowS
+$cshowList :: [UserStackAssociationErrorCode] -&gt; ShowS
+show :: UserStackAssociationErrorCode -&gt; String
+$cshow :: UserStackAssociationErrorCode -&gt; String
+showsPrec :: Int -&gt; UserStackAssociationErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserStackAssociationErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679291170"><span id="local-6989586621679291172"><span id="local-6989586621679291174"><span id="local-6989586621679291176"><span class="annot"><span class="annottext">ReadPrec [UserStackAssociationErrorCode]
+ReadPrec UserStackAssociationErrorCode
+Int -&gt; ReadS UserStackAssociationErrorCode
+ReadS [UserStackAssociationErrorCode]
+(Int -&gt; ReadS UserStackAssociationErrorCode)
+-&gt; ReadS [UserStackAssociationErrorCode]
+-&gt; ReadPrec UserStackAssociationErrorCode
+-&gt; ReadPrec [UserStackAssociationErrorCode]
+-&gt; Read UserStackAssociationErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserStackAssociationErrorCode]
+$creadListPrec :: ReadPrec [UserStackAssociationErrorCode]
+readPrec :: ReadPrec UserStackAssociationErrorCode
+$creadPrec :: ReadPrec UserStackAssociationErrorCode
+readList :: ReadS [UserStackAssociationErrorCode]
+$creadList :: ReadS [UserStackAssociationErrorCode]
+readsPrec :: Int -&gt; ReadS UserStackAssociationErrorCode
+$creadsPrec :: Int -&gt; ReadS UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679291165"><span id="local-6989586621679291167"><span class="annot"><span class="annottext">UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+(UserStackAssociationErrorCode
+ -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; Eq UserStackAssociationErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c/= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+== :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c== :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679291149"><span id="local-6989586621679291151"><span id="local-6989586621679291153"><span id="local-6989586621679291155"><span id="local-6989586621679291157"><span id="local-6989586621679291159"><span id="local-6989586621679291161"><span class="annot"><span class="annottext">Eq UserStackAssociationErrorCode
+Eq UserStackAssociationErrorCode
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Ordering)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; Bool)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode)
+-&gt; (UserStackAssociationErrorCode
+    -&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode)
+-&gt; Ord UserStackAssociationErrorCode
+UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Ordering
+UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode
+$cmin :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode
+max :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode
+$cmax :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; UserStackAssociationErrorCode
+&gt;= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c&gt;= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+&gt; :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c&gt; :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+&lt;= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c&lt;= :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+&lt; :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+$c&lt; :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Bool
+compare :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Ordering
+$ccompare :: UserStackAssociationErrorCode
+-&gt; UserStackAssociationErrorCode -&gt; Ordering
+$cp1Ord :: Eq UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ UserStackAssociationErrorCode
+ -&gt; Rep UserStackAssociationErrorCode x)
+-&gt; (forall x.
+    Rep UserStackAssociationErrorCode x
+    -&gt; UserStackAssociationErrorCode)
+-&gt; Generic UserStackAssociationErrorCode
+forall x.
+Rep UserStackAssociationErrorCode x
+-&gt; UserStackAssociationErrorCode
+forall x.
+UserStackAssociationErrorCode
+-&gt; Rep UserStackAssociationErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UserStackAssociationErrorCode x
+-&gt; UserStackAssociationErrorCode
+$cfrom :: forall x.
+UserStackAssociationErrorCode
+-&gt; Rep UserStackAssociationErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291141"><span id="local-6989586621679291143"><span class="annot"><span class="annottext">Int -&gt; UserStackAssociationErrorCode -&gt; Int
+UserStackAssociationErrorCode -&gt; Int
+(Int -&gt; UserStackAssociationErrorCode -&gt; Int)
+-&gt; (UserStackAssociationErrorCode -&gt; Int)
+-&gt; Hashable UserStackAssociationErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UserStackAssociationErrorCode -&gt; Int
+$chash :: UserStackAssociationErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; UserStackAssociationErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; UserStackAssociationErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679291138"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; ()
+(UserStackAssociationErrorCode -&gt; ())
+-&gt; NFData UserStackAssociationErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UserStackAssociationErrorCode -&gt; ()
+$crnf :: UserStackAssociationErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679291135"><span class="annot"><span class="annottext">Text -&gt; Either String UserStackAssociationErrorCode
+(Text -&gt; Either String UserStackAssociationErrorCode)
+-&gt; FromText UserStackAssociationErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UserStackAssociationErrorCode
+$cfromText :: Text -&gt; Either String UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679291132"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; Text
+(UserStackAssociationErrorCode -&gt; Text)
+-&gt; ToText UserStackAssociationErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UserStackAssociationErrorCode -&gt; Text
+$ctoText :: UserStackAssociationErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679291129"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; ByteString
+(UserStackAssociationErrorCode -&gt; ByteString)
+-&gt; ToByteString UserStackAssociationErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UserStackAssociationErrorCode -&gt; ByteString
+$ctoBS :: UserStackAssociationErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679291126"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; ByteStringBuilder
+(UserStackAssociationErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog UserStackAssociationErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UserStackAssociationErrorCode -&gt; ByteStringBuilder
+$cbuild :: UserStackAssociationErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679291123"><span class="annot"><span class="annottext">HeaderName -&gt; UserStackAssociationErrorCode -&gt; [Header]
+(HeaderName -&gt; UserStackAssociationErrorCode -&gt; [Header])
+-&gt; ToHeader UserStackAssociationErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UserStackAssociationErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UserStackAssociationErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679291120"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; QueryString
+(UserStackAssociationErrorCode -&gt; QueryString)
+-&gt; ToQuery UserStackAssociationErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UserStackAssociationErrorCode -&gt; QueryString
+$ctoQuery :: UserStackAssociationErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679291115"><span id="local-6989586621679291117"><span class="annot"><span class="annottext">Value -&gt; Parser [UserStackAssociationErrorCode]
+Value -&gt; Parser UserStackAssociationErrorCode
+(Value -&gt; Parser UserStackAssociationErrorCode)
+-&gt; (Value -&gt; Parser [UserStackAssociationErrorCode])
+-&gt; FromJSON UserStackAssociationErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UserStackAssociationErrorCode]
+$cparseJSONList :: Value -&gt; Parser [UserStackAssociationErrorCode]
+parseJSON :: Value -&gt; Parser UserStackAssociationErrorCode
+$cparseJSON :: Value -&gt; Parser UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679291110"><span id="local-6989586621679291112"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserStackAssociationErrorCode]
+FromJSONKeyFunction UserStackAssociationErrorCode
+FromJSONKeyFunction UserStackAssociationErrorCode
+-&gt; FromJSONKeyFunction [UserStackAssociationErrorCode]
+-&gt; FromJSONKey UserStackAssociationErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UserStackAssociationErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [UserStackAssociationErrorCode]
+fromJSONKey :: FromJSONKeyFunction UserStackAssociationErrorCode
+$cfromJSONKey :: FromJSONKeyFunction UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679291101"><span id="local-6989586621679291103"><span id="local-6989586621679291105"><span id="local-6989586621679291107"><span class="annot"><span class="annottext">[UserStackAssociationErrorCode] -&gt; Encoding
+[UserStackAssociationErrorCode] -&gt; Value
+UserStackAssociationErrorCode -&gt; Encoding
+UserStackAssociationErrorCode -&gt; Value
+(UserStackAssociationErrorCode -&gt; Value)
+-&gt; (UserStackAssociationErrorCode -&gt; Encoding)
+-&gt; ([UserStackAssociationErrorCode] -&gt; Value)
+-&gt; ([UserStackAssociationErrorCode] -&gt; Encoding)
+-&gt; ToJSON UserStackAssociationErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UserStackAssociationErrorCode] -&gt; Encoding
+$ctoEncodingList :: [UserStackAssociationErrorCode] -&gt; Encoding
+toJSONList :: [UserStackAssociationErrorCode] -&gt; Value
+$ctoJSONList :: [UserStackAssociationErrorCode] -&gt; Value
+toEncoding :: UserStackAssociationErrorCode -&gt; Encoding
+$ctoEncoding :: UserStackAssociationErrorCode -&gt; Encoding
+toJSON :: UserStackAssociationErrorCode -&gt; Value
+$ctoJSON :: UserStackAssociationErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679291096"><span id="local-6989586621679291098"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserStackAssociationErrorCode]
+ToJSONKeyFunction UserStackAssociationErrorCode
+ToJSONKeyFunction UserStackAssociationErrorCode
+-&gt; ToJSONKeyFunction [UserStackAssociationErrorCode]
+-&gt; ToJSONKey UserStackAssociationErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UserStackAssociationErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [UserStackAssociationErrorCode]
+toJSONKey :: ToJSONKeyFunction UserStackAssociationErrorCode
+$ctoJSONKey :: ToJSONKeyFunction UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679291093"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserStackAssociationErrorCode
+([Node] -&gt; Either String UserStackAssociationErrorCode)
+-&gt; FromXML UserStackAssociationErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UserStackAssociationErrorCode
+$cparseXML :: [Node] -&gt; Either String UserStackAssociationErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679291090"><span class="annot"><span class="annottext">UserStackAssociationErrorCode -&gt; XML
+(UserStackAssociationErrorCode -&gt; XML)
+-&gt; ToXML UserStackAssociationErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UserStackAssociationErrorCode -&gt; XML
+$ctoXML :: UserStackAssociationErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span class="hs-identifier hs-type">UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier hs-type">UserStackAssociationErrorCode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span id="%24mUserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span id="UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span class="annot"><span class="annottext">$bUserStackAssociationErrorCode_DIRECTORY_NOT_FOUND :: UserStackAssociationErrorCode
+$mUserStackAssociationErrorCode_DIRECTORY_NOT_FOUND :: forall r.
+UserStackAssociationErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#%24bUserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-identifier hs-type">UserStackAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIRECTORY_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_INTERNAL_ERROR"><span class="hs-identifier hs-type">UserStackAssociationErrorCode_INTERNAL_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier hs-type">UserStackAssociationErrorCode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStackAssociationErrorCode_INTERNAL_ERROR"><span id="%24mUserStackAssociationErrorCode_INTERNAL_ERROR"><span id="UserStackAssociationErrorCode_INTERNAL_ERROR"><span class="annot"><span class="annottext">$bUserStackAssociationErrorCode_INTERNAL_ERROR :: UserStackAssociationErrorCode
+$mUserStackAssociationErrorCode_INTERNAL_ERROR :: forall r.
+UserStackAssociationErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#%24bUserStackAssociationErrorCode_INTERNAL_ERROR"><span class="hs-identifier hs-var hs-var hs-var">UserStackAssociationErrorCode_INTERNAL_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-identifier hs-type">UserStackAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_ERROR&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_STACK_NOT_FOUND"><span class="hs-identifier hs-type">UserStackAssociationErrorCode_STACK_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier hs-type">UserStackAssociationErrorCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStackAssociationErrorCode_STACK_NOT_FOUND"><span id="%24mUserStackAssociationErrorCode_STACK_NOT_FOUND"><span id="UserStackAssociationErrorCode_STACK_NOT_FOUND"><span class="annot"><span class="annottext">$bUserStackAssociationErrorCode_STACK_NOT_FOUND :: UserStackAssociationErrorCode
+$mUserStackAssociationErrorCode_STACK_NOT_FOUND :: forall r.
+UserStackAssociationErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#%24bUserStackAssociationErrorCode_STACK_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">UserStackAssociationErrorCode_STACK_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-identifier hs-type">UserStackAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STACK_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span class="hs-identifier hs-type">UserStackAssociationErrorCode_USER_NAME_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode"><span class="hs-identifier hs-type">UserStackAssociationErrorCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span id="%24mUserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span id="UserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span class="annot"><span class="annottext">$bUserStackAssociationErrorCode_USER_NAME_NOT_FOUND :: UserStackAssociationErrorCode
+$mUserStackAssociationErrorCode_USER_NAME_NOT_FOUND :: forall r.
+UserStackAssociationErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#%24bUserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">UserStackAssociationErrorCode_USER_NAME_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-identifier hs-type">UserStackAssociationErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USER_NAME_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND"><span class="hs-pragma hs-type">UserStackAssociationErrorCode_DIRECTORY_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_INTERNAL_ERROR"><span class="hs-pragma hs-type">UserStackAssociationErrorCode_INTERNAL_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_STACK_NOT_FOUND"><span class="hs-pragma hs-type">UserStackAssociationErrorCode_STACK_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode_USER_NAME_NOT_FOUND"><span class="hs-pragma hs-type">UserStackAssociationErrorCode_USER_NAME_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociationErrorCode.html#UserStackAssociationErrorCode%27"><span class="hs-pragma hs-type">UserStackAssociationErrorCode'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

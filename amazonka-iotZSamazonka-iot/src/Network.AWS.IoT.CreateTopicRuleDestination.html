@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.CreateTopicRuleDestination</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a topic rule destination. The destination must be confirmed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- prior to use.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateTopicRuleDestination&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.CreateTopicRuleDestination</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestination"><span class="hs-identifier">newCreateTopicRuleDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestination_destinationConfiguration"><span class="hs-identifier">createTopicRuleDestination_destinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier">CreateTopicRuleDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestinationResponse"><span class="hs-identifier">newCreateTopicRuleDestinationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_topicRuleDestination"><span class="hs-identifier">createTopicRuleDestinationResponse_topicRuleDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_httpStatus"><span class="hs-identifier">createTopicRuleDestinationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.html"><span class="hs-identifier">Network.AWS.IoT.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateTopicRuleDestination' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679846165"><span id="local-6989586621679846166"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTopicRuleDestination"><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-var">CreateTopicRuleDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTopicRuleDestination%27"><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination%27"><span class="hs-identifier hs-var">CreateTopicRuleDestination'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The topic rule destination configuration.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdestinationConfiguration%3ACreateTopicRuleDestination%27"><span class="annot"><span class="annottext">CreateTopicRuleDestination -&gt; TopicRuleDestinationConfiguration
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AdestinationConfiguration%3ACreateTopicRuleDestination%27"><span class="hs-identifier hs-var hs-var">destinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationConfiguration.html#TopicRuleDestinationConfiguration"><span class="hs-identifier hs-type">TopicRuleDestinationConfiguration</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846159"><span id="local-6989586621679846161"><span class="annot"><span class="annottext">CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool
+(CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool)
+-&gt; (CreateTopicRuleDestination
+    -&gt; CreateTopicRuleDestination -&gt; Bool)
+-&gt; Eq CreateTopicRuleDestination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool
+$c/= :: CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool
+== :: CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool
+$c== :: CreateTopicRuleDestination -&gt; CreateTopicRuleDestination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846150"><span id="local-6989586621679846152"><span id="local-6989586621679846154"><span id="local-6989586621679846156"><span class="annot"><span class="annottext">ReadPrec [CreateTopicRuleDestination]
+ReadPrec CreateTopicRuleDestination
+Int -&gt; ReadS CreateTopicRuleDestination
+ReadS [CreateTopicRuleDestination]
+(Int -&gt; ReadS CreateTopicRuleDestination)
+-&gt; ReadS [CreateTopicRuleDestination]
+-&gt; ReadPrec CreateTopicRuleDestination
+-&gt; ReadPrec [CreateTopicRuleDestination]
+-&gt; Read CreateTopicRuleDestination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTopicRuleDestination]
+$creadListPrec :: ReadPrec [CreateTopicRuleDestination]
+readPrec :: ReadPrec CreateTopicRuleDestination
+$creadPrec :: ReadPrec CreateTopicRuleDestination
+readList :: ReadS [CreateTopicRuleDestination]
+$creadList :: ReadS [CreateTopicRuleDestination]
+readsPrec :: Int -&gt; ReadS CreateTopicRuleDestination
+$creadsPrec :: Int -&gt; ReadS CreateTopicRuleDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846143"><span id="local-6989586621679846145"><span id="local-6989586621679846147"><span class="annot"><span class="annottext">Int -&gt; CreateTopicRuleDestination -&gt; ShowS
+[CreateTopicRuleDestination] -&gt; ShowS
+CreateTopicRuleDestination -&gt; String
+(Int -&gt; CreateTopicRuleDestination -&gt; ShowS)
+-&gt; (CreateTopicRuleDestination -&gt; String)
+-&gt; ([CreateTopicRuleDestination] -&gt; ShowS)
+-&gt; Show CreateTopicRuleDestination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTopicRuleDestination] -&gt; ShowS
+$cshowList :: [CreateTopicRuleDestination] -&gt; ShowS
+show :: CreateTopicRuleDestination -&gt; String
+$cshow :: CreateTopicRuleDestination -&gt; String
+showsPrec :: Int -&gt; CreateTopicRuleDestination -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTopicRuleDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTopicRuleDestination -&gt; Rep CreateTopicRuleDestination x)
+-&gt; (forall x.
+    Rep CreateTopicRuleDestination x -&gt; CreateTopicRuleDestination)
+-&gt; Generic CreateTopicRuleDestination
+forall x.
+Rep CreateTopicRuleDestination x -&gt; CreateTopicRuleDestination
+forall x.
+CreateTopicRuleDestination -&gt; Rep CreateTopicRuleDestination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTopicRuleDestination x -&gt; CreateTopicRuleDestination
+$cfrom :: forall x.
+CreateTopicRuleDestination -&gt; Rep CreateTopicRuleDestination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'CreateTopicRuleDestination' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'destinationConfiguration', 'createTopicRuleDestination_destinationConfiguration' - The topic rule destination configuration.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestination"><span class="hs-identifier hs-type">newCreateTopicRuleDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'destinationConfiguration'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationConfiguration.html#TopicRuleDestinationConfiguration"><span class="hs-identifier hs-type">TopicRuleDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span>
+</span><span id="line-74"></span><span id="newCreateTopicRuleDestination"><span class="annot"><span class="annottext">newCreateTopicRuleDestination :: TopicRuleDestinationConfiguration -&gt; CreateTopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestination"><span class="hs-identifier hs-var hs-var">newCreateTopicRuleDestination</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679846138"><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846138"><span class="hs-identifier hs-var">pDestinationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">CreateTopicRuleDestination' :: TopicRuleDestinationConfiguration -&gt; CreateTopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination%27"><span class="hs-identifier hs-type">CreateTopicRuleDestination'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationConfiguration:CreateTopicRuleDestination' :: TopicRuleDestinationConfiguration
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AdestinationConfiguration%3ACreateTopicRuleDestination%27"><span class="hs-identifier hs-var">destinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846138"><span class="hs-identifier hs-var">pDestinationConfiguration_</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The topic rule destination configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestination_destinationConfiguration"><span class="hs-identifier hs-type">createTopicRuleDestination_destinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationConfiguration.html#TopicRuleDestinationConfiguration"><span class="hs-identifier hs-type">TopicRuleDestinationConfiguration</span></a></span><span>
+</span><span id="line-83"></span><span id="createTopicRuleDestination_destinationConfiguration"><span class="annot"><span class="annottext">createTopicRuleDestination_destinationConfiguration :: (TopicRuleDestinationConfiguration
+ -&gt; f TopicRuleDestinationConfiguration)
+-&gt; CreateTopicRuleDestination -&gt; f CreateTopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestination_destinationConfiguration"><span class="hs-identifier hs-var hs-var">createTopicRuleDestination_destinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTopicRuleDestination -&gt; TopicRuleDestinationConfiguration)
+-&gt; (CreateTopicRuleDestination
+    -&gt; TopicRuleDestinationConfiguration -&gt; CreateTopicRuleDestination)
+-&gt; Lens
+     CreateTopicRuleDestination
+     CreateTopicRuleDestination
+     TopicRuleDestinationConfiguration
+     TopicRuleDestinationConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination%27"><span class="hs-identifier hs-type">CreateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846135"><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+destinationConfiguration :: TopicRuleDestinationConfiguration
+$sel:destinationConfiguration:CreateTopicRuleDestination' :: CreateTopicRuleDestination -&gt; TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846135"><span class="hs-identifier hs-var hs-var">destinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846135"><span class="hs-identifier hs-var">destinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846134"><span class="annot"><span class="annottext">s :: CreateTopicRuleDestination
+</span><a href="#local-6989586621679846134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination%27"><span class="hs-identifier hs-type">CreateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846133"><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTopicRuleDestination
+</span><a href="#local-6989586621679846134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationConfiguration:CreateTopicRuleDestination' :: TopicRuleDestinationConfiguration
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AdestinationConfiguration%3ACreateTopicRuleDestination%27"><span class="hs-identifier hs-var">destinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679846129"><span class="annot"><span class="annottext">request :: CreateTopicRuleDestination -&gt; Request CreateTopicRuleDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateTopicRuleDestination -&gt; Request CreateTopicRuleDestination
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679846125"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTopicRuleDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTopicRuleDestination)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateTopicRuleDestination))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTopicRuleDestination
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTopicRuleDestination)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846122"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846121"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679846121"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+-&gt; Int -&gt; CreateTopicRuleDestinationResponse
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">CreateTopicRuleDestinationResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TopicRuleDestination
+ -&gt; Int -&gt; CreateTopicRuleDestinationResponse)
+-&gt; Either String (Maybe TopicRuleDestination)
+-&gt; Either String (Int -&gt; CreateTopicRuleDestinationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TopicRuleDestination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;topicRuleDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateTopicRuleDestinationResponse)
+-&gt; Either String Int
+-&gt; Either String CreateTopicRuleDestinationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846122"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846112"><span id="local-6989586621679846114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679846105"><span class="annot"><span class="annottext">toHeaders :: CreateTopicRuleDestination -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTopicRuleDestination -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846096"><span id="local-6989586621679846098"><span id="local-6989586621679846100"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679846094"><span class="annot"><span class="annottext">toJSON :: CreateTopicRuleDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination%27"><span class="hs-identifier hs-type">CreateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846092"><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+destinationConfiguration :: TopicRuleDestinationConfiguration
+$sel:destinationConfiguration:CreateTopicRuleDestination' :: CreateTopicRuleDestination -&gt; TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846092"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationConfiguration&quot;</span></span><span>
+</span><span id="line-111"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; TopicRuleDestinationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationConfiguration
+</span><a href="#local-6989586621679846092"><span class="hs-identifier hs-var">destinationConfiguration</span></a></span><span>
+</span><span id="line-112"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679846086"><span class="annot"><span class="annottext">toPath :: CreateTopicRuleDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTopicRuleDestination -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/destinations&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestination"><span class="hs-identifier hs-type">CreateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679846082"><span class="annot"><span class="annottext">toQuery :: CreateTopicRuleDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTopicRuleDestination -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newCreateTopicRuleDestinationResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679846079"><span id="local-6989586621679846080"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTopicRuleDestinationResponse"><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-var">CreateTopicRuleDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTopicRuleDestinationResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">CreateTopicRuleDestinationResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The topic rule destination.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AtopicRuleDestination%3ACreateTopicRuleDestinationResponse%27"><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse -&gt; Maybe TopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AtopicRuleDestination%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var hs-var">topicRuleDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestination.html#TopicRuleDestination"><span class="hs-identifier hs-type">TopicRuleDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTopicRuleDestinationResponse%27"><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse -&gt; Int
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AhttpStatus%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846073"><span id="local-6989586621679846075"><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse
+-&gt; CreateTopicRuleDestinationResponse -&gt; Bool
+(CreateTopicRuleDestinationResponse
+ -&gt; CreateTopicRuleDestinationResponse -&gt; Bool)
+-&gt; (CreateTopicRuleDestinationResponse
+    -&gt; CreateTopicRuleDestinationResponse -&gt; Bool)
+-&gt; Eq CreateTopicRuleDestinationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTopicRuleDestinationResponse
+-&gt; CreateTopicRuleDestinationResponse -&gt; Bool
+$c/= :: CreateTopicRuleDestinationResponse
+-&gt; CreateTopicRuleDestinationResponse -&gt; Bool
+== :: CreateTopicRuleDestinationResponse
+-&gt; CreateTopicRuleDestinationResponse -&gt; Bool
+$c== :: CreateTopicRuleDestinationResponse
+-&gt; CreateTopicRuleDestinationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846065"><span id="local-6989586621679846067"><span id="local-6989586621679846069"><span id="local-6989586621679846071"><span class="annot"><span class="annottext">ReadPrec [CreateTopicRuleDestinationResponse]
+ReadPrec CreateTopicRuleDestinationResponse
+Int -&gt; ReadS CreateTopicRuleDestinationResponse
+ReadS [CreateTopicRuleDestinationResponse]
+(Int -&gt; ReadS CreateTopicRuleDestinationResponse)
+-&gt; ReadS [CreateTopicRuleDestinationResponse]
+-&gt; ReadPrec CreateTopicRuleDestinationResponse
+-&gt; ReadPrec [CreateTopicRuleDestinationResponse]
+-&gt; Read CreateTopicRuleDestinationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTopicRuleDestinationResponse]
+$creadListPrec :: ReadPrec [CreateTopicRuleDestinationResponse]
+readPrec :: ReadPrec CreateTopicRuleDestinationResponse
+$creadPrec :: ReadPrec CreateTopicRuleDestinationResponse
+readList :: ReadS [CreateTopicRuleDestinationResponse]
+$creadList :: ReadS [CreateTopicRuleDestinationResponse]
+readsPrec :: Int -&gt; ReadS CreateTopicRuleDestinationResponse
+$creadsPrec :: Int -&gt; ReadS CreateTopicRuleDestinationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846059"><span id="local-6989586621679846061"><span id="local-6989586621679846063"><span class="annot"><span class="annottext">Int -&gt; CreateTopicRuleDestinationResponse -&gt; ShowS
+[CreateTopicRuleDestinationResponse] -&gt; ShowS
+CreateTopicRuleDestinationResponse -&gt; String
+(Int -&gt; CreateTopicRuleDestinationResponse -&gt; ShowS)
+-&gt; (CreateTopicRuleDestinationResponse -&gt; String)
+-&gt; ([CreateTopicRuleDestinationResponse] -&gt; ShowS)
+-&gt; Show CreateTopicRuleDestinationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTopicRuleDestinationResponse] -&gt; ShowS
+$cshowList :: [CreateTopicRuleDestinationResponse] -&gt; ShowS
+show :: CreateTopicRuleDestinationResponse -&gt; String
+$cshow :: CreateTopicRuleDestinationResponse -&gt; String
+showsPrec :: Int -&gt; CreateTopicRuleDestinationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTopicRuleDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTopicRuleDestinationResponse
+ -&gt; Rep CreateTopicRuleDestinationResponse x)
+-&gt; (forall x.
+    Rep CreateTopicRuleDestinationResponse x
+    -&gt; CreateTopicRuleDestinationResponse)
+-&gt; Generic CreateTopicRuleDestinationResponse
+forall x.
+Rep CreateTopicRuleDestinationResponse x
+-&gt; CreateTopicRuleDestinationResponse
+forall x.
+CreateTopicRuleDestinationResponse
+-&gt; Rep CreateTopicRuleDestinationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTopicRuleDestinationResponse x
+-&gt; CreateTopicRuleDestinationResponse
+$cfrom :: forall x.
+CreateTopicRuleDestinationResponse
+-&gt; Rep CreateTopicRuleDestinationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'CreateTopicRuleDestinationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'topicRuleDestination', 'createTopicRuleDestinationResponse_topicRuleDestination' - The topic rule destination.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'createTopicRuleDestinationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">newCreateTopicRuleDestinationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newCreateTopicRuleDestinationResponse"><span class="annot"><span class="annottext">newCreateTopicRuleDestinationResponse :: Int -&gt; CreateTopicRuleDestinationResponse
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#newCreateTopicRuleDestinationResponse"><span class="hs-identifier hs-var hs-var">newCreateTopicRuleDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679846056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846056"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse' :: Maybe TopicRuleDestination
+-&gt; Int -&gt; CreateTopicRuleDestinationResponse
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicRuleDestination:CreateTopicRuleDestinationResponse' :: Maybe TopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AtopicRuleDestination%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">topicRuleDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTopicRuleDestinationResponse' :: Int
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AhttpStatus%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846056"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The topic rule destination.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_topicRuleDestination"><span class="hs-identifier hs-type">createTopicRuleDestinationResponse_topicRuleDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestination.html#TopicRuleDestination"><span class="hs-identifier hs-type">TopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createTopicRuleDestinationResponse_topicRuleDestination"><span class="annot"><span class="annottext">createTopicRuleDestinationResponse_topicRuleDestination :: (Maybe TopicRuleDestination -&gt; f (Maybe TopicRuleDestination))
+-&gt; CreateTopicRuleDestinationResponse
+-&gt; f CreateTopicRuleDestinationResponse
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_topicRuleDestination"><span class="hs-identifier hs-var hs-var">createTopicRuleDestinationResponse_topicRuleDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTopicRuleDestinationResponse -&gt; Maybe TopicRuleDestination)
+-&gt; (CreateTopicRuleDestinationResponse
+    -&gt; Maybe TopicRuleDestination
+    -&gt; CreateTopicRuleDestinationResponse)
+-&gt; Lens
+     CreateTopicRuleDestinationResponse
+     CreateTopicRuleDestinationResponse
+     (Maybe TopicRuleDestination)
+     (Maybe TopicRuleDestination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846055"><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+topicRuleDestination :: Maybe TopicRuleDestination
+$sel:topicRuleDestination:CreateTopicRuleDestinationResponse' :: CreateTopicRuleDestinationResponse -&gt; Maybe TopicRuleDestination
+</span><a href="#local-6989586621679846055"><span class="hs-identifier hs-var hs-var">topicRuleDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+</span><a href="#local-6989586621679846055"><span class="hs-identifier hs-var">topicRuleDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846054"><span class="annot"><span class="annottext">s :: CreateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679846054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846053"><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+</span><a href="#local-6989586621679846053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679846054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicRuleDestination:CreateTopicRuleDestinationResponse' :: Maybe TopicRuleDestination
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AtopicRuleDestination%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">topicRuleDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicRuleDestination
+</span><a href="#local-6989586621679846053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_httpStatus"><span class="hs-identifier hs-type">createTopicRuleDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="createTopicRuleDestinationResponse_httpStatus"><span class="annot"><span class="annottext">createTopicRuleDestinationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTopicRuleDestinationResponse
+-&gt; f CreateTopicRuleDestinationResponse
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#createTopicRuleDestinationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTopicRuleDestinationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTopicRuleDestinationResponse -&gt; Int)
+-&gt; (CreateTopicRuleDestinationResponse
+    -&gt; Int -&gt; CreateTopicRuleDestinationResponse)
+-&gt; Lens
+     CreateTopicRuleDestinationResponse
+     CreateTopicRuleDestinationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846052"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTopicRuleDestinationResponse' :: CreateTopicRuleDestinationResponse -&gt; Int
+</span><a href="#local-6989586621679846052"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846052"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846051"><span class="annot"><span class="annottext">s :: CreateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679846051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679846051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTopicRuleDestinationResponse' :: Int
+</span><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#%24sel%3AhttpStatus%3ACreateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679846048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateTopicRuleDestination.html#CreateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">CreateTopicRuleDestinationResponse</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

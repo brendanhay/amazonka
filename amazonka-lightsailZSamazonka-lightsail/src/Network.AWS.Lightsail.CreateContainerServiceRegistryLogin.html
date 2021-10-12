@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.CreateContainerServiceRegistryLogin</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a temporary set of log in credentials that you can use to log in</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to the Docker process on your local machine. After you\'re logged in,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- you can use the native Docker commands to push your local container</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- images to the container image registry of your Amazon Lightsail account</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- so that you can use them with your Lightsail container service. The log</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in credentials expire 12 hours after they are created, at which point</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- you will need to create a new set of log in credentials.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can only push container images to the container service registry of</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- your Lightsail account. You cannot pull container images or perform any</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- other container image management actions on the container service</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- registry.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- After you push your container images to the container image registry of</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- your Lightsail account, use the @RegisterContainerImage@ action to</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- register the pushed images to a specific Lightsail container service.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- This action is not required if you install and use the Lightsail Control</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- (lightsailctl) plugin to push container images to your Lightsail</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- container service. For more information, see</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images Pushing and managing container images on your Amazon Lightsail container services&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- in the /Amazon Lightsail Developer Guide/.</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.CreateContainerServiceRegistryLogin</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier">CreateContainerServiceRegistryLogin</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLogin"><span class="hs-identifier">newCreateContainerServiceRegistryLogin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier">CreateContainerServiceRegistryLoginResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLoginResponse"><span class="hs-identifier">newCreateContainerServiceRegistryLoginResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_registryLogin"><span class="hs-identifier">createContainerServiceRegistryLoginResponse_registryLogin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_httpStatus"><span class="hs-identifier">createContainerServiceRegistryLoginResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.html"><span class="hs-identifier">Network.AWS.Lightsail.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerServiceRegistryLogin' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679659374"><span id="local-6989586621679659375"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerServiceRegistryLogin"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLogin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerServiceRegistryLogin%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin%27"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLogin'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659369"><span id="local-6989586621679659371"><span class="annot"><span class="annottext">CreateContainerServiceRegistryLogin
+-&gt; CreateContainerServiceRegistryLogin -&gt; Bool
+(CreateContainerServiceRegistryLogin
+ -&gt; CreateContainerServiceRegistryLogin -&gt; Bool)
+-&gt; (CreateContainerServiceRegistryLogin
+    -&gt; CreateContainerServiceRegistryLogin -&gt; Bool)
+-&gt; Eq CreateContainerServiceRegistryLogin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContainerServiceRegistryLogin
+-&gt; CreateContainerServiceRegistryLogin -&gt; Bool
+$c/= :: CreateContainerServiceRegistryLogin
+-&gt; CreateContainerServiceRegistryLogin -&gt; Bool
+== :: CreateContainerServiceRegistryLogin
+-&gt; CreateContainerServiceRegistryLogin -&gt; Bool
+$c== :: CreateContainerServiceRegistryLogin
+-&gt; CreateContainerServiceRegistryLogin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659360"><span id="local-6989586621679659362"><span id="local-6989586621679659364"><span id="local-6989586621679659366"><span class="annot"><span class="annottext">ReadPrec [CreateContainerServiceRegistryLogin]
+ReadPrec CreateContainerServiceRegistryLogin
+Int -&gt; ReadS CreateContainerServiceRegistryLogin
+ReadS [CreateContainerServiceRegistryLogin]
+(Int -&gt; ReadS CreateContainerServiceRegistryLogin)
+-&gt; ReadS [CreateContainerServiceRegistryLogin]
+-&gt; ReadPrec CreateContainerServiceRegistryLogin
+-&gt; ReadPrec [CreateContainerServiceRegistryLogin]
+-&gt; Read CreateContainerServiceRegistryLogin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContainerServiceRegistryLogin]
+$creadListPrec :: ReadPrec [CreateContainerServiceRegistryLogin]
+readPrec :: ReadPrec CreateContainerServiceRegistryLogin
+$creadPrec :: ReadPrec CreateContainerServiceRegistryLogin
+readList :: ReadS [CreateContainerServiceRegistryLogin]
+$creadList :: ReadS [CreateContainerServiceRegistryLogin]
+readsPrec :: Int -&gt; ReadS CreateContainerServiceRegistryLogin
+$creadsPrec :: Int -&gt; ReadS CreateContainerServiceRegistryLogin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659353"><span id="local-6989586621679659355"><span id="local-6989586621679659357"><span class="annot"><span class="annottext">Int -&gt; CreateContainerServiceRegistryLogin -&gt; ShowS
+[CreateContainerServiceRegistryLogin] -&gt; ShowS
+CreateContainerServiceRegistryLogin -&gt; String
+(Int -&gt; CreateContainerServiceRegistryLogin -&gt; ShowS)
+-&gt; (CreateContainerServiceRegistryLogin -&gt; String)
+-&gt; ([CreateContainerServiceRegistryLogin] -&gt; ShowS)
+-&gt; Show CreateContainerServiceRegistryLogin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContainerServiceRegistryLogin] -&gt; ShowS
+$cshowList :: [CreateContainerServiceRegistryLogin] -&gt; ShowS
+show :: CreateContainerServiceRegistryLogin -&gt; String
+$cshow :: CreateContainerServiceRegistryLogin -&gt; String
+showsPrec :: Int -&gt; CreateContainerServiceRegistryLogin -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContainerServiceRegistryLogin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateContainerServiceRegistryLogin
+ -&gt; Rep CreateContainerServiceRegistryLogin x)
+-&gt; (forall x.
+    Rep CreateContainerServiceRegistryLogin x
+    -&gt; CreateContainerServiceRegistryLogin)
+-&gt; Generic CreateContainerServiceRegistryLogin
+forall x.
+Rep CreateContainerServiceRegistryLogin x
+-&gt; CreateContainerServiceRegistryLogin
+forall x.
+CreateContainerServiceRegistryLogin
+-&gt; Rep CreateContainerServiceRegistryLogin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateContainerServiceRegistryLogin x
+-&gt; CreateContainerServiceRegistryLogin
+$cfrom :: forall x.
+CreateContainerServiceRegistryLogin
+-&gt; Rep CreateContainerServiceRegistryLogin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'CreateContainerServiceRegistryLogin' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">newCreateContainerServiceRegistryLogin</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span>
+</span><span id="line-79"></span><span id="newCreateContainerServiceRegistryLogin"><span class="annot"><span class="annottext">newCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLogin
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLogin"><span class="hs-identifier hs-var hs-var">newCreateContainerServiceRegistryLogin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">CreateContainerServiceRegistryLogin
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin%27"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLogin'</span></a></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679659345"><span class="annot"><span class="annottext">request :: CreateContainerServiceRegistryLogin
+-&gt; Request CreateContainerServiceRegistryLogin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateContainerServiceRegistryLogin
+-&gt; Request CreateContainerServiceRegistryLogin
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679659341"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateContainerServiceRegistryLogin
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateContainerServiceRegistryLogin)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateContainerServiceRegistryLogin))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateContainerServiceRegistryLogin
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateContainerServiceRegistryLogin)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679659338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679659337"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679659337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679659336"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679659336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+-&gt; Int -&gt; CreateContainerServiceRegistryLoginResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLoginResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerServiceRegistryLogin
+ -&gt; Int -&gt; CreateContainerServiceRegistryLoginResponse)
+-&gt; Either String (Maybe ContainerServiceRegistryLogin)
+-&gt; Either
+     String (Int -&gt; CreateContainerServiceRegistryLoginResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679659336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe ContainerServiceRegistryLogin)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryLogin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateContainerServiceRegistryLoginResponse)
+-&gt; Either String Int
+-&gt; Either String CreateContainerServiceRegistryLoginResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679659328"><span id="local-6989586621679659330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679659325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679659321"><span class="annot"><span class="annottext">toHeaders :: CreateContainerServiceRegistryLogin -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateContainerServiceRegistryLogin -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.CreateContainerServiceRegistryLogin&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679659311"><span id="local-6989586621679659313"><span id="local-6989586621679659315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span></span></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679659309"><span class="annot"><span class="annottext">toJSON :: CreateContainerServiceRegistryLogin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; CreateContainerServiceRegistryLogin -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679659304"><span class="annot"><span class="annottext">toPath :: CreateContainerServiceRegistryLogin -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContainerServiceRegistryLogin -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLogin"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLogin</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679659300"><span class="annot"><span class="annottext">toQuery :: CreateContainerServiceRegistryLogin -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContainerServiceRegistryLogin -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerServiceRegistryLoginResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679659297"><span id="local-6989586621679659298"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerServiceRegistryLoginResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLoginResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerServiceRegistryLoginResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">CreateContainerServiceRegistryLoginResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the log in information for the container</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- service registry of your Lightsail account.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AregistryLogin%3ACreateContainerServiceRegistryLoginResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse
+-&gt; Maybe ContainerServiceRegistryLogin
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AregistryLogin%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var hs-var">registryLogin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin.html#ContainerServiceRegistryLogin"><span class="hs-identifier hs-type">ContainerServiceRegistryLogin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContainerServiceRegistryLoginResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse -&gt; Int
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AhttpStatus%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659291"><span id="local-6989586621679659293"><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse
+-&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool
+(CreateContainerServiceRegistryLoginResponse
+ -&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool)
+-&gt; (CreateContainerServiceRegistryLoginResponse
+    -&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool)
+-&gt; Eq CreateContainerServiceRegistryLoginResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateContainerServiceRegistryLoginResponse
+-&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool
+$c/= :: CreateContainerServiceRegistryLoginResponse
+-&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool
+== :: CreateContainerServiceRegistryLoginResponse
+-&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool
+$c== :: CreateContainerServiceRegistryLoginResponse
+-&gt; CreateContainerServiceRegistryLoginResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659283"><span id="local-6989586621679659285"><span id="local-6989586621679659287"><span id="local-6989586621679659289"><span class="annot"><span class="annottext">ReadPrec [CreateContainerServiceRegistryLoginResponse]
+ReadPrec CreateContainerServiceRegistryLoginResponse
+Int -&gt; ReadS CreateContainerServiceRegistryLoginResponse
+ReadS [CreateContainerServiceRegistryLoginResponse]
+(Int -&gt; ReadS CreateContainerServiceRegistryLoginResponse)
+-&gt; ReadS [CreateContainerServiceRegistryLoginResponse]
+-&gt; ReadPrec CreateContainerServiceRegistryLoginResponse
+-&gt; ReadPrec [CreateContainerServiceRegistryLoginResponse]
+-&gt; Read CreateContainerServiceRegistryLoginResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateContainerServiceRegistryLoginResponse]
+$creadListPrec :: ReadPrec [CreateContainerServiceRegistryLoginResponse]
+readPrec :: ReadPrec CreateContainerServiceRegistryLoginResponse
+$creadPrec :: ReadPrec CreateContainerServiceRegistryLoginResponse
+readList :: ReadS [CreateContainerServiceRegistryLoginResponse]
+$creadList :: ReadS [CreateContainerServiceRegistryLoginResponse]
+readsPrec :: Int -&gt; ReadS CreateContainerServiceRegistryLoginResponse
+$creadsPrec :: Int -&gt; ReadS CreateContainerServiceRegistryLoginResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659277"><span id="local-6989586621679659279"><span id="local-6989586621679659281"><span class="annot"><span class="annottext">Int -&gt; CreateContainerServiceRegistryLoginResponse -&gt; ShowS
+[CreateContainerServiceRegistryLoginResponse] -&gt; ShowS
+CreateContainerServiceRegistryLoginResponse -&gt; String
+(Int -&gt; CreateContainerServiceRegistryLoginResponse -&gt; ShowS)
+-&gt; (CreateContainerServiceRegistryLoginResponse -&gt; String)
+-&gt; ([CreateContainerServiceRegistryLoginResponse] -&gt; ShowS)
+-&gt; Show CreateContainerServiceRegistryLoginResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateContainerServiceRegistryLoginResponse] -&gt; ShowS
+$cshowList :: [CreateContainerServiceRegistryLoginResponse] -&gt; ShowS
+show :: CreateContainerServiceRegistryLoginResponse -&gt; String
+$cshow :: CreateContainerServiceRegistryLoginResponse -&gt; String
+showsPrec :: Int -&gt; CreateContainerServiceRegistryLoginResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateContainerServiceRegistryLoginResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateContainerServiceRegistryLoginResponse
+ -&gt; Rep CreateContainerServiceRegistryLoginResponse x)
+-&gt; (forall x.
+    Rep CreateContainerServiceRegistryLoginResponse x
+    -&gt; CreateContainerServiceRegistryLoginResponse)
+-&gt; Generic CreateContainerServiceRegistryLoginResponse
+forall x.
+Rep CreateContainerServiceRegistryLoginResponse x
+-&gt; CreateContainerServiceRegistryLoginResponse
+forall x.
+CreateContainerServiceRegistryLoginResponse
+-&gt; Rep CreateContainerServiceRegistryLoginResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateContainerServiceRegistryLoginResponse x
+-&gt; CreateContainerServiceRegistryLoginResponse
+$cfrom :: forall x.
+CreateContainerServiceRegistryLoginResponse
+-&gt; Rep CreateContainerServiceRegistryLoginResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'CreateContainerServiceRegistryLoginResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'registryLogin', 'createContainerServiceRegistryLoginResponse_registryLogin' - An object that describes the log in information for the container</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- service registry of your Lightsail account.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'createContainerServiceRegistryLoginResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">newCreateContainerServiceRegistryLoginResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newCreateContainerServiceRegistryLoginResponse"><span class="annot"><span class="annottext">newCreateContainerServiceRegistryLoginResponse :: Int -&gt; CreateContainerServiceRegistryLoginResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#newCreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-var hs-var">newCreateContainerServiceRegistryLoginResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679659274"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse' :: Maybe ContainerServiceRegistryLogin
+-&gt; Int -&gt; CreateContainerServiceRegistryLoginResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryLogin:CreateContainerServiceRegistryLoginResponse' :: Maybe ContainerServiceRegistryLogin
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AregistryLogin%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">registryLogin</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceRegistryLoginResponse' :: Int
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AhttpStatus%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659274"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | An object that describes the log in information for the container</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- service registry of your Lightsail account.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_registryLogin"><span class="hs-identifier hs-type">createContainerServiceRegistryLoginResponse_registryLogin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin.html#ContainerServiceRegistryLogin"><span class="hs-identifier hs-type">ContainerServiceRegistryLogin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createContainerServiceRegistryLoginResponse_registryLogin"><span class="annot"><span class="annottext">createContainerServiceRegistryLoginResponse_registryLogin :: (Maybe ContainerServiceRegistryLogin
+ -&gt; f (Maybe ContainerServiceRegistryLogin))
+-&gt; CreateContainerServiceRegistryLoginResponse
+-&gt; f CreateContainerServiceRegistryLoginResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_registryLogin"><span class="hs-identifier hs-var hs-var">createContainerServiceRegistryLoginResponse_registryLogin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerServiceRegistryLoginResponse
+ -&gt; Maybe ContainerServiceRegistryLogin)
+-&gt; (CreateContainerServiceRegistryLoginResponse
+    -&gt; Maybe ContainerServiceRegistryLogin
+    -&gt; CreateContainerServiceRegistryLoginResponse)
+-&gt; Lens
+     CreateContainerServiceRegistryLoginResponse
+     CreateContainerServiceRegistryLoginResponse
+     (Maybe ContainerServiceRegistryLogin)
+     (Maybe ContainerServiceRegistryLogin)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659271"><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+registryLogin :: Maybe ContainerServiceRegistryLogin
+$sel:registryLogin:CreateContainerServiceRegistryLoginResponse' :: CreateContainerServiceRegistryLoginResponse
+-&gt; Maybe ContainerServiceRegistryLogin
+</span><a href="#local-6989586621679659271"><span class="hs-identifier hs-var hs-var">registryLogin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+</span><a href="#local-6989586621679659271"><span class="hs-identifier hs-var">registryLogin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659270"><span class="annot"><span class="annottext">s :: CreateContainerServiceRegistryLoginResponse
+</span><a href="#local-6989586621679659270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659269"><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+</span><a href="#local-6989586621679659269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse
+</span><a href="#local-6989586621679659270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryLogin:CreateContainerServiceRegistryLoginResponse' :: Maybe ContainerServiceRegistryLogin
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AregistryLogin%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">registryLogin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceRegistryLogin
+</span><a href="#local-6989586621679659269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_httpStatus"><span class="hs-identifier hs-type">createContainerServiceRegistryLoginResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="createContainerServiceRegistryLoginResponse_httpStatus"><span class="annot"><span class="annottext">createContainerServiceRegistryLoginResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateContainerServiceRegistryLoginResponse
+-&gt; f CreateContainerServiceRegistryLoginResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#createContainerServiceRegistryLoginResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createContainerServiceRegistryLoginResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerServiceRegistryLoginResponse -&gt; Int)
+-&gt; (CreateContainerServiceRegistryLoginResponse
+    -&gt; Int -&gt; CreateContainerServiceRegistryLoginResponse)
+-&gt; Lens
+     CreateContainerServiceRegistryLoginResponse
+     CreateContainerServiceRegistryLoginResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659268"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateContainerServiceRegistryLoginResponse' :: CreateContainerServiceRegistryLoginResponse -&gt; Int
+</span><a href="#local-6989586621679659268"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659268"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659267"><span class="annot"><span class="annottext">s :: CreateContainerServiceRegistryLoginResponse
+</span><a href="#local-6989586621679659267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceRegistryLoginResponse
+</span><a href="#local-6989586621679659267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceRegistryLoginResponse' :: Int
+</span><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#%24sel%3AhttpStatus%3ACreateContainerServiceRegistryLoginResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679659264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerServiceRegistryLogin.html#CreateContainerServiceRegistryLoginResponse"><span class="hs-identifier hs-type">CreateContainerServiceRegistryLoginResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

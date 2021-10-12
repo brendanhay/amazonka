@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateTrial</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the display name of a trial.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateTrial</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier">UpdateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrial"><span class="hs-identifier">newUpdateTrial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_displayName"><span class="hs-identifier">updateTrial_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_trialName"><span class="hs-identifier">updateTrial_trialName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier">UpdateTrialResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrialResponse"><span class="hs-identifier">newUpdateTrialResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_trialArn"><span class="hs-identifier">updateTrialResponse_trialArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_httpStatus"><span class="hs-identifier">updateTrialResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateTrial' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621680427846"><span id="local-6989586621680427847"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrial"><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-var">UpdateTrial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrial%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-var">UpdateTrial'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateTrial%27"><span class="annot"><span class="annottext">UpdateTrial -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AdisplayName%3AUpdateTrial%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the trial to update.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtrialName%3AUpdateTrial%27"><span class="annot"><span class="annottext">UpdateTrial -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialName%3AUpdateTrial%27"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680427839"><span id="local-6989586621680427841"><span class="annot"><span class="annottext">UpdateTrial -&gt; UpdateTrial -&gt; Bool
+(UpdateTrial -&gt; UpdateTrial -&gt; Bool)
+-&gt; (UpdateTrial -&gt; UpdateTrial -&gt; Bool) -&gt; Eq UpdateTrial
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTrial -&gt; UpdateTrial -&gt; Bool
+$c/= :: UpdateTrial -&gt; UpdateTrial -&gt; Bool
+== :: UpdateTrial -&gt; UpdateTrial -&gt; Bool
+$c== :: UpdateTrial -&gt; UpdateTrial -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427830"><span id="local-6989586621680427832"><span id="local-6989586621680427834"><span id="local-6989586621680427836"><span class="annot"><span class="annottext">ReadPrec [UpdateTrial]
+ReadPrec UpdateTrial
+Int -&gt; ReadS UpdateTrial
+ReadS [UpdateTrial]
+(Int -&gt; ReadS UpdateTrial)
+-&gt; ReadS [UpdateTrial]
+-&gt; ReadPrec UpdateTrial
+-&gt; ReadPrec [UpdateTrial]
+-&gt; Read UpdateTrial
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTrial]
+$creadListPrec :: ReadPrec [UpdateTrial]
+readPrec :: ReadPrec UpdateTrial
+$creadPrec :: ReadPrec UpdateTrial
+readList :: ReadS [UpdateTrial]
+$creadList :: ReadS [UpdateTrial]
+readsPrec :: Int -&gt; ReadS UpdateTrial
+$creadsPrec :: Int -&gt; ReadS UpdateTrial
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427823"><span id="local-6989586621680427825"><span id="local-6989586621680427827"><span class="annot"><span class="annottext">Int -&gt; UpdateTrial -&gt; ShowS
+[UpdateTrial] -&gt; ShowS
+UpdateTrial -&gt; String
+(Int -&gt; UpdateTrial -&gt; ShowS)
+-&gt; (UpdateTrial -&gt; String)
+-&gt; ([UpdateTrial] -&gt; ShowS)
+-&gt; Show UpdateTrial
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTrial] -&gt; ShowS
+$cshowList :: [UpdateTrial] -&gt; ShowS
+show :: UpdateTrial -&gt; String
+$cshow :: UpdateTrial -&gt; String
+showsPrec :: Int -&gt; UpdateTrial -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTrial -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateTrial -&gt; Rep UpdateTrial x)
+-&gt; (forall x. Rep UpdateTrial x -&gt; UpdateTrial)
+-&gt; Generic UpdateTrial
+forall x. Rep UpdateTrial x -&gt; UpdateTrial
+forall x. UpdateTrial -&gt; Rep UpdateTrial x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateTrial x -&gt; UpdateTrial
+$cfrom :: forall x. UpdateTrial -&gt; Rep UpdateTrial x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'UpdateTrial' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'displayName', 'updateTrial_displayName' - The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'trialName', 'updateTrial_trialName' - The name of the trial to update.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrial"><span class="hs-identifier hs-type">newUpdateTrial</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'trialName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span>
+</span><span id="line-76"></span><span id="newUpdateTrial"><span class="annot"><span class="annottext">newUpdateTrial :: Text -&gt; UpdateTrial
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrial"><span class="hs-identifier hs-var hs-var">newUpdateTrial</span></a></span></span><span> </span><span id="local-6989586621680427818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427818"><span class="hs-identifier hs-var">pTrialName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UpdateTrial' :: Maybe Text -&gt; Text -&gt; UpdateTrial
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayName:UpdateTrial' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AdisplayName%3AUpdateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialName:UpdateTrial' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialName%3AUpdateTrial%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427818"><span class="hs-identifier hs-var">pTrialName_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_displayName"><span class="hs-identifier hs-type">updateTrial_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="updateTrial_displayName"><span class="annot"><span class="annottext">updateTrial_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateTrial -&gt; f UpdateTrial
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_displayName"><span class="hs-identifier hs-var hs-var">updateTrial_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrial -&gt; Maybe Text)
+-&gt; (UpdateTrial -&gt; Maybe Text -&gt; UpdateTrial)
+-&gt; Lens UpdateTrial UpdateTrial (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427815"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:UpdateTrial' :: UpdateTrial -&gt; Maybe Text
+</span><a href="#local-6989586621680427815"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427815"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427814"><span class="annot"><span class="annottext">s :: UpdateTrial
+</span><a href="#local-6989586621680427814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrial
+</span><a href="#local-6989586621680427814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateTrial' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AdisplayName%3AUpdateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the trial to update.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_trialName"><span class="hs-identifier hs-type">updateTrial_trialName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="updateTrial_trialName"><span class="annot"><span class="annottext">updateTrial_trialName :: (Text -&gt; f Text) -&gt; UpdateTrial -&gt; f UpdateTrial
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrial_trialName"><span class="hs-identifier hs-var hs-var">updateTrial_trialName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrial -&gt; Text)
+-&gt; (UpdateTrial -&gt; Text -&gt; UpdateTrial)
+-&gt; Lens UpdateTrial UpdateTrial Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427812"><span class="annot"><span class="annottext">Text
+trialName :: Text
+$sel:trialName:UpdateTrial' :: UpdateTrial -&gt; Text
+</span><a href="#local-6989586621680427812"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427812"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427811"><span class="annot"><span class="annottext">s :: UpdateTrial
+</span><a href="#local-6989586621680427811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427810"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrial
+</span><a href="#local-6989586621680427811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialName:UpdateTrial' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialName%3AUpdateTrial%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680427806"><span class="annot"><span class="annottext">request :: UpdateTrial -&gt; Request UpdateTrial
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTrial -&gt; Request UpdateTrial
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680427802"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateTrial
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTrial)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateTrial))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateTrial
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTrial)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680427799"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427799"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680427798"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680427798"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680427797"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680427797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateTrialResponse
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-var">UpdateTrialResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateTrialResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateTrialResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680427797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateTrialResponse)
+-&gt; Either String Int -&gt; Either String UpdateTrialResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427799"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427789"><span id="local-6989586621680427791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680427782"><span class="annot"><span class="annottext">toHeaders :: UpdateTrial -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTrial -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateTrial&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427772"><span id="local-6989586621680427774"><span id="local-6989586621680427776"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680427770"><span class="annot"><span class="annottext">toJSON :: UpdateTrial -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial%27"><span class="hs-identifier hs-type">UpdateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427767"><span id="local-6989586621680427768"><span class="annot"><span class="annottext">Maybe Text
+Text
+trialName :: Text
+displayName :: Maybe Text
+$sel:trialName:UpdateTrial' :: UpdateTrial -&gt; Text
+$sel:displayName:UpdateTrial' :: UpdateTrial -&gt; Maybe Text
+</span><a href="#local-6989586621680427767"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427768"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427767"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621680427761"><span class="annot"><span class="annottext">toPath :: UpdateTrial -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTrial -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrial"><span class="hs-identifier hs-type">UpdateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680427757"><span class="annot"><span class="annottext">toQuery :: UpdateTrial -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTrial -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newUpdateTrialResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621680427754"><span id="local-6989586621680427755"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrialResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-var">UpdateTrialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrialResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-var">UpdateTrialResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AtrialArn%3AUpdateTrialResponse%27"><span class="annot"><span class="annottext">UpdateTrialResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialArn%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTrialResponse%27"><span class="annot"><span class="annottext">UpdateTrialResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AhttpStatus%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680427748"><span id="local-6989586621680427750"><span class="annot"><span class="annottext">UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool
+(UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool)
+-&gt; (UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool)
+-&gt; Eq UpdateTrialResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool
+$c/= :: UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool
+== :: UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool
+$c== :: UpdateTrialResponse -&gt; UpdateTrialResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427740"><span id="local-6989586621680427742"><span id="local-6989586621680427744"><span id="local-6989586621680427746"><span class="annot"><span class="annottext">ReadPrec [UpdateTrialResponse]
+ReadPrec UpdateTrialResponse
+Int -&gt; ReadS UpdateTrialResponse
+ReadS [UpdateTrialResponse]
+(Int -&gt; ReadS UpdateTrialResponse)
+-&gt; ReadS [UpdateTrialResponse]
+-&gt; ReadPrec UpdateTrialResponse
+-&gt; ReadPrec [UpdateTrialResponse]
+-&gt; Read UpdateTrialResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTrialResponse]
+$creadListPrec :: ReadPrec [UpdateTrialResponse]
+readPrec :: ReadPrec UpdateTrialResponse
+$creadPrec :: ReadPrec UpdateTrialResponse
+readList :: ReadS [UpdateTrialResponse]
+$creadList :: ReadS [UpdateTrialResponse]
+readsPrec :: Int -&gt; ReadS UpdateTrialResponse
+$creadsPrec :: Int -&gt; ReadS UpdateTrialResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427734"><span id="local-6989586621680427736"><span id="local-6989586621680427738"><span class="annot"><span class="annottext">Int -&gt; UpdateTrialResponse -&gt; ShowS
+[UpdateTrialResponse] -&gt; ShowS
+UpdateTrialResponse -&gt; String
+(Int -&gt; UpdateTrialResponse -&gt; ShowS)
+-&gt; (UpdateTrialResponse -&gt; String)
+-&gt; ([UpdateTrialResponse] -&gt; ShowS)
+-&gt; Show UpdateTrialResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTrialResponse] -&gt; ShowS
+$cshowList :: [UpdateTrialResponse] -&gt; ShowS
+show :: UpdateTrialResponse -&gt; String
+$cshow :: UpdateTrialResponse -&gt; String
+showsPrec :: Int -&gt; UpdateTrialResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTrialResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateTrialResponse -&gt; Rep UpdateTrialResponse x)
+-&gt; (forall x. Rep UpdateTrialResponse x -&gt; UpdateTrialResponse)
+-&gt; Generic UpdateTrialResponse
+forall x. Rep UpdateTrialResponse x -&gt; UpdateTrialResponse
+forall x. UpdateTrialResponse -&gt; Rep UpdateTrialResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateTrialResponse x -&gt; UpdateTrialResponse
+$cfrom :: forall x. UpdateTrialResponse -&gt; Rep UpdateTrialResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'UpdateTrialResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'trialArn', 'updateTrialResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'updateTrialResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrialResponse"><span class="hs-identifier hs-type">newUpdateTrialResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newUpdateTrialResponse"><span class="annot"><span class="annottext">newUpdateTrialResponse :: Int -&gt; UpdateTrialResponse
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#newUpdateTrialResponse"><span class="hs-identifier hs-var hs-var">newUpdateTrialResponse</span></a></span></span><span> </span><span id="local-6989586621680427731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">UpdateTrialResponse' :: Maybe Text -&gt; Int -&gt; UpdateTrialResponse
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-type">UpdateTrialResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trialArn:UpdateTrialResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialArn%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var">trialArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrialResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AhttpStatus%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_trialArn"><span class="hs-identifier hs-type">updateTrialResponse_trialArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="updateTrialResponse_trialArn"><span class="annot"><span class="annottext">updateTrialResponse_trialArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateTrialResponse -&gt; f UpdateTrialResponse
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_trialArn"><span class="hs-identifier hs-var hs-var">updateTrialResponse_trialArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrialResponse -&gt; Maybe Text)
+-&gt; (UpdateTrialResponse -&gt; Maybe Text -&gt; UpdateTrialResponse)
+-&gt; Lens
+     UpdateTrialResponse UpdateTrialResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-type">UpdateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427730"><span class="annot"><span class="annottext">Maybe Text
+trialArn :: Maybe Text
+$sel:trialArn:UpdateTrialResponse' :: UpdateTrialResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680427730"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427730"><span class="hs-identifier hs-var">trialArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427729"><span class="annot"><span class="annottext">s :: UpdateTrialResponse
+</span><a href="#local-6989586621680427729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-type">UpdateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrialResponse
+</span><a href="#local-6989586621680427729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialArn:UpdateTrialResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AtrialArn%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var">trialArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_httpStatus"><span class="hs-identifier hs-type">updateTrialResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="updateTrialResponse_httpStatus"><span class="annot"><span class="annottext">updateTrialResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateTrialResponse -&gt; f UpdateTrialResponse
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#updateTrialResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateTrialResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTrialResponse -&gt; Int)
+-&gt; (UpdateTrialResponse -&gt; Int -&gt; UpdateTrialResponse)
+-&gt; Lens UpdateTrialResponse UpdateTrialResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-type">UpdateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427727"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateTrialResponse' :: UpdateTrialResponse -&gt; Int
+</span><a href="#local-6989586621680427727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427726"><span class="annot"><span class="annottext">s :: UpdateTrialResponse
+</span><a href="#local-6989586621680427726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse%27"><span class="hs-identifier hs-type">UpdateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrialResponse
+</span><a href="#local-6989586621680427726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrialResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateTrial.html#%24sel%3AhttpStatus%3AUpdateTrialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateTrial.html#UpdateTrialResponse"><span class="hs-identifier hs-type">UpdateTrialResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

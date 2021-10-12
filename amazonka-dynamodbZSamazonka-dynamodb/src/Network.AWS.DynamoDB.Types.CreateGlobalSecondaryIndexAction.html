@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.KeySchemaElement</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.Projection</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.ProvisionedThroughput</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents a new global secondary index to be added to an existing</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCreateGlobalSecondaryIndexAction' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679375621"><span id="local-6989586621679375622"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalSecondaryIndexAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-var">CreateGlobalSecondaryIndexAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalSecondaryIndexAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">CreateGlobalSecondaryIndexAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the provisioned throughput settings for the specified global</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- secondary index.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- For current minimum and maximum provisioned throughput values, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprovisionedThroughput%3ACreateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction -&gt; Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the global secondary index to be created.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AindexName%3ACreateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The key schema for the global secondary index.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AkeySchema%3ACreateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction -&gt; NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AkeySchema%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Represents attributes that are copied (projected) from the table into an</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- index. These are in addition to the primary key attributes and index key</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- attributes, which are automatically projected.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aprojection%3ACreateGlobalSecondaryIndexAction%27"><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction -&gt; Projection
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3Aprojection%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375612"><span id="local-6989586621679375614"><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction
+-&gt; CreateGlobalSecondaryIndexAction -&gt; Bool
+(CreateGlobalSecondaryIndexAction
+ -&gt; CreateGlobalSecondaryIndexAction -&gt; Bool)
+-&gt; (CreateGlobalSecondaryIndexAction
+    -&gt; CreateGlobalSecondaryIndexAction -&gt; Bool)
+-&gt; Eq CreateGlobalSecondaryIndexAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGlobalSecondaryIndexAction
+-&gt; CreateGlobalSecondaryIndexAction -&gt; Bool
+$c/= :: CreateGlobalSecondaryIndexAction
+-&gt; CreateGlobalSecondaryIndexAction -&gt; Bool
+== :: CreateGlobalSecondaryIndexAction
+-&gt; CreateGlobalSecondaryIndexAction -&gt; Bool
+$c== :: CreateGlobalSecondaryIndexAction
+-&gt; CreateGlobalSecondaryIndexAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375603"><span id="local-6989586621679375605"><span id="local-6989586621679375607"><span id="local-6989586621679375609"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalSecondaryIndexAction]
+ReadPrec CreateGlobalSecondaryIndexAction
+Int -&gt; ReadS CreateGlobalSecondaryIndexAction
+ReadS [CreateGlobalSecondaryIndexAction]
+(Int -&gt; ReadS CreateGlobalSecondaryIndexAction)
+-&gt; ReadS [CreateGlobalSecondaryIndexAction]
+-&gt; ReadPrec CreateGlobalSecondaryIndexAction
+-&gt; ReadPrec [CreateGlobalSecondaryIndexAction]
+-&gt; Read CreateGlobalSecondaryIndexAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGlobalSecondaryIndexAction]
+$creadListPrec :: ReadPrec [CreateGlobalSecondaryIndexAction]
+readPrec :: ReadPrec CreateGlobalSecondaryIndexAction
+$creadPrec :: ReadPrec CreateGlobalSecondaryIndexAction
+readList :: ReadS [CreateGlobalSecondaryIndexAction]
+$creadList :: ReadS [CreateGlobalSecondaryIndexAction]
+readsPrec :: Int -&gt; ReadS CreateGlobalSecondaryIndexAction
+$creadsPrec :: Int -&gt; ReadS CreateGlobalSecondaryIndexAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375596"><span id="local-6989586621679375598"><span id="local-6989586621679375600"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalSecondaryIndexAction -&gt; ShowS
+[CreateGlobalSecondaryIndexAction] -&gt; ShowS
+CreateGlobalSecondaryIndexAction -&gt; String
+(Int -&gt; CreateGlobalSecondaryIndexAction -&gt; ShowS)
+-&gt; (CreateGlobalSecondaryIndexAction -&gt; String)
+-&gt; ([CreateGlobalSecondaryIndexAction] -&gt; ShowS)
+-&gt; Show CreateGlobalSecondaryIndexAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGlobalSecondaryIndexAction] -&gt; ShowS
+$cshowList :: [CreateGlobalSecondaryIndexAction] -&gt; ShowS
+show :: CreateGlobalSecondaryIndexAction -&gt; String
+$cshow :: CreateGlobalSecondaryIndexAction -&gt; String
+showsPrec :: Int -&gt; CreateGlobalSecondaryIndexAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGlobalSecondaryIndexAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateGlobalSecondaryIndexAction
+ -&gt; Rep CreateGlobalSecondaryIndexAction x)
+-&gt; (forall x.
+    Rep CreateGlobalSecondaryIndexAction x
+    -&gt; CreateGlobalSecondaryIndexAction)
+-&gt; Generic CreateGlobalSecondaryIndexAction
+forall x.
+Rep CreateGlobalSecondaryIndexAction x
+-&gt; CreateGlobalSecondaryIndexAction
+forall x.
+CreateGlobalSecondaryIndexAction
+-&gt; Rep CreateGlobalSecondaryIndexAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateGlobalSecondaryIndexAction x
+-&gt; CreateGlobalSecondaryIndexAction
+$cfrom :: forall x.
+CreateGlobalSecondaryIndexAction
+-&gt; Rep CreateGlobalSecondaryIndexAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'CreateGlobalSecondaryIndexAction' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'provisionedThroughput', 'createGlobalSecondaryIndexAction_provisionedThroughput' - Represents the provisioned throughput settings for the specified global</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- secondary index.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- For current minimum and maximum provisioned throughput values, see</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'indexName', 'createGlobalSecondaryIndexAction_indexName' - The name of the global secondary index to be created.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'keySchema', 'createGlobalSecondaryIndexAction_keySchema' - The key schema for the global secondary index.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'projection', 'createGlobalSecondaryIndexAction_projection' - Represents attributes that are copied (projected) from the table into an</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- index. These are in addition to the primary key attributes and index key</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- attributes, which are automatically projected.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#newCreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">newCreateGlobalSecondaryIndexAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'keySchema'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'projection'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span>
+</span><span id="line-82"></span><span id="newCreateGlobalSecondaryIndexAction"><span class="annot"><span class="annottext">newCreateGlobalSecondaryIndexAction :: Text
+-&gt; NonEmpty KeySchemaElement
+-&gt; Projection
+-&gt; CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#newCreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-var hs-var">newCreateGlobalSecondaryIndexAction</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679375590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375590"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679375589"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375589"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679375588"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375588"><span class="hs-identifier hs-var">pProjection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction' :: Maybe ProvisionedThroughput
+-&gt; Text
+-&gt; NonEmpty KeySchemaElement
+-&gt; Projection
+-&gt; CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionedThroughput:CreateGlobalSecondaryIndexAction' :: Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:CreateGlobalSecondaryIndexAction' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375590"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:keySchema:CreateGlobalSecondaryIndexAction' :: NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AkeySchema%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+-&gt; Tagged
+     (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+ -&gt; Tagged
+      (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement)))
+-&gt; NonEmpty KeySchemaElement -&gt; NonEmpty KeySchemaElement
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375589"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:projection:CreateGlobalSecondaryIndexAction' :: Projection
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3Aprojection%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375588"><span class="hs-identifier hs-var">pProjection_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Represents the provisioned throughput settings for the specified global</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- secondary index.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- For current minimum and maximum provisioned throughput values, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_provisionedThroughput"><span class="hs-identifier hs-type">createGlobalSecondaryIndexAction_provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="createGlobalSecondaryIndexAction_provisionedThroughput"><span class="annot"><span class="annottext">createGlobalSecondaryIndexAction_provisionedThroughput :: (Maybe ProvisionedThroughput -&gt; f (Maybe ProvisionedThroughput))
+-&gt; CreateGlobalSecondaryIndexAction
+-&gt; f CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_provisionedThroughput"><span class="hs-identifier hs-var hs-var">createGlobalSecondaryIndexAction_provisionedThroughput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalSecondaryIndexAction -&gt; Maybe ProvisionedThroughput)
+-&gt; (CreateGlobalSecondaryIndexAction
+    -&gt; Maybe ProvisionedThroughput -&gt; CreateGlobalSecondaryIndexAction)
+-&gt; Lens
+     CreateGlobalSecondaryIndexAction
+     CreateGlobalSecondaryIndexAction
+     (Maybe ProvisionedThroughput)
+     (Maybe ProvisionedThroughput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375582"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+provisionedThroughput :: Maybe ProvisionedThroughput
+$sel:provisionedThroughput:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375582"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375582"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375581"><span class="annot"><span class="annottext">s :: CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375580"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:CreateGlobalSecondaryIndexAction' :: Maybe ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AprovisionedThroughput%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the global secondary index to be created.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_indexName"><span class="hs-identifier hs-type">createGlobalSecondaryIndexAction_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="createGlobalSecondaryIndexAction_indexName"><span class="annot"><span class="annottext">createGlobalSecondaryIndexAction_indexName :: (Text -&gt; f Text)
+-&gt; CreateGlobalSecondaryIndexAction
+-&gt; f CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_indexName"><span class="hs-identifier hs-var hs-var">createGlobalSecondaryIndexAction_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalSecondaryIndexAction -&gt; Text)
+-&gt; (CreateGlobalSecondaryIndexAction
+    -&gt; Text -&gt; CreateGlobalSecondaryIndexAction)
+-&gt; Lens
+     CreateGlobalSecondaryIndexAction
+     CreateGlobalSecondaryIndexAction
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375578"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Text
+</span><a href="#local-6989586621679375578"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375578"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375577"><span class="annot"><span class="annottext">s :: CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:CreateGlobalSecondaryIndexAction' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AindexName%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The key schema for the global secondary index.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_keySchema"><span class="hs-identifier hs-type">createGlobalSecondaryIndexAction_keySchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="createGlobalSecondaryIndexAction_keySchema"><span class="annot"><span class="annottext">createGlobalSecondaryIndexAction_keySchema :: (NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; CreateGlobalSecondaryIndexAction
+-&gt; f CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_keySchema"><span class="hs-identifier hs-var hs-var">createGlobalSecondaryIndexAction_keySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalSecondaryIndexAction -&gt; NonEmpty KeySchemaElement)
+-&gt; (CreateGlobalSecondaryIndexAction
+    -&gt; NonEmpty KeySchemaElement -&gt; CreateGlobalSecondaryIndexAction)
+-&gt; Lens
+     CreateGlobalSecondaryIndexAction
+     CreateGlobalSecondaryIndexAction
+     (NonEmpty KeySchemaElement)
+     (NonEmpty KeySchemaElement)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375574"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+keySchema :: NonEmpty KeySchemaElement
+$sel:keySchema:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375574"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375574"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375573"><span class="annot"><span class="annottext">s :: CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375572"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:CreateGlobalSecondaryIndexAction' :: NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3AkeySchema%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+ -&gt; CreateGlobalSecondaryIndexAction
+ -&gt; f CreateGlobalSecondaryIndexAction)
+-&gt; ((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+    -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; (NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; CreateGlobalSecondaryIndexAction
+-&gt; f CreateGlobalSecondaryIndexAction
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Represents attributes that are copied (projected) from the table into an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- index. These are in addition to the primary key attributes and index key</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- attributes, which are automatically projected.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_projection"><span class="hs-identifier hs-type">createGlobalSecondaryIndexAction_projection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span>
+</span><span id="line-116"></span><span id="createGlobalSecondaryIndexAction_projection"><span class="annot"><span class="annottext">createGlobalSecondaryIndexAction_projection :: (Projection -&gt; f Projection)
+-&gt; CreateGlobalSecondaryIndexAction
+-&gt; f CreateGlobalSecondaryIndexAction
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#createGlobalSecondaryIndexAction_projection"><span class="hs-identifier hs-var hs-var">createGlobalSecondaryIndexAction_projection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalSecondaryIndexAction -&gt; Projection)
+-&gt; (CreateGlobalSecondaryIndexAction
+    -&gt; Projection -&gt; CreateGlobalSecondaryIndexAction)
+-&gt; Lens
+     CreateGlobalSecondaryIndexAction
+     CreateGlobalSecondaryIndexAction
+     Projection
+     Projection
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375569"><span class="annot"><span class="annottext">Projection
+projection :: Projection
+$sel:projection:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Projection
+</span><a href="#local-6989586621679375569"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375569"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375568"><span class="annot"><span class="annottext">s :: CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375567"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalSecondaryIndexAction
+</span><a href="#local-6989586621679375568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:CreateGlobalSecondaryIndexAction' :: Projection
+</span><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#%24sel%3Aprojection%3ACreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679375563"><span id="local-6989586621679375565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679375560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375552"><span id="local-6989586621679375554"><span id="local-6989586621679375556"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679375550"><span class="annot"><span class="annottext">toJSON :: CreateGlobalSecondaryIndexAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction.html#CreateGlobalSecondaryIndexAction%27"><span class="hs-identifier hs-type">CreateGlobalSecondaryIndexAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375545"><span id="local-6989586621679375546"><span id="local-6989586621679375547"><span id="local-6989586621679375548"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+NonEmpty KeySchemaElement
+Text
+Projection
+projection :: Projection
+keySchema :: NonEmpty KeySchemaElement
+indexName :: Text
+provisionedThroughput :: Maybe ProvisionedThroughput
+$sel:projection:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Projection
+$sel:keySchema:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; NonEmpty KeySchemaElement
+$sel:indexName:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Text
+$sel:provisionedThroughput:CreateGlobalSecondaryIndexAction' :: CreateGlobalSecondaryIndexAction -&gt; Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375545"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(ProvisionedThroughput -&gt; Pair)
+-&gt; Maybe ProvisionedThroughput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679375548"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375547"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeySchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty KeySchemaElement -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679375546"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Projection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Projection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375545"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span></pre></body></html>

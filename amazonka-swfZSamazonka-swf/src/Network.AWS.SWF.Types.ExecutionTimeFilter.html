@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SWF.Types.ExecutionTimeFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SWF.Types.ExecutionTimeFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Used to filter the workflow executions in visibility APIs by various</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- time-based rules. Each parameter, if specified, defines a rule that must</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- be satisfied by each returned query result. The parameter values are in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the &lt;https://en.wikipedia.org/wiki/Unix_time Unix Time format&gt;. For</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- example: @\&quot;oldestDate\&quot;: 1325376070.@</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newExecutionTimeFilter' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679345785"><span id="local-6989586621679345786"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionTimeFilter"><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-var">ExecutionTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionTimeFilter%27"><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-var">ExecutionTimeFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the latest start or close date and time to return.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlatestDate%3AExecutionTimeFilter%27"><span class="annot"><span class="annottext">ExecutionTimeFilter -&gt; Maybe POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AlatestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var hs-var">latestDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies the oldest start or close date and time to return.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AoldestDate%3AExecutionTimeFilter%27"><span class="annot"><span class="annottext">ExecutionTimeFilter -&gt; POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AoldestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var hs-var">oldestDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345778"><span id="local-6989586621679345780"><span class="annot"><span class="annottext">ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool
+(ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool)
+-&gt; (ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool)
+-&gt; Eq ExecutionTimeFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool
+$c/= :: ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool
+== :: ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool
+$c== :: ExecutionTimeFilter -&gt; ExecutionTimeFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345769"><span id="local-6989586621679345771"><span id="local-6989586621679345773"><span id="local-6989586621679345775"><span class="annot"><span class="annottext">ReadPrec [ExecutionTimeFilter]
+ReadPrec ExecutionTimeFilter
+Int -&gt; ReadS ExecutionTimeFilter
+ReadS [ExecutionTimeFilter]
+(Int -&gt; ReadS ExecutionTimeFilter)
+-&gt; ReadS [ExecutionTimeFilter]
+-&gt; ReadPrec ExecutionTimeFilter
+-&gt; ReadPrec [ExecutionTimeFilter]
+-&gt; Read ExecutionTimeFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionTimeFilter]
+$creadListPrec :: ReadPrec [ExecutionTimeFilter]
+readPrec :: ReadPrec ExecutionTimeFilter
+$creadPrec :: ReadPrec ExecutionTimeFilter
+readList :: ReadS [ExecutionTimeFilter]
+$creadList :: ReadS [ExecutionTimeFilter]
+readsPrec :: Int -&gt; ReadS ExecutionTimeFilter
+$creadsPrec :: Int -&gt; ReadS ExecutionTimeFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345762"><span id="local-6989586621679345764"><span id="local-6989586621679345766"><span class="annot"><span class="annottext">Int -&gt; ExecutionTimeFilter -&gt; ShowS
+[ExecutionTimeFilter] -&gt; ShowS
+ExecutionTimeFilter -&gt; String
+(Int -&gt; ExecutionTimeFilter -&gt; ShowS)
+-&gt; (ExecutionTimeFilter -&gt; String)
+-&gt; ([ExecutionTimeFilter] -&gt; ShowS)
+-&gt; Show ExecutionTimeFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionTimeFilter] -&gt; ShowS
+$cshowList :: [ExecutionTimeFilter] -&gt; ShowS
+show :: ExecutionTimeFilter -&gt; String
+$cshow :: ExecutionTimeFilter -&gt; String
+showsPrec :: Int -&gt; ExecutionTimeFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionTimeFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExecutionTimeFilter -&gt; Rep ExecutionTimeFilter x)
+-&gt; (forall x. Rep ExecutionTimeFilter x -&gt; ExecutionTimeFilter)
+-&gt; Generic ExecutionTimeFilter
+forall x. Rep ExecutionTimeFilter x -&gt; ExecutionTimeFilter
+forall x. ExecutionTimeFilter -&gt; Rep ExecutionTimeFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionTimeFilter x -&gt; ExecutionTimeFilter
+$cfrom :: forall x. ExecutionTimeFilter -&gt; Rep ExecutionTimeFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ExecutionTimeFilter' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'latestDate', 'executionTimeFilter_latestDate' - Specifies the latest start or close date and time to return.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'oldestDate', 'executionTimeFilter_oldestDate' - Specifies the oldest start or close date and time to return.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#newExecutionTimeFilter"><span class="hs-identifier hs-type">newExecutionTimeFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'oldestDate'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span><span>
+</span><span id="line-56"></span><span id="newExecutionTimeFilter"><span class="annot"><span class="annottext">newExecutionTimeFilter :: UTCTime -&gt; ExecutionTimeFilter
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#newExecutionTimeFilter"><span class="hs-identifier hs-var hs-var">newExecutionTimeFilter</span></a></span></span><span> </span><span id="local-6989586621679345756"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679345756"><span class="hs-identifier hs-var">pOldestDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ExecutionTimeFilter' :: Maybe POSIX -&gt; POSIX -&gt; ExecutionTimeFilter
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latestDate:ExecutionTimeFilter' :: Maybe POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AlatestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var">latestDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:oldestDate:ExecutionTimeFilter' :: POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AoldestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var">oldestDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679345756"><span class="hs-identifier hs-var">pOldestDate_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Specifies the latest start or close date and time to return.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#executionTimeFilter_latestDate"><span class="hs-identifier hs-type">executionTimeFilter_latestDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="executionTimeFilter_latestDate"><span class="annot"><span class="annottext">executionTimeFilter_latestDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ExecutionTimeFilter -&gt; f ExecutionTimeFilter
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#executionTimeFilter_latestDate"><span class="hs-identifier hs-var hs-var">executionTimeFilter_latestDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionTimeFilter -&gt; Maybe POSIX)
+-&gt; (ExecutionTimeFilter -&gt; Maybe POSIX -&gt; ExecutionTimeFilter)
+-&gt; Lens
+     ExecutionTimeFilter ExecutionTimeFilter (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345750"><span class="annot"><span class="annottext">Maybe POSIX
+latestDate :: Maybe POSIX
+$sel:latestDate:ExecutionTimeFilter' :: ExecutionTimeFilter -&gt; Maybe POSIX
+</span><a href="#local-6989586621679345750"><span class="hs-identifier hs-var hs-var">latestDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345750"><span class="hs-identifier hs-var">latestDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345749"><span class="annot"><span class="annottext">s :: ExecutionTimeFilter
+</span><a href="#local-6989586621679345749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345748"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTimeFilter
+</span><a href="#local-6989586621679345749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestDate:ExecutionTimeFilter' :: Maybe POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AlatestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var">latestDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ExecutionTimeFilter -&gt; f ExecutionTimeFilter)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ExecutionTimeFilter
+-&gt; f ExecutionTimeFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Specifies the oldest start or close date and time to return.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#executionTimeFilter_oldestDate"><span class="hs-identifier hs-type">executionTimeFilter_oldestDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-68"></span><span id="executionTimeFilter_oldestDate"><span class="annot"><span class="annottext">executionTimeFilter_oldestDate :: (UTCTime -&gt; f UTCTime)
+-&gt; ExecutionTimeFilter -&gt; f ExecutionTimeFilter
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#executionTimeFilter_oldestDate"><span class="hs-identifier hs-var hs-var">executionTimeFilter_oldestDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionTimeFilter -&gt; POSIX)
+-&gt; (ExecutionTimeFilter -&gt; POSIX -&gt; ExecutionTimeFilter)
+-&gt; Lens ExecutionTimeFilter ExecutionTimeFilter POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345744"><span class="annot"><span class="annottext">POSIX
+oldestDate :: POSIX
+$sel:oldestDate:ExecutionTimeFilter' :: ExecutionTimeFilter -&gt; POSIX
+</span><a href="#local-6989586621679345744"><span class="hs-identifier hs-var hs-var">oldestDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679345744"><span class="hs-identifier hs-var">oldestDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345743"><span class="annot"><span class="annottext">s :: ExecutionTimeFilter
+</span><a href="#local-6989586621679345743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345742"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679345742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTimeFilter
+</span><a href="#local-6989586621679345743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oldestDate:ExecutionTimeFilter' :: POSIX
+</span><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#%24sel%3AoldestDate%3AExecutionTimeFilter%27"><span class="hs-identifier hs-var">oldestDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679345742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; ExecutionTimeFilter -&gt; f ExecutionTimeFilter)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ExecutionTimeFilter
+-&gt; f ExecutionTimeFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345738"><span id="local-6989586621679345740"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345727"><span id="local-6989586621679345729"><span id="local-6989586621679345731"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter"><span class="hs-identifier hs-type">ExecutionTimeFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679345725"><span class="annot"><span class="annottext">toJSON :: ExecutionTimeFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ExecutionTimeFilter.html#ExecutionTimeFilter%27"><span class="hs-identifier hs-type">ExecutionTimeFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345722"><span id="local-6989586621679345723"><span class="annot"><span class="annottext">Maybe POSIX
+POSIX
+oldestDate :: POSIX
+latestDate :: Maybe POSIX
+$sel:oldestDate:ExecutionTimeFilter' :: ExecutionTimeFilter -&gt; POSIX
+$sel:latestDate:ExecutionTimeFilter' :: ExecutionTimeFilter -&gt; Maybe POSIX
+</span><a href="#local-6989586621679345722"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345723"><span class="hs-identifier hs-var">latestDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;oldestDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679345722"><span class="hs-identifier hs-var">oldestDate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span></pre></body></html>

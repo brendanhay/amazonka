@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.TransformFilterCriteria</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.TransformFilterCriteria</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaColumn.html"><span class="hs-identifier">Network.AWS.Glue.Types.SchemaColumn</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformStatusType.html"><span class="hs-identifier">Network.AWS.Glue.Types.TransformStatusType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html"><span class="hs-identifier">Network.AWS.Glue.Types.TransformType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The criteria used to filter the machine learning transforms.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTransformFilterCriteria' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679701598"><span id="local-6989586621679701599"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformFilterCriteria"><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-var">TransformFilterCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformFilterCriteria%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-var">TransformFilterCriteria'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the list of machine learning transforms by the last known status</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- of the transforms (to indicate whether a transform can be used or not).</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- One of \&quot;NOT_READY\&quot;, \&quot;READY\&quot;, or \&quot;DELETING\&quot;.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe TransformStatusType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Astatus%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-type">TransformStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of machine learning transform that is used to filter the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- machine learning transforms.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtransformType%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe TransformType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AtransformType%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time and date after which the transforms were created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreatedAfter%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time and date before which the transforms were created.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreatedBefore%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Filters on datasets with a specific schema. The @Map\&lt;Column, Type&gt;@</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- object is an array of key-value pairs representing the schema this</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- transform accepts, where @Column@ is the name of a column, and @Type@ is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the type of the data such as an integer or string. Has an upper bound of</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- 100 columns.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aschema%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe [SchemaColumn]
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aschema%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaColumn.html#SchemaColumn"><span class="hs-identifier hs-type">SchemaColumn</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Filter on transforms last modified before this date.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AlastModifiedBefore%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">lastModifiedBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A unique transform name that is used to filter the machine learning</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- transforms.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aname%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Filter on transforms last modified after this date.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AlastModifiedAfter%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">lastModifiedAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | This value determines which version of Glue this machine learning</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- transform is compatible with. Glue 1.0 is recommended for most</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- customers. If the value is not set, the Glue compatibility defaults to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Glue 0.9. For more information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions&gt;</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AglueVersion%3ATransformFilterCriteria%27"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AglueVersion%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var hs-var">glueVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701584"><span id="local-6989586621679701586"><span class="annot"><span class="annottext">TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool
+(TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool)
+-&gt; (TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool)
+-&gt; Eq TransformFilterCriteria
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool
+$c/= :: TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool
+== :: TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool
+$c== :: TransformFilterCriteria -&gt; TransformFilterCriteria -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701575"><span id="local-6989586621679701577"><span id="local-6989586621679701579"><span id="local-6989586621679701581"><span class="annot"><span class="annottext">ReadPrec [TransformFilterCriteria]
+ReadPrec TransformFilterCriteria
+Int -&gt; ReadS TransformFilterCriteria
+ReadS [TransformFilterCriteria]
+(Int -&gt; ReadS TransformFilterCriteria)
+-&gt; ReadS [TransformFilterCriteria]
+-&gt; ReadPrec TransformFilterCriteria
+-&gt; ReadPrec [TransformFilterCriteria]
+-&gt; Read TransformFilterCriteria
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformFilterCriteria]
+$creadListPrec :: ReadPrec [TransformFilterCriteria]
+readPrec :: ReadPrec TransformFilterCriteria
+$creadPrec :: ReadPrec TransformFilterCriteria
+readList :: ReadS [TransformFilterCriteria]
+$creadList :: ReadS [TransformFilterCriteria]
+readsPrec :: Int -&gt; ReadS TransformFilterCriteria
+$creadsPrec :: Int -&gt; ReadS TransformFilterCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701568"><span id="local-6989586621679701570"><span id="local-6989586621679701572"><span class="annot"><span class="annottext">Int -&gt; TransformFilterCriteria -&gt; ShowS
+[TransformFilterCriteria] -&gt; ShowS
+TransformFilterCriteria -&gt; String
+(Int -&gt; TransformFilterCriteria -&gt; ShowS)
+-&gt; (TransformFilterCriteria -&gt; String)
+-&gt; ([TransformFilterCriteria] -&gt; ShowS)
+-&gt; Show TransformFilterCriteria
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformFilterCriteria] -&gt; ShowS
+$cshowList :: [TransformFilterCriteria] -&gt; ShowS
+show :: TransformFilterCriteria -&gt; String
+$cshow :: TransformFilterCriteria -&gt; String
+showsPrec :: Int -&gt; TransformFilterCriteria -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformFilterCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TransformFilterCriteria -&gt; Rep TransformFilterCriteria x)
+-&gt; (forall x.
+    Rep TransformFilterCriteria x -&gt; TransformFilterCriteria)
+-&gt; Generic TransformFilterCriteria
+forall x. Rep TransformFilterCriteria x -&gt; TransformFilterCriteria
+forall x. TransformFilterCriteria -&gt; Rep TransformFilterCriteria x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformFilterCriteria x -&gt; TransformFilterCriteria
+$cfrom :: forall x. TransformFilterCriteria -&gt; Rep TransformFilterCriteria x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'TransformFilterCriteria' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'status', 'transformFilterCriteria_status' - Filters the list of machine learning transforms by the last known status</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- of the transforms (to indicate whether a transform can be used or not).</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- One of \&quot;NOT_READY\&quot;, \&quot;READY\&quot;, or \&quot;DELETING\&quot;.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'transformType', 'transformFilterCriteria_transformType' - The type of machine learning transform that is used to filter the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- machine learning transforms.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'createdAfter', 'transformFilterCriteria_createdAfter' - The time and date after which the transforms were created.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'createdBefore', 'transformFilterCriteria_createdBefore' - The time and date before which the transforms were created.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'schema', 'transformFilterCriteria_schema' - Filters on datasets with a specific schema. The @Map\&lt;Column, Type&gt;@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- object is an array of key-value pairs representing the schema this</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- transform accepts, where @Column@ is the name of a column, and @Type@ is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the type of the data such as an integer or string. Has an upper bound of</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 100 columns.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'lastModifiedBefore', 'transformFilterCriteria_lastModifiedBefore' - Filter on transforms last modified before this date.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'name', 'transformFilterCriteria_name' - A unique transform name that is used to filter the machine learning</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- transforms.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'lastModifiedAfter', 'transformFilterCriteria_lastModifiedAfter' - Filter on transforms last modified after this date.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'glueVersion', 'transformFilterCriteria_glueVersion' - This value determines which version of Glue this machine learning</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- transform is compatible with. Glue 1.0 is recommended for most</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- customers. If the value is not set, the Glue compatibility defaults to</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Glue 0.9. For more information, see</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions&gt;</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#newTransformFilterCriteria"><span class="hs-identifier hs-type">newTransformFilterCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span>
+</span><span id="line-107"></span><span id="newTransformFilterCriteria"><span class="annot"><span class="annottext">newTransformFilterCriteria :: TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#newTransformFilterCriteria"><span class="hs-identifier hs-var hs-var">newTransformFilterCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">TransformFilterCriteria' :: Maybe TransformStatusType
+-&gt; Maybe TransformType
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe [SchemaColumn]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:TransformFilterCriteria' :: Maybe TransformStatusType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Astatus%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformType:TransformFilterCriteria' :: Maybe TransformType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AtransformType%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAfter:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:schema:TransformFilterCriteria' :: Maybe [SchemaColumn]
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aschema%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBefore:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">lastModifiedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:TransformFilterCriteria' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aname%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedAfter:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">lastModifiedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:glueVersion:TransformFilterCriteria' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AglueVersion%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">glueVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Filters the list of machine learning transforms by the last known status</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- of the transforms (to indicate whether a transform can be used or not).</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- One of \&quot;NOT_READY\&quot;, \&quot;READY\&quot;, or \&quot;DELETING\&quot;.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_status"><span class="hs-identifier hs-type">transformFilterCriteria_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformStatusType.html#TransformStatusType"><span class="hs-identifier hs-type">TransformStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="transformFilterCriteria_status"><span class="annot"><span class="annottext">transformFilterCriteria_status :: (Maybe TransformStatusType -&gt; f (Maybe TransformStatusType))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_status"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe TransformStatusType)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe TransformStatusType -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe TransformStatusType)
+     (Maybe TransformStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701559"><span class="annot"><span class="annottext">Maybe TransformStatusType
+status :: Maybe TransformStatusType
+$sel:status:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe TransformStatusType
+</span><a href="#local-6989586621679701559"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformStatusType
+</span><a href="#local-6989586621679701559"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701558"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701557"><span class="annot"><span class="annottext">Maybe TransformStatusType
+</span><a href="#local-6989586621679701557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TransformFilterCriteria' :: Maybe TransformStatusType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Astatus%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformStatusType
+</span><a href="#local-6989586621679701557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The type of machine learning transform that is used to filter the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- machine learning transforms.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_transformType"><span class="hs-identifier hs-type">transformFilterCriteria_transformType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="transformFilterCriteria_transformType"><span class="annot"><span class="annottext">transformFilterCriteria_transformType :: (Maybe TransformType -&gt; f (Maybe TransformType))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_transformType"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_transformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe TransformType)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe TransformType -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe TransformType)
+     (Maybe TransformType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701555"><span class="annot"><span class="annottext">Maybe TransformType
+transformType :: Maybe TransformType
+$sel:transformType:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe TransformType
+</span><a href="#local-6989586621679701555"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformType
+</span><a href="#local-6989586621679701555"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701554"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701553"><span class="annot"><span class="annottext">Maybe TransformType
+</span><a href="#local-6989586621679701553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformType:TransformFilterCriteria' :: Maybe TransformType
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AtransformType%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformType
+</span><a href="#local-6989586621679701553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The time and date after which the transforms were created.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_createdAfter"><span class="hs-identifier hs-type">transformFilterCriteria_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="transformFilterCriteria_createdAfter"><span class="annot"><span class="annottext">transformFilterCriteria_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_createdAfter"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe POSIX)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe POSIX -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701551"><span class="annot"><span class="annottext">Maybe POSIX
+createdAfter :: Maybe POSIX
+$sel:createdAfter:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="#local-6989586621679701551"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701551"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701550"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701549"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria
+-&gt; f TransformFilterCriteria
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The time and date before which the transforms were created.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_createdBefore"><span class="hs-identifier hs-type">transformFilterCriteria_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="transformFilterCriteria_createdBefore"><span class="annot"><span class="annottext">transformFilterCriteria_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_createdBefore"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe POSIX)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe POSIX -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701544"><span class="annot"><span class="annottext">Maybe POSIX
+createdBefore :: Maybe POSIX
+$sel:createdBefore:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="#local-6989586621679701544"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701544"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701543"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701542"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AcreatedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria
+-&gt; f TransformFilterCriteria
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Filters on datasets with a specific schema. The @Map\&lt;Column, Type&gt;@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- object is an array of key-value pairs representing the schema this</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- transform accepts, where @Column@ is the name of a column, and @Type@ is</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the type of the data such as an integer or string. Has an upper bound of</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 100 columns.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_schema"><span class="hs-identifier hs-type">transformFilterCriteria_schema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaColumn.html#SchemaColumn"><span class="hs-identifier hs-type">SchemaColumn</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="transformFilterCriteria_schema"><span class="annot"><span class="annottext">transformFilterCriteria_schema :: (Maybe [SchemaColumn] -&gt; f (Maybe [SchemaColumn]))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_schema"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_schema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe [SchemaColumn])
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe [SchemaColumn] -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe [SchemaColumn])
+     (Maybe [SchemaColumn])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701540"><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+schema :: Maybe [SchemaColumn]
+$sel:schema:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe [SchemaColumn]
+</span><a href="#local-6989586621679701540"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+</span><a href="#local-6989586621679701540"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701539"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701538"><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+</span><a href="#local-6989586621679701538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:TransformFilterCriteria' :: Maybe [SchemaColumn]
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aschema%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+</span><a href="#local-6989586621679701538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SchemaColumn] -&gt; f (Maybe [SchemaColumn]))
+ -&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria)
+-&gt; ((Maybe [SchemaColumn] -&gt; f (Maybe [SchemaColumn]))
+    -&gt; Maybe [SchemaColumn] -&gt; f (Maybe [SchemaColumn]))
+-&gt; (Maybe [SchemaColumn] -&gt; f (Maybe [SchemaColumn]))
+-&gt; TransformFilterCriteria
+-&gt; f TransformFilterCriteria
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SchemaColumn] [SchemaColumn] [SchemaColumn] [SchemaColumn]
+-&gt; Iso
+     (Maybe [SchemaColumn])
+     (Maybe [SchemaColumn])
+     (Maybe [SchemaColumn])
+     (Maybe [SchemaColumn])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SchemaColumn] [SchemaColumn] [SchemaColumn] [SchemaColumn]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Filter on transforms last modified before this date.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_lastModifiedBefore"><span class="hs-identifier hs-type">transformFilterCriteria_lastModifiedBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="transformFilterCriteria_lastModifiedBefore"><span class="annot"><span class="annottext">transformFilterCriteria_lastModifiedBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_lastModifiedBefore"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_lastModifiedBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe POSIX)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe POSIX -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701535"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedBefore :: Maybe POSIX
+$sel:lastModifiedBefore:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="#local-6989586621679701535"><span class="hs-identifier hs-var hs-var">lastModifiedBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701535"><span class="hs-identifier hs-var">lastModifiedBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701534"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701533"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBefore:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedBefore%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">lastModifiedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria
+-&gt; f TransformFilterCriteria
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A unique transform name that is used to filter the machine learning</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- transforms.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_name"><span class="hs-identifier hs-type">transformFilterCriteria_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="transformFilterCriteria_name"><span class="annot"><span class="annottext">transformFilterCriteria_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_name"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe Text)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe Text -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701531"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe Text
+</span><a href="#local-6989586621679701531"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701531"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701530"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TransformFilterCriteria' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3Aname%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Filter on transforms last modified after this date.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_lastModifiedAfter"><span class="hs-identifier hs-type">transformFilterCriteria_lastModifiedAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="transformFilterCriteria_lastModifiedAfter"><span class="annot"><span class="annottext">transformFilterCriteria_lastModifiedAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_lastModifiedAfter"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_lastModifiedAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe POSIX)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe POSIX -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701527"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedAfter :: Maybe POSIX
+$sel:lastModifiedAfter:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+</span><a href="#local-6989586621679701527"><span class="hs-identifier hs-var hs-var">lastModifiedAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701527"><span class="hs-identifier hs-var">lastModifiedAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701526"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701525"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedAfter:TransformFilterCriteria' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AlastModifiedAfter%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">lastModifiedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TransformFilterCriteria
+-&gt; f TransformFilterCriteria
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | This value determines which version of Glue this machine learning</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- transform is compatible with. Glue 1.0 is recommended for most</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- customers. If the value is not set, the Glue compatibility defaults to</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Glue 0.9. For more information, see</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions&gt;</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_glueVersion"><span class="hs-identifier hs-type">transformFilterCriteria_glueVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="transformFilterCriteria_glueVersion"><span class="annot"><span class="annottext">transformFilterCriteria_glueVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformFilterCriteria -&gt; f TransformFilterCriteria
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#transformFilterCriteria_glueVersion"><span class="hs-identifier hs-var hs-var">transformFilterCriteria_glueVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformFilterCriteria -&gt; Maybe Text)
+-&gt; (TransformFilterCriteria
+    -&gt; Maybe Text -&gt; TransformFilterCriteria)
+-&gt; Lens
+     TransformFilterCriteria
+     TransformFilterCriteria
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701523"><span class="annot"><span class="annottext">Maybe Text
+glueVersion :: Maybe Text
+$sel:glueVersion:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe Text
+</span><a href="#local-6989586621679701523"><span class="hs-identifier hs-var hs-var">glueVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701523"><span class="hs-identifier hs-var">glueVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701522"><span class="annot"><span class="annottext">s :: TransformFilterCriteria
+</span><a href="#local-6989586621679701522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformFilterCriteria
+</span><a href="#local-6989586621679701522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueVersion:TransformFilterCriteria' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#%24sel%3AglueVersion%3ATransformFilterCriteria%27"><span class="hs-identifier hs-var">glueVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701517"><span id="local-6989586621679701519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701506"><span id="local-6989586621679701508"><span id="local-6989586621679701510"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria"><span class="hs-identifier hs-type">TransformFilterCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679701504"><span class="annot"><span class="annottext">toJSON :: TransformFilterCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformFilterCriteria.html#TransformFilterCriteria%27"><span class="hs-identifier hs-type">TransformFilterCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701494"><span id="local-6989586621679701495"><span id="local-6989586621679701496"><span id="local-6989586621679701497"><span id="local-6989586621679701498"><span id="local-6989586621679701499"><span id="local-6989586621679701500"><span id="local-6989586621679701501"><span id="local-6989586621679701502"><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+Maybe Text
+Maybe POSIX
+Maybe TransformStatusType
+Maybe TransformType
+glueVersion :: Maybe Text
+lastModifiedAfter :: Maybe POSIX
+name :: Maybe Text
+lastModifiedBefore :: Maybe POSIX
+schema :: Maybe [SchemaColumn]
+createdBefore :: Maybe POSIX
+createdAfter :: Maybe POSIX
+transformType :: Maybe TransformType
+status :: Maybe TransformStatusType
+$sel:glueVersion:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe Text
+$sel:lastModifiedAfter:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+$sel:name:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe Text
+$sel:lastModifiedBefore:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+$sel:schema:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe [SchemaColumn]
+$sel:createdBefore:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+$sel:createdAfter:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe POSIX
+$sel:transformType:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe TransformType
+$sel:status:TransformFilterCriteria' :: TransformFilterCriteria -&gt; Maybe TransformStatusType
+</span><a href="#local-6989586621679701494"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformStatusType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TransformStatusType -&gt; Pair)
+-&gt; Maybe TransformStatusType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransformStatusType
+</span><a href="#local-6989586621679701502"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransformType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TransformType -&gt; Pair) -&gt; Maybe TransformType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransformType
+</span><a href="#local-6989586621679701501"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701500"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701499"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SchemaColumn] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SchemaColumn] -&gt; Pair) -&gt; Maybe [SchemaColumn] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaColumn]
+</span><a href="#local-6989586621679701498"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701497"><span class="hs-identifier hs-var">lastModifiedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701496"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679701495"><span class="hs-identifier hs-var">lastModifiedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlueVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701494"><span class="hs-identifier hs-var">glueVersion</span></a></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span></pre></body></html>

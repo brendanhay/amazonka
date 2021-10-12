@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.DeleteReusableDelegationSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a reusable delegation set.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can delete a reusable delegation set only if it isn\'t associated</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- with any hosted zones.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To verify that the reusable delegation set is not associated with any</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- hosted zones, submit a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html GetReusableDelegationSet&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- request and specify the ID of the reusable delegation set that you want</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.DeleteReusableDelegationSet</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSet"><span class="hs-identifier">newDeleteReusableDelegationSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSet_id"><span class="hs-identifier">deleteReusableDelegationSet_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier">DeleteReusableDelegationSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSetResponse"><span class="hs-identifier">newDeleteReusableDelegationSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSetResponse_httpStatus"><span class="hs-identifier">deleteReusableDelegationSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.html"><span class="hs-identifier">Network.AWS.Route53.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | A request to delete a reusable delegation set.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDeleteReusableDelegationSet' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679309005"><span id="local-6989586621679309006"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReusableDelegationSet"><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-var">DeleteReusableDelegationSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReusableDelegationSet%27"><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet%27"><span class="hs-identifier hs-var">DeleteReusableDelegationSet'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the reusable delegation set that you want to delete.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aid%3ADeleteReusableDelegationSet%27"><span class="annot"><span class="annottext">DeleteReusableDelegationSet -&gt; ResourceId
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3Aid%3ADeleteReusableDelegationSet%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308999"><span id="local-6989586621679309001"><span class="annot"><span class="annottext">DeleteReusableDelegationSet -&gt; DeleteReusableDelegationSet -&gt; Bool
+(DeleteReusableDelegationSet
+ -&gt; DeleteReusableDelegationSet -&gt; Bool)
+-&gt; (DeleteReusableDelegationSet
+    -&gt; DeleteReusableDelegationSet -&gt; Bool)
+-&gt; Eq DeleteReusableDelegationSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReusableDelegationSet -&gt; DeleteReusableDelegationSet -&gt; Bool
+$c/= :: DeleteReusableDelegationSet -&gt; DeleteReusableDelegationSet -&gt; Bool
+== :: DeleteReusableDelegationSet -&gt; DeleteReusableDelegationSet -&gt; Bool
+$c== :: DeleteReusableDelegationSet -&gt; DeleteReusableDelegationSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308990"><span id="local-6989586621679308992"><span id="local-6989586621679308994"><span id="local-6989586621679308996"><span class="annot"><span class="annottext">ReadPrec [DeleteReusableDelegationSet]
+ReadPrec DeleteReusableDelegationSet
+Int -&gt; ReadS DeleteReusableDelegationSet
+ReadS [DeleteReusableDelegationSet]
+(Int -&gt; ReadS DeleteReusableDelegationSet)
+-&gt; ReadS [DeleteReusableDelegationSet]
+-&gt; ReadPrec DeleteReusableDelegationSet
+-&gt; ReadPrec [DeleteReusableDelegationSet]
+-&gt; Read DeleteReusableDelegationSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReusableDelegationSet]
+$creadListPrec :: ReadPrec [DeleteReusableDelegationSet]
+readPrec :: ReadPrec DeleteReusableDelegationSet
+$creadPrec :: ReadPrec DeleteReusableDelegationSet
+readList :: ReadS [DeleteReusableDelegationSet]
+$creadList :: ReadS [DeleteReusableDelegationSet]
+readsPrec :: Int -&gt; ReadS DeleteReusableDelegationSet
+$creadsPrec :: Int -&gt; ReadS DeleteReusableDelegationSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308983"><span id="local-6989586621679308985"><span id="local-6989586621679308987"><span class="annot"><span class="annottext">Int -&gt; DeleteReusableDelegationSet -&gt; ShowS
+[DeleteReusableDelegationSet] -&gt; ShowS
+DeleteReusableDelegationSet -&gt; String
+(Int -&gt; DeleteReusableDelegationSet -&gt; ShowS)
+-&gt; (DeleteReusableDelegationSet -&gt; String)
+-&gt; ([DeleteReusableDelegationSet] -&gt; ShowS)
+-&gt; Show DeleteReusableDelegationSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReusableDelegationSet] -&gt; ShowS
+$cshowList :: [DeleteReusableDelegationSet] -&gt; ShowS
+show :: DeleteReusableDelegationSet -&gt; String
+$cshow :: DeleteReusableDelegationSet -&gt; String
+showsPrec :: Int -&gt; DeleteReusableDelegationSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReusableDelegationSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReusableDelegationSet -&gt; Rep DeleteReusableDelegationSet x)
+-&gt; (forall x.
+    Rep DeleteReusableDelegationSet x -&gt; DeleteReusableDelegationSet)
+-&gt; Generic DeleteReusableDelegationSet
+forall x.
+Rep DeleteReusableDelegationSet x -&gt; DeleteReusableDelegationSet
+forall x.
+DeleteReusableDelegationSet -&gt; Rep DeleteReusableDelegationSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReusableDelegationSet x -&gt; DeleteReusableDelegationSet
+$cfrom :: forall x.
+DeleteReusableDelegationSet -&gt; Rep DeleteReusableDelegationSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DeleteReusableDelegationSet' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'id', 'deleteReusableDelegationSet_id' - The ID of the reusable delegation set that you want to delete.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSet"><span class="hs-identifier hs-type">newDeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span>
+</span><span id="line-79"></span><span id="newDeleteReusableDelegationSet"><span class="annot"><span class="annottext">newDeleteReusableDelegationSet :: ResourceId -&gt; DeleteReusableDelegationSet
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSet"><span class="hs-identifier hs-var hs-var">newDeleteReusableDelegationSet</span></a></span></span><span> </span><span id="local-6989586621679308978"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308978"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteReusableDelegationSet' :: ResourceId -&gt; DeleteReusableDelegationSet
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteReusableDelegationSet' :: ResourceId
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3Aid%3ADeleteReusableDelegationSet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308978"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the reusable delegation set that you want to delete.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSet_id"><span class="hs-identifier hs-type">deleteReusableDelegationSet_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
+</span><span id="line-84"></span><span id="deleteReusableDelegationSet_id"><span class="annot"><span class="annottext">deleteReusableDelegationSet_id :: (ResourceId -&gt; f ResourceId)
+-&gt; DeleteReusableDelegationSet -&gt; f DeleteReusableDelegationSet
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSet_id"><span class="hs-identifier hs-var hs-var">deleteReusableDelegationSet_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReusableDelegationSet -&gt; ResourceId)
+-&gt; (DeleteReusableDelegationSet
+    -&gt; ResourceId -&gt; DeleteReusableDelegationSet)
+-&gt; Lens
+     DeleteReusableDelegationSet
+     DeleteReusableDelegationSet
+     ResourceId
+     ResourceId
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308975"><span class="annot"><span class="annottext">ResourceId
+id :: ResourceId
+$sel:id:DeleteReusableDelegationSet' :: DeleteReusableDelegationSet -&gt; ResourceId
+</span><a href="#local-6989586621679308975"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308975"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308974"><span class="annot"><span class="annottext">s :: DeleteReusableDelegationSet
+</span><a href="#local-6989586621679308974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308973"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReusableDelegationSet
+</span><a href="#local-6989586621679308974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteReusableDelegationSet' :: ResourceId
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3Aid%3ADeleteReusableDelegationSet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679308969"><span class="annot"><span class="annottext">request :: DeleteReusableDelegationSet -&gt; Request DeleteReusableDelegationSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteReusableDelegationSet
+-&gt; Request DeleteReusableDelegationSet
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679308965"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteReusableDelegationSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReusableDelegationSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteReusableDelegationSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteReusableDelegationSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReusableDelegationSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308961"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308960"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679308960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteReusableDelegationSetResponse
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-var">DeleteReusableDelegationSetResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteReusableDelegationSetResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteReusableDelegationSetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308953"><span id="local-6989586621679308955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679308946"><span class="annot"><span class="annottext">toHeaders :: DeleteReusableDelegationSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReusableDelegationSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679308941"><span class="annot"><span class="annottext">toPath :: DeleteReusableDelegationSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308939"><span class="annot"><span class="annottext">ResourceId
+id :: ResourceId
+$sel:id:DeleteReusableDelegationSet' :: DeleteReusableDelegationSet -&gt; ResourceId
+</span><a href="#local-6989586621679308939"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/delegationset/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679308939"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSet"><span class="hs-identifier hs-type">DeleteReusableDelegationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308935"><span class="annot"><span class="annottext">toQuery :: DeleteReusableDelegationSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteReusableDelegationSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | An empty element.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- /See:/ 'newDeleteReusableDelegationSetResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679308932"><span id="local-6989586621679308933"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReusableDelegationSetResponse"><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-var">DeleteReusableDelegationSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReusableDelegationSetResponse%27"><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-var">DeleteReusableDelegationSetResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReusableDelegationSetResponse%27"><span class="annot"><span class="annottext">DeleteReusableDelegationSetResponse -&gt; Int
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3AhttpStatus%3ADeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308927"><span id="local-6989586621679308929"><span class="annot"><span class="annottext">DeleteReusableDelegationSetResponse
+-&gt; DeleteReusableDelegationSetResponse -&gt; Bool
+(DeleteReusableDelegationSetResponse
+ -&gt; DeleteReusableDelegationSetResponse -&gt; Bool)
+-&gt; (DeleteReusableDelegationSetResponse
+    -&gt; DeleteReusableDelegationSetResponse -&gt; Bool)
+-&gt; Eq DeleteReusableDelegationSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReusableDelegationSetResponse
+-&gt; DeleteReusableDelegationSetResponse -&gt; Bool
+$c/= :: DeleteReusableDelegationSetResponse
+-&gt; DeleteReusableDelegationSetResponse -&gt; Bool
+== :: DeleteReusableDelegationSetResponse
+-&gt; DeleteReusableDelegationSetResponse -&gt; Bool
+$c== :: DeleteReusableDelegationSetResponse
+-&gt; DeleteReusableDelegationSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308919"><span id="local-6989586621679308921"><span id="local-6989586621679308923"><span id="local-6989586621679308925"><span class="annot"><span class="annottext">ReadPrec [DeleteReusableDelegationSetResponse]
+ReadPrec DeleteReusableDelegationSetResponse
+Int -&gt; ReadS DeleteReusableDelegationSetResponse
+ReadS [DeleteReusableDelegationSetResponse]
+(Int -&gt; ReadS DeleteReusableDelegationSetResponse)
+-&gt; ReadS [DeleteReusableDelegationSetResponse]
+-&gt; ReadPrec DeleteReusableDelegationSetResponse
+-&gt; ReadPrec [DeleteReusableDelegationSetResponse]
+-&gt; Read DeleteReusableDelegationSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReusableDelegationSetResponse]
+$creadListPrec :: ReadPrec [DeleteReusableDelegationSetResponse]
+readPrec :: ReadPrec DeleteReusableDelegationSetResponse
+$creadPrec :: ReadPrec DeleteReusableDelegationSetResponse
+readList :: ReadS [DeleteReusableDelegationSetResponse]
+$creadList :: ReadS [DeleteReusableDelegationSetResponse]
+readsPrec :: Int -&gt; ReadS DeleteReusableDelegationSetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteReusableDelegationSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308913"><span id="local-6989586621679308915"><span id="local-6989586621679308917"><span class="annot"><span class="annottext">Int -&gt; DeleteReusableDelegationSetResponse -&gt; ShowS
+[DeleteReusableDelegationSetResponse] -&gt; ShowS
+DeleteReusableDelegationSetResponse -&gt; String
+(Int -&gt; DeleteReusableDelegationSetResponse -&gt; ShowS)
+-&gt; (DeleteReusableDelegationSetResponse -&gt; String)
+-&gt; ([DeleteReusableDelegationSetResponse] -&gt; ShowS)
+-&gt; Show DeleteReusableDelegationSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReusableDelegationSetResponse] -&gt; ShowS
+$cshowList :: [DeleteReusableDelegationSetResponse] -&gt; ShowS
+show :: DeleteReusableDelegationSetResponse -&gt; String
+$cshow :: DeleteReusableDelegationSetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteReusableDelegationSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReusableDelegationSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReusableDelegationSetResponse
+ -&gt; Rep DeleteReusableDelegationSetResponse x)
+-&gt; (forall x.
+    Rep DeleteReusableDelegationSetResponse x
+    -&gt; DeleteReusableDelegationSetResponse)
+-&gt; Generic DeleteReusableDelegationSetResponse
+forall x.
+Rep DeleteReusableDelegationSetResponse x
+-&gt; DeleteReusableDelegationSetResponse
+forall x.
+DeleteReusableDelegationSetResponse
+-&gt; Rep DeleteReusableDelegationSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReusableDelegationSetResponse x
+-&gt; DeleteReusableDelegationSetResponse
+$cfrom :: forall x.
+DeleteReusableDelegationSetResponse
+-&gt; Rep DeleteReusableDelegationSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'DeleteReusableDelegationSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'httpStatus', 'deleteReusableDelegationSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">newDeleteReusableDelegationSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse</span></a></span><span>
+</span><span id="line-135"></span><span id="newDeleteReusableDelegationSetResponse"><span class="annot"><span class="annottext">newDeleteReusableDelegationSetResponse :: Int -&gt; DeleteReusableDelegationSetResponse
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#newDeleteReusableDelegationSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteReusableDelegationSetResponse</span></a></span></span><span> </span><span id="local-6989586621679308910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteReusableDelegationSetResponse' :: Int -&gt; DeleteReusableDelegationSetResponse
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReusableDelegationSetResponse' :: Int
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3AhttpStatus%3ADeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSetResponse_httpStatus"><span class="hs-identifier hs-type">deleteReusableDelegationSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span id="deleteReusableDelegationSetResponse_httpStatus"><span class="annot"><span class="annottext">deleteReusableDelegationSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteReusableDelegationSetResponse
+-&gt; f DeleteReusableDelegationSetResponse
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#deleteReusableDelegationSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteReusableDelegationSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReusableDelegationSetResponse -&gt; Int)
+-&gt; (DeleteReusableDelegationSetResponse
+    -&gt; Int -&gt; DeleteReusableDelegationSetResponse)
+-&gt; Lens
+     DeleteReusableDelegationSetResponse
+     DeleteReusableDelegationSetResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308909"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteReusableDelegationSetResponse' :: DeleteReusableDelegationSetResponse -&gt; Int
+</span><a href="#local-6989586621679308909"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308909"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308908"><span class="annot"><span class="annottext">s :: DeleteReusableDelegationSetResponse
+</span><a href="#local-6989586621679308908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReusableDelegationSetResponse
+</span><a href="#local-6989586621679308908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReusableDelegationSetResponse' :: Int
+</span><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#%24sel%3AhttpStatus%3ADeleteReusableDelegationSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679308905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.DeleteReusableDelegationSet.html#DeleteReusableDelegationSetResponse"><span class="hs-identifier hs-type">DeleteReusableDelegationSetResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

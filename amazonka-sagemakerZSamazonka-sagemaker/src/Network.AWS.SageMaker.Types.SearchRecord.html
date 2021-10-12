@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.SearchRecord</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.SearchRecord</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Endpoint.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.Endpoint</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Experiment.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.Experiment</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroup.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.FeatureGroup</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackage.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ModelPackage</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroup.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ModelPackageGroup</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Pipeline.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.Pipeline</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecution.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.PipelineExecution</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.Project</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.TrainingJob</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Trial.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.Trial</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponent.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.TrialComponent</span></a></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | A single resource returned as part of the Search API response.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newSearchRecord' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621680359403"><span id="local-6989586621680359404"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchRecord"><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-var">SearchRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchRecord%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-var">SearchRecord'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The properties of an experiment.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aexperiment%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe Experiment
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aexperiment%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">experiment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfeatureGroup%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe FeatureGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AfeatureGroup%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">featureGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmodelPackage%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe ModelPackage
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackage%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">modelPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackage.html#ModelPackage"><span class="hs-identifier hs-type">ModelPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The properties of a project.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aproject%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe Project
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aproject%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">project</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The properties of a training job.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtrainingJob%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe TrainingJob
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrainingJob%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html#TrainingJob"><span class="hs-identifier hs-type">TrainingJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aendpoint%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe Endpoint
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aendpoint%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApipelineExecution%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe PipelineExecution
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3ApipelineExecution%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">pipelineExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecution.html#PipelineExecution"><span class="hs-identifier hs-type">PipelineExecution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The properties of a trial component.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtrialComponent%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe TrialComponent
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrialComponent%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">trialComponent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponent.html#TrialComponent"><span class="hs-identifier hs-type">TrialComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The properties of a trial.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Atrial%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe Trial
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Atrial%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">trial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Trial.html#Trial"><span class="hs-identifier hs-type">Trial</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AmodelPackageGroup%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe ModelPackageGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackageGroup%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">modelPackageGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroup.html#ModelPackageGroup"><span class="hs-identifier hs-type">ModelPackageGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Apipeline%3ASearchRecord%27"><span class="annot"><span class="annottext">SearchRecord -&gt; Maybe Pipeline
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Apipeline%3ASearchRecord%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680359387"><span id="local-6989586621680359389"><span class="annot"><span class="annottext">SearchRecord -&gt; SearchRecord -&gt; Bool
+(SearchRecord -&gt; SearchRecord -&gt; Bool)
+-&gt; (SearchRecord -&gt; SearchRecord -&gt; Bool) -&gt; Eq SearchRecord
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchRecord -&gt; SearchRecord -&gt; Bool
+$c/= :: SearchRecord -&gt; SearchRecord -&gt; Bool
+== :: SearchRecord -&gt; SearchRecord -&gt; Bool
+$c== :: SearchRecord -&gt; SearchRecord -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359378"><span id="local-6989586621680359380"><span id="local-6989586621680359382"><span id="local-6989586621680359384"><span class="annot"><span class="annottext">ReadPrec [SearchRecord]
+ReadPrec SearchRecord
+Int -&gt; ReadS SearchRecord
+ReadS [SearchRecord]
+(Int -&gt; ReadS SearchRecord)
+-&gt; ReadS [SearchRecord]
+-&gt; ReadPrec SearchRecord
+-&gt; ReadPrec [SearchRecord]
+-&gt; Read SearchRecord
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchRecord]
+$creadListPrec :: ReadPrec [SearchRecord]
+readPrec :: ReadPrec SearchRecord
+$creadPrec :: ReadPrec SearchRecord
+readList :: ReadS [SearchRecord]
+$creadList :: ReadS [SearchRecord]
+readsPrec :: Int -&gt; ReadS SearchRecord
+$creadsPrec :: Int -&gt; ReadS SearchRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359371"><span id="local-6989586621680359373"><span id="local-6989586621680359375"><span class="annot"><span class="annottext">Int -&gt; SearchRecord -&gt; ShowS
+[SearchRecord] -&gt; ShowS
+SearchRecord -&gt; String
+(Int -&gt; SearchRecord -&gt; ShowS)
+-&gt; (SearchRecord -&gt; String)
+-&gt; ([SearchRecord] -&gt; ShowS)
+-&gt; Show SearchRecord
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchRecord] -&gt; ShowS
+$cshowList :: [SearchRecord] -&gt; ShowS
+show :: SearchRecord -&gt; String
+$cshow :: SearchRecord -&gt; String
+showsPrec :: Int -&gt; SearchRecord -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchRecord -&gt; Rep SearchRecord x)
+-&gt; (forall x. Rep SearchRecord x -&gt; SearchRecord)
+-&gt; Generic SearchRecord
+forall x. Rep SearchRecord x -&gt; SearchRecord
+forall x. SearchRecord -&gt; Rep SearchRecord x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchRecord x -&gt; SearchRecord
+$cfrom :: forall x. SearchRecord -&gt; Rep SearchRecord x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'SearchRecord' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'experiment', 'searchRecord_experiment' - The properties of an experiment.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'featureGroup', 'searchRecord_featureGroup' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'modelPackage', 'searchRecord_modelPackage' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'project', 'searchRecord_project' - The properties of a project.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'trainingJob', 'searchRecord_trainingJob' - The properties of a training job.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'endpoint', 'searchRecord_endpoint' - Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'pipelineExecution', 'searchRecord_pipelineExecution' - Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'trialComponent', 'searchRecord_trialComponent' - The properties of a trial component.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'trial', 'searchRecord_trial' - The properties of a trial.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'modelPackageGroup', 'searchRecord_modelPackageGroup' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'pipeline', 'searchRecord_pipeline' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#newSearchRecord"><span class="hs-identifier hs-type">newSearchRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span>
+</span><span id="line-91"></span><span id="newSearchRecord"><span class="annot"><span class="annottext">newSearchRecord :: SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#newSearchRecord"><span class="hs-identifier hs-var hs-var">newSearchRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">SearchRecord' :: Maybe Experiment
+-&gt; Maybe FeatureGroup
+-&gt; Maybe ModelPackage
+-&gt; Maybe Project
+-&gt; Maybe TrainingJob
+-&gt; Maybe Endpoint
+-&gt; Maybe PipelineExecution
+-&gt; Maybe TrialComponent
+-&gt; Maybe Trial
+-&gt; Maybe ModelPackageGroup
+-&gt; Maybe Pipeline
+-&gt; SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:experiment:SearchRecord' :: Maybe Experiment
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aexperiment%3ASearchRecord%27"><span class="hs-identifier hs-var">experiment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Experiment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureGroup:SearchRecord' :: Maybe FeatureGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AfeatureGroup%3ASearchRecord%27"><span class="hs-identifier hs-var">featureGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelPackage:SearchRecord' :: Maybe ModelPackage
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackage%3ASearchRecord%27"><span class="hs-identifier hs-var">modelPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:project:SearchRecord' :: Maybe Project
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aproject%3ASearchRecord%27"><span class="hs-identifier hs-var">project</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Project
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingJob:SearchRecord' :: Maybe TrainingJob
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrainingJob%3ASearchRecord%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:SearchRecord' :: Maybe Endpoint
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aendpoint%3ASearchRecord%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecution:SearchRecord' :: Maybe PipelineExecution
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3ApipelineExecution%3ASearchRecord%27"><span class="hs-identifier hs-var">pipelineExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecution
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialComponent:SearchRecord' :: Maybe TrialComponent
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrialComponent%3ASearchRecord%27"><span class="hs-identifier hs-var">trialComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrialComponent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:trial:SearchRecord' :: Maybe Trial
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Atrial%3ASearchRecord%27"><span class="hs-identifier hs-var">trial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Trial
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelPackageGroup:SearchRecord' :: Maybe ModelPackageGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackageGroup%3ASearchRecord%27"><span class="hs-identifier hs-var">modelPackageGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipeline:SearchRecord' :: Maybe Pipeline
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Apipeline%3ASearchRecord%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The properties of an experiment.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_experiment"><span class="hs-identifier hs-type">searchRecord_experiment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Experiment.html#Experiment"><span class="hs-identifier hs-type">Experiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="searchRecord_experiment"><span class="annot"><span class="annottext">searchRecord_experiment :: (Maybe Experiment -&gt; f (Maybe Experiment))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_experiment"><span class="hs-identifier hs-var hs-var">searchRecord_experiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe Experiment)
+-&gt; (SearchRecord -&gt; Maybe Experiment -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord SearchRecord (Maybe Experiment) (Maybe Experiment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359362"><span class="annot"><span class="annottext">Maybe Experiment
+experiment :: Maybe Experiment
+$sel:experiment:SearchRecord' :: SearchRecord -&gt; Maybe Experiment
+</span><a href="#local-6989586621680359362"><span class="hs-identifier hs-var hs-var">experiment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Experiment
+</span><a href="#local-6989586621680359362"><span class="hs-identifier hs-var">experiment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359361"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359360"><span class="annot"><span class="annottext">Maybe Experiment
+</span><a href="#local-6989586621680359360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experiment:SearchRecord' :: Maybe Experiment
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aexperiment%3ASearchRecord%27"><span class="hs-identifier hs-var">experiment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Experiment
+</span><a href="#local-6989586621680359360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_featureGroup"><span class="hs-identifier hs-type">searchRecord_featureGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroup.html#FeatureGroup"><span class="hs-identifier hs-type">FeatureGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="searchRecord_featureGroup"><span class="annot"><span class="annottext">searchRecord_featureGroup :: (Maybe FeatureGroup -&gt; f (Maybe FeatureGroup))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_featureGroup"><span class="hs-identifier hs-var hs-var">searchRecord_featureGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe FeatureGroup)
+-&gt; (SearchRecord -&gt; Maybe FeatureGroup -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord SearchRecord (Maybe FeatureGroup) (Maybe FeatureGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359358"><span class="annot"><span class="annottext">Maybe FeatureGroup
+featureGroup :: Maybe FeatureGroup
+$sel:featureGroup:SearchRecord' :: SearchRecord -&gt; Maybe FeatureGroup
+</span><a href="#local-6989586621680359358"><span class="hs-identifier hs-var hs-var">featureGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroup
+</span><a href="#local-6989586621680359358"><span class="hs-identifier hs-var">featureGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359357"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359356"><span class="annot"><span class="annottext">Maybe FeatureGroup
+</span><a href="#local-6989586621680359356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroup:SearchRecord' :: Maybe FeatureGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AfeatureGroup%3ASearchRecord%27"><span class="hs-identifier hs-var">featureGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureGroup
+</span><a href="#local-6989586621680359356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_modelPackage"><span class="hs-identifier hs-type">searchRecord_modelPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackage.html#ModelPackage"><span class="hs-identifier hs-type">ModelPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="searchRecord_modelPackage"><span class="annot"><span class="annottext">searchRecord_modelPackage :: (Maybe ModelPackage -&gt; f (Maybe ModelPackage))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_modelPackage"><span class="hs-identifier hs-var hs-var">searchRecord_modelPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe ModelPackage)
+-&gt; (SearchRecord -&gt; Maybe ModelPackage -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord SearchRecord (Maybe ModelPackage) (Maybe ModelPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359354"><span class="annot"><span class="annottext">Maybe ModelPackage
+modelPackage :: Maybe ModelPackage
+$sel:modelPackage:SearchRecord' :: SearchRecord -&gt; Maybe ModelPackage
+</span><a href="#local-6989586621680359354"><span class="hs-identifier hs-var hs-var">modelPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackage
+</span><a href="#local-6989586621680359354"><span class="hs-identifier hs-var">modelPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359353"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359352"><span class="annot"><span class="annottext">Maybe ModelPackage
+</span><a href="#local-6989586621680359352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackage:SearchRecord' :: Maybe ModelPackage
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackage%3ASearchRecord%27"><span class="hs-identifier hs-var">modelPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackage
+</span><a href="#local-6989586621680359352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The properties of a project.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_project"><span class="hs-identifier hs-type">searchRecord_project</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="searchRecord_project"><span class="annot"><span class="annottext">searchRecord_project :: (Maybe Project -&gt; f (Maybe Project))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_project"><span class="hs-identifier hs-var hs-var">searchRecord_project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe Project)
+-&gt; (SearchRecord -&gt; Maybe Project -&gt; SearchRecord)
+-&gt; Lens SearchRecord SearchRecord (Maybe Project) (Maybe Project)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359350"><span class="annot"><span class="annottext">Maybe Project
+project :: Maybe Project
+$sel:project:SearchRecord' :: SearchRecord -&gt; Maybe Project
+</span><a href="#local-6989586621680359350"><span class="hs-identifier hs-var hs-var">project</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Project
+</span><a href="#local-6989586621680359350"><span class="hs-identifier hs-var">project</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359349"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359348"><span class="annot"><span class="annottext">Maybe Project
+</span><a href="#local-6989586621680359348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:project:SearchRecord' :: Maybe Project
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aproject%3ASearchRecord%27"><span class="hs-identifier hs-var">project</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Project
+</span><a href="#local-6989586621680359348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The properties of a training job.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trainingJob"><span class="hs-identifier hs-type">searchRecord_trainingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html#TrainingJob"><span class="hs-identifier hs-type">TrainingJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="searchRecord_trainingJob"><span class="annot"><span class="annottext">searchRecord_trainingJob :: (Maybe TrainingJob -&gt; f (Maybe TrainingJob))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trainingJob"><span class="hs-identifier hs-var hs-var">searchRecord_trainingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe TrainingJob)
+-&gt; (SearchRecord -&gt; Maybe TrainingJob -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord SearchRecord (Maybe TrainingJob) (Maybe TrainingJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359346"><span class="annot"><span class="annottext">Maybe TrainingJob
+trainingJob :: Maybe TrainingJob
+$sel:trainingJob:SearchRecord' :: SearchRecord -&gt; Maybe TrainingJob
+</span><a href="#local-6989586621680359346"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><a href="#local-6989586621680359346"><span class="hs-identifier hs-var">trainingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359345"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359344"><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><a href="#local-6989586621680359344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJob:SearchRecord' :: Maybe TrainingJob
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrainingJob%3ASearchRecord%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><a href="#local-6989586621680359344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_endpoint"><span class="hs-identifier hs-type">searchRecord_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="searchRecord_endpoint"><span class="annot"><span class="annottext">searchRecord_endpoint :: (Maybe Endpoint -&gt; f (Maybe Endpoint))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_endpoint"><span class="hs-identifier hs-var hs-var">searchRecord_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe Endpoint)
+-&gt; (SearchRecord -&gt; Maybe Endpoint -&gt; SearchRecord)
+-&gt; Lens SearchRecord SearchRecord (Maybe Endpoint) (Maybe Endpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359342"><span class="annot"><span class="annottext">Maybe Endpoint
+endpoint :: Maybe Endpoint
+$sel:endpoint:SearchRecord' :: SearchRecord -&gt; Maybe Endpoint
+</span><a href="#local-6989586621680359342"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621680359342"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359341"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359340"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621680359340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:SearchRecord' :: Maybe Endpoint
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Aendpoint%3ASearchRecord%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621680359340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_pipelineExecution"><span class="hs-identifier hs-type">searchRecord_pipelineExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecution.html#PipelineExecution"><span class="hs-identifier hs-type">PipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="searchRecord_pipelineExecution"><span class="annot"><span class="annottext">searchRecord_pipelineExecution :: (Maybe PipelineExecution -&gt; f (Maybe PipelineExecution))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_pipelineExecution"><span class="hs-identifier hs-var hs-var">searchRecord_pipelineExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe PipelineExecution)
+-&gt; (SearchRecord -&gt; Maybe PipelineExecution -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord
+     SearchRecord
+     (Maybe PipelineExecution)
+     (Maybe PipelineExecution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359338"><span class="annot"><span class="annottext">Maybe PipelineExecution
+pipelineExecution :: Maybe PipelineExecution
+$sel:pipelineExecution:SearchRecord' :: SearchRecord -&gt; Maybe PipelineExecution
+</span><a href="#local-6989586621680359338"><span class="hs-identifier hs-var hs-var">pipelineExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecution
+</span><a href="#local-6989586621680359338"><span class="hs-identifier hs-var">pipelineExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359337"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359336"><span class="annot"><span class="annottext">Maybe PipelineExecution
+</span><a href="#local-6989586621680359336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecution:SearchRecord' :: Maybe PipelineExecution
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3ApipelineExecution%3ASearchRecord%27"><span class="hs-identifier hs-var">pipelineExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecution
+</span><a href="#local-6989586621680359336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The properties of a trial component.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trialComponent"><span class="hs-identifier hs-type">searchRecord_trialComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponent.html#TrialComponent"><span class="hs-identifier hs-type">TrialComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="searchRecord_trialComponent"><span class="annot"><span class="annottext">searchRecord_trialComponent :: (Maybe TrialComponent -&gt; f (Maybe TrialComponent))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trialComponent"><span class="hs-identifier hs-var hs-var">searchRecord_trialComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe TrialComponent)
+-&gt; (SearchRecord -&gt; Maybe TrialComponent -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord
+     SearchRecord
+     (Maybe TrialComponent)
+     (Maybe TrialComponent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359334"><span class="annot"><span class="annottext">Maybe TrialComponent
+trialComponent :: Maybe TrialComponent
+$sel:trialComponent:SearchRecord' :: SearchRecord -&gt; Maybe TrialComponent
+</span><a href="#local-6989586621680359334"><span class="hs-identifier hs-var hs-var">trialComponent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrialComponent
+</span><a href="#local-6989586621680359334"><span class="hs-identifier hs-var">trialComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359333"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359332"><span class="annot"><span class="annottext">Maybe TrialComponent
+</span><a href="#local-6989586621680359332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialComponent:SearchRecord' :: Maybe TrialComponent
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AtrialComponent%3ASearchRecord%27"><span class="hs-identifier hs-var">trialComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrialComponent
+</span><a href="#local-6989586621680359332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The properties of a trial.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trial"><span class="hs-identifier hs-type">searchRecord_trial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Trial.html#Trial"><span class="hs-identifier hs-type">Trial</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="searchRecord_trial"><span class="annot"><span class="annottext">searchRecord_trial :: (Maybe Trial -&gt; f (Maybe Trial)) -&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_trial"><span class="hs-identifier hs-var hs-var">searchRecord_trial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe Trial)
+-&gt; (SearchRecord -&gt; Maybe Trial -&gt; SearchRecord)
+-&gt; Lens SearchRecord SearchRecord (Maybe Trial) (Maybe Trial)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359330"><span class="annot"><span class="annottext">Maybe Trial
+trial :: Maybe Trial
+$sel:trial:SearchRecord' :: SearchRecord -&gt; Maybe Trial
+</span><a href="#local-6989586621680359330"><span class="hs-identifier hs-var hs-var">trial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trial
+</span><a href="#local-6989586621680359330"><span class="hs-identifier hs-var">trial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359329"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359328"><span class="annot"><span class="annottext">Maybe Trial
+</span><a href="#local-6989586621680359328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trial:SearchRecord' :: Maybe Trial
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Atrial%3ASearchRecord%27"><span class="hs-identifier hs-var">trial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Trial
+</span><a href="#local-6989586621680359328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_modelPackageGroup"><span class="hs-identifier hs-type">searchRecord_modelPackageGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroup.html#ModelPackageGroup"><span class="hs-identifier hs-type">ModelPackageGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="searchRecord_modelPackageGroup"><span class="annot"><span class="annottext">searchRecord_modelPackageGroup :: (Maybe ModelPackageGroup -&gt; f (Maybe ModelPackageGroup))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_modelPackageGroup"><span class="hs-identifier hs-var hs-var">searchRecord_modelPackageGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe ModelPackageGroup)
+-&gt; (SearchRecord -&gt; Maybe ModelPackageGroup -&gt; SearchRecord)
+-&gt; Lens
+     SearchRecord
+     SearchRecord
+     (Maybe ModelPackageGroup)
+     (Maybe ModelPackageGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359326"><span class="annot"><span class="annottext">Maybe ModelPackageGroup
+modelPackageGroup :: Maybe ModelPackageGroup
+$sel:modelPackageGroup:SearchRecord' :: SearchRecord -&gt; Maybe ModelPackageGroup
+</span><a href="#local-6989586621680359326"><span class="hs-identifier hs-var hs-var">modelPackageGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageGroup
+</span><a href="#local-6989586621680359326"><span class="hs-identifier hs-var">modelPackageGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359325"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359324"><span class="annot"><span class="annottext">Maybe ModelPackageGroup
+</span><a href="#local-6989586621680359324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroup:SearchRecord' :: Maybe ModelPackageGroup
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3AmodelPackageGroup%3ASearchRecord%27"><span class="hs-identifier hs-var">modelPackageGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelPackageGroup
+</span><a href="#local-6989586621680359324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_pipeline"><span class="hs-identifier hs-type">searchRecord_pipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="searchRecord_pipeline"><span class="annot"><span class="annottext">searchRecord_pipeline :: (Maybe Pipeline -&gt; f (Maybe Pipeline))
+-&gt; SearchRecord -&gt; f SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#searchRecord_pipeline"><span class="hs-identifier hs-var hs-var">searchRecord_pipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchRecord -&gt; Maybe Pipeline)
+-&gt; (SearchRecord -&gt; Maybe Pipeline -&gt; SearchRecord)
+-&gt; Lens SearchRecord SearchRecord (Maybe Pipeline) (Maybe Pipeline)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359322"><span class="annot"><span class="annottext">Maybe Pipeline
+pipeline :: Maybe Pipeline
+$sel:pipeline:SearchRecord' :: SearchRecord -&gt; Maybe Pipeline
+</span><a href="#local-6989586621680359322"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621680359322"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359321"><span class="annot"><span class="annottext">s :: SearchRecord
+</span><a href="#local-6989586621680359321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-type">SearchRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359320"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621680359320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchRecord
+</span><a href="#local-6989586621680359321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:SearchRecord' :: Maybe Pipeline
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#%24sel%3Apipeline%3ASearchRecord%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621680359320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621680359315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SearchRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SearchRecord) -&gt; Value -&gt; Parser SearchRecord
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SearchRecord&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680359312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Experiment
+-&gt; Maybe FeatureGroup
+-&gt; Maybe ModelPackage
+-&gt; Maybe Project
+-&gt; Maybe TrainingJob
+-&gt; Maybe Endpoint
+-&gt; Maybe PipelineExecution
+-&gt; Maybe TrialComponent
+-&gt; Maybe Trial
+-&gt; Maybe ModelPackageGroup
+-&gt; Maybe Pipeline
+-&gt; SearchRecord
+</span><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord%27"><span class="hs-identifier hs-var">SearchRecord'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Experiment
+ -&gt; Maybe FeatureGroup
+ -&gt; Maybe ModelPackage
+ -&gt; Maybe Project
+ -&gt; Maybe TrainingJob
+ -&gt; Maybe Endpoint
+ -&gt; Maybe PipelineExecution
+ -&gt; Maybe TrialComponent
+ -&gt; Maybe Trial
+ -&gt; Maybe ModelPackageGroup
+ -&gt; Maybe Pipeline
+ -&gt; SearchRecord)
+-&gt; Parser (Maybe Experiment)
+-&gt; Parser
+     (Maybe FeatureGroup
+      -&gt; Maybe ModelPackage
+      -&gt; Maybe Project
+      -&gt; Maybe TrainingJob
+      -&gt; Maybe Endpoint
+      -&gt; Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Experiment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Experiment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FeatureGroup
+   -&gt; Maybe ModelPackage
+   -&gt; Maybe Project
+   -&gt; Maybe TrainingJob
+   -&gt; Maybe Endpoint
+   -&gt; Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe FeatureGroup)
+-&gt; Parser
+     (Maybe ModelPackage
+      -&gt; Maybe Project
+      -&gt; Maybe TrainingJob
+      -&gt; Maybe Endpoint
+      -&gt; Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FeatureGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ModelPackage
+   -&gt; Maybe Project
+   -&gt; Maybe TrainingJob
+   -&gt; Maybe Endpoint
+   -&gt; Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe ModelPackage)
+-&gt; Parser
+     (Maybe Project
+      -&gt; Maybe TrainingJob
+      -&gt; Maybe Endpoint
+      -&gt; Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Project
+   -&gt; Maybe TrainingJob
+   -&gt; Maybe Endpoint
+   -&gt; Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe Project)
+-&gt; Parser
+     (Maybe TrainingJob
+      -&gt; Maybe Endpoint
+      -&gt; Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Project)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Project&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrainingJob
+   -&gt; Maybe Endpoint
+   -&gt; Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe TrainingJob)
+-&gt; Parser
+     (Maybe Endpoint
+      -&gt; Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrainingJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Endpoint
+   -&gt; Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe Endpoint)
+-&gt; Parser
+     (Maybe PipelineExecution
+      -&gt; Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Endpoint)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PipelineExecution
+   -&gt; Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe PipelineExecution)
+-&gt; Parser
+     (Maybe TrialComponent
+      -&gt; Maybe Trial
+      -&gt; Maybe ModelPackageGroup
+      -&gt; Maybe Pipeline
+      -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PipelineExecution)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineExecution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrialComponent
+   -&gt; Maybe Trial
+   -&gt; Maybe ModelPackageGroup
+   -&gt; Maybe Pipeline
+   -&gt; SearchRecord)
+-&gt; Parser (Maybe TrialComponent)
+-&gt; Parser
+     (Maybe Trial
+      -&gt; Maybe ModelPackageGroup -&gt; Maybe Pipeline -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrialComponent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialComponent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Trial
+   -&gt; Maybe ModelPackageGroup -&gt; Maybe Pipeline -&gt; SearchRecord)
+-&gt; Parser (Maybe Trial)
+-&gt; Parser
+     (Maybe ModelPackageGroup -&gt; Maybe Pipeline -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Trial)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Trial&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ModelPackageGroup -&gt; Maybe Pipeline -&gt; SearchRecord)
+-&gt; Parser (Maybe ModelPackageGroup)
+-&gt; Parser (Maybe Pipeline -&gt; SearchRecord)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelPackageGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Pipeline -&gt; SearchRecord)
+-&gt; Parser (Maybe Pipeline) -&gt; Parser SearchRecord
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Pipeline)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pipeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359306"><span id="local-6989586621680359308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

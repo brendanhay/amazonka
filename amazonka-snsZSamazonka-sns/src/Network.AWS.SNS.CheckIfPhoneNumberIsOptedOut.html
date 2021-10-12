@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Accepts a phone number and indicates whether the phone holder has opted</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- out of receiving SMS messages from your account. You cannot send SMS</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- messages to a number that is opted out.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To resume sending messages, you can opt in the number by using the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @OptInPhoneNumber@ action.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOut"><span class="hs-identifier">newCheckIfPhoneNumberIsOptedOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOut_phoneNumber"><span class="hs-identifier">checkIfPhoneNumberIsOptedOut_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier">newCheckIfPhoneNumberIsOptedOutResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_isOptedOut"><span class="hs-identifier">checkIfPhoneNumberIsOptedOutResponse_isOptedOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_httpStatus"><span class="hs-identifier">checkIfPhoneNumberIsOptedOutResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.html"><span class="hs-identifier">Network.AWS.SNS.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | The input for the @CheckIfPhoneNumberIsOptedOut@ action.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newCheckIfPhoneNumberIsOptedOut' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679199964"><span id="local-6989586621679199965"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckIfPhoneNumberIsOptedOut"><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-var">CheckIfPhoneNumberIsOptedOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckIfPhoneNumberIsOptedOut%27"><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-var">CheckIfPhoneNumberIsOptedOut'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number for which you want to check the opt out status.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AphoneNumber%3ACheckIfPhoneNumberIsOptedOut%27"><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOut -&gt; Text
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AphoneNumber%3ACheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199958"><span id="local-6989586621679199960"><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOut
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool
+(CheckIfPhoneNumberIsOptedOut
+ -&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool)
+-&gt; (CheckIfPhoneNumberIsOptedOut
+    -&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool)
+-&gt; Eq CheckIfPhoneNumberIsOptedOut
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckIfPhoneNumberIsOptedOut
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool
+$c/= :: CheckIfPhoneNumberIsOptedOut
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool
+== :: CheckIfPhoneNumberIsOptedOut
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool
+$c== :: CheckIfPhoneNumberIsOptedOut
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199949"><span id="local-6989586621679199951"><span id="local-6989586621679199953"><span id="local-6989586621679199955"><span class="annot"><span class="annottext">ReadPrec [CheckIfPhoneNumberIsOptedOut]
+ReadPrec CheckIfPhoneNumberIsOptedOut
+Int -&gt; ReadS CheckIfPhoneNumberIsOptedOut
+ReadS [CheckIfPhoneNumberIsOptedOut]
+(Int -&gt; ReadS CheckIfPhoneNumberIsOptedOut)
+-&gt; ReadS [CheckIfPhoneNumberIsOptedOut]
+-&gt; ReadPrec CheckIfPhoneNumberIsOptedOut
+-&gt; ReadPrec [CheckIfPhoneNumberIsOptedOut]
+-&gt; Read CheckIfPhoneNumberIsOptedOut
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckIfPhoneNumberIsOptedOut]
+$creadListPrec :: ReadPrec [CheckIfPhoneNumberIsOptedOut]
+readPrec :: ReadPrec CheckIfPhoneNumberIsOptedOut
+$creadPrec :: ReadPrec CheckIfPhoneNumberIsOptedOut
+readList :: ReadS [CheckIfPhoneNumberIsOptedOut]
+$creadList :: ReadS [CheckIfPhoneNumberIsOptedOut]
+readsPrec :: Int -&gt; ReadS CheckIfPhoneNumberIsOptedOut
+$creadsPrec :: Int -&gt; ReadS CheckIfPhoneNumberIsOptedOut
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199942"><span id="local-6989586621679199944"><span id="local-6989586621679199946"><span class="annot"><span class="annottext">Int -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ShowS
+[CheckIfPhoneNumberIsOptedOut] -&gt; ShowS
+CheckIfPhoneNumberIsOptedOut -&gt; String
+(Int -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ShowS)
+-&gt; (CheckIfPhoneNumberIsOptedOut -&gt; String)
+-&gt; ([CheckIfPhoneNumberIsOptedOut] -&gt; ShowS)
+-&gt; Show CheckIfPhoneNumberIsOptedOut
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckIfPhoneNumberIsOptedOut] -&gt; ShowS
+$cshowList :: [CheckIfPhoneNumberIsOptedOut] -&gt; ShowS
+show :: CheckIfPhoneNumberIsOptedOut -&gt; String
+$cshow :: CheckIfPhoneNumberIsOptedOut -&gt; String
+showsPrec :: Int -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CheckIfPhoneNumberIsOptedOut -&gt; Rep CheckIfPhoneNumberIsOptedOut x)
+-&gt; (forall x.
+    Rep CheckIfPhoneNumberIsOptedOut x -&gt; CheckIfPhoneNumberIsOptedOut)
+-&gt; Generic CheckIfPhoneNumberIsOptedOut
+forall x.
+Rep CheckIfPhoneNumberIsOptedOut x -&gt; CheckIfPhoneNumberIsOptedOut
+forall x.
+CheckIfPhoneNumberIsOptedOut -&gt; Rep CheckIfPhoneNumberIsOptedOut x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CheckIfPhoneNumberIsOptedOut x -&gt; CheckIfPhoneNumberIsOptedOut
+$cfrom :: forall x.
+CheckIfPhoneNumberIsOptedOut -&gt; Rep CheckIfPhoneNumberIsOptedOut x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'CheckIfPhoneNumberIsOptedOut' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'phoneNumber', 'checkIfPhoneNumberIsOptedOut_phoneNumber' - The phone number for which you want to check the opt out status.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">newCheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'phoneNumber'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span>
+</span><span id="line-76"></span><span id="newCheckIfPhoneNumberIsOptedOut"><span class="annot"><span class="annottext">newCheckIfPhoneNumberIsOptedOut :: Text -&gt; CheckIfPhoneNumberIsOptedOut
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-var hs-var">newCheckIfPhoneNumberIsOptedOut</span></a></span></span><span> </span><span id="local-6989586621679199937"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199937"><span class="hs-identifier hs-var">pPhoneNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOut' :: Text -&gt; CheckIfPhoneNumberIsOptedOut
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:CheckIfPhoneNumberIsOptedOut' :: Text
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AphoneNumber%3ACheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199937"><span class="hs-identifier hs-var">pPhoneNumber_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The phone number for which you want to check the opt out status.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOut_phoneNumber"><span class="hs-identifier hs-type">checkIfPhoneNumberIsOptedOut_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="checkIfPhoneNumberIsOptedOut_phoneNumber"><span class="annot"><span class="annottext">checkIfPhoneNumberIsOptedOut_phoneNumber :: (Text -&gt; f Text)
+-&gt; CheckIfPhoneNumberIsOptedOut -&gt; f CheckIfPhoneNumberIsOptedOut
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOut_phoneNumber"><span class="hs-identifier hs-var hs-var">checkIfPhoneNumberIsOptedOut_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckIfPhoneNumberIsOptedOut -&gt; Text)
+-&gt; (CheckIfPhoneNumberIsOptedOut
+    -&gt; Text -&gt; CheckIfPhoneNumberIsOptedOut)
+-&gt; Lens
+     CheckIfPhoneNumberIsOptedOut CheckIfPhoneNumberIsOptedOut Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199934"><span class="annot"><span class="annottext">Text
+phoneNumber :: Text
+$sel:phoneNumber:CheckIfPhoneNumberIsOptedOut' :: CheckIfPhoneNumberIsOptedOut -&gt; Text
+</span><a href="#local-6989586621679199934"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199934"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199933"><span class="annot"><span class="annottext">s :: CheckIfPhoneNumberIsOptedOut
+</span><a href="#local-6989586621679199933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOut
+</span><a href="#local-6989586621679199933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:CheckIfPhoneNumberIsOptedOut' :: Text
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AphoneNumber%3ACheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679199928"><span class="annot"><span class="annottext">request :: CheckIfPhoneNumberIsOptedOut
+-&gt; Request CheckIfPhoneNumberIsOptedOut
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CheckIfPhoneNumberIsOptedOut
+-&gt; Request CheckIfPhoneNumberIsOptedOut
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679199924"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CheckIfPhoneNumberIsOptedOut
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CheckIfPhoneNumberIsOptedOut)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CheckIfPhoneNumberIsOptedOut))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CheckIfPhoneNumberIsOptedOut
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CheckIfPhoneNumberIsOptedOut)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckIfPhoneNumberIsOptedOutResult&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199921"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199921"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199920"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679199920"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199919"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679199919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679199919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isOptedOut&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; Either String Int
+-&gt; Either String CheckIfPhoneNumberIsOptedOutResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199921"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679199911"><span id="local-6989586621679199913"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679199904"><span class="annot"><span class="annottext">toHeaders :: CheckIfPhoneNumberIsOptedOut -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679199899"><span class="annot"><span class="annottext">toPath :: CheckIfPhoneNumberIsOptedOut -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CheckIfPhoneNumberIsOptedOut -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679199895"><span class="annot"><span class="annottext">toQuery :: CheckIfPhoneNumberIsOptedOut -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOut%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199893"><span class="annot"><span class="annottext">Text
+phoneNumber :: Text
+$sel:phoneNumber:CheckIfPhoneNumberIsOptedOut' :: CheckIfPhoneNumberIsOptedOut -&gt; Text
+</span><a href="#local-6989586621679199893"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CheckIfPhoneNumberIsOptedOut&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;phoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The response from the @CheckIfPhoneNumberIsOptedOut@ action.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- /See:/ 'newCheckIfPhoneNumberIsOptedOutResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679199890"><span id="local-6989586621679199891"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckIfPhoneNumberIsOptedOutResponse"><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-var">CheckIfPhoneNumberIsOptedOutResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckIfPhoneNumberIsOptedOutResponse%27"><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the phone number is opted out:</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   @true@ &#8211; The phone number is opted out, meaning you cannot publish</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     SMS messages to it.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   @false@ &#8211; The phone number is opted in, meaning you can publish SMS</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     messages to it.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AisOptedOut%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AisOptedOut%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var hs-var">isOptedOut</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse -&gt; Int
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AhttpStatus%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199884"><span id="local-6989586621679199886"><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse
+-&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool
+(CheckIfPhoneNumberIsOptedOutResponse
+ -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool)
+-&gt; (CheckIfPhoneNumberIsOptedOutResponse
+    -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool)
+-&gt; Eq CheckIfPhoneNumberIsOptedOutResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckIfPhoneNumberIsOptedOutResponse
+-&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool
+$c/= :: CheckIfPhoneNumberIsOptedOutResponse
+-&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool
+== :: CheckIfPhoneNumberIsOptedOutResponse
+-&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool
+$c== :: CheckIfPhoneNumberIsOptedOutResponse
+-&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199876"><span id="local-6989586621679199878"><span id="local-6989586621679199880"><span id="local-6989586621679199882"><span class="annot"><span class="annottext">ReadPrec [CheckIfPhoneNumberIsOptedOutResponse]
+ReadPrec CheckIfPhoneNumberIsOptedOutResponse
+Int -&gt; ReadS CheckIfPhoneNumberIsOptedOutResponse
+ReadS [CheckIfPhoneNumberIsOptedOutResponse]
+(Int -&gt; ReadS CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; ReadS [CheckIfPhoneNumberIsOptedOutResponse]
+-&gt; ReadPrec CheckIfPhoneNumberIsOptedOutResponse
+-&gt; ReadPrec [CheckIfPhoneNumberIsOptedOutResponse]
+-&gt; Read CheckIfPhoneNumberIsOptedOutResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckIfPhoneNumberIsOptedOutResponse]
+$creadListPrec :: ReadPrec [CheckIfPhoneNumberIsOptedOutResponse]
+readPrec :: ReadPrec CheckIfPhoneNumberIsOptedOutResponse
+$creadPrec :: ReadPrec CheckIfPhoneNumberIsOptedOutResponse
+readList :: ReadS [CheckIfPhoneNumberIsOptedOutResponse]
+$creadList :: ReadS [CheckIfPhoneNumberIsOptedOutResponse]
+readsPrec :: Int -&gt; ReadS CheckIfPhoneNumberIsOptedOutResponse
+$creadsPrec :: Int -&gt; ReadS CheckIfPhoneNumberIsOptedOutResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199870"><span id="local-6989586621679199872"><span id="local-6989586621679199874"><span class="annot"><span class="annottext">Int -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; ShowS
+[CheckIfPhoneNumberIsOptedOutResponse] -&gt; ShowS
+CheckIfPhoneNumberIsOptedOutResponse -&gt; String
+(Int -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; ShowS)
+-&gt; (CheckIfPhoneNumberIsOptedOutResponse -&gt; String)
+-&gt; ([CheckIfPhoneNumberIsOptedOutResponse] -&gt; ShowS)
+-&gt; Show CheckIfPhoneNumberIsOptedOutResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckIfPhoneNumberIsOptedOutResponse] -&gt; ShowS
+$cshowList :: [CheckIfPhoneNumberIsOptedOutResponse] -&gt; ShowS
+show :: CheckIfPhoneNumberIsOptedOutResponse -&gt; String
+$cshow :: CheckIfPhoneNumberIsOptedOutResponse -&gt; String
+showsPrec :: Int -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckIfPhoneNumberIsOptedOutResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CheckIfPhoneNumberIsOptedOutResponse
+ -&gt; Rep CheckIfPhoneNumberIsOptedOutResponse x)
+-&gt; (forall x.
+    Rep CheckIfPhoneNumberIsOptedOutResponse x
+    -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; Generic CheckIfPhoneNumberIsOptedOutResponse
+forall x.
+Rep CheckIfPhoneNumberIsOptedOutResponse x
+-&gt; CheckIfPhoneNumberIsOptedOutResponse
+forall x.
+CheckIfPhoneNumberIsOptedOutResponse
+-&gt; Rep CheckIfPhoneNumberIsOptedOutResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CheckIfPhoneNumberIsOptedOutResponse x
+-&gt; CheckIfPhoneNumberIsOptedOutResponse
+$cfrom :: forall x.
+CheckIfPhoneNumberIsOptedOutResponse
+-&gt; Rep CheckIfPhoneNumberIsOptedOutResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'CheckIfPhoneNumberIsOptedOutResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'isOptedOut', 'checkIfPhoneNumberIsOptedOutResponse_isOptedOut' - Indicates whether the phone number is opted out:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @true@ &#8211; The phone number is opted out, meaning you cannot publish</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     SMS messages to it.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @false@ &#8211; The phone number is opted in, meaning you can publish SMS</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     messages to it.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'checkIfPhoneNumberIsOptedOutResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">newCheckIfPhoneNumberIsOptedOutResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newCheckIfPhoneNumberIsOptedOutResponse"><span class="annot"><span class="annottext">newCheckIfPhoneNumberIsOptedOutResponse :: Int -&gt; CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#newCheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-var hs-var">newCheckIfPhoneNumberIsOptedOutResponse</span></a></span></span><span> </span><span id="local-6989586621679199867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse' :: Maybe Bool -&gt; Int -&gt; CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isOptedOut:CheckIfPhoneNumberIsOptedOutResponse' :: Maybe Bool
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AisOptedOut%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">isOptedOut</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CheckIfPhoneNumberIsOptedOutResponse' :: Int
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AhttpStatus%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Indicates whether the phone number is opted out:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @true@ &#8211; The phone number is opted out, meaning you cannot publish</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     SMS messages to it.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @false@ &#8211; The phone number is opted in, meaning you can publish SMS</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     messages to it.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_isOptedOut"><span class="hs-identifier hs-type">checkIfPhoneNumberIsOptedOutResponse_isOptedOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="checkIfPhoneNumberIsOptedOutResponse_isOptedOut"><span class="annot"><span class="annottext">checkIfPhoneNumberIsOptedOutResponse_isOptedOut :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CheckIfPhoneNumberIsOptedOutResponse
+-&gt; f CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_isOptedOut"><span class="hs-identifier hs-var hs-var">checkIfPhoneNumberIsOptedOutResponse_isOptedOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckIfPhoneNumberIsOptedOutResponse -&gt; Maybe Bool)
+-&gt; (CheckIfPhoneNumberIsOptedOutResponse
+    -&gt; Maybe Bool -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; Lens
+     CheckIfPhoneNumberIsOptedOutResponse
+     CheckIfPhoneNumberIsOptedOutResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199866"><span class="annot"><span class="annottext">Maybe Bool
+isOptedOut :: Maybe Bool
+$sel:isOptedOut:CheckIfPhoneNumberIsOptedOutResponse' :: CheckIfPhoneNumberIsOptedOutResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679199866"><span class="hs-identifier hs-var hs-var">isOptedOut</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679199866"><span class="hs-identifier hs-var">isOptedOut</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199865"><span class="annot"><span class="annottext">s :: CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="#local-6989586621679199865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199864"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679199864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="#local-6989586621679199865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isOptedOut:CheckIfPhoneNumberIsOptedOutResponse' :: Maybe Bool
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AisOptedOut%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">isOptedOut</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679199864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_httpStatus"><span class="hs-identifier hs-type">checkIfPhoneNumberIsOptedOutResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="checkIfPhoneNumberIsOptedOutResponse_httpStatus"><span class="annot"><span class="annottext">checkIfPhoneNumberIsOptedOutResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CheckIfPhoneNumberIsOptedOutResponse
+-&gt; f CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#checkIfPhoneNumberIsOptedOutResponse_httpStatus"><span class="hs-identifier hs-var hs-var">checkIfPhoneNumberIsOptedOutResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CheckIfPhoneNumberIsOptedOutResponse -&gt; Int)
+-&gt; (CheckIfPhoneNumberIsOptedOutResponse
+    -&gt; Int -&gt; CheckIfPhoneNumberIsOptedOutResponse)
+-&gt; Lens
+     CheckIfPhoneNumberIsOptedOutResponse
+     CheckIfPhoneNumberIsOptedOutResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199863"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CheckIfPhoneNumberIsOptedOutResponse' :: CheckIfPhoneNumberIsOptedOutResponse -&gt; Int
+</span><a href="#local-6989586621679199863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199862"><span class="annot"><span class="annottext">s :: CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="#local-6989586621679199862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckIfPhoneNumberIsOptedOutResponse
+</span><a href="#local-6989586621679199862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckIfPhoneNumberIsOptedOutResponse' :: Int
+</span><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#%24sel%3AhttpStatus%3ACheckIfPhoneNumberIsOptedOutResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679199859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut.html#CheckIfPhoneNumberIsOptedOutResponse"><span class="hs-identifier hs-type">CheckIfPhoneNumberIsOptedOutResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier">Fmp4TimedMetadataBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span class="hs-identifier">Fmp4TimedMetadataBehavior_NO_PASSTHROUGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_PASSTHROUGH"><span class="hs-identifier">Fmp4TimedMetadataBehavior_PASSTHROUGH</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Fmp4 Timed Metadata Behavior</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679870754"><span id="local-6989586621679870755"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Fmp4TimedMetadataBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-var">Fmp4TimedMetadataBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Fmp4TimedMetadataBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior%27"><span class="hs-identifier hs-var">Fmp4TimedMetadataBehavior'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFmp4TimedMetadataBehavior"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#fromFmp4TimedMetadataBehavior"><span class="hs-identifier hs-var hs-var">fromFmp4TimedMetadataBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870746"><span id="local-6989586621679870748"><span id="local-6989586621679870750"><span class="annot"><span class="annottext">Int -&gt; Fmp4TimedMetadataBehavior -&gt; ShowS
+[Fmp4TimedMetadataBehavior] -&gt; ShowS
+Fmp4TimedMetadataBehavior -&gt; String
+(Int -&gt; Fmp4TimedMetadataBehavior -&gt; ShowS)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; String)
+-&gt; ([Fmp4TimedMetadataBehavior] -&gt; ShowS)
+-&gt; Show Fmp4TimedMetadataBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Fmp4TimedMetadataBehavior] -&gt; ShowS
+$cshowList :: [Fmp4TimedMetadataBehavior] -&gt; ShowS
+show :: Fmp4TimedMetadataBehavior -&gt; String
+$cshow :: Fmp4TimedMetadataBehavior -&gt; String
+showsPrec :: Int -&gt; Fmp4TimedMetadataBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; Fmp4TimedMetadataBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679870737"><span id="local-6989586621679870739"><span id="local-6989586621679870741"><span id="local-6989586621679870743"><span class="annot"><span class="annottext">ReadPrec [Fmp4TimedMetadataBehavior]
+ReadPrec Fmp4TimedMetadataBehavior
+Int -&gt; ReadS Fmp4TimedMetadataBehavior
+ReadS [Fmp4TimedMetadataBehavior]
+(Int -&gt; ReadS Fmp4TimedMetadataBehavior)
+-&gt; ReadS [Fmp4TimedMetadataBehavior]
+-&gt; ReadPrec Fmp4TimedMetadataBehavior
+-&gt; ReadPrec [Fmp4TimedMetadataBehavior]
+-&gt; Read Fmp4TimedMetadataBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Fmp4TimedMetadataBehavior]
+$creadListPrec :: ReadPrec [Fmp4TimedMetadataBehavior]
+readPrec :: ReadPrec Fmp4TimedMetadataBehavior
+$creadPrec :: ReadPrec Fmp4TimedMetadataBehavior
+readList :: ReadS [Fmp4TimedMetadataBehavior]
+$creadList :: ReadS [Fmp4TimedMetadataBehavior]
+readsPrec :: Int -&gt; ReadS Fmp4TimedMetadataBehavior
+$creadsPrec :: Int -&gt; ReadS Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679870732"><span id="local-6989586621679870734"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+(Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; Eq Fmp4TimedMetadataBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c/= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+== :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c== :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679870716"><span id="local-6989586621679870718"><span id="local-6989586621679870720"><span id="local-6989586621679870722"><span id="local-6989586621679870724"><span id="local-6989586621679870726"><span id="local-6989586621679870728"><span class="annot"><span class="annottext">Eq Fmp4TimedMetadataBehavior
+Eq Fmp4TimedMetadataBehavior
+-&gt; (Fmp4TimedMetadataBehavior
+    -&gt; Fmp4TimedMetadataBehavior -&gt; Ordering)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool)
+-&gt; (Fmp4TimedMetadataBehavior
+    -&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior)
+-&gt; (Fmp4TimedMetadataBehavior
+    -&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior)
+-&gt; Ord Fmp4TimedMetadataBehavior
+Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Ordering
+Fmp4TimedMetadataBehavior
+-&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Fmp4TimedMetadataBehavior
+-&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior
+$cmin :: Fmp4TimedMetadataBehavior
+-&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior
+max :: Fmp4TimedMetadataBehavior
+-&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior
+$cmax :: Fmp4TimedMetadataBehavior
+-&gt; Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior
+&gt;= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c&gt;= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+&gt; :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c&gt; :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+&lt;= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c&lt;= :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+&lt; :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+$c&lt; :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Bool
+compare :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Ordering
+$ccompare :: Fmp4TimedMetadataBehavior -&gt; Fmp4TimedMetadataBehavior -&gt; Ordering
+$cp1Ord :: Eq Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Fmp4TimedMetadataBehavior -&gt; Rep Fmp4TimedMetadataBehavior x)
+-&gt; (forall x.
+    Rep Fmp4TimedMetadataBehavior x -&gt; Fmp4TimedMetadataBehavior)
+-&gt; Generic Fmp4TimedMetadataBehavior
+forall x.
+Rep Fmp4TimedMetadataBehavior x -&gt; Fmp4TimedMetadataBehavior
+forall x.
+Fmp4TimedMetadataBehavior -&gt; Rep Fmp4TimedMetadataBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Fmp4TimedMetadataBehavior x -&gt; Fmp4TimedMetadataBehavior
+$cfrom :: forall x.
+Fmp4TimedMetadataBehavior -&gt; Rep Fmp4TimedMetadataBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870708"><span id="local-6989586621679870710"><span class="annot"><span class="annottext">Int -&gt; Fmp4TimedMetadataBehavior -&gt; Int
+Fmp4TimedMetadataBehavior -&gt; Int
+(Int -&gt; Fmp4TimedMetadataBehavior -&gt; Int)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Int)
+-&gt; Hashable Fmp4TimedMetadataBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Fmp4TimedMetadataBehavior -&gt; Int
+$chash :: Fmp4TimedMetadataBehavior -&gt; Int
+hashWithSalt :: Int -&gt; Fmp4TimedMetadataBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; Fmp4TimedMetadataBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679870705"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; ()
+(Fmp4TimedMetadataBehavior -&gt; ())
+-&gt; NFData Fmp4TimedMetadataBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Fmp4TimedMetadataBehavior -&gt; ()
+$crnf :: Fmp4TimedMetadataBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679870702"><span class="annot"><span class="annottext">Text -&gt; Either String Fmp4TimedMetadataBehavior
+(Text -&gt; Either String Fmp4TimedMetadataBehavior)
+-&gt; FromText Fmp4TimedMetadataBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Fmp4TimedMetadataBehavior
+$cfromText :: Text -&gt; Either String Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679870699"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; Text
+(Fmp4TimedMetadataBehavior -&gt; Text)
+-&gt; ToText Fmp4TimedMetadataBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Fmp4TimedMetadataBehavior -&gt; Text
+$ctoText :: Fmp4TimedMetadataBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679870696"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; ByteString
+(Fmp4TimedMetadataBehavior -&gt; ByteString)
+-&gt; ToByteString Fmp4TimedMetadataBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Fmp4TimedMetadataBehavior -&gt; ByteString
+$ctoBS :: Fmp4TimedMetadataBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679870693"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; ByteStringBuilder
+(Fmp4TimedMetadataBehavior -&gt; ByteStringBuilder)
+-&gt; ToLog Fmp4TimedMetadataBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Fmp4TimedMetadataBehavior -&gt; ByteStringBuilder
+$cbuild :: Fmp4TimedMetadataBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679870690"><span class="annot"><span class="annottext">HeaderName -&gt; Fmp4TimedMetadataBehavior -&gt; [Header]
+(HeaderName -&gt; Fmp4TimedMetadataBehavior -&gt; [Header])
+-&gt; ToHeader Fmp4TimedMetadataBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Fmp4TimedMetadataBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Fmp4TimedMetadataBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679870687"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; QueryString
+(Fmp4TimedMetadataBehavior -&gt; QueryString)
+-&gt; ToQuery Fmp4TimedMetadataBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Fmp4TimedMetadataBehavior -&gt; QueryString
+$ctoQuery :: Fmp4TimedMetadataBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679870682"><span id="local-6989586621679870684"><span class="annot"><span class="annottext">Value -&gt; Parser [Fmp4TimedMetadataBehavior]
+Value -&gt; Parser Fmp4TimedMetadataBehavior
+(Value -&gt; Parser Fmp4TimedMetadataBehavior)
+-&gt; (Value -&gt; Parser [Fmp4TimedMetadataBehavior])
+-&gt; FromJSON Fmp4TimedMetadataBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Fmp4TimedMetadataBehavior]
+$cparseJSONList :: Value -&gt; Parser [Fmp4TimedMetadataBehavior]
+parseJSON :: Value -&gt; Parser Fmp4TimedMetadataBehavior
+$cparseJSON :: Value -&gt; Parser Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679870677"><span id="local-6989586621679870679"><span class="annot"><span class="annottext">FromJSONKeyFunction [Fmp4TimedMetadataBehavior]
+FromJSONKeyFunction Fmp4TimedMetadataBehavior
+FromJSONKeyFunction Fmp4TimedMetadataBehavior
+-&gt; FromJSONKeyFunction [Fmp4TimedMetadataBehavior]
+-&gt; FromJSONKey Fmp4TimedMetadataBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Fmp4TimedMetadataBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [Fmp4TimedMetadataBehavior]
+fromJSONKey :: FromJSONKeyFunction Fmp4TimedMetadataBehavior
+$cfromJSONKey :: FromJSONKeyFunction Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679870668"><span id="local-6989586621679870670"><span id="local-6989586621679870672"><span id="local-6989586621679870674"><span class="annot"><span class="annottext">[Fmp4TimedMetadataBehavior] -&gt; Encoding
+[Fmp4TimedMetadataBehavior] -&gt; Value
+Fmp4TimedMetadataBehavior -&gt; Encoding
+Fmp4TimedMetadataBehavior -&gt; Value
+(Fmp4TimedMetadataBehavior -&gt; Value)
+-&gt; (Fmp4TimedMetadataBehavior -&gt; Encoding)
+-&gt; ([Fmp4TimedMetadataBehavior] -&gt; Value)
+-&gt; ([Fmp4TimedMetadataBehavior] -&gt; Encoding)
+-&gt; ToJSON Fmp4TimedMetadataBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Fmp4TimedMetadataBehavior] -&gt; Encoding
+$ctoEncodingList :: [Fmp4TimedMetadataBehavior] -&gt; Encoding
+toJSONList :: [Fmp4TimedMetadataBehavior] -&gt; Value
+$ctoJSONList :: [Fmp4TimedMetadataBehavior] -&gt; Value
+toEncoding :: Fmp4TimedMetadataBehavior -&gt; Encoding
+$ctoEncoding :: Fmp4TimedMetadataBehavior -&gt; Encoding
+toJSON :: Fmp4TimedMetadataBehavior -&gt; Value
+$ctoJSON :: Fmp4TimedMetadataBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679870663"><span id="local-6989586621679870665"><span class="annot"><span class="annottext">ToJSONKeyFunction [Fmp4TimedMetadataBehavior]
+ToJSONKeyFunction Fmp4TimedMetadataBehavior
+ToJSONKeyFunction Fmp4TimedMetadataBehavior
+-&gt; ToJSONKeyFunction [Fmp4TimedMetadataBehavior]
+-&gt; ToJSONKey Fmp4TimedMetadataBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Fmp4TimedMetadataBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [Fmp4TimedMetadataBehavior]
+toJSONKey :: ToJSONKeyFunction Fmp4TimedMetadataBehavior
+$ctoJSONKey :: ToJSONKeyFunction Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679870660"><span class="annot"><span class="annottext">[Node] -&gt; Either String Fmp4TimedMetadataBehavior
+([Node] -&gt; Either String Fmp4TimedMetadataBehavior)
+-&gt; FromXML Fmp4TimedMetadataBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Fmp4TimedMetadataBehavior
+$cparseXML :: [Node] -&gt; Either String Fmp4TimedMetadataBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679870657"><span class="annot"><span class="annottext">Fmp4TimedMetadataBehavior -&gt; XML
+(Fmp4TimedMetadataBehavior -&gt; XML)
+-&gt; ToXML Fmp4TimedMetadataBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Fmp4TimedMetadataBehavior -&gt; XML
+$ctoXML :: Fmp4TimedMetadataBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior_NO_PASSTHROUGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span id="%24mFmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span id="Fmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span class="annot"><span class="annottext">$bFmp4TimedMetadataBehavior_NO_PASSTHROUGH :: Fmp4TimedMetadataBehavior
+$mFmp4TimedMetadataBehavior_NO_PASSTHROUGH :: forall r.
+Fmp4TimedMetadataBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#%24bFmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span class="hs-identifier hs-var hs-var hs-var">Fmp4TimedMetadataBehavior_NO_PASSTHROUGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior%27"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_PASSTHROUGH&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_PASSTHROUGH"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior_PASSTHROUGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFmp4TimedMetadataBehavior_PASSTHROUGH"><span id="%24mFmp4TimedMetadataBehavior_PASSTHROUGH"><span id="Fmp4TimedMetadataBehavior_PASSTHROUGH"><span class="annot"><span class="annottext">$bFmp4TimedMetadataBehavior_PASSTHROUGH :: Fmp4TimedMetadataBehavior
+$mFmp4TimedMetadataBehavior_PASSTHROUGH :: forall r.
+Fmp4TimedMetadataBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#%24bFmp4TimedMetadataBehavior_PASSTHROUGH"><span class="hs-identifier hs-var hs-var hs-var">Fmp4TimedMetadataBehavior_PASSTHROUGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior%27"><span class="hs-identifier hs-type">Fmp4TimedMetadataBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PASSTHROUGH&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_NO_PASSTHROUGH"><span class="hs-pragma hs-type">Fmp4TimedMetadataBehavior_NO_PASSTHROUGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior_PASSTHROUGH"><span class="hs-pragma hs-type">Fmp4TimedMetadataBehavior_PASSTHROUGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior.html#Fmp4TimedMetadataBehavior%27"><span class="hs-pragma hs-type">Fmp4TimedMetadataBehavior'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

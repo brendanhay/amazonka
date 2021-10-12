@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.Types.TagFilterType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.Types.TagFilterType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType"><span class="hs-identifier">TagFilterType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_AND_VALUE"><span class="hs-identifier">TagFilterType_KEY_AND_VALUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_ONLY"><span class="hs-identifier">TagFilterType_KEY_ONLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_VALUE_ONLY"><span class="hs-identifier">TagFilterType_VALUE_ONLY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679312532"><span id="local-6989586621679312533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TagFilterType"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType"><span class="hs-identifier hs-var">TagFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagFilterType%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType%27"><span class="hs-identifier hs-var">TagFilterType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTagFilterType"><span class="annot"><span class="annottext">TagFilterType -&gt; Text
+</span><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#fromTagFilterType"><span class="hs-identifier hs-var hs-var">fromTagFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312524"><span id="local-6989586621679312526"><span id="local-6989586621679312528"><span class="annot"><span class="annottext">Int -&gt; TagFilterType -&gt; ShowS
+[TagFilterType] -&gt; ShowS
+TagFilterType -&gt; String
+(Int -&gt; TagFilterType -&gt; ShowS)
+-&gt; (TagFilterType -&gt; String)
+-&gt; ([TagFilterType] -&gt; ShowS)
+-&gt; Show TagFilterType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagFilterType] -&gt; ShowS
+$cshowList :: [TagFilterType] -&gt; ShowS
+show :: TagFilterType -&gt; String
+$cshow :: TagFilterType -&gt; String
+showsPrec :: Int -&gt; TagFilterType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagFilterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679312515"><span id="local-6989586621679312517"><span id="local-6989586621679312519"><span id="local-6989586621679312521"><span class="annot"><span class="annottext">ReadPrec [TagFilterType]
+ReadPrec TagFilterType
+Int -&gt; ReadS TagFilterType
+ReadS [TagFilterType]
+(Int -&gt; ReadS TagFilterType)
+-&gt; ReadS [TagFilterType]
+-&gt; ReadPrec TagFilterType
+-&gt; ReadPrec [TagFilterType]
+-&gt; Read TagFilterType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagFilterType]
+$creadListPrec :: ReadPrec [TagFilterType]
+readPrec :: ReadPrec TagFilterType
+$creadPrec :: ReadPrec TagFilterType
+readList :: ReadS [TagFilterType]
+$creadList :: ReadS [TagFilterType]
+readsPrec :: Int -&gt; ReadS TagFilterType
+$creadsPrec :: Int -&gt; ReadS TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679312510"><span id="local-6989586621679312512"><span class="annot"><span class="annottext">TagFilterType -&gt; TagFilterType -&gt; Bool
+(TagFilterType -&gt; TagFilterType -&gt; Bool)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Bool) -&gt; Eq TagFilterType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c/= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+== :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c== :: TagFilterType -&gt; TagFilterType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679312494"><span id="local-6989586621679312496"><span id="local-6989586621679312498"><span id="local-6989586621679312500"><span id="local-6989586621679312502"><span id="local-6989586621679312504"><span id="local-6989586621679312506"><span class="annot"><span class="annottext">Eq TagFilterType
+Eq TagFilterType
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Ordering)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Bool)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Bool)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Bool)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; Bool)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; TagFilterType)
+-&gt; (TagFilterType -&gt; TagFilterType -&gt; TagFilterType)
+-&gt; Ord TagFilterType
+TagFilterType -&gt; TagFilterType -&gt; Bool
+TagFilterType -&gt; TagFilterType -&gt; Ordering
+TagFilterType -&gt; TagFilterType -&gt; TagFilterType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TagFilterType -&gt; TagFilterType -&gt; TagFilterType
+$cmin :: TagFilterType -&gt; TagFilterType -&gt; TagFilterType
+max :: TagFilterType -&gt; TagFilterType -&gt; TagFilterType
+$cmax :: TagFilterType -&gt; TagFilterType -&gt; TagFilterType
+&gt;= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c&gt;= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+&gt; :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c&gt; :: TagFilterType -&gt; TagFilterType -&gt; Bool
+&lt;= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c&lt;= :: TagFilterType -&gt; TagFilterType -&gt; Bool
+&lt; :: TagFilterType -&gt; TagFilterType -&gt; Bool
+$c&lt; :: TagFilterType -&gt; TagFilterType -&gt; Bool
+compare :: TagFilterType -&gt; TagFilterType -&gt; Ordering
+$ccompare :: TagFilterType -&gt; TagFilterType -&gt; Ordering
+$cp1Ord :: Eq TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TagFilterType -&gt; Rep TagFilterType x)
+-&gt; (forall x. Rep TagFilterType x -&gt; TagFilterType)
+-&gt; Generic TagFilterType
+forall x. Rep TagFilterType x -&gt; TagFilterType
+forall x. TagFilterType -&gt; Rep TagFilterType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagFilterType x -&gt; TagFilterType
+$cfrom :: forall x. TagFilterType -&gt; Rep TagFilterType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312486"><span id="local-6989586621679312488"><span class="annot"><span class="annottext">Int -&gt; TagFilterType -&gt; Int
+TagFilterType -&gt; Int
+(Int -&gt; TagFilterType -&gt; Int)
+-&gt; (TagFilterType -&gt; Int) -&gt; Hashable TagFilterType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TagFilterType -&gt; Int
+$chash :: TagFilterType -&gt; Int
+hashWithSalt :: Int -&gt; TagFilterType -&gt; Int
+$chashWithSalt :: Int -&gt; TagFilterType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679312483"><span class="annot"><span class="annottext">TagFilterType -&gt; ()
+(TagFilterType -&gt; ()) -&gt; NFData TagFilterType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TagFilterType -&gt; ()
+$crnf :: TagFilterType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679312480"><span class="annot"><span class="annottext">Text -&gt; Either String TagFilterType
+(Text -&gt; Either String TagFilterType) -&gt; FromText TagFilterType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TagFilterType
+$cfromText :: Text -&gt; Either String TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679312477"><span class="annot"><span class="annottext">TagFilterType -&gt; Text
+(TagFilterType -&gt; Text) -&gt; ToText TagFilterType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TagFilterType -&gt; Text
+$ctoText :: TagFilterType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679312474"><span class="annot"><span class="annottext">TagFilterType -&gt; ByteString
+(TagFilterType -&gt; ByteString) -&gt; ToByteString TagFilterType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TagFilterType -&gt; ByteString
+$ctoBS :: TagFilterType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679312471"><span class="annot"><span class="annottext">TagFilterType -&gt; ByteStringBuilder
+(TagFilterType -&gt; ByteStringBuilder) -&gt; ToLog TagFilterType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TagFilterType -&gt; ByteStringBuilder
+$cbuild :: TagFilterType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679312468"><span class="annot"><span class="annottext">HeaderName -&gt; TagFilterType -&gt; [Header]
+(HeaderName -&gt; TagFilterType -&gt; [Header]) -&gt; ToHeader TagFilterType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TagFilterType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TagFilterType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679312465"><span class="annot"><span class="annottext">TagFilterType -&gt; QueryString
+(TagFilterType -&gt; QueryString) -&gt; ToQuery TagFilterType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TagFilterType -&gt; QueryString
+$ctoQuery :: TagFilterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679312460"><span id="local-6989586621679312462"><span class="annot"><span class="annottext">Value -&gt; Parser [TagFilterType]
+Value -&gt; Parser TagFilterType
+(Value -&gt; Parser TagFilterType)
+-&gt; (Value -&gt; Parser [TagFilterType]) -&gt; FromJSON TagFilterType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TagFilterType]
+$cparseJSONList :: Value -&gt; Parser [TagFilterType]
+parseJSON :: Value -&gt; Parser TagFilterType
+$cparseJSON :: Value -&gt; Parser TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679312455"><span id="local-6989586621679312457"><span class="annot"><span class="annottext">FromJSONKeyFunction [TagFilterType]
+FromJSONKeyFunction TagFilterType
+FromJSONKeyFunction TagFilterType
+-&gt; FromJSONKeyFunction [TagFilterType] -&gt; FromJSONKey TagFilterType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TagFilterType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TagFilterType]
+fromJSONKey :: FromJSONKeyFunction TagFilterType
+$cfromJSONKey :: FromJSONKeyFunction TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679312446"><span id="local-6989586621679312448"><span id="local-6989586621679312450"><span id="local-6989586621679312452"><span class="annot"><span class="annottext">[TagFilterType] -&gt; Encoding
+[TagFilterType] -&gt; Value
+TagFilterType -&gt; Encoding
+TagFilterType -&gt; Value
+(TagFilterType -&gt; Value)
+-&gt; (TagFilterType -&gt; Encoding)
+-&gt; ([TagFilterType] -&gt; Value)
+-&gt; ([TagFilterType] -&gt; Encoding)
+-&gt; ToJSON TagFilterType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TagFilterType] -&gt; Encoding
+$ctoEncodingList :: [TagFilterType] -&gt; Encoding
+toJSONList :: [TagFilterType] -&gt; Value
+$ctoJSONList :: [TagFilterType] -&gt; Value
+toEncoding :: TagFilterType -&gt; Encoding
+$ctoEncoding :: TagFilterType -&gt; Encoding
+toJSON :: TagFilterType -&gt; Value
+$ctoJSON :: TagFilterType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679312441"><span id="local-6989586621679312443"><span class="annot"><span class="annottext">ToJSONKeyFunction [TagFilterType]
+ToJSONKeyFunction TagFilterType
+ToJSONKeyFunction TagFilterType
+-&gt; ToJSONKeyFunction [TagFilterType] -&gt; ToJSONKey TagFilterType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TagFilterType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TagFilterType]
+toJSONKey :: ToJSONKeyFunction TagFilterType
+$ctoJSONKey :: ToJSONKeyFunction TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679312438"><span class="annot"><span class="annottext">[Node] -&gt; Either String TagFilterType
+([Node] -&gt; Either String TagFilterType) -&gt; FromXML TagFilterType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TagFilterType
+$cparseXML :: [Node] -&gt; Either String TagFilterType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679312435"><span class="annot"><span class="annottext">TagFilterType -&gt; XML
+(TagFilterType -&gt; XML) -&gt; ToXML TagFilterType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TagFilterType -&gt; XML
+$ctoXML :: TagFilterType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_AND_VALUE"><span class="hs-identifier hs-type">TagFilterType_KEY_AND_VALUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType"><span class="hs-identifier hs-type">TagFilterType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagFilterType_KEY_AND_VALUE"><span id="%24mTagFilterType_KEY_AND_VALUE"><span id="TagFilterType_KEY_AND_VALUE"><span class="annot"><span class="annottext">$bTagFilterType_KEY_AND_VALUE :: TagFilterType
+$mTagFilterType_KEY_AND_VALUE :: forall r. TagFilterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#%24bTagFilterType_KEY_AND_VALUE"><span class="hs-identifier hs-var hs-var hs-var">TagFilterType_KEY_AND_VALUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType%27"><span class="hs-identifier hs-type">TagFilterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEY_AND_VALUE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_ONLY"><span class="hs-identifier hs-type">TagFilterType_KEY_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType"><span class="hs-identifier hs-type">TagFilterType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagFilterType_KEY_ONLY"><span id="%24mTagFilterType_KEY_ONLY"><span id="TagFilterType_KEY_ONLY"><span class="annot"><span class="annottext">$bTagFilterType_KEY_ONLY :: TagFilterType
+$mTagFilterType_KEY_ONLY :: forall r. TagFilterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#%24bTagFilterType_KEY_ONLY"><span class="hs-identifier hs-var hs-var hs-var">TagFilterType_KEY_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType%27"><span class="hs-identifier hs-type">TagFilterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEY_ONLY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_VALUE_ONLY"><span class="hs-identifier hs-type">TagFilterType_VALUE_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType"><span class="hs-identifier hs-type">TagFilterType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTagFilterType_VALUE_ONLY"><span id="%24mTagFilterType_VALUE_ONLY"><span id="TagFilterType_VALUE_ONLY"><span class="annot"><span class="annottext">$bTagFilterType_VALUE_ONLY :: TagFilterType
+$mTagFilterType_VALUE_ONLY :: forall r. TagFilterType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#%24bTagFilterType_VALUE_ONLY"><span class="hs-identifier hs-var hs-var hs-var">TagFilterType_VALUE_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType%27"><span class="hs-identifier hs-type">TagFilterType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALUE_ONLY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_AND_VALUE"><span class="hs-pragma hs-type">TagFilterType_KEY_AND_VALUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_KEY_ONLY"><span class="hs-pragma hs-type">TagFilterType_KEY_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType_VALUE_ONLY"><span class="hs-pragma hs-type">TagFilterType_VALUE_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilterType.html#TagFilterType%27"><span class="hs-pragma hs-type">TagFilterType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.ListResourceComplianceSummaries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a resource-level summary count. The summary includes information</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- about compliant and non-compliant statuses and detailed compliance-item</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- severity counts, according to the filter criteria you specify.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.ListResourceComplianceSummaries</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummaries"><span class="hs-identifier">newListResourceComplianceSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_nextToken"><span class="hs-identifier">listResourceComplianceSummaries_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_maxResults"><span class="hs-identifier">listResourceComplianceSummaries_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_filters"><span class="hs-identifier">listResourceComplianceSummaries_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier">ListResourceComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummariesResponse"><span class="hs-identifier">newListResourceComplianceSummariesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_nextToken"><span class="hs-identifier">listResourceComplianceSummariesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_resourceComplianceSummaryItems"><span class="hs-identifier">listResourceComplianceSummariesResponse_resourceComplianceSummaryItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_httpStatus"><span class="hs-identifier">listResourceComplianceSummariesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListResourceComplianceSummaries' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679827892"><span id="local-6989586621679827893"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceComplianceSummaries"><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-var">ListResourceComplianceSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceComplianceSummaries%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">ListResourceComplianceSummaries'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceComplianceSummaries%27"><span class="annot"><span class="annottext">ListResourceComplianceSummaries -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListResourceComplianceSummaries%27"><span class="annot"><span class="annottext">ListResourceComplianceSummaries -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AmaxResults%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afilters%3AListResourceComplianceSummaries%27"><span class="annot"><span class="annottext">ListResourceComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3Afilters%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827884"><span id="local-6989586621679827886"><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries -&gt; Bool
+(ListResourceComplianceSummaries
+ -&gt; ListResourceComplianceSummaries -&gt; Bool)
+-&gt; (ListResourceComplianceSummaries
+    -&gt; ListResourceComplianceSummaries -&gt; Bool)
+-&gt; Eq ListResourceComplianceSummaries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries -&gt; Bool
+$c/= :: ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries -&gt; Bool
+== :: ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries -&gt; Bool
+$c== :: ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827875"><span id="local-6989586621679827877"><span id="local-6989586621679827879"><span id="local-6989586621679827881"><span class="annot"><span class="annottext">ReadPrec [ListResourceComplianceSummaries]
+ReadPrec ListResourceComplianceSummaries
+Int -&gt; ReadS ListResourceComplianceSummaries
+ReadS [ListResourceComplianceSummaries]
+(Int -&gt; ReadS ListResourceComplianceSummaries)
+-&gt; ReadS [ListResourceComplianceSummaries]
+-&gt; ReadPrec ListResourceComplianceSummaries
+-&gt; ReadPrec [ListResourceComplianceSummaries]
+-&gt; Read ListResourceComplianceSummaries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListResourceComplianceSummaries]
+$creadListPrec :: ReadPrec [ListResourceComplianceSummaries]
+readPrec :: ReadPrec ListResourceComplianceSummaries
+$creadPrec :: ReadPrec ListResourceComplianceSummaries
+readList :: ReadS [ListResourceComplianceSummaries]
+$creadList :: ReadS [ListResourceComplianceSummaries]
+readsPrec :: Int -&gt; ReadS ListResourceComplianceSummaries
+$creadsPrec :: Int -&gt; ReadS ListResourceComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827868"><span id="local-6989586621679827870"><span id="local-6989586621679827872"><span class="annot"><span class="annottext">Int -&gt; ListResourceComplianceSummaries -&gt; ShowS
+[ListResourceComplianceSummaries] -&gt; ShowS
+ListResourceComplianceSummaries -&gt; String
+(Int -&gt; ListResourceComplianceSummaries -&gt; ShowS)
+-&gt; (ListResourceComplianceSummaries -&gt; String)
+-&gt; ([ListResourceComplianceSummaries] -&gt; ShowS)
+-&gt; Show ListResourceComplianceSummaries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListResourceComplianceSummaries] -&gt; ShowS
+$cshowList :: [ListResourceComplianceSummaries] -&gt; ShowS
+show :: ListResourceComplianceSummaries -&gt; String
+$cshow :: ListResourceComplianceSummaries -&gt; String
+showsPrec :: Int -&gt; ListResourceComplianceSummaries -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListResourceComplianceSummaries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListResourceComplianceSummaries
+ -&gt; Rep ListResourceComplianceSummaries x)
+-&gt; (forall x.
+    Rep ListResourceComplianceSummaries x
+    -&gt; ListResourceComplianceSummaries)
+-&gt; Generic ListResourceComplianceSummaries
+forall x.
+Rep ListResourceComplianceSummaries x
+-&gt; ListResourceComplianceSummaries
+forall x.
+ListResourceComplianceSummaries
+-&gt; Rep ListResourceComplianceSummaries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListResourceComplianceSummaries x
+-&gt; ListResourceComplianceSummaries
+$cfrom :: forall x.
+ListResourceComplianceSummaries
+-&gt; Rep ListResourceComplianceSummaries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ListResourceComplianceSummaries' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listResourceComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'listResourceComplianceSummaries_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'filters', 'listResourceComplianceSummaries_filters' - One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummaries"><span class="hs-identifier hs-type">newListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span>
+</span><span id="line-90"></span><span id="newListResourceComplianceSummaries"><span class="annot"><span class="annottext">newListResourceComplianceSummaries :: ListResourceComplianceSummaries
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummaries"><span class="hs-identifier hs-var hs-var">newListResourceComplianceSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [ComplianceStringFilter]
+-&gt; ListResourceComplianceSummaries
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceComplianceSummaries' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceComplianceSummaries' :: Maybe Natural
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AmaxResults%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListResourceComplianceSummaries' :: Maybe [ComplianceStringFilter]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3Afilters%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_nextToken"><span class="hs-identifier hs-type">listResourceComplianceSummaries_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listResourceComplianceSummaries_nextToken"><span class="annot"><span class="annottext">listResourceComplianceSummaries_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourceComplianceSummaries
+-&gt; f ListResourceComplianceSummaries
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_nextToken"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummaries_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummaries -&gt; Maybe Text)
+-&gt; (ListResourceComplianceSummaries
+    -&gt; Maybe Text -&gt; ListResourceComplianceSummaries)
+-&gt; Lens
+     ListResourceComplianceSummaries
+     ListResourceComplianceSummaries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827862"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679827862"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827862"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827861"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceComplianceSummaries' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_maxResults"><span class="hs-identifier hs-type">listResourceComplianceSummaries_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="listResourceComplianceSummaries_maxResults"><span class="annot"><span class="annottext">listResourceComplianceSummaries_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListResourceComplianceSummaries
+-&gt; f ListResourceComplianceSummaries
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_maxResults"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummaries_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummaries -&gt; Maybe Natural)
+-&gt; (ListResourceComplianceSummaries
+    -&gt; Maybe Natural -&gt; ListResourceComplianceSummaries)
+-&gt; Lens
+     ListResourceComplianceSummaries
+     ListResourceComplianceSummaries
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827859"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe Natural
+</span><a href="#local-6989586621679827859"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827859"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827858"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827857"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceComplianceSummaries' :: Maybe Natural
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AmaxResults%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_filters"><span class="hs-identifier hs-type">listResourceComplianceSummaries_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listResourceComplianceSummaries_filters"><span class="annot"><span class="annottext">listResourceComplianceSummaries_filters :: (Maybe [ComplianceStringFilter]
+ -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; ListResourceComplianceSummaries
+-&gt; f ListResourceComplianceSummaries
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_filters"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummaries_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummaries -&gt; Maybe [ComplianceStringFilter])
+-&gt; (ListResourceComplianceSummaries
+    -&gt; Maybe [ComplianceStringFilter]
+    -&gt; ListResourceComplianceSummaries)
+-&gt; Lens
+     ListResourceComplianceSummaries
+     ListResourceComplianceSummaries
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827856"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+filters :: Maybe [ComplianceStringFilter]
+$sel:filters:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679827856"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679827856"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827855"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827854"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679827854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListResourceComplianceSummaries' :: Maybe [ComplianceStringFilter]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3Afilters%3AListResourceComplianceSummaries%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679827854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceStringFilter]
+  -&gt; f (Maybe [ComplianceStringFilter]))
+ -&gt; ListResourceComplianceSummaries
+ -&gt; f ListResourceComplianceSummaries)
+-&gt; ((Maybe [ComplianceStringFilter]
+     -&gt; f (Maybe [ComplianceStringFilter]))
+    -&gt; Maybe [ComplianceStringFilter]
+    -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; (Maybe [ComplianceStringFilter]
+    -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; ListResourceComplianceSummaries
+-&gt; f ListResourceComplianceSummaries
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+-&gt; Iso
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679827847"><span class="annot"><span class="annottext">page :: ListResourceComplianceSummaries
+-&gt; AWSResponse ListResourceComplianceSummaries
+-&gt; Maybe ListResourceComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827845"><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827845"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827844"><span class="annot"><span class="annottext">AWSResponse ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827844"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceComplianceSummaries
+ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827844"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+-&gt; Getting
+     (First Text) ListResourceComplianceSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; Const (First Text) ListResourceComplianceSummariesResponse
+Lens' ListResourceComplianceSummariesResponse (Maybe Text)
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var">listResourceComplianceSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListResourceComplianceSummariesResponse
+ -&gt; Const (First Text) ListResourceComplianceSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListResourceComplianceSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListResourceComplianceSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceComplianceSummaries
+ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827844"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+-&gt; Getting
+     (First [ResourceComplianceSummaryItem])
+     ListResourceComplianceSummariesResponse
+     [ResourceComplianceSummaryItem]
+-&gt; Maybe [ResourceComplianceSummaryItem]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResourceComplianceSummaryItem]
+ -&gt; Const
+      (First [ResourceComplianceSummaryItem])
+      (Maybe [ResourceComplianceSummaryItem]))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; Const
+     (First [ResourceComplianceSummaryItem])
+     ListResourceComplianceSummariesResponse
+Lens'
+  ListResourceComplianceSummariesResponse
+  (Maybe [ResourceComplianceSummaryItem])
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_resourceComplianceSummaryItems"><span class="hs-identifier hs-var">listResourceComplianceSummariesResponse_resourceComplianceSummaryItems</span></a></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResourceComplianceSummaryItem]
+  -&gt; Const
+       (First [ResourceComplianceSummaryItem])
+       (Maybe [ResourceComplianceSummaryItem]))
+ -&gt; ListResourceComplianceSummariesResponse
+ -&gt; Const
+      (First [ResourceComplianceSummaryItem])
+      ListResourceComplianceSummariesResponse)
+-&gt; (([ResourceComplianceSummaryItem]
+     -&gt; Const
+          (First [ResourceComplianceSummaryItem])
+          [ResourceComplianceSummaryItem])
+    -&gt; Maybe [ResourceComplianceSummaryItem]
+    -&gt; Const
+         (First [ResourceComplianceSummaryItem])
+         (Maybe [ResourceComplianceSummaryItem]))
+-&gt; Getting
+     (First [ResourceComplianceSummaryItem])
+     ListResourceComplianceSummariesResponse
+     [ResourceComplianceSummaryItem]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceComplianceSummaryItem]
+ -&gt; Const
+      (First [ResourceComplianceSummaryItem])
+      [ResourceComplianceSummaryItem])
+-&gt; Maybe [ResourceComplianceSummaryItem]
+-&gt; Const
+     (First [ResourceComplianceSummaryItem])
+     (Maybe [ResourceComplianceSummaryItem])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListResourceComplianceSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+-&gt; Maybe ListResourceComplianceSummaries
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummaries
+ -&gt; Maybe ListResourceComplianceSummaries)
+-&gt; ListResourceComplianceSummaries
+-&gt; Maybe ListResourceComplianceSummaries
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+</span><a href="#local-6989586621679827845"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListResourceComplianceSummaries
+-&gt; (ListResourceComplianceSummaries
+    -&gt; ListResourceComplianceSummaries)
+-&gt; ListResourceComplianceSummaries
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListResourceComplianceSummaries
+-&gt; Identity ListResourceComplianceSummaries
+Lens
+  ListResourceComplianceSummaries
+  ListResourceComplianceSummaries
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummaries_nextToken"><span class="hs-identifier hs-var">listResourceComplianceSummaries_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListResourceComplianceSummaries
+ -&gt; Identity ListResourceComplianceSummaries)
+-&gt; Maybe Text
+-&gt; ListResourceComplianceSummaries
+-&gt; ListResourceComplianceSummaries
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceComplianceSummaries
+ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827844"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+-&gt; Getting
+     (First Text) ListResourceComplianceSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; Const (First Text) ListResourceComplianceSummariesResponse
+Lens' ListResourceComplianceSummariesResponse (Maybe Text)
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var">listResourceComplianceSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListResourceComplianceSummariesResponse
+ -&gt; Const (First Text) ListResourceComplianceSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text) ListResourceComplianceSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679827835"><span class="annot"><span class="annottext">request :: ListResourceComplianceSummaries
+-&gt; Request ListResourceComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListResourceComplianceSummaries
+-&gt; Request ListResourceComplianceSummaries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679827831"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListResourceComplianceSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListResourceComplianceSummaries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListResourceComplianceSummaries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListResourceComplianceSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListResourceComplianceSummaries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827828"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827827"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679827827"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827826"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ResourceComplianceSummaryItem]
+-&gt; Int
+-&gt; ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">ListResourceComplianceSummariesResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ResourceComplianceSummaryItem]
+ -&gt; Int
+ -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ResourceComplianceSummaryItem]
+      -&gt; Int -&gt; ListResourceComplianceSummariesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResourceComplianceSummaryItem]
+   -&gt; Int -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Either String (Maybe [ResourceComplianceSummaryItem])
+-&gt; Either String (Int -&gt; ListResourceComplianceSummariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ResourceComplianceSummaryItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceComplianceSummaryItems&quot;</span></span><span>
+</span><span id="line-153"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceComplianceSummaryItem]))
+-&gt; Maybe [ResourceComplianceSummaryItem]
+-&gt; Either String (Maybe [ResourceComplianceSummaryItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-154"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Either String Int
+-&gt; Either String ListResourceComplianceSummariesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827828"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679827817"><span id="local-6989586621679827819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679827814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679827810"><span class="annot"><span class="annottext">toHeaders :: ListResourceComplianceSummaries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListResourceComplianceSummaries -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.ListResourceComplianceSummaries&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-176"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827800"><span id="local-6989586621679827802"><span id="local-6989586621679827804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679827798"><span class="annot"><span class="annottext">toJSON :: ListResourceComplianceSummaries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries%27"><span class="hs-identifier hs-type">ListResourceComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827794"><span id="local-6989586621679827795"><span id="local-6989586621679827796"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ComplianceStringFilter]
+Maybe Text
+filters :: Maybe [ComplianceStringFilter]
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+$sel:maxResults:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe Natural
+$sel:nextToken:ListResourceComplianceSummaries' :: ListResourceComplianceSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679827794"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827796"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827795"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ComplianceStringFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ComplianceStringFilter] -&gt; Pair)
+-&gt; Maybe [ComplianceStringFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679827794"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679827788"><span class="annot"><span class="annottext">toPath :: ListResourceComplianceSummaries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListResourceComplianceSummaries -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummaries"><span class="hs-identifier hs-type">ListResourceComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679827784"><span class="annot"><span class="annottext">toQuery :: ListResourceComplianceSummaries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListResourceComplianceSummaries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newListResourceComplianceSummariesResponse' smart constructor.</span><span>
+</span><span id="line-201"></span><span id="local-6989586621679827781"><span id="local-6989586621679827782"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceComplianceSummariesResponse"><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-var">ListResourceComplianceSummariesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceComplianceSummariesResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">ListResourceComplianceSummariesResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | A summary count for specified or targeted managed instances. Summary</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- count includes information about compliant and non-compliant State</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- Manager associations, patch status, or custom items according to the</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- filter criteria that you specify.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AresourceComplianceSummaryItems%3AListResourceComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+-&gt; Maybe [ResourceComplianceSummaryItem]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AresourceComplianceSummaryItems%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">resourceComplianceSummaryItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceComplianceSummaryItem.html#ResourceComplianceSummaryItem"><span class="hs-identifier hs-type">ResourceComplianceSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListResourceComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse -&gt; Int
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AhttpStatus%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827774"><span id="local-6989586621679827776"><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+-&gt; ListResourceComplianceSummariesResponse -&gt; Bool
+(ListResourceComplianceSummariesResponse
+ -&gt; ListResourceComplianceSummariesResponse -&gt; Bool)
+-&gt; (ListResourceComplianceSummariesResponse
+    -&gt; ListResourceComplianceSummariesResponse -&gt; Bool)
+-&gt; Eq ListResourceComplianceSummariesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListResourceComplianceSummariesResponse
+-&gt; ListResourceComplianceSummariesResponse -&gt; Bool
+$c/= :: ListResourceComplianceSummariesResponse
+-&gt; ListResourceComplianceSummariesResponse -&gt; Bool
+== :: ListResourceComplianceSummariesResponse
+-&gt; ListResourceComplianceSummariesResponse -&gt; Bool
+$c== :: ListResourceComplianceSummariesResponse
+-&gt; ListResourceComplianceSummariesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827766"><span id="local-6989586621679827768"><span id="local-6989586621679827770"><span id="local-6989586621679827772"><span class="annot"><span class="annottext">ReadPrec [ListResourceComplianceSummariesResponse]
+ReadPrec ListResourceComplianceSummariesResponse
+Int -&gt; ReadS ListResourceComplianceSummariesResponse
+ReadS [ListResourceComplianceSummariesResponse]
+(Int -&gt; ReadS ListResourceComplianceSummariesResponse)
+-&gt; ReadS [ListResourceComplianceSummariesResponse]
+-&gt; ReadPrec ListResourceComplianceSummariesResponse
+-&gt; ReadPrec [ListResourceComplianceSummariesResponse]
+-&gt; Read ListResourceComplianceSummariesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListResourceComplianceSummariesResponse]
+$creadListPrec :: ReadPrec [ListResourceComplianceSummariesResponse]
+readPrec :: ReadPrec ListResourceComplianceSummariesResponse
+$creadPrec :: ReadPrec ListResourceComplianceSummariesResponse
+readList :: ReadS [ListResourceComplianceSummariesResponse]
+$creadList :: ReadS [ListResourceComplianceSummariesResponse]
+readsPrec :: Int -&gt; ReadS ListResourceComplianceSummariesResponse
+$creadsPrec :: Int -&gt; ReadS ListResourceComplianceSummariesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827760"><span id="local-6989586621679827762"><span id="local-6989586621679827764"><span class="annot"><span class="annottext">Int -&gt; ListResourceComplianceSummariesResponse -&gt; ShowS
+[ListResourceComplianceSummariesResponse] -&gt; ShowS
+ListResourceComplianceSummariesResponse -&gt; String
+(Int -&gt; ListResourceComplianceSummariesResponse -&gt; ShowS)
+-&gt; (ListResourceComplianceSummariesResponse -&gt; String)
+-&gt; ([ListResourceComplianceSummariesResponse] -&gt; ShowS)
+-&gt; Show ListResourceComplianceSummariesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListResourceComplianceSummariesResponse] -&gt; ShowS
+$cshowList :: [ListResourceComplianceSummariesResponse] -&gt; ShowS
+show :: ListResourceComplianceSummariesResponse -&gt; String
+$cshow :: ListResourceComplianceSummariesResponse -&gt; String
+showsPrec :: Int -&gt; ListResourceComplianceSummariesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListResourceComplianceSummariesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListResourceComplianceSummariesResponse
+ -&gt; Rep ListResourceComplianceSummariesResponse x)
+-&gt; (forall x.
+    Rep ListResourceComplianceSummariesResponse x
+    -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Generic ListResourceComplianceSummariesResponse
+forall x.
+Rep ListResourceComplianceSummariesResponse x
+-&gt; ListResourceComplianceSummariesResponse
+forall x.
+ListResourceComplianceSummariesResponse
+-&gt; Rep ListResourceComplianceSummariesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListResourceComplianceSummariesResponse x
+-&gt; ListResourceComplianceSummariesResponse
+$cfrom :: forall x.
+ListResourceComplianceSummariesResponse
+-&gt; Rep ListResourceComplianceSummariesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Create a value of 'ListResourceComplianceSummariesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'nextToken', 'listResourceComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'resourceComplianceSummaryItems', 'listResourceComplianceSummariesResponse_resourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- count includes information about compliant and non-compliant State</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Manager associations, patch status, or custom items according to the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- filter criteria that you specify.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'httpStatus', 'listResourceComplianceSummariesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">newListResourceComplianceSummariesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span>
+</span><span id="line-236"></span><span id="newListResourceComplianceSummariesResponse"><span class="annot"><span class="annottext">newListResourceComplianceSummariesResponse :: Int -&gt; ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#newListResourceComplianceSummariesResponse"><span class="hs-identifier hs-var hs-var">newListResourceComplianceSummariesResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679827757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse' :: Maybe Text
+-&gt; Maybe [ResourceComplianceSummaryItem]
+-&gt; Int
+-&gt; ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceComplianceSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceComplianceSummaryItems:ListResourceComplianceSummariesResponse' :: Maybe [ResourceComplianceSummaryItem]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AresourceComplianceSummaryItems%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">resourceComplianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceComplianceSummariesResponse' :: Int
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AhttpStatus%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-type">listResourceComplianceSummariesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="listResourceComplianceSummariesResponse_nextToken"><span class="annot"><span class="annottext">listResourceComplianceSummariesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; f ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummariesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummariesResponse -&gt; Maybe Text)
+-&gt; (ListResourceComplianceSummariesResponse
+    -&gt; Maybe Text -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Lens' ListResourceComplianceSummariesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827756"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResourceComplianceSummariesResponse' :: ListResourceComplianceSummariesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679827756"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827756"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827755"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceComplianceSummariesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AnextToken%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A summary count for specified or targeted managed instances. Summary</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- count includes information about compliant and non-compliant State</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Manager associations, patch status, or custom items according to the</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- filter criteria that you specify.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_resourceComplianceSummaryItems"><span class="hs-identifier hs-type">listResourceComplianceSummariesResponse_resourceComplianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceComplianceSummaryItem.html#ResourceComplianceSummaryItem"><span class="hs-identifier hs-type">ResourceComplianceSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="listResourceComplianceSummariesResponse_resourceComplianceSummaryItems"><span class="annot"><span class="annottext">listResourceComplianceSummariesResponse_resourceComplianceSummaryItems :: (Maybe [ResourceComplianceSummaryItem]
+ -&gt; f (Maybe [ResourceComplianceSummaryItem]))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; f ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_resourceComplianceSummaryItems"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummariesResponse_resourceComplianceSummaryItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummariesResponse
+ -&gt; Maybe [ResourceComplianceSummaryItem])
+-&gt; (ListResourceComplianceSummariesResponse
+    -&gt; Maybe [ResourceComplianceSummaryItem]
+    -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Lens'
+     ListResourceComplianceSummariesResponse
+     (Maybe [ResourceComplianceSummaryItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827753"><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+resourceComplianceSummaryItems :: Maybe [ResourceComplianceSummaryItem]
+$sel:resourceComplianceSummaryItems:ListResourceComplianceSummariesResponse' :: ListResourceComplianceSummariesResponse
+-&gt; Maybe [ResourceComplianceSummaryItem]
+</span><a href="#local-6989586621679827753"><span class="hs-identifier hs-var hs-var">resourceComplianceSummaryItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+</span><a href="#local-6989586621679827753"><span class="hs-identifier hs-var">resourceComplianceSummaryItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827752"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827751"><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+</span><a href="#local-6989586621679827751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceComplianceSummaryItems:ListResourceComplianceSummariesResponse' :: Maybe [ResourceComplianceSummaryItem]
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AresourceComplianceSummaryItems%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">resourceComplianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceComplianceSummaryItem]
+</span><a href="#local-6989586621679827751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceComplianceSummaryItem]
+  -&gt; f (Maybe [ResourceComplianceSummaryItem]))
+ -&gt; ListResourceComplianceSummariesResponse
+ -&gt; f ListResourceComplianceSummariesResponse)
+-&gt; ((Maybe [ResourceComplianceSummaryItem]
+     -&gt; f (Maybe [ResourceComplianceSummaryItem]))
+    -&gt; Maybe [ResourceComplianceSummaryItem]
+    -&gt; f (Maybe [ResourceComplianceSummaryItem]))
+-&gt; (Maybe [ResourceComplianceSummaryItem]
+    -&gt; f (Maybe [ResourceComplianceSummaryItem]))
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; f ListResourceComplianceSummariesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+-&gt; Iso
+     (Maybe [ResourceComplianceSummaryItem])
+     (Maybe [ResourceComplianceSummaryItem])
+     (Maybe [ResourceComplianceSummaryItem])
+     (Maybe [ResourceComplianceSummaryItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+  [ResourceComplianceSummaryItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_httpStatus"><span class="hs-identifier hs-type">listResourceComplianceSummariesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="listResourceComplianceSummariesResponse_httpStatus"><span class="annot"><span class="annottext">listResourceComplianceSummariesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListResourceComplianceSummariesResponse
+-&gt; f ListResourceComplianceSummariesResponse
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#listResourceComplianceSummariesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listResourceComplianceSummariesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceComplianceSummariesResponse -&gt; Int)
+-&gt; (ListResourceComplianceSummariesResponse
+    -&gt; Int -&gt; ListResourceComplianceSummariesResponse)
+-&gt; Lens
+     ListResourceComplianceSummariesResponse
+     ListResourceComplianceSummariesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827750"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListResourceComplianceSummariesResponse' :: ListResourceComplianceSummariesResponse -&gt; Int
+</span><a href="#local-6989586621679827750"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827750"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827749"><span class="annot"><span class="annottext">s :: ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceComplianceSummariesResponse
+</span><a href="#local-6989586621679827749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceComplianceSummariesResponse' :: Int
+</span><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#%24sel%3AhttpStatus%3AListResourceComplianceSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679827746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceComplianceSummaries.html#ListResourceComplianceSummariesResponse"><span class="hs-identifier hs-type">ListResourceComplianceSummariesResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

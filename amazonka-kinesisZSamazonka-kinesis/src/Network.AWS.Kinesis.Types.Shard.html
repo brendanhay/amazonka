@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Kinesis.Types.Shard</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Kinesis.Types.Shard</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html"><span class="hs-identifier">Network.AWS.Kinesis.Types.HashKeyRange</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SequenceNumberRange.html"><span class="hs-identifier">Network.AWS.Kinesis.Types.SequenceNumberRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A uniquely identified group of data records in a Kinesis data stream.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newShard' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679198078"><span id="local-6989586621679198079"></span></span><span class="hs-keyword">data</span><span> </span><span id="Shard"><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-var">Shard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Shard%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-var">Shard'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The shard ID of the shard adjacent to the shard\'s parent.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AadjacentParentShardId%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AadjacentParentShardId%3AShard%27"><span class="hs-identifier hs-var hs-var">adjacentParentShardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The shard ID of the shard\'s parent.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AparentShardId%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AparentShardId%3AShard%27"><span class="hs-identifier hs-var hs-var">parentShardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the shard within the stream.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AshardId%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AshardId%3AShard%27"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The range of possible hash key values for the shard, which is a set of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- ordered contiguous positive integers.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AhashKeyRange%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; HashKeyRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AhashKeyRange%3AShard%27"><span class="hs-identifier hs-var hs-var">hashKeyRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The range of possible sequence numbers for the shard.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsequenceNumberRange%3AShard%27"><span class="annot"><span class="annottext">Shard -&gt; SequenceNumberRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AsequenceNumberRange%3AShard%27"><span class="hs-identifier hs-var hs-var">sequenceNumberRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198068"><span id="local-6989586621679198070"><span class="annot"><span class="annottext">Shard -&gt; Shard -&gt; Bool
+(Shard -&gt; Shard -&gt; Bool) -&gt; (Shard -&gt; Shard -&gt; Bool) -&gt; Eq Shard
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Shard -&gt; Shard -&gt; Bool
+$c/= :: Shard -&gt; Shard -&gt; Bool
+== :: Shard -&gt; Shard -&gt; Bool
+$c== :: Shard -&gt; Shard -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198059"><span id="local-6989586621679198061"><span id="local-6989586621679198063"><span id="local-6989586621679198065"><span class="annot"><span class="annottext">ReadPrec [Shard]
+ReadPrec Shard
+Int -&gt; ReadS Shard
+ReadS [Shard]
+(Int -&gt; ReadS Shard)
+-&gt; ReadS [Shard]
+-&gt; ReadPrec Shard
+-&gt; ReadPrec [Shard]
+-&gt; Read Shard
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Shard]
+$creadListPrec :: ReadPrec [Shard]
+readPrec :: ReadPrec Shard
+$creadPrec :: ReadPrec Shard
+readList :: ReadS [Shard]
+$creadList :: ReadS [Shard]
+readsPrec :: Int -&gt; ReadS Shard
+$creadsPrec :: Int -&gt; ReadS Shard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198052"><span id="local-6989586621679198054"><span id="local-6989586621679198056"><span class="annot"><span class="annottext">Int -&gt; Shard -&gt; ShowS
+[Shard] -&gt; ShowS
+Shard -&gt; String
+(Int -&gt; Shard -&gt; ShowS)
+-&gt; (Shard -&gt; String) -&gt; ([Shard] -&gt; ShowS) -&gt; Show Shard
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Shard] -&gt; ShowS
+$cshowList :: [Shard] -&gt; ShowS
+show :: Shard -&gt; String
+$cshow :: Shard -&gt; String
+showsPrec :: Int -&gt; Shard -&gt; ShowS
+$cshowsPrec :: Int -&gt; Shard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Shard -&gt; Rep Shard x)
+-&gt; (forall x. Rep Shard x -&gt; Shard) -&gt; Generic Shard
+forall x. Rep Shard x -&gt; Shard
+forall x. Shard -&gt; Rep Shard x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Shard x -&gt; Shard
+$cfrom :: forall x. Shard -&gt; Rep Shard x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Shard' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'adjacentParentShardId', 'shard_adjacentParentShardId' - The shard ID of the shard adjacent to the shard\'s parent.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'parentShardId', 'shard_parentShardId' - The shard ID of the shard\'s parent.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'shardId', 'shard_shardId' - The unique identifier of the shard within the stream.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'hashKeyRange', 'shard_hashKeyRange' - The range of possible hash key values for the shard, which is a set of</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- ordered contiguous positive integers.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sequenceNumberRange', 'shard_sequenceNumberRange' - The range of possible sequence numbers for the shard.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#newShard"><span class="hs-identifier hs-type">newShard</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'shardId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'hashKeyRange'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'sequenceNumberRange'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span>
+</span><span id="line-72"></span><span id="newShard"><span class="annot"><span class="annottext">newShard :: Text -&gt; HashKeyRange -&gt; SequenceNumberRange -&gt; Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#newShard"><span class="hs-identifier hs-var hs-var">newShard</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679198046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198046"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679198045"><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679198045"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679198044"><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679198044"><span class="hs-identifier hs-var">pSequenceNumberRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Shard' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; HashKeyRange
+-&gt; SequenceNumberRange
+-&gt; Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:adjacentParentShardId:Shard' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AadjacentParentShardId%3AShard%27"><span class="hs-identifier hs-var">adjacentParentShardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:parentShardId:Shard' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AparentShardId%3AShard%27"><span class="hs-identifier hs-var">parentShardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardId:Shard' :: Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AshardId%3AShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198046"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:hashKeyRange:Shard' :: HashKeyRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AhashKeyRange%3AShard%27"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679198045"><span class="hs-identifier hs-var">pHashKeyRange_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:sequenceNumberRange:Shard' :: SequenceNumberRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AsequenceNumberRange%3AShard%27"><span class="hs-identifier hs-var">sequenceNumberRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679198044"><span class="hs-identifier hs-var">pSequenceNumberRange_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The shard ID of the shard adjacent to the shard\'s parent.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#shard_adjacentParentShardId"><span class="hs-identifier hs-type">shard_adjacentParentShardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="shard_adjacentParentShardId"><span class="annot"><span class="annottext">shard_adjacentParentShardId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shard -&gt; f Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#shard_adjacentParentShardId"><span class="hs-identifier hs-var hs-var">shard_adjacentParentShardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Text)
+-&gt; (Shard -&gt; Maybe Text -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198040"><span class="annot"><span class="annottext">Maybe Text
+adjacentParentShardId :: Maybe Text
+$sel:adjacentParentShardId:Shard' :: Shard -&gt; Maybe Text
+</span><a href="#local-6989586621679198040"><span class="hs-identifier hs-var hs-var">adjacentParentShardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198040"><span class="hs-identifier hs-var">adjacentParentShardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198039"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679198039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679198039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjacentParentShardId:Shard' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AadjacentParentShardId%3AShard%27"><span class="hs-identifier hs-var">adjacentParentShardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The shard ID of the shard\'s parent.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#shard_parentShardId"><span class="hs-identifier hs-type">shard_parentShardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="shard_parentShardId"><span class="annot"><span class="annottext">shard_parentShardId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shard -&gt; f Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#shard_parentShardId"><span class="hs-identifier hs-var hs-var">shard_parentShardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Maybe Text)
+-&gt; (Shard -&gt; Maybe Text -&gt; Shard)
+-&gt; Lens Shard Shard (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198036"><span class="annot"><span class="annottext">Maybe Text
+parentShardId :: Maybe Text
+$sel:parentShardId:Shard' :: Shard -&gt; Maybe Text
+</span><a href="#local-6989586621679198036"><span class="hs-identifier hs-var hs-var">parentShardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198036"><span class="hs-identifier hs-var">parentShardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198035"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679198035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679198035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentShardId:Shard' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AparentShardId%3AShard%27"><span class="hs-identifier hs-var">parentShardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The unique identifier of the shard within the stream.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#shard_shardId"><span class="hs-identifier hs-type">shard_shardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="shard_shardId"><span class="annot"><span class="annottext">shard_shardId :: (Text -&gt; f Text) -&gt; Shard -&gt; f Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#shard_shardId"><span class="hs-identifier hs-var hs-var">shard_shardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; Text)
+-&gt; (Shard -&gt; Text -&gt; Shard) -&gt; Lens Shard Shard Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198032"><span class="annot"><span class="annottext">Text
+shardId :: Text
+$sel:shardId:Shard' :: Shard -&gt; Text
+</span><a href="#local-6989586621679198032"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198032"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198031"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679198031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679198031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:Shard' :: Text
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AshardId%3AShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The range of possible hash key values for the shard, which is a set of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- ordered contiguous positive integers.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#shard_hashKeyRange"><span class="hs-identifier hs-type">shard_hashKeyRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span>
+</span><span id="line-99"></span><span id="shard_hashKeyRange"><span class="annot"><span class="annottext">shard_hashKeyRange :: (HashKeyRange -&gt; f HashKeyRange) -&gt; Shard -&gt; f Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#shard_hashKeyRange"><span class="hs-identifier hs-var hs-var">shard_hashKeyRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; HashKeyRange)
+-&gt; (Shard -&gt; HashKeyRange -&gt; Shard)
+-&gt; Lens Shard Shard HashKeyRange HashKeyRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198028"><span class="annot"><span class="annottext">HashKeyRange
+hashKeyRange :: HashKeyRange
+$sel:hashKeyRange:Shard' :: Shard -&gt; HashKeyRange
+</span><a href="#local-6989586621679198028"><span class="hs-identifier hs-var hs-var">hashKeyRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679198028"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198027"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679198027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198026"><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679198026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679198027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashKeyRange:Shard' :: HashKeyRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AhashKeyRange%3AShard%27"><span class="hs-identifier hs-var">hashKeyRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679198026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The range of possible sequence numbers for the shard.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#shard_sequenceNumberRange"><span class="hs-identifier hs-type">shard_sequenceNumberRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier hs-type">SequenceNumberRange</span></a></span><span>
+</span><span id="line-103"></span><span id="shard_sequenceNumberRange"><span class="annot"><span class="annottext">shard_sequenceNumberRange :: (SequenceNumberRange -&gt; f SequenceNumberRange) -&gt; Shard -&gt; f Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#shard_sequenceNumberRange"><span class="hs-identifier hs-var hs-var">shard_sequenceNumberRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shard -&gt; SequenceNumberRange)
+-&gt; (Shard -&gt; SequenceNumberRange -&gt; Shard)
+-&gt; Lens Shard Shard SequenceNumberRange SequenceNumberRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198024"><span class="annot"><span class="annottext">SequenceNumberRange
+sequenceNumberRange :: SequenceNumberRange
+$sel:sequenceNumberRange:Shard' :: Shard -&gt; SequenceNumberRange
+</span><a href="#local-6989586621679198024"><span class="hs-identifier hs-var hs-var">sequenceNumberRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679198024"><span class="hs-identifier hs-var">sequenceNumberRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198023"><span class="annot"><span class="annottext">s :: Shard
+</span><a href="#local-6989586621679198023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-type">Shard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198022"><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679198022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shard
+</span><a href="#local-6989586621679198023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumberRange:Shard' :: SequenceNumberRange
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#%24sel%3AsequenceNumberRange%3AShard%27"><span class="hs-identifier hs-var">sequenceNumberRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SequenceNumberRange
+</span><a href="#local-6989586621679198022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198019"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679198017"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Shard
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Shard) -&gt; Value -&gt; Parser Shard
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Shard&quot;</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198014"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; HashKeyRange
+-&gt; SequenceNumberRange
+-&gt; Shard
+</span><a href="Network.AWS.Kinesis.Types.Shard.html#Shard%27"><span class="hs-identifier hs-var">Shard'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; HashKeyRange
+ -&gt; SequenceNumberRange
+ -&gt; Shard)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Text -&gt; HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdjacentParentShardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text -&gt; HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentShardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+-&gt; Parser Text
+-&gt; Parser (HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (HashKeyRange -&gt; SequenceNumberRange -&gt; Shard)
+-&gt; Parser HashKeyRange -&gt; Parser (SequenceNumberRange -&gt; Shard)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HashKeyRange
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HashKeyRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (SequenceNumberRange -&gt; Shard)
+-&gt; Parser SequenceNumberRange -&gt; Parser Shard
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SequenceNumberRange
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SequenceNumberRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198007"><span id="local-6989586621679198009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span></span><span>
+</span><span id="line-121"></span></pre></body></html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.ConferenceProviderType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.ConferenceProviderType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier">ConferenceProviderType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_BLUEJEANS"><span class="hs-identifier">ConferenceProviderType_BLUEJEANS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CHIME"><span class="hs-identifier">ConferenceProviderType_CHIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CUSTOM"><span class="hs-identifier">ConferenceProviderType_CUSTOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_FUZE"><span class="hs-identifier">ConferenceProviderType_FUZE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_GOOGLE_HANGOUTS"><span class="hs-identifier">ConferenceProviderType_GOOGLE_HANGOUTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_POLYCOM"><span class="hs-identifier">ConferenceProviderType_POLYCOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_RINGCENTRAL"><span class="hs-identifier">ConferenceProviderType_RINGCENTRAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_SKYPE_FOR_BUSINESS"><span class="hs-identifier">ConferenceProviderType_SKYPE_FOR_BUSINESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_WEBEX"><span class="hs-identifier">ConferenceProviderType_WEBEX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_ZOOM"><span class="hs-identifier">ConferenceProviderType_ZOOM</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679364597"><span id="local-6989586621679364598"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConferenceProviderType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-var">ConferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConferenceProviderType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-var">ConferenceProviderType'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConferenceProviderType"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#fromConferenceProviderType"><span class="hs-identifier hs-var hs-var">fromConferenceProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364589"><span id="local-6989586621679364591"><span id="local-6989586621679364593"><span class="annot"><span class="annottext">Int -&gt; ConferenceProviderType -&gt; ShowS
+[ConferenceProviderType] -&gt; ShowS
+ConferenceProviderType -&gt; String
+(Int -&gt; ConferenceProviderType -&gt; ShowS)
+-&gt; (ConferenceProviderType -&gt; String)
+-&gt; ([ConferenceProviderType] -&gt; ShowS)
+-&gt; Show ConferenceProviderType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConferenceProviderType] -&gt; ShowS
+$cshowList :: [ConferenceProviderType] -&gt; ShowS
+show :: ConferenceProviderType -&gt; String
+$cshow :: ConferenceProviderType -&gt; String
+showsPrec :: Int -&gt; ConferenceProviderType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConferenceProviderType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364580"><span id="local-6989586621679364582"><span id="local-6989586621679364584"><span id="local-6989586621679364586"><span class="annot"><span class="annottext">ReadPrec [ConferenceProviderType]
+ReadPrec ConferenceProviderType
+Int -&gt; ReadS ConferenceProviderType
+ReadS [ConferenceProviderType]
+(Int -&gt; ReadS ConferenceProviderType)
+-&gt; ReadS [ConferenceProviderType]
+-&gt; ReadPrec ConferenceProviderType
+-&gt; ReadPrec [ConferenceProviderType]
+-&gt; Read ConferenceProviderType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConferenceProviderType]
+$creadListPrec :: ReadPrec [ConferenceProviderType]
+readPrec :: ReadPrec ConferenceProviderType
+$creadPrec :: ReadPrec ConferenceProviderType
+readList :: ReadS [ConferenceProviderType]
+$creadList :: ReadS [ConferenceProviderType]
+readsPrec :: Int -&gt; ReadS ConferenceProviderType
+$creadsPrec :: Int -&gt; ReadS ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364575"><span id="local-6989586621679364577"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+(ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; Eq ConferenceProviderType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c/= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+== :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c== :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364559"><span id="local-6989586621679364561"><span id="local-6989586621679364563"><span id="local-6989586621679364565"><span id="local-6989586621679364567"><span id="local-6989586621679364569"><span id="local-6989586621679364571"><span class="annot"><span class="annottext">Eq ConferenceProviderType
+Eq ConferenceProviderType
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Ordering)
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; (ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool)
+-&gt; (ConferenceProviderType
+    -&gt; ConferenceProviderType -&gt; ConferenceProviderType)
+-&gt; (ConferenceProviderType
+    -&gt; ConferenceProviderType -&gt; ConferenceProviderType)
+-&gt; Ord ConferenceProviderType
+ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+ConferenceProviderType -&gt; ConferenceProviderType -&gt; Ordering
+ConferenceProviderType
+-&gt; ConferenceProviderType -&gt; ConferenceProviderType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConferenceProviderType
+-&gt; ConferenceProviderType -&gt; ConferenceProviderType
+$cmin :: ConferenceProviderType
+-&gt; ConferenceProviderType -&gt; ConferenceProviderType
+max :: ConferenceProviderType
+-&gt; ConferenceProviderType -&gt; ConferenceProviderType
+$cmax :: ConferenceProviderType
+-&gt; ConferenceProviderType -&gt; ConferenceProviderType
+&gt;= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c&gt;= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+&gt; :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c&gt; :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+&lt;= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c&lt;= :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+&lt; :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+$c&lt; :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Bool
+compare :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Ordering
+$ccompare :: ConferenceProviderType -&gt; ConferenceProviderType -&gt; Ordering
+$cp1Ord :: Eq ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConferenceProviderType -&gt; Rep ConferenceProviderType x)
+-&gt; (forall x.
+    Rep ConferenceProviderType x -&gt; ConferenceProviderType)
+-&gt; Generic ConferenceProviderType
+forall x. Rep ConferenceProviderType x -&gt; ConferenceProviderType
+forall x. ConferenceProviderType -&gt; Rep ConferenceProviderType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConferenceProviderType x -&gt; ConferenceProviderType
+$cfrom :: forall x. ConferenceProviderType -&gt; Rep ConferenceProviderType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364551"><span id="local-6989586621679364553"><span class="annot"><span class="annottext">Int -&gt; ConferenceProviderType -&gt; Int
+ConferenceProviderType -&gt; Int
+(Int -&gt; ConferenceProviderType -&gt; Int)
+-&gt; (ConferenceProviderType -&gt; Int)
+-&gt; Hashable ConferenceProviderType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConferenceProviderType -&gt; Int
+$chash :: ConferenceProviderType -&gt; Int
+hashWithSalt :: Int -&gt; ConferenceProviderType -&gt; Int
+$chashWithSalt :: Int -&gt; ConferenceProviderType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364548"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; ()
+(ConferenceProviderType -&gt; ()) -&gt; NFData ConferenceProviderType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConferenceProviderType -&gt; ()
+$crnf :: ConferenceProviderType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364545"><span class="annot"><span class="annottext">Text -&gt; Either String ConferenceProviderType
+(Text -&gt; Either String ConferenceProviderType)
+-&gt; FromText ConferenceProviderType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConferenceProviderType
+$cfromText :: Text -&gt; Either String ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364542"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; Text
+(ConferenceProviderType -&gt; Text) -&gt; ToText ConferenceProviderType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConferenceProviderType -&gt; Text
+$ctoText :: ConferenceProviderType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364539"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; ByteString
+(ConferenceProviderType -&gt; ByteString)
+-&gt; ToByteString ConferenceProviderType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConferenceProviderType -&gt; ByteString
+$ctoBS :: ConferenceProviderType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364536"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; ByteStringBuilder
+(ConferenceProviderType -&gt; ByteStringBuilder)
+-&gt; ToLog ConferenceProviderType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConferenceProviderType -&gt; ByteStringBuilder
+$cbuild :: ConferenceProviderType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364533"><span class="annot"><span class="annottext">HeaderName -&gt; ConferenceProviderType -&gt; [Header]
+(HeaderName -&gt; ConferenceProviderType -&gt; [Header])
+-&gt; ToHeader ConferenceProviderType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConferenceProviderType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConferenceProviderType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679364530"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; QueryString
+(ConferenceProviderType -&gt; QueryString)
+-&gt; ToQuery ConferenceProviderType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConferenceProviderType -&gt; QueryString
+$ctoQuery :: ConferenceProviderType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679364525"><span id="local-6989586621679364527"><span class="annot"><span class="annottext">Value -&gt; Parser [ConferenceProviderType]
+Value -&gt; Parser ConferenceProviderType
+(Value -&gt; Parser ConferenceProviderType)
+-&gt; (Value -&gt; Parser [ConferenceProviderType])
+-&gt; FromJSON ConferenceProviderType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConferenceProviderType]
+$cparseJSONList :: Value -&gt; Parser [ConferenceProviderType]
+parseJSON :: Value -&gt; Parser ConferenceProviderType
+$cparseJSON :: Value -&gt; Parser ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679364520"><span id="local-6989586621679364522"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConferenceProviderType]
+FromJSONKeyFunction ConferenceProviderType
+FromJSONKeyFunction ConferenceProviderType
+-&gt; FromJSONKeyFunction [ConferenceProviderType]
+-&gt; FromJSONKey ConferenceProviderType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConferenceProviderType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConferenceProviderType]
+fromJSONKey :: FromJSONKeyFunction ConferenceProviderType
+$cfromJSONKey :: FromJSONKeyFunction ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679364511"><span id="local-6989586621679364513"><span id="local-6989586621679364515"><span id="local-6989586621679364517"><span class="annot"><span class="annottext">[ConferenceProviderType] -&gt; Encoding
+[ConferenceProviderType] -&gt; Value
+ConferenceProviderType -&gt; Encoding
+ConferenceProviderType -&gt; Value
+(ConferenceProviderType -&gt; Value)
+-&gt; (ConferenceProviderType -&gt; Encoding)
+-&gt; ([ConferenceProviderType] -&gt; Value)
+-&gt; ([ConferenceProviderType] -&gt; Encoding)
+-&gt; ToJSON ConferenceProviderType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConferenceProviderType] -&gt; Encoding
+$ctoEncodingList :: [ConferenceProviderType] -&gt; Encoding
+toJSONList :: [ConferenceProviderType] -&gt; Value
+$ctoJSONList :: [ConferenceProviderType] -&gt; Value
+toEncoding :: ConferenceProviderType -&gt; Encoding
+$ctoEncoding :: ConferenceProviderType -&gt; Encoding
+toJSON :: ConferenceProviderType -&gt; Value
+$ctoJSON :: ConferenceProviderType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679364506"><span id="local-6989586621679364508"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConferenceProviderType]
+ToJSONKeyFunction ConferenceProviderType
+ToJSONKeyFunction ConferenceProviderType
+-&gt; ToJSONKeyFunction [ConferenceProviderType]
+-&gt; ToJSONKey ConferenceProviderType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConferenceProviderType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConferenceProviderType]
+toJSONKey :: ToJSONKeyFunction ConferenceProviderType
+$ctoJSONKey :: ToJSONKeyFunction ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679364503"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConferenceProviderType
+([Node] -&gt; Either String ConferenceProviderType)
+-&gt; FromXML ConferenceProviderType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConferenceProviderType
+$cparseXML :: [Node] -&gt; Either String ConferenceProviderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679364500"><span class="annot"><span class="annottext">ConferenceProviderType -&gt; XML
+(ConferenceProviderType -&gt; XML) -&gt; ToXML ConferenceProviderType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConferenceProviderType -&gt; XML
+$ctoXML :: ConferenceProviderType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_BLUEJEANS"><span class="hs-identifier hs-type">ConferenceProviderType_BLUEJEANS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_BLUEJEANS"><span id="%24mConferenceProviderType_BLUEJEANS"><span id="ConferenceProviderType_BLUEJEANS"><span class="annot"><span class="annottext">$bConferenceProviderType_BLUEJEANS :: ConferenceProviderType
+$mConferenceProviderType_BLUEJEANS :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_BLUEJEANS"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_BLUEJEANS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLUEJEANS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CHIME"><span class="hs-identifier hs-type">ConferenceProviderType_CHIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_CHIME"><span id="%24mConferenceProviderType_CHIME"><span id="ConferenceProviderType_CHIME"><span class="annot"><span class="annottext">$bConferenceProviderType_CHIME :: ConferenceProviderType
+$mConferenceProviderType_CHIME :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_CHIME"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_CHIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CHIME&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CUSTOM"><span class="hs-identifier hs-type">ConferenceProviderType_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_CUSTOM"><span id="%24mConferenceProviderType_CUSTOM"><span id="ConferenceProviderType_CUSTOM"><span class="annot"><span class="annottext">$bConferenceProviderType_CUSTOM :: ConferenceProviderType
+$mConferenceProviderType_CUSTOM :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_FUZE"><span class="hs-identifier hs-type">ConferenceProviderType_FUZE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_FUZE"><span id="%24mConferenceProviderType_FUZE"><span id="ConferenceProviderType_FUZE"><span class="annot"><span class="annottext">$bConferenceProviderType_FUZE :: ConferenceProviderType
+$mConferenceProviderType_FUZE :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_FUZE"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_FUZE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FUZE&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_GOOGLE_HANGOUTS"><span class="hs-identifier hs-type">ConferenceProviderType_GOOGLE_HANGOUTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_GOOGLE_HANGOUTS"><span id="%24mConferenceProviderType_GOOGLE_HANGOUTS"><span id="ConferenceProviderType_GOOGLE_HANGOUTS"><span class="annot"><span class="annottext">$bConferenceProviderType_GOOGLE_HANGOUTS :: ConferenceProviderType
+$mConferenceProviderType_GOOGLE_HANGOUTS :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_GOOGLE_HANGOUTS"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_GOOGLE_HANGOUTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GOOGLE_HANGOUTS&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_POLYCOM"><span class="hs-identifier hs-type">ConferenceProviderType_POLYCOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_POLYCOM"><span id="%24mConferenceProviderType_POLYCOM"><span id="ConferenceProviderType_POLYCOM"><span class="annot"><span class="annottext">$bConferenceProviderType_POLYCOM :: ConferenceProviderType
+$mConferenceProviderType_POLYCOM :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_POLYCOM"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_POLYCOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;POLYCOM&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_RINGCENTRAL"><span class="hs-identifier hs-type">ConferenceProviderType_RINGCENTRAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_RINGCENTRAL"><span id="%24mConferenceProviderType_RINGCENTRAL"><span id="ConferenceProviderType_RINGCENTRAL"><span class="annot"><span class="annottext">$bConferenceProviderType_RINGCENTRAL :: ConferenceProviderType
+$mConferenceProviderType_RINGCENTRAL :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_RINGCENTRAL"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_RINGCENTRAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RINGCENTRAL&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_SKYPE_FOR_BUSINESS"><span class="hs-identifier hs-type">ConferenceProviderType_SKYPE_FOR_BUSINESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_SKYPE_FOR_BUSINESS"><span id="%24mConferenceProviderType_SKYPE_FOR_BUSINESS"><span id="ConferenceProviderType_SKYPE_FOR_BUSINESS"><span class="annot"><span class="annottext">$bConferenceProviderType_SKYPE_FOR_BUSINESS :: ConferenceProviderType
+$mConferenceProviderType_SKYPE_FOR_BUSINESS :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_SKYPE_FOR_BUSINESS"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_SKYPE_FOR_BUSINESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SKYPE_FOR_BUSINESS&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_WEBEX"><span class="hs-identifier hs-type">ConferenceProviderType_WEBEX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_WEBEX"><span id="%24mConferenceProviderType_WEBEX"><span id="ConferenceProviderType_WEBEX"><span class="annot"><span class="annottext">$bConferenceProviderType_WEBEX :: ConferenceProviderType
+$mConferenceProviderType_WEBEX :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_WEBEX"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_WEBEX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEBEX&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_ZOOM"><span class="hs-identifier hs-type">ConferenceProviderType_ZOOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType"><span class="hs-identifier hs-type">ConferenceProviderType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConferenceProviderType_ZOOM"><span id="%24mConferenceProviderType_ZOOM"><span id="ConferenceProviderType_ZOOM"><span class="annot"><span class="annottext">$bConferenceProviderType_ZOOM :: ConferenceProviderType
+$mConferenceProviderType_ZOOM :: forall r.
+ConferenceProviderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#%24bConferenceProviderType_ZOOM"><span class="hs-identifier hs-var hs-var hs-var">ConferenceProviderType_ZOOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-identifier hs-type">ConferenceProviderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZOOM&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_BLUEJEANS"><span class="hs-pragma hs-type">ConferenceProviderType_BLUEJEANS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CHIME"><span class="hs-pragma hs-type">ConferenceProviderType_CHIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_CUSTOM"><span class="hs-pragma hs-type">ConferenceProviderType_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_FUZE"><span class="hs-pragma hs-type">ConferenceProviderType_FUZE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_GOOGLE_HANGOUTS"><span class="hs-pragma hs-type">ConferenceProviderType_GOOGLE_HANGOUTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_POLYCOM"><span class="hs-pragma hs-type">ConferenceProviderType_POLYCOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_RINGCENTRAL"><span class="hs-pragma hs-type">ConferenceProviderType_RINGCENTRAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_SKYPE_FOR_BUSINESS"><span class="hs-pragma hs-type">ConferenceProviderType_SKYPE_FOR_BUSINESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_WEBEX"><span class="hs-pragma hs-type">ConferenceProviderType_WEBEX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType_ZOOM"><span class="hs-pragma hs-type">ConferenceProviderType_ZOOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProviderType.html#ConferenceProviderType%27"><span class="hs-pragma hs-type">ConferenceProviderType'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

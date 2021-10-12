@@ -1,0 +1,1497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppStream.Types.ImageBuilder</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppStream.Types.ImageBuilder</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AccessEndpoint.html"><span class="hs-identifier">Network.AWS.AppStream.Types.AccessEndpoint</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html"><span class="hs-identifier">Network.AWS.AppStream.Types.DomainJoinInfo</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderState.html"><span class="hs-identifier">Network.AWS.AppStream.Types.ImageBuilderState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderStateChangeReason.html"><span class="hs-identifier">Network.AWS.AppStream.Types.ImageBuilderStateChangeReason</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.NetworkAccessConfiguration.html"><span class="hs-identifier">Network.AWS.AppStream.Types.NetworkAccessConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.PlatformType.html"><span class="hs-identifier">Network.AWS.AppStream.Types.PlatformType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ResourceError.html"><span class="hs-identifier">Network.AWS.AppStream.Types.ResourceError</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.VpcConfig.html"><span class="hs-identifier">Network.AWS.AppStream.Types.VpcConfig</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Describes a virtual machine that is used to create an image.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newImageBuilder' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679292015"><span id="local-6989586621679292016"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageBuilder"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-var">ImageBuilder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageBuilder%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-var">ImageBuilder'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The VPC configuration of the image builder.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvpcConfig%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe VpcConfig
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AvpcConfig%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The operating system platform of the image builder.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aplatform%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe PlatformType
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aplatform%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that is applied to the image builder. To assume</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- a role, the image builder calls the AWS Security Token Service (STS)</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @AssumeRole@ API operation and passes the ARN of the role to use. The</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- operation creates a new session with temporary credentials. AppStream</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- 2.0 retrieves the temporary credentials and creates the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- __appstream_machine_role__ credential profile on the instance.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AiamRoleArn%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AiamRoleArn%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The list of virtual private cloud (VPC) interface endpoint objects.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Administrators can connect to the image builder only through the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- specified endpoints.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AaccessEndpoints%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AaccessEndpoints%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">accessEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AccessEndpoint.html#AccessEndpoint"><span class="hs-identifier hs-type">AccessEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the directory and organizational unit (OU) to use to join</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the image builder to a Microsoft Active Directory domain.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdomainJoinInfo%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe DomainJoinInfo
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdomainJoinInfo%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">domainJoinInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The instance type for the image builder. The following instance types</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- are available:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   stream.standard.small</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   stream.standard.medium</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   stream.standard.large</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   stream.compute.large</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   stream.compute.xlarge</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   stream.compute.2xlarge</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   stream.compute.4xlarge</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   stream.compute.8xlarge</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   stream.memory.large</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   stream.memory.xlarge</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   stream.memory.2xlarge</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   stream.memory.4xlarge</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   stream.memory.8xlarge</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.large</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.xlarge</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.2xlarge</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.3xlarge</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.6xlarge</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   stream.memory.z1d.12xlarge</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-design.large</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-design.xlarge</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-design.2xlarge</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-design.4xlarge</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-desktop.2xlarge</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.xlarge</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.2xlarge</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.4xlarge</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.8xlarge</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.12xlarge</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   stream.graphics.g4dn.16xlarge</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-pro.4xlarge</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-pro.8xlarge</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   stream.graphics-pro.16xlarge</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AinstanceType%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AinstanceType%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The ARN for the image builder.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Aarn%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aarn%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The time stamp when the image builder was created.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AcreatedTime%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AcreatedTime%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The reason why the last state change occurred.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AstateChangeReason%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe ImageBuilderStateChangeReason
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AstateChangeReason%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderStateChangeReason.html#ImageBuilderStateChangeReason"><span class="hs-identifier hs-type">ImageBuilderStateChangeReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AnetworkAccessConfiguration%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe NetworkAccessConfiguration
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AnetworkAccessConfiguration%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">networkAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.NetworkAccessConfiguration.html#NetworkAccessConfiguration"><span class="hs-identifier hs-type">NetworkAccessConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The state of the image builder.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Astate%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe ImageBuilderState
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Astate%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The version of the AppStream 2.0 agent that is currently being used by</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- the image builder.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AappstreamAgentVersion%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AappstreamAgentVersion%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">appstreamAgentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The description to display.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Adescription%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Adescription%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | Enables or disables default internet access for the image builder.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AenableDefaultInternetAccess%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Bool
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AenableDefaultInternetAccess%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">enableDefaultInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The image builder errors.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AimageBuilderErrors%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe [ResourceError]
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageBuilderErrors%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">imageBuilderErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.ResourceError.html#ResourceError"><span class="hs-identifier hs-type">ResourceError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The image builder name to display.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AdisplayName%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdisplayName%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The ARN of the image from which this builder was created.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AimageArn%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageArn%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The name of the image builder.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3Aname%3AImageBuilder%27"><span class="annot"><span class="annottext">ImageBuilder -&gt; Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aname%3AImageBuilder%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291992"><span id="local-6989586621679291994"><span class="annot"><span class="annottext">ImageBuilder -&gt; ImageBuilder -&gt; Bool
+(ImageBuilder -&gt; ImageBuilder -&gt; Bool)
+-&gt; (ImageBuilder -&gt; ImageBuilder -&gt; Bool) -&gt; Eq ImageBuilder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageBuilder -&gt; ImageBuilder -&gt; Bool
+$c/= :: ImageBuilder -&gt; ImageBuilder -&gt; Bool
+== :: ImageBuilder -&gt; ImageBuilder -&gt; Bool
+$c== :: ImageBuilder -&gt; ImageBuilder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291983"><span id="local-6989586621679291985"><span id="local-6989586621679291987"><span id="local-6989586621679291989"><span class="annot"><span class="annottext">ReadPrec [ImageBuilder]
+ReadPrec ImageBuilder
+Int -&gt; ReadS ImageBuilder
+ReadS [ImageBuilder]
+(Int -&gt; ReadS ImageBuilder)
+-&gt; ReadS [ImageBuilder]
+-&gt; ReadPrec ImageBuilder
+-&gt; ReadPrec [ImageBuilder]
+-&gt; Read ImageBuilder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageBuilder]
+$creadListPrec :: ReadPrec [ImageBuilder]
+readPrec :: ReadPrec ImageBuilder
+$creadPrec :: ReadPrec ImageBuilder
+readList :: ReadS [ImageBuilder]
+$creadList :: ReadS [ImageBuilder]
+readsPrec :: Int -&gt; ReadS ImageBuilder
+$creadsPrec :: Int -&gt; ReadS ImageBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291976"><span id="local-6989586621679291978"><span id="local-6989586621679291980"><span class="annot"><span class="annottext">Int -&gt; ImageBuilder -&gt; ShowS
+[ImageBuilder] -&gt; ShowS
+ImageBuilder -&gt; String
+(Int -&gt; ImageBuilder -&gt; ShowS)
+-&gt; (ImageBuilder -&gt; String)
+-&gt; ([ImageBuilder] -&gt; ShowS)
+-&gt; Show ImageBuilder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageBuilder] -&gt; ShowS
+$cshowList :: [ImageBuilder] -&gt; ShowS
+show :: ImageBuilder -&gt; String
+$cshow :: ImageBuilder -&gt; String
+showsPrec :: Int -&gt; ImageBuilder -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageBuilder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImageBuilder -&gt; Rep ImageBuilder x)
+-&gt; (forall x. Rep ImageBuilder x -&gt; ImageBuilder)
+-&gt; Generic ImageBuilder
+forall x. Rep ImageBuilder x -&gt; ImageBuilder
+forall x. ImageBuilder -&gt; Rep ImageBuilder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageBuilder x -&gt; ImageBuilder
+$cfrom :: forall x. ImageBuilder -&gt; Rep ImageBuilder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Create a value of 'ImageBuilder' with all optional fields omitted.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'vpcConfig', 'imageBuilder_vpcConfig' - The VPC configuration of the image builder.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'platform', 'imageBuilder_platform' - The operating system platform of the image builder.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'iamRoleArn', 'imageBuilder_iamRoleArn' - The ARN of the IAM role that is applied to the image builder. To assume</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- a role, the image builder calls the AWS Security Token Service (STS)</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- @AssumeRole@ API operation and passes the ARN of the role to use. The</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- operation creates a new session with temporary credentials. AppStream</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 2.0 retrieves the temporary credentials and creates the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- __appstream_machine_role__ credential profile on the instance.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances&gt;</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'accessEndpoints', 'imageBuilder_accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Administrators can connect to the image builder only through the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- specified endpoints.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'domainJoinInfo', 'imageBuilder_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the image builder to a Microsoft Active Directory domain.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'instanceType', 'imageBuilder_instanceType' - The instance type for the image builder. The following instance types</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- are available:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   stream.standard.small</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   stream.standard.medium</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   stream.standard.large</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   stream.compute.large</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   stream.compute.xlarge</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   stream.compute.2xlarge</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   stream.compute.4xlarge</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   stream.compute.8xlarge</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   stream.memory.large</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   stream.memory.xlarge</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   stream.memory.2xlarge</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   stream.memory.4xlarge</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   stream.memory.8xlarge</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   stream.memory.z1d.large</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   stream.memory.z1d.xlarge</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   stream.memory.z1d.2xlarge</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   stream.memory.z1d.3xlarge</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   stream.memory.z1d.6xlarge</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   stream.memory.z1d.12xlarge</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   stream.graphics-design.large</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   stream.graphics-design.xlarge</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   stream.graphics-design.2xlarge</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   stream.graphics-design.4xlarge</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   stream.graphics-desktop.2xlarge</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   stream.graphics.g4dn.xlarge</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   stream.graphics.g4dn.2xlarge</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   stream.graphics.g4dn.4xlarge</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   stream.graphics.g4dn.8xlarge</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   stream.graphics.g4dn.12xlarge</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   stream.graphics.g4dn.16xlarge</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   stream.graphics-pro.4xlarge</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   stream.graphics-pro.8xlarge</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   stream.graphics-pro.16xlarge</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'arn', 'imageBuilder_arn' - The ARN for the image builder.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'createdTime', 'imageBuilder_createdTime' - The time stamp when the image builder was created.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'stateChangeReason', 'imageBuilder_stateChangeReason' - The reason why the last state change occurred.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'networkAccessConfiguration', 'imageBuilder_networkAccessConfiguration' - Undocumented member.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'state', 'imageBuilder_state' - The state of the image builder.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'appstreamAgentVersion', 'imageBuilder_appstreamAgentVersion' - The version of the AppStream 2.0 agent that is currently being used by</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- the image builder.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'description', 'imageBuilder_description' - The description to display.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'enableDefaultInternetAccess', 'imageBuilder_enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'imageBuilderErrors', 'imageBuilder_imageBuilderErrors' - The image builder errors.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'displayName', 'imageBuilder_displayName' - The image builder name to display.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'imageArn', 'imageBuilder_imageArn' - The ARN of the image from which this builder was created.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'name', 'imageBuilder_name' - The name of the image builder.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#newImageBuilder"><span class="hs-identifier hs-type">newImageBuilder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span>
+</span><span id="line-283"></span><span id="newImageBuilder"><span class="annot"><span class="annottext">newImageBuilder :: Text -&gt; ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#newImageBuilder"><span class="hs-identifier hs-var hs-var">newImageBuilder</span></a></span></span><span> </span><span id="local-6989586621679291970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291970"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">ImageBuilder' :: Maybe VpcConfig
+-&gt; Maybe PlatformType
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty AccessEndpoint)
+-&gt; Maybe DomainJoinInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ImageBuilderStateChangeReason
+-&gt; Maybe NetworkAccessConfiguration
+-&gt; Maybe ImageBuilderState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [ResourceError]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcConfig:ImageBuilder' :: Maybe VpcConfig
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AvpcConfig%3AImageBuilder%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:ImageBuilder' :: Maybe PlatformType
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aplatform%3AImageBuilder%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRoleArn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AiamRoleArn%3AImageBuilder%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessEndpoints:ImageBuilder' :: Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AaccessEndpoints%3AImageBuilder%27"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainJoinInfo:ImageBuilder' :: Maybe DomainJoinInfo
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdomainJoinInfo%3AImageBuilder%27"><span class="hs-identifier hs-var">domainJoinInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainJoinInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AinstanceType%3AImageBuilder%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aarn%3AImageBuilder%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:ImageBuilder' :: Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AcreatedTime%3AImageBuilder%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateChangeReason:ImageBuilder' :: Maybe ImageBuilderStateChangeReason
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AstateChangeReason%3AImageBuilder%27"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderStateChangeReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkAccessConfiguration:ImageBuilder' :: Maybe NetworkAccessConfiguration
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AnetworkAccessConfiguration%3AImageBuilder%27"><span class="hs-identifier hs-var">networkAccessConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkAccessConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ImageBuilder' :: Maybe ImageBuilderState
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Astate%3AImageBuilder%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:appstreamAgentVersion:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AappstreamAgentVersion%3AImageBuilder%27"><span class="hs-identifier hs-var">appstreamAgentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Adescription%3AImageBuilder%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDefaultInternetAccess:ImageBuilder' :: Maybe Bool
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AenableDefaultInternetAccess%3AImageBuilder%27"><span class="hs-identifier hs-var">enableDefaultInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageBuilderErrors:ImageBuilder' :: Maybe [ResourceError]
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageBuilderErrors%3AImageBuilder%27"><span class="hs-identifier hs-var">imageBuilderErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdisplayName%3AImageBuilder%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageArn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageArn%3AImageBuilder%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ImageBuilder' :: Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aname%3AImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291970"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-303"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The VPC configuration of the image builder.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_vpcConfig"><span class="hs-identifier hs-type">imageBuilder_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="imageBuilder_vpcConfig"><span class="annot"><span class="annottext">imageBuilder_vpcConfig :: (Maybe VpcConfig -&gt; f (Maybe VpcConfig))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_vpcConfig"><span class="hs-identifier hs-var hs-var">imageBuilder_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe VpcConfig)
+-&gt; (ImageBuilder -&gt; Maybe VpcConfig -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder ImageBuilder (Maybe VpcConfig) (Maybe VpcConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291966"><span class="annot"><span class="annottext">Maybe VpcConfig
+vpcConfig :: Maybe VpcConfig
+$sel:vpcConfig:ImageBuilder' :: ImageBuilder -&gt; Maybe VpcConfig
+</span><a href="#local-6989586621679291966"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621679291966"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291965"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291964"><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621679291964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:ImageBuilder' :: Maybe VpcConfig
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AvpcConfig%3AImageBuilder%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621679291964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The operating system platform of the image builder.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_platform"><span class="hs-identifier hs-type">imageBuilder_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-type">PlatformType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="imageBuilder_platform"><span class="annot"><span class="annottext">imageBuilder_platform :: (Maybe PlatformType -&gt; f (Maybe PlatformType))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_platform"><span class="hs-identifier hs-var hs-var">imageBuilder_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe PlatformType)
+-&gt; (ImageBuilder -&gt; Maybe PlatformType -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder ImageBuilder (Maybe PlatformType) (Maybe PlatformType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291962"><span class="annot"><span class="annottext">Maybe PlatformType
+platform :: Maybe PlatformType
+$sel:platform:ImageBuilder' :: ImageBuilder -&gt; Maybe PlatformType
+</span><a href="#local-6989586621679291962"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679291962"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291961"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291960"><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679291960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ImageBuilder' :: Maybe PlatformType
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aplatform%3AImageBuilder%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlatformType
+</span><a href="#local-6989586621679291960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The ARN of the IAM role that is applied to the image builder. To assume</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- a role, the image builder calls the AWS Security Token Service (STS)</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- @AssumeRole@ API operation and passes the ARN of the role to use. The</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- operation creates a new session with temporary credentials. AppStream</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 2.0 retrieves the temporary credentials and creates the</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- __appstream_machine_role__ credential profile on the instance.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances&gt;</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- in the /Amazon AppStream 2.0 Administration Guide/.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_iamRoleArn"><span class="hs-identifier hs-type">imageBuilder_iamRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="imageBuilder_iamRoleArn"><span class="annot"><span class="annottext">imageBuilder_iamRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_iamRoleArn"><span class="hs-identifier hs-var hs-var">imageBuilder_iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291958"><span class="annot"><span class="annottext">Maybe Text
+iamRoleArn :: Maybe Text
+$sel:iamRoleArn:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291958"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291958"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291957"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291956"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AiamRoleArn%3AImageBuilder%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The list of virtual private cloud (VPC) interface endpoint objects.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Administrators can connect to the image builder only through the</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- specified endpoints.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_accessEndpoints"><span class="hs-identifier hs-type">imageBuilder_accessEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AccessEndpoint.html#AccessEndpoint"><span class="hs-identifier hs-type">AccessEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="imageBuilder_accessEndpoints"><span class="annot"><span class="annottext">imageBuilder_accessEndpoints :: (Maybe (NonEmpty AccessEndpoint)
+ -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_accessEndpoints"><span class="hs-identifier hs-var hs-var">imageBuilder_accessEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe (NonEmpty AccessEndpoint))
+-&gt; (ImageBuilder
+    -&gt; Maybe (NonEmpty AccessEndpoint) -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291954"><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+accessEndpoints :: Maybe (NonEmpty AccessEndpoint)
+$sel:accessEndpoints:ImageBuilder' :: ImageBuilder -&gt; Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679291954"><span class="hs-identifier hs-var hs-var">accessEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679291954"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291953"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291952"><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679291952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessEndpoints:ImageBuilder' :: Maybe (NonEmpty AccessEndpoint)
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AaccessEndpoints%3AImageBuilder%27"><span class="hs-identifier hs-var">accessEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AccessEndpoint)
+</span><a href="#local-6989586621679291952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AccessEndpoint)
+  -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+ -&gt; ImageBuilder -&gt; f ImageBuilder)
+-&gt; ((Maybe (NonEmpty AccessEndpoint)
+     -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+    -&gt; Maybe (NonEmpty AccessEndpoint)
+    -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; (Maybe (NonEmpty AccessEndpoint)
+    -&gt; f (Maybe (NonEmpty AccessEndpoint)))
+-&gt; ImageBuilder
+-&gt; f ImageBuilder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+-&gt; Iso
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+     (Maybe (NonEmpty AccessEndpoint))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+  (NonEmpty AccessEndpoint)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The name of the directory and organizational unit (OU) to use to join</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- the image builder to a Microsoft Active Directory domain.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_domainJoinInfo"><span class="hs-identifier hs-type">imageBuilder_domainJoinInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="imageBuilder_domainJoinInfo"><span class="annot"><span class="annottext">imageBuilder_domainJoinInfo :: (Maybe DomainJoinInfo -&gt; f (Maybe DomainJoinInfo))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_domainJoinInfo"><span class="hs-identifier hs-var hs-var">imageBuilder_domainJoinInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe DomainJoinInfo)
+-&gt; (ImageBuilder -&gt; Maybe DomainJoinInfo -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe DomainJoinInfo)
+     (Maybe DomainJoinInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291947"><span class="annot"><span class="annottext">Maybe DomainJoinInfo
+domainJoinInfo :: Maybe DomainJoinInfo
+$sel:domainJoinInfo:ImageBuilder' :: ImageBuilder -&gt; Maybe DomainJoinInfo
+</span><a href="#local-6989586621679291947"><span class="hs-identifier hs-var hs-var">domainJoinInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainJoinInfo
+</span><a href="#local-6989586621679291947"><span class="hs-identifier hs-var">domainJoinInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291946"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291945"><span class="annot"><span class="annottext">Maybe DomainJoinInfo
+</span><a href="#local-6989586621679291945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainJoinInfo:ImageBuilder' :: Maybe DomainJoinInfo
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdomainJoinInfo%3AImageBuilder%27"><span class="hs-identifier hs-var">domainJoinInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainJoinInfo
+</span><a href="#local-6989586621679291945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | The instance type for the image builder. The following instance types</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- are available:</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- -   stream.standard.small</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- -   stream.standard.medium</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- -   stream.standard.large</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- -   stream.compute.large</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- -   stream.compute.xlarge</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- -   stream.compute.2xlarge</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- -   stream.compute.4xlarge</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- -   stream.compute.8xlarge</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- -   stream.memory.large</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- -   stream.memory.xlarge</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   stream.memory.2xlarge</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- -   stream.memory.4xlarge</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- -   stream.memory.8xlarge</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- -   stream.memory.z1d.large</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- -   stream.memory.z1d.xlarge</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- -   stream.memory.z1d.2xlarge</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- -   stream.memory.z1d.3xlarge</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- -   stream.memory.z1d.6xlarge</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- -   stream.memory.z1d.12xlarge</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- -   stream.graphics-design.large</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- -   stream.graphics-design.xlarge</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- -   stream.graphics-design.2xlarge</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- -   stream.graphics-design.4xlarge</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   stream.graphics-desktop.2xlarge</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   stream.graphics.g4dn.xlarge</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- -   stream.graphics.g4dn.2xlarge</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   stream.graphics.g4dn.4xlarge</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   stream.graphics.g4dn.8xlarge</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   stream.graphics.g4dn.12xlarge</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- -   stream.graphics.g4dn.16xlarge</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   stream.graphics-pro.4xlarge</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   stream.graphics-pro.8xlarge</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- -   stream.graphics-pro.16xlarge</span><span>
+</span><span id="line-405"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_instanceType"><span class="hs-identifier hs-type">imageBuilder_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span id="imageBuilder_instanceType"><span class="annot"><span class="annottext">imageBuilder_instanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_instanceType"><span class="hs-identifier hs-var hs-var">imageBuilder_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291943"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291943"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291943"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291942"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AinstanceType%3AImageBuilder%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | The ARN for the image builder.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_arn"><span class="hs-identifier hs-type">imageBuilder_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span id="imageBuilder_arn"><span class="annot"><span class="annottext">imageBuilder_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_arn"><span class="hs-identifier hs-var hs-var">imageBuilder_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291939"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291939"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291939"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291938"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aarn%3AImageBuilder%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- | The time stamp when the image builder was created.</span><span>
+</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_createdTime"><span class="hs-identifier hs-type">imageBuilder_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span id="imageBuilder_createdTime"><span class="annot"><span class="annottext">imageBuilder_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_createdTime"><span class="hs-identifier hs-var hs-var">imageBuilder_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe POSIX)
+-&gt; (ImageBuilder -&gt; Maybe POSIX -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291935"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:ImageBuilder' :: ImageBuilder -&gt; Maybe POSIX
+</span><a href="#local-6989586621679291935"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291935"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291934"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291933"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:ImageBuilder' :: Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AcreatedTime%3AImageBuilder%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679291933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ImageBuilder -&gt; f ImageBuilder)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ImageBuilder
+-&gt; f ImageBuilder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-comment">-- | The reason why the last state change occurred.</span><span>
+</span><span id="line-417"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_stateChangeReason"><span class="hs-identifier hs-type">imageBuilder_stateChangeReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderStateChangeReason.html#ImageBuilderStateChangeReason"><span class="hs-identifier hs-type">ImageBuilderStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span id="imageBuilder_stateChangeReason"><span class="annot"><span class="annottext">imageBuilder_stateChangeReason :: (Maybe ImageBuilderStateChangeReason
+ -&gt; f (Maybe ImageBuilderStateChangeReason))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_stateChangeReason"><span class="hs-identifier hs-var hs-var">imageBuilder_stateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe ImageBuilderStateChangeReason)
+-&gt; (ImageBuilder
+    -&gt; Maybe ImageBuilderStateChangeReason -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe ImageBuilderStateChangeReason)
+     (Maybe ImageBuilderStateChangeReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291930"><span class="annot"><span class="annottext">Maybe ImageBuilderStateChangeReason
+stateChangeReason :: Maybe ImageBuilderStateChangeReason
+$sel:stateChangeReason:ImageBuilder' :: ImageBuilder -&gt; Maybe ImageBuilderStateChangeReason
+</span><a href="#local-6989586621679291930"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderStateChangeReason
+</span><a href="#local-6989586621679291930"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291929"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291928"><span class="annot"><span class="annottext">Maybe ImageBuilderStateChangeReason
+</span><a href="#local-6989586621679291928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeReason:ImageBuilder' :: Maybe ImageBuilderStateChangeReason
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AstateChangeReason%3AImageBuilder%27"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderStateChangeReason
+</span><a href="#local-6989586621679291928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-421"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_networkAccessConfiguration"><span class="hs-identifier hs-type">imageBuilder_networkAccessConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.NetworkAccessConfiguration.html#NetworkAccessConfiguration"><span class="hs-identifier hs-type">NetworkAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span id="imageBuilder_networkAccessConfiguration"><span class="annot"><span class="annottext">imageBuilder_networkAccessConfiguration :: (Maybe NetworkAccessConfiguration
+ -&gt; f (Maybe NetworkAccessConfiguration))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_networkAccessConfiguration"><span class="hs-identifier hs-var hs-var">imageBuilder_networkAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe NetworkAccessConfiguration)
+-&gt; (ImageBuilder
+    -&gt; Maybe NetworkAccessConfiguration -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe NetworkAccessConfiguration)
+     (Maybe NetworkAccessConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291926"><span class="annot"><span class="annottext">Maybe NetworkAccessConfiguration
+networkAccessConfiguration :: Maybe NetworkAccessConfiguration
+$sel:networkAccessConfiguration:ImageBuilder' :: ImageBuilder -&gt; Maybe NetworkAccessConfiguration
+</span><a href="#local-6989586621679291926"><span class="hs-identifier hs-var hs-var">networkAccessConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkAccessConfiguration
+</span><a href="#local-6989586621679291926"><span class="hs-identifier hs-var">networkAccessConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291925"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291924"><span class="annot"><span class="annottext">Maybe NetworkAccessConfiguration
+</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkAccessConfiguration:ImageBuilder' :: Maybe NetworkAccessConfiguration
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AnetworkAccessConfiguration%3AImageBuilder%27"><span class="hs-identifier hs-var">networkAccessConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkAccessConfiguration
+</span><a href="#local-6989586621679291924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | The state of the image builder.</span><span>
+</span><span id="line-425"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_state"><span class="hs-identifier hs-type">imageBuilder_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilderState.html#ImageBuilderState"><span class="hs-identifier hs-type">ImageBuilderState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-426"></span><span id="imageBuilder_state"><span class="annot"><span class="annottext">imageBuilder_state :: (Maybe ImageBuilderState -&gt; f (Maybe ImageBuilderState))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_state"><span class="hs-identifier hs-var hs-var">imageBuilder_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe ImageBuilderState)
+-&gt; (ImageBuilder -&gt; Maybe ImageBuilderState -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe ImageBuilderState)
+     (Maybe ImageBuilderState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291922"><span class="annot"><span class="annottext">Maybe ImageBuilderState
+state :: Maybe ImageBuilderState
+$sel:state:ImageBuilder' :: ImageBuilder -&gt; Maybe ImageBuilderState
+</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderState
+</span><a href="#local-6989586621679291922"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291921"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291920"><span class="annot"><span class="annottext">Maybe ImageBuilderState
+</span><a href="#local-6989586621679291920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ImageBuilder' :: Maybe ImageBuilderState
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Astate%3AImageBuilder%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilderState
+</span><a href="#local-6989586621679291920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- | The version of the AppStream 2.0 agent that is currently being used by</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- the image builder.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_appstreamAgentVersion"><span class="hs-identifier hs-type">imageBuilder_appstreamAgentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="imageBuilder_appstreamAgentVersion"><span class="annot"><span class="annottext">imageBuilder_appstreamAgentVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_appstreamAgentVersion"><span class="hs-identifier hs-var hs-var">imageBuilder_appstreamAgentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291918"><span class="annot"><span class="annottext">Maybe Text
+appstreamAgentVersion :: Maybe Text
+$sel:appstreamAgentVersion:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291918"><span class="hs-identifier hs-var hs-var">appstreamAgentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291918"><span class="hs-identifier hs-var">appstreamAgentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291917"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appstreamAgentVersion:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AappstreamAgentVersion%3AImageBuilder%27"><span class="hs-identifier hs-var">appstreamAgentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | The description to display.</span><span>
+</span><span id="line-434"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_description"><span class="hs-identifier hs-type">imageBuilder_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span id="imageBuilder_description"><span class="annot"><span class="annottext">imageBuilder_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_description"><span class="hs-identifier hs-var hs-var">imageBuilder_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291914"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291914"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291914"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291913"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Adescription%3AImageBuilder%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- | Enables or disables default internet access for the image builder.</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_enableDefaultInternetAccess"><span class="hs-identifier hs-type">imageBuilder_enableDefaultInternetAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span id="imageBuilder_enableDefaultInternetAccess"><span class="annot"><span class="annottext">imageBuilder_enableDefaultInternetAccess :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_enableDefaultInternetAccess"><span class="hs-identifier hs-var hs-var">imageBuilder_enableDefaultInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Bool)
+-&gt; (ImageBuilder -&gt; Maybe Bool -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291910"><span class="annot"><span class="annottext">Maybe Bool
+enableDefaultInternetAccess :: Maybe Bool
+$sel:enableDefaultInternetAccess:ImageBuilder' :: ImageBuilder -&gt; Maybe Bool
+</span><a href="#local-6989586621679291910"><span class="hs-identifier hs-var hs-var">enableDefaultInternetAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291910"><span class="hs-identifier hs-var">enableDefaultInternetAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291909"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291908"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDefaultInternetAccess:ImageBuilder' :: Maybe Bool
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AenableDefaultInternetAccess%3AImageBuilder%27"><span class="hs-identifier hs-var">enableDefaultInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | The image builder errors.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_imageBuilderErrors"><span class="hs-identifier hs-type">imageBuilder_imageBuilderErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.ResourceError.html#ResourceError"><span class="hs-identifier hs-type">ResourceError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span id="imageBuilder_imageBuilderErrors"><span class="annot"><span class="annottext">imageBuilder_imageBuilderErrors :: (Maybe [ResourceError] -&gt; f (Maybe [ResourceError]))
+-&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_imageBuilderErrors"><span class="hs-identifier hs-var hs-var">imageBuilder_imageBuilderErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe [ResourceError])
+-&gt; (ImageBuilder -&gt; Maybe [ResourceError] -&gt; ImageBuilder)
+-&gt; Lens
+     ImageBuilder
+     ImageBuilder
+     (Maybe [ResourceError])
+     (Maybe [ResourceError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291906"><span class="annot"><span class="annottext">Maybe [ResourceError]
+imageBuilderErrors :: Maybe [ResourceError]
+$sel:imageBuilderErrors:ImageBuilder' :: ImageBuilder -&gt; Maybe [ResourceError]
+</span><a href="#local-6989586621679291906"><span class="hs-identifier hs-var hs-var">imageBuilderErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceError]
+</span><a href="#local-6989586621679291906"><span class="hs-identifier hs-var">imageBuilderErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291905"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291904"><span class="annot"><span class="annottext">Maybe [ResourceError]
+</span><a href="#local-6989586621679291904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilderErrors:ImageBuilder' :: Maybe [ResourceError]
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageBuilderErrors%3AImageBuilder%27"><span class="hs-identifier hs-var">imageBuilderErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceError]
+</span><a href="#local-6989586621679291904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceError] -&gt; f (Maybe [ResourceError]))
+ -&gt; ImageBuilder -&gt; f ImageBuilder)
+-&gt; ((Maybe [ResourceError] -&gt; f (Maybe [ResourceError]))
+    -&gt; Maybe [ResourceError] -&gt; f (Maybe [ResourceError]))
+-&gt; (Maybe [ResourceError] -&gt; f (Maybe [ResourceError]))
+-&gt; ImageBuilder
+-&gt; f ImageBuilder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceError] [ResourceError] [ResourceError] [ResourceError]
+-&gt; Iso
+     (Maybe [ResourceError])
+     (Maybe [ResourceError])
+     (Maybe [ResourceError])
+     (Maybe [ResourceError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourceError] [ResourceError] [ResourceError] [ResourceError]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | The image builder name to display.</span><span>
+</span><span id="line-446"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_displayName"><span class="hs-identifier hs-type">imageBuilder_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-447"></span><span id="imageBuilder_displayName"><span class="annot"><span class="annottext">imageBuilder_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_displayName"><span class="hs-identifier hs-var hs-var">imageBuilder_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291902"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291902"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291902"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291901"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AdisplayName%3AImageBuilder%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-448"></span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- | The ARN of the image from which this builder was created.</span><span>
+</span><span id="line-450"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_imageArn"><span class="hs-identifier hs-type">imageBuilder_imageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-451"></span><span id="imageBuilder_imageArn"><span class="annot"><span class="annottext">imageBuilder_imageArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_imageArn"><span class="hs-identifier hs-var hs-var">imageBuilder_imageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Maybe Text)
+-&gt; (ImageBuilder -&gt; Maybe Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291898"><span class="annot"><span class="annottext">Maybe Text
+imageArn :: Maybe Text
+$sel:imageArn:ImageBuilder' :: ImageBuilder -&gt; Maybe Text
+</span><a href="#local-6989586621679291898"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291898"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291897"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:ImageBuilder' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3AimageArn%3AImageBuilder%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- | The name of the image builder.</span><span>
+</span><span id="line-454"></span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_name"><span class="hs-identifier hs-type">imageBuilder_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-455"></span><span id="imageBuilder_name"><span class="annot"><span class="annottext">imageBuilder_name :: (Text -&gt; f Text) -&gt; ImageBuilder -&gt; f ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#imageBuilder_name"><span class="hs-identifier hs-var hs-var">imageBuilder_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageBuilder -&gt; Text)
+-&gt; (ImageBuilder -&gt; Text -&gt; ImageBuilder)
+-&gt; Lens ImageBuilder ImageBuilder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291894"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:ImageBuilder' :: ImageBuilder -&gt; Text
+</span><a href="#local-6989586621679291894"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291894"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291893"><span class="annot"><span class="annottext">s :: ImageBuilder
+</span><a href="#local-6989586621679291893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-type">ImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageBuilder
+</span><a href="#local-6989586621679291893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ImageBuilder' :: Text
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#%24sel%3Aname%3AImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-456"></span><span>
+</span><span id="line-457"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291889"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-458"></span><span>  </span><span id="local-6989586621679291887"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-459"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ImageBuilder) -&gt; Value -&gt; Parser ImageBuilder
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-460"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ImageBuilder&quot;</span></span><span>
+</span><span id="line-461"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-462"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpcConfig
+-&gt; Maybe PlatformType
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty AccessEndpoint)
+-&gt; Maybe DomainJoinInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ImageBuilderStateChangeReason
+-&gt; Maybe NetworkAccessConfiguration
+-&gt; Maybe ImageBuilderState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe [ResourceError]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ImageBuilder
+</span><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder%27"><span class="hs-identifier hs-var">ImageBuilder'</span></a></span><span>
+</span><span id="line-463"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpcConfig
+ -&gt; Maybe PlatformType
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty AccessEndpoint)
+ -&gt; Maybe DomainJoinInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ImageBuilderStateChangeReason
+ -&gt; Maybe NetworkAccessConfiguration
+ -&gt; Maybe ImageBuilderState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe [ResourceError]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; ImageBuilder)
+-&gt; Parser (Maybe VpcConfig)
+-&gt; Parser
+     (Maybe PlatformType
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty AccessEndpoint)
+      -&gt; Maybe DomainJoinInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PlatformType
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty AccessEndpoint)
+   -&gt; Maybe DomainJoinInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe PlatformType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty AccessEndpoint)
+      -&gt; Maybe DomainJoinInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlatformType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty AccessEndpoint)
+   -&gt; Maybe DomainJoinInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty AccessEndpoint)
+      -&gt; Maybe DomainJoinInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty AccessEndpoint)
+   -&gt; Maybe DomainJoinInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe (NonEmpty AccessEndpoint))
+-&gt; Parser
+     (Maybe DomainJoinInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty AccessEndpoint))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessEndpoints&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DomainJoinInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe DomainJoinInfo)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainJoinInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainJoinInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ImageBuilderStateChangeReason
+      -&gt; Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ImageBuilderStateChangeReason
+   -&gt; Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe ImageBuilderStateChangeReason)
+-&gt; Parser
+     (Maybe NetworkAccessConfiguration
+      -&gt; Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageBuilderStateChangeReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateChangeReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-472"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkAccessConfiguration
+   -&gt; Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe NetworkAccessConfiguration)
+-&gt; Parser
+     (Maybe ImageBuilderState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkAccessConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkAccessConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ImageBuilderState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe ImageBuilderState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageBuilderState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-474"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppstreamAgentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-475"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [ResourceError]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-476"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [ResourceError]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; ImageBuilder)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [ResourceError]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableDefaultInternetAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ResourceError]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ImageBuilder)
+-&gt; Parser (Maybe [ResourceError])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageBuilderErrors&quot;</span></span><span>
+</span><span id="line-478"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourceError]))
+-&gt; Maybe [ResourceError] -&gt; Parser (Maybe [ResourceError])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-479"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-480"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; ImageBuilder)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; ImageBuilder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ImageBuilder) -&gt; Parser Text -&gt; Parser ImageBuilder
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-484"></span><span>
+</span><span id="line-485"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291876"><span id="local-6989586621679291878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span></span></span><span>
+</span><span id="line-486"></span><span>
+</span><span id="line-487"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span></span><span>
+</span><span id="line-488"></span></pre></body></html>

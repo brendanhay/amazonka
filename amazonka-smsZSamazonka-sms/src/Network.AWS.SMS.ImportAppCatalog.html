@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SMS.ImportAppCatalog</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Allows application import from AWS Migration Hub.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SMS.ImportAppCatalog</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier">ImportAppCatalog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalog"><span class="hs-identifier">newImportAppCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalog_roleName"><span class="hs-identifier">importAppCatalog_roleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier">ImportAppCatalogResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalogResponse"><span class="hs-identifier">newImportAppCatalogResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalogResponse_httpStatus"><span class="hs-identifier">importAppCatalogResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newImportAppCatalog' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679254262"><span id="local-6989586621679254263"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportAppCatalog"><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-var">ImportAppCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportAppCatalog%27"><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog%27"><span class="hs-identifier hs-var">ImportAppCatalog'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the service role. If you omit this parameter, we create a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- service-linked role for AWS Migration Hub in your account. Otherwise,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the role that you provide must have the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy&gt;</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- described in the /AWS Migration Hub User Guide/.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AroleName%3AImportAppCatalog%27"><span class="annot"><span class="annottext">ImportAppCatalog -&gt; Maybe Text
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AroleName%3AImportAppCatalog%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254256"><span id="local-6989586621679254258"><span class="annot"><span class="annottext">ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool
+(ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool)
+-&gt; (ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool)
+-&gt; Eq ImportAppCatalog
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool
+$c/= :: ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool
+== :: ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool
+$c== :: ImportAppCatalog -&gt; ImportAppCatalog -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254247"><span id="local-6989586621679254249"><span id="local-6989586621679254251"><span id="local-6989586621679254253"><span class="annot"><span class="annottext">ReadPrec [ImportAppCatalog]
+ReadPrec ImportAppCatalog
+Int -&gt; ReadS ImportAppCatalog
+ReadS [ImportAppCatalog]
+(Int -&gt; ReadS ImportAppCatalog)
+-&gt; ReadS [ImportAppCatalog]
+-&gt; ReadPrec ImportAppCatalog
+-&gt; ReadPrec [ImportAppCatalog]
+-&gt; Read ImportAppCatalog
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportAppCatalog]
+$creadListPrec :: ReadPrec [ImportAppCatalog]
+readPrec :: ReadPrec ImportAppCatalog
+$creadPrec :: ReadPrec ImportAppCatalog
+readList :: ReadS [ImportAppCatalog]
+$creadList :: ReadS [ImportAppCatalog]
+readsPrec :: Int -&gt; ReadS ImportAppCatalog
+$creadsPrec :: Int -&gt; ReadS ImportAppCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254240"><span id="local-6989586621679254242"><span id="local-6989586621679254244"><span class="annot"><span class="annottext">Int -&gt; ImportAppCatalog -&gt; ShowS
+[ImportAppCatalog] -&gt; ShowS
+ImportAppCatalog -&gt; String
+(Int -&gt; ImportAppCatalog -&gt; ShowS)
+-&gt; (ImportAppCatalog -&gt; String)
+-&gt; ([ImportAppCatalog] -&gt; ShowS)
+-&gt; Show ImportAppCatalog
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportAppCatalog] -&gt; ShowS
+$cshowList :: [ImportAppCatalog] -&gt; ShowS
+show :: ImportAppCatalog -&gt; String
+$cshow :: ImportAppCatalog -&gt; String
+showsPrec :: Int -&gt; ImportAppCatalog -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportAppCatalog -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportAppCatalog -&gt; Rep ImportAppCatalog x)
+-&gt; (forall x. Rep ImportAppCatalog x -&gt; ImportAppCatalog)
+-&gt; Generic ImportAppCatalog
+forall x. Rep ImportAppCatalog x -&gt; ImportAppCatalog
+forall x. ImportAppCatalog -&gt; Rep ImportAppCatalog x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportAppCatalog x -&gt; ImportAppCatalog
+$cfrom :: forall x. ImportAppCatalog -&gt; Rep ImportAppCatalog x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'ImportAppCatalog' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'roleName', 'importAppCatalog_roleName' - The name of the service role. If you omit this parameter, we create a</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- service-linked role for AWS Migration Hub in your account. Otherwise,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- the role that you provide must have the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy&gt;</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- described in the /AWS Migration Hub User Guide/.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalog"><span class="hs-identifier hs-type">newImportAppCatalog</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span>
+</span><span id="line-74"></span><span id="newImportAppCatalog"><span class="annot"><span class="annottext">newImportAppCatalog :: ImportAppCatalog
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalog"><span class="hs-identifier hs-var hs-var">newImportAppCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ImportAppCatalog' :: Maybe Text -&gt; ImportAppCatalog
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog%27"><span class="hs-identifier hs-type">ImportAppCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:ImportAppCatalog' :: Maybe Text
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AroleName%3AImportAppCatalog%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the service role. If you omit this parameter, we create a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- service-linked role for AWS Migration Hub in your account. Otherwise,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the role that you provide must have the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy&gt;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- described in the /AWS Migration Hub User Guide/.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalog_roleName"><span class="hs-identifier hs-type">importAppCatalog_roleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="importAppCatalog_roleName"><span class="annot"><span class="annottext">importAppCatalog_roleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportAppCatalog -&gt; f ImportAppCatalog
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalog_roleName"><span class="hs-identifier hs-var hs-var">importAppCatalog_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAppCatalog -&gt; Maybe Text)
+-&gt; (ImportAppCatalog -&gt; Maybe Text -&gt; ImportAppCatalog)
+-&gt; Lens ImportAppCatalog ImportAppCatalog (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog%27"><span class="hs-identifier hs-type">ImportAppCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254233"><span class="annot"><span class="annottext">Maybe Text
+roleName :: Maybe Text
+$sel:roleName:ImportAppCatalog' :: ImportAppCatalog -&gt; Maybe Text
+</span><a href="#local-6989586621679254233"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254233"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254232"><span class="annot"><span class="annottext">s :: ImportAppCatalog
+</span><a href="#local-6989586621679254232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog%27"><span class="hs-identifier hs-type">ImportAppCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAppCatalog
+</span><a href="#local-6989586621679254232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:ImportAppCatalog' :: Maybe Text
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AroleName%3AImportAppCatalog%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-type">ImportAppCatalogResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679254227"><span class="annot"><span class="annottext">request :: ImportAppCatalog -&gt; Request ImportAppCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportAppCatalog -&gt; Request ImportAppCatalog
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679254223"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ImportAppCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportAppCatalog)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse ImportAppCatalog))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ImportAppCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportAppCatalog)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254220"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254219"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254219"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254218"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679254218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ImportAppCatalogResponse
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse%27"><span class="hs-identifier hs-var">ImportAppCatalogResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ImportAppCatalogResponse)
+-&gt; Either String Int -&gt; Either String ImportAppCatalogResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254220"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254211"><span id="local-6989586621679254213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679254204"><span class="annot"><span class="annottext">toHeaders :: ImportAppCatalog -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportAppCatalog -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSServerMigrationService_V2016_10_24.ImportAppCatalog&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254194"><span id="local-6989586621679254196"><span id="local-6989586621679254198"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679254192"><span class="annot"><span class="annottext">toJSON :: ImportAppCatalog -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog%27"><span class="hs-identifier hs-type">ImportAppCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254190"><span class="annot"><span class="annottext">Maybe Text
+roleName :: Maybe Text
+$sel:roleName:ImportAppCatalog' :: ImportAppCatalog -&gt; Maybe Text
+</span><a href="#local-6989586621679254190"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254190"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679254184"><span class="annot"><span class="annottext">toPath :: ImportAppCatalog -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportAppCatalog -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalog"><span class="hs-identifier hs-type">ImportAppCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679254180"><span class="annot"><span class="annottext">toQuery :: ImportAppCatalog -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportAppCatalog -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newImportAppCatalogResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679254177"><span id="local-6989586621679254178"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportAppCatalogResponse"><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-var">ImportAppCatalogResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportAppCatalogResponse%27"><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse%27"><span class="hs-identifier hs-var">ImportAppCatalogResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportAppCatalogResponse%27"><span class="annot"><span class="annottext">ImportAppCatalogResponse -&gt; Int
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AhttpStatus%3AImportAppCatalogResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254172"><span id="local-6989586621679254174"><span class="annot"><span class="annottext">ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool
+(ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool)
+-&gt; (ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool)
+-&gt; Eq ImportAppCatalogResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool
+$c/= :: ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool
+== :: ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool
+$c== :: ImportAppCatalogResponse -&gt; ImportAppCatalogResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254164"><span id="local-6989586621679254166"><span id="local-6989586621679254168"><span id="local-6989586621679254170"><span class="annot"><span class="annottext">ReadPrec [ImportAppCatalogResponse]
+ReadPrec ImportAppCatalogResponse
+Int -&gt; ReadS ImportAppCatalogResponse
+ReadS [ImportAppCatalogResponse]
+(Int -&gt; ReadS ImportAppCatalogResponse)
+-&gt; ReadS [ImportAppCatalogResponse]
+-&gt; ReadPrec ImportAppCatalogResponse
+-&gt; ReadPrec [ImportAppCatalogResponse]
+-&gt; Read ImportAppCatalogResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportAppCatalogResponse]
+$creadListPrec :: ReadPrec [ImportAppCatalogResponse]
+readPrec :: ReadPrec ImportAppCatalogResponse
+$creadPrec :: ReadPrec ImportAppCatalogResponse
+readList :: ReadS [ImportAppCatalogResponse]
+$creadList :: ReadS [ImportAppCatalogResponse]
+readsPrec :: Int -&gt; ReadS ImportAppCatalogResponse
+$creadsPrec :: Int -&gt; ReadS ImportAppCatalogResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254158"><span id="local-6989586621679254160"><span id="local-6989586621679254162"><span class="annot"><span class="annottext">Int -&gt; ImportAppCatalogResponse -&gt; ShowS
+[ImportAppCatalogResponse] -&gt; ShowS
+ImportAppCatalogResponse -&gt; String
+(Int -&gt; ImportAppCatalogResponse -&gt; ShowS)
+-&gt; (ImportAppCatalogResponse -&gt; String)
+-&gt; ([ImportAppCatalogResponse] -&gt; ShowS)
+-&gt; Show ImportAppCatalogResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportAppCatalogResponse] -&gt; ShowS
+$cshowList :: [ImportAppCatalogResponse] -&gt; ShowS
+show :: ImportAppCatalogResponse -&gt; String
+$cshow :: ImportAppCatalogResponse -&gt; String
+showsPrec :: Int -&gt; ImportAppCatalogResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportAppCatalogResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ImportAppCatalogResponse -&gt; Rep ImportAppCatalogResponse x)
+-&gt; (forall x.
+    Rep ImportAppCatalogResponse x -&gt; ImportAppCatalogResponse)
+-&gt; Generic ImportAppCatalogResponse
+forall x.
+Rep ImportAppCatalogResponse x -&gt; ImportAppCatalogResponse
+forall x.
+ImportAppCatalogResponse -&gt; Rep ImportAppCatalogResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImportAppCatalogResponse x -&gt; ImportAppCatalogResponse
+$cfrom :: forall x.
+ImportAppCatalogResponse -&gt; Rep ImportAppCatalogResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'ImportAppCatalogResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'importAppCatalogResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalogResponse"><span class="hs-identifier hs-type">newImportAppCatalogResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-type">ImportAppCatalogResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newImportAppCatalogResponse"><span class="annot"><span class="annottext">newImportAppCatalogResponse :: Int -&gt; ImportAppCatalogResponse
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#newImportAppCatalogResponse"><span class="hs-identifier hs-var hs-var">newImportAppCatalogResponse</span></a></span></span><span> </span><span id="local-6989586621679254155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">ImportAppCatalogResponse' :: Int -&gt; ImportAppCatalogResponse
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse%27"><span class="hs-identifier hs-type">ImportAppCatalogResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportAppCatalogResponse' :: Int
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AhttpStatus%3AImportAppCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalogResponse_httpStatus"><span class="hs-identifier hs-type">importAppCatalogResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-type">ImportAppCatalogResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span id="importAppCatalogResponse_httpStatus"><span class="annot"><span class="annottext">importAppCatalogResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ImportAppCatalogResponse -&gt; f ImportAppCatalogResponse
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#importAppCatalogResponse_httpStatus"><span class="hs-identifier hs-var hs-var">importAppCatalogResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAppCatalogResponse -&gt; Int)
+-&gt; (ImportAppCatalogResponse -&gt; Int -&gt; ImportAppCatalogResponse)
+-&gt; Lens ImportAppCatalogResponse ImportAppCatalogResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse%27"><span class="hs-identifier hs-type">ImportAppCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254154"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ImportAppCatalogResponse' :: ImportAppCatalogResponse -&gt; Int
+</span><a href="#local-6989586621679254154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254153"><span class="annot"><span class="annottext">s :: ImportAppCatalogResponse
+</span><a href="#local-6989586621679254153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse%27"><span class="hs-identifier hs-type">ImportAppCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAppCatalogResponse
+</span><a href="#local-6989586621679254153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportAppCatalogResponse' :: Int
+</span><a href="Network.AWS.SMS.ImportAppCatalog.html#%24sel%3AhttpStatus%3AImportAppCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-type">ImportAppCatalogResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.ImportAppCatalog.html#ImportAppCatalogResponse"><span class="hs-identifier hs-type">ImportAppCatalogResponse</span></a></span></span><span>
+</span><span id="line-160"></span></pre></body></html>

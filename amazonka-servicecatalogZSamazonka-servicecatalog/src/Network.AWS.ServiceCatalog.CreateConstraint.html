@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.CreateConstraint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a constraint.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A delegated admin is authorized to invoke this command.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.CreateConstraint</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier">CreateConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraint"><span class="hs-identifier">newCreateConstraint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_description"><span class="hs-identifier">createConstraint_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_acceptLanguage"><span class="hs-identifier">createConstraint_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_portfolioId"><span class="hs-identifier">createConstraint_portfolioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_productId"><span class="hs-identifier">createConstraint_productId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_parameters"><span class="hs-identifier">createConstraint_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_type"><span class="hs-identifier">createConstraint_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_idempotencyToken"><span class="hs-identifier">createConstraint_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier">CreateConstraintResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraintResponse"><span class="hs-identifier">newCreateConstraintResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintParameters"><span class="hs-identifier">createConstraintResponse_constraintParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintDetail"><span class="hs-identifier">createConstraintResponse_constraintDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_status"><span class="hs-identifier">createConstraintResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_httpStatus"><span class="hs-identifier">createConstraintResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateConstraint' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679427484"><span id="local-6989586621679427485"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConstraint"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-var">CreateConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConstraint%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-var">CreateConstraint'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the constraint.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Adescription%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AacceptLanguage%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AacceptLanguage%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The portfolio identifier.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AportfolioId%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AportfolioId%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AproductId%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AproductId%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The constraint parameters, in JSON format. The syntax depends on the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- constraint type as follows:</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- [LAUNCH]</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     You are required to specify either the @RoleArn@ or the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     @LocalRoleName@ but can\'t use both.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     Specify the @RoleArn@ property as follows:</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     @{\&quot;RoleArn\&quot; : \&quot;arn:aws:iam::123456789012:role\/LaunchRole\&quot;}@</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     Specify the @LocalRoleName@ property as follows:</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     @{\&quot;LocalRoleName\&quot;: \&quot;SCBasicLaunchRole\&quot;}@</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     If you specify the @LocalRoleName@ property, when an account uses</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     the launch constraint, the IAM role with that name in the account</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     will be used. This allows launch-role constraints to be</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     account-agnostic so the administrator can create fewer resources per</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     shared account.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     The given role name must exist in the account used to create the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     launch constraint and the account of the user who launches a product</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     with this launch constraint.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     You also cannot have more than one @LAUNCH@ constraint on a product</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     and portfolio.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- [NOTIFICATION]</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     Specify the @NotificationArns@ property as follows:</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     @{\&quot;NotificationArns\&quot; : [\&quot;arn:aws:sns:us-east-1:123456789012:Topic\&quot;]}@</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- [RESOURCE_UPDATE]</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     @{\&quot;Version\&quot;:\&quot;2.0\&quot;,\&quot;Properties\&quot;:{\&quot;TagUpdateOnProvisionedProduct\&quot;:\&quot;String\&quot;}}@</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     of @ALLOWED@ or @NOT_ALLOWED@.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- [STACKSET]</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     Specify the @Parameters@ property as follows:</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     @{\&quot;Version\&quot;: \&quot;String\&quot;, \&quot;Properties\&quot;: {\&quot;AccountList\&quot;: [ \&quot;String\&quot; ], \&quot;RegionList\&quot;: [ \&quot;String\&quot; ], \&quot;AdminRole\&quot;: \&quot;String\&quot;, \&quot;ExecutionRole\&quot;: \&quot;String\&quot;}}@</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     You also cannot have more than one @STACKSET@ constraint on a</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     product and portfolio.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     Products with a @STACKSET@ constraint will launch an AWS</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     CloudFormation stack set.</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- [TEMPLATE]</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     Specify the @Rules@ property. For more information, see</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules&gt;.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Aparameters%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Aparameters%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The type of constraint.</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   @LAUNCH@</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   @NOTIFICATION@</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @RESOURCE_UPDATE@</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- -   @STACKSET@</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @TEMPLATE@</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Atype%27%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateConstraint%27"><span class="annot"><span class="annottext">CreateConstraint -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AidempotencyToken%3ACreateConstraint%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427472"><span id="local-6989586621679427474"><span class="annot"><span class="annottext">CreateConstraint -&gt; CreateConstraint -&gt; Bool
+(CreateConstraint -&gt; CreateConstraint -&gt; Bool)
+-&gt; (CreateConstraint -&gt; CreateConstraint -&gt; Bool)
+-&gt; Eq CreateConstraint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConstraint -&gt; CreateConstraint -&gt; Bool
+$c/= :: CreateConstraint -&gt; CreateConstraint -&gt; Bool
+== :: CreateConstraint -&gt; CreateConstraint -&gt; Bool
+$c== :: CreateConstraint -&gt; CreateConstraint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427463"><span id="local-6989586621679427465"><span id="local-6989586621679427467"><span id="local-6989586621679427469"><span class="annot"><span class="annottext">ReadPrec [CreateConstraint]
+ReadPrec CreateConstraint
+Int -&gt; ReadS CreateConstraint
+ReadS [CreateConstraint]
+(Int -&gt; ReadS CreateConstraint)
+-&gt; ReadS [CreateConstraint]
+-&gt; ReadPrec CreateConstraint
+-&gt; ReadPrec [CreateConstraint]
+-&gt; Read CreateConstraint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConstraint]
+$creadListPrec :: ReadPrec [CreateConstraint]
+readPrec :: ReadPrec CreateConstraint
+$creadPrec :: ReadPrec CreateConstraint
+readList :: ReadS [CreateConstraint]
+$creadList :: ReadS [CreateConstraint]
+readsPrec :: Int -&gt; ReadS CreateConstraint
+$creadsPrec :: Int -&gt; ReadS CreateConstraint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427456"><span id="local-6989586621679427458"><span id="local-6989586621679427460"><span class="annot"><span class="annottext">Int -&gt; CreateConstraint -&gt; ShowS
+[CreateConstraint] -&gt; ShowS
+CreateConstraint -&gt; String
+(Int -&gt; CreateConstraint -&gt; ShowS)
+-&gt; (CreateConstraint -&gt; String)
+-&gt; ([CreateConstraint] -&gt; ShowS)
+-&gt; Show CreateConstraint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConstraint] -&gt; ShowS
+$cshowList :: [CreateConstraint] -&gt; ShowS
+show :: CreateConstraint -&gt; String
+$cshow :: CreateConstraint -&gt; String
+showsPrec :: Int -&gt; CreateConstraint -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConstraint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateConstraint -&gt; Rep CreateConstraint x)
+-&gt; (forall x. Rep CreateConstraint x -&gt; CreateConstraint)
+-&gt; Generic CreateConstraint
+forall x. Rep CreateConstraint x -&gt; CreateConstraint
+forall x. CreateConstraint -&gt; Rep CreateConstraint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateConstraint x -&gt; CreateConstraint
+$cfrom :: forall x. CreateConstraint -&gt; Rep CreateConstraint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'CreateConstraint' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'description', 'createConstraint_description' - The description of the constraint.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'acceptLanguage', 'createConstraint_acceptLanguage' - The language code.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'portfolioId', 'createConstraint_portfolioId' - The portfolio identifier.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'productId', 'createConstraint_productId' - The product identifier.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'parameters', 'createConstraint_parameters' - The constraint parameters, in JSON format. The syntax depends on the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- constraint type as follows:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- [LAUNCH]</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     You are required to specify either the @RoleArn@ or the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     @LocalRoleName@ but can\'t use both.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     Specify the @RoleArn@ property as follows:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     @{\&quot;RoleArn\&quot; : \&quot;arn:aws:iam::123456789012:role\/LaunchRole\&quot;}@</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     Specify the @LocalRoleName@ property as follows:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     @{\&quot;LocalRoleName\&quot;: \&quot;SCBasicLaunchRole\&quot;}@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     If you specify the @LocalRoleName@ property, when an account uses</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     the launch constraint, the IAM role with that name in the account</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     will be used. This allows launch-role constraints to be</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     account-agnostic so the administrator can create fewer resources per</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     shared account.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     The given role name must exist in the account used to create the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     launch constraint and the account of the user who launches a product</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     with this launch constraint.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     You also cannot have more than one @LAUNCH@ constraint on a product</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     and portfolio.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- [NOTIFICATION]</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     Specify the @NotificationArns@ property as follows:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     @{\&quot;NotificationArns\&quot; : [\&quot;arn:aws:sns:us-east-1:123456789012:Topic\&quot;]}@</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- [RESOURCE_UPDATE]</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     @{\&quot;Version\&quot;:\&quot;2.0\&quot;,\&quot;Properties\&quot;:{\&quot;TagUpdateOnProvisionedProduct\&quot;:\&quot;String\&quot;}}@</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     of @ALLOWED@ or @NOT_ALLOWED@.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- [STACKSET]</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     Specify the @Parameters@ property as follows:</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     @{\&quot;Version\&quot;: \&quot;String\&quot;, \&quot;Properties\&quot;: {\&quot;AccountList\&quot;: [ \&quot;String\&quot; ], \&quot;RegionList\&quot;: [ \&quot;String\&quot; ], \&quot;AdminRole\&quot;: \&quot;String\&quot;, \&quot;ExecutionRole\&quot;: \&quot;String\&quot;}}@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     You also cannot have more than one @STACKSET@ constraint on a</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     product and portfolio.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     Products with a @STACKSET@ constraint will launch an AWS</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     CloudFormation stack set.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- [TEMPLATE]</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     Specify the @Rules@ property. For more information, see</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules&gt;.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'type'', 'createConstraint_type' - The type of constraint.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   @LAUNCH@</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   @NOTIFICATION@</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   @RESOURCE_UPDATE@</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   @STACKSET@</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- -   @TEMPLATE@</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'idempotencyToken', 'createConstraint_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraint"><span class="hs-identifier hs-type">newCreateConstraint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-comment">-- | 'portfolioId'</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-comment">-- | 'productId'</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-comment">-- | 'parameters'</span><span>
+</span><span id="line-257"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'idempotencyToken'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span>
+</span><span id="line-263"></span><span id="newCreateConstraint"><span class="annot"><span class="annottext">newCreateConstraint :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraint"><span class="hs-identifier hs-var hs-var">newCreateConstraint</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679427451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427451"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679427450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427450"><span class="hs-identifier hs-var">pProductId_</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679427449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427449"><span class="hs-identifier hs-var">pParameters_</span></a></span></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679427448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427448"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679427447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427447"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">CreateConstraint' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateConstraint' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Adescription%3ACreateConstraint%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:acceptLanguage:CreateConstraint' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AacceptLanguage%3ACreateConstraint%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:portfolioId:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AportfolioId%3ACreateConstraint%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427451"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">$sel:productId:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AproductId%3ACreateConstraint%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427450"><span class="hs-identifier hs-var">pProductId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:parameters:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Aparameters%3ACreateConstraint%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427449"><span class="hs-identifier hs-var">pParameters_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Atype%27%3ACreateConstraint%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427448"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AidempotencyToken%3ACreateConstraint%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427447"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The description of the constraint.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_description"><span class="hs-identifier hs-type">createConstraint_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="createConstraint_description"><span class="annot"><span class="annottext">createConstraint_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_description"><span class="hs-identifier hs-var hs-var">createConstraint_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Maybe Text)
+-&gt; (CreateConstraint -&gt; Maybe Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427444"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateConstraint' :: CreateConstraint -&gt; Maybe Text
+</span><a href="#local-6989586621679427444"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427444"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427443"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateConstraint' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Adescription%3ACreateConstraint%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_acceptLanguage"><span class="hs-identifier hs-type">createConstraint_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="createConstraint_acceptLanguage"><span class="annot"><span class="annottext">createConstraint_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_acceptLanguage"><span class="hs-identifier hs-var hs-var">createConstraint_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Maybe Text)
+-&gt; (CreateConstraint -&gt; Maybe Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427441"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:CreateConstraint' :: CreateConstraint -&gt; Maybe Text
+</span><a href="#local-6989586621679427441"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427441"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427440"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:CreateConstraint' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AacceptLanguage%3ACreateConstraint%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The portfolio identifier.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_portfolioId"><span class="hs-identifier hs-type">createConstraint_portfolioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-295"></span><span id="createConstraint_portfolioId"><span class="annot"><span class="annottext">createConstraint_portfolioId :: (Text -&gt; f Text) -&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_portfolioId"><span class="hs-identifier hs-var hs-var">createConstraint_portfolioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Text)
+-&gt; (CreateConstraint -&gt; Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427438"><span class="annot"><span class="annottext">Text
+portfolioId :: Text
+$sel:portfolioId:CreateConstraint' :: CreateConstraint -&gt; Text
+</span><a href="#local-6989586621679427438"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427438"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427437"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AportfolioId%3ACreateConstraint%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_productId"><span class="hs-identifier hs-type">createConstraint_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-299"></span><span id="createConstraint_productId"><span class="annot"><span class="annottext">createConstraint_productId :: (Text -&gt; f Text) -&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_productId"><span class="hs-identifier hs-var hs-var">createConstraint_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Text)
+-&gt; (CreateConstraint -&gt; Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427435"><span class="annot"><span class="annottext">Text
+productId :: Text
+$sel:productId:CreateConstraint' :: CreateConstraint -&gt; Text
+</span><a href="#local-6989586621679427435"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427435"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427434"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AproductId%3ACreateConstraint%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | The constraint parameters, in JSON format. The syntax depends on the</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- constraint type as follows:</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- [LAUNCH]</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     You are required to specify either the @RoleArn@ or the</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     @LocalRoleName@ but can\'t use both.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     Specify the @RoleArn@ property as follows:</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     @{\&quot;RoleArn\&quot; : \&quot;arn:aws:iam::123456789012:role\/LaunchRole\&quot;}@</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     Specify the @LocalRoleName@ property as follows:</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     @{\&quot;LocalRoleName\&quot;: \&quot;SCBasicLaunchRole\&quot;}@</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     If you specify the @LocalRoleName@ property, when an account uses</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     the launch constraint, the IAM role with that name in the account</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     will be used. This allows launch-role constraints to be</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     account-agnostic so the administrator can create fewer resources per</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     shared account.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     The given role name must exist in the account used to create the</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     launch constraint and the account of the user who launches a product</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--     with this launch constraint.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     You also cannot have more than one @LAUNCH@ constraint on a product</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     and portfolio.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- [NOTIFICATION]</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     Specify the @NotificationArns@ property as follows:</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     @{\&quot;NotificationArns\&quot; : [\&quot;arn:aws:sns:us-east-1:123456789012:Topic\&quot;]}@</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- [RESOURCE_UPDATE]</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     @{\&quot;Version\&quot;:\&quot;2.0\&quot;,\&quot;Properties\&quot;:{\&quot;TagUpdateOnProvisionedProduct\&quot;:\&quot;String\&quot;}}@</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     of @ALLOWED@ or @NOT_ALLOWED@.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- [STACKSET]</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     Specify the @Parameters@ property as follows:</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     @{\&quot;Version\&quot;: \&quot;String\&quot;, \&quot;Properties\&quot;: {\&quot;AccountList\&quot;: [ \&quot;String\&quot; ], \&quot;RegionList\&quot;: [ \&quot;String\&quot; ], \&quot;AdminRole\&quot;: \&quot;String\&quot;, \&quot;ExecutionRole\&quot;: \&quot;String\&quot;}}@</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     You also cannot have more than one @STACKSET@ constraint on a</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--     product and portfolio.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     Products with a @STACKSET@ constraint will launch an AWS</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     CloudFormation stack set.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- [TEMPLATE]</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     Specify the @Rules@ property. For more information, see</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules&gt;.</span><span>
+</span><span id="line-360"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_parameters"><span class="hs-identifier hs-type">createConstraint_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-361"></span><span id="createConstraint_parameters"><span class="annot"><span class="annottext">createConstraint_parameters :: (Text -&gt; f Text) -&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_parameters"><span class="hs-identifier hs-var hs-var">createConstraint_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Text)
+-&gt; (CreateConstraint -&gt; Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427432"><span class="annot"><span class="annottext">Text
+parameters :: Text
+$sel:parameters:CreateConstraint' :: CreateConstraint -&gt; Text
+</span><a href="#local-6989586621679427432"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427432"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427431"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427430"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Aparameters%3ACreateConstraint%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | The type of constraint.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- -   @LAUNCH@</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   @NOTIFICATION@</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- -   @RESOURCE_UPDATE@</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- -   @STACKSET@</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- -   @TEMPLATE@</span><span>
+</span><span id="line-374"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_type"><span class="hs-identifier hs-type">createConstraint_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-375"></span><span id="createConstraint_type"><span class="annot"><span class="annottext">createConstraint_type :: (Text -&gt; f Text) -&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_type"><span class="hs-identifier hs-var hs-var">createConstraint_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Text)
+-&gt; (CreateConstraint -&gt; Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427429"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':CreateConstraint' :: CreateConstraint -&gt; Text
+</span><a href="#local-6989586621679427429"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427429"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427428"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427427"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Atype%27%3ACreateConstraint%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- | A unique identifier that you provide to ensure idempotency. If multiple</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- requests differ only by the idempotency token, the same response is</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- returned for each repeated request.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_idempotencyToken"><span class="hs-identifier hs-type">createConstraint_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-381"></span><span id="createConstraint_idempotencyToken"><span class="annot"><span class="annottext">createConstraint_idempotencyToken :: (Text -&gt; f Text) -&gt; CreateConstraint -&gt; f CreateConstraint
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraint_idempotencyToken"><span class="hs-identifier hs-var hs-var">createConstraint_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraint -&gt; Text)
+-&gt; (CreateConstraint -&gt; Text -&gt; CreateConstraint)
+-&gt; Lens CreateConstraint CreateConstraint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427426"><span class="annot"><span class="annottext">Text
+idempotencyToken :: Text
+$sel:idempotencyToken:CreateConstraint' :: CreateConstraint -&gt; Text
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427425"><span class="annot"><span class="annottext">s :: CreateConstraint
+</span><a href="#local-6989586621679427425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427424"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraint
+</span><a href="#local-6989586621679427425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateConstraint' :: Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AidempotencyToken%3ACreateConstraint%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-385"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span>
+</span><span id="line-387"></span><span>  </span><span id="local-6989586621679427420"><span class="annot"><span class="annottext">request :: CreateConstraint -&gt; Request CreateConstraint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateConstraint -&gt; Request CreateConstraint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679427416"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateConstraint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConstraint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateConstraint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateConstraint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateConstraint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-390"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427413"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427413"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679427412"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679427412"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679427411"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-391"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ConstraintDetail
+-&gt; Maybe RequestStatus
+-&gt; Int
+-&gt; CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-var">CreateConstraintResponse'</span></a></span><span>
+</span><span id="line-392"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ConstraintDetail
+ -&gt; Maybe RequestStatus
+ -&gt; Int
+ -&gt; CreateConstraintResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ConstraintDetail
+      -&gt; Maybe RequestStatus -&gt; Int -&gt; CreateConstraintResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConstraintParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConstraintDetail
+   -&gt; Maybe RequestStatus -&gt; Int -&gt; CreateConstraintResponse)
+-&gt; Either String (Maybe ConstraintDetail)
+-&gt; Either
+     String (Maybe RequestStatus -&gt; Int -&gt; CreateConstraintResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConstraintDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConstraintDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe RequestStatus -&gt; Int -&gt; CreateConstraintResponse)
+-&gt; Either String (Maybe RequestStatus)
+-&gt; Either String (Int -&gt; CreateConstraintResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RequestStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateConstraintResponse)
+-&gt; Either String Int -&gt; Either String CreateConstraintResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427413"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427403"><span id="local-6989586621679427405"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span></span></span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span></span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679427396"><span class="annot"><span class="annottext">toHeaders :: CreateConstraint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConstraint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-405"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-406"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-407"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.CreateConstraint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-408"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-409"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-411"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-412"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-413"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427386"><span id="local-6989586621679427388"><span id="local-6989586621679427390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-418"></span><span>  </span><span id="local-6989586621679427384"><span class="annot"><span class="annottext">toJSON :: CreateConstraint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint%27"><span class="hs-identifier hs-type">CreateConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427376"><span id="local-6989586621679427377"><span id="local-6989586621679427378"><span id="local-6989586621679427379"><span id="local-6989586621679427380"><span id="local-6989586621679427381"><span id="local-6989586621679427382"><span class="annot"><span class="annottext">Maybe Text
+Text
+idempotencyToken :: Text
+type' :: Text
+parameters :: Text
+productId :: Text
+portfolioId :: Text
+acceptLanguage :: Maybe Text
+description :: Maybe Text
+$sel:idempotencyToken:CreateConstraint' :: CreateConstraint -&gt; Text
+$sel:type':CreateConstraint' :: CreateConstraint -&gt; Text
+$sel:parameters:CreateConstraint' :: CreateConstraint -&gt; Text
+$sel:productId:CreateConstraint' :: CreateConstraint -&gt; Text
+$sel:portfolioId:CreateConstraint' :: CreateConstraint -&gt; Text
+$sel:acceptLanguage:CreateConstraint' :: CreateConstraint -&gt; Maybe Text
+$sel:description:CreateConstraint' :: CreateConstraint -&gt; Maybe Text
+</span><a href="#local-6989586621679427376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-420"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-421"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427382"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427381"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortfolioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427380"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427379"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-426"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427378"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427377"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-429"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427376"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-431"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-434"></span><span>  </span><span id="local-6989586621679427370"><span class="annot"><span class="annottext">toPath :: CreateConstraint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConstraint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraint"><span class="hs-identifier hs-type">CreateConstraint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-437"></span><span>  </span><span id="local-6989586621679427366"><span class="annot"><span class="annottext">toQuery :: CreateConstraint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConstraint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- | /See:/ 'newCreateConstraintResponse' smart constructor.</span><span>
+</span><span id="line-440"></span><span id="local-6989586621679427363"><span id="local-6989586621679427364"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConstraintResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-var">CreateConstraintResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConstraintResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-var">CreateConstraintResponse'</span></a></span></span><span>
+</span><span id="line-441"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The constraint parameters.</span><span>
+</span><span id="line-442"></span><span>    </span><span id="%24sel%3AconstraintParameters%3ACreateConstraintResponse%27"><span class="annot"><span class="annottext">CreateConstraintResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintParameters%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var hs-var">constraintParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>    </span><span class="hs-comment">-- | Information about the constraint.</span><span>
+</span><span id="line-444"></span><span>    </span><span id="%24sel%3AconstraintDetail%3ACreateConstraintResponse%27"><span class="annot"><span class="annottext">CreateConstraintResponse -&gt; Maybe ConstraintDetail
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintDetail%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var hs-var">constraintDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-445"></span><span>    </span><span class="hs-comment">-- | The status of the current request.</span><span>
+</span><span id="line-446"></span><span>    </span><span id="%24sel%3Astatus%3ACreateConstraintResponse%27"><span class="annot"><span class="annottext">CreateConstraintResponse -&gt; Maybe RequestStatus
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Astatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-447"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-448"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConstraintResponse%27"><span class="annot"><span class="annottext">CreateConstraintResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AhttpStatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-449"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-450"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427355"><span id="local-6989586621679427357"><span class="annot"><span class="annottext">CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool
+(CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool)
+-&gt; (CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool)
+-&gt; Eq CreateConstraintResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool
+$c/= :: CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool
+== :: CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool
+$c== :: CreateConstraintResponse -&gt; CreateConstraintResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427347"><span id="local-6989586621679427349"><span id="local-6989586621679427351"><span id="local-6989586621679427353"><span class="annot"><span class="annottext">ReadPrec [CreateConstraintResponse]
+ReadPrec CreateConstraintResponse
+Int -&gt; ReadS CreateConstraintResponse
+ReadS [CreateConstraintResponse]
+(Int -&gt; ReadS CreateConstraintResponse)
+-&gt; ReadS [CreateConstraintResponse]
+-&gt; ReadPrec CreateConstraintResponse
+-&gt; ReadPrec [CreateConstraintResponse]
+-&gt; Read CreateConstraintResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateConstraintResponse]
+$creadListPrec :: ReadPrec [CreateConstraintResponse]
+readPrec :: ReadPrec CreateConstraintResponse
+$creadPrec :: ReadPrec CreateConstraintResponse
+readList :: ReadS [CreateConstraintResponse]
+$creadList :: ReadS [CreateConstraintResponse]
+readsPrec :: Int -&gt; ReadS CreateConstraintResponse
+$creadsPrec :: Int -&gt; ReadS CreateConstraintResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427341"><span id="local-6989586621679427343"><span id="local-6989586621679427345"><span class="annot"><span class="annottext">Int -&gt; CreateConstraintResponse -&gt; ShowS
+[CreateConstraintResponse] -&gt; ShowS
+CreateConstraintResponse -&gt; String
+(Int -&gt; CreateConstraintResponse -&gt; ShowS)
+-&gt; (CreateConstraintResponse -&gt; String)
+-&gt; ([CreateConstraintResponse] -&gt; ShowS)
+-&gt; Show CreateConstraintResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateConstraintResponse] -&gt; ShowS
+$cshowList :: [CreateConstraintResponse] -&gt; ShowS
+show :: CreateConstraintResponse -&gt; String
+$cshow :: CreateConstraintResponse -&gt; String
+showsPrec :: Int -&gt; CreateConstraintResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateConstraintResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateConstraintResponse -&gt; Rep CreateConstraintResponse x)
+-&gt; (forall x.
+    Rep CreateConstraintResponse x -&gt; CreateConstraintResponse)
+-&gt; Generic CreateConstraintResponse
+forall x.
+Rep CreateConstraintResponse x -&gt; CreateConstraintResponse
+forall x.
+CreateConstraintResponse -&gt; Rep CreateConstraintResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateConstraintResponse x -&gt; CreateConstraintResponse
+$cfrom :: forall x.
+CreateConstraintResponse -&gt; Rep CreateConstraintResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-451"></span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- Create a value of 'CreateConstraintResponse' with all optional fields omitted.</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-459"></span><span class="hs-comment">--</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- 'constraintDetail', 'createConstraintResponse_constraintDetail' - Information about the constraint.</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- 'status', 'createConstraintResponse_status' - The status of the current request.</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- 'httpStatus', 'createConstraintResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraintResponse"><span class="hs-identifier hs-type">newCreateConstraintResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-468"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-469"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-470"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span>
+</span><span id="line-471"></span><span id="newCreateConstraintResponse"><span class="annot"><span class="annottext">newCreateConstraintResponse :: Int -&gt; CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#newCreateConstraintResponse"><span class="hs-identifier hs-var hs-var">newCreateConstraintResponse</span></a></span></span><span> </span><span id="local-6989586621679427338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427338"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-472"></span><span>  </span><span class="annot"><span class="annottext">CreateConstraintResponse' :: Maybe Text
+-&gt; Maybe ConstraintDetail
+-&gt; Maybe RequestStatus
+-&gt; Int
+-&gt; CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span>
+</span><span id="line-473"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:constraintParameters:CreateConstraintResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintParameters%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">constraintParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-474"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-475"></span><span>      </span><span class="annot"><span class="annottext">$sel:constraintDetail:CreateConstraintResponse' :: Maybe ConstraintDetail
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintDetail%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">constraintDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConstraintDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-476"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CreateConstraintResponse' :: Maybe RequestStatus
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Astatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-477"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConstraintResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AhttpStatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427338"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-478"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | The constraint parameters.</span><span>
+</span><span id="line-481"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintParameters"><span class="hs-identifier hs-type">createConstraintResponse_constraintParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-482"></span><span id="createConstraintResponse_constraintParameters"><span class="annot"><span class="annottext">createConstraintResponse_constraintParameters :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConstraintResponse -&gt; f CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintParameters"><span class="hs-identifier hs-var hs-var">createConstraintResponse_constraintParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraintResponse -&gt; Maybe Text)
+-&gt; (CreateConstraintResponse
+    -&gt; Maybe Text -&gt; CreateConstraintResponse)
+-&gt; Lens
+     CreateConstraintResponse
+     CreateConstraintResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427337"><span class="annot"><span class="annottext">Maybe Text
+constraintParameters :: Maybe Text
+$sel:constraintParameters:CreateConstraintResponse' :: CreateConstraintResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679427337"><span class="hs-identifier hs-var hs-var">constraintParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427337"><span class="hs-identifier hs-var">constraintParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427336"><span class="annot"><span class="annottext">s :: CreateConstraintResponse
+</span><a href="#local-6989586621679427336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraintResponse
+</span><a href="#local-6989586621679427336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintParameters:CreateConstraintResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintParameters%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">constraintParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-483"></span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- | Information about the constraint.</span><span>
+</span><span id="line-485"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintDetail"><span class="hs-identifier hs-type">createConstraintResponse_constraintDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-486"></span><span id="createConstraintResponse_constraintDetail"><span class="annot"><span class="annottext">createConstraintResponse_constraintDetail :: (Maybe ConstraintDetail -&gt; f (Maybe ConstraintDetail))
+-&gt; CreateConstraintResponse -&gt; f CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_constraintDetail"><span class="hs-identifier hs-var hs-var">createConstraintResponse_constraintDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraintResponse -&gt; Maybe ConstraintDetail)
+-&gt; (CreateConstraintResponse
+    -&gt; Maybe ConstraintDetail -&gt; CreateConstraintResponse)
+-&gt; Lens
+     CreateConstraintResponse
+     CreateConstraintResponse
+     (Maybe ConstraintDetail)
+     (Maybe ConstraintDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427334"><span class="annot"><span class="annottext">Maybe ConstraintDetail
+constraintDetail :: Maybe ConstraintDetail
+$sel:constraintDetail:CreateConstraintResponse' :: CreateConstraintResponse -&gt; Maybe ConstraintDetail
+</span><a href="#local-6989586621679427334"><span class="hs-identifier hs-var hs-var">constraintDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConstraintDetail
+</span><a href="#local-6989586621679427334"><span class="hs-identifier hs-var">constraintDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427333"><span class="annot"><span class="annottext">s :: CreateConstraintResponse
+</span><a href="#local-6989586621679427333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427332"><span class="annot"><span class="annottext">Maybe ConstraintDetail
+</span><a href="#local-6989586621679427332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraintResponse
+</span><a href="#local-6989586621679427333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintDetail:CreateConstraintResponse' :: Maybe ConstraintDetail
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AconstraintDetail%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">constraintDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConstraintDetail
+</span><a href="#local-6989586621679427332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- | The status of the current request.</span><span>
+</span><span id="line-489"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_status"><span class="hs-identifier hs-type">createConstraintResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-490"></span><span id="createConstraintResponse_status"><span class="annot"><span class="annottext">createConstraintResponse_status :: (Maybe RequestStatus -&gt; f (Maybe RequestStatus))
+-&gt; CreateConstraintResponse -&gt; f CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_status"><span class="hs-identifier hs-var hs-var">createConstraintResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraintResponse -&gt; Maybe RequestStatus)
+-&gt; (CreateConstraintResponse
+    -&gt; Maybe RequestStatus -&gt; CreateConstraintResponse)
+-&gt; Lens
+     CreateConstraintResponse
+     CreateConstraintResponse
+     (Maybe RequestStatus)
+     (Maybe RequestStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427331"><span class="annot"><span class="annottext">Maybe RequestStatus
+status :: Maybe RequestStatus
+$sel:status:CreateConstraintResponse' :: CreateConstraintResponse -&gt; Maybe RequestStatus
+</span><a href="#local-6989586621679427331"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679427331"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427330"><span class="annot"><span class="annottext">s :: CreateConstraintResponse
+</span><a href="#local-6989586621679427330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427329"><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679427329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraintResponse
+</span><a href="#local-6989586621679427330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateConstraintResponse' :: Maybe RequestStatus
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3Astatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679427329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-491"></span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-493"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_httpStatus"><span class="hs-identifier hs-type">createConstraintResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-494"></span><span id="createConstraintResponse_httpStatus"><span class="annot"><span class="annottext">createConstraintResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateConstraintResponse -&gt; f CreateConstraintResponse
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#createConstraintResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConstraintResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConstraintResponse -&gt; Int)
+-&gt; (CreateConstraintResponse -&gt; Int -&gt; CreateConstraintResponse)
+-&gt; Lens CreateConstraintResponse CreateConstraintResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427328"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateConstraintResponse' :: CreateConstraintResponse -&gt; Int
+</span><a href="#local-6989586621679427328"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427328"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427327"><span class="annot"><span class="annottext">s :: CreateConstraintResponse
+</span><a href="#local-6989586621679427327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse%27"><span class="hs-identifier hs-type">CreateConstraintResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConstraintResponse
+</span><a href="#local-6989586621679427327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConstraintResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#%24sel%3AhttpStatus%3ACreateConstraintResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-495"></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.CreateConstraint.html#CreateConstraintResponse"><span class="hs-identifier hs-type">CreateConstraintResponse</span></a></span></span><span>
+</span><span id="line-497"></span></pre></body></html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManager.Types.ExtendedKeyUsageName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManager.Types.ExtendedKeyUsageName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_ANY"><span class="hs-identifier">ExtendedKeyUsageName_ANY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CODE_SIGNING"><span class="hs-identifier">ExtendedKeyUsageName_CODE_SIGNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CUSTOM"><span class="hs-identifier">ExtendedKeyUsageName_CUSTOM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_EMAIL_PROTECTION"><span class="hs-identifier">ExtendedKeyUsageName_EMAIL_PROTECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_END_SYSTEM"><span class="hs-identifier">ExtendedKeyUsageName_IPSEC_END_SYSTEM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_TUNNEL"><span class="hs-identifier">ExtendedKeyUsageName_IPSEC_TUNNEL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_USER"><span class="hs-identifier">ExtendedKeyUsageName_IPSEC_USER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_NONE"><span class="hs-identifier">ExtendedKeyUsageName_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_OCSP_SIGNING"><span class="hs-identifier">ExtendedKeyUsageName_OCSP_SIGNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TIME_STAMPING"><span class="hs-identifier">ExtendedKeyUsageName_TIME_STAMPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span class="hs-identifier">ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span class="hs-identifier">ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679187924"><span id="local-6989586621679187925"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExtendedKeyUsageName"><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-var">ExtendedKeyUsageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedKeyUsageName%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-var">ExtendedKeyUsageName'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExtendedKeyUsageName"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; Text
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#fromExtendedKeyUsageName"><span class="hs-identifier hs-var hs-var">fromExtendedKeyUsageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187916"><span id="local-6989586621679187918"><span id="local-6989586621679187920"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageName -&gt; ShowS
+[ExtendedKeyUsageName] -&gt; ShowS
+ExtendedKeyUsageName -&gt; String
+(Int -&gt; ExtendedKeyUsageName -&gt; ShowS)
+-&gt; (ExtendedKeyUsageName -&gt; String)
+-&gt; ([ExtendedKeyUsageName] -&gt; ShowS)
+-&gt; Show ExtendedKeyUsageName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExtendedKeyUsageName] -&gt; ShowS
+$cshowList :: [ExtendedKeyUsageName] -&gt; ShowS
+show :: ExtendedKeyUsageName -&gt; String
+$cshow :: ExtendedKeyUsageName -&gt; String
+showsPrec :: Int -&gt; ExtendedKeyUsageName -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExtendedKeyUsageName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679187907"><span id="local-6989586621679187909"><span id="local-6989586621679187911"><span id="local-6989586621679187913"><span class="annot"><span class="annottext">ReadPrec [ExtendedKeyUsageName]
+ReadPrec ExtendedKeyUsageName
+Int -&gt; ReadS ExtendedKeyUsageName
+ReadS [ExtendedKeyUsageName]
+(Int -&gt; ReadS ExtendedKeyUsageName)
+-&gt; ReadS [ExtendedKeyUsageName]
+-&gt; ReadPrec ExtendedKeyUsageName
+-&gt; ReadPrec [ExtendedKeyUsageName]
+-&gt; Read ExtendedKeyUsageName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExtendedKeyUsageName]
+$creadListPrec :: ReadPrec [ExtendedKeyUsageName]
+readPrec :: ReadPrec ExtendedKeyUsageName
+$creadPrec :: ReadPrec ExtendedKeyUsageName
+readList :: ReadS [ExtendedKeyUsageName]
+$creadList :: ReadS [ExtendedKeyUsageName]
+readsPrec :: Int -&gt; ReadS ExtendedKeyUsageName
+$creadsPrec :: Int -&gt; ReadS ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679187902"><span id="local-6989586621679187904"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+(ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; Eq ExtendedKeyUsageName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c/= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+== :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c== :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679187886"><span id="local-6989586621679187888"><span id="local-6989586621679187890"><span id="local-6989586621679187892"><span id="local-6989586621679187894"><span id="local-6989586621679187896"><span id="local-6989586621679187898"><span class="annot"><span class="annottext">Eq ExtendedKeyUsageName
+Eq ExtendedKeyUsageName
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Ordering)
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; (ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool)
+-&gt; (ExtendedKeyUsageName
+    -&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName)
+-&gt; (ExtendedKeyUsageName
+    -&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName)
+-&gt; Ord ExtendedKeyUsageName
+ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Ordering
+ExtendedKeyUsageName
+-&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExtendedKeyUsageName
+-&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName
+$cmin :: ExtendedKeyUsageName
+-&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName
+max :: ExtendedKeyUsageName
+-&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName
+$cmax :: ExtendedKeyUsageName
+-&gt; ExtendedKeyUsageName -&gt; ExtendedKeyUsageName
+&gt;= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c&gt;= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+&gt; :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c&gt; :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+&lt;= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c&lt;= :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+&lt; :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+$c&lt; :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Bool
+compare :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Ordering
+$ccompare :: ExtendedKeyUsageName -&gt; ExtendedKeyUsageName -&gt; Ordering
+$cp1Ord :: Eq ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExtendedKeyUsageName -&gt; Rep ExtendedKeyUsageName x)
+-&gt; (forall x. Rep ExtendedKeyUsageName x -&gt; ExtendedKeyUsageName)
+-&gt; Generic ExtendedKeyUsageName
+forall x. Rep ExtendedKeyUsageName x -&gt; ExtendedKeyUsageName
+forall x. ExtendedKeyUsageName -&gt; Rep ExtendedKeyUsageName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExtendedKeyUsageName x -&gt; ExtendedKeyUsageName
+$cfrom :: forall x. ExtendedKeyUsageName -&gt; Rep ExtendedKeyUsageName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187878"><span id="local-6989586621679187880"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageName -&gt; Int
+ExtendedKeyUsageName -&gt; Int
+(Int -&gt; ExtendedKeyUsageName -&gt; Int)
+-&gt; (ExtendedKeyUsageName -&gt; Int) -&gt; Hashable ExtendedKeyUsageName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExtendedKeyUsageName -&gt; Int
+$chash :: ExtendedKeyUsageName -&gt; Int
+hashWithSalt :: Int -&gt; ExtendedKeyUsageName -&gt; Int
+$chashWithSalt :: Int -&gt; ExtendedKeyUsageName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679187875"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; ()
+(ExtendedKeyUsageName -&gt; ()) -&gt; NFData ExtendedKeyUsageName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExtendedKeyUsageName -&gt; ()
+$crnf :: ExtendedKeyUsageName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679187872"><span class="annot"><span class="annottext">Text -&gt; Either String ExtendedKeyUsageName
+(Text -&gt; Either String ExtendedKeyUsageName)
+-&gt; FromText ExtendedKeyUsageName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExtendedKeyUsageName
+$cfromText :: Text -&gt; Either String ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679187869"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; Text
+(ExtendedKeyUsageName -&gt; Text) -&gt; ToText ExtendedKeyUsageName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExtendedKeyUsageName -&gt; Text
+$ctoText :: ExtendedKeyUsageName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679187866"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; ByteString
+(ExtendedKeyUsageName -&gt; ByteString)
+-&gt; ToByteString ExtendedKeyUsageName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExtendedKeyUsageName -&gt; ByteString
+$ctoBS :: ExtendedKeyUsageName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679187863"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; ByteStringBuilder
+(ExtendedKeyUsageName -&gt; ByteStringBuilder)
+-&gt; ToLog ExtendedKeyUsageName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExtendedKeyUsageName -&gt; ByteStringBuilder
+$cbuild :: ExtendedKeyUsageName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679187860"><span class="annot"><span class="annottext">HeaderName -&gt; ExtendedKeyUsageName -&gt; [Header]
+(HeaderName -&gt; ExtendedKeyUsageName -&gt; [Header])
+-&gt; ToHeader ExtendedKeyUsageName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExtendedKeyUsageName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExtendedKeyUsageName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679187857"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; QueryString
+(ExtendedKeyUsageName -&gt; QueryString)
+-&gt; ToQuery ExtendedKeyUsageName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExtendedKeyUsageName -&gt; QueryString
+$ctoQuery :: ExtendedKeyUsageName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679187852"><span id="local-6989586621679187854"><span class="annot"><span class="annottext">Value -&gt; Parser [ExtendedKeyUsageName]
+Value -&gt; Parser ExtendedKeyUsageName
+(Value -&gt; Parser ExtendedKeyUsageName)
+-&gt; (Value -&gt; Parser [ExtendedKeyUsageName])
+-&gt; FromJSON ExtendedKeyUsageName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExtendedKeyUsageName]
+$cparseJSONList :: Value -&gt; Parser [ExtendedKeyUsageName]
+parseJSON :: Value -&gt; Parser ExtendedKeyUsageName
+$cparseJSON :: Value -&gt; Parser ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679187847"><span id="local-6989586621679187849"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExtendedKeyUsageName]
+FromJSONKeyFunction ExtendedKeyUsageName
+FromJSONKeyFunction ExtendedKeyUsageName
+-&gt; FromJSONKeyFunction [ExtendedKeyUsageName]
+-&gt; FromJSONKey ExtendedKeyUsageName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExtendedKeyUsageName]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExtendedKeyUsageName]
+fromJSONKey :: FromJSONKeyFunction ExtendedKeyUsageName
+$cfromJSONKey :: FromJSONKeyFunction ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679187838"><span id="local-6989586621679187840"><span id="local-6989586621679187842"><span id="local-6989586621679187844"><span class="annot"><span class="annottext">[ExtendedKeyUsageName] -&gt; Encoding
+[ExtendedKeyUsageName] -&gt; Value
+ExtendedKeyUsageName -&gt; Encoding
+ExtendedKeyUsageName -&gt; Value
+(ExtendedKeyUsageName -&gt; Value)
+-&gt; (ExtendedKeyUsageName -&gt; Encoding)
+-&gt; ([ExtendedKeyUsageName] -&gt; Value)
+-&gt; ([ExtendedKeyUsageName] -&gt; Encoding)
+-&gt; ToJSON ExtendedKeyUsageName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExtendedKeyUsageName] -&gt; Encoding
+$ctoEncodingList :: [ExtendedKeyUsageName] -&gt; Encoding
+toJSONList :: [ExtendedKeyUsageName] -&gt; Value
+$ctoJSONList :: [ExtendedKeyUsageName] -&gt; Value
+toEncoding :: ExtendedKeyUsageName -&gt; Encoding
+$ctoEncoding :: ExtendedKeyUsageName -&gt; Encoding
+toJSON :: ExtendedKeyUsageName -&gt; Value
+$ctoJSON :: ExtendedKeyUsageName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679187833"><span id="local-6989586621679187835"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExtendedKeyUsageName]
+ToJSONKeyFunction ExtendedKeyUsageName
+ToJSONKeyFunction ExtendedKeyUsageName
+-&gt; ToJSONKeyFunction [ExtendedKeyUsageName]
+-&gt; ToJSONKey ExtendedKeyUsageName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExtendedKeyUsageName]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExtendedKeyUsageName]
+toJSONKey :: ToJSONKeyFunction ExtendedKeyUsageName
+$ctoJSONKey :: ToJSONKeyFunction ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679187830"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExtendedKeyUsageName
+([Node] -&gt; Either String ExtendedKeyUsageName)
+-&gt; FromXML ExtendedKeyUsageName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExtendedKeyUsageName
+$cparseXML :: [Node] -&gt; Either String ExtendedKeyUsageName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679187827"><span class="annot"><span class="annottext">ExtendedKeyUsageName -&gt; XML
+(ExtendedKeyUsageName -&gt; XML) -&gt; ToXML ExtendedKeyUsageName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExtendedKeyUsageName -&gt; XML
+$ctoXML :: ExtendedKeyUsageName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_ANY"><span class="hs-identifier hs-type">ExtendedKeyUsageName_ANY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_ANY"><span id="%24mExtendedKeyUsageName_ANY"><span id="ExtendedKeyUsageName_ANY"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_ANY :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_ANY :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_ANY"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_ANY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ANY&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CODE_SIGNING"><span class="hs-identifier hs-type">ExtendedKeyUsageName_CODE_SIGNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_CODE_SIGNING"><span id="%24mExtendedKeyUsageName_CODE_SIGNING"><span id="ExtendedKeyUsageName_CODE_SIGNING"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_CODE_SIGNING :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_CODE_SIGNING :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_CODE_SIGNING"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_CODE_SIGNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODE_SIGNING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CUSTOM"><span class="hs-identifier hs-type">ExtendedKeyUsageName_CUSTOM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_CUSTOM"><span id="%24mExtendedKeyUsageName_CUSTOM"><span id="ExtendedKeyUsageName_CUSTOM"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_CUSTOM :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_CUSTOM :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_CUSTOM"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_CUSTOM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUSTOM&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_EMAIL_PROTECTION"><span class="hs-identifier hs-type">ExtendedKeyUsageName_EMAIL_PROTECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_EMAIL_PROTECTION"><span id="%24mExtendedKeyUsageName_EMAIL_PROTECTION"><span id="ExtendedKeyUsageName_EMAIL_PROTECTION"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_EMAIL_PROTECTION :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_EMAIL_PROTECTION :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_EMAIL_PROTECTION"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_EMAIL_PROTECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL_PROTECTION&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_END_SYSTEM"><span class="hs-identifier hs-type">ExtendedKeyUsageName_IPSEC_END_SYSTEM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_IPSEC_END_SYSTEM"><span id="%24mExtendedKeyUsageName_IPSEC_END_SYSTEM"><span id="ExtendedKeyUsageName_IPSEC_END_SYSTEM"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_IPSEC_END_SYSTEM :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_IPSEC_END_SYSTEM :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_IPSEC_END_SYSTEM"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_IPSEC_END_SYSTEM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPSEC_END_SYSTEM&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_TUNNEL"><span class="hs-identifier hs-type">ExtendedKeyUsageName_IPSEC_TUNNEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_IPSEC_TUNNEL"><span id="%24mExtendedKeyUsageName_IPSEC_TUNNEL"><span id="ExtendedKeyUsageName_IPSEC_TUNNEL"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_IPSEC_TUNNEL :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_IPSEC_TUNNEL :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_IPSEC_TUNNEL"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_IPSEC_TUNNEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPSEC_TUNNEL&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_USER"><span class="hs-identifier hs-type">ExtendedKeyUsageName_IPSEC_USER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_IPSEC_USER"><span id="%24mExtendedKeyUsageName_IPSEC_USER"><span id="ExtendedKeyUsageName_IPSEC_USER"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_IPSEC_USER :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_IPSEC_USER :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_IPSEC_USER"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_IPSEC_USER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPSEC_USER&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_NONE"><span class="hs-identifier hs-type">ExtendedKeyUsageName_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_NONE"><span id="%24mExtendedKeyUsageName_NONE"><span id="ExtendedKeyUsageName_NONE"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_NONE :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_NONE :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_NONE"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_OCSP_SIGNING"><span class="hs-identifier hs-type">ExtendedKeyUsageName_OCSP_SIGNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_OCSP_SIGNING"><span id="%24mExtendedKeyUsageName_OCSP_SIGNING"><span id="ExtendedKeyUsageName_OCSP_SIGNING"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_OCSP_SIGNING :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_OCSP_SIGNING :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_OCSP_SIGNING"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_OCSP_SIGNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OCSP_SIGNING&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TIME_STAMPING"><span class="hs-identifier hs-type">ExtendedKeyUsageName_TIME_STAMPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_TIME_STAMPING"><span id="%24mExtendedKeyUsageName_TIME_STAMPING"><span id="ExtendedKeyUsageName_TIME_STAMPING"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_TIME_STAMPING :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_TIME_STAMPING :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_TIME_STAMPING"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_TIME_STAMPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIME_STAMPING&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span class="hs-identifier hs-type">ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span id="%24mExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span id="ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS_WEB_CLIENT_AUTHENTICATION&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span class="hs-identifier hs-type">ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span id="%24mExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span id="ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span class="annot"><span class="annottext">$bExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION :: ExtendedKeyUsageName
+$mExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION :: forall r. ExtendedKeyUsageName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#%24bExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span class="hs-identifier hs-var hs-var hs-var">ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-identifier hs-type">ExtendedKeyUsageName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS_WEB_SERVER_AUTHENTICATION&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_ANY"><span class="hs-pragma hs-type">ExtendedKeyUsageName_ANY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CODE_SIGNING"><span class="hs-pragma hs-type">ExtendedKeyUsageName_CODE_SIGNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_CUSTOM"><span class="hs-pragma hs-type">ExtendedKeyUsageName_CUSTOM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_EMAIL_PROTECTION"><span class="hs-pragma hs-type">ExtendedKeyUsageName_EMAIL_PROTECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_END_SYSTEM"><span class="hs-pragma hs-type">ExtendedKeyUsageName_IPSEC_END_SYSTEM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_TUNNEL"><span class="hs-pragma hs-type">ExtendedKeyUsageName_IPSEC_TUNNEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_IPSEC_USER"><span class="hs-pragma hs-type">ExtendedKeyUsageName_IPSEC_USER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_NONE"><span class="hs-pragma hs-type">ExtendedKeyUsageName_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_OCSP_SIGNING"><span class="hs-pragma hs-type">ExtendedKeyUsageName_OCSP_SIGNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TIME_STAMPING"><span class="hs-pragma hs-type">ExtendedKeyUsageName_TIME_STAMPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION"><span class="hs-pragma hs-type">ExtendedKeyUsageName_TLS_WEB_CLIENT_AUTHENTICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION"><span class="hs-pragma hs-type">ExtendedKeyUsageName_TLS_WEB_SERVER_AUTHENTICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName%27"><span class="hs-pragma hs-type">ExtendedKeyUsageName'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

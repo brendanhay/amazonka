@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier">InstanceGroupStateChangeReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span class="hs-identifier">InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span class="hs-identifier">InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier">InstanceGroupStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span class="hs-identifier">InstanceGroupStateChangeReasonCode_VALIDATION_ERROR</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679369760"><span id="local-6989586621679369761"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceGroupStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-var">InstanceGroupStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceGroupStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-identifier hs-var">InstanceGroupStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceGroupStateChangeReasonCode"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; Text
+</span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#fromInstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromInstanceGroupStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369752"><span id="local-6989586621679369754"><span id="local-6989586621679369756"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupStateChangeReasonCode -&gt; ShowS
+[InstanceGroupStateChangeReasonCode] -&gt; ShowS
+InstanceGroupStateChangeReasonCode -&gt; String
+(Int -&gt; InstanceGroupStateChangeReasonCode -&gt; ShowS)
+-&gt; (InstanceGroupStateChangeReasonCode -&gt; String)
+-&gt; ([InstanceGroupStateChangeReasonCode] -&gt; ShowS)
+-&gt; Show InstanceGroupStateChangeReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceGroupStateChangeReasonCode] -&gt; ShowS
+$cshowList :: [InstanceGroupStateChangeReasonCode] -&gt; ShowS
+show :: InstanceGroupStateChangeReasonCode -&gt; String
+$cshow :: InstanceGroupStateChangeReasonCode -&gt; String
+showsPrec :: Int -&gt; InstanceGroupStateChangeReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceGroupStateChangeReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679369743"><span id="local-6989586621679369745"><span id="local-6989586621679369747"><span id="local-6989586621679369749"><span class="annot"><span class="annottext">ReadPrec [InstanceGroupStateChangeReasonCode]
+ReadPrec InstanceGroupStateChangeReasonCode
+Int -&gt; ReadS InstanceGroupStateChangeReasonCode
+ReadS [InstanceGroupStateChangeReasonCode]
+(Int -&gt; ReadS InstanceGroupStateChangeReasonCode)
+-&gt; ReadS [InstanceGroupStateChangeReasonCode]
+-&gt; ReadPrec InstanceGroupStateChangeReasonCode
+-&gt; ReadPrec [InstanceGroupStateChangeReasonCode]
+-&gt; Read InstanceGroupStateChangeReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceGroupStateChangeReasonCode]
+$creadListPrec :: ReadPrec [InstanceGroupStateChangeReasonCode]
+readPrec :: ReadPrec InstanceGroupStateChangeReasonCode
+$creadPrec :: ReadPrec InstanceGroupStateChangeReasonCode
+readList :: ReadS [InstanceGroupStateChangeReasonCode]
+$creadList :: ReadS [InstanceGroupStateChangeReasonCode]
+readsPrec :: Int -&gt; ReadS InstanceGroupStateChangeReasonCode
+$creadsPrec :: Int -&gt; ReadS InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679369738"><span id="local-6989586621679369740"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+(InstanceGroupStateChangeReasonCode
+ -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; Eq InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c/= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+== :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c== :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679369722"><span id="local-6989586621679369724"><span id="local-6989586621679369726"><span id="local-6989586621679369728"><span id="local-6989586621679369730"><span id="local-6989586621679369732"><span id="local-6989586621679369734"><span class="annot"><span class="annottext">Eq InstanceGroupStateChangeReasonCode
+Eq InstanceGroupStateChangeReasonCode
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Ordering)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode -&gt; Bool)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode)
+-&gt; (InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode
+    -&gt; InstanceGroupStateChangeReasonCode)
+-&gt; Ord InstanceGroupStateChangeReasonCode
+InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Ordering
+InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+$cmin :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+max :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+$cmax :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode
+&gt;= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c&gt;= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+&gt; :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c&gt; :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+&lt;= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c&lt;= :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+&lt; :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+$c&lt; :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Bool
+compare :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Ordering
+$ccompare :: InstanceGroupStateChangeReasonCode
+-&gt; InstanceGroupStateChangeReasonCode -&gt; Ordering
+$cp1Ord :: Eq InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ InstanceGroupStateChangeReasonCode
+ -&gt; Rep InstanceGroupStateChangeReasonCode x)
+-&gt; (forall x.
+    Rep InstanceGroupStateChangeReasonCode x
+    -&gt; InstanceGroupStateChangeReasonCode)
+-&gt; Generic InstanceGroupStateChangeReasonCode
+forall x.
+Rep InstanceGroupStateChangeReasonCode x
+-&gt; InstanceGroupStateChangeReasonCode
+forall x.
+InstanceGroupStateChangeReasonCode
+-&gt; Rep InstanceGroupStateChangeReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InstanceGroupStateChangeReasonCode x
+-&gt; InstanceGroupStateChangeReasonCode
+$cfrom :: forall x.
+InstanceGroupStateChangeReasonCode
+-&gt; Rep InstanceGroupStateChangeReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369714"><span id="local-6989586621679369716"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupStateChangeReasonCode -&gt; Int
+InstanceGroupStateChangeReasonCode -&gt; Int
+(Int -&gt; InstanceGroupStateChangeReasonCode -&gt; Int)
+-&gt; (InstanceGroupStateChangeReasonCode -&gt; Int)
+-&gt; Hashable InstanceGroupStateChangeReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceGroupStateChangeReasonCode -&gt; Int
+$chash :: InstanceGroupStateChangeReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; InstanceGroupStateChangeReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceGroupStateChangeReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369711"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; ()
+(InstanceGroupStateChangeReasonCode -&gt; ())
+-&gt; NFData InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceGroupStateChangeReasonCode -&gt; ()
+$crnf :: InstanceGroupStateChangeReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369708"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceGroupStateChangeReasonCode
+(Text -&gt; Either String InstanceGroupStateChangeReasonCode)
+-&gt; FromText InstanceGroupStateChangeReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceGroupStateChangeReasonCode
+$cfromText :: Text -&gt; Either String InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369705"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; Text
+(InstanceGroupStateChangeReasonCode -&gt; Text)
+-&gt; ToText InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceGroupStateChangeReasonCode -&gt; Text
+$ctoText :: InstanceGroupStateChangeReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369702"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; ByteString
+(InstanceGroupStateChangeReasonCode -&gt; ByteString)
+-&gt; ToByteString InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceGroupStateChangeReasonCode -&gt; ByteString
+$ctoBS :: InstanceGroupStateChangeReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369699"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; ByteStringBuilder
+(InstanceGroupStateChangeReasonCode -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceGroupStateChangeReasonCode -&gt; ByteStringBuilder
+$cbuild :: InstanceGroupStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369696"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceGroupStateChangeReasonCode -&gt; [Header]
+(HeaderName -&gt; InstanceGroupStateChangeReasonCode -&gt; [Header])
+-&gt; ToHeader InstanceGroupStateChangeReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceGroupStateChangeReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceGroupStateChangeReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369693"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; QueryString
+(InstanceGroupStateChangeReasonCode -&gt; QueryString)
+-&gt; ToQuery InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceGroupStateChangeReasonCode -&gt; QueryString
+$ctoQuery :: InstanceGroupStateChangeReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369688"><span id="local-6989586621679369690"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceGroupStateChangeReasonCode]
+Value -&gt; Parser InstanceGroupStateChangeReasonCode
+(Value -&gt; Parser InstanceGroupStateChangeReasonCode)
+-&gt; (Value -&gt; Parser [InstanceGroupStateChangeReasonCode])
+-&gt; FromJSON InstanceGroupStateChangeReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceGroupStateChangeReasonCode]
+$cparseJSONList :: Value -&gt; Parser [InstanceGroupStateChangeReasonCode]
+parseJSON :: Value -&gt; Parser InstanceGroupStateChangeReasonCode
+$cparseJSON :: Value -&gt; Parser InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369683"><span id="local-6989586621679369685"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+FromJSONKeyFunction InstanceGroupStateChangeReasonCode
+FromJSONKeyFunction InstanceGroupStateChangeReasonCode
+-&gt; FromJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+-&gt; FromJSONKey InstanceGroupStateChangeReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+fromJSONKey :: FromJSONKeyFunction InstanceGroupStateChangeReasonCode
+$cfromJSONKey :: FromJSONKeyFunction InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369674"><span id="local-6989586621679369676"><span id="local-6989586621679369678"><span id="local-6989586621679369680"><span class="annot"><span class="annottext">[InstanceGroupStateChangeReasonCode] -&gt; Encoding
+[InstanceGroupStateChangeReasonCode] -&gt; Value
+InstanceGroupStateChangeReasonCode -&gt; Encoding
+InstanceGroupStateChangeReasonCode -&gt; Value
+(InstanceGroupStateChangeReasonCode -&gt; Value)
+-&gt; (InstanceGroupStateChangeReasonCode -&gt; Encoding)
+-&gt; ([InstanceGroupStateChangeReasonCode] -&gt; Value)
+-&gt; ([InstanceGroupStateChangeReasonCode] -&gt; Encoding)
+-&gt; ToJSON InstanceGroupStateChangeReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceGroupStateChangeReasonCode] -&gt; Encoding
+$ctoEncodingList :: [InstanceGroupStateChangeReasonCode] -&gt; Encoding
+toJSONList :: [InstanceGroupStateChangeReasonCode] -&gt; Value
+$ctoJSONList :: [InstanceGroupStateChangeReasonCode] -&gt; Value
+toEncoding :: InstanceGroupStateChangeReasonCode -&gt; Encoding
+$ctoEncoding :: InstanceGroupStateChangeReasonCode -&gt; Encoding
+toJSON :: InstanceGroupStateChangeReasonCode -&gt; Value
+$ctoJSON :: InstanceGroupStateChangeReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369669"><span id="local-6989586621679369671"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+ToJSONKeyFunction InstanceGroupStateChangeReasonCode
+ToJSONKeyFunction InstanceGroupStateChangeReasonCode
+-&gt; ToJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+-&gt; ToJSONKey InstanceGroupStateChangeReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceGroupStateChangeReasonCode]
+toJSONKey :: ToJSONKeyFunction InstanceGroupStateChangeReasonCode
+$ctoJSONKey :: ToJSONKeyFunction InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369666"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceGroupStateChangeReasonCode
+([Node] -&gt; Either String InstanceGroupStateChangeReasonCode)
+-&gt; FromXML InstanceGroupStateChangeReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceGroupStateChangeReasonCode
+$cparseXML :: [Node] -&gt; Either String InstanceGroupStateChangeReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369663"><span class="annot"><span class="annottext">InstanceGroupStateChangeReasonCode -&gt; XML
+(InstanceGroupStateChangeReasonCode -&gt; XML)
+-&gt; ToXML InstanceGroupStateChangeReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceGroupStateChangeReasonCode -&gt; XML
+$ctoXML :: InstanceGroupStateChangeReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span id="%24mInstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span id="InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span class="annot"><span class="annottext">$bInstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED :: InstanceGroupStateChangeReasonCode
+$mInstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED :: forall r.
+InstanceGroupStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#%24bInstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLUSTER_TERMINATED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span id="%24mInstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span id="InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span class="annot"><span class="annottext">$bInstanceGroupStateChangeReasonCode_INSTANCE_FAILURE :: InstanceGroupStateChangeReasonCode
+$mInstanceGroupStateChangeReasonCode_INSTANCE_FAILURE :: forall r.
+InstanceGroupStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#%24bInstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSTANCE_FAILURE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span id="%24mInstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span id="InstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span class="annot"><span class="annottext">$bInstanceGroupStateChangeReasonCode_INTERNAL_ERROR :: InstanceGroupStateChangeReasonCode
+$mInstanceGroupStateChangeReasonCode_INTERNAL_ERROR :: forall r.
+InstanceGroupStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#%24bInstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-identifier hs-var hs-var hs-var">InstanceGroupStateChangeReasonCode_INTERNAL_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_ERROR&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode_VALIDATION_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span id="%24mInstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span id="InstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span class="annot"><span class="annottext">$bInstanceGroupStateChangeReasonCode_VALIDATION_ERROR :: InstanceGroupStateChangeReasonCode
+$mInstanceGroupStateChangeReasonCode_VALIDATION_ERROR :: forall r.
+InstanceGroupStateChangeReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#%24bInstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span class="hs-identifier hs-var hs-var hs-var">InstanceGroupStateChangeReasonCode_VALIDATION_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-identifier hs-type">InstanceGroupStateChangeReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATION_ERROR&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED"><span class="hs-pragma hs-type">InstanceGroupStateChangeReasonCode_CLUSTER_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE"><span class="hs-pragma hs-type">InstanceGroupStateChangeReasonCode_INSTANCE_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_INTERNAL_ERROR"><span class="hs-pragma hs-type">InstanceGroupStateChangeReasonCode_INTERNAL_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode_VALIDATION_ERROR"><span class="hs-pragma hs-type">InstanceGroupStateChangeReasonCode_VALIDATION_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode.html#InstanceGroupStateChangeReasonCode%27"><span class="hs-pragma hs-type">InstanceGroupStateChangeReasonCode'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

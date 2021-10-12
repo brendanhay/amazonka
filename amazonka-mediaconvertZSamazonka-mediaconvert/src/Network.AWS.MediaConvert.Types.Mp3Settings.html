@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Mp3Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mp3Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3RateControlMode.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mp3RateControlMode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Required when you set Codec, under AudioDescriptions&gt;CodecSettings, to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the value MP3.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMp3Settings' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679984259"><span id="local-6989586621679984260"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp3Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-var">Mp3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp3Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-var">Mp3Settings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify whether the service encodes this MP3 audio output with a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- constant bitrate (CBR) or a variable bitrate (VBR).</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArateControlMode%3AMp3Settings%27"><span class="annot"><span class="annottext">Mp3Settings -&gt; Maybe Mp3RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3ArateControlMode%3AMp3Settings%27"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3RateControlMode.html#Mp3RateControlMode"><span class="hs-identifier hs-type">Mp3RateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Choosing Mono</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- on the console gives you 1 output channel; choosing Stereo gives you 2.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- In the API, valid values are 1 and 2.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Achannels%3AMp3Settings%27"><span class="annot"><span class="annottext">Mp3Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Achannels%3AMp3Settings%27"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Sample rate in hz.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsampleRate%3AMp3Settings%27"><span class="annot"><span class="annottext">Mp3Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AsampleRate%3AMp3Settings%27"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Required when you set Bitrate control mode (rateControlMode) to VBR.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Specify the audio quality of this MP3 output from 0 (highest quality) to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- 9 (lowest quality).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AvbrQuality%3AMp3Settings%27"><span class="annot"><span class="annottext">Mp3Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AvbrQuality%3AMp3Settings%27"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specify the average bitrate in bits per second.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Abitrate%3AMp3Settings%27"><span class="annot"><span class="annottext">Mp3Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Abitrate%3AMp3Settings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679984249"><span id="local-6989586621679984251"><span class="annot"><span class="annottext">Mp3Settings -&gt; Mp3Settings -&gt; Bool
+(Mp3Settings -&gt; Mp3Settings -&gt; Bool)
+-&gt; (Mp3Settings -&gt; Mp3Settings -&gt; Bool) -&gt; Eq Mp3Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mp3Settings -&gt; Mp3Settings -&gt; Bool
+$c/= :: Mp3Settings -&gt; Mp3Settings -&gt; Bool
+== :: Mp3Settings -&gt; Mp3Settings -&gt; Bool
+$c== :: Mp3Settings -&gt; Mp3Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984240"><span id="local-6989586621679984242"><span id="local-6989586621679984244"><span id="local-6989586621679984246"><span class="annot"><span class="annottext">ReadPrec [Mp3Settings]
+ReadPrec Mp3Settings
+Int -&gt; ReadS Mp3Settings
+ReadS [Mp3Settings]
+(Int -&gt; ReadS Mp3Settings)
+-&gt; ReadS [Mp3Settings]
+-&gt; ReadPrec Mp3Settings
+-&gt; ReadPrec [Mp3Settings]
+-&gt; Read Mp3Settings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mp3Settings]
+$creadListPrec :: ReadPrec [Mp3Settings]
+readPrec :: ReadPrec Mp3Settings
+$creadPrec :: ReadPrec Mp3Settings
+readList :: ReadS [Mp3Settings]
+$creadList :: ReadS [Mp3Settings]
+readsPrec :: Int -&gt; ReadS Mp3Settings
+$creadsPrec :: Int -&gt; ReadS Mp3Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984233"><span id="local-6989586621679984235"><span id="local-6989586621679984237"><span class="annot"><span class="annottext">Int -&gt; Mp3Settings -&gt; ShowS
+[Mp3Settings] -&gt; ShowS
+Mp3Settings -&gt; String
+(Int -&gt; Mp3Settings -&gt; ShowS)
+-&gt; (Mp3Settings -&gt; String)
+-&gt; ([Mp3Settings] -&gt; ShowS)
+-&gt; Show Mp3Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mp3Settings] -&gt; ShowS
+$cshowList :: [Mp3Settings] -&gt; ShowS
+show :: Mp3Settings -&gt; String
+$cshow :: Mp3Settings -&gt; String
+showsPrec :: Int -&gt; Mp3Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mp3Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Mp3Settings -&gt; Rep Mp3Settings x)
+-&gt; (forall x. Rep Mp3Settings x -&gt; Mp3Settings)
+-&gt; Generic Mp3Settings
+forall x. Rep Mp3Settings x -&gt; Mp3Settings
+forall x. Mp3Settings -&gt; Rep Mp3Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mp3Settings x -&gt; Mp3Settings
+$cfrom :: forall x. Mp3Settings -&gt; Rep Mp3Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'Mp3Settings' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'rateControlMode', 'mp3Settings_rateControlMode' - Specify whether the service encodes this MP3 audio output with a</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- constant bitrate (CBR) or a variable bitrate (VBR).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'channels', 'mp3Settings_channels' - Specify the number of channels in this output audio track. Choosing Mono</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- on the console gives you 1 output channel; choosing Stereo gives you 2.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- In the API, valid values are 1 and 2.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'sampleRate', 'mp3Settings_sampleRate' - Sample rate in hz.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'vbrQuality', 'mp3Settings_vbrQuality' - Required when you set Bitrate control mode (rateControlMode) to VBR.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Specify the audio quality of this MP3 output from 0 (highest quality) to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 9 (lowest quality).</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'bitrate', 'mp3Settings_bitrate' - Specify the average bitrate in bits per second.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#newMp3Settings"><span class="hs-identifier hs-type">newMp3Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span>
+</span><span id="line-74"></span><span id="newMp3Settings"><span class="annot"><span class="annottext">newMp3Settings :: Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#newMp3Settings"><span class="hs-identifier hs-var hs-var">newMp3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">Mp3Settings' :: Maybe Mp3RateControlMode
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rateControlMode:Mp3Settings' :: Maybe Mp3RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3ArateControlMode%3AMp3Settings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:channels:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Achannels%3AMp3Settings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:sampleRate:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AsampleRate%3AMp3Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:vbrQuality:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AvbrQuality%3AMp3Settings%27"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitrate:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Abitrate%3AMp3Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Specify whether the service encodes this MP3 audio output with a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- constant bitrate (CBR) or a variable bitrate (VBR).</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_rateControlMode"><span class="hs-identifier hs-type">mp3Settings_rateControlMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3RateControlMode.html#Mp3RateControlMode"><span class="hs-identifier hs-type">Mp3RateControlMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="mp3Settings_rateControlMode"><span class="annot"><span class="annottext">mp3Settings_rateControlMode :: (Maybe Mp3RateControlMode -&gt; f (Maybe Mp3RateControlMode))
+-&gt; Mp3Settings -&gt; f Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_rateControlMode"><span class="hs-identifier hs-var hs-var">mp3Settings_rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Maybe Mp3RateControlMode)
+-&gt; (Mp3Settings -&gt; Maybe Mp3RateControlMode -&gt; Mp3Settings)
+-&gt; Lens
+     Mp3Settings
+     Mp3Settings
+     (Maybe Mp3RateControlMode)
+     (Maybe Mp3RateControlMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984224"><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+rateControlMode :: Maybe Mp3RateControlMode
+$sel:rateControlMode:Mp3Settings' :: Mp3Settings -&gt; Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984224"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984224"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984223"><span class="annot"><span class="annottext">s :: Mp3Settings
+</span><a href="#local-6989586621679984223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984222"><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp3Settings
+</span><a href="#local-6989586621679984223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:Mp3Settings' :: Maybe Mp3RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3ArateControlMode%3AMp3Settings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Choosing Mono</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- on the console gives you 1 output channel; choosing Stereo gives you 2.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- In the API, valid values are 1 and 2.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_channels"><span class="hs-identifier hs-type">mp3Settings_channels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="mp3Settings_channels"><span class="annot"><span class="annottext">mp3Settings_channels :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mp3Settings -&gt; f Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_channels"><span class="hs-identifier hs-var hs-var">mp3Settings_channels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Maybe Natural)
+-&gt; (Mp3Settings -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Lens Mp3Settings Mp3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984220"><span class="annot"><span class="annottext">Maybe Natural
+channels :: Maybe Natural
+$sel:channels:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679984220"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984220"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984219"><span class="annot"><span class="annottext">s :: Mp3Settings
+</span><a href="#local-6989586621679984219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984218"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp3Settings
+</span><a href="#local-6989586621679984219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Achannels%3AMp3Settings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Sample rate in hz.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_sampleRate"><span class="hs-identifier hs-type">mp3Settings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="mp3Settings_sampleRate"><span class="annot"><span class="annottext">mp3Settings_sampleRate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mp3Settings -&gt; f Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_sampleRate"><span class="hs-identifier hs-var hs-var">mp3Settings_sampleRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Maybe Natural)
+-&gt; (Mp3Settings -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Lens Mp3Settings Mp3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984216"><span class="annot"><span class="annottext">Maybe Natural
+sampleRate :: Maybe Natural
+$sel:sampleRate:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679984216"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984216"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984215"><span class="annot"><span class="annottext">s :: Mp3Settings
+</span><a href="#local-6989586621679984215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984214"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp3Settings
+</span><a href="#local-6989586621679984215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AsampleRate%3AMp3Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Required when you set Bitrate control mode (rateControlMode) to VBR.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Specify the audio quality of this MP3 output from 0 (highest quality) to</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 9 (lowest quality).</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_vbrQuality"><span class="hs-identifier hs-type">mp3Settings_vbrQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="mp3Settings_vbrQuality"><span class="annot"><span class="annottext">mp3Settings_vbrQuality :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mp3Settings -&gt; f Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_vbrQuality"><span class="hs-identifier hs-var hs-var">mp3Settings_vbrQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Maybe Natural)
+-&gt; (Mp3Settings -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Lens Mp3Settings Mp3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984212"><span class="annot"><span class="annottext">Maybe Natural
+vbrQuality :: Maybe Natural
+$sel:vbrQuality:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679984212"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984212"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984211"><span class="annot"><span class="annottext">s :: Mp3Settings
+</span><a href="#local-6989586621679984211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984210"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp3Settings
+</span><a href="#local-6989586621679984211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vbrQuality:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3AvbrQuality%3AMp3Settings%27"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Specify the average bitrate in bits per second.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_bitrate"><span class="hs-identifier hs-type">mp3Settings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="mp3Settings_bitrate"><span class="annot"><span class="annottext">mp3Settings_bitrate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Mp3Settings -&gt; f Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#mp3Settings_bitrate"><span class="hs-identifier hs-var hs-var">mp3Settings_bitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Maybe Natural)
+-&gt; (Mp3Settings -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Lens Mp3Settings Mp3Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984208"><span class="annot"><span class="annottext">Maybe Natural
+bitrate :: Maybe Natural
+$sel:bitrate:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621679984208"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984208"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984207"><span class="annot"><span class="annottext">s :: Mp3Settings
+</span><a href="#local-6989586621679984207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984206"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp3Settings
+</span><a href="#local-6989586621679984207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Mp3Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#%24sel%3Abitrate%3AMp3Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679984201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp3Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Mp3Settings) -&gt; Value -&gt; Parser Mp3Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Mp3Settings&quot;</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679984198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Mp3Settings
+</span><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-var">Mp3Settings'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Mp3RateControlMode
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Mp3Settings)
+-&gt; Parser (Maybe Mp3RateControlMode)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp3RateControlMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; Mp3Settings)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; Mp3Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Mp3Settings)
+-&gt; Parser (Maybe Natural) -&gt; Parser Mp3Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984192"><span id="local-6989586621679984194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984181"><span id="local-6989586621679984183"><span id="local-6989586621679984185"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings"><span class="hs-identifier hs-type">Mp3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679984179"><span class="annot"><span class="annottext">toJSON :: Mp3Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp3Settings.html#Mp3Settings%27"><span class="hs-identifier hs-type">Mp3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984173"><span id="local-6989586621679984174"><span id="local-6989586621679984175"><span id="local-6989586621679984176"><span id="local-6989586621679984177"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Mp3RateControlMode
+bitrate :: Maybe Natural
+vbrQuality :: Maybe Natural
+sampleRate :: Maybe Natural
+channels :: Maybe Natural
+rateControlMode :: Maybe Mp3RateControlMode
+$sel:bitrate:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+$sel:vbrQuality:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+$sel:sampleRate:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+$sel:channels:Mp3Settings' :: Mp3Settings -&gt; Maybe Natural
+$sel:rateControlMode:Mp3Settings' :: Mp3Settings -&gt; Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp3RateControlMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(Mp3RateControlMode -&gt; Pair)
+-&gt; Maybe Mp3RateControlMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp3RateControlMode
+</span><a href="#local-6989586621679984177"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984176"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984175"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984174"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679984173"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span></pre></body></html>

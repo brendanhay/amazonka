@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.Types.MergeOptionTypeEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.Types.MergeOptionTypeEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier">MergeOptionTypeEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_FAST_FORWARD_MERGE"><span class="hs-identifier">MergeOptionTypeEnum_FAST_FORWARD_MERGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_SQUASH_MERGE"><span class="hs-identifier">MergeOptionTypeEnum_SQUASH_MERGE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_THREE_WAY_MERGE"><span class="hs-identifier">MergeOptionTypeEnum_THREE_WAY_MERGE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679349942"><span id="local-6989586621679349943"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MergeOptionTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-var">MergeOptionTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeOptionTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum%27"><span class="hs-identifier hs-var">MergeOptionTypeEnum'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMergeOptionTypeEnum"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; Text
+</span><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#fromMergeOptionTypeEnum"><span class="hs-identifier hs-var hs-var">fromMergeOptionTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349934"><span id="local-6989586621679349936"><span id="local-6989586621679349938"><span class="annot"><span class="annottext">Int -&gt; MergeOptionTypeEnum -&gt; ShowS
+[MergeOptionTypeEnum] -&gt; ShowS
+MergeOptionTypeEnum -&gt; String
+(Int -&gt; MergeOptionTypeEnum -&gt; ShowS)
+-&gt; (MergeOptionTypeEnum -&gt; String)
+-&gt; ([MergeOptionTypeEnum] -&gt; ShowS)
+-&gt; Show MergeOptionTypeEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MergeOptionTypeEnum] -&gt; ShowS
+$cshowList :: [MergeOptionTypeEnum] -&gt; ShowS
+show :: MergeOptionTypeEnum -&gt; String
+$cshow :: MergeOptionTypeEnum -&gt; String
+showsPrec :: Int -&gt; MergeOptionTypeEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; MergeOptionTypeEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679349925"><span id="local-6989586621679349927"><span id="local-6989586621679349929"><span id="local-6989586621679349931"><span class="annot"><span class="annottext">ReadPrec [MergeOptionTypeEnum]
+ReadPrec MergeOptionTypeEnum
+Int -&gt; ReadS MergeOptionTypeEnum
+ReadS [MergeOptionTypeEnum]
+(Int -&gt; ReadS MergeOptionTypeEnum)
+-&gt; ReadS [MergeOptionTypeEnum]
+-&gt; ReadPrec MergeOptionTypeEnum
+-&gt; ReadPrec [MergeOptionTypeEnum]
+-&gt; Read MergeOptionTypeEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MergeOptionTypeEnum]
+$creadListPrec :: ReadPrec [MergeOptionTypeEnum]
+readPrec :: ReadPrec MergeOptionTypeEnum
+$creadPrec :: ReadPrec MergeOptionTypeEnum
+readList :: ReadS [MergeOptionTypeEnum]
+$creadList :: ReadS [MergeOptionTypeEnum]
+readsPrec :: Int -&gt; ReadS MergeOptionTypeEnum
+$creadsPrec :: Int -&gt; ReadS MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679349920"><span id="local-6989586621679349922"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+(MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; Eq MergeOptionTypeEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c/= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+== :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c== :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679349904"><span id="local-6989586621679349906"><span id="local-6989586621679349908"><span id="local-6989586621679349910"><span id="local-6989586621679349912"><span id="local-6989586621679349914"><span id="local-6989586621679349916"><span class="annot"><span class="annottext">Eq MergeOptionTypeEnum
+Eq MergeOptionTypeEnum
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Ordering)
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; (MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool)
+-&gt; (MergeOptionTypeEnum
+    -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum)
+-&gt; (MergeOptionTypeEnum
+    -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum)
+-&gt; Ord MergeOptionTypeEnum
+MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Ordering
+MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum
+$cmin :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum
+max :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum
+$cmax :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; MergeOptionTypeEnum
+&gt;= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c&gt;= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+&gt; :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c&gt; :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+&lt;= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c&lt;= :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+&lt; :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+$c&lt; :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Bool
+compare :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Ordering
+$ccompare :: MergeOptionTypeEnum -&gt; MergeOptionTypeEnum -&gt; Ordering
+$cp1Ord :: Eq MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MergeOptionTypeEnum -&gt; Rep MergeOptionTypeEnum x)
+-&gt; (forall x. Rep MergeOptionTypeEnum x -&gt; MergeOptionTypeEnum)
+-&gt; Generic MergeOptionTypeEnum
+forall x. Rep MergeOptionTypeEnum x -&gt; MergeOptionTypeEnum
+forall x. MergeOptionTypeEnum -&gt; Rep MergeOptionTypeEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MergeOptionTypeEnum x -&gt; MergeOptionTypeEnum
+$cfrom :: forall x. MergeOptionTypeEnum -&gt; Rep MergeOptionTypeEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349896"><span id="local-6989586621679349898"><span class="annot"><span class="annottext">Int -&gt; MergeOptionTypeEnum -&gt; Int
+MergeOptionTypeEnum -&gt; Int
+(Int -&gt; MergeOptionTypeEnum -&gt; Int)
+-&gt; (MergeOptionTypeEnum -&gt; Int) -&gt; Hashable MergeOptionTypeEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MergeOptionTypeEnum -&gt; Int
+$chash :: MergeOptionTypeEnum -&gt; Int
+hashWithSalt :: Int -&gt; MergeOptionTypeEnum -&gt; Int
+$chashWithSalt :: Int -&gt; MergeOptionTypeEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679349893"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; ()
+(MergeOptionTypeEnum -&gt; ()) -&gt; NFData MergeOptionTypeEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MergeOptionTypeEnum -&gt; ()
+$crnf :: MergeOptionTypeEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679349890"><span class="annot"><span class="annottext">Text -&gt; Either String MergeOptionTypeEnum
+(Text -&gt; Either String MergeOptionTypeEnum)
+-&gt; FromText MergeOptionTypeEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MergeOptionTypeEnum
+$cfromText :: Text -&gt; Either String MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679349887"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; Text
+(MergeOptionTypeEnum -&gt; Text) -&gt; ToText MergeOptionTypeEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MergeOptionTypeEnum -&gt; Text
+$ctoText :: MergeOptionTypeEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679349884"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; ByteString
+(MergeOptionTypeEnum -&gt; ByteString)
+-&gt; ToByteString MergeOptionTypeEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MergeOptionTypeEnum -&gt; ByteString
+$ctoBS :: MergeOptionTypeEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679349881"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; ByteStringBuilder
+(MergeOptionTypeEnum -&gt; ByteStringBuilder)
+-&gt; ToLog MergeOptionTypeEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MergeOptionTypeEnum -&gt; ByteStringBuilder
+$cbuild :: MergeOptionTypeEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679349878"><span class="annot"><span class="annottext">HeaderName -&gt; MergeOptionTypeEnum -&gt; [Header]
+(HeaderName -&gt; MergeOptionTypeEnum -&gt; [Header])
+-&gt; ToHeader MergeOptionTypeEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MergeOptionTypeEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MergeOptionTypeEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679349875"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; QueryString
+(MergeOptionTypeEnum -&gt; QueryString) -&gt; ToQuery MergeOptionTypeEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MergeOptionTypeEnum -&gt; QueryString
+$ctoQuery :: MergeOptionTypeEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679349870"><span id="local-6989586621679349872"><span class="annot"><span class="annottext">Value -&gt; Parser [MergeOptionTypeEnum]
+Value -&gt; Parser MergeOptionTypeEnum
+(Value -&gt; Parser MergeOptionTypeEnum)
+-&gt; (Value -&gt; Parser [MergeOptionTypeEnum])
+-&gt; FromJSON MergeOptionTypeEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MergeOptionTypeEnum]
+$cparseJSONList :: Value -&gt; Parser [MergeOptionTypeEnum]
+parseJSON :: Value -&gt; Parser MergeOptionTypeEnum
+$cparseJSON :: Value -&gt; Parser MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679349865"><span id="local-6989586621679349867"><span class="annot"><span class="annottext">FromJSONKeyFunction [MergeOptionTypeEnum]
+FromJSONKeyFunction MergeOptionTypeEnum
+FromJSONKeyFunction MergeOptionTypeEnum
+-&gt; FromJSONKeyFunction [MergeOptionTypeEnum]
+-&gt; FromJSONKey MergeOptionTypeEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MergeOptionTypeEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [MergeOptionTypeEnum]
+fromJSONKey :: FromJSONKeyFunction MergeOptionTypeEnum
+$cfromJSONKey :: FromJSONKeyFunction MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679349856"><span id="local-6989586621679349858"><span id="local-6989586621679349860"><span id="local-6989586621679349862"><span class="annot"><span class="annottext">[MergeOptionTypeEnum] -&gt; Encoding
+[MergeOptionTypeEnum] -&gt; Value
+MergeOptionTypeEnum -&gt; Encoding
+MergeOptionTypeEnum -&gt; Value
+(MergeOptionTypeEnum -&gt; Value)
+-&gt; (MergeOptionTypeEnum -&gt; Encoding)
+-&gt; ([MergeOptionTypeEnum] -&gt; Value)
+-&gt; ([MergeOptionTypeEnum] -&gt; Encoding)
+-&gt; ToJSON MergeOptionTypeEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MergeOptionTypeEnum] -&gt; Encoding
+$ctoEncodingList :: [MergeOptionTypeEnum] -&gt; Encoding
+toJSONList :: [MergeOptionTypeEnum] -&gt; Value
+$ctoJSONList :: [MergeOptionTypeEnum] -&gt; Value
+toEncoding :: MergeOptionTypeEnum -&gt; Encoding
+$ctoEncoding :: MergeOptionTypeEnum -&gt; Encoding
+toJSON :: MergeOptionTypeEnum -&gt; Value
+$ctoJSON :: MergeOptionTypeEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679349851"><span id="local-6989586621679349853"><span class="annot"><span class="annottext">ToJSONKeyFunction [MergeOptionTypeEnum]
+ToJSONKeyFunction MergeOptionTypeEnum
+ToJSONKeyFunction MergeOptionTypeEnum
+-&gt; ToJSONKeyFunction [MergeOptionTypeEnum]
+-&gt; ToJSONKey MergeOptionTypeEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MergeOptionTypeEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [MergeOptionTypeEnum]
+toJSONKey :: ToJSONKeyFunction MergeOptionTypeEnum
+$ctoJSONKey :: ToJSONKeyFunction MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679349848"><span class="annot"><span class="annottext">[Node] -&gt; Either String MergeOptionTypeEnum
+([Node] -&gt; Either String MergeOptionTypeEnum)
+-&gt; FromXML MergeOptionTypeEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MergeOptionTypeEnum
+$cparseXML :: [Node] -&gt; Either String MergeOptionTypeEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679349845"><span class="annot"><span class="annottext">MergeOptionTypeEnum -&gt; XML
+(MergeOptionTypeEnum -&gt; XML) -&gt; ToXML MergeOptionTypeEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MergeOptionTypeEnum -&gt; XML
+$ctoXML :: MergeOptionTypeEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_FAST_FORWARD_MERGE"><span class="hs-identifier hs-type">MergeOptionTypeEnum_FAST_FORWARD_MERGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMergeOptionTypeEnum_FAST_FORWARD_MERGE"><span id="%24mMergeOptionTypeEnum_FAST_FORWARD_MERGE"><span id="MergeOptionTypeEnum_FAST_FORWARD_MERGE"><span class="annot"><span class="annottext">$bMergeOptionTypeEnum_FAST_FORWARD_MERGE :: MergeOptionTypeEnum
+$mMergeOptionTypeEnum_FAST_FORWARD_MERGE :: forall r. MergeOptionTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#%24bMergeOptionTypeEnum_FAST_FORWARD_MERGE"><span class="hs-identifier hs-var hs-var hs-var">MergeOptionTypeEnum_FAST_FORWARD_MERGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum%27"><span class="hs-identifier hs-type">MergeOptionTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAST_FORWARD_MERGE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_SQUASH_MERGE"><span class="hs-identifier hs-type">MergeOptionTypeEnum_SQUASH_MERGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMergeOptionTypeEnum_SQUASH_MERGE"><span id="%24mMergeOptionTypeEnum_SQUASH_MERGE"><span id="MergeOptionTypeEnum_SQUASH_MERGE"><span class="annot"><span class="annottext">$bMergeOptionTypeEnum_SQUASH_MERGE :: MergeOptionTypeEnum
+$mMergeOptionTypeEnum_SQUASH_MERGE :: forall r. MergeOptionTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#%24bMergeOptionTypeEnum_SQUASH_MERGE"><span class="hs-identifier hs-var hs-var hs-var">MergeOptionTypeEnum_SQUASH_MERGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum%27"><span class="hs-identifier hs-type">MergeOptionTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SQUASH_MERGE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_THREE_WAY_MERGE"><span class="hs-identifier hs-type">MergeOptionTypeEnum_THREE_WAY_MERGE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMergeOptionTypeEnum_THREE_WAY_MERGE"><span id="%24mMergeOptionTypeEnum_THREE_WAY_MERGE"><span id="MergeOptionTypeEnum_THREE_WAY_MERGE"><span class="annot"><span class="annottext">$bMergeOptionTypeEnum_THREE_WAY_MERGE :: MergeOptionTypeEnum
+$mMergeOptionTypeEnum_THREE_WAY_MERGE :: forall r. MergeOptionTypeEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#%24bMergeOptionTypeEnum_THREE_WAY_MERGE"><span class="hs-identifier hs-var hs-var hs-var">MergeOptionTypeEnum_THREE_WAY_MERGE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum%27"><span class="hs-identifier hs-type">MergeOptionTypeEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;THREE_WAY_MERGE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_FAST_FORWARD_MERGE"><span class="hs-pragma hs-type">MergeOptionTypeEnum_FAST_FORWARD_MERGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_SQUASH_MERGE"><span class="hs-pragma hs-type">MergeOptionTypeEnum_SQUASH_MERGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum_THREE_WAY_MERGE"><span class="hs-pragma hs-type">MergeOptionTypeEnum_THREE_WAY_MERGE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum%27"><span class="hs-pragma hs-type">MergeOptionTypeEnum'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Encryption.Instructions</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Encryption.Instructions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-9"></span><span>
+</span><span id="line-10"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Control.Arrow</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-operator">(&amp;&amp;&amp;)</span></span><span class="hs-special">)</span><span>
+</span><span id="line-11"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Control.Lens</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-operator">(%~)</span></span><span class="hs-special">)</span><span>
+</span><span id="line-12"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Control.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-13"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Aeson.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Aeson</span></span><span>
+</span><span id="line-14"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">AWS</span></span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.S3</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">S3</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html"><span class="hs-identifier">Network.AWS.S3.Encryption.Envelope</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html"><span class="hs-identifier">Network.AWS.S3.Encryption.Types</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.S3.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">S3</span></span><span>
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">newtype</span><span> </span><span id="Instructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-var">Instructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-var">Instructions</span></a></span></span><span>
+</span><span id="line-24"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="runInstructions"><span class="annot"><span class="annottext">Instructions
+-&gt; forall (m :: * -&gt; *).
+   MonadResource m =&gt;
+   Key -&gt; Env -&gt; m Envelope
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#runInstructions"><span class="hs-identifier hs-var hs-var">runInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679168289"><span class="annot"><a href="#local-6989586621679168289"><span class="hs-identifier hs-type">m</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168289"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWS.Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168289"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">class</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="#local-6989586621679168279"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span id="AddInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-var">AddInstructions</span></a></span></span><span> </span><span id="local-6989586621679168279"><span class="annot"><a href="#local-6989586621679168279"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-comment">-- | Determine the bucket and key an instructions file is adjacent to.</span><span>
+</span><span id="line-29"></span><span>  </span><span id="addInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#addInstructions"><span class="hs-identifier hs-type">addInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168279"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">S3.BucketName</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.ObjectKey</span></span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.PutObject</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>  </span><span id="local-6989586621679168180"><span class="annot"><span class="annottext">addInstructions :: PutObject -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168180"><span class="hs-identifier hs-var hs-var hs-var hs-var">addInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName PutObject BucketName -&gt; PutObject -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName PutObject BucketName
+Lens' PutObject BucketName
+</span><span class="hs-identifier hs-var">S3.putObject_bucket</span></span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">(PutObject -&gt; BucketName)
+-&gt; (PutObject -&gt; ObjectKey) -&gt; PutObject -&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey PutObject ObjectKey -&gt; PutObject -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey PutObject ObjectKey
+Lens' PutObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.putObject_key</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>  </span><span id="local-6989586621679168174"><span class="annot"><span class="annottext">addInstructions :: GetObject -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168174"><span class="hs-identifier hs-var hs-var hs-var hs-var">addInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName GetObject BucketName -&gt; GetObject -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName GetObject BucketName
+Lens' GetObject BucketName
+</span><span class="hs-identifier hs-var">S3.getObject_bucket</span></span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="annottext">(GetObject -&gt; BucketName)
+-&gt; (GetObject -&gt; ObjectKey) -&gt; GetObject -&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey GetObject ObjectKey -&gt; GetObject -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey GetObject ObjectKey
+Lens' GetObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.getObject_key</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.CreateMultipartUpload</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>  </span><span id="local-6989586621679168169"><span class="annot"><span class="annottext">addInstructions :: CreateMultipartUpload -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168169"><span class="hs-identifier hs-var hs-var hs-var hs-var">addInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName CreateMultipartUpload BucketName
+-&gt; CreateMultipartUpload -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName CreateMultipartUpload BucketName
+Lens' CreateMultipartUpload BucketName
+</span><span class="hs-identifier hs-var">S3.createMultipartUpload_bucket</span></span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(CreateMultipartUpload -&gt; BucketName)
+-&gt; (CreateMultipartUpload -&gt; ObjectKey)
+-&gt; CreateMultipartUpload
+-&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey CreateMultipartUpload ObjectKey
+-&gt; CreateMultipartUpload -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey CreateMultipartUpload ObjectKey
+Lens' CreateMultipartUpload ObjectKey
+</span><span class="hs-identifier hs-var">S3.createMultipartUpload_key</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.UploadPart</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>  </span><span id="local-6989586621679168164"><span class="annot"><span class="annottext">addInstructions :: UploadPart -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168164"><span class="hs-identifier hs-var hs-var hs-var hs-var">addInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName UploadPart BucketName
+-&gt; UploadPart -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName UploadPart BucketName
+Lens' UploadPart BucketName
+</span><span class="hs-identifier hs-var">S3.uploadPart_bucket</span></span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(UploadPart -&gt; BucketName)
+-&gt; (UploadPart -&gt; ObjectKey)
+-&gt; UploadPart
+-&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey UploadPart ObjectKey -&gt; UploadPart -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey UploadPart ObjectKey
+Lens' UploadPart ObjectKey
+</span><span class="hs-identifier hs-var">S3.uploadPart_key</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">data</span><span> </span><span id="PutInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-var">PutInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-var">PutInstructions</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="_piExt"><span class="annot"><span class="annottext">PutInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piExt"><span class="hs-identifier hs-var hs-var">_piExt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span id="_piPut"><span class="annot"><span class="annottext">PutInstructions -&gt; PutObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piPut"><span class="hs-identifier hs-var hs-var">_piPut</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.PutObject</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168153"><span id="local-6989586621679168155"><span id="local-6989586621679168157"><span class="annot"><span class="annottext">Int -&gt; PutInstructions -&gt; ShowS
+[PutInstructions] -&gt; ShowS
+PutInstructions -&gt; String
+(Int -&gt; PutInstructions -&gt; ShowS)
+-&gt; (PutInstructions -&gt; String)
+-&gt; ([PutInstructions] -&gt; ShowS)
+-&gt; Show PutInstructions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutInstructions] -&gt; ShowS
+$cshowList :: [PutInstructions] -&gt; ShowS
+show :: PutInstructions -&gt; String
+$cshow :: PutInstructions -&gt; String
+showsPrec :: Int -&gt; PutInstructions -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutInstructions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679168151"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#putInstructions"><span class="hs-identifier hs-type">putInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168151"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168151"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Envelope.html#Envelope"><span class="hs-identifier hs-type">Envelope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span></span><span>
+</span><span id="line-58"></span><span id="putInstructions"><span class="annot"><span class="annottext">putInstructions :: a -&gt; Envelope -&gt; PutInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#putInstructions"><span class="hs-identifier hs-var hs-var">putInstructions</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; (BucketName, ObjectKey)
+forall a. AddInstructions a =&gt; a -&gt; (BucketName, ObjectKey)
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#addInstructions"><span class="hs-identifier hs-var">addInstructions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168149"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679168149"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168148"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679168148"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Ext -&gt; PutObject -&gt; PutInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-var">PutInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="Network.AWS.S3.Encryption.Types.html#defaultExtension"><span class="hs-identifier hs-var">defaultExtension</span></a></span><span> </span><span class="annot"><span class="annottext">(PutObject -&gt; PutInstructions)
+-&gt; (Envelope -&gt; PutObject) -&gt; Envelope -&gt; PutInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ObjectKey -&gt; RequestBody -&gt; PutObject
+</span><span class="hs-identifier hs-var">S3.newPutObject</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679168149"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679168148"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">(RequestBody -&gt; PutObject)
+-&gt; (Envelope -&gt; RequestBody) -&gt; Envelope -&gt; PutObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">toBody</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#piExtension"><span class="hs-identifier hs-type">piExtension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span>
+</span><span id="line-62"></span><span id="piExtension"><span class="annot"><span class="annottext">piExtension :: (Ext -&gt; f Ext) -&gt; PutInstructions -&gt; f PutInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#piExtension"><span class="hs-identifier hs-var hs-var">piExtension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutInstructions -&gt; Ext)
+-&gt; (PutInstructions -&gt; Ext -&gt; PutInstructions)
+-&gt; Lens PutInstructions PutInstructions Ext Ext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="annot"><span class="annottext">PutInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piExt"><span class="hs-identifier hs-var hs-var">_piExt</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168141"><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168141"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168140"><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">_piExt :: Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piExt"><span class="hs-identifier hs-var">_piExt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#PutInstructions"><span class="hs-identifier hs-type">PutInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.PutObjectResponse</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679168135"><span class="annot"><span class="annottext">request :: PutInstructions -&gt; Request PutInstructions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span id="local-6989586621679168133"><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Request PutObject -&gt; Request PutInstructions
+</span><span class="hs-identifier hs-var">coerce</span></span><span> </span><span class="annot"><span class="annottext">(Request PutObject -&gt; Request PutInstructions)
+-&gt; (PutObject -&gt; Request PutObject)
+-&gt; PutObject
+-&gt; Request PutInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">PutObject -&gt; Request PutObject
+forall a. AWSRequest a =&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">request</span></span><span> </span><span class="annot"><span class="annottext">(PutObject -&gt; Request PutInstructions)
+-&gt; PutObject -&gt; Request PutInstructions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">PutInstructions -&gt; PutObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piPut"><span class="hs-identifier hs-var hs-var">_piPut</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject -&gt; (PutObject -&gt; PutObject) -&gt; PutObject
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">(ObjectKey -&gt; Identity ObjectKey)
+-&gt; PutObject -&gt; Identity PutObject
+Lens' PutObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.putObject_key</span></span><span> </span><span class="annot"><span class="annottext">((ObjectKey -&gt; Identity ObjectKey)
+ -&gt; PutObject -&gt; Identity PutObject)
+-&gt; (ObjectKey -&gt; ObjectKey) -&gt; PutObject -&gt; PutObject
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Ext -&gt; ObjectKey -&gt; ObjectKey
+</span><a href="Network.AWS.S3.Encryption.Types.html#appendExtension"><span class="hs-identifier hs-var">appendExtension</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">PutInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_piExt"><span class="hs-identifier hs-var hs-var">_piExt</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168133"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679168130"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutInstructions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutInstructions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span id="local-6989586621679168128"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168128"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168127"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168127"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="annot"><span class="annottext">Proxy PutInstructions
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Logger
+-&gt; Service
+-&gt; Proxy PutObject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutObject)))
+forall a (m :: * -&gt; *).
+(AWSRequest a, MonadResource m) =&gt;
+Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">response</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168127"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy PutObject
+forall k (t :: k). Proxy t
+</span><span class="hs-identifier hs-var">Proxy</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.PutObject</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">data</span><span> </span><span id="GetInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-var">GetInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-var">GetInstructions</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="_giExt"><span class="annot"><span class="annottext">GetInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giExt"><span class="hs-identifier hs-var hs-var">_giExt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span id="_giGet"><span class="annot"><span class="annottext">GetInstructions -&gt; GetObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giGet"><span class="hs-identifier hs-var hs-var">_giGet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.GetObject</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168117"><span id="local-6989586621679168119"><span id="local-6989586621679168121"><span class="annot"><span class="annottext">Int -&gt; GetInstructions -&gt; ShowS
+[GetInstructions] -&gt; ShowS
+GetInstructions -&gt; String
+(Int -&gt; GetInstructions -&gt; ShowS)
+-&gt; (GetInstructions -&gt; String)
+-&gt; ([GetInstructions] -&gt; ShowS)
+-&gt; Show GetInstructions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInstructions] -&gt; ShowS
+$cshowList :: [GetInstructions] -&gt; ShowS
+show :: GetInstructions -&gt; String
+$cshow :: GetInstructions -&gt; String
+showsPrec :: Int -&gt; GetInstructions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInstructions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679168116"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#getInstructions"><span class="hs-identifier hs-type">getInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#AddInstructions"><span class="hs-identifier hs-type">AddInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168116"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168116"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-type">GetInstructions</span></a></span></span><span>
+</span><span id="line-80"></span><span id="getInstructions"><span class="annot"><span class="annottext">getInstructions :: a -&gt; GetInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#getInstructions"><span class="hs-identifier hs-var hs-var">getInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">Ext -&gt; GetObject -&gt; GetInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-var">GetInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="Network.AWS.S3.Encryption.Types.html#defaultExtension"><span class="hs-identifier hs-var">defaultExtension</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(GetObject -&gt; GetInstructions)
+-&gt; (a -&gt; GetObject) -&gt; a -&gt; GetInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(BucketName -&gt; ObjectKey -&gt; GetObject)
+-&gt; (BucketName, ObjectKey) -&gt; GetObject
+forall a b c. (a -&gt; b -&gt; c) -&gt; (a, b) -&gt; c
+</span><span class="hs-identifier hs-var">uncurry</span></span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ObjectKey -&gt; GetObject
+</span><span class="hs-identifier hs-var">S3.newGetObject</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">((BucketName, ObjectKey) -&gt; GetObject)
+-&gt; (a -&gt; (BucketName, ObjectKey)) -&gt; a -&gt; GetObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; (BucketName, ObjectKey)
+forall a. AddInstructions a =&gt; a -&gt; (BucketName, ObjectKey)
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#addInstructions"><span class="hs-identifier hs-var">addInstructions</span></a></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#giExtension"><span class="hs-identifier hs-type">giExtension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-type">GetInstructions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span>
+</span><span id="line-86"></span><span id="giExtension"><span class="annot"><span class="annottext">giExtension :: (Ext -&gt; f Ext) -&gt; GetInstructions -&gt; f GetInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#giExtension"><span class="hs-identifier hs-var hs-var">giExtension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInstructions -&gt; Ext)
+-&gt; (GetInstructions -&gt; Ext -&gt; GetInstructions)
+-&gt; Lens GetInstructions GetInstructions Ext Ext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="annot"><span class="annottext">GetInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giExt"><span class="hs-identifier hs-var hs-var">_giExt</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168111"><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168110"><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">_giExt :: Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giExt"><span class="hs-identifier hs-var">_giExt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-type">GetInstructions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#GetInstructions"><span class="hs-identifier hs-type">GetInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-type">Instructions</span></a></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679168107"><span class="annot"><span class="annottext">request :: GetInstructions -&gt; Request GetInstructions
+</span><a href="#local-6989586621679168107"><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></a></span></span><span> </span><span id="local-6989586621679168106"><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Request GetObject -&gt; Request GetInstructions
+</span><span class="hs-identifier hs-var">coerce</span></span><span> </span><span class="annot"><span class="annottext">(Request GetObject -&gt; Request GetInstructions)
+-&gt; (GetObject -&gt; Request GetObject)
+-&gt; GetObject
+-&gt; Request GetInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; Request GetObject
+forall a. AWSRequest a =&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">request</span></span><span> </span><span class="annot"><span class="annottext">(GetObject -&gt; Request GetInstructions)
+-&gt; GetObject -&gt; Request GetInstructions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">GetInstructions -&gt; GetObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giGet"><span class="hs-identifier hs-var hs-var">_giGet</span></a></span><span> </span><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; (GetObject -&gt; GetObject) -&gt; GetObject
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">(ObjectKey -&gt; Identity ObjectKey)
+-&gt; GetObject -&gt; Identity GetObject
+Lens' GetObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.getObject_key</span></span><span> </span><span class="annot"><span class="annottext">((ObjectKey -&gt; Identity ObjectKey)
+ -&gt; GetObject -&gt; Identity GetObject)
+-&gt; (ObjectKey -&gt; ObjectKey) -&gt; GetObject -&gt; GetObject
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Ext -&gt; ObjectKey -&gt; ObjectKey
+</span><a href="Network.AWS.S3.Encryption.Types.html#appendExtension"><span class="hs-identifier hs-var">appendExtension</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">GetInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_giExt"><span class="hs-identifier hs-var hs-var">_giExt</span></a></span><span> </span><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168106"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679168105"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInstructions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInstructions)))
+</span><a href="#local-6989586621679168105"><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInstructions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInstructions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInstructions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span> </span><span class="annot"><span class="annottext">((Int
+  -&gt; ResponseHeaders
+  -&gt; Object
+  -&gt; Either String (AWSResponse GetInstructions))
+ -&gt; Logger
+ -&gt; Service
+ -&gt; Proxy GetInstructions
+ -&gt; ClientResponse ClientBody
+ -&gt; m (Either Error (ClientResponse (AWSResponse GetInstructions))))
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; Object
+    -&gt; Either String (AWSResponse GetInstructions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInstructions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInstructions)))
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier">_</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679168103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679168103"><span class="hs-identifier hs-var">o</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-97"></span><span>      </span><span id="local-6989586621679168102"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679168102"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">(Value -&gt; Parser (HashMap Text Text))
+-&gt; Value -&gt; Either String (HashMap Text Text)
+forall a b. (a -&gt; Parser b) -&gt; a -&gt; Either String b
+</span><span class="hs-identifier hs-var">Aeson.parseEither</span></span><span> </span><span class="annot"><span class="annottext">Value -&gt; Parser (HashMap Text Text)
+forall a. FromJSON a =&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Aeson.parseJSON</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Aeson.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679168103"><span class="hs-identifier hs-var">o</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Instructions -&gt; Either String Instructions
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(Instructions -&gt; Either String Instructions)
+-&gt; Instructions -&gt; Either String Instructions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">(forall (m :: * -&gt; *). MonadResource m =&gt; Key -&gt; Env -&gt; m Envelope)
+-&gt; Instructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-var">Instructions</span></a></span><span> </span><span class="annot"><span class="annottext">((forall (m :: * -&gt; *).
+  MonadResource m =&gt;
+  Key -&gt; Env -&gt; m Envelope)
+ -&gt; Instructions)
+-&gt; (forall (m :: * -&gt; *).
+    MonadResource m =&gt;
+    Key -&gt; Env -&gt; m Envelope)
+-&gt; Instructions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168098"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168098"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168097"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168097"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; HashMap Text Text -&gt; m Envelope
+forall (m :: * -&gt; *).
+MonadResource m =&gt;
+Key -&gt; Env -&gt; HashMap Text Text -&gt; m Envelope
+</span><a href="Network.AWS.S3.Encryption.Envelope.html#fromMetadata"><span class="hs-identifier hs-var">fromMetadata</span></a></span><span> </span><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168098"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168097"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679168102"><span class="hs-identifier hs-var">e</span></a></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">class</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="#local-6989586621679168194"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span id="RemoveInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-var">RemoveInstructions</span></a></span></span><span> </span><span id="local-6989586621679168194"><span class="annot"><a href="#local-6989586621679168194"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | Determine the bucket and key an instructions file is adjacent to.</span><span>
+</span><span id="line-102"></span><span>  </span><span id="removeInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#removeInstructions"><span class="hs-identifier hs-type">removeInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679168194"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">S3.BucketName</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.ObjectKey</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-type">RemoveInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.AbortMultipartUpload</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679168091"><span class="annot"><span class="annottext">removeInstructions :: AbortMultipartUpload -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168091"><span class="hs-identifier hs-var hs-var hs-var hs-var">removeInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName AbortMultipartUpload BucketName
+-&gt; AbortMultipartUpload -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName AbortMultipartUpload BucketName
+Lens' AbortMultipartUpload BucketName
+</span><span class="hs-identifier hs-var">S3.abortMultipartUpload_bucket</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">(AbortMultipartUpload -&gt; BucketName)
+-&gt; (AbortMultipartUpload -&gt; ObjectKey)
+-&gt; AbortMultipartUpload
+-&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey AbortMultipartUpload ObjectKey
+-&gt; AbortMultipartUpload -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey AbortMultipartUpload ObjectKey
+Lens' AbortMultipartUpload ObjectKey
+</span><span class="hs-identifier hs-var">S3.abortMultipartUpload_key</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-type">RemoveInstructions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.DeleteObject</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679168086"><span class="annot"><span class="annottext">removeInstructions :: DeleteObject -&gt; (BucketName, ObjectKey)
+</span><a href="#local-6989586621679168086"><span class="hs-identifier hs-var hs-var hs-var hs-var">removeInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Getting BucketName DeleteObject BucketName
+-&gt; DeleteObject -&gt; BucketName
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting BucketName DeleteObject BucketName
+Lens' DeleteObject BucketName
+</span><span class="hs-identifier hs-var">S3.deleteObject_bucket</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(DeleteObject -&gt; BucketName)
+-&gt; (DeleteObject -&gt; ObjectKey)
+-&gt; DeleteObject
+-&gt; (BucketName, ObjectKey)
+forall (a :: * -&gt; * -&gt; *) b c c'.
+Arrow a =&gt;
+a b c -&gt; a b c' -&gt; a b (c, c')
+</span><span class="hs-operator hs-var">&amp;&amp;&amp;</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey DeleteObject ObjectKey
+-&gt; DeleteObject -&gt; ObjectKey
+forall s (m :: * -&gt; *) a. MonadReader s m =&gt; Getting a s a -&gt; m a
+</span><span class="hs-identifier hs-var">Lens.view</span></span><span> </span><span class="annot"><span class="annottext">Getting ObjectKey DeleteObject ObjectKey
+Lens' DeleteObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.deleteObject_key</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-var">DeleteInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstructions"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-var">DeleteInstructions</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="_diExt"><span class="annot"><span class="annottext">DeleteInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diExt"><span class="hs-identifier hs-var hs-var">_diExt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span id="_diDelete"><span class="annot"><span class="annottext">DeleteInstructions -&gt; DeleteObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diDelete"><span class="hs-identifier hs-var hs-var">_diDelete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.DeleteObject</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168075"><span id="local-6989586621679168077"><span id="local-6989586621679168079"><span class="annot"><span class="annottext">Int -&gt; DeleteInstructions -&gt; ShowS
+[DeleteInstructions] -&gt; ShowS
+DeleteInstructions -&gt; String
+(Int -&gt; DeleteInstructions -&gt; ShowS)
+-&gt; (DeleteInstructions -&gt; String)
+-&gt; ([DeleteInstructions] -&gt; ShowS)
+-&gt; Show DeleteInstructions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteInstructions] -&gt; ShowS
+$cshowList :: [DeleteInstructions] -&gt; ShowS
+show :: DeleteInstructions -&gt; String
+$cshow :: DeleteInstructions -&gt; String
+showsPrec :: Int -&gt; DeleteInstructions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteInstructions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679168074"><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#deleteInstructions"><span class="hs-identifier hs-type">deleteInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-type">RemoveInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168074"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168074"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-type">DeleteInstructions</span></a></span></span><span>
+</span><span id="line-121"></span><span id="deleteInstructions"><span class="annot"><span class="annottext">deleteInstructions :: a -&gt; DeleteInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#deleteInstructions"><span class="hs-identifier hs-var hs-var">deleteInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">Ext -&gt; DeleteObject -&gt; DeleteInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-var">DeleteInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="Network.AWS.S3.Encryption.Types.html#defaultExtension"><span class="hs-identifier hs-var">defaultExtension</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(DeleteObject -&gt; DeleteInstructions)
+-&gt; (a -&gt; DeleteObject) -&gt; a -&gt; DeleteInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(BucketName -&gt; ObjectKey -&gt; DeleteObject)
+-&gt; (BucketName, ObjectKey) -&gt; DeleteObject
+forall a b c. (a -&gt; b -&gt; c) -&gt; (a, b) -&gt; c
+</span><span class="hs-identifier hs-var">uncurry</span></span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ObjectKey -&gt; DeleteObject
+</span><span class="hs-identifier hs-var">S3.newDeleteObject</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">((BucketName, ObjectKey) -&gt; DeleteObject)
+-&gt; (a -&gt; (BucketName, ObjectKey)) -&gt; a -&gt; DeleteObject
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; (BucketName, ObjectKey)
+forall a. RemoveInstructions a =&gt; a -&gt; (BucketName, ObjectKey)
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#removeInstructions"><span class="hs-identifier hs-var">removeInstructions</span></a></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#diExtension"><span class="hs-identifier hs-type">diExtension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-type">DeleteInstructions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Ext"><span class="hs-identifier hs-type">Ext</span></a></span><span>
+</span><span id="line-127"></span><span id="diExtension"><span class="annot"><span class="annottext">diExtension :: (Ext -&gt; f Ext) -&gt; DeleteInstructions -&gt; f DeleteInstructions
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#diExtension"><span class="hs-identifier hs-var hs-var">diExtension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteInstructions -&gt; Ext)
+-&gt; (DeleteInstructions -&gt; Ext -&gt; DeleteInstructions)
+-&gt; Lens DeleteInstructions DeleteInstructions Ext Ext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="annot"><span class="annottext">DeleteInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diExt"><span class="hs-identifier hs-var hs-var">_diExt</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168070"><span class="annot"><span class="annottext">DeleteInstructions
+</span><a href="#local-6989586621679168070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168069"><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstructions
+</span><a href="#local-6989586621679168070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">_diExt :: Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diExt"><span class="hs-identifier hs-var">_diExt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Ext
+</span><a href="#local-6989586621679168069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-type">DeleteInstructions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#DeleteInstructions"><span class="hs-identifier hs-type">DeleteInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.DeleteObjectResponse</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679168065"><span class="annot"><span class="annottext">request :: DeleteInstructions -&gt; Request DeleteInstructions
+</span><a href="#local-6989586621679168065"><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></a></span></span><span> </span><span id="local-6989586621679168064"><span class="annot"><span class="annottext">DeleteInstructions
+</span><a href="#local-6989586621679168064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteObject -&gt; Request DeleteInstructions
+</span><span class="hs-identifier hs-var">coerce</span></span><span> </span><span class="annot"><span class="annottext">(Request DeleteObject -&gt; Request DeleteInstructions)
+-&gt; (DeleteObject -&gt; Request DeleteObject)
+-&gt; DeleteObject
+-&gt; Request DeleteInstructions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">DeleteObject -&gt; Request DeleteObject
+forall a. AWSRequest a =&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">request</span></span><span> </span><span class="annot"><span class="annottext">(DeleteObject -&gt; Request DeleteInstructions)
+-&gt; DeleteObject -&gt; Request DeleteInstructions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">DeleteInstructions -&gt; DeleteObject
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diDelete"><span class="hs-identifier hs-var hs-var">_diDelete</span></a></span><span> </span><span class="annot"><span class="annottext">DeleteInstructions
+</span><a href="#local-6989586621679168064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">DeleteObject -&gt; (DeleteObject -&gt; DeleteObject) -&gt; DeleteObject
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">(ObjectKey -&gt; Identity ObjectKey)
+-&gt; DeleteObject -&gt; Identity DeleteObject
+Lens' DeleteObject ObjectKey
+</span><span class="hs-identifier hs-var">S3.deleteObject_key</span></span><span> </span><span class="annot"><span class="annottext">((ObjectKey -&gt; Identity ObjectKey)
+ -&gt; DeleteObject -&gt; Identity DeleteObject)
+-&gt; (ObjectKey -&gt; ObjectKey) -&gt; DeleteObject -&gt; DeleteObject
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Ext -&gt; ObjectKey -&gt; ObjectKey
+</span><a href="Network.AWS.S3.Encryption.Types.html#appendExtension"><span class="hs-identifier hs-var">appendExtension</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">DeleteInstructions -&gt; Ext
+</span><a href="Network.AWS.S3.Encryption.Instructions.html#_diExt"><span class="hs-identifier hs-var hs-var">_diExt</span></a></span><span> </span><span class="annot"><span class="annottext">DeleteInstructions
+</span><a href="#local-6989586621679168064"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679168063"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteInstructions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteInstructions)))
+</span><a href="#local-6989586621679168063"><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></a></span></span><span> </span><span id="local-6989586621679168062"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168062"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168061"><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168061"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="annot"><span class="annottext">Proxy DeleteInstructions
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Logger
+-&gt; Service
+-&gt; Proxy DeleteObject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteObject)))
+forall a (m :: * -&gt; *).
+(AWSRequest a, MonadResource m) =&gt;
+Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">response</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679168062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679168061"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Proxy DeleteObject
+forall k (t :: k). Proxy t
+</span><span class="hs-identifier hs-var">Proxy</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">S3.DeleteObject</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span></pre></body></html>

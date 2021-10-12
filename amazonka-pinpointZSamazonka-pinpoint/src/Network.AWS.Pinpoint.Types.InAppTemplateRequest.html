@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.InAppTemplateRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.InAppTemplateRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.InAppMessageContent</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types.Layout</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | InApp Template Request.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInAppTemplateRequest' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679605023"><span id="local-6989586621679605024"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppTemplateRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-var">InAppTemplateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppTemplateRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-var">InAppTemplateRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcustomConfig%3AInAppTemplateRequest%27"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AcustomConfig%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AInAppTemplateRequest%27"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AtemplateDescription%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The layout of the message.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Alayout%3AInAppTemplateRequest%27"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; Maybe Layout
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Alayout%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acontent%3AInAppTemplateRequest%27"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; Maybe [InAppMessageContent]
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Acontent%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3AInAppTemplateRequest%27"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Atags%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605013"><span id="local-6989586621679605015"><span class="annot"><span class="annottext">InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool
+(InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool)
+-&gt; (InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool)
+-&gt; Eq InAppTemplateRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool
+$c/= :: InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool
+== :: InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool
+$c== :: InAppTemplateRequest -&gt; InAppTemplateRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605004"><span id="local-6989586621679605006"><span id="local-6989586621679605008"><span id="local-6989586621679605010"><span class="annot"><span class="annottext">ReadPrec [InAppTemplateRequest]
+ReadPrec InAppTemplateRequest
+Int -&gt; ReadS InAppTemplateRequest
+ReadS [InAppTemplateRequest]
+(Int -&gt; ReadS InAppTemplateRequest)
+-&gt; ReadS [InAppTemplateRequest]
+-&gt; ReadPrec InAppTemplateRequest
+-&gt; ReadPrec [InAppTemplateRequest]
+-&gt; Read InAppTemplateRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InAppTemplateRequest]
+$creadListPrec :: ReadPrec [InAppTemplateRequest]
+readPrec :: ReadPrec InAppTemplateRequest
+$creadPrec :: ReadPrec InAppTemplateRequest
+readList :: ReadS [InAppTemplateRequest]
+$creadList :: ReadS [InAppTemplateRequest]
+readsPrec :: Int -&gt; ReadS InAppTemplateRequest
+$creadsPrec :: Int -&gt; ReadS InAppTemplateRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604997"><span id="local-6989586621679604999"><span id="local-6989586621679605001"><span class="annot"><span class="annottext">Int -&gt; InAppTemplateRequest -&gt; ShowS
+[InAppTemplateRequest] -&gt; ShowS
+InAppTemplateRequest -&gt; String
+(Int -&gt; InAppTemplateRequest -&gt; ShowS)
+-&gt; (InAppTemplateRequest -&gt; String)
+-&gt; ([InAppTemplateRequest] -&gt; ShowS)
+-&gt; Show InAppTemplateRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InAppTemplateRequest] -&gt; ShowS
+$cshowList :: [InAppTemplateRequest] -&gt; ShowS
+show :: InAppTemplateRequest -&gt; String
+$cshow :: InAppTemplateRequest -&gt; String
+showsPrec :: Int -&gt; InAppTemplateRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; InAppTemplateRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InAppTemplateRequest -&gt; Rep InAppTemplateRequest x)
+-&gt; (forall x. Rep InAppTemplateRequest x -&gt; InAppTemplateRequest)
+-&gt; Generic InAppTemplateRequest
+forall x. Rep InAppTemplateRequest x -&gt; InAppTemplateRequest
+forall x. InAppTemplateRequest -&gt; Rep InAppTemplateRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InAppTemplateRequest x -&gt; InAppTemplateRequest
+$cfrom :: forall x. InAppTemplateRequest -&gt; Rep InAppTemplateRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'InAppTemplateRequest' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'customConfig', 'inAppTemplateRequest_customConfig' - Custom config to be sent to client.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'templateDescription', 'inAppTemplateRequest_templateDescription' - The description of the template.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'layout', 'inAppTemplateRequest_layout' - The layout of the message.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'content', 'inAppTemplateRequest_content' - The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'tags', 'inAppTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#newInAppTemplateRequest"><span class="hs-identifier hs-type">newInAppTemplateRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span>
+</span><span id="line-72"></span><span id="newInAppTemplateRequest"><span class="annot"><span class="annottext">newInAppTemplateRequest :: InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#newInAppTemplateRequest"><span class="hs-identifier hs-var hs-var">newInAppTemplateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">InAppTemplateRequest' :: Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Layout
+-&gt; Maybe [InAppMessageContent]
+-&gt; Maybe (HashMap Text Text)
+-&gt; InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AcustomConfig%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateDescription:InAppTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AtemplateDescription%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateRequest' :: Maybe Layout
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Alayout%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:InAppTemplateRequest' :: Maybe [InAppMessageContent]
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Acontent%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Atags%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_customConfig"><span class="hs-identifier hs-type">inAppTemplateRequest_customConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="inAppTemplateRequest_customConfig"><span class="annot"><span class="annottext">inAppTemplateRequest_customConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_customConfig"><span class="hs-identifier hs-var hs-var">inAppTemplateRequest_customConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateRequest -&gt; Maybe (HashMap Text Text))
+-&gt; (InAppTemplateRequest
+    -&gt; Maybe (HashMap Text Text) -&gt; InAppTemplateRequest)
+-&gt; Lens
+     InAppTemplateRequest
+     InAppTemplateRequest
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604988"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+customConfig :: Maybe (HashMap Text Text)
+$sel:customConfig:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604988"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604988"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604987"><span class="annot"><span class="annottext">s :: InAppTemplateRequest
+</span><a href="#local-6989586621679604987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604986"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateRequest
+</span><a href="#local-6989586621679604987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AcustomConfig%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateRequest
+-&gt; f InAppTemplateRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_templateDescription"><span class="hs-identifier hs-type">inAppTemplateRequest_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="inAppTemplateRequest_templateDescription"><span class="annot"><span class="annottext">inAppTemplateRequest_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_templateDescription"><span class="hs-identifier hs-var hs-var">inAppTemplateRequest_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateRequest -&gt; Maybe Text)
+-&gt; (InAppTemplateRequest -&gt; Maybe Text -&gt; InAppTemplateRequest)
+-&gt; Lens
+     InAppTemplateRequest InAppTemplateRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604981"><span class="annot"><span class="annottext">Maybe Text
+templateDescription :: Maybe Text
+$sel:templateDescription:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679604981"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604981"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604980"><span class="annot"><span class="annottext">s :: InAppTemplateRequest
+</span><a href="#local-6989586621679604980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateRequest
+</span><a href="#local-6989586621679604980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:InAppTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3AtemplateDescription%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The layout of the message.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_layout"><span class="hs-identifier hs-type">inAppTemplateRequest_layout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="inAppTemplateRequest_layout"><span class="annot"><span class="annottext">inAppTemplateRequest_layout :: (Maybe Layout -&gt; f (Maybe Layout))
+-&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_layout"><span class="hs-identifier hs-var hs-var">inAppTemplateRequest_layout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateRequest -&gt; Maybe Layout)
+-&gt; (InAppTemplateRequest -&gt; Maybe Layout -&gt; InAppTemplateRequest)
+-&gt; Lens
+     InAppTemplateRequest
+     InAppTemplateRequest
+     (Maybe Layout)
+     (Maybe Layout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604977"><span class="annot"><span class="annottext">Maybe Layout
+layout :: Maybe Layout
+$sel:layout:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe Layout
+</span><a href="#local-6989586621679604977"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679604977"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604976"><span class="annot"><span class="annottext">s :: InAppTemplateRequest
+</span><a href="#local-6989586621679604976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604975"><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679604975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateRequest
+</span><a href="#local-6989586621679604976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateRequest' :: Maybe Layout
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Alayout%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679604975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_content"><span class="hs-identifier hs-type">inAppTemplateRequest_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="inAppTemplateRequest_content"><span class="annot"><span class="annottext">inAppTemplateRequest_content :: (Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+-&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_content"><span class="hs-identifier hs-var hs-var">inAppTemplateRequest_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateRequest -&gt; Maybe [InAppMessageContent])
+-&gt; (InAppTemplateRequest
+    -&gt; Maybe [InAppMessageContent] -&gt; InAppTemplateRequest)
+-&gt; Lens
+     InAppTemplateRequest
+     InAppTemplateRequest
+     (Maybe [InAppMessageContent])
+     (Maybe [InAppMessageContent])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604973"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+content :: Maybe [InAppMessageContent]
+$sel:content:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679604973"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679604973"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604972"><span class="annot"><span class="annottext">s :: InAppTemplateRequest
+</span><a href="#local-6989586621679604972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604971"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679604971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateRequest
+</span><a href="#local-6989586621679604972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InAppTemplateRequest' :: Maybe [InAppMessageContent]
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Acontent%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679604971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+ -&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest)
+-&gt; ((Maybe [InAppMessageContent]
+     -&gt; f (Maybe [InAppMessageContent]))
+    -&gt; Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+-&gt; (Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+-&gt; InAppTemplateRequest
+-&gt; f InAppTemplateRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InAppMessageContent]
+  [InAppMessageContent]
+  [InAppMessageContent]
+  [InAppMessageContent]
+-&gt; Iso
+     (Maybe [InAppMessageContent])
+     (Maybe [InAppMessageContent])
+     (Maybe [InAppMessageContent])
+     (Maybe [InAppMessageContent])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InAppMessageContent]
+  [InAppMessageContent]
+  [InAppMessageContent]
+  [InAppMessageContent]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_tags"><span class="hs-identifier hs-type">inAppTemplateRequest_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="inAppTemplateRequest_tags"><span class="annot"><span class="annottext">inAppTemplateRequest_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#inAppTemplateRequest_tags"><span class="hs-identifier hs-var hs-var">inAppTemplateRequest_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateRequest -&gt; Maybe (HashMap Text Text))
+-&gt; (InAppTemplateRequest
+    -&gt; Maybe (HashMap Text Text) -&gt; InAppTemplateRequest)
+-&gt; Lens
+     InAppTemplateRequest
+     InAppTemplateRequest
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604969"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604969"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604969"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604968"><span class="annot"><span class="annottext">s :: InAppTemplateRequest
+</span><a href="#local-6989586621679604968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604967"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateRequest
+</span><a href="#local-6989586621679604968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#%24sel%3Atags%3AInAppTemplateRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InAppTemplateRequest -&gt; f InAppTemplateRequest)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateRequest
+-&gt; f InAppTemplateRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604963"><span id="local-6989586621679604965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604952"><span id="local-6989586621679604954"><span id="local-6989586621679604956"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest"><span class="hs-identifier hs-type">InAppTemplateRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679604950"><span class="annot"><span class="annottext">toJSON :: InAppTemplateRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateRequest.html#InAppTemplateRequest%27"><span class="hs-identifier hs-type">InAppTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604944"><span id="local-6989586621679604945"><span id="local-6989586621679604946"><span id="local-6989586621679604947"><span id="local-6989586621679604948"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe Layout
+tags :: Maybe (HashMap Text Text)
+content :: Maybe [InAppMessageContent]
+layout :: Maybe Layout
+templateDescription :: Maybe Text
+customConfig :: Maybe (HashMap Text Text)
+$sel:tags:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+$sel:content:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe [InAppMessageContent]
+$sel:layout:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe Layout
+$sel:templateDescription:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe Text
+$sel:customConfig:InAppTemplateRequest' :: InAppTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604948"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604947"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Layout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Layout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Layout -&gt; Pair) -&gt; Maybe Layout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679604946"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InAppMessageContent] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([InAppMessageContent] -&gt; Pair)
+-&gt; Maybe [InAppMessageContent] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679604945"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679604944"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

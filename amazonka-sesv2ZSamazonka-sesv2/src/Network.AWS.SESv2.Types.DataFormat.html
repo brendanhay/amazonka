@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.DataFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.DataFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier">DataFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_CSV"><span class="hs-identifier">DataFormat_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_JSON"><span class="hs-identifier">DataFormat_JSON</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The data format of the import job\'s data source.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679323444"><span id="local-6989586621679323445"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataFormat"><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-var">DataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataFormat%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat%27"><span class="hs-identifier hs-var">DataFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataFormat"><span class="annot"><span class="annottext">DataFormat -&gt; Text
+</span><a href="Network.AWS.SESv2.Types.DataFormat.html#fromDataFormat"><span class="hs-identifier hs-var hs-var">fromDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323436"><span id="local-6989586621679323438"><span id="local-6989586621679323440"><span class="annot"><span class="annottext">Int -&gt; DataFormat -&gt; ShowS
+[DataFormat] -&gt; ShowS
+DataFormat -&gt; String
+(Int -&gt; DataFormat -&gt; ShowS)
+-&gt; (DataFormat -&gt; String)
+-&gt; ([DataFormat] -&gt; ShowS)
+-&gt; Show DataFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataFormat] -&gt; ShowS
+$cshowList :: [DataFormat] -&gt; ShowS
+show :: DataFormat -&gt; String
+$cshow :: DataFormat -&gt; String
+showsPrec :: Int -&gt; DataFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323427"><span id="local-6989586621679323429"><span id="local-6989586621679323431"><span id="local-6989586621679323433"><span class="annot"><span class="annottext">ReadPrec [DataFormat]
+ReadPrec DataFormat
+Int -&gt; ReadS DataFormat
+ReadS [DataFormat]
+(Int -&gt; ReadS DataFormat)
+-&gt; ReadS [DataFormat]
+-&gt; ReadPrec DataFormat
+-&gt; ReadPrec [DataFormat]
+-&gt; Read DataFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataFormat]
+$creadListPrec :: ReadPrec [DataFormat]
+readPrec :: ReadPrec DataFormat
+$creadPrec :: ReadPrec DataFormat
+readList :: ReadS [DataFormat]
+$creadList :: ReadS [DataFormat]
+readsPrec :: Int -&gt; ReadS DataFormat
+$creadsPrec :: Int -&gt; ReadS DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323422"><span id="local-6989586621679323424"><span class="annot"><span class="annottext">DataFormat -&gt; DataFormat -&gt; Bool
+(DataFormat -&gt; DataFormat -&gt; Bool)
+-&gt; (DataFormat -&gt; DataFormat -&gt; Bool) -&gt; Eq DataFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataFormat -&gt; DataFormat -&gt; Bool
+$c/= :: DataFormat -&gt; DataFormat -&gt; Bool
+== :: DataFormat -&gt; DataFormat -&gt; Bool
+$c== :: DataFormat -&gt; DataFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679323406"><span id="local-6989586621679323408"><span id="local-6989586621679323410"><span id="local-6989586621679323412"><span id="local-6989586621679323414"><span id="local-6989586621679323416"><span id="local-6989586621679323418"><span class="annot"><span class="annottext">Eq DataFormat
+Eq DataFormat
+-&gt; (DataFormat -&gt; DataFormat -&gt; Ordering)
+-&gt; (DataFormat -&gt; DataFormat -&gt; Bool)
+-&gt; (DataFormat -&gt; DataFormat -&gt; Bool)
+-&gt; (DataFormat -&gt; DataFormat -&gt; Bool)
+-&gt; (DataFormat -&gt; DataFormat -&gt; Bool)
+-&gt; (DataFormat -&gt; DataFormat -&gt; DataFormat)
+-&gt; (DataFormat -&gt; DataFormat -&gt; DataFormat)
+-&gt; Ord DataFormat
+DataFormat -&gt; DataFormat -&gt; Bool
+DataFormat -&gt; DataFormat -&gt; Ordering
+DataFormat -&gt; DataFormat -&gt; DataFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataFormat -&gt; DataFormat -&gt; DataFormat
+$cmin :: DataFormat -&gt; DataFormat -&gt; DataFormat
+max :: DataFormat -&gt; DataFormat -&gt; DataFormat
+$cmax :: DataFormat -&gt; DataFormat -&gt; DataFormat
+&gt;= :: DataFormat -&gt; DataFormat -&gt; Bool
+$c&gt;= :: DataFormat -&gt; DataFormat -&gt; Bool
+&gt; :: DataFormat -&gt; DataFormat -&gt; Bool
+$c&gt; :: DataFormat -&gt; DataFormat -&gt; Bool
+&lt;= :: DataFormat -&gt; DataFormat -&gt; Bool
+$c&lt;= :: DataFormat -&gt; DataFormat -&gt; Bool
+&lt; :: DataFormat -&gt; DataFormat -&gt; Bool
+$c&lt; :: DataFormat -&gt; DataFormat -&gt; Bool
+compare :: DataFormat -&gt; DataFormat -&gt; Ordering
+$ccompare :: DataFormat -&gt; DataFormat -&gt; Ordering
+$cp1Ord :: Eq DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DataFormat -&gt; Rep DataFormat x)
+-&gt; (forall x. Rep DataFormat x -&gt; DataFormat) -&gt; Generic DataFormat
+forall x. Rep DataFormat x -&gt; DataFormat
+forall x. DataFormat -&gt; Rep DataFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataFormat x -&gt; DataFormat
+$cfrom :: forall x. DataFormat -&gt; Rep DataFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323398"><span id="local-6989586621679323400"><span class="annot"><span class="annottext">Int -&gt; DataFormat -&gt; Int
+DataFormat -&gt; Int
+(Int -&gt; DataFormat -&gt; Int)
+-&gt; (DataFormat -&gt; Int) -&gt; Hashable DataFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataFormat -&gt; Int
+$chash :: DataFormat -&gt; Int
+hashWithSalt :: Int -&gt; DataFormat -&gt; Int
+$chashWithSalt :: Int -&gt; DataFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323395"><span class="annot"><span class="annottext">DataFormat -&gt; ()
+(DataFormat -&gt; ()) -&gt; NFData DataFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataFormat -&gt; ()
+$crnf :: DataFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323392"><span class="annot"><span class="annottext">Text -&gt; Either String DataFormat
+(Text -&gt; Either String DataFormat) -&gt; FromText DataFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataFormat
+$cfromText :: Text -&gt; Either String DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323389"><span class="annot"><span class="annottext">DataFormat -&gt; Text
+(DataFormat -&gt; Text) -&gt; ToText DataFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataFormat -&gt; Text
+$ctoText :: DataFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323386"><span class="annot"><span class="annottext">DataFormat -&gt; ByteString
+(DataFormat -&gt; ByteString) -&gt; ToByteString DataFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataFormat -&gt; ByteString
+$ctoBS :: DataFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323383"><span class="annot"><span class="annottext">DataFormat -&gt; ByteStringBuilder
+(DataFormat -&gt; ByteStringBuilder) -&gt; ToLog DataFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataFormat -&gt; ByteStringBuilder
+$cbuild :: DataFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323380"><span class="annot"><span class="annottext">HeaderName -&gt; DataFormat -&gt; [Header]
+(HeaderName -&gt; DataFormat -&gt; [Header]) -&gt; ToHeader DataFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323377"><span class="annot"><span class="annottext">DataFormat -&gt; QueryString
+(DataFormat -&gt; QueryString) -&gt; ToQuery DataFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataFormat -&gt; QueryString
+$ctoQuery :: DataFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323372"><span id="local-6989586621679323374"><span class="annot"><span class="annottext">Value -&gt; Parser [DataFormat]
+Value -&gt; Parser DataFormat
+(Value -&gt; Parser DataFormat)
+-&gt; (Value -&gt; Parser [DataFormat]) -&gt; FromJSON DataFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataFormat]
+$cparseJSONList :: Value -&gt; Parser [DataFormat]
+parseJSON :: Value -&gt; Parser DataFormat
+$cparseJSON :: Value -&gt; Parser DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323367"><span id="local-6989586621679323369"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataFormat]
+FromJSONKeyFunction DataFormat
+FromJSONKeyFunction DataFormat
+-&gt; FromJSONKeyFunction [DataFormat] -&gt; FromJSONKey DataFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataFormat]
+fromJSONKey :: FromJSONKeyFunction DataFormat
+$cfromJSONKey :: FromJSONKeyFunction DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323358"><span id="local-6989586621679323360"><span id="local-6989586621679323362"><span id="local-6989586621679323364"><span class="annot"><span class="annottext">[DataFormat] -&gt; Encoding
+[DataFormat] -&gt; Value
+DataFormat -&gt; Encoding
+DataFormat -&gt; Value
+(DataFormat -&gt; Value)
+-&gt; (DataFormat -&gt; Encoding)
+-&gt; ([DataFormat] -&gt; Value)
+-&gt; ([DataFormat] -&gt; Encoding)
+-&gt; ToJSON DataFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataFormat] -&gt; Encoding
+$ctoEncodingList :: [DataFormat] -&gt; Encoding
+toJSONList :: [DataFormat] -&gt; Value
+$ctoJSONList :: [DataFormat] -&gt; Value
+toEncoding :: DataFormat -&gt; Encoding
+$ctoEncoding :: DataFormat -&gt; Encoding
+toJSON :: DataFormat -&gt; Value
+$ctoJSON :: DataFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323353"><span id="local-6989586621679323355"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataFormat]
+ToJSONKeyFunction DataFormat
+ToJSONKeyFunction DataFormat
+-&gt; ToJSONKeyFunction [DataFormat] -&gt; ToJSONKey DataFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataFormat]
+toJSONKey :: ToJSONKeyFunction DataFormat
+$ctoJSONKey :: ToJSONKeyFunction DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323350"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataFormat
+([Node] -&gt; Either String DataFormat) -&gt; FromXML DataFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataFormat
+$cparseXML :: [Node] -&gt; Either String DataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679323347"><span class="annot"><span class="annottext">DataFormat -&gt; XML
+(DataFormat -&gt; XML) -&gt; ToXML DataFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataFormat -&gt; XML
+$ctoXML :: DataFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_CSV"><span class="hs-identifier hs-type">DataFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataFormat_CSV"><span id="%24mDataFormat_CSV"><span id="DataFormat_CSV"><span class="annot"><span class="annottext">$bDataFormat_CSV :: DataFormat
+$mDataFormat_CSV :: forall r. DataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.DataFormat.html#%24bDataFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">DataFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat%27"><span class="hs-identifier hs-type">DataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_JSON"><span class="hs-identifier hs-type">DataFormat_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataFormat_JSON"><span id="%24mDataFormat_JSON"><span id="DataFormat_JSON"><span class="annot"><span class="annottext">$bDataFormat_JSON :: DataFormat
+$mDataFormat_JSON :: forall r. DataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.DataFormat.html#%24bDataFormat_JSON"><span class="hs-identifier hs-var hs-var hs-var">DataFormat_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat%27"><span class="hs-identifier hs-type">DataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_CSV"><span class="hs-pragma hs-type">DataFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat_JSON"><span class="hs-pragma hs-type">DataFormat_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat%27"><span class="hs-pragma hs-type">DataFormat'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

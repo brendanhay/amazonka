@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.ThingDocument</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.ThingDocument</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html"><span class="hs-identifier">Network.AWS.IoT.Types.ThingConnectivity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The thing search index document.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newThingDocument' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679801266"><span id="local-6989586621679801267"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingDocument"><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-var">ThingDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingDocument%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-var">ThingDocument'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The thing ID.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AthingId%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingId%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">thingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The thing name.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AthingName%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingName%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Indicates whether the thing is connected to the Amazon Web Services IoT</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Core service.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aconnectivity%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe ThingConnectivity
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aconnectivity%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">connectivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The attributes.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aattributes%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aattributes%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Thing group names.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AthingGroupNames%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingGroupNames%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">thingGroupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The shadow.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Ashadow%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Ashadow%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">shadow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The thing type name.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AthingTypeName%3AThingDocument%27"><span class="annot"><span class="annottext">ThingDocument -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingTypeName%3AThingDocument%27"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801254"><span id="local-6989586621679801256"><span class="annot"><span class="annottext">ThingDocument -&gt; ThingDocument -&gt; Bool
+(ThingDocument -&gt; ThingDocument -&gt; Bool)
+-&gt; (ThingDocument -&gt; ThingDocument -&gt; Bool) -&gt; Eq ThingDocument
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThingDocument -&gt; ThingDocument -&gt; Bool
+$c/= :: ThingDocument -&gt; ThingDocument -&gt; Bool
+== :: ThingDocument -&gt; ThingDocument -&gt; Bool
+$c== :: ThingDocument -&gt; ThingDocument -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801245"><span id="local-6989586621679801247"><span id="local-6989586621679801249"><span id="local-6989586621679801251"><span class="annot"><span class="annottext">ReadPrec [ThingDocument]
+ReadPrec ThingDocument
+Int -&gt; ReadS ThingDocument
+ReadS [ThingDocument]
+(Int -&gt; ReadS ThingDocument)
+-&gt; ReadS [ThingDocument]
+-&gt; ReadPrec ThingDocument
+-&gt; ReadPrec [ThingDocument]
+-&gt; Read ThingDocument
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThingDocument]
+$creadListPrec :: ReadPrec [ThingDocument]
+readPrec :: ReadPrec ThingDocument
+$creadPrec :: ReadPrec ThingDocument
+readList :: ReadS [ThingDocument]
+$creadList :: ReadS [ThingDocument]
+readsPrec :: Int -&gt; ReadS ThingDocument
+$creadsPrec :: Int -&gt; ReadS ThingDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801238"><span id="local-6989586621679801240"><span id="local-6989586621679801242"><span class="annot"><span class="annottext">Int -&gt; ThingDocument -&gt; ShowS
+[ThingDocument] -&gt; ShowS
+ThingDocument -&gt; String
+(Int -&gt; ThingDocument -&gt; ShowS)
+-&gt; (ThingDocument -&gt; String)
+-&gt; ([ThingDocument] -&gt; ShowS)
+-&gt; Show ThingDocument
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThingDocument] -&gt; ShowS
+$cshowList :: [ThingDocument] -&gt; ShowS
+show :: ThingDocument -&gt; String
+$cshow :: ThingDocument -&gt; String
+showsPrec :: Int -&gt; ThingDocument -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThingDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ThingDocument -&gt; Rep ThingDocument x)
+-&gt; (forall x. Rep ThingDocument x -&gt; ThingDocument)
+-&gt; Generic ThingDocument
+forall x. Rep ThingDocument x -&gt; ThingDocument
+forall x. ThingDocument -&gt; Rep ThingDocument x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ThingDocument x -&gt; ThingDocument
+$cfrom :: forall x. ThingDocument -&gt; Rep ThingDocument x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'ThingDocument' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'thingId', 'thingDocument_thingId' - The thing ID.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'thingName', 'thingDocument_thingName' - The thing name.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'connectivity', 'thingDocument_connectivity' - Indicates whether the thing is connected to the Amazon Web Services IoT</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Core service.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'attributes', 'thingDocument_attributes' - The attributes.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'thingGroupNames', 'thingDocument_thingGroupNames' - Thing group names.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'shadow', 'thingDocument_shadow' - The shadow.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'thingTypeName', 'thingDocument_thingTypeName' - The thing type name.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#newThingDocument"><span class="hs-identifier hs-type">newThingDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span>
+</span><span id="line-73"></span><span id="newThingDocument"><span class="annot"><span class="annottext">newThingDocument :: ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#newThingDocument"><span class="hs-identifier hs-var hs-var">newThingDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ThingDocument' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ThingConnectivity
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingId:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingId%3AThingDocument%27"><span class="hs-identifier hs-var">thingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingName%3AThingDocument%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectivity:ThingDocument' :: Maybe ThingConnectivity
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aconnectivity%3AThingDocument%27"><span class="hs-identifier hs-var">connectivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ThingDocument' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aattributes%3AThingDocument%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingGroupNames:ThingDocument' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingGroupNames%3AThingDocument%27"><span class="hs-identifier hs-var">thingGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:shadow:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Ashadow%3AThingDocument%27"><span class="hs-identifier hs-var">shadow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeName:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingTypeName%3AThingDocument%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The thing ID.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingId"><span class="hs-identifier hs-type">thingDocument_thingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="thingDocument_thingId"><span class="annot"><span class="annottext">thingDocument_thingId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingId"><span class="hs-identifier hs-var hs-var">thingDocument_thingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe Text)
+-&gt; (ThingDocument -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Lens ThingDocument ThingDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801229"><span class="annot"><span class="annottext">Maybe Text
+thingId :: Maybe Text
+$sel:thingId:ThingDocument' :: ThingDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679801229"><span class="hs-identifier hs-var hs-var">thingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801229"><span class="hs-identifier hs-var">thingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801228"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingId:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingId%3AThingDocument%27"><span class="hs-identifier hs-var">thingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The thing name.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingName"><span class="hs-identifier hs-type">thingDocument_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="thingDocument_thingName"><span class="annot"><span class="annottext">thingDocument_thingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingName"><span class="hs-identifier hs-var hs-var">thingDocument_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe Text)
+-&gt; (ThingDocument -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Lens ThingDocument ThingDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801225"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:ThingDocument' :: ThingDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679801225"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801225"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801224"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801223"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingName%3AThingDocument%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Indicates whether the thing is connected to the Amazon Web Services IoT</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Core service.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_connectivity"><span class="hs-identifier hs-type">thingDocument_connectivity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="thingDocument_connectivity"><span class="annot"><span class="annottext">thingDocument_connectivity :: (Maybe ThingConnectivity -&gt; f (Maybe ThingConnectivity))
+-&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_connectivity"><span class="hs-identifier hs-var hs-var">thingDocument_connectivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe ThingConnectivity)
+-&gt; (ThingDocument -&gt; Maybe ThingConnectivity -&gt; ThingDocument)
+-&gt; Lens
+     ThingDocument
+     ThingDocument
+     (Maybe ThingConnectivity)
+     (Maybe ThingConnectivity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801221"><span class="annot"><span class="annottext">Maybe ThingConnectivity
+connectivity :: Maybe ThingConnectivity
+$sel:connectivity:ThingDocument' :: ThingDocument -&gt; Maybe ThingConnectivity
+</span><a href="#local-6989586621679801221"><span class="hs-identifier hs-var hs-var">connectivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivity
+</span><a href="#local-6989586621679801221"><span class="hs-identifier hs-var">connectivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801220"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801219"><span class="annot"><span class="annottext">Maybe ThingConnectivity
+</span><a href="#local-6989586621679801219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectivity:ThingDocument' :: Maybe ThingConnectivity
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aconnectivity%3AThingDocument%27"><span class="hs-identifier hs-var">connectivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivity
+</span><a href="#local-6989586621679801219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The attributes.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_attributes"><span class="hs-identifier hs-type">thingDocument_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="thingDocument_attributes"><span class="annot"><span class="annottext">thingDocument_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_attributes"><span class="hs-identifier hs-var hs-var">thingDocument_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe (HashMap Text Text))
+-&gt; (ThingDocument -&gt; Maybe (HashMap Text Text) -&gt; ThingDocument)
+-&gt; Lens
+     ThingDocument
+     ThingDocument
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801217"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:ThingDocument' :: ThingDocument -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679801217"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679801217"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801216"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801215"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ThingDocument' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Aattributes%3AThingDocument%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679801215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ThingDocument -&gt; f ThingDocument)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ThingDocument
+-&gt; f ThingDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Thing group names.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingGroupNames"><span class="hs-identifier hs-type">thingDocument_thingGroupNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="thingDocument_thingGroupNames"><span class="annot"><span class="annottext">thingDocument_thingGroupNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingGroupNames"><span class="hs-identifier hs-var hs-var">thingDocument_thingGroupNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe [Text])
+-&gt; (ThingDocument -&gt; Maybe [Text] -&gt; ThingDocument)
+-&gt; Lens ThingDocument ThingDocument (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801210"><span class="annot"><span class="annottext">Maybe [Text]
+thingGroupNames :: Maybe [Text]
+$sel:thingGroupNames:ThingDocument' :: ThingDocument -&gt; Maybe [Text]
+</span><a href="#local-6989586621679801210"><span class="hs-identifier hs-var hs-var">thingGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679801210"><span class="hs-identifier hs-var">thingGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801209"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801208"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679801208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupNames:ThingDocument' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingGroupNames%3AThingDocument%27"><span class="hs-identifier hs-var">thingGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679801208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ThingDocument -&gt; f ThingDocument)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ThingDocument
+-&gt; f ThingDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The shadow.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_shadow"><span class="hs-identifier hs-type">thingDocument_shadow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="thingDocument_shadow"><span class="annot"><span class="annottext">thingDocument_shadow :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_shadow"><span class="hs-identifier hs-var hs-var">thingDocument_shadow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe Text)
+-&gt; (ThingDocument -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Lens ThingDocument ThingDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801206"><span class="annot"><span class="annottext">Maybe Text
+shadow :: Maybe Text
+$sel:shadow:ThingDocument' :: ThingDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679801206"><span class="hs-identifier hs-var hs-var">shadow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801206"><span class="hs-identifier hs-var">shadow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801205"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801204"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shadow:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3Ashadow%3AThingDocument%27"><span class="hs-identifier hs-var">shadow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The thing type name.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingTypeName"><span class="hs-identifier hs-type">thingDocument_thingTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="thingDocument_thingTypeName"><span class="annot"><span class="annottext">thingDocument_thingTypeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ThingDocument -&gt; f ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#thingDocument_thingTypeName"><span class="hs-identifier hs-var hs-var">thingDocument_thingTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThingDocument -&gt; Maybe Text)
+-&gt; (ThingDocument -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Lens ThingDocument ThingDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801202"><span class="annot"><span class="annottext">Maybe Text
+thingTypeName :: Maybe Text
+$sel:thingTypeName:ThingDocument' :: ThingDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679801202"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801202"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801201"><span class="annot"><span class="annottext">s :: ThingDocument
+</span><a href="#local-6989586621679801201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-type">ThingDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingDocument
+</span><a href="#local-6989586621679801201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeName:ThingDocument' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#%24sel%3AthingTypeName%3AThingDocument%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801197"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679801195"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ThingDocument)
+-&gt; Value
+-&gt; Parser ThingDocument
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ThingDocument&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801192"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ThingConnectivity
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ThingDocument
+</span><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument%27"><span class="hs-identifier hs-var">ThingDocument'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ThingConnectivity
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ThingDocument)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ThingConnectivity
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ThingConnectivity
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ThingDocument)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ThingConnectivity
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ThingConnectivity
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ThingDocument)
+-&gt; Parser (Maybe ThingConnectivity)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThingConnectivity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectivity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingGroupNames&quot;</span></span><span>
+</span><span id="line-124"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ThingDocument)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ThingDocument)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;shadow&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ThingDocument)
+-&gt; Parser (Maybe Text) -&gt; Parser ThingDocument
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingTypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801185"><span id="local-6989586621679801187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

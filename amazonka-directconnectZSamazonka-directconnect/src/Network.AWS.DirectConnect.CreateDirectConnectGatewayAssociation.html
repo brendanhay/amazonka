@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an association between a Direct Connect gateway and a virtual</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- private gateway. The virtual private gateway must be attached to a VPC</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and must not be associated with another Direct Connect gateway.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociation"><span class="hs-identifier">newCreateDirectConnectGatewayAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_virtualGatewayId"><span class="hs-identifier">createDirectConnectGatewayAssociation_virtualGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway"><span class="hs-identifier">createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_gatewayId"><span class="hs-identifier">createDirectConnectGatewayAssociation_gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_directConnectGatewayId"><span class="hs-identifier">createDirectConnectGatewayAssociation_directConnectGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier">CreateDirectConnectGatewayAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier">newCreateDirectConnectGatewayAssociationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation"><span class="hs-identifier">createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_httpStatus"><span class="hs-identifier">createDirectConnectGatewayAssociationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.html"><span class="hs-identifier">Network.AWS.DirectConnect.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateDirectConnectGatewayAssociation' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679292354"><span id="local-6989586621679292355"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectConnectGatewayAssociation"><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-var">CreateDirectConnectGatewayAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectConnectGatewayAssociation%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">CreateDirectConnectGatewayAssociation'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual private gateway.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AvirtualGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">virtualGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon VPC prefixes to advertise to the Direct Connect gateway</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- This parameter is required when you create an association to a transit</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- For information about how to set the prefixes, see</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes&gt;</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the /Direct Connect User Guide/.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AaddAllowedPrefixesToDirectConnectGateway%3ACreateDirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix]
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AaddAllowedPrefixesToDirectConnectGateway%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual private gateway or transit gateway.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AgatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AgatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation -&gt; Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292345"><span id="local-6989586621679292347"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation
+-&gt; CreateDirectConnectGatewayAssociation -&gt; Bool
+(CreateDirectConnectGatewayAssociation
+ -&gt; CreateDirectConnectGatewayAssociation -&gt; Bool)
+-&gt; (CreateDirectConnectGatewayAssociation
+    -&gt; CreateDirectConnectGatewayAssociation -&gt; Bool)
+-&gt; Eq CreateDirectConnectGatewayAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDirectConnectGatewayAssociation
+-&gt; CreateDirectConnectGatewayAssociation -&gt; Bool
+$c/= :: CreateDirectConnectGatewayAssociation
+-&gt; CreateDirectConnectGatewayAssociation -&gt; Bool
+== :: CreateDirectConnectGatewayAssociation
+-&gt; CreateDirectConnectGatewayAssociation -&gt; Bool
+$c== :: CreateDirectConnectGatewayAssociation
+-&gt; CreateDirectConnectGatewayAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292336"><span id="local-6989586621679292338"><span id="local-6989586621679292340"><span id="local-6989586621679292342"><span class="annot"><span class="annottext">ReadPrec [CreateDirectConnectGatewayAssociation]
+ReadPrec CreateDirectConnectGatewayAssociation
+Int -&gt; ReadS CreateDirectConnectGatewayAssociation
+ReadS [CreateDirectConnectGatewayAssociation]
+(Int -&gt; ReadS CreateDirectConnectGatewayAssociation)
+-&gt; ReadS [CreateDirectConnectGatewayAssociation]
+-&gt; ReadPrec CreateDirectConnectGatewayAssociation
+-&gt; ReadPrec [CreateDirectConnectGatewayAssociation]
+-&gt; Read CreateDirectConnectGatewayAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDirectConnectGatewayAssociation]
+$creadListPrec :: ReadPrec [CreateDirectConnectGatewayAssociation]
+readPrec :: ReadPrec CreateDirectConnectGatewayAssociation
+$creadPrec :: ReadPrec CreateDirectConnectGatewayAssociation
+readList :: ReadS [CreateDirectConnectGatewayAssociation]
+$creadList :: ReadS [CreateDirectConnectGatewayAssociation]
+readsPrec :: Int -&gt; ReadS CreateDirectConnectGatewayAssociation
+$creadsPrec :: Int -&gt; ReadS CreateDirectConnectGatewayAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292329"><span id="local-6989586621679292331"><span id="local-6989586621679292333"><span class="annot"><span class="annottext">Int -&gt; CreateDirectConnectGatewayAssociation -&gt; ShowS
+[CreateDirectConnectGatewayAssociation] -&gt; ShowS
+CreateDirectConnectGatewayAssociation -&gt; String
+(Int -&gt; CreateDirectConnectGatewayAssociation -&gt; ShowS)
+-&gt; (CreateDirectConnectGatewayAssociation -&gt; String)
+-&gt; ([CreateDirectConnectGatewayAssociation] -&gt; ShowS)
+-&gt; Show CreateDirectConnectGatewayAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDirectConnectGatewayAssociation] -&gt; ShowS
+$cshowList :: [CreateDirectConnectGatewayAssociation] -&gt; ShowS
+show :: CreateDirectConnectGatewayAssociation -&gt; String
+$cshow :: CreateDirectConnectGatewayAssociation -&gt; String
+showsPrec :: Int -&gt; CreateDirectConnectGatewayAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDirectConnectGatewayAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDirectConnectGatewayAssociation
+ -&gt; Rep CreateDirectConnectGatewayAssociation x)
+-&gt; (forall x.
+    Rep CreateDirectConnectGatewayAssociation x
+    -&gt; CreateDirectConnectGatewayAssociation)
+-&gt; Generic CreateDirectConnectGatewayAssociation
+forall x.
+Rep CreateDirectConnectGatewayAssociation x
+-&gt; CreateDirectConnectGatewayAssociation
+forall x.
+CreateDirectConnectGatewayAssociation
+-&gt; Rep CreateDirectConnectGatewayAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDirectConnectGatewayAssociation x
+-&gt; CreateDirectConnectGatewayAssociation
+$cfrom :: forall x.
+CreateDirectConnectGatewayAssociation
+-&gt; Rep CreateDirectConnectGatewayAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateDirectConnectGatewayAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'virtualGatewayId', 'createDirectConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'addAllowedPrefixesToDirectConnectGateway', 'createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- This parameter is required when you create an association to a transit</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- For information about how to set the prefixes, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /Direct Connect User Guide/.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'gatewayId', 'createDirectConnectGatewayAssociation_gatewayId' - The ID of the virtual private gateway or transit gateway.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'directConnectGatewayId', 'createDirectConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">newCreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'directConnectGatewayId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-100"></span><span id="newCreateDirectConnectGatewayAssociation"><span class="annot"><span class="annottext">newCreateDirectConnectGatewayAssociation :: Text -&gt; CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-var hs-var">newCreateDirectConnectGatewayAssociation</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679292324"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292324"><span class="hs-identifier hs-var">pDirectConnectGatewayId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation' :: Maybe Text
+-&gt; Maybe [RouteFilterPrefix]
+-&gt; Maybe Text
+-&gt; Text
+-&gt; CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualGatewayId:CreateDirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:addAllowedPrefixesToDirectConnectGateway:CreateDirectConnectGatewayAssociation' :: Maybe [RouteFilterPrefix]
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AaddAllowedPrefixesToDirectConnectGateway%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayId:CreateDirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AgatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:CreateDirectConnectGatewayAssociation' :: Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292324"><span class="hs-identifier hs-var">pDirectConnectGatewayId_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the virtual private gateway.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_virtualGatewayId"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociation_virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="createDirectConnectGatewayAssociation_virtualGatewayId"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociation_virtualGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; f CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_virtualGatewayId"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociation_virtualGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (CreateDirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; CreateDirectConnectGatewayAssociation)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociation
+     CreateDirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292321"><span class="annot"><span class="annottext">Maybe Text
+virtualGatewayId :: Maybe Text
+$sel:virtualGatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679292321"><span class="hs-identifier hs-var hs-var">virtualGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292321"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292320"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayId:CreateDirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AvirtualGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon VPC prefixes to advertise to the Direct Connect gateway</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- This parameter is required when you create an association to a transit</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- For information about how to set the prefixes, see</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes&gt;</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- in the /Direct Connect User Guide/.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; f CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociation
+ -&gt; Maybe [RouteFilterPrefix])
+-&gt; (CreateDirectConnectGatewayAssociation
+    -&gt; Maybe [RouteFilterPrefix]
+    -&gt; CreateDirectConnectGatewayAssociation)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociation
+     CreateDirectConnectGatewayAssociation
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292318"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+addAllowedPrefixesToDirectConnectGateway :: Maybe [RouteFilterPrefix]
+$sel:addAllowedPrefixesToDirectConnectGateway:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679292318"><span class="hs-identifier hs-var hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679292318"><span class="hs-identifier hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292317"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292316"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679292316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addAllowedPrefixesToDirectConnectGateway:CreateDirectConnectGatewayAssociation' :: Maybe [RouteFilterPrefix]
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AaddAllowedPrefixesToDirectConnectGateway%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679292316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+ -&gt; CreateDirectConnectGatewayAssociation
+ -&gt; f CreateDirectConnectGatewayAssociation)
+-&gt; ((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+    -&gt; Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; f CreateDirectConnectGatewayAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+-&gt; Iso
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+     (Maybe [RouteFilterPrefix])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+  [RouteFilterPrefix]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ID of the virtual private gateway or transit gateway.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_gatewayId"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociation_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="createDirectConnectGatewayAssociation_gatewayId"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociation_gatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; f CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_gatewayId"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociation_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociation -&gt; Maybe Text)
+-&gt; (CreateDirectConnectGatewayAssociation
+    -&gt; Maybe Text -&gt; CreateDirectConnectGatewayAssociation)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociation
+     CreateDirectConnectGatewayAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292312"><span class="annot"><span class="annottext">Maybe Text
+gatewayId :: Maybe Text
+$sel:gatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679292312"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292312"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292311"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292310"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:CreateDirectConnectGatewayAssociation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AgatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_directConnectGatewayId"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociation_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="createDirectConnectGatewayAssociation_directConnectGatewayId"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociation_directConnectGatewayId :: (Text -&gt; f Text)
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; f CreateDirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociation_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociation_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociation -&gt; Text)
+-&gt; (CreateDirectConnectGatewayAssociation
+    -&gt; Text -&gt; CreateDirectConnectGatewayAssociation)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociation
+     CreateDirectConnectGatewayAssociation
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292309"><span class="annot"><span class="annottext">Text
+directConnectGatewayId :: Text
+$sel:directConnectGatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Text
+</span><a href="#local-6989586621679292309"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292309"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292308"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292307"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:CreateDirectConnectGatewayAssociation' :: Text
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayId%3ACreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679292303"><span class="annot"><span class="annottext">request :: CreateDirectConnectGatewayAssociation
+-&gt; Request CreateDirectConnectGatewayAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateDirectConnectGatewayAssociation
+-&gt; Request CreateDirectConnectGatewayAssociation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679292299"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDirectConnectGatewayAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateDirectConnectGatewayAssociation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse CreateDirectConnectGatewayAssociation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDirectConnectGatewayAssociation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse CreateDirectConnectGatewayAssociation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292296"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679292295"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679292295"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679292294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+-&gt; Int -&gt; CreateDirectConnectGatewayAssociationResponse
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DirectConnectGatewayAssociation
+ -&gt; Int -&gt; CreateDirectConnectGatewayAssociationResponse)
+-&gt; Either String (Maybe DirectConnectGatewayAssociation)
+-&gt; Either
+     String (Int -&gt; CreateDirectConnectGatewayAssociationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe DirectConnectGatewayAssociation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directConnectGatewayAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; CreateDirectConnectGatewayAssociationResponse)
+-&gt; Either String Int
+-&gt; Either String CreateDirectConnectGatewayAssociationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292296"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679292286"><span id="local-6989586621679292288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679292283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679292279"><span class="annot"><span class="annottext">toHeaders :: CreateDirectConnectGatewayAssociation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateDirectConnectGatewayAssociation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OvertureService.CreateDirectConnectGatewayAssociation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-174"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679292269"><span id="local-6989586621679292271"><span id="local-6989586621679292273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span></span></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679292267"><span class="annot"><span class="annottext">toJSON :: CreateDirectConnectGatewayAssociation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292262"><span id="local-6989586621679292263"><span id="local-6989586621679292264"><span id="local-6989586621679292265"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+Maybe Text
+Text
+directConnectGatewayId :: Text
+gatewayId :: Maybe Text
+addAllowedPrefixesToDirectConnectGateway :: Maybe [RouteFilterPrefix]
+virtualGatewayId :: Maybe Text
+$sel:directConnectGatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Text
+$sel:gatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+$sel:addAllowedPrefixesToDirectConnectGateway:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe [RouteFilterPrefix]
+$sel:virtualGatewayId:CreateDirectConnectGatewayAssociation' :: CreateDirectConnectGatewayAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679292262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292265"><span class="hs-identifier hs-var">virtualGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addAllowedPrefixesToDirectConnectGateway&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RouteFilterPrefix] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">([RouteFilterPrefix] -&gt; Pair)
+-&gt; Maybe [RouteFilterPrefix] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679292264"><span class="hs-identifier hs-var">addAllowedPrefixesToDirectConnectGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292263"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span>
+</span><span id="line-192"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292262"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span>
+</span><span id="line-193"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679292256"><span class="annot"><span class="annottext">toPath :: CreateDirectConnectGatewayAssociation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDirectConnectGatewayAssociation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociation"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociation</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679292252"><span class="annot"><span class="annottext">toQuery :: CreateDirectConnectGatewayAssociation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDirectConnectGatewayAssociation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newCreateDirectConnectGatewayAssociationResponse' smart constructor.</span><span>
+</span><span id="line-210"></span><span id="local-6989586621679292249"><span id="local-6989586621679292250"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectConnectGatewayAssociationResponse"><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-var">CreateDirectConnectGatewayAssociationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectConnectGatewayAssociationResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">CreateDirectConnectGatewayAssociationResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The association to be created.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayAssociation%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse
+-&gt; Maybe DirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayAssociation%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse -&gt; Int
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AhttpStatus%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292243"><span id="local-6989586621679292245"><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse
+-&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool
+(CreateDirectConnectGatewayAssociationResponse
+ -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool)
+-&gt; (CreateDirectConnectGatewayAssociationResponse
+    -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool)
+-&gt; Eq CreateDirectConnectGatewayAssociationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDirectConnectGatewayAssociationResponse
+-&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool
+$c/= :: CreateDirectConnectGatewayAssociationResponse
+-&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool
+== :: CreateDirectConnectGatewayAssociationResponse
+-&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool
+$c== :: CreateDirectConnectGatewayAssociationResponse
+-&gt; CreateDirectConnectGatewayAssociationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292235"><span id="local-6989586621679292237"><span id="local-6989586621679292239"><span id="local-6989586621679292241"><span class="annot"><span class="annottext">ReadPrec [CreateDirectConnectGatewayAssociationResponse]
+ReadPrec CreateDirectConnectGatewayAssociationResponse
+Int -&gt; ReadS CreateDirectConnectGatewayAssociationResponse
+ReadS [CreateDirectConnectGatewayAssociationResponse]
+(Int -&gt; ReadS CreateDirectConnectGatewayAssociationResponse)
+-&gt; ReadS [CreateDirectConnectGatewayAssociationResponse]
+-&gt; ReadPrec CreateDirectConnectGatewayAssociationResponse
+-&gt; ReadPrec [CreateDirectConnectGatewayAssociationResponse]
+-&gt; Read CreateDirectConnectGatewayAssociationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDirectConnectGatewayAssociationResponse]
+$creadListPrec :: ReadPrec [CreateDirectConnectGatewayAssociationResponse]
+readPrec :: ReadPrec CreateDirectConnectGatewayAssociationResponse
+$creadPrec :: ReadPrec CreateDirectConnectGatewayAssociationResponse
+readList :: ReadS [CreateDirectConnectGatewayAssociationResponse]
+$creadList :: ReadS [CreateDirectConnectGatewayAssociationResponse]
+readsPrec :: Int -&gt; ReadS CreateDirectConnectGatewayAssociationResponse
+$creadsPrec :: Int -&gt; ReadS CreateDirectConnectGatewayAssociationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292229"><span id="local-6989586621679292231"><span id="local-6989586621679292233"><span class="annot"><span class="annottext">Int -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; ShowS
+[CreateDirectConnectGatewayAssociationResponse] -&gt; ShowS
+CreateDirectConnectGatewayAssociationResponse -&gt; String
+(Int -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; ShowS)
+-&gt; (CreateDirectConnectGatewayAssociationResponse -&gt; String)
+-&gt; ([CreateDirectConnectGatewayAssociationResponse] -&gt; ShowS)
+-&gt; Show CreateDirectConnectGatewayAssociationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDirectConnectGatewayAssociationResponse] -&gt; ShowS
+$cshowList :: [CreateDirectConnectGatewayAssociationResponse] -&gt; ShowS
+show :: CreateDirectConnectGatewayAssociationResponse -&gt; String
+$cshow :: CreateDirectConnectGatewayAssociationResponse -&gt; String
+showsPrec :: Int -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDirectConnectGatewayAssociationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDirectConnectGatewayAssociationResponse
+ -&gt; Rep CreateDirectConnectGatewayAssociationResponse x)
+-&gt; (forall x.
+    Rep CreateDirectConnectGatewayAssociationResponse x
+    -&gt; CreateDirectConnectGatewayAssociationResponse)
+-&gt; Generic CreateDirectConnectGatewayAssociationResponse
+forall x.
+Rep CreateDirectConnectGatewayAssociationResponse x
+-&gt; CreateDirectConnectGatewayAssociationResponse
+forall x.
+CreateDirectConnectGatewayAssociationResponse
+-&gt; Rep CreateDirectConnectGatewayAssociationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDirectConnectGatewayAssociationResponse x
+-&gt; CreateDirectConnectGatewayAssociationResponse
+$cfrom :: forall x.
+CreateDirectConnectGatewayAssociationResponse
+-&gt; Rep CreateDirectConnectGatewayAssociationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'CreateDirectConnectGatewayAssociationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'directConnectGatewayAssociation', 'createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation' - The association to be created.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'createDirectConnectGatewayAssociationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">newCreateDirectConnectGatewayAssociationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newCreateDirectConnectGatewayAssociationResponse"><span class="annot"><span class="annottext">newCreateDirectConnectGatewayAssociationResponse :: Int -&gt; CreateDirectConnectGatewayAssociationResponse
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#newCreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-var hs-var">newCreateDirectConnectGatewayAssociationResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679292226"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292226"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse' :: Maybe DirectConnectGatewayAssociation
+-&gt; Int -&gt; CreateDirectConnectGatewayAssociationResponse
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directConnectGatewayAssociation:CreateDirectConnectGatewayAssociationResponse' :: Maybe DirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayAssociation%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">directConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDirectConnectGatewayAssociationResponse' :: Int
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AhttpStatus%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292226"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The association to be created.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation.html#DirectConnectGatewayAssociation"><span class="hs-identifier hs-type">DirectConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation :: (Maybe DirectConnectGatewayAssociation
+ -&gt; f (Maybe DirectConnectGatewayAssociation))
+-&gt; CreateDirectConnectGatewayAssociationResponse
+-&gt; f CreateDirectConnectGatewayAssociationResponse
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociationResponse
+ -&gt; Maybe DirectConnectGatewayAssociation)
+-&gt; (CreateDirectConnectGatewayAssociationResponse
+    -&gt; Maybe DirectConnectGatewayAssociation
+    -&gt; CreateDirectConnectGatewayAssociationResponse)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociationResponse
+     CreateDirectConnectGatewayAssociationResponse
+     (Maybe DirectConnectGatewayAssociation)
+     (Maybe DirectConnectGatewayAssociation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292225"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+directConnectGatewayAssociation :: Maybe DirectConnectGatewayAssociation
+$sel:directConnectGatewayAssociation:CreateDirectConnectGatewayAssociationResponse' :: CreateDirectConnectGatewayAssociationResponse
+-&gt; Maybe DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292225"><span class="hs-identifier hs-var hs-var">directConnectGatewayAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292225"><span class="hs-identifier hs-var">directConnectGatewayAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292224"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociationResponse
+</span><a href="#local-6989586621679292224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292223"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse
+</span><a href="#local-6989586621679292224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayAssociation:CreateDirectConnectGatewayAssociationResponse' :: Maybe DirectConnectGatewayAssociation
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AdirectConnectGatewayAssociation%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">directConnectGatewayAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAssociation
+</span><a href="#local-6989586621679292223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_httpStatus"><span class="hs-identifier hs-type">createDirectConnectGatewayAssociationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span id="createDirectConnectGatewayAssociationResponse_httpStatus"><span class="annot"><span class="annottext">createDirectConnectGatewayAssociationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDirectConnectGatewayAssociationResponse
+-&gt; f CreateDirectConnectGatewayAssociationResponse
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#createDirectConnectGatewayAssociationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDirectConnectGatewayAssociationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDirectConnectGatewayAssociationResponse -&gt; Int)
+-&gt; (CreateDirectConnectGatewayAssociationResponse
+    -&gt; Int -&gt; CreateDirectConnectGatewayAssociationResponse)
+-&gt; Lens
+     CreateDirectConnectGatewayAssociationResponse
+     CreateDirectConnectGatewayAssociationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292222"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDirectConnectGatewayAssociationResponse' :: CreateDirectConnectGatewayAssociationResponse -&gt; Int
+</span><a href="#local-6989586621679292222"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292222"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292221"><span class="annot"><span class="annottext">s :: CreateDirectConnectGatewayAssociationResponse
+</span><a href="#local-6989586621679292221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectConnectGatewayAssociationResponse
+</span><a href="#local-6989586621679292221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDirectConnectGatewayAssociationResponse' :: Int
+</span><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#%24sel%3AhttpStatus%3ACreateDirectConnectGatewayAssociationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679292218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation.html#CreateDirectConnectGatewayAssociationResponse"><span class="hs-identifier hs-type">CreateDirectConnectGatewayAssociationResponse</span></a></span></span><span>
+</span><span id="line-252"></span></pre></body></html>

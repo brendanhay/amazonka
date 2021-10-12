@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateDeviceFleet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a fleet of devices.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateDeviceFleet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleet"><span class="hs-identifier">newUpdateDeviceFleet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_roleArn"><span class="hs-identifier">updateDeviceFleet_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_enableIotRoleAlias"><span class="hs-identifier">updateDeviceFleet_enableIotRoleAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_description"><span class="hs-identifier">updateDeviceFleet_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_deviceFleetName"><span class="hs-identifier">updateDeviceFleet_deviceFleetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_outputConfig"><span class="hs-identifier">updateDeviceFleet_outputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse"><span class="hs-identifier">UpdateDeviceFleetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleetResponse"><span class="hs-identifier">newUpdateDeviceFleetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeviceFleet' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621680424604"><span id="local-6989586621680424605"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceFleet"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-var">UpdateDeviceFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceFleet%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-var">UpdateDeviceFleet'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateDeviceFleet%27"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AroleArn%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Whether to create an Amazon Web Services IoT Role Alias during device</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- fleet creation. The name of the role alias generated will match this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- pattern: \&quot;SageMakerEdge-{DeviceFleetName}\&quot;.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For example, if your device fleet is called \&quot;demo-fleet\&quot;, the name of</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the role alias will be \&quot;SageMakerEdge-demo-fleet\&quot;.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AenableIotRoleAlias%3AUpdateDeviceFleet%27"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AenableIotRoleAlias%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var hs-var">enableIotRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Description of the fleet.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateDeviceFleet%27"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3Adescription%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdeviceFleetName%3AUpdateDeviceFleet%27"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AdeviceFleetName%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Output configuration for storing sample data collected by the fleet.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AoutputConfig%3AUpdateDeviceFleet%27"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AoutputConfig%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424594"><span id="local-6989586621680424596"><span class="annot"><span class="annottext">UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool
+(UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool)
+-&gt; (UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool)
+-&gt; Eq UpdateDeviceFleet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool
+$c/= :: UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool
+== :: UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool
+$c== :: UpdateDeviceFleet -&gt; UpdateDeviceFleet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424585"><span id="local-6989586621680424587"><span id="local-6989586621680424589"><span id="local-6989586621680424591"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceFleet]
+ReadPrec UpdateDeviceFleet
+Int -&gt; ReadS UpdateDeviceFleet
+ReadS [UpdateDeviceFleet]
+(Int -&gt; ReadS UpdateDeviceFleet)
+-&gt; ReadS [UpdateDeviceFleet]
+-&gt; ReadPrec UpdateDeviceFleet
+-&gt; ReadPrec [UpdateDeviceFleet]
+-&gt; Read UpdateDeviceFleet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDeviceFleet]
+$creadListPrec :: ReadPrec [UpdateDeviceFleet]
+readPrec :: ReadPrec UpdateDeviceFleet
+$creadPrec :: ReadPrec UpdateDeviceFleet
+readList :: ReadS [UpdateDeviceFleet]
+$creadList :: ReadS [UpdateDeviceFleet]
+readsPrec :: Int -&gt; ReadS UpdateDeviceFleet
+$creadsPrec :: Int -&gt; ReadS UpdateDeviceFleet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424578"><span id="local-6989586621680424580"><span id="local-6989586621680424582"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceFleet -&gt; ShowS
+[UpdateDeviceFleet] -&gt; ShowS
+UpdateDeviceFleet -&gt; String
+(Int -&gt; UpdateDeviceFleet -&gt; ShowS)
+-&gt; (UpdateDeviceFleet -&gt; String)
+-&gt; ([UpdateDeviceFleet] -&gt; ShowS)
+-&gt; Show UpdateDeviceFleet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDeviceFleet] -&gt; ShowS
+$cshowList :: [UpdateDeviceFleet] -&gt; ShowS
+show :: UpdateDeviceFleet -&gt; String
+$cshow :: UpdateDeviceFleet -&gt; String
+showsPrec :: Int -&gt; UpdateDeviceFleet -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDeviceFleet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDeviceFleet -&gt; Rep UpdateDeviceFleet x)
+-&gt; (forall x. Rep UpdateDeviceFleet x -&gt; UpdateDeviceFleet)
+-&gt; Generic UpdateDeviceFleet
+forall x. Rep UpdateDeviceFleet x -&gt; UpdateDeviceFleet
+forall x. UpdateDeviceFleet -&gt; Rep UpdateDeviceFleet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDeviceFleet x -&gt; UpdateDeviceFleet
+$cfrom :: forall x. UpdateDeviceFleet -&gt; Rep UpdateDeviceFleet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateDeviceFleet' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'roleArn', 'updateDeviceFleet_roleArn' - The Amazon Resource Name (ARN) of the device.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'enableIotRoleAlias', 'updateDeviceFleet_enableIotRoleAlias' - Whether to create an Amazon Web Services IoT Role Alias during device</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- fleet creation. The name of the role alias generated will match this</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- pattern: \&quot;SageMakerEdge-{DeviceFleetName}\&quot;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For example, if your device fleet is called \&quot;demo-fleet\&quot;, the name of</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the role alias will be \&quot;SageMakerEdge-demo-fleet\&quot;.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'updateDeviceFleet_description' - Description of the fleet.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'deviceFleetName', 'updateDeviceFleet_deviceFleetName' - The name of the fleet.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'outputConfig', 'updateDeviceFleet_outputConfig' - Output configuration for storing sample data collected by the fleet.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleet"><span class="hs-identifier hs-type">newUpdateDeviceFleet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'deviceFleetName'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'outputConfig'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span>
+</span><span id="line-97"></span><span id="newUpdateDeviceFleet"><span class="annot"><span class="annottext">newUpdateDeviceFleet :: Text -&gt; EdgeOutputConfig -&gt; UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleet"><span class="hs-identifier hs-var hs-var">newUpdateDeviceFleet</span></a></span></span><span> </span><span id="local-6989586621680424573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424573"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span></span><span> </span><span id="local-6989586621680424572"><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424572"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceFleet' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Text
+-&gt; EdgeOutputConfig
+-&gt; UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateDeviceFleet' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AroleArn%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableIotRoleAlias:UpdateDeviceFleet' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AenableIotRoleAlias%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">enableIotRoleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateDeviceFleet' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3Adescription%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceFleetName:UpdateDeviceFleet' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AdeviceFleetName%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424573"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputConfig:UpdateDeviceFleet' :: EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AoutputConfig%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424572"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_roleArn"><span class="hs-identifier hs-type">updateDeviceFleet_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="updateDeviceFleet_roleArn"><span class="annot"><span class="annottext">updateDeviceFleet_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeviceFleet -&gt; f UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_roleArn"><span class="hs-identifier hs-var hs-var">updateDeviceFleet_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceFleet -&gt; Maybe Text)
+-&gt; (UpdateDeviceFleet -&gt; Maybe Text -&gt; UpdateDeviceFleet)
+-&gt; Lens
+     UpdateDeviceFleet UpdateDeviceFleet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424569"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Text
+</span><a href="#local-6989586621680424569"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424569"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424568"><span class="annot"><span class="annottext">s :: UpdateDeviceFleet
+</span><a href="#local-6989586621680424568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceFleet
+</span><a href="#local-6989586621680424568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateDeviceFleet' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AroleArn%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Whether to create an Amazon Web Services IoT Role Alias during device</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- fleet creation. The name of the role alias generated will match this</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- pattern: \&quot;SageMakerEdge-{DeviceFleetName}\&quot;.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- For example, if your device fleet is called \&quot;demo-fleet\&quot;, the name of</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the role alias will be \&quot;SageMakerEdge-demo-fleet\&quot;.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_enableIotRoleAlias"><span class="hs-identifier hs-type">updateDeviceFleet_enableIotRoleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateDeviceFleet_enableIotRoleAlias"><span class="annot"><span class="annottext">updateDeviceFleet_enableIotRoleAlias :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateDeviceFleet -&gt; f UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_enableIotRoleAlias"><span class="hs-identifier hs-var hs-var">updateDeviceFleet_enableIotRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceFleet -&gt; Maybe Bool)
+-&gt; (UpdateDeviceFleet -&gt; Maybe Bool -&gt; UpdateDeviceFleet)
+-&gt; Lens
+     UpdateDeviceFleet UpdateDeviceFleet (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424566"><span class="annot"><span class="annottext">Maybe Bool
+enableIotRoleAlias :: Maybe Bool
+$sel:enableIotRoleAlias:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Bool
+</span><a href="#local-6989586621680424566"><span class="hs-identifier hs-var hs-var">enableIotRoleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680424566"><span class="hs-identifier hs-var">enableIotRoleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424565"><span class="annot"><span class="annottext">s :: UpdateDeviceFleet
+</span><a href="#local-6989586621680424565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424564"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680424564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceFleet
+</span><a href="#local-6989586621680424565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableIotRoleAlias:UpdateDeviceFleet' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AenableIotRoleAlias%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">enableIotRoleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680424564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Description of the fleet.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_description"><span class="hs-identifier hs-type">updateDeviceFleet_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateDeviceFleet_description"><span class="annot"><span class="annottext">updateDeviceFleet_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeviceFleet -&gt; f UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_description"><span class="hs-identifier hs-var hs-var">updateDeviceFleet_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceFleet -&gt; Maybe Text)
+-&gt; (UpdateDeviceFleet -&gt; Maybe Text -&gt; UpdateDeviceFleet)
+-&gt; Lens
+     UpdateDeviceFleet UpdateDeviceFleet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424563"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Text
+</span><a href="#local-6989586621680424563"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424563"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424562"><span class="annot"><span class="annottext">s :: UpdateDeviceFleet
+</span><a href="#local-6989586621680424562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceFleet
+</span><a href="#local-6989586621680424562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateDeviceFleet' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3Adescription%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_deviceFleetName"><span class="hs-identifier hs-type">updateDeviceFleet_deviceFleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="updateDeviceFleet_deviceFleetName"><span class="annot"><span class="annottext">updateDeviceFleet_deviceFleetName :: (Text -&gt; f Text) -&gt; UpdateDeviceFleet -&gt; f UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_deviceFleetName"><span class="hs-identifier hs-var hs-var">updateDeviceFleet_deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceFleet -&gt; Text)
+-&gt; (UpdateDeviceFleet -&gt; Text -&gt; UpdateDeviceFleet)
+-&gt; Lens UpdateDeviceFleet UpdateDeviceFleet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424560"><span class="annot"><span class="annottext">Text
+deviceFleetName :: Text
+$sel:deviceFleetName:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Text
+</span><a href="#local-6989586621680424560"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424560"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424559"><span class="annot"><span class="annottext">s :: UpdateDeviceFleet
+</span><a href="#local-6989586621680424559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceFleet
+</span><a href="#local-6989586621680424559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:UpdateDeviceFleet' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AdeviceFleetName%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Output configuration for storing sample data collected by the fleet.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_outputConfig"><span class="hs-identifier hs-type">updateDeviceFleet_outputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeOutputConfig.html#EdgeOutputConfig"><span class="hs-identifier hs-type">EdgeOutputConfig</span></a></span><span>
+</span><span id="line-129"></span><span id="updateDeviceFleet_outputConfig"><span class="annot"><span class="annottext">updateDeviceFleet_outputConfig :: (EdgeOutputConfig -&gt; f EdgeOutputConfig)
+-&gt; UpdateDeviceFleet -&gt; f UpdateDeviceFleet
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#updateDeviceFleet_outputConfig"><span class="hs-identifier hs-var hs-var">updateDeviceFleet_outputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceFleet -&gt; EdgeOutputConfig)
+-&gt; (UpdateDeviceFleet -&gt; EdgeOutputConfig -&gt; UpdateDeviceFleet)
+-&gt; Lens
+     UpdateDeviceFleet
+     UpdateDeviceFleet
+     EdgeOutputConfig
+     EdgeOutputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424557"><span class="annot"><span class="annottext">EdgeOutputConfig
+outputConfig :: EdgeOutputConfig
+$sel:outputConfig:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; EdgeOutputConfig
+</span><a href="#local-6989586621680424557"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424557"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680424556"><span class="annot"><span class="annottext">s :: UpdateDeviceFleet
+</span><a href="#local-6989586621680424556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680424555"><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceFleet
+</span><a href="#local-6989586621680424556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:UpdateDeviceFleet' :: EdgeOutputConfig
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#%24sel%3AoutputConfig%3AUpdateDeviceFleet%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse"><span class="hs-identifier hs-type">UpdateDeviceFleetResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621680424551"><span class="annot"><span class="annottext">request :: UpdateDeviceFleet -&gt; Request UpdateDeviceFleet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDeviceFleet -&gt; Request UpdateDeviceFleet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680424547"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDeviceFleet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDeviceFleet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdateDeviceFleet
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDeviceFleet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateDeviceFleet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateDeviceFleet
+UpdateDeviceFleetResponse
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse%27"><span class="hs-identifier hs-var">UpdateDeviceFleetResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424540"><span id="local-6989586621680424542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621680424533"><span class="annot"><span class="annottext">toHeaders :: UpdateDeviceFleet -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateDeviceFleet -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateDeviceFleet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424523"><span id="local-6989586621680424525"><span id="local-6989586621680424527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680424521"><span class="annot"><span class="annottext">toJSON :: UpdateDeviceFleet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet%27"><span class="hs-identifier hs-type">UpdateDeviceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680424515"><span id="local-6989586621680424516"><span id="local-6989586621680424517"><span id="local-6989586621680424518"><span id="local-6989586621680424519"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+EdgeOutputConfig
+outputConfig :: EdgeOutputConfig
+deviceFleetName :: Text
+description :: Maybe Text
+enableIotRoleAlias :: Maybe Bool
+roleArn :: Maybe Text
+$sel:outputConfig:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; EdgeOutputConfig
+$sel:deviceFleetName:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Text
+$sel:description:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Text
+$sel:enableIotRoleAlias:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Bool
+$sel:roleArn:UpdateDeviceFleet' :: UpdateDeviceFleet -&gt; Maybe Text
+</span><a href="#local-6989586621680424515"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424519"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableIotRoleAlias&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680424518"><span class="hs-identifier hs-var">enableIotRoleAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680424517"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-167"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceFleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680424516"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EdgeOutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EdgeOutputConfig
+</span><a href="#local-6989586621680424515"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621680424508"><span class="annot"><span class="annottext">toPath :: UpdateDeviceFleet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDeviceFleet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleet"><span class="hs-identifier hs-type">UpdateDeviceFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680424504"><span class="annot"><span class="annottext">toQuery :: UpdateDeviceFleet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDeviceFleet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeviceFleetResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621680424501"><span id="local-6989586621680424502"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceFleetResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse"><span class="hs-identifier hs-var">UpdateDeviceFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceFleetResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse%27"><span class="hs-identifier hs-var">UpdateDeviceFleetResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680424497"><span id="local-6989586621680424499"><span class="annot"><span class="annottext">UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool
+(UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool)
+-&gt; (UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool)
+-&gt; Eq UpdateDeviceFleetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool
+$c/= :: UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool
+== :: UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool
+$c== :: UpdateDeviceFleetResponse -&gt; UpdateDeviceFleetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424489"><span id="local-6989586621680424491"><span id="local-6989586621680424493"><span id="local-6989586621680424495"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceFleetResponse]
+ReadPrec UpdateDeviceFleetResponse
+Int -&gt; ReadS UpdateDeviceFleetResponse
+ReadS [UpdateDeviceFleetResponse]
+(Int -&gt; ReadS UpdateDeviceFleetResponse)
+-&gt; ReadS [UpdateDeviceFleetResponse]
+-&gt; ReadPrec UpdateDeviceFleetResponse
+-&gt; ReadPrec [UpdateDeviceFleetResponse]
+-&gt; Read UpdateDeviceFleetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDeviceFleetResponse]
+$creadListPrec :: ReadPrec [UpdateDeviceFleetResponse]
+readPrec :: ReadPrec UpdateDeviceFleetResponse
+$creadPrec :: ReadPrec UpdateDeviceFleetResponse
+readList :: ReadS [UpdateDeviceFleetResponse]
+$creadList :: ReadS [UpdateDeviceFleetResponse]
+readsPrec :: Int -&gt; ReadS UpdateDeviceFleetResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDeviceFleetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680424483"><span id="local-6989586621680424485"><span id="local-6989586621680424487"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceFleetResponse -&gt; ShowS
+[UpdateDeviceFleetResponse] -&gt; ShowS
+UpdateDeviceFleetResponse -&gt; String
+(Int -&gt; UpdateDeviceFleetResponse -&gt; ShowS)
+-&gt; (UpdateDeviceFleetResponse -&gt; String)
+-&gt; ([UpdateDeviceFleetResponse] -&gt; ShowS)
+-&gt; Show UpdateDeviceFleetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDeviceFleetResponse] -&gt; ShowS
+$cshowList :: [UpdateDeviceFleetResponse] -&gt; ShowS
+show :: UpdateDeviceFleetResponse -&gt; String
+$cshow :: UpdateDeviceFleetResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDeviceFleetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDeviceFleetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDeviceFleetResponse -&gt; Rep UpdateDeviceFleetResponse x)
+-&gt; (forall x.
+    Rep UpdateDeviceFleetResponse x -&gt; UpdateDeviceFleetResponse)
+-&gt; Generic UpdateDeviceFleetResponse
+forall x.
+Rep UpdateDeviceFleetResponse x -&gt; UpdateDeviceFleetResponse
+forall x.
+UpdateDeviceFleetResponse -&gt; Rep UpdateDeviceFleetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDeviceFleetResponse x -&gt; UpdateDeviceFleetResponse
+$cfrom :: forall x.
+UpdateDeviceFleetResponse -&gt; Rep UpdateDeviceFleetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'UpdateDeviceFleetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleetResponse"><span class="hs-identifier hs-type">newUpdateDeviceFleetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse"><span class="hs-identifier hs-type">UpdateDeviceFleetResponse</span></a></span><span>
+</span><span id="line-190"></span><span id="newUpdateDeviceFleetResponse"><span class="annot"><span class="annottext">newUpdateDeviceFleetResponse :: UpdateDeviceFleetResponse
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#newUpdateDeviceFleetResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeviceFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceFleetResponse
+</span><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse%27"><span class="hs-identifier hs-var">UpdateDeviceFleetResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680424479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateDeviceFleet.html#UpdateDeviceFleetResponse"><span class="hs-identifier hs-type">UpdateDeviceFleetResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

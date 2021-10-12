@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier">Scte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span class="hs-identifier">Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span class="hs-identifier">Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Scte35 Splice Insert No Regional Blackout Behavior</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679911131"><span id="local-6989586621679911132"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier hs-var">Scte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SpliceInsertNoRegionalBlackoutBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior%27"><span class="hs-identifier hs-var">Scte35SpliceInsertNoRegionalBlackoutBehavior'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35SpliceInsertNoRegionalBlackoutBehavior"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#fromScte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier hs-var hs-var">fromScte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679911123"><span id="local-6989586621679911125"><span id="local-6989586621679911127"><span class="annot"><span class="annottext">Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ShowS
+[Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; ShowS
+Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; String
+(Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ShowS)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; String)
+-&gt; ([Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; ShowS)
+-&gt; Show Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; ShowS
+$cshowList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; ShowS
+show :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; String
+$cshow :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; String
+showsPrec :: Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679911114"><span id="local-6989586621679911116"><span id="local-6989586621679911118"><span id="local-6989586621679911120"><span class="annot"><span class="annottext">ReadPrec [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+ReadPrec Scte35SpliceInsertNoRegionalBlackoutBehavior
+Int -&gt; ReadS Scte35SpliceInsertNoRegionalBlackoutBehavior
+ReadS [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+(Int -&gt; ReadS Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; ReadS [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+-&gt; ReadPrec Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; ReadPrec [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+-&gt; Read Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+$creadListPrec :: ReadPrec [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+readPrec :: ReadPrec Scte35SpliceInsertNoRegionalBlackoutBehavior
+$creadPrec :: ReadPrec Scte35SpliceInsertNoRegionalBlackoutBehavior
+readList :: ReadS [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+$creadList :: ReadS [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+readsPrec :: Int -&gt; ReadS Scte35SpliceInsertNoRegionalBlackoutBehavior
+$creadsPrec :: Int -&gt; ReadS Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679911109"><span id="local-6989586621679911111"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+(Scte35SpliceInsertNoRegionalBlackoutBehavior
+ -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; Eq Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c/= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+== :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c== :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679911093"><span id="local-6989586621679911095"><span id="local-6989586621679911097"><span id="local-6989586621679911099"><span id="local-6989586621679911101"><span id="local-6989586621679911103"><span id="local-6989586621679911105"><span class="annot"><span class="annottext">Eq Scte35SpliceInsertNoRegionalBlackoutBehavior
+Eq Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Ordering)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; Ord Scte35SpliceInsertNoRegionalBlackoutBehavior
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Ordering
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cmin :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+max :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cmax :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+&gt;= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c&gt;= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+&gt; :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c&gt; :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+&lt;= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c&lt;= :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+&lt; :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+$c&lt; :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Bool
+compare :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Ordering
+$ccompare :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Ordering
+$cp1Ord :: Eq Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Scte35SpliceInsertNoRegionalBlackoutBehavior
+ -&gt; Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x)
+-&gt; (forall x.
+    Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x
+    -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; Generic Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall x.
+Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall x.
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cfrom :: forall x.
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; Rep Scte35SpliceInsertNoRegionalBlackoutBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679911085"><span id="local-6989586621679911087"><span class="annot"><span class="annottext">Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+(Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int)
+-&gt; Hashable Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+$chash :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+hashWithSalt :: Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679911082"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ()
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ())
+-&gt; NFData Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ()
+$crnf :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679911079"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+(Text
+ -&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; FromText Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cfromText :: Text -&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679911076"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Text
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Text)
+-&gt; ToText Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Text
+$ctoText :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679911073"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteString
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteString)
+-&gt; ToByteString Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteString
+$ctoBS :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679911070"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteStringBuilder
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteStringBuilder)
+-&gt; ToLog Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteStringBuilder
+$cbuild :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679911067"><span class="annot"><span class="annottext">HeaderName
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; [Header]
+(HeaderName
+ -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; [Header])
+-&gt; ToHeader Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679911064"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; QueryString
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; QueryString)
+-&gt; ToQuery Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; QueryString
+$ctoQuery :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679911059"><span id="local-6989586621679911061"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+Value -&gt; Parser Scte35SpliceInsertNoRegionalBlackoutBehavior
+(Value -&gt; Parser Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; (Value -&gt; Parser [Scte35SpliceInsertNoRegionalBlackoutBehavior])
+-&gt; FromJSON Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+$cparseJSONList :: Value -&gt; Parser [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+parseJSON :: Value -&gt; Parser Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cparseJSON :: Value -&gt; Parser Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679911054"><span id="local-6989586621679911056"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+FromJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+FromJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; FromJSONKeyFunction
+     [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+-&gt; FromJSONKey Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+fromJSONKey :: FromJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cfromJSONKey :: FromJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679911045"><span id="local-6989586621679911047"><span id="local-6989586621679911049"><span id="local-6989586621679911051"><span class="annot"><span class="annottext">[Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Encoding
+[Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Value
+Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Encoding
+Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Value
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Value)
+-&gt; (Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Encoding)
+-&gt; ([Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Value)
+-&gt; ([Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Encoding)
+-&gt; ToJSON Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Encoding
+$ctoEncodingList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Encoding
+toJSONList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Value
+$ctoJSONList :: [Scte35SpliceInsertNoRegionalBlackoutBehavior] -&gt; Value
+toEncoding :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Encoding
+$ctoEncoding :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Encoding
+toJSON :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Value
+$ctoJSON :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679911040"><span id="local-6989586621679911042"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+ToJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+ToJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; ToJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+-&gt; ToJSONKey Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [Scte35SpliceInsertNoRegionalBlackoutBehavior]
+toJSONKey :: ToJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+$ctoJSONKey :: ToJSONKeyFunction Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679911037"><span class="annot"><span class="annottext">[Node]
+-&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+([Node]
+ -&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior)
+-&gt; FromXML Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+$cparseXML :: [Node]
+-&gt; Either String Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679911034"><span class="annot"><span class="annottext">Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; XML
+(Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; XML)
+-&gt; ToXML Scte35SpliceInsertNoRegionalBlackoutBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; XML
+$ctoXML :: Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span id="%24mScte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span id="Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span class="annot"><span class="annottext">$bScte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+$mScte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW :: forall r.
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#%24bScte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span class="hs-identifier hs-var hs-var hs-var">Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior%27"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FOLLOW&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span id="%24mScte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span id="Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span class="annot"><span class="annottext">$bScte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+$mScte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE :: forall r.
+Scte35SpliceInsertNoRegionalBlackoutBehavior
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#%24bScte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span class="hs-identifier hs-var hs-var hs-var">Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior%27"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IGNORE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW"><span class="hs-pragma hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior_FOLLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE"><span class="hs-pragma hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior_IGNORE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior%27"><span class="hs-pragma hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

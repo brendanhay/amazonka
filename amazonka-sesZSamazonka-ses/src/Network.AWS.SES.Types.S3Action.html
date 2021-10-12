@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SES.Types.S3Action</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SES.Types.S3Action</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | When included in a receipt rule, this action saves the received message</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- publishes a notification to Amazon Simple Notification Service (Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- SNS).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- To enable Amazon SES to write emails to your Amazon S3 bucket, use an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- another account, Amazon SES must have permission to access those</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- resources. For information about giving permissions, see the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- When you save your emails to an Amazon S3 bucket, the maximum email size</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (including headers) is 30 MB. Emails larger than that will bounce.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For information about specifying Amazon S3 actions in receipt rules, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newS3Action' smart constructor.</span><span>
+</span><span id="line-45"></span><span id="local-6989586621679274614"><span id="local-6989586621679274615"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Action"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-var">S3Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Action%27"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- directory name that enables you to store similar data under the same</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- directory in a bucket.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AobjectKeyPrefix%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AobjectKeyPrefix%3AS3Action%27"><span class="hs-identifier hs-var hs-var">objectKeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The customer master key that Amazon SES should use to encrypt your</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- emails before saving them to the Amazon S3 bucket. You can use the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- default master key or a custom master key you created in AWS KMS as</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   To use the default master key, provide an ARN in the form of</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias\/aws\/ses@. For</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     example, if your AWS account ID is 123456789012 and you want to use</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     the default master key in the US West (Oregon) region, the ARN of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     the default master key would be</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-west-2:123456789012:alias\/aws\/ses@. If you use the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     default master key, you don\'t need to perform any extra steps to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     give Amazon SES permission to use the key.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   To use a custom master key you created in AWS KMS, provide the ARN</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     of the master key and ensure that you add a statement to your key\'s</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     policy to give Amazon SES permission to use it. For more information</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     about giving permissions, see the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- For more information about key policies, see the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide&gt;.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If you do not specify a master key, Amazon SES will not encrypt your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- emails.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Your mail is encrypted by Amazon SES using the Amazon S3 encryption</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- client before the mail is submitted to Amazon S3 for storage. It is not</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- encrypted using Amazon S3 server-side encryption. This means that you</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- must use the Amazon S3 encryption client to decrypt the email after</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- retrieving it from Amazon S3, as the service has no access to use your</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- AWS KMS keys for decryption. This encryption client is currently</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- available with the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-java/ AWS SDK for Java&gt; and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-ruby/ AWS SDK for Ruby&gt; only. For more</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- information about client-side encryption using AWS KMS master keys, see</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide&gt;.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AkmsKeyArn%3AS3Action%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to notify when the message is saved to</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the Amazon S3 bucket. An example of an Amazon SNS topic ARN is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Amazon SNS topics, see the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide&gt;.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AtopicArn%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AtopicArn%3AS3Action%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket that incoming email will be saved to.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AbucketName%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274605"><span id="local-6989586621679274607"><span class="annot"><span class="annottext">S3Action -&gt; S3Action -&gt; Bool
+(S3Action -&gt; S3Action -&gt; Bool)
+-&gt; (S3Action -&gt; S3Action -&gt; Bool) -&gt; Eq S3Action
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3Action -&gt; S3Action -&gt; Bool
+$c/= :: S3Action -&gt; S3Action -&gt; Bool
+== :: S3Action -&gt; S3Action -&gt; Bool
+$c== :: S3Action -&gt; S3Action -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274596"><span id="local-6989586621679274598"><span id="local-6989586621679274600"><span id="local-6989586621679274602"><span class="annot"><span class="annottext">ReadPrec [S3Action]
+ReadPrec S3Action
+Int -&gt; ReadS S3Action
+ReadS [S3Action]
+(Int -&gt; ReadS S3Action)
+-&gt; ReadS [S3Action]
+-&gt; ReadPrec S3Action
+-&gt; ReadPrec [S3Action]
+-&gt; Read S3Action
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3Action]
+$creadListPrec :: ReadPrec [S3Action]
+readPrec :: ReadPrec S3Action
+$creadPrec :: ReadPrec S3Action
+readList :: ReadS [S3Action]
+$creadList :: ReadS [S3Action]
+readsPrec :: Int -&gt; ReadS S3Action
+$creadsPrec :: Int -&gt; ReadS S3Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274589"><span id="local-6989586621679274591"><span id="local-6989586621679274593"><span class="annot"><span class="annottext">Int -&gt; S3Action -&gt; ShowS
+[S3Action] -&gt; ShowS
+S3Action -&gt; String
+(Int -&gt; S3Action -&gt; ShowS)
+-&gt; (S3Action -&gt; String) -&gt; ([S3Action] -&gt; ShowS) -&gt; Show S3Action
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3Action] -&gt; ShowS
+$cshowList :: [S3Action] -&gt; ShowS
+show :: S3Action -&gt; String
+$cshow :: S3Action -&gt; String
+showsPrec :: Int -&gt; S3Action -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3Action -&gt; Rep S3Action x)
+-&gt; (forall x. Rep S3Action x -&gt; S3Action) -&gt; Generic S3Action
+forall x. Rep S3Action x -&gt; S3Action
+forall x. S3Action -&gt; Rep S3Action x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3Action x -&gt; S3Action
+$cfrom :: forall x. S3Action -&gt; Rep S3Action x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'S3Action' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'objectKeyPrefix', 's3Action_objectKeyPrefix' - The key prefix of the Amazon S3 bucket. The key prefix is similar to a</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- directory name that enables you to store similar data under the same</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- directory in a bucket.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'kmsKeyArn', 's3Action_kmsKeyArn' - The customer master key that Amazon SES should use to encrypt your</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- emails before saving them to the Amazon S3 bucket. You can use the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- default master key or a custom master key you created in AWS KMS as</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   To use the default master key, provide an ARN in the form of</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias\/aws\/ses@. For</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     example, if your AWS account ID is 123456789012 and you want to use</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     the default master key in the US West (Oregon) region, the ARN of</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     the default master key would be</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:123456789012:alias\/aws\/ses@. If you use the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     default master key, you don\'t need to perform any extra steps to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     give Amazon SES permission to use the key.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   To use a custom master key you created in AWS KMS, provide the ARN</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     of the master key and ensure that you add a statement to your key\'s</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     policy to give Amazon SES permission to use it. For more information</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     about giving permissions, see the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- For more information about key policies, see the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide&gt;.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If you do not specify a master key, Amazon SES will not encrypt your</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- emails.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Your mail is encrypted by Amazon SES using the Amazon S3 encryption</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- client before the mail is submitted to Amazon S3 for storage. It is not</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- encrypted using Amazon S3 server-side encryption. This means that you</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- must use the Amazon S3 encryption client to decrypt the email after</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- retrieving it from Amazon S3, as the service has no access to use your</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- AWS KMS keys for decryption. This encryption client is currently</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- available with the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-java/ AWS SDK for Java&gt; and</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-ruby/ AWS SDK for Ruby&gt; only. For more</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- information about client-side encryption using AWS KMS master keys, see</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide&gt;.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'topicArn', 's3Action_topicArn' - The ARN of the Amazon SNS topic to notify when the message is saved to</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the Amazon S3 bucket. An example of an Amazon SNS topic ARN is</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Amazon SNS topics, see the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide&gt;.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'bucketName', 's3Action_bucketName' - The name of the Amazon S3 bucket that incoming email will be saved to.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-type">newS3Action</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'bucketName'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span>
+</span><span id="line-160"></span><span id="newS3Action"><span class="annot"><span class="annottext">newS3Action :: Text -&gt; S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-var hs-var">newS3Action</span></a></span></span><span> </span><span id="local-6989586621679274583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">S3Action' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectKeyPrefix:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AobjectKeyPrefix%3AS3Action%27"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AkmsKeyArn%3AS3Action%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AtopicArn%3AS3Action%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- directory name that enables you to store similar data under the same</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- directory in a bucket.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#s3Action_objectKeyPrefix"><span class="hs-identifier hs-type">s3Action_objectKeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="s3Action_objectKeyPrefix"><span class="annot"><span class="annottext">s3Action_objectKeyPrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; S3Action -&gt; f S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#s3Action_objectKeyPrefix"><span class="hs-identifier hs-var hs-var">s3Action_objectKeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3Action -&gt; Maybe Text)
+-&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
+-&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274579"><span class="annot"><span class="annottext">Maybe Text
+objectKeyPrefix :: Maybe Text
+$sel:objectKeyPrefix:S3Action' :: S3Action -&gt; Maybe Text
+</span><a href="#local-6989586621679274579"><span class="hs-identifier hs-var hs-var">objectKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274579"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274578"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectKeyPrefix:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AobjectKeyPrefix%3AS3Action%27"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The customer master key that Amazon SES should use to encrypt your</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- emails before saving them to the Amazon S3 bucket. You can use the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- default master key or a custom master key you created in AWS KMS as</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- follows:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   To use the default master key, provide an ARN in the form of</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias\/aws\/ses@. For</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     example, if your AWS account ID is 123456789012 and you want to use</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     the default master key in the US West (Oregon) region, the ARN of</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     the default master key would be</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:123456789012:alias\/aws\/ses@. If you use the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     default master key, you don\'t need to perform any extra steps to</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     give Amazon SES permission to use the key.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   To use a custom master key you created in AWS KMS, provide the ARN</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     of the master key and ensure that you add a statement to your key\'s</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     policy to give Amazon SES permission to use it. For more information</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     about giving permissions, see the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- For more information about key policies, see the</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide&gt;.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- If you do not specify a master key, Amazon SES will not encrypt your</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- emails.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Your mail is encrypted by Amazon SES using the Amazon S3 encryption</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- client before the mail is submitted to Amazon S3 for storage. It is not</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- encrypted using Amazon S3 server-side encryption. This means that you</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- must use the Amazon S3 encryption client to decrypt the email after</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- retrieving it from Amazon S3, as the service has no access to use your</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- AWS KMS keys for decryption. This encryption client is currently</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- available with the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-java/ AWS SDK for Java&gt; and</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/sdk-for-ruby/ AWS SDK for Ruby&gt; only. For more</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- information about client-side encryption using AWS KMS master keys, see</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide&gt;.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#s3Action_kmsKeyArn"><span class="hs-identifier hs-type">s3Action_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="s3Action_kmsKeyArn"><span class="annot"><span class="annottext">s3Action_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; S3Action -&gt; f S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#s3Action_kmsKeyArn"><span class="hs-identifier hs-var hs-var">s3Action_kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3Action -&gt; Maybe Text)
+-&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
+-&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274575"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyArn :: Maybe Text
+$sel:kmsKeyArn:S3Action' :: S3Action -&gt; Maybe Text
+</span><a href="#local-6989586621679274575"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274575"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274574"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AkmsKeyArn%3AS3Action%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to notify when the message is saved to</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the Amazon S3 bucket. An example of an Amazon SNS topic ARN is</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Amazon SNS topics, see the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide&gt;.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#s3Action_topicArn"><span class="hs-identifier hs-type">s3Action_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="s3Action_topicArn"><span class="annot"><span class="annottext">s3Action_topicArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; S3Action -&gt; f S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#s3Action_topicArn"><span class="hs-identifier hs-var hs-var">s3Action_topicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3Action -&gt; Maybe Text)
+-&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
+-&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274571"><span class="annot"><span class="annottext">Maybe Text
+topicArn :: Maybe Text
+$sel:topicArn:S3Action' :: S3Action -&gt; Maybe Text
+</span><a href="#local-6989586621679274571"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274571"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274570"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:S3Action' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AtopicArn%3AS3Action%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket that incoming email will be saved to.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#s3Action_bucketName"><span class="hs-identifier hs-type">s3Action_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="s3Action_bucketName"><span class="annot"><span class="annottext">s3Action_bucketName :: (Text -&gt; f Text) -&gt; S3Action -&gt; f S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#s3Action_bucketName"><span class="hs-identifier hs-var hs-var">s3Action_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3Action -&gt; Text)
+-&gt; (S3Action -&gt; Text -&gt; S3Action)
+-&gt; Lens S3Action S3Action Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274567"><span class="annot"><span class="annottext">Text
+bucketName :: Text
+$sel:bucketName:S3Action' :: S3Action -&gt; Text
+</span><a href="#local-6989586621679274567"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274567"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274566"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
+</span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679274562"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274560"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action
+</span><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectKeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Text -&gt; S3Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Text -&gt; S3Action)
+-&gt; Either String (Maybe Text) -&gt; Either String (Text -&gt; S3Action)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; S3Action)
+-&gt; Either String Text -&gt; Either String S3Action
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274553"><span id="local-6989586621679274555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679274546"><span class="annot"><span class="annottext">toQuery :: S3Action -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274541"><span id="local-6989586621679274542"><span id="local-6989586621679274543"><span id="local-6989586621679274544"><span class="annot"><span class="annottext">Maybe Text
+Text
+bucketName :: Text
+topicArn :: Maybe Text
+kmsKeyArn :: Maybe Text
+objectKeyPrefix :: Maybe Text
+$sel:bucketName:S3Action' :: S3Action -&gt; Text
+$sel:topicArn:S3Action' :: S3Action -&gt; Maybe Text
+$sel:kmsKeyArn:S3Action' :: S3Action -&gt; Maybe Text
+$sel:objectKeyPrefix:S3Action' :: S3Action -&gt; Maybe Text
+</span><a href="#local-6989586621679274541"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ObjectKeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274544"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274543"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274542"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274541"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-246"></span></pre></body></html>

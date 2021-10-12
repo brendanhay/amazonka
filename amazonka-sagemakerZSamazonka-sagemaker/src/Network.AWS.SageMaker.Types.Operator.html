@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.Operator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.Operator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier">Operator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Contains"><span class="hs-identifier">Operator_Contains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Equals"><span class="hs-identifier">Operator_Equals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Exists"><span class="hs-identifier">Operator_Exists</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThan"><span class="hs-identifier">Operator_GreaterThan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThanOrEqualTo"><span class="hs-identifier">Operator_GreaterThanOrEqualTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_In"><span class="hs-identifier">Operator_In</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThan"><span class="hs-identifier">Operator_LessThan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThanOrEqualTo"><span class="hs-identifier">Operator_LessThanOrEqualTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotEquals"><span class="hs-identifier">Operator_NotEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotExists"><span class="hs-identifier">Operator_NotExists</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680325074"><span id="local-6989586621680325075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Operator"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-var">Operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Operator%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-var">Operator'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperator"><span class="annot"><span class="annottext">Operator -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#fromOperator"><span class="hs-identifier hs-var hs-var">fromOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325066"><span id="local-6989586621680325068"><span id="local-6989586621680325070"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; ShowS
+[Operator] -&gt; ShowS
+Operator -&gt; String
+(Int -&gt; Operator -&gt; ShowS)
+-&gt; (Operator -&gt; String) -&gt; ([Operator] -&gt; ShowS) -&gt; Show Operator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Operator] -&gt; ShowS
+$cshowList :: [Operator] -&gt; ShowS
+show :: Operator -&gt; String
+$cshow :: Operator -&gt; String
+showsPrec :: Int -&gt; Operator -&gt; ShowS
+$cshowsPrec :: Int -&gt; Operator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680325057"><span id="local-6989586621680325059"><span id="local-6989586621680325061"><span id="local-6989586621680325063"><span class="annot"><span class="annottext">ReadPrec [Operator]
+ReadPrec Operator
+Int -&gt; ReadS Operator
+ReadS [Operator]
+(Int -&gt; ReadS Operator)
+-&gt; ReadS [Operator]
+-&gt; ReadPrec Operator
+-&gt; ReadPrec [Operator]
+-&gt; Read Operator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Operator]
+$creadListPrec :: ReadPrec [Operator]
+readPrec :: ReadPrec Operator
+$creadPrec :: ReadPrec Operator
+readList :: ReadS [Operator]
+$creadList :: ReadS [Operator]
+readsPrec :: Int -&gt; ReadS Operator
+$creadsPrec :: Int -&gt; ReadS Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680325052"><span id="local-6989586621680325054"><span class="annot"><span class="annottext">Operator -&gt; Operator -&gt; Bool
+(Operator -&gt; Operator -&gt; Bool)
+-&gt; (Operator -&gt; Operator -&gt; Bool) -&gt; Eq Operator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Operator -&gt; Operator -&gt; Bool
+$c/= :: Operator -&gt; Operator -&gt; Bool
+== :: Operator -&gt; Operator -&gt; Bool
+$c== :: Operator -&gt; Operator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680325036"><span id="local-6989586621680325038"><span id="local-6989586621680325040"><span id="local-6989586621680325042"><span id="local-6989586621680325044"><span id="local-6989586621680325046"><span id="local-6989586621680325048"><span class="annot"><span class="annottext">Eq Operator
+Eq Operator
+-&gt; (Operator -&gt; Operator -&gt; Ordering)
+-&gt; (Operator -&gt; Operator -&gt; Bool)
+-&gt; (Operator -&gt; Operator -&gt; Bool)
+-&gt; (Operator -&gt; Operator -&gt; Bool)
+-&gt; (Operator -&gt; Operator -&gt; Bool)
+-&gt; (Operator -&gt; Operator -&gt; Operator)
+-&gt; (Operator -&gt; Operator -&gt; Operator)
+-&gt; Ord Operator
+Operator -&gt; Operator -&gt; Bool
+Operator -&gt; Operator -&gt; Ordering
+Operator -&gt; Operator -&gt; Operator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Operator -&gt; Operator -&gt; Operator
+$cmin :: Operator -&gt; Operator -&gt; Operator
+max :: Operator -&gt; Operator -&gt; Operator
+$cmax :: Operator -&gt; Operator -&gt; Operator
+&gt;= :: Operator -&gt; Operator -&gt; Bool
+$c&gt;= :: Operator -&gt; Operator -&gt; Bool
+&gt; :: Operator -&gt; Operator -&gt; Bool
+$c&gt; :: Operator -&gt; Operator -&gt; Bool
+&lt;= :: Operator -&gt; Operator -&gt; Bool
+$c&lt;= :: Operator -&gt; Operator -&gt; Bool
+&lt; :: Operator -&gt; Operator -&gt; Bool
+$c&lt; :: Operator -&gt; Operator -&gt; Bool
+compare :: Operator -&gt; Operator -&gt; Ordering
+$ccompare :: Operator -&gt; Operator -&gt; Ordering
+$cp1Ord :: Eq Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Operator -&gt; Rep Operator x)
+-&gt; (forall x. Rep Operator x -&gt; Operator) -&gt; Generic Operator
+forall x. Rep Operator x -&gt; Operator
+forall x. Operator -&gt; Rep Operator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Operator x -&gt; Operator
+$cfrom :: forall x. Operator -&gt; Rep Operator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325028"><span id="local-6989586621680325030"><span class="annot"><span class="annottext">Int -&gt; Operator -&gt; Int
+Operator -&gt; Int
+(Int -&gt; Operator -&gt; Int) -&gt; (Operator -&gt; Int) -&gt; Hashable Operator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Operator -&gt; Int
+$chash :: Operator -&gt; Int
+hashWithSalt :: Int -&gt; Operator -&gt; Int
+$chashWithSalt :: Int -&gt; Operator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680325025"><span class="annot"><span class="annottext">Operator -&gt; ()
+(Operator -&gt; ()) -&gt; NFData Operator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Operator -&gt; ()
+$crnf :: Operator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680325022"><span class="annot"><span class="annottext">Text -&gt; Either String Operator
+(Text -&gt; Either String Operator) -&gt; FromText Operator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Operator
+$cfromText :: Text -&gt; Either String Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680325019"><span class="annot"><span class="annottext">Operator -&gt; Text
+(Operator -&gt; Text) -&gt; ToText Operator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Operator -&gt; Text
+$ctoText :: Operator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680325016"><span class="annot"><span class="annottext">Operator -&gt; ByteString
+(Operator -&gt; ByteString) -&gt; ToByteString Operator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Operator -&gt; ByteString
+$ctoBS :: Operator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680325013"><span class="annot"><span class="annottext">Operator -&gt; ByteStringBuilder
+(Operator -&gt; ByteStringBuilder) -&gt; ToLog Operator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Operator -&gt; ByteStringBuilder
+$cbuild :: Operator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680325010"><span class="annot"><span class="annottext">HeaderName -&gt; Operator -&gt; [Header]
+(HeaderName -&gt; Operator -&gt; [Header]) -&gt; ToHeader Operator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Operator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Operator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680325007"><span class="annot"><span class="annottext">Operator -&gt; QueryString
+(Operator -&gt; QueryString) -&gt; ToQuery Operator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Operator -&gt; QueryString
+$ctoQuery :: Operator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680325002"><span id="local-6989586621680325004"><span class="annot"><span class="annottext">Value -&gt; Parser [Operator]
+Value -&gt; Parser Operator
+(Value -&gt; Parser Operator)
+-&gt; (Value -&gt; Parser [Operator]) -&gt; FromJSON Operator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Operator]
+$cparseJSONList :: Value -&gt; Parser [Operator]
+parseJSON :: Value -&gt; Parser Operator
+$cparseJSON :: Value -&gt; Parser Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680324997"><span id="local-6989586621680324999"><span class="annot"><span class="annottext">FromJSONKeyFunction [Operator]
+FromJSONKeyFunction Operator
+FromJSONKeyFunction Operator
+-&gt; FromJSONKeyFunction [Operator] -&gt; FromJSONKey Operator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Operator]
+$cfromJSONKeyList :: FromJSONKeyFunction [Operator]
+fromJSONKey :: FromJSONKeyFunction Operator
+$cfromJSONKey :: FromJSONKeyFunction Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680324988"><span id="local-6989586621680324990"><span id="local-6989586621680324992"><span id="local-6989586621680324994"><span class="annot"><span class="annottext">[Operator] -&gt; Encoding
+[Operator] -&gt; Value
+Operator -&gt; Encoding
+Operator -&gt; Value
+(Operator -&gt; Value)
+-&gt; (Operator -&gt; Encoding)
+-&gt; ([Operator] -&gt; Value)
+-&gt; ([Operator] -&gt; Encoding)
+-&gt; ToJSON Operator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Operator] -&gt; Encoding
+$ctoEncodingList :: [Operator] -&gt; Encoding
+toJSONList :: [Operator] -&gt; Value
+$ctoJSONList :: [Operator] -&gt; Value
+toEncoding :: Operator -&gt; Encoding
+$ctoEncoding :: Operator -&gt; Encoding
+toJSON :: Operator -&gt; Value
+$ctoJSON :: Operator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680324983"><span id="local-6989586621680324985"><span class="annot"><span class="annottext">ToJSONKeyFunction [Operator]
+ToJSONKeyFunction Operator
+ToJSONKeyFunction Operator
+-&gt; ToJSONKeyFunction [Operator] -&gt; ToJSONKey Operator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Operator]
+$ctoJSONKeyList :: ToJSONKeyFunction [Operator]
+toJSONKey :: ToJSONKeyFunction Operator
+$ctoJSONKey :: ToJSONKeyFunction Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680324980"><span class="annot"><span class="annottext">[Node] -&gt; Either String Operator
+([Node] -&gt; Either String Operator) -&gt; FromXML Operator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Operator
+$cparseXML :: [Node] -&gt; Either String Operator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680324977"><span class="annot"><span class="annottext">Operator -&gt; XML
+(Operator -&gt; XML) -&gt; ToXML Operator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Operator -&gt; XML
+$ctoXML :: Operator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Contains"><span class="hs-identifier hs-type">Operator_Contains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_Contains"><span id="%24mOperator_Contains"><span id="Operator_Contains"><span class="annot"><span class="annottext">$bOperator_Contains :: Operator
+$mOperator_Contains :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_Contains"><span class="hs-identifier hs-var hs-var hs-var">Operator_Contains</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Contains&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Equals"><span class="hs-identifier hs-type">Operator_Equals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_Equals"><span id="%24mOperator_Equals"><span id="Operator_Equals"><span class="annot"><span class="annottext">$bOperator_Equals :: Operator
+$mOperator_Equals :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_Equals"><span class="hs-identifier hs-var hs-var hs-var">Operator_Equals</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Equals&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Exists"><span class="hs-identifier hs-type">Operator_Exists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_Exists"><span id="%24mOperator_Exists"><span id="Operator_Exists"><span class="annot"><span class="annottext">$bOperator_Exists :: Operator
+$mOperator_Exists :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_Exists"><span class="hs-identifier hs-var hs-var hs-var">Operator_Exists</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Exists&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThan"><span class="hs-identifier hs-type">Operator_GreaterThan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_GreaterThan"><span id="%24mOperator_GreaterThan"><span id="Operator_GreaterThan"><span class="annot"><span class="annottext">$bOperator_GreaterThan :: Operator
+$mOperator_GreaterThan :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_GreaterThan"><span class="hs-identifier hs-var hs-var hs-var">Operator_GreaterThan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GreaterThan&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThanOrEqualTo"><span class="hs-identifier hs-type">Operator_GreaterThanOrEqualTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_GreaterThanOrEqualTo"><span id="%24mOperator_GreaterThanOrEqualTo"><span id="Operator_GreaterThanOrEqualTo"><span class="annot"><span class="annottext">$bOperator_GreaterThanOrEqualTo :: Operator
+$mOperator_GreaterThanOrEqualTo :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_GreaterThanOrEqualTo"><span class="hs-identifier hs-var hs-var hs-var">Operator_GreaterThanOrEqualTo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GreaterThanOrEqualTo&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_In"><span class="hs-identifier hs-type">Operator_In</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_In"><span id="%24mOperator_In"><span id="Operator_In"><span class="annot"><span class="annottext">$bOperator_In :: Operator
+$mOperator_In :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_In"><span class="hs-identifier hs-var hs-var hs-var">Operator_In</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;In&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThan"><span class="hs-identifier hs-type">Operator_LessThan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_LessThan"><span id="%24mOperator_LessThan"><span id="Operator_LessThan"><span class="annot"><span class="annottext">$bOperator_LessThan :: Operator
+$mOperator_LessThan :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_LessThan"><span class="hs-identifier hs-var hs-var hs-var">Operator_LessThan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LessThan&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThanOrEqualTo"><span class="hs-identifier hs-type">Operator_LessThanOrEqualTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_LessThanOrEqualTo"><span id="%24mOperator_LessThanOrEqualTo"><span id="Operator_LessThanOrEqualTo"><span class="annot"><span class="annottext">$bOperator_LessThanOrEqualTo :: Operator
+$mOperator_LessThanOrEqualTo :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_LessThanOrEqualTo"><span class="hs-identifier hs-var hs-var hs-var">Operator_LessThanOrEqualTo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LessThanOrEqualTo&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotEquals"><span class="hs-identifier hs-type">Operator_NotEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_NotEquals"><span id="%24mOperator_NotEquals"><span id="Operator_NotEquals"><span class="annot"><span class="annottext">$bOperator_NotEquals :: Operator
+$mOperator_NotEquals :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_NotEquals"><span class="hs-identifier hs-var hs-var hs-var">Operator_NotEquals</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NotEquals&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotExists"><span class="hs-identifier hs-type">Operator_NotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOperator_NotExists"><span id="%24mOperator_NotExists"><span id="Operator_NotExists"><span class="annot"><span class="annottext">$bOperator_NotExists :: Operator
+$mOperator_NotExists :: forall r. Operator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.Operator.html#%24bOperator_NotExists"><span class="hs-identifier hs-var hs-var hs-var">Operator_NotExists</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-identifier hs-type">Operator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NotExists&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Contains"><span class="hs-pragma hs-type">Operator_Contains</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Equals"><span class="hs-pragma hs-type">Operator_Equals</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_Exists"><span class="hs-pragma hs-type">Operator_Exists</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThan"><span class="hs-pragma hs-type">Operator_GreaterThan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_GreaterThanOrEqualTo"><span class="hs-pragma hs-type">Operator_GreaterThanOrEqualTo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_In"><span class="hs-pragma hs-type">Operator_In</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThan"><span class="hs-pragma hs-type">Operator_LessThan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_LessThanOrEqualTo"><span class="hs-pragma hs-type">Operator_LessThanOrEqualTo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotEquals"><span class="hs-pragma hs-type">Operator_NotEquals</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator_NotExists"><span class="hs-pragma hs-type">Operator_NotExists</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Operator.html#Operator%27"><span class="hs-pragma hs-type">Operator'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

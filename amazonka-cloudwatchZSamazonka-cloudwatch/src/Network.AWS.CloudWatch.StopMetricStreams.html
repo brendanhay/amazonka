@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.StopMetricStreams</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops the streaming of metrics for one or more of your metric streams.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.StopMetricStreams</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier">StopMetricStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreams"><span class="hs-identifier">newStopMetricStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreams_names"><span class="hs-identifier">stopMetricStreams_names</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier">StopMetricStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreamsResponse"><span class="hs-identifier">newStopMetricStreamsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreamsResponse_httpStatus"><span class="hs-identifier">stopMetricStreamsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.html"><span class="hs-identifier">Network.AWS.CloudWatch.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newStopMetricStreams' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679259103"><span id="local-6989586621679259104"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMetricStreams"><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-var">StopMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMetricStreams%27"><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams%27"><span class="hs-identifier hs-var">StopMetricStreams'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of the names of metric streams to stop streaming.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- This is an \&quot;all or nothing\&quot; operation. If you do not have permission</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- to access all of the metric streams that you list here, then none of the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- streams that you list in the operation will stop streaming.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Anames%3AStopMetricStreams%27"><span class="annot"><span class="annottext">StopMetricStreams -&gt; [Text]
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3Anames%3AStopMetricStreams%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259097"><span id="local-6989586621679259099"><span class="annot"><span class="annottext">StopMetricStreams -&gt; StopMetricStreams -&gt; Bool
+(StopMetricStreams -&gt; StopMetricStreams -&gt; Bool)
+-&gt; (StopMetricStreams -&gt; StopMetricStreams -&gt; Bool)
+-&gt; Eq StopMetricStreams
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopMetricStreams -&gt; StopMetricStreams -&gt; Bool
+$c/= :: StopMetricStreams -&gt; StopMetricStreams -&gt; Bool
+== :: StopMetricStreams -&gt; StopMetricStreams -&gt; Bool
+$c== :: StopMetricStreams -&gt; StopMetricStreams -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259088"><span id="local-6989586621679259090"><span id="local-6989586621679259092"><span id="local-6989586621679259094"><span class="annot"><span class="annottext">ReadPrec [StopMetricStreams]
+ReadPrec StopMetricStreams
+Int -&gt; ReadS StopMetricStreams
+ReadS [StopMetricStreams]
+(Int -&gt; ReadS StopMetricStreams)
+-&gt; ReadS [StopMetricStreams]
+-&gt; ReadPrec StopMetricStreams
+-&gt; ReadPrec [StopMetricStreams]
+-&gt; Read StopMetricStreams
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopMetricStreams]
+$creadListPrec :: ReadPrec [StopMetricStreams]
+readPrec :: ReadPrec StopMetricStreams
+$creadPrec :: ReadPrec StopMetricStreams
+readList :: ReadS [StopMetricStreams]
+$creadList :: ReadS [StopMetricStreams]
+readsPrec :: Int -&gt; ReadS StopMetricStreams
+$creadsPrec :: Int -&gt; ReadS StopMetricStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259081"><span id="local-6989586621679259083"><span id="local-6989586621679259085"><span class="annot"><span class="annottext">Int -&gt; StopMetricStreams -&gt; ShowS
+[StopMetricStreams] -&gt; ShowS
+StopMetricStreams -&gt; String
+(Int -&gt; StopMetricStreams -&gt; ShowS)
+-&gt; (StopMetricStreams -&gt; String)
+-&gt; ([StopMetricStreams] -&gt; ShowS)
+-&gt; Show StopMetricStreams
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopMetricStreams] -&gt; ShowS
+$cshowList :: [StopMetricStreams] -&gt; ShowS
+show :: StopMetricStreams -&gt; String
+$cshow :: StopMetricStreams -&gt; String
+showsPrec :: Int -&gt; StopMetricStreams -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopMetricStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopMetricStreams -&gt; Rep StopMetricStreams x)
+-&gt; (forall x. Rep StopMetricStreams x -&gt; StopMetricStreams)
+-&gt; Generic StopMetricStreams
+forall x. Rep StopMetricStreams x -&gt; StopMetricStreams
+forall x. StopMetricStreams -&gt; Rep StopMetricStreams x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopMetricStreams x -&gt; StopMetricStreams
+$cfrom :: forall x. StopMetricStreams -&gt; Rep StopMetricStreams x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'StopMetricStreams' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'names', 'stopMetricStreams_names' - The array of the names of metric streams to stop streaming.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- This is an \&quot;all or nothing\&quot; operation. If you do not have permission</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- to access all of the metric streams that you list here, then none of the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- streams that you list in the operation will stop streaming.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreams"><span class="hs-identifier hs-type">newStopMetricStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span>
+</span><span id="line-74"></span><span id="newStopMetricStreams"><span class="annot"><span class="annottext">newStopMetricStreams :: StopMetricStreams
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreams"><span class="hs-identifier hs-var hs-var">newStopMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">StopMetricStreams' :: [Text] -&gt; StopMetricStreams
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams%27"><span class="hs-identifier hs-type">StopMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:StopMetricStreams' :: [Text]
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3Anames%3AStopMetricStreams%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The array of the names of metric streams to stop streaming.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- This is an \&quot;all or nothing\&quot; operation. If you do not have permission</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- to access all of the metric streams that you list here, then none of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- streams that you list in the operation will stop streaming.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreams_names"><span class="hs-identifier hs-type">stopMetricStreams_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span id="stopMetricStreams_names"><span class="annot"><span class="annottext">stopMetricStreams_names :: ([Text] -&gt; f [Text]) -&gt; StopMetricStreams -&gt; f StopMetricStreams
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreams_names"><span class="hs-identifier hs-var hs-var">stopMetricStreams_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopMetricStreams -&gt; [Text])
+-&gt; (StopMetricStreams -&gt; [Text] -&gt; StopMetricStreams)
+-&gt; Lens StopMetricStreams StopMetricStreams [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams%27"><span class="hs-identifier hs-type">StopMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259074"><span class="annot"><span class="annottext">[Text]
+names :: [Text]
+$sel:names:StopMetricStreams' :: StopMetricStreams -&gt; [Text]
+</span><a href="#local-6989586621679259074"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259074"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259073"><span class="annot"><span class="annottext">s :: StopMetricStreams
+</span><a href="#local-6989586621679259073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams%27"><span class="hs-identifier hs-type">StopMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259072"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMetricStreams
+</span><a href="#local-6989586621679259073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:StopMetricStreams' :: [Text]
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3Anames%3AStopMetricStreams%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; StopMetricStreams -&gt; f StopMetricStreams)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; StopMetricStreams
+-&gt; f StopMetricStreams
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-type">StopMetricStreamsResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679259066"><span class="annot"><span class="annottext">request :: StopMetricStreams -&gt; Request StopMetricStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopMetricStreams -&gt; Request StopMetricStreams
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679259062"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopMetricStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopMetricStreams)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse StopMetricStreams))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopMetricStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StopMetricStreams)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StopMetricStreamsResult&quot;</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259059"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259059"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259058"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259058"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259057"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679259057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopMetricStreamsResponse
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse%27"><span class="hs-identifier hs-var">StopMetricStreamsResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopMetricStreamsResponse)
+-&gt; Either String Int -&gt; Either String StopMetricStreamsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259059"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259050"><span id="local-6989586621679259052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679259043"><span class="annot"><span class="annottext">toHeaders :: StopMetricStreams -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopMetricStreams -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679259038"><span class="annot"><span class="annottext">toPath :: StopMetricStreams -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopMetricStreams -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams"><span class="hs-identifier hs-type">StopMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679259034"><span class="annot"><span class="annottext">toQuery :: StopMetricStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreams%27"><span class="hs-identifier hs-type">StopMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259032"><span class="annot"><span class="annottext">[Text]
+names :: [Text]
+$sel:names:StopMetricStreams' :: StopMetricStreams -&gt; [Text]
+</span><a href="#local-6989586621679259032"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StopMetricStreams&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259032"><span class="hs-identifier hs-var">names</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newStopMetricStreamsResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679259028"><span id="local-6989586621679259029"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMetricStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-var">StopMetricStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMetricStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse%27"><span class="hs-identifier hs-var">StopMetricStreamsResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopMetricStreamsResponse%27"><span class="annot"><span class="annottext">StopMetricStreamsResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3AhttpStatus%3AStopMetricStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259023"><span id="local-6989586621679259025"><span class="annot"><span class="annottext">StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool
+(StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool)
+-&gt; (StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool)
+-&gt; Eq StopMetricStreamsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool
+$c/= :: StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool
+== :: StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool
+$c== :: StopMetricStreamsResponse -&gt; StopMetricStreamsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259015"><span id="local-6989586621679259017"><span id="local-6989586621679259019"><span id="local-6989586621679259021"><span class="annot"><span class="annottext">ReadPrec [StopMetricStreamsResponse]
+ReadPrec StopMetricStreamsResponse
+Int -&gt; ReadS StopMetricStreamsResponse
+ReadS [StopMetricStreamsResponse]
+(Int -&gt; ReadS StopMetricStreamsResponse)
+-&gt; ReadS [StopMetricStreamsResponse]
+-&gt; ReadPrec StopMetricStreamsResponse
+-&gt; ReadPrec [StopMetricStreamsResponse]
+-&gt; Read StopMetricStreamsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopMetricStreamsResponse]
+$creadListPrec :: ReadPrec [StopMetricStreamsResponse]
+readPrec :: ReadPrec StopMetricStreamsResponse
+$creadPrec :: ReadPrec StopMetricStreamsResponse
+readList :: ReadS [StopMetricStreamsResponse]
+$creadList :: ReadS [StopMetricStreamsResponse]
+readsPrec :: Int -&gt; ReadS StopMetricStreamsResponse
+$creadsPrec :: Int -&gt; ReadS StopMetricStreamsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259009"><span id="local-6989586621679259011"><span id="local-6989586621679259013"><span class="annot"><span class="annottext">Int -&gt; StopMetricStreamsResponse -&gt; ShowS
+[StopMetricStreamsResponse] -&gt; ShowS
+StopMetricStreamsResponse -&gt; String
+(Int -&gt; StopMetricStreamsResponse -&gt; ShowS)
+-&gt; (StopMetricStreamsResponse -&gt; String)
+-&gt; ([StopMetricStreamsResponse] -&gt; ShowS)
+-&gt; Show StopMetricStreamsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopMetricStreamsResponse] -&gt; ShowS
+$cshowList :: [StopMetricStreamsResponse] -&gt; ShowS
+show :: StopMetricStreamsResponse -&gt; String
+$cshow :: StopMetricStreamsResponse -&gt; String
+showsPrec :: Int -&gt; StopMetricStreamsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopMetricStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StopMetricStreamsResponse -&gt; Rep StopMetricStreamsResponse x)
+-&gt; (forall x.
+    Rep StopMetricStreamsResponse x -&gt; StopMetricStreamsResponse)
+-&gt; Generic StopMetricStreamsResponse
+forall x.
+Rep StopMetricStreamsResponse x -&gt; StopMetricStreamsResponse
+forall x.
+StopMetricStreamsResponse -&gt; Rep StopMetricStreamsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StopMetricStreamsResponse x -&gt; StopMetricStreamsResponse
+$cfrom :: forall x.
+StopMetricStreamsResponse -&gt; Rep StopMetricStreamsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'StopMetricStreamsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'httpStatus', 'stopMetricStreamsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreamsResponse"><span class="hs-identifier hs-type">newStopMetricStreamsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-type">StopMetricStreamsResponse</span></a></span><span>
+</span><span id="line-138"></span><span id="newStopMetricStreamsResponse"><span class="annot"><span class="annottext">newStopMetricStreamsResponse :: Int -&gt; StopMetricStreamsResponse
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#newStopMetricStreamsResponse"><span class="hs-identifier hs-var hs-var">newStopMetricStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679259006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">StopMetricStreamsResponse' :: Int -&gt; StopMetricStreamsResponse
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse%27"><span class="hs-identifier hs-type">StopMetricStreamsResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopMetricStreamsResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3AhttpStatus%3AStopMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreamsResponse_httpStatus"><span class="hs-identifier hs-type">stopMetricStreamsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-type">StopMetricStreamsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span id="stopMetricStreamsResponse_httpStatus"><span class="annot"><span class="annottext">stopMetricStreamsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StopMetricStreamsResponse -&gt; f StopMetricStreamsResponse
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#stopMetricStreamsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopMetricStreamsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopMetricStreamsResponse -&gt; Int)
+-&gt; (StopMetricStreamsResponse -&gt; Int -&gt; StopMetricStreamsResponse)
+-&gt; Lens StopMetricStreamsResponse StopMetricStreamsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse%27"><span class="hs-identifier hs-type">StopMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259005"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopMetricStreamsResponse' :: StopMetricStreamsResponse -&gt; Int
+</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259004"><span class="annot"><span class="annottext">s :: StopMetricStreamsResponse
+</span><a href="#local-6989586621679259004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse%27"><span class="hs-identifier hs-type">StopMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMetricStreamsResponse
+</span><a href="#local-6989586621679259004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMetricStreamsResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.StopMetricStreams.html#%24sel%3AhttpStatus%3AStopMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-type">StopMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StopMetricStreams.html#StopMetricStreamsResponse"><span class="hs-identifier hs-type">StopMetricStreamsResponse</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

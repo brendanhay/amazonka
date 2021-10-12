@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.MultipartUpload</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.MultipartUpload</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html"><span class="hs-identifier">Network.AWS.S3.Types.Initiator</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html"><span class="hs-identifier">Network.AWS.S3.Types.Owner</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html"><span class="hs-identifier">Network.AWS.S3.Types.StorageClass</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Container for the @MultipartUpload@ for the Amazon S3 object.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newMultipartUpload' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679553760"><span id="local-6989586621679553761"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultipartUpload"><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-var">MultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultipartUpload%27"><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-var">MultipartUpload'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Akey%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Akey%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuploadId%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AuploadId%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstorageClass%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AstorageClass%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html#StorageClass"><span class="hs-identifier hs-type">StorageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Date and time at which the multipart upload was initiated.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Ainitiated%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe ISO8601
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiated%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">initiated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies the owner of the object that is part of the multipart upload.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aowner%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe Owner
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Aowner%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Identifies who initiated the multipart upload.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Ainitiator%3AMultipartUpload%27"><span class="annot"><span class="annottext">MultipartUpload -&gt; Maybe Initiator
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiator%3AMultipartUpload%27"><span class="hs-identifier hs-var hs-var">initiator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553749"><span id="local-6989586621679553751"><span class="annot"><span class="annottext">MultipartUpload -&gt; MultipartUpload -&gt; Bool
+(MultipartUpload -&gt; MultipartUpload -&gt; Bool)
+-&gt; (MultipartUpload -&gt; MultipartUpload -&gt; Bool)
+-&gt; Eq MultipartUpload
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MultipartUpload -&gt; MultipartUpload -&gt; Bool
+$c/= :: MultipartUpload -&gt; MultipartUpload -&gt; Bool
+== :: MultipartUpload -&gt; MultipartUpload -&gt; Bool
+$c== :: MultipartUpload -&gt; MultipartUpload -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553740"><span id="local-6989586621679553742"><span id="local-6989586621679553744"><span id="local-6989586621679553746"><span class="annot"><span class="annottext">ReadPrec [MultipartUpload]
+ReadPrec MultipartUpload
+Int -&gt; ReadS MultipartUpload
+ReadS [MultipartUpload]
+(Int -&gt; ReadS MultipartUpload)
+-&gt; ReadS [MultipartUpload]
+-&gt; ReadPrec MultipartUpload
+-&gt; ReadPrec [MultipartUpload]
+-&gt; Read MultipartUpload
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MultipartUpload]
+$creadListPrec :: ReadPrec [MultipartUpload]
+readPrec :: ReadPrec MultipartUpload
+$creadPrec :: ReadPrec MultipartUpload
+readList :: ReadS [MultipartUpload]
+$creadList :: ReadS [MultipartUpload]
+readsPrec :: Int -&gt; ReadS MultipartUpload
+$creadsPrec :: Int -&gt; ReadS MultipartUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553733"><span id="local-6989586621679553735"><span id="local-6989586621679553737"><span class="annot"><span class="annottext">Int -&gt; MultipartUpload -&gt; ShowS
+[MultipartUpload] -&gt; ShowS
+MultipartUpload -&gt; String
+(Int -&gt; MultipartUpload -&gt; ShowS)
+-&gt; (MultipartUpload -&gt; String)
+-&gt; ([MultipartUpload] -&gt; ShowS)
+-&gt; Show MultipartUpload
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MultipartUpload] -&gt; ShowS
+$cshowList :: [MultipartUpload] -&gt; ShowS
+show :: MultipartUpload -&gt; String
+$cshow :: MultipartUpload -&gt; String
+showsPrec :: Int -&gt; MultipartUpload -&gt; ShowS
+$cshowsPrec :: Int -&gt; MultipartUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MultipartUpload -&gt; Rep MultipartUpload x)
+-&gt; (forall x. Rep MultipartUpload x -&gt; MultipartUpload)
+-&gt; Generic MultipartUpload
+forall x. Rep MultipartUpload x -&gt; MultipartUpload
+forall x. MultipartUpload -&gt; Rep MultipartUpload x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MultipartUpload x -&gt; MultipartUpload
+$cfrom :: forall x. MultipartUpload -&gt; Rep MultipartUpload x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'MultipartUpload' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'key', 'multipartUpload_key' - Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'uploadId', 'multipartUpload_uploadId' - Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'storageClass', 'multipartUpload_storageClass' - The class of storage used to store the object.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'initiated', 'multipartUpload_initiated' - Date and time at which the multipart upload was initiated.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'owner', 'multipartUpload_owner' - Specifies the owner of the object that is part of the multipart upload.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'initiator', 'multipartUpload_initiator' - Identifies who initiated the multipart upload.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#newMultipartUpload"><span class="hs-identifier hs-type">newMultipartUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span>
+</span><span id="line-70"></span><span id="newMultipartUpload"><span class="annot"><span class="annottext">newMultipartUpload :: MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#newMultipartUpload"><span class="hs-identifier hs-var hs-var">newMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">MultipartUpload' :: Maybe ObjectKey
+-&gt; Maybe Text
+-&gt; Maybe StorageClass
+-&gt; Maybe ISO8601
+-&gt; Maybe Owner
+-&gt; Maybe Initiator
+-&gt; MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:MultipartUpload' :: Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Akey%3AMultipartUpload%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:MultipartUpload' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AuploadId%3AMultipartUpload%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageClass:MultipartUpload' :: Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AstorageClass%3AMultipartUpload%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:initiated:MultipartUpload' :: Maybe ISO8601
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiated%3AMultipartUpload%27"><span class="hs-identifier hs-var">initiated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:MultipartUpload' :: Maybe Owner
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Aowner%3AMultipartUpload%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:initiator:MultipartUpload' :: Maybe Initiator
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiator%3AMultipartUpload%27"><span class="hs-identifier hs-var">initiator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Key of the object for which the multipart upload was initiated.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_key"><span class="hs-identifier hs-type">multipartUpload_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="multipartUpload_key"><span class="annot"><span class="annottext">multipartUpload_key :: (Maybe ObjectKey -&gt; f (Maybe ObjectKey))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_key"><span class="hs-identifier hs-var hs-var">multipartUpload_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe ObjectKey)
+-&gt; (MultipartUpload -&gt; Maybe ObjectKey -&gt; MultipartUpload)
+-&gt; Lens
+     MultipartUpload MultipartUpload (Maybe ObjectKey) (Maybe ObjectKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553724"><span class="annot"><span class="annottext">Maybe ObjectKey
+key :: Maybe ObjectKey
+$sel:key:MultipartUpload' :: MultipartUpload -&gt; Maybe ObjectKey
+</span><a href="#local-6989586621679553724"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679553724"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553723"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553722"><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679553722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:MultipartUpload' :: Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Akey%3AMultipartUpload%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679553722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Upload ID that identifies the multipart upload.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_uploadId"><span class="hs-identifier hs-type">multipartUpload_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="multipartUpload_uploadId"><span class="annot"><span class="annottext">multipartUpload_uploadId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_uploadId"><span class="hs-identifier hs-var hs-var">multipartUpload_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe Text)
+-&gt; (MultipartUpload -&gt; Maybe Text -&gt; MultipartUpload)
+-&gt; Lens MultipartUpload MultipartUpload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553720"><span class="annot"><span class="annottext">Maybe Text
+uploadId :: Maybe Text
+$sel:uploadId:MultipartUpload' :: MultipartUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679553720"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553720"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553719"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:MultipartUpload' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AuploadId%3AMultipartUpload%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_storageClass"><span class="hs-identifier hs-type">multipartUpload_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html#StorageClass"><span class="hs-identifier hs-type">StorageClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="multipartUpload_storageClass"><span class="annot"><span class="annottext">multipartUpload_storageClass :: (Maybe StorageClass -&gt; f (Maybe StorageClass))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_storageClass"><span class="hs-identifier hs-var hs-var">multipartUpload_storageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe StorageClass)
+-&gt; (MultipartUpload -&gt; Maybe StorageClass -&gt; MultipartUpload)
+-&gt; Lens
+     MultipartUpload
+     MultipartUpload
+     (Maybe StorageClass)
+     (Maybe StorageClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553716"><span class="annot"><span class="annottext">Maybe StorageClass
+storageClass :: Maybe StorageClass
+$sel:storageClass:MultipartUpload' :: MultipartUpload -&gt; Maybe StorageClass
+</span><a href="#local-6989586621679553716"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553716"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553715"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553714"><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:MultipartUpload' :: Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3AstorageClass%3AMultipartUpload%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Date and time at which the multipart upload was initiated.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_initiated"><span class="hs-identifier hs-type">multipartUpload_initiated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="multipartUpload_initiated"><span class="annot"><span class="annottext">multipartUpload_initiated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_initiated"><span class="hs-identifier hs-var hs-var">multipartUpload_initiated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe ISO8601)
+-&gt; (MultipartUpload -&gt; Maybe ISO8601 -&gt; MultipartUpload)
+-&gt; Lens
+     MultipartUpload MultipartUpload (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553712"><span class="annot"><span class="annottext">Maybe ISO8601
+initiated :: Maybe ISO8601
+$sel:initiated:MultipartUpload' :: MultipartUpload -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679553712"><span class="hs-identifier hs-var hs-var">initiated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679553712"><span class="hs-identifier hs-var">initiated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553711"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553710"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679553710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiated:MultipartUpload' :: Maybe ISO8601
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiated%3AMultipartUpload%27"><span class="hs-identifier hs-var">initiated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679553710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; MultipartUpload -&gt; f MultipartUpload)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MultipartUpload
+-&gt; f MultipartUpload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Specifies the owner of the object that is part of the multipart upload.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_owner"><span class="hs-identifier hs-type">multipartUpload_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="multipartUpload_owner"><span class="annot"><span class="annottext">multipartUpload_owner :: (Maybe Owner -&gt; f (Maybe Owner))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_owner"><span class="hs-identifier hs-var hs-var">multipartUpload_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe Owner)
+-&gt; (MultipartUpload -&gt; Maybe Owner -&gt; MultipartUpload)
+-&gt; Lens MultipartUpload MultipartUpload (Maybe Owner) (Maybe Owner)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553705"><span class="annot"><span class="annottext">Maybe Owner
+owner :: Maybe Owner
+$sel:owner:MultipartUpload' :: MultipartUpload -&gt; Maybe Owner
+</span><a href="#local-6989586621679553705"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679553705"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553704"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553703"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679553703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:MultipartUpload' :: Maybe Owner
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Aowner%3AMultipartUpload%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679553703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Identifies who initiated the multipart upload.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_initiator"><span class="hs-identifier hs-type">multipartUpload_initiator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Initiator.html#Initiator"><span class="hs-identifier hs-type">Initiator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="multipartUpload_initiator"><span class="annot"><span class="annottext">multipartUpload_initiator :: (Maybe Initiator -&gt; f (Maybe Initiator))
+-&gt; MultipartUpload -&gt; f MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#multipartUpload_initiator"><span class="hs-identifier hs-var hs-var">multipartUpload_initiator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultipartUpload -&gt; Maybe Initiator)
+-&gt; (MultipartUpload -&gt; Maybe Initiator -&gt; MultipartUpload)
+-&gt; Lens
+     MultipartUpload MultipartUpload (Maybe Initiator) (Maybe Initiator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553701"><span class="annot"><span class="annottext">Maybe Initiator
+initiator :: Maybe Initiator
+$sel:initiator:MultipartUpload' :: MultipartUpload -&gt; Maybe Initiator
+</span><a href="#local-6989586621679553701"><span class="hs-identifier hs-var hs-var">initiator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
+</span><a href="#local-6989586621679553701"><span class="hs-identifier hs-var">initiator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553700"><span class="annot"><span class="annottext">s :: MultipartUpload
+</span><a href="#local-6989586621679553700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-type">MultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553699"><span class="annot"><span class="annottext">Maybe Initiator
+</span><a href="#local-6989586621679553699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultipartUpload
+</span><a href="#local-6989586621679553700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiator:MultipartUpload' :: Maybe Initiator
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#%24sel%3Ainitiator%3AMultipartUpload%27"><span class="hs-identifier hs-var">initiator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Initiator
+</span><a href="#local-6989586621679553699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679553696"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MultipartUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553694"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">Maybe ObjectKey
+-&gt; Maybe Text
+-&gt; Maybe StorageClass
+-&gt; Maybe ISO8601
+-&gt; Maybe Owner
+-&gt; Maybe Initiator
+-&gt; MultipartUpload
+</span><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload%27"><span class="hs-identifier hs-var">MultipartUpload'</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ObjectKey
+ -&gt; Maybe Text
+ -&gt; Maybe StorageClass
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Owner
+ -&gt; Maybe Initiator
+ -&gt; MultipartUpload)
+-&gt; Either String (Maybe ObjectKey)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe StorageClass
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Owner
+      -&gt; Maybe Initiator
+      -&gt; MultipartUpload)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectKey)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe StorageClass
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Owner
+   -&gt; Maybe Initiator
+   -&gt; MultipartUpload)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StorageClass
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Owner
+      -&gt; Maybe Initiator
+      -&gt; MultipartUpload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UploadId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StorageClass
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Owner
+   -&gt; Maybe Initiator
+   -&gt; MultipartUpload)
+-&gt; Either String (Maybe StorageClass)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Owner -&gt; Maybe Initiator -&gt; MultipartUpload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StorageClass)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Owner -&gt; Maybe Initiator -&gt; MultipartUpload)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String (Maybe Owner -&gt; Maybe Initiator -&gt; MultipartUpload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Initiated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Owner -&gt; Maybe Initiator -&gt; MultipartUpload)
+-&gt; Either String (Maybe Owner)
+-&gt; Either String (Maybe Initiator -&gt; MultipartUpload)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Initiator -&gt; MultipartUpload)
+-&gt; Either String (Maybe Initiator) -&gt; Either String MultipartUpload
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Initiator)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Initiator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553688"><span id="local-6989586621679553690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.MultipartUpload.html#MultipartUpload"><span class="hs-identifier hs-type">MultipartUpload</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

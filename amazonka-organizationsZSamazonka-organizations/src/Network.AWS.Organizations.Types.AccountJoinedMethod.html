@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Organizations.Types.AccountJoinedMethod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Organizations.Types.AccountJoinedMethod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod"><span class="hs-identifier">AccountJoinedMethod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_CREATED"><span class="hs-identifier">AccountJoinedMethod_CREATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_INVITED"><span class="hs-identifier">AccountJoinedMethod_INVITED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679235012"><span id="local-6989586621679235013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountJoinedMethod"><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod"><span class="hs-identifier hs-var">AccountJoinedMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountJoinedMethod%27"><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod%27"><span class="hs-identifier hs-var">AccountJoinedMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountJoinedMethod"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; Text
+</span><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#fromAccountJoinedMethod"><span class="hs-identifier hs-var hs-var">fromAccountJoinedMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235004"><span id="local-6989586621679235006"><span id="local-6989586621679235008"><span class="annot"><span class="annottext">Int -&gt; AccountJoinedMethod -&gt; ShowS
+[AccountJoinedMethod] -&gt; ShowS
+AccountJoinedMethod -&gt; String
+(Int -&gt; AccountJoinedMethod -&gt; ShowS)
+-&gt; (AccountJoinedMethod -&gt; String)
+-&gt; ([AccountJoinedMethod] -&gt; ShowS)
+-&gt; Show AccountJoinedMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccountJoinedMethod] -&gt; ShowS
+$cshowList :: [AccountJoinedMethod] -&gt; ShowS
+show :: AccountJoinedMethod -&gt; String
+$cshow :: AccountJoinedMethod -&gt; String
+showsPrec :: Int -&gt; AccountJoinedMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccountJoinedMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679234995"><span id="local-6989586621679234997"><span id="local-6989586621679234999"><span id="local-6989586621679235001"><span class="annot"><span class="annottext">ReadPrec [AccountJoinedMethod]
+ReadPrec AccountJoinedMethod
+Int -&gt; ReadS AccountJoinedMethod
+ReadS [AccountJoinedMethod]
+(Int -&gt; ReadS AccountJoinedMethod)
+-&gt; ReadS [AccountJoinedMethod]
+-&gt; ReadPrec AccountJoinedMethod
+-&gt; ReadPrec [AccountJoinedMethod]
+-&gt; Read AccountJoinedMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccountJoinedMethod]
+$creadListPrec :: ReadPrec [AccountJoinedMethod]
+readPrec :: ReadPrec AccountJoinedMethod
+$creadPrec :: ReadPrec AccountJoinedMethod
+readList :: ReadS [AccountJoinedMethod]
+$creadList :: ReadS [AccountJoinedMethod]
+readsPrec :: Int -&gt; ReadS AccountJoinedMethod
+$creadsPrec :: Int -&gt; ReadS AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679234990"><span id="local-6989586621679234992"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+(AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; Eq AccountJoinedMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c/= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+== :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c== :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679234974"><span id="local-6989586621679234976"><span id="local-6989586621679234978"><span id="local-6989586621679234980"><span id="local-6989586621679234982"><span id="local-6989586621679234984"><span id="local-6989586621679234986"><span class="annot"><span class="annottext">Eq AccountJoinedMethod
+Eq AccountJoinedMethod
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Ordering)
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; (AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool)
+-&gt; (AccountJoinedMethod
+    -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod)
+-&gt; (AccountJoinedMethod
+    -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod)
+-&gt; Ord AccountJoinedMethod
+AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Ordering
+AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod
+$cmin :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod
+max :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod
+$cmax :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; AccountJoinedMethod
+&gt;= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c&gt;= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+&gt; :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c&gt; :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+&lt;= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c&lt;= :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+&lt; :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+$c&lt; :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Bool
+compare :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Ordering
+$ccompare :: AccountJoinedMethod -&gt; AccountJoinedMethod -&gt; Ordering
+$cp1Ord :: Eq AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccountJoinedMethod -&gt; Rep AccountJoinedMethod x)
+-&gt; (forall x. Rep AccountJoinedMethod x -&gt; AccountJoinedMethod)
+-&gt; Generic AccountJoinedMethod
+forall x. Rep AccountJoinedMethod x -&gt; AccountJoinedMethod
+forall x. AccountJoinedMethod -&gt; Rep AccountJoinedMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccountJoinedMethod x -&gt; AccountJoinedMethod
+$cfrom :: forall x. AccountJoinedMethod -&gt; Rep AccountJoinedMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234966"><span id="local-6989586621679234968"><span class="annot"><span class="annottext">Int -&gt; AccountJoinedMethod -&gt; Int
+AccountJoinedMethod -&gt; Int
+(Int -&gt; AccountJoinedMethod -&gt; Int)
+-&gt; (AccountJoinedMethod -&gt; Int) -&gt; Hashable AccountJoinedMethod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccountJoinedMethod -&gt; Int
+$chash :: AccountJoinedMethod -&gt; Int
+hashWithSalt :: Int -&gt; AccountJoinedMethod -&gt; Int
+$chashWithSalt :: Int -&gt; AccountJoinedMethod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679234963"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; ()
+(AccountJoinedMethod -&gt; ()) -&gt; NFData AccountJoinedMethod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccountJoinedMethod -&gt; ()
+$crnf :: AccountJoinedMethod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679234960"><span class="annot"><span class="annottext">Text -&gt; Either String AccountJoinedMethod
+(Text -&gt; Either String AccountJoinedMethod)
+-&gt; FromText AccountJoinedMethod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccountJoinedMethod
+$cfromText :: Text -&gt; Either String AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679234957"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; Text
+(AccountJoinedMethod -&gt; Text) -&gt; ToText AccountJoinedMethod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccountJoinedMethod -&gt; Text
+$ctoText :: AccountJoinedMethod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679234954"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; ByteString
+(AccountJoinedMethod -&gt; ByteString)
+-&gt; ToByteString AccountJoinedMethod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccountJoinedMethod -&gt; ByteString
+$ctoBS :: AccountJoinedMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679234951"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; ByteStringBuilder
+(AccountJoinedMethod -&gt; ByteStringBuilder)
+-&gt; ToLog AccountJoinedMethod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccountJoinedMethod -&gt; ByteStringBuilder
+$cbuild :: AccountJoinedMethod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679234948"><span class="annot"><span class="annottext">HeaderName -&gt; AccountJoinedMethod -&gt; [Header]
+(HeaderName -&gt; AccountJoinedMethod -&gt; [Header])
+-&gt; ToHeader AccountJoinedMethod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccountJoinedMethod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccountJoinedMethod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234945"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; QueryString
+(AccountJoinedMethod -&gt; QueryString) -&gt; ToQuery AccountJoinedMethod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccountJoinedMethod -&gt; QueryString
+$ctoQuery :: AccountJoinedMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234940"><span id="local-6989586621679234942"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountJoinedMethod]
+Value -&gt; Parser AccountJoinedMethod
+(Value -&gt; Parser AccountJoinedMethod)
+-&gt; (Value -&gt; Parser [AccountJoinedMethod])
+-&gt; FromJSON AccountJoinedMethod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccountJoinedMethod]
+$cparseJSONList :: Value -&gt; Parser [AccountJoinedMethod]
+parseJSON :: Value -&gt; Parser AccountJoinedMethod
+$cparseJSON :: Value -&gt; Parser AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234935"><span id="local-6989586621679234937"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountJoinedMethod]
+FromJSONKeyFunction AccountJoinedMethod
+FromJSONKeyFunction AccountJoinedMethod
+-&gt; FromJSONKeyFunction [AccountJoinedMethod]
+-&gt; FromJSONKey AccountJoinedMethod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccountJoinedMethod]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccountJoinedMethod]
+fromJSONKey :: FromJSONKeyFunction AccountJoinedMethod
+$cfromJSONKey :: FromJSONKeyFunction AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234926"><span id="local-6989586621679234928"><span id="local-6989586621679234930"><span id="local-6989586621679234932"><span class="annot"><span class="annottext">[AccountJoinedMethod] -&gt; Encoding
+[AccountJoinedMethod] -&gt; Value
+AccountJoinedMethod -&gt; Encoding
+AccountJoinedMethod -&gt; Value
+(AccountJoinedMethod -&gt; Value)
+-&gt; (AccountJoinedMethod -&gt; Encoding)
+-&gt; ([AccountJoinedMethod] -&gt; Value)
+-&gt; ([AccountJoinedMethod] -&gt; Encoding)
+-&gt; ToJSON AccountJoinedMethod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccountJoinedMethod] -&gt; Encoding
+$ctoEncodingList :: [AccountJoinedMethod] -&gt; Encoding
+toJSONList :: [AccountJoinedMethod] -&gt; Value
+$ctoJSONList :: [AccountJoinedMethod] -&gt; Value
+toEncoding :: AccountJoinedMethod -&gt; Encoding
+$ctoEncoding :: AccountJoinedMethod -&gt; Encoding
+toJSON :: AccountJoinedMethod -&gt; Value
+$ctoJSON :: AccountJoinedMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234921"><span id="local-6989586621679234923"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountJoinedMethod]
+ToJSONKeyFunction AccountJoinedMethod
+ToJSONKeyFunction AccountJoinedMethod
+-&gt; ToJSONKeyFunction [AccountJoinedMethod]
+-&gt; ToJSONKey AccountJoinedMethod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccountJoinedMethod]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccountJoinedMethod]
+toJSONKey :: ToJSONKeyFunction AccountJoinedMethod
+$ctoJSONKey :: ToJSONKeyFunction AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234918"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountJoinedMethod
+([Node] -&gt; Either String AccountJoinedMethod)
+-&gt; FromXML AccountJoinedMethod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccountJoinedMethod
+$cparseXML :: [Node] -&gt; Either String AccountJoinedMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234915"><span class="annot"><span class="annottext">AccountJoinedMethod -&gt; XML
+(AccountJoinedMethod -&gt; XML) -&gt; ToXML AccountJoinedMethod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccountJoinedMethod -&gt; XML
+$ctoXML :: AccountJoinedMethod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_CREATED"><span class="hs-identifier hs-type">AccountJoinedMethod_CREATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod"><span class="hs-identifier hs-type">AccountJoinedMethod</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountJoinedMethod_CREATED"><span id="%24mAccountJoinedMethod_CREATED"><span id="AccountJoinedMethod_CREATED"><span class="annot"><span class="annottext">$bAccountJoinedMethod_CREATED :: AccountJoinedMethod
+$mAccountJoinedMethod_CREATED :: forall r. AccountJoinedMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#%24bAccountJoinedMethod_CREATED"><span class="hs-identifier hs-var hs-var hs-var">AccountJoinedMethod_CREATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod%27"><span class="hs-identifier hs-type">AccountJoinedMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_INVITED"><span class="hs-identifier hs-type">AccountJoinedMethod_INVITED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod"><span class="hs-identifier hs-type">AccountJoinedMethod</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountJoinedMethod_INVITED"><span id="%24mAccountJoinedMethod_INVITED"><span id="AccountJoinedMethod_INVITED"><span class="annot"><span class="annottext">$bAccountJoinedMethod_INVITED :: AccountJoinedMethod
+$mAccountJoinedMethod_INVITED :: forall r. AccountJoinedMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#%24bAccountJoinedMethod_INVITED"><span class="hs-identifier hs-var hs-var hs-var">AccountJoinedMethod_INVITED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod%27"><span class="hs-identifier hs-type">AccountJoinedMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INVITED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_CREATED"><span class="hs-pragma hs-type">AccountJoinedMethod_CREATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod_INVITED"><span class="hs-pragma hs-type">AccountJoinedMethod_INVITED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod%27"><span class="hs-pragma hs-type">AccountJoinedMethod'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

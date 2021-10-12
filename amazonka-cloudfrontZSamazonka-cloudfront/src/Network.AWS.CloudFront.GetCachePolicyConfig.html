@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.GetCachePolicyConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a cache policy configuration.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- To get a cache policy configuration, you must provide the policy&#8217;s</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- identifier. If the cache policy is attached to a distribution&#8217;s cache</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- behavior, you can get the policy&#8217;s identifier using @ListDistributions@</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- or @GetDistribution@. If the cache policy is not attached to a cache</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- behavior, you can get the identifier using @ListCachePolicies@.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.GetCachePolicyConfig</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfig"><span class="hs-identifier">newGetCachePolicyConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfig_id"><span class="hs-identifier">getCachePolicyConfig_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier">GetCachePolicyConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfigResponse"><span class="hs-identifier">newGetCachePolicyConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_eTag"><span class="hs-identifier">getCachePolicyConfigResponse_eTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_cachePolicyConfig"><span class="hs-identifier">getCachePolicyConfigResponse_cachePolicyConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_httpStatus"><span class="hs-identifier">getCachePolicyConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetCachePolicyConfig' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679416934"><span id="local-6989586621679416935"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCachePolicyConfig"><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-var">GetCachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCachePolicyConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig%27"><span class="hs-identifier hs-var">GetCachePolicyConfig'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the cache policy. If the cache policy is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- attached to a distribution&#8217;s cache behavior, you can get the policy&#8217;s</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- identifier using @ListDistributions@ or @GetDistribution@. If the cache</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- policy is not attached to a cache behavior, you can get the identifier</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- using @ListCachePolicies@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aid%3AGetCachePolicyConfig%27"><span class="annot"><span class="annottext">GetCachePolicyConfig -&gt; Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3Aid%3AGetCachePolicyConfig%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416928"><span id="local-6989586621679416930"><span class="annot"><span class="annottext">GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool
+(GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool)
+-&gt; (GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool)
+-&gt; Eq GetCachePolicyConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool
+$c/= :: GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool
+== :: GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool
+$c== :: GetCachePolicyConfig -&gt; GetCachePolicyConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416919"><span id="local-6989586621679416921"><span id="local-6989586621679416923"><span id="local-6989586621679416925"><span class="annot"><span class="annottext">ReadPrec [GetCachePolicyConfig]
+ReadPrec GetCachePolicyConfig
+Int -&gt; ReadS GetCachePolicyConfig
+ReadS [GetCachePolicyConfig]
+(Int -&gt; ReadS GetCachePolicyConfig)
+-&gt; ReadS [GetCachePolicyConfig]
+-&gt; ReadPrec GetCachePolicyConfig
+-&gt; ReadPrec [GetCachePolicyConfig]
+-&gt; Read GetCachePolicyConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCachePolicyConfig]
+$creadListPrec :: ReadPrec [GetCachePolicyConfig]
+readPrec :: ReadPrec GetCachePolicyConfig
+$creadPrec :: ReadPrec GetCachePolicyConfig
+readList :: ReadS [GetCachePolicyConfig]
+$creadList :: ReadS [GetCachePolicyConfig]
+readsPrec :: Int -&gt; ReadS GetCachePolicyConfig
+$creadsPrec :: Int -&gt; ReadS GetCachePolicyConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416912"><span id="local-6989586621679416914"><span id="local-6989586621679416916"><span class="annot"><span class="annottext">Int -&gt; GetCachePolicyConfig -&gt; ShowS
+[GetCachePolicyConfig] -&gt; ShowS
+GetCachePolicyConfig -&gt; String
+(Int -&gt; GetCachePolicyConfig -&gt; ShowS)
+-&gt; (GetCachePolicyConfig -&gt; String)
+-&gt; ([GetCachePolicyConfig] -&gt; ShowS)
+-&gt; Show GetCachePolicyConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCachePolicyConfig] -&gt; ShowS
+$cshowList :: [GetCachePolicyConfig] -&gt; ShowS
+show :: GetCachePolicyConfig -&gt; String
+$cshow :: GetCachePolicyConfig -&gt; String
+showsPrec :: Int -&gt; GetCachePolicyConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCachePolicyConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCachePolicyConfig -&gt; Rep GetCachePolicyConfig x)
+-&gt; (forall x. Rep GetCachePolicyConfig x -&gt; GetCachePolicyConfig)
+-&gt; Generic GetCachePolicyConfig
+forall x. Rep GetCachePolicyConfig x -&gt; GetCachePolicyConfig
+forall x. GetCachePolicyConfig -&gt; Rep GetCachePolicyConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCachePolicyConfig x -&gt; GetCachePolicyConfig
+$cfrom :: forall x. GetCachePolicyConfig -&gt; Rep GetCachePolicyConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'GetCachePolicyConfig' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'getCachePolicyConfig_id' - The unique identifier for the cache policy. If the cache policy is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- attached to a distribution&#8217;s cache behavior, you can get the policy&#8217;s</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- identifier using @ListDistributions@ or @GetDistribution@. If the cache</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- policy is not attached to a cache behavior, you can get the identifier</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- using @ListCachePolicies@.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfig"><span class="hs-identifier hs-type">newGetCachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetCachePolicyConfig"><span class="annot"><span class="annottext">newGetCachePolicyConfig :: Text -&gt; GetCachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfig"><span class="hs-identifier hs-var hs-var">newGetCachePolicyConfig</span></a></span></span><span> </span><span id="local-6989586621679416907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416907"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetCachePolicyConfig' :: Text -&gt; GetCachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig%27"><span class="hs-identifier hs-type">GetCachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCachePolicyConfig' :: Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3Aid%3AGetCachePolicyConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416907"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The unique identifier for the cache policy. If the cache policy is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- attached to a distribution&#8217;s cache behavior, you can get the policy&#8217;s</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- identifier using @ListDistributions@ or @GetDistribution@. If the cache</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- policy is not attached to a cache behavior, you can get the identifier</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- using @ListCachePolicies@.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfig_id"><span class="hs-identifier hs-type">getCachePolicyConfig_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="getCachePolicyConfig_id"><span class="annot"><span class="annottext">getCachePolicyConfig_id :: (Text -&gt; f Text) -&gt; GetCachePolicyConfig -&gt; f GetCachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfig_id"><span class="hs-identifier hs-var hs-var">getCachePolicyConfig_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCachePolicyConfig -&gt; Text)
+-&gt; (GetCachePolicyConfig -&gt; Text -&gt; GetCachePolicyConfig)
+-&gt; Lens GetCachePolicyConfig GetCachePolicyConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig%27"><span class="hs-identifier hs-type">GetCachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416904"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetCachePolicyConfig' :: GetCachePolicyConfig -&gt; Text
+</span><a href="#local-6989586621679416904"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416904"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416903"><span class="annot"><span class="annottext">s :: GetCachePolicyConfig
+</span><a href="#local-6989586621679416903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig%27"><span class="hs-identifier hs-type">GetCachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCachePolicyConfig
+</span><a href="#local-6989586621679416903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCachePolicyConfig' :: Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3Aid%3AGetCachePolicyConfig%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679416898"><span class="annot"><span class="annottext">request :: GetCachePolicyConfig -&gt; Request GetCachePolicyConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCachePolicyConfig -&gt; Request GetCachePolicyConfig
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679416894"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCachePolicyConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCachePolicyConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetCachePolicyConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCachePolicyConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCachePolicyConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416891"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416890"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416890"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416889"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe CachePolicyConfig -&gt; Int -&gt; GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">GetCachePolicyConfigResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe CachePolicyConfig -&gt; Int -&gt; GetCachePolicyConfigResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe CachePolicyConfig -&gt; Int -&gt; GetCachePolicyConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416890"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CachePolicyConfig -&gt; Int -&gt; GetCachePolicyConfigResponse)
+-&gt; Either String (Maybe CachePolicyConfig)
+-&gt; Either String (Int -&gt; GetCachePolicyConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe CachePolicyConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416889"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCachePolicyConfigResponse)
+-&gt; Either String Int -&gt; Either String GetCachePolicyConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416891"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416880"><span id="local-6989586621679416882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679416873"><span class="annot"><span class="annottext">toHeaders :: GetCachePolicyConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCachePolicyConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679416868"><span class="annot"><span class="annottext">toPath :: GetCachePolicyConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig%27"><span class="hs-identifier hs-type">GetCachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416866"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetCachePolicyConfig' :: GetCachePolicyConfig -&gt; Text
+</span><a href="#local-6989586621679416866"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/cache-policy/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416866"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfig"><span class="hs-identifier hs-type">GetCachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679416862"><span class="annot"><span class="annottext">toQuery :: GetCachePolicyConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCachePolicyConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newGetCachePolicyConfigResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679416859"><span id="local-6989586621679416860"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCachePolicyConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-var">GetCachePolicyConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCachePolicyConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">GetCachePolicyConfigResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the cache policy.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AeTag%3AGetCachePolicyConfigResponse%27"><span class="annot"><span class="annottext">GetCachePolicyConfigResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AeTag%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The cache policy configuration.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AcachePolicyConfig%3AGetCachePolicyConfigResponse%27"><span class="annot"><span class="annottext">GetCachePolicyConfigResponse -&gt; Maybe CachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AcachePolicyConfig%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var hs-var">cachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCachePolicyConfigResponse%27"><span class="annot"><span class="annottext">GetCachePolicyConfigResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AhttpStatus%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416852"><span id="local-6989586621679416854"><span class="annot"><span class="annottext">GetCachePolicyConfigResponse
+-&gt; GetCachePolicyConfigResponse -&gt; Bool
+(GetCachePolicyConfigResponse
+ -&gt; GetCachePolicyConfigResponse -&gt; Bool)
+-&gt; (GetCachePolicyConfigResponse
+    -&gt; GetCachePolicyConfigResponse -&gt; Bool)
+-&gt; Eq GetCachePolicyConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCachePolicyConfigResponse
+-&gt; GetCachePolicyConfigResponse -&gt; Bool
+$c/= :: GetCachePolicyConfigResponse
+-&gt; GetCachePolicyConfigResponse -&gt; Bool
+== :: GetCachePolicyConfigResponse
+-&gt; GetCachePolicyConfigResponse -&gt; Bool
+$c== :: GetCachePolicyConfigResponse
+-&gt; GetCachePolicyConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416844"><span id="local-6989586621679416846"><span id="local-6989586621679416848"><span id="local-6989586621679416850"><span class="annot"><span class="annottext">ReadPrec [GetCachePolicyConfigResponse]
+ReadPrec GetCachePolicyConfigResponse
+Int -&gt; ReadS GetCachePolicyConfigResponse
+ReadS [GetCachePolicyConfigResponse]
+(Int -&gt; ReadS GetCachePolicyConfigResponse)
+-&gt; ReadS [GetCachePolicyConfigResponse]
+-&gt; ReadPrec GetCachePolicyConfigResponse
+-&gt; ReadPrec [GetCachePolicyConfigResponse]
+-&gt; Read GetCachePolicyConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCachePolicyConfigResponse]
+$creadListPrec :: ReadPrec [GetCachePolicyConfigResponse]
+readPrec :: ReadPrec GetCachePolicyConfigResponse
+$creadPrec :: ReadPrec GetCachePolicyConfigResponse
+readList :: ReadS [GetCachePolicyConfigResponse]
+$creadList :: ReadS [GetCachePolicyConfigResponse]
+readsPrec :: Int -&gt; ReadS GetCachePolicyConfigResponse
+$creadsPrec :: Int -&gt; ReadS GetCachePolicyConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416838"><span id="local-6989586621679416840"><span id="local-6989586621679416842"><span class="annot"><span class="annottext">Int -&gt; GetCachePolicyConfigResponse -&gt; ShowS
+[GetCachePolicyConfigResponse] -&gt; ShowS
+GetCachePolicyConfigResponse -&gt; String
+(Int -&gt; GetCachePolicyConfigResponse -&gt; ShowS)
+-&gt; (GetCachePolicyConfigResponse -&gt; String)
+-&gt; ([GetCachePolicyConfigResponse] -&gt; ShowS)
+-&gt; Show GetCachePolicyConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCachePolicyConfigResponse] -&gt; ShowS
+$cshowList :: [GetCachePolicyConfigResponse] -&gt; ShowS
+show :: GetCachePolicyConfigResponse -&gt; String
+$cshow :: GetCachePolicyConfigResponse -&gt; String
+showsPrec :: Int -&gt; GetCachePolicyConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCachePolicyConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCachePolicyConfigResponse -&gt; Rep GetCachePolicyConfigResponse x)
+-&gt; (forall x.
+    Rep GetCachePolicyConfigResponse x -&gt; GetCachePolicyConfigResponse)
+-&gt; Generic GetCachePolicyConfigResponse
+forall x.
+Rep GetCachePolicyConfigResponse x -&gt; GetCachePolicyConfigResponse
+forall x.
+GetCachePolicyConfigResponse -&gt; Rep GetCachePolicyConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCachePolicyConfigResponse x -&gt; GetCachePolicyConfigResponse
+$cfrom :: forall x.
+GetCachePolicyConfigResponse -&gt; Rep GetCachePolicyConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'GetCachePolicyConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'eTag', 'getCachePolicyConfigResponse_eTag' - The current version of the cache policy.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'cachePolicyConfig', 'getCachePolicyConfigResponse_cachePolicyConfig' - The cache policy configuration.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getCachePolicyConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfigResponse"><span class="hs-identifier hs-type">newGetCachePolicyConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newGetCachePolicyConfigResponse"><span class="annot"><span class="annottext">newGetCachePolicyConfigResponse :: Int -&gt; GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#newGetCachePolicyConfigResponse"><span class="hs-identifier hs-var hs-var">newGetCachePolicyConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679416835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">GetCachePolicyConfigResponse' :: Maybe Text
+-&gt; Maybe CachePolicyConfig -&gt; Int -&gt; GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:GetCachePolicyConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AeTag%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:cachePolicyConfig:GetCachePolicyConfigResponse' :: Maybe CachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AcachePolicyConfig%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CachePolicyConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCachePolicyConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AhttpStatus%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The current version of the cache policy.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_eTag"><span class="hs-identifier hs-type">getCachePolicyConfigResponse_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="getCachePolicyConfigResponse_eTag"><span class="annot"><span class="annottext">getCachePolicyConfigResponse_eTag :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCachePolicyConfigResponse -&gt; f GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_eTag"><span class="hs-identifier hs-var hs-var">getCachePolicyConfigResponse_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCachePolicyConfigResponse -&gt; Maybe Text)
+-&gt; (GetCachePolicyConfigResponse
+    -&gt; Maybe Text -&gt; GetCachePolicyConfigResponse)
+-&gt; Lens
+     GetCachePolicyConfigResponse
+     GetCachePolicyConfigResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416834"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:GetCachePolicyConfigResponse' :: GetCachePolicyConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416833"><span class="annot"><span class="annottext">s :: GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetCachePolicyConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AeTag%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The cache policy configuration.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_cachePolicyConfig"><span class="hs-identifier hs-type">getCachePolicyConfigResponse_cachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getCachePolicyConfigResponse_cachePolicyConfig"><span class="annot"><span class="annottext">getCachePolicyConfigResponse_cachePolicyConfig :: (Maybe CachePolicyConfig -&gt; f (Maybe CachePolicyConfig))
+-&gt; GetCachePolicyConfigResponse -&gt; f GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_cachePolicyConfig"><span class="hs-identifier hs-var hs-var">getCachePolicyConfigResponse_cachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCachePolicyConfigResponse -&gt; Maybe CachePolicyConfig)
+-&gt; (GetCachePolicyConfigResponse
+    -&gt; Maybe CachePolicyConfig -&gt; GetCachePolicyConfigResponse)
+-&gt; Lens
+     GetCachePolicyConfigResponse
+     GetCachePolicyConfigResponse
+     (Maybe CachePolicyConfig)
+     (Maybe CachePolicyConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416831"><span class="annot"><span class="annottext">Maybe CachePolicyConfig
+cachePolicyConfig :: Maybe CachePolicyConfig
+$sel:cachePolicyConfig:GetCachePolicyConfigResponse' :: GetCachePolicyConfigResponse -&gt; Maybe CachePolicyConfig
+</span><a href="#local-6989586621679416831"><span class="hs-identifier hs-var hs-var">cachePolicyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CachePolicyConfig
+</span><a href="#local-6989586621679416831"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416830"><span class="annot"><span class="annottext">s :: GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416829"><span class="annot"><span class="annottext">Maybe CachePolicyConfig
+</span><a href="#local-6989586621679416829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicyConfig:GetCachePolicyConfigResponse' :: Maybe CachePolicyConfig
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AcachePolicyConfig%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CachePolicyConfig
+</span><a href="#local-6989586621679416829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_httpStatus"><span class="hs-identifier hs-type">getCachePolicyConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="getCachePolicyConfigResponse_httpStatus"><span class="annot"><span class="annottext">getCachePolicyConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCachePolicyConfigResponse -&gt; f GetCachePolicyConfigResponse
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#getCachePolicyConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCachePolicyConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCachePolicyConfigResponse -&gt; Int)
+-&gt; (GetCachePolicyConfigResponse
+    -&gt; Int -&gt; GetCachePolicyConfigResponse)
+-&gt; Lens
+     GetCachePolicyConfigResponse GetCachePolicyConfigResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416828"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCachePolicyConfigResponse' :: GetCachePolicyConfigResponse -&gt; Int
+</span><a href="#local-6989586621679416828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416827"><span class="annot"><span class="annottext">s :: GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse%27"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCachePolicyConfigResponse
+</span><a href="#local-6989586621679416827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCachePolicyConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#%24sel%3AhttpStatus%3AGetCachePolicyConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetCachePolicyConfig.html#GetCachePolicyConfigResponse"><span class="hs-identifier hs-type">GetCachePolicyConfigResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

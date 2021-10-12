@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ExportTransitGatewayRoutes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Exports routes from the specified transit gateway route table to the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified S3 bucket. By default, all routes are exported. Alternatively,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- you can filter by CIDR range.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The routes are saved to the specified bucket in a JSON file. For more</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables Export Route Tables to Amazon S3&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in /Transit Gateways/.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ExportTransitGatewayRoutes</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutes"><span class="hs-identifier">newExportTransitGatewayRoutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_dryRun"><span class="hs-identifier">exportTransitGatewayRoutes_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_filters"><span class="hs-identifier">exportTransitGatewayRoutes_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_transitGatewayRouteTableId"><span class="hs-identifier">exportTransitGatewayRoutes_transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_s3Bucket"><span class="hs-identifier">exportTransitGatewayRoutes_s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier">ExportTransitGatewayRoutesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutesResponse"><span class="hs-identifier">newExportTransitGatewayRoutesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_s3Location"><span class="hs-identifier">exportTransitGatewayRoutesResponse_s3Location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_httpStatus"><span class="hs-identifier">exportTransitGatewayRoutesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newExportTransitGatewayRoutes' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621681195808"><span id="local-6989586621681195809"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTransitGatewayRoutes"><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-var">ExportTransitGatewayRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTransitGatewayRoutes%27"><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">ExportTransitGatewayRoutes'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdryRun%3AExportTransitGatewayRoutes%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutes -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AdryRun%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @attachment.transit-gateway-attachment-id@ - The id of the transit</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     gateway attachment.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @attachment.resource-id@ - The resource id of the transit gateway</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     attachment.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @route-search.exact-match@ - The exact match of the specified</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     filter.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @route-search.longest-prefix-match@ - The longest prefix that</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     matches the route.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @route-search.subnet-of-match@ - The routes with a subnet that match</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     the specified CIDR filter.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @route-search.supernet-of-match@ - The routes with a CIDR that</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     encompass the CIDR filter. For example, if you have 10.0.1.0\/29 and</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     10.0.1.0\/31 routes in your route table and you specify</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     supernet-of-match as 10.0.1.0\/30, then the result returns</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     10.0.1.0\/29.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the route (@active@ | @blackhole@).</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-route-destination-cidr-block@ - The CIDR range.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @type@ - The type of route (@propagated@ | @static@).</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Afilters%3AExportTransitGatewayRoutes%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutes -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3Afilters%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AtransitGatewayRouteTableId%3AExportTransitGatewayRoutes%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutes -&gt; Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AtransitGatewayRouteTableId%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3As3Bucket%3AExportTransitGatewayRoutes%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutes -&gt; Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Bucket%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681195799"><span id="local-6989586621681195801"><span class="annot"><span class="annottext">ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool
+(ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool)
+-&gt; (ExportTransitGatewayRoutes
+    -&gt; ExportTransitGatewayRoutes -&gt; Bool)
+-&gt; Eq ExportTransitGatewayRoutes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool
+$c/= :: ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool
+== :: ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool
+$c== :: ExportTransitGatewayRoutes -&gt; ExportTransitGatewayRoutes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195790"><span id="local-6989586621681195792"><span id="local-6989586621681195794"><span id="local-6989586621681195796"><span class="annot"><span class="annottext">ReadPrec [ExportTransitGatewayRoutes]
+ReadPrec ExportTransitGatewayRoutes
+Int -&gt; ReadS ExportTransitGatewayRoutes
+ReadS [ExportTransitGatewayRoutes]
+(Int -&gt; ReadS ExportTransitGatewayRoutes)
+-&gt; ReadS [ExportTransitGatewayRoutes]
+-&gt; ReadPrec ExportTransitGatewayRoutes
+-&gt; ReadPrec [ExportTransitGatewayRoutes]
+-&gt; Read ExportTransitGatewayRoutes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportTransitGatewayRoutes]
+$creadListPrec :: ReadPrec [ExportTransitGatewayRoutes]
+readPrec :: ReadPrec ExportTransitGatewayRoutes
+$creadPrec :: ReadPrec ExportTransitGatewayRoutes
+readList :: ReadS [ExportTransitGatewayRoutes]
+$creadList :: ReadS [ExportTransitGatewayRoutes]
+readsPrec :: Int -&gt; ReadS ExportTransitGatewayRoutes
+$creadsPrec :: Int -&gt; ReadS ExportTransitGatewayRoutes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195783"><span id="local-6989586621681195785"><span id="local-6989586621681195787"><span class="annot"><span class="annottext">Int -&gt; ExportTransitGatewayRoutes -&gt; ShowS
+[ExportTransitGatewayRoutes] -&gt; ShowS
+ExportTransitGatewayRoutes -&gt; String
+(Int -&gt; ExportTransitGatewayRoutes -&gt; ShowS)
+-&gt; (ExportTransitGatewayRoutes -&gt; String)
+-&gt; ([ExportTransitGatewayRoutes] -&gt; ShowS)
+-&gt; Show ExportTransitGatewayRoutes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportTransitGatewayRoutes] -&gt; ShowS
+$cshowList :: [ExportTransitGatewayRoutes] -&gt; ShowS
+show :: ExportTransitGatewayRoutes -&gt; String
+$cshow :: ExportTransitGatewayRoutes -&gt; String
+showsPrec :: Int -&gt; ExportTransitGatewayRoutes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportTransitGatewayRoutes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportTransitGatewayRoutes -&gt; Rep ExportTransitGatewayRoutes x)
+-&gt; (forall x.
+    Rep ExportTransitGatewayRoutes x -&gt; ExportTransitGatewayRoutes)
+-&gt; Generic ExportTransitGatewayRoutes
+forall x.
+Rep ExportTransitGatewayRoutes x -&gt; ExportTransitGatewayRoutes
+forall x.
+ExportTransitGatewayRoutes -&gt; Rep ExportTransitGatewayRoutes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportTransitGatewayRoutes x -&gt; ExportTransitGatewayRoutes
+$cfrom :: forall x.
+ExportTransitGatewayRoutes -&gt; Rep ExportTransitGatewayRoutes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'ExportTransitGatewayRoutes' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'dryRun', 'exportTransitGatewayRoutes_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'filters', 'exportTransitGatewayRoutes_filters' - One or more filters. The possible values are:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @attachment.transit-gateway-attachment-id@ - The id of the transit</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     gateway attachment.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @attachment.resource-id@ - The resource id of the transit gateway</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     attachment.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @route-search.exact-match@ - The exact match of the specified</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     filter.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @route-search.longest-prefix-match@ - The longest prefix that</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     matches the route.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @route-search.subnet-of-match@ - The routes with a subnet that match</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     the specified CIDR filter.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @route-search.supernet-of-match@ - The routes with a CIDR that</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     encompass the CIDR filter. For example, if you have 10.0.1.0\/29 and</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     10.0.1.0\/31 routes in your route table and you specify</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     supernet-of-match as 10.0.1.0\/30, then the result returns</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     10.0.1.0\/29.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @state@ - The state of the route (@active@ | @blackhole@).</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @transit-gateway-route-destination-cidr-block@ - The CIDR range.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @type@ - The type of route (@propagated@ | @static@).</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'transitGatewayRouteTableId', 'exportTransitGatewayRoutes_transitGatewayRouteTableId' - The ID of the route table.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 's3Bucket', 'exportTransitGatewayRoutes_s3Bucket' - The name of the S3 bucket.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutes"><span class="hs-identifier hs-type">newExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayRouteTableId'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 's3Bucket'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span>
+</span><span id="line-153"></span><span id="newExportTransitGatewayRoutes"><span class="annot"><span class="annottext">newExportTransitGatewayRoutes :: Text -&gt; Text -&gt; ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutes"><span class="hs-identifier hs-var hs-var">newExportTransitGatewayRoutes</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681195778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195778"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681195777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195777"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutes' :: Maybe Bool
+-&gt; Maybe [Filter] -&gt; Text -&gt; Text -&gt; ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ExportTransitGatewayRoutes' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AdryRun%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:ExportTransitGatewayRoutes' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3Afilters%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:ExportTransitGatewayRoutes' :: Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AtransitGatewayRouteTableId%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195778"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportTransitGatewayRoutes' :: Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Bucket%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195777"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_dryRun"><span class="hs-identifier hs-type">exportTransitGatewayRoutes_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="exportTransitGatewayRoutes_dryRun"><span class="annot"><span class="annottext">exportTransitGatewayRoutes_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ExportTransitGatewayRoutes -&gt; f ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_dryRun"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutes_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutes -&gt; Maybe Bool)
+-&gt; (ExportTransitGatewayRoutes
+    -&gt; Maybe Bool -&gt; ExportTransitGatewayRoutes)
+-&gt; Lens
+     ExportTransitGatewayRoutes
+     ExportTransitGatewayRoutes
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195774"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Maybe Bool
+</span><a href="#local-6989586621681195774"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681195774"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195773"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195772"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681195772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ExportTransitGatewayRoutes' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AdryRun%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681195772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @attachment.transit-gateway-attachment-id@ - The id of the transit</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     gateway attachment.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   @attachment.resource-id@ - The resource id of the transit gateway</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     attachment.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @route-search.exact-match@ - The exact match of the specified</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     filter.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   @route-search.longest-prefix-match@ - The longest prefix that</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     matches the route.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   @route-search.subnet-of-match@ - The routes with a subnet that match</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     the specified CIDR filter.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   @route-search.supernet-of-match@ - The routes with a CIDR that</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     encompass the CIDR filter. For example, if you have 10.0.1.0\/29 and</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     10.0.1.0\/31 routes in your route table and you specify</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     supernet-of-match as 10.0.1.0\/30, then the result returns</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     10.0.1.0\/29.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @state@ - The state of the route (@active@ | @blackhole@).</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @transit-gateway-route-destination-cidr-block@ - The CIDR range.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @type@ - The type of route (@propagated@ | @static@).</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_filters"><span class="hs-identifier hs-type">exportTransitGatewayRoutes_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="exportTransitGatewayRoutes_filters"><span class="annot"><span class="annottext">exportTransitGatewayRoutes_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ExportTransitGatewayRoutes -&gt; f ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_filters"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutes_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutes -&gt; Maybe [Filter])
+-&gt; (ExportTransitGatewayRoutes
+    -&gt; Maybe [Filter] -&gt; ExportTransitGatewayRoutes)
+-&gt; Lens
+     ExportTransitGatewayRoutes
+     ExportTransitGatewayRoutes
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195771"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681195771"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681195771"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195770"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195769"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681195769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ExportTransitGatewayRoutes' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3Afilters%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681195769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; ExportTransitGatewayRoutes -&gt; f ExportTransitGatewayRoutes)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ExportTransitGatewayRoutes
+-&gt; f ExportTransitGatewayRoutes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_transitGatewayRouteTableId"><span class="hs-identifier hs-type">exportTransitGatewayRoutes_transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-205"></span><span id="exportTransitGatewayRoutes_transitGatewayRouteTableId"><span class="annot"><span class="annottext">exportTransitGatewayRoutes_transitGatewayRouteTableId :: (Text -&gt; f Text)
+-&gt; ExportTransitGatewayRoutes -&gt; f ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_transitGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutes_transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutes -&gt; Text)
+-&gt; (ExportTransitGatewayRoutes
+    -&gt; Text -&gt; ExportTransitGatewayRoutes)
+-&gt; Lens
+     ExportTransitGatewayRoutes ExportTransitGatewayRoutes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195765"><span class="annot"><span class="annottext">Text
+transitGatewayRouteTableId :: Text
+$sel:transitGatewayRouteTableId:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Text
+</span><a href="#local-6989586621681195765"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195765"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195764"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:ExportTransitGatewayRoutes' :: Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AtransitGatewayRouteTableId%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_s3Bucket"><span class="hs-identifier hs-type">exportTransitGatewayRoutes_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-209"></span><span id="exportTransitGatewayRoutes_s3Bucket"><span class="annot"><span class="annottext">exportTransitGatewayRoutes_s3Bucket :: (Text -&gt; f Text)
+-&gt; ExportTransitGatewayRoutes -&gt; f ExportTransitGatewayRoutes
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutes_s3Bucket"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutes_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutes -&gt; Text)
+-&gt; (ExportTransitGatewayRoutes
+    -&gt; Text -&gt; ExportTransitGatewayRoutes)
+-&gt; Lens
+     ExportTransitGatewayRoutes ExportTransitGatewayRoutes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195762"><span class="annot"><span class="annottext">Text
+s3Bucket :: Text
+$sel:s3Bucket:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Text
+</span><a href="#local-6989586621681195762"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195762"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195761"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutes
+</span><a href="#local-6989586621681195761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportTransitGatewayRoutes' :: Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Bucket%3AExportTransitGatewayRoutes%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-213"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621681195756"><span class="annot"><span class="annottext">request :: ExportTransitGatewayRoutes -&gt; Request ExportTransitGatewayRoutes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ExportTransitGatewayRoutes -&gt; Request ExportTransitGatewayRoutes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681195752"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExportTransitGatewayRoutes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExportTransitGatewayRoutes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse ExportTransitGatewayRoutes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExportTransitGatewayRoutes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ExportTransitGatewayRoutes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681195749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681195748"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681195748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681195747"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681195747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ExportTransitGatewayRoutesResponse
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">ExportTransitGatewayRoutesResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ExportTransitGatewayRoutesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ExportTransitGatewayRoutesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681195747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ExportTransitGatewayRoutesResponse)
+-&gt; Either String Int
+-&gt; Either String ExportTransitGatewayRoutesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681195739"><span id="local-6989586621681195741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681195736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621681195732"><span class="annot"><span class="annottext">toHeaders :: ExportTransitGatewayRoutes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExportTransitGatewayRoutes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621681195727"><span class="annot"><span class="annottext">toPath :: ExportTransitGatewayRoutes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExportTransitGatewayRoutes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621681195723"><span class="annot"><span class="annottext">toQuery :: ExportTransitGatewayRoutes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutes%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195718"><span id="local-6989586621681195719"><span id="local-6989586621681195720"><span id="local-6989586621681195721"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Filter]
+Text
+s3Bucket :: Text
+transitGatewayRouteTableId :: Text
+filters :: Maybe [Filter]
+dryRun :: Maybe Bool
+$sel:s3Bucket:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Text
+$sel:transitGatewayRouteTableId:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Text
+$sel:filters:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Maybe [Filter]
+$sel:dryRun:ExportTransitGatewayRoutes' :: ExportTransitGatewayRoutes -&gt; Maybe Bool
+</span><a href="#local-6989586621681195718"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExportTransitGatewayRoutes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681195721"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681195720"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayRouteTableId&quot;</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195719"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681195718"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | /See:/ 'newExportTransitGatewayRoutesResponse' smart constructor.</span><span>
+</span><span id="line-250"></span><span id="local-6989586621681195714"><span id="local-6989586621681195715"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTransitGatewayRoutesResponse"><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-var">ExportTransitGatewayRoutesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTransitGatewayRoutesResponse%27"><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">ExportTransitGatewayRoutesResponse'</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the exported file in Amazon S3. For example,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- s3:\/\//bucket_name/\/VPCTransitGateway\/TransitGatewayRouteTables\//file_name/.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3As3Location%3AExportTransitGatewayRoutesResponse%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Location%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExportTransitGatewayRoutesResponse%27"><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse -&gt; Int
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AhttpStatus%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681195708"><span id="local-6989586621681195710"><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse
+-&gt; ExportTransitGatewayRoutesResponse -&gt; Bool
+(ExportTransitGatewayRoutesResponse
+ -&gt; ExportTransitGatewayRoutesResponse -&gt; Bool)
+-&gt; (ExportTransitGatewayRoutesResponse
+    -&gt; ExportTransitGatewayRoutesResponse -&gt; Bool)
+-&gt; Eq ExportTransitGatewayRoutesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportTransitGatewayRoutesResponse
+-&gt; ExportTransitGatewayRoutesResponse -&gt; Bool
+$c/= :: ExportTransitGatewayRoutesResponse
+-&gt; ExportTransitGatewayRoutesResponse -&gt; Bool
+== :: ExportTransitGatewayRoutesResponse
+-&gt; ExportTransitGatewayRoutesResponse -&gt; Bool
+$c== :: ExportTransitGatewayRoutesResponse
+-&gt; ExportTransitGatewayRoutesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195700"><span id="local-6989586621681195702"><span id="local-6989586621681195704"><span id="local-6989586621681195706"><span class="annot"><span class="annottext">ReadPrec [ExportTransitGatewayRoutesResponse]
+ReadPrec ExportTransitGatewayRoutesResponse
+Int -&gt; ReadS ExportTransitGatewayRoutesResponse
+ReadS [ExportTransitGatewayRoutesResponse]
+(Int -&gt; ReadS ExportTransitGatewayRoutesResponse)
+-&gt; ReadS [ExportTransitGatewayRoutesResponse]
+-&gt; ReadPrec ExportTransitGatewayRoutesResponse
+-&gt; ReadPrec [ExportTransitGatewayRoutesResponse]
+-&gt; Read ExportTransitGatewayRoutesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportTransitGatewayRoutesResponse]
+$creadListPrec :: ReadPrec [ExportTransitGatewayRoutesResponse]
+readPrec :: ReadPrec ExportTransitGatewayRoutesResponse
+$creadPrec :: ReadPrec ExportTransitGatewayRoutesResponse
+readList :: ReadS [ExportTransitGatewayRoutesResponse]
+$creadList :: ReadS [ExportTransitGatewayRoutesResponse]
+readsPrec :: Int -&gt; ReadS ExportTransitGatewayRoutesResponse
+$creadsPrec :: Int -&gt; ReadS ExportTransitGatewayRoutesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195694"><span id="local-6989586621681195696"><span id="local-6989586621681195698"><span class="annot"><span class="annottext">Int -&gt; ExportTransitGatewayRoutesResponse -&gt; ShowS
+[ExportTransitGatewayRoutesResponse] -&gt; ShowS
+ExportTransitGatewayRoutesResponse -&gt; String
+(Int -&gt; ExportTransitGatewayRoutesResponse -&gt; ShowS)
+-&gt; (ExportTransitGatewayRoutesResponse -&gt; String)
+-&gt; ([ExportTransitGatewayRoutesResponse] -&gt; ShowS)
+-&gt; Show ExportTransitGatewayRoutesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportTransitGatewayRoutesResponse] -&gt; ShowS
+$cshowList :: [ExportTransitGatewayRoutesResponse] -&gt; ShowS
+show :: ExportTransitGatewayRoutesResponse -&gt; String
+$cshow :: ExportTransitGatewayRoutesResponse -&gt; String
+showsPrec :: Int -&gt; ExportTransitGatewayRoutesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportTransitGatewayRoutesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExportTransitGatewayRoutesResponse
+ -&gt; Rep ExportTransitGatewayRoutesResponse x)
+-&gt; (forall x.
+    Rep ExportTransitGatewayRoutesResponse x
+    -&gt; ExportTransitGatewayRoutesResponse)
+-&gt; Generic ExportTransitGatewayRoutesResponse
+forall x.
+Rep ExportTransitGatewayRoutesResponse x
+-&gt; ExportTransitGatewayRoutesResponse
+forall x.
+ExportTransitGatewayRoutesResponse
+-&gt; Rep ExportTransitGatewayRoutesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportTransitGatewayRoutesResponse x
+-&gt; ExportTransitGatewayRoutesResponse
+$cfrom :: forall x.
+ExportTransitGatewayRoutesResponse
+-&gt; Rep ExportTransitGatewayRoutesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'ExportTransitGatewayRoutesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 's3Location', 'exportTransitGatewayRoutesResponse_s3Location' - The URL of the exported file in Amazon S3. For example,</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- s3:\/\//bucket_name/\/VPCTransitGateway\/TransitGatewayRouteTables\//file_name/.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'httpStatus', 'exportTransitGatewayRoutesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">newExportTransitGatewayRoutesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-272"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span>
+</span><span id="line-275"></span><span id="newExportTransitGatewayRoutesResponse"><span class="annot"><span class="annottext">newExportTransitGatewayRoutesResponse :: Int -&gt; ExportTransitGatewayRoutesResponse
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#newExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-var hs-var">newExportTransitGatewayRoutesResponse</span></a></span></span><span> </span><span id="local-6989586621681195691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse' :: Maybe Text -&gt; Int -&gt; ExportTransitGatewayRoutesResponse
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse'</span></a></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Location:ExportTransitGatewayRoutesResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Location%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExportTransitGatewayRoutesResponse' :: Int
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AhttpStatus%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The URL of the exported file in Amazon S3. For example,</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- s3:\/\//bucket_name/\/VPCTransitGateway\/TransitGatewayRouteTables\//file_name/.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_s3Location"><span class="hs-identifier hs-type">exportTransitGatewayRoutesResponse_s3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="exportTransitGatewayRoutesResponse_s3Location"><span class="annot"><span class="annottext">exportTransitGatewayRoutesResponse_s3Location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportTransitGatewayRoutesResponse
+-&gt; f ExportTransitGatewayRoutesResponse
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_s3Location"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutesResponse_s3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutesResponse -&gt; Maybe Text)
+-&gt; (ExportTransitGatewayRoutesResponse
+    -&gt; Maybe Text -&gt; ExportTransitGatewayRoutesResponse)
+-&gt; Lens
+     ExportTransitGatewayRoutesResponse
+     ExportTransitGatewayRoutesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195690"><span class="annot"><span class="annottext">Maybe Text
+s3Location :: Maybe Text
+$sel:s3Location:ExportTransitGatewayRoutesResponse' :: ExportTransitGatewayRoutesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681195690"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681195690"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195689"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutesResponse
+</span><a href="#local-6989586621681195689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681195688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse
+</span><a href="#local-6989586621681195689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:ExportTransitGatewayRoutesResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3As3Location%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681195688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_httpStatus"><span class="hs-identifier hs-type">exportTransitGatewayRoutesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-289"></span><span id="exportTransitGatewayRoutesResponse_httpStatus"><span class="annot"><span class="annottext">exportTransitGatewayRoutesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ExportTransitGatewayRoutesResponse
+-&gt; f ExportTransitGatewayRoutesResponse
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#exportTransitGatewayRoutesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">exportTransitGatewayRoutesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportTransitGatewayRoutesResponse -&gt; Int)
+-&gt; (ExportTransitGatewayRoutesResponse
+    -&gt; Int -&gt; ExportTransitGatewayRoutesResponse)
+-&gt; Lens
+     ExportTransitGatewayRoutesResponse
+     ExportTransitGatewayRoutesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195687"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExportTransitGatewayRoutesResponse' :: ExportTransitGatewayRoutesResponse -&gt; Int
+</span><a href="#local-6989586621681195687"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195687"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195686"><span class="annot"><span class="annottext">s :: ExportTransitGatewayRoutesResponse
+</span><a href="#local-6989586621681195686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTransitGatewayRoutesResponse
+</span><a href="#local-6989586621681195686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportTransitGatewayRoutesResponse' :: Int
+</span><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#%24sel%3AhttpStatus%3AExportTransitGatewayRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681195685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621681195683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ExportTransitGatewayRoutes.html#ExportTransitGatewayRoutesResponse"><span class="hs-identifier hs-type">ExportTransitGatewayRoutesResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

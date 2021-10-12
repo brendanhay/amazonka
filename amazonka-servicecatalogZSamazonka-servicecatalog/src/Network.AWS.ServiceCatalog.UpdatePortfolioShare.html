@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.UpdatePortfolioShare</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified portfolio share. You can use this API to enable or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- disable TagOptions sharing for an existing portfolio share.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The portfolio share cannot be updated if the @ CreatePortfolioShare@</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation is @IN_PROGRESS@, as the share is not available to recipient</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- entities. In this case, you must wait for the portfolio share to be</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- COMPLETED.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You must provide the @accountId@ or organization node in the input, but</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- not both.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If the portfolio is shared to both an external account and an</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- organization node, and both shares need to be updated, you must invoke</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @UpdatePortfolioShare@ separately for each share type.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This API cannot be used for removing the portfolio share. You must use</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @DeletePortfolioShare@ API for that action.</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.UpdatePortfolioShare</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShare"><span class="hs-identifier">newUpdatePortfolioShare</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_shareTagOptions"><span class="hs-identifier">updatePortfolioShare_shareTagOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_accountId"><span class="hs-identifier">updatePortfolioShare_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_organizationNode"><span class="hs-identifier">updatePortfolioShare_organizationNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_acceptLanguage"><span class="hs-identifier">updatePortfolioShare_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_portfolioId"><span class="hs-identifier">updatePortfolioShare_portfolioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier">UpdatePortfolioShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShareResponse"><span class="hs-identifier">newUpdatePortfolioShareResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_status"><span class="hs-identifier">updatePortfolioShareResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_portfolioShareToken"><span class="hs-identifier">updatePortfolioShareResponse_portfolioShareToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_httpStatus"><span class="hs-identifier">updatePortfolioShareResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newUpdatePortfolioShare' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679430278"><span id="local-6989586621679430279"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePortfolioShare"><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-var">UpdatePortfolioShare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePortfolioShare%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-var">UpdatePortfolioShare'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag to enable or disable TagOptions sharing for the portfolio share.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If this field is not provided, the current state of TagOptions sharing</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- on the portfolio share will not be modified.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AshareTagOptions%3AUpdatePortfolioShare%27"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; Maybe Bool
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AshareTagOptions%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var hs-var">shareTagOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The AWS Account Id of the recipient account. This field is required when</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- updating an external account to account type share.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AaccountId%3AUpdatePortfolioShare%27"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AaccountId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AorganizationNode%3AUpdatePortfolioShare%27"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; Maybe OrganizationNode
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AorganizationNode%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var hs-var">organizationNode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AUpdatePortfolioShare%27"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AacceptLanguage%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the portfolio for which the share will be</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AportfolioId%3AUpdatePortfolioShare%27"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430268"><span id="local-6989586621679430270"><span class="annot"><span class="annottext">UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool
+(UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool)
+-&gt; (UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool)
+-&gt; Eq UpdatePortfolioShare
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool
+$c/= :: UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool
+== :: UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool
+$c== :: UpdatePortfolioShare -&gt; UpdatePortfolioShare -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430259"><span id="local-6989586621679430261"><span id="local-6989586621679430263"><span id="local-6989586621679430265"><span class="annot"><span class="annottext">ReadPrec [UpdatePortfolioShare]
+ReadPrec UpdatePortfolioShare
+Int -&gt; ReadS UpdatePortfolioShare
+ReadS [UpdatePortfolioShare]
+(Int -&gt; ReadS UpdatePortfolioShare)
+-&gt; ReadS [UpdatePortfolioShare]
+-&gt; ReadPrec UpdatePortfolioShare
+-&gt; ReadPrec [UpdatePortfolioShare]
+-&gt; Read UpdatePortfolioShare
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePortfolioShare]
+$creadListPrec :: ReadPrec [UpdatePortfolioShare]
+readPrec :: ReadPrec UpdatePortfolioShare
+$creadPrec :: ReadPrec UpdatePortfolioShare
+readList :: ReadS [UpdatePortfolioShare]
+$creadList :: ReadS [UpdatePortfolioShare]
+readsPrec :: Int -&gt; ReadS UpdatePortfolioShare
+$creadsPrec :: Int -&gt; ReadS UpdatePortfolioShare
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430252"><span id="local-6989586621679430254"><span id="local-6989586621679430256"><span class="annot"><span class="annottext">Int -&gt; UpdatePortfolioShare -&gt; ShowS
+[UpdatePortfolioShare] -&gt; ShowS
+UpdatePortfolioShare -&gt; String
+(Int -&gt; UpdatePortfolioShare -&gt; ShowS)
+-&gt; (UpdatePortfolioShare -&gt; String)
+-&gt; ([UpdatePortfolioShare] -&gt; ShowS)
+-&gt; Show UpdatePortfolioShare
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePortfolioShare] -&gt; ShowS
+$cshowList :: [UpdatePortfolioShare] -&gt; ShowS
+show :: UpdatePortfolioShare -&gt; String
+$cshow :: UpdatePortfolioShare -&gt; String
+showsPrec :: Int -&gt; UpdatePortfolioShare -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePortfolioShare -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdatePortfolioShare -&gt; Rep UpdatePortfolioShare x)
+-&gt; (forall x. Rep UpdatePortfolioShare x -&gt; UpdatePortfolioShare)
+-&gt; Generic UpdatePortfolioShare
+forall x. Rep UpdatePortfolioShare x -&gt; UpdatePortfolioShare
+forall x. UpdatePortfolioShare -&gt; Rep UpdatePortfolioShare x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdatePortfolioShare x -&gt; UpdatePortfolioShare
+$cfrom :: forall x. UpdatePortfolioShare -&gt; Rep UpdatePortfolioShare x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'UpdatePortfolioShare' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'shareTagOptions', 'updatePortfolioShare_shareTagOptions' - A flag to enable or disable TagOptions sharing for the portfolio share.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- If this field is not provided, the current state of TagOptions sharing</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- on the portfolio share will not be modified.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'accountId', 'updatePortfolioShare_accountId' - The AWS Account Id of the recipient account. This field is required when</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- updating an external account to account type share.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'organizationNode', 'updatePortfolioShare_organizationNode' - Undocumented member.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'acceptLanguage', 'updatePortfolioShare_acceptLanguage' - The language code.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'portfolioId', 'updatePortfolioShare_portfolioId' - The unique identifier of the portfolio for which the share will be</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShare"><span class="hs-identifier hs-type">newUpdatePortfolioShare</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'portfolioId'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span>
+</span><span id="line-125"></span><span id="newUpdatePortfolioShare"><span class="annot"><span class="annottext">newUpdatePortfolioShare :: Text -&gt; UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShare"><span class="hs-identifier hs-var hs-var">newUpdatePortfolioShare</span></a></span></span><span> </span><span id="local-6989586621679430247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430247"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">UpdatePortfolioShare' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe OrganizationNode
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shareTagOptions:UpdatePortfolioShare' :: Maybe Bool
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AshareTagOptions%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">shareTagOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:UpdatePortfolioShare' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AaccountId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationNode:UpdatePortfolioShare' :: Maybe OrganizationNode
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AorganizationNode%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">organizationNode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptLanguage:UpdatePortfolioShare' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AacceptLanguage%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:portfolioId:UpdatePortfolioShare' :: Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430247"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | A flag to enable or disable TagOptions sharing for the portfolio share.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- If this field is not provided, the current state of TagOptions sharing</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- on the portfolio share will not be modified.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_shareTagOptions"><span class="hs-identifier hs-type">updatePortfolioShare_shareTagOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="updatePortfolioShare_shareTagOptions"><span class="annot"><span class="annottext">updatePortfolioShare_shareTagOptions :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdatePortfolioShare -&gt; f UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_shareTagOptions"><span class="hs-identifier hs-var hs-var">updatePortfolioShare_shareTagOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShare -&gt; Maybe Bool)
+-&gt; (UpdatePortfolioShare -&gt; Maybe Bool -&gt; UpdatePortfolioShare)
+-&gt; Lens
+     UpdatePortfolioShare UpdatePortfolioShare (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430244"><span class="annot"><span class="annottext">Maybe Bool
+shareTagOptions :: Maybe Bool
+$sel:shareTagOptions:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Bool
+</span><a href="#local-6989586621679430244"><span class="hs-identifier hs-var hs-var">shareTagOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679430244"><span class="hs-identifier hs-var">shareTagOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430243"><span class="annot"><span class="annottext">s :: UpdatePortfolioShare
+</span><a href="#local-6989586621679430243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430242"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679430242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShare
+</span><a href="#local-6989586621679430243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareTagOptions:UpdatePortfolioShare' :: Maybe Bool
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AshareTagOptions%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">shareTagOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679430242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The AWS Account Id of the recipient account. This field is required when</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- updating an external account to account type share.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_accountId"><span class="hs-identifier hs-type">updatePortfolioShare_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="updatePortfolioShare_accountId"><span class="annot"><span class="annottext">updatePortfolioShare_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePortfolioShare -&gt; f UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_accountId"><span class="hs-identifier hs-var hs-var">updatePortfolioShare_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShare -&gt; Maybe Text)
+-&gt; (UpdatePortfolioShare -&gt; Maybe Text -&gt; UpdatePortfolioShare)
+-&gt; Lens
+     UpdatePortfolioShare UpdatePortfolioShare (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430241"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Text
+</span><a href="#local-6989586621679430241"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430241"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430240"><span class="annot"><span class="annottext">s :: UpdatePortfolioShare
+</span><a href="#local-6989586621679430240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShare
+</span><a href="#local-6989586621679430240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdatePortfolioShare' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AaccountId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_organizationNode"><span class="hs-identifier hs-type">updatePortfolioShare_organizationNode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="updatePortfolioShare_organizationNode"><span class="annot"><span class="annottext">updatePortfolioShare_organizationNode :: (Maybe OrganizationNode -&gt; f (Maybe OrganizationNode))
+-&gt; UpdatePortfolioShare -&gt; f UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_organizationNode"><span class="hs-identifier hs-var hs-var">updatePortfolioShare_organizationNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShare -&gt; Maybe OrganizationNode)
+-&gt; (UpdatePortfolioShare
+    -&gt; Maybe OrganizationNode -&gt; UpdatePortfolioShare)
+-&gt; Lens
+     UpdatePortfolioShare
+     UpdatePortfolioShare
+     (Maybe OrganizationNode)
+     (Maybe OrganizationNode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430238"><span class="annot"><span class="annottext">Maybe OrganizationNode
+organizationNode :: Maybe OrganizationNode
+$sel:organizationNode:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe OrganizationNode
+</span><a href="#local-6989586621679430238"><span class="hs-identifier hs-var hs-var">organizationNode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNode
+</span><a href="#local-6989586621679430238"><span class="hs-identifier hs-var">organizationNode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430237"><span class="annot"><span class="annottext">s :: UpdatePortfolioShare
+</span><a href="#local-6989586621679430237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430236"><span class="annot"><span class="annottext">Maybe OrganizationNode
+</span><a href="#local-6989586621679430236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShare
+</span><a href="#local-6989586621679430237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationNode:UpdatePortfolioShare' :: Maybe OrganizationNode
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AorganizationNode%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">organizationNode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNode
+</span><a href="#local-6989586621679430236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_acceptLanguage"><span class="hs-identifier hs-type">updatePortfolioShare_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="updatePortfolioShare_acceptLanguage"><span class="annot"><span class="annottext">updatePortfolioShare_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePortfolioShare -&gt; f UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_acceptLanguage"><span class="hs-identifier hs-var hs-var">updatePortfolioShare_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShare -&gt; Maybe Text)
+-&gt; (UpdatePortfolioShare -&gt; Maybe Text -&gt; UpdatePortfolioShare)
+-&gt; Lens
+     UpdatePortfolioShare UpdatePortfolioShare (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430235"><span class="annot"><span class="annottext">Maybe Text
+acceptLanguage :: Maybe Text
+$sel:acceptLanguage:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Text
+</span><a href="#local-6989586621679430235"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430235"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430234"><span class="annot"><span class="annottext">s :: UpdatePortfolioShare
+</span><a href="#local-6989586621679430234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShare
+</span><a href="#local-6989586621679430234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:UpdatePortfolioShare' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AacceptLanguage%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The unique identifier of the portfolio for which the share will be</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_portfolioId"><span class="hs-identifier hs-type">updatePortfolioShare_portfolioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="updatePortfolioShare_portfolioId"><span class="annot"><span class="annottext">updatePortfolioShare_portfolioId :: (Text -&gt; f Text) -&gt; UpdatePortfolioShare -&gt; f UpdatePortfolioShare
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShare_portfolioId"><span class="hs-identifier hs-var hs-var">updatePortfolioShare_portfolioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShare -&gt; Text)
+-&gt; (UpdatePortfolioShare -&gt; Text -&gt; UpdatePortfolioShare)
+-&gt; Lens UpdatePortfolioShare UpdatePortfolioShare Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430232"><span class="annot"><span class="annottext">Text
+portfolioId :: Text
+$sel:portfolioId:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Text
+</span><a href="#local-6989586621679430232"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430232"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430231"><span class="annot"><span class="annottext">s :: UpdatePortfolioShare
+</span><a href="#local-6989586621679430231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShare
+</span><a href="#local-6989586621679430231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:UpdatePortfolioShare' :: Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioId%3AUpdatePortfolioShare%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679430226"><span class="annot"><span class="annottext">request :: UpdatePortfolioShare -&gt; Request UpdatePortfolioShare
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePortfolioShare -&gt; Request UpdatePortfolioShare
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679430222"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePortfolioShare
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePortfolioShare)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePortfolioShare))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePortfolioShare
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePortfolioShare)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430219"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679430218"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679430218"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679430217"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe ShareStatus
+-&gt; Maybe Text -&gt; Int -&gt; UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">UpdatePortfolioShareResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ShareStatus
+ -&gt; Maybe Text -&gt; Int -&gt; UpdatePortfolioShareResponse)
+-&gt; Either String (Maybe ShareStatus)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdatePortfolioShareResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ShareStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdatePortfolioShareResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdatePortfolioShareResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortfolioShareToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdatePortfolioShareResponse)
+-&gt; Either String Int -&gt; Either String UpdatePortfolioShareResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430219"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430209"><span id="local-6989586621679430211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679430202"><span class="annot"><span class="annottext">toHeaders :: UpdatePortfolioShare -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePortfolioShare -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS242ServiceCatalogService.UpdatePortfolioShare&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-190"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-194"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430192"><span id="local-6989586621679430194"><span id="local-6989586621679430196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679430190"><span class="annot"><span class="annottext">toJSON :: UpdatePortfolioShare -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare%27"><span class="hs-identifier hs-type">UpdatePortfolioShare'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430184"><span id="local-6989586621679430185"><span id="local-6989586621679430186"><span id="local-6989586621679430187"><span id="local-6989586621679430188"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe OrganizationNode
+Text
+portfolioId :: Text
+acceptLanguage :: Maybe Text
+organizationNode :: Maybe OrganizationNode
+accountId :: Maybe Text
+shareTagOptions :: Maybe Bool
+$sel:portfolioId:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Text
+$sel:acceptLanguage:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Text
+$sel:organizationNode:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe OrganizationNode
+$sel:accountId:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Text
+$sel:shareTagOptions:UpdatePortfolioShare' :: UpdatePortfolioShare -&gt; Maybe Bool
+</span><a href="#local-6989586621679430184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShareTagOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679430188"><span class="hs-identifier hs-var">shareTagOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430187"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationNode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrganizationNode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(OrganizationNode -&gt; Pair) -&gt; Maybe OrganizationNode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNode
+</span><a href="#local-6989586621679430186"><span class="hs-identifier hs-var">organizationNode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430185"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortfolioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430184"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679430178"><span class="annot"><span class="annottext">toPath :: UpdatePortfolioShare -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePortfolioShare -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShare"><span class="hs-identifier hs-type">UpdatePortfolioShare</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679430174"><span class="annot"><span class="annottext">toQuery :: UpdatePortfolioShare -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePortfolioShare -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newUpdatePortfolioShareResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679430171"><span id="local-6989586621679430172"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePortfolioShareResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-var">UpdatePortfolioShareResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePortfolioShareResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">UpdatePortfolioShareResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of @UpdatePortfolioShare@ operation. You can also obtain the</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- operation status using @DescribePortfolioShareStatus@ API.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3Astatus%3AUpdatePortfolioShareResponse%27"><span class="annot"><span class="annottext">UpdatePortfolioShareResponse -&gt; Maybe ShareStatus
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3Astatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-type">ShareStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | The token that tracks the status of the @UpdatePortfolioShare@ operation</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- for external account to account or organizational type sharing.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3AportfolioShareToken%3AUpdatePortfolioShareResponse%27"><span class="annot"><span class="annottext">UpdatePortfolioShareResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioShareToken%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var hs-var">portfolioShareToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePortfolioShareResponse%27"><span class="annot"><span class="annottext">UpdatePortfolioShareResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AhttpStatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430164"><span id="local-6989586621679430166"><span class="annot"><span class="annottext">UpdatePortfolioShareResponse
+-&gt; UpdatePortfolioShareResponse -&gt; Bool
+(UpdatePortfolioShareResponse
+ -&gt; UpdatePortfolioShareResponse -&gt; Bool)
+-&gt; (UpdatePortfolioShareResponse
+    -&gt; UpdatePortfolioShareResponse -&gt; Bool)
+-&gt; Eq UpdatePortfolioShareResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePortfolioShareResponse
+-&gt; UpdatePortfolioShareResponse -&gt; Bool
+$c/= :: UpdatePortfolioShareResponse
+-&gt; UpdatePortfolioShareResponse -&gt; Bool
+== :: UpdatePortfolioShareResponse
+-&gt; UpdatePortfolioShareResponse -&gt; Bool
+$c== :: UpdatePortfolioShareResponse
+-&gt; UpdatePortfolioShareResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430156"><span id="local-6989586621679430158"><span id="local-6989586621679430160"><span id="local-6989586621679430162"><span class="annot"><span class="annottext">ReadPrec [UpdatePortfolioShareResponse]
+ReadPrec UpdatePortfolioShareResponse
+Int -&gt; ReadS UpdatePortfolioShareResponse
+ReadS [UpdatePortfolioShareResponse]
+(Int -&gt; ReadS UpdatePortfolioShareResponse)
+-&gt; ReadS [UpdatePortfolioShareResponse]
+-&gt; ReadPrec UpdatePortfolioShareResponse
+-&gt; ReadPrec [UpdatePortfolioShareResponse]
+-&gt; Read UpdatePortfolioShareResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePortfolioShareResponse]
+$creadListPrec :: ReadPrec [UpdatePortfolioShareResponse]
+readPrec :: ReadPrec UpdatePortfolioShareResponse
+$creadPrec :: ReadPrec UpdatePortfolioShareResponse
+readList :: ReadS [UpdatePortfolioShareResponse]
+$creadList :: ReadS [UpdatePortfolioShareResponse]
+readsPrec :: Int -&gt; ReadS UpdatePortfolioShareResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePortfolioShareResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430150"><span id="local-6989586621679430152"><span id="local-6989586621679430154"><span class="annot"><span class="annottext">Int -&gt; UpdatePortfolioShareResponse -&gt; ShowS
+[UpdatePortfolioShareResponse] -&gt; ShowS
+UpdatePortfolioShareResponse -&gt; String
+(Int -&gt; UpdatePortfolioShareResponse -&gt; ShowS)
+-&gt; (UpdatePortfolioShareResponse -&gt; String)
+-&gt; ([UpdatePortfolioShareResponse] -&gt; ShowS)
+-&gt; Show UpdatePortfolioShareResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePortfolioShareResponse] -&gt; ShowS
+$cshowList :: [UpdatePortfolioShareResponse] -&gt; ShowS
+show :: UpdatePortfolioShareResponse -&gt; String
+$cshow :: UpdatePortfolioShareResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePortfolioShareResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePortfolioShareResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePortfolioShareResponse -&gt; Rep UpdatePortfolioShareResponse x)
+-&gt; (forall x.
+    Rep UpdatePortfolioShareResponse x -&gt; UpdatePortfolioShareResponse)
+-&gt; Generic UpdatePortfolioShareResponse
+forall x.
+Rep UpdatePortfolioShareResponse x -&gt; UpdatePortfolioShareResponse
+forall x.
+UpdatePortfolioShareResponse -&gt; Rep UpdatePortfolioShareResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePortfolioShareResponse x -&gt; UpdatePortfolioShareResponse
+$cfrom :: forall x.
+UpdatePortfolioShareResponse -&gt; Rep UpdatePortfolioShareResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Create a value of 'UpdatePortfolioShareResponse' with all optional fields omitted.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'status', 'updatePortfolioShareResponse_status' - The status of @UpdatePortfolioShare@ operation. You can also obtain the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- operation status using @DescribePortfolioShareStatus@ API.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'portfolioShareToken', 'updatePortfolioShareResponse_portfolioShareToken' - The token that tracks the status of the @UpdatePortfolioShare@ operation</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- for external account to account or organizational type sharing.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'httpStatus', 'updatePortfolioShareResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShareResponse"><span class="hs-identifier hs-type">newUpdatePortfolioShareResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span>
+</span><span id="line-251"></span><span id="newUpdatePortfolioShareResponse"><span class="annot"><span class="annottext">newUpdatePortfolioShareResponse :: Int -&gt; UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#newUpdatePortfolioShareResponse"><span class="hs-identifier hs-var hs-var">newUpdatePortfolioShareResponse</span></a></span></span><span> </span><span id="local-6989586621679430147"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">UpdatePortfolioShareResponse' :: Maybe ShareStatus
+-&gt; Maybe Text -&gt; Int -&gt; UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:UpdatePortfolioShareResponse' :: Maybe ShareStatus
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3Astatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Maybe ShareStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:portfolioShareToken:UpdatePortfolioShareResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioShareToken%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">portfolioShareToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePortfolioShareResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AhttpStatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The status of @UpdatePortfolioShare@ operation. You can also obtain the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- operation status using @DescribePortfolioShareStatus@ API.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_status"><span class="hs-identifier hs-type">updatePortfolioShareResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-type">ShareStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="updatePortfolioShareResponse_status"><span class="annot"><span class="annottext">updatePortfolioShareResponse_status :: (Maybe ShareStatus -&gt; f (Maybe ShareStatus))
+-&gt; UpdatePortfolioShareResponse -&gt; f UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_status"><span class="hs-identifier hs-var hs-var">updatePortfolioShareResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShareResponse -&gt; Maybe ShareStatus)
+-&gt; (UpdatePortfolioShareResponse
+    -&gt; Maybe ShareStatus -&gt; UpdatePortfolioShareResponse)
+-&gt; Lens
+     UpdatePortfolioShareResponse
+     UpdatePortfolioShareResponse
+     (Maybe ShareStatus)
+     (Maybe ShareStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430146"><span class="annot"><span class="annottext">Maybe ShareStatus
+status :: Maybe ShareStatus
+$sel:status:UpdatePortfolioShareResponse' :: UpdatePortfolioShareResponse -&gt; Maybe ShareStatus
+</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430145"><span class="annot"><span class="annottext">s :: UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430144"><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdatePortfolioShareResponse' :: Maybe ShareStatus
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3Astatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShareStatus
+</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The token that tracks the status of the @UpdatePortfolioShare@ operation</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for external account to account or organizational type sharing.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_portfolioShareToken"><span class="hs-identifier hs-type">updatePortfolioShareResponse_portfolioShareToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="updatePortfolioShareResponse_portfolioShareToken"><span class="annot"><span class="annottext">updatePortfolioShareResponse_portfolioShareToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePortfolioShareResponse -&gt; f UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_portfolioShareToken"><span class="hs-identifier hs-var hs-var">updatePortfolioShareResponse_portfolioShareToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShareResponse -&gt; Maybe Text)
+-&gt; (UpdatePortfolioShareResponse
+    -&gt; Maybe Text -&gt; UpdatePortfolioShareResponse)
+-&gt; Lens
+     UpdatePortfolioShareResponse
+     UpdatePortfolioShareResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430143"><span class="annot"><span class="annottext">Maybe Text
+portfolioShareToken :: Maybe Text
+$sel:portfolioShareToken:UpdatePortfolioShareResponse' :: UpdatePortfolioShareResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var hs-var">portfolioShareToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">portfolioShareToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430142"><span class="annot"><span class="annottext">s :: UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioShareToken:UpdatePortfolioShareResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AportfolioShareToken%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">portfolioShareToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_httpStatus"><span class="hs-identifier hs-type">updatePortfolioShareResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="updatePortfolioShareResponse_httpStatus"><span class="annot"><span class="annottext">updatePortfolioShareResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePortfolioShareResponse -&gt; f UpdatePortfolioShareResponse
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#updatePortfolioShareResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePortfolioShareResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePortfolioShareResponse -&gt; Int)
+-&gt; (UpdatePortfolioShareResponse
+    -&gt; Int -&gt; UpdatePortfolioShareResponse)
+-&gt; Lens
+     UpdatePortfolioShareResponse UpdatePortfolioShareResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430140"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePortfolioShareResponse' :: UpdatePortfolioShareResponse -&gt; Int
+</span><a href="#local-6989586621679430140"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430140"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430139"><span class="annot"><span class="annottext">s :: UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse%27"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePortfolioShareResponse
+</span><a href="#local-6989586621679430139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePortfolioShareResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#%24sel%3AhttpStatus%3AUpdatePortfolioShareResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.UpdatePortfolioShare.html#UpdatePortfolioShareResponse"><span class="hs-identifier hs-type">UpdatePortfolioShareResponse</span></a></span></span><span>
+</span><span id="line-274"></span></pre></body></html>

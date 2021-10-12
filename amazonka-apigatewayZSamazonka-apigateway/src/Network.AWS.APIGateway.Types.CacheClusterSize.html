@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.CacheClusterSize</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.CacheClusterSize</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize"><span class="hs-identifier">CacheClusterSize</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize_"><span class="hs-identifier">CacheClusterSize_</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Returns the size of the __CacheCluster__.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679364335"><span id="local-6989586621679364336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CacheClusterSize"><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize"><span class="hs-identifier hs-var">CacheClusterSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheClusterSize%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize%27"><span class="hs-identifier hs-var">CacheClusterSize'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCacheClusterSize"><span class="annot"><span class="annottext">CacheClusterSize -&gt; Text
+</span><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#fromCacheClusterSize"><span class="hs-identifier hs-var hs-var">fromCacheClusterSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364327"><span id="local-6989586621679364329"><span id="local-6989586621679364331"><span class="annot"><span class="annottext">Int -&gt; CacheClusterSize -&gt; ShowS
+[CacheClusterSize] -&gt; ShowS
+CacheClusterSize -&gt; String
+(Int -&gt; CacheClusterSize -&gt; ShowS)
+-&gt; (CacheClusterSize -&gt; String)
+-&gt; ([CacheClusterSize] -&gt; ShowS)
+-&gt; Show CacheClusterSize
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CacheClusterSize] -&gt; ShowS
+$cshowList :: [CacheClusterSize] -&gt; ShowS
+show :: CacheClusterSize -&gt; String
+$cshow :: CacheClusterSize -&gt; String
+showsPrec :: Int -&gt; CacheClusterSize -&gt; ShowS
+$cshowsPrec :: Int -&gt; CacheClusterSize -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364318"><span id="local-6989586621679364320"><span id="local-6989586621679364322"><span id="local-6989586621679364324"><span class="annot"><span class="annottext">ReadPrec [CacheClusterSize]
+ReadPrec CacheClusterSize
+Int -&gt; ReadS CacheClusterSize
+ReadS [CacheClusterSize]
+(Int -&gt; ReadS CacheClusterSize)
+-&gt; ReadS [CacheClusterSize]
+-&gt; ReadPrec CacheClusterSize
+-&gt; ReadPrec [CacheClusterSize]
+-&gt; Read CacheClusterSize
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CacheClusterSize]
+$creadListPrec :: ReadPrec [CacheClusterSize]
+readPrec :: ReadPrec CacheClusterSize
+$creadPrec :: ReadPrec CacheClusterSize
+readList :: ReadS [CacheClusterSize]
+$creadList :: ReadS [CacheClusterSize]
+readsPrec :: Int -&gt; ReadS CacheClusterSize
+$creadsPrec :: Int -&gt; ReadS CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364313"><span id="local-6989586621679364315"><span class="annot"><span class="annottext">CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+(CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; Eq CacheClusterSize
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c/= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+== :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c== :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364297"><span id="local-6989586621679364299"><span id="local-6989586621679364301"><span id="local-6989586621679364303"><span id="local-6989586621679364305"><span id="local-6989586621679364307"><span id="local-6989586621679364309"><span class="annot"><span class="annottext">Eq CacheClusterSize
+Eq CacheClusterSize
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Ordering)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; Bool)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize)
+-&gt; (CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize)
+-&gt; Ord CacheClusterSize
+CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+CacheClusterSize -&gt; CacheClusterSize -&gt; Ordering
+CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize
+$cmin :: CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize
+max :: CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize
+$cmax :: CacheClusterSize -&gt; CacheClusterSize -&gt; CacheClusterSize
+&gt;= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c&gt;= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+&gt; :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c&gt; :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+&lt;= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c&lt;= :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+&lt; :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+$c&lt; :: CacheClusterSize -&gt; CacheClusterSize -&gt; Bool
+compare :: CacheClusterSize -&gt; CacheClusterSize -&gt; Ordering
+$ccompare :: CacheClusterSize -&gt; CacheClusterSize -&gt; Ordering
+$cp1Ord :: Eq CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CacheClusterSize -&gt; Rep CacheClusterSize x)
+-&gt; (forall x. Rep CacheClusterSize x -&gt; CacheClusterSize)
+-&gt; Generic CacheClusterSize
+forall x. Rep CacheClusterSize x -&gt; CacheClusterSize
+forall x. CacheClusterSize -&gt; Rep CacheClusterSize x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CacheClusterSize x -&gt; CacheClusterSize
+$cfrom :: forall x. CacheClusterSize -&gt; Rep CacheClusterSize x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364289"><span id="local-6989586621679364291"><span class="annot"><span class="annottext">Int -&gt; CacheClusterSize -&gt; Int
+CacheClusterSize -&gt; Int
+(Int -&gt; CacheClusterSize -&gt; Int)
+-&gt; (CacheClusterSize -&gt; Int) -&gt; Hashable CacheClusterSize
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CacheClusterSize -&gt; Int
+$chash :: CacheClusterSize -&gt; Int
+hashWithSalt :: Int -&gt; CacheClusterSize -&gt; Int
+$chashWithSalt :: Int -&gt; CacheClusterSize -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364286"><span class="annot"><span class="annottext">CacheClusterSize -&gt; ()
+(CacheClusterSize -&gt; ()) -&gt; NFData CacheClusterSize
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CacheClusterSize -&gt; ()
+$crnf :: CacheClusterSize -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364283"><span class="annot"><span class="annottext">Text -&gt; Either String CacheClusterSize
+(Text -&gt; Either String CacheClusterSize)
+-&gt; FromText CacheClusterSize
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CacheClusterSize
+$cfromText :: Text -&gt; Either String CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364280"><span class="annot"><span class="annottext">CacheClusterSize -&gt; Text
+(CacheClusterSize -&gt; Text) -&gt; ToText CacheClusterSize
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CacheClusterSize -&gt; Text
+$ctoText :: CacheClusterSize -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364277"><span class="annot"><span class="annottext">CacheClusterSize -&gt; ByteString
+(CacheClusterSize -&gt; ByteString) -&gt; ToByteString CacheClusterSize
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CacheClusterSize -&gt; ByteString
+$ctoBS :: CacheClusterSize -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364274"><span class="annot"><span class="annottext">CacheClusterSize -&gt; ByteStringBuilder
+(CacheClusterSize -&gt; ByteStringBuilder) -&gt; ToLog CacheClusterSize
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CacheClusterSize -&gt; ByteStringBuilder
+$cbuild :: CacheClusterSize -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364271"><span class="annot"><span class="annottext">HeaderName -&gt; CacheClusterSize -&gt; [Header]
+(HeaderName -&gt; CacheClusterSize -&gt; [Header])
+-&gt; ToHeader CacheClusterSize
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CacheClusterSize -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CacheClusterSize -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364268"><span class="annot"><span class="annottext">CacheClusterSize -&gt; QueryString
+(CacheClusterSize -&gt; QueryString) -&gt; ToQuery CacheClusterSize
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CacheClusterSize -&gt; QueryString
+$ctoQuery :: CacheClusterSize -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364263"><span id="local-6989586621679364265"><span class="annot"><span class="annottext">Value -&gt; Parser [CacheClusterSize]
+Value -&gt; Parser CacheClusterSize
+(Value -&gt; Parser CacheClusterSize)
+-&gt; (Value -&gt; Parser [CacheClusterSize])
+-&gt; FromJSON CacheClusterSize
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CacheClusterSize]
+$cparseJSONList :: Value -&gt; Parser [CacheClusterSize]
+parseJSON :: Value -&gt; Parser CacheClusterSize
+$cparseJSON :: Value -&gt; Parser CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364258"><span id="local-6989586621679364260"><span class="annot"><span class="annottext">FromJSONKeyFunction [CacheClusterSize]
+FromJSONKeyFunction CacheClusterSize
+FromJSONKeyFunction CacheClusterSize
+-&gt; FromJSONKeyFunction [CacheClusterSize]
+-&gt; FromJSONKey CacheClusterSize
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CacheClusterSize]
+$cfromJSONKeyList :: FromJSONKeyFunction [CacheClusterSize]
+fromJSONKey :: FromJSONKeyFunction CacheClusterSize
+$cfromJSONKey :: FromJSONKeyFunction CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364249"><span id="local-6989586621679364251"><span id="local-6989586621679364253"><span id="local-6989586621679364255"><span class="annot"><span class="annottext">[CacheClusterSize] -&gt; Encoding
+[CacheClusterSize] -&gt; Value
+CacheClusterSize -&gt; Encoding
+CacheClusterSize -&gt; Value
+(CacheClusterSize -&gt; Value)
+-&gt; (CacheClusterSize -&gt; Encoding)
+-&gt; ([CacheClusterSize] -&gt; Value)
+-&gt; ([CacheClusterSize] -&gt; Encoding)
+-&gt; ToJSON CacheClusterSize
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CacheClusterSize] -&gt; Encoding
+$ctoEncodingList :: [CacheClusterSize] -&gt; Encoding
+toJSONList :: [CacheClusterSize] -&gt; Value
+$ctoJSONList :: [CacheClusterSize] -&gt; Value
+toEncoding :: CacheClusterSize -&gt; Encoding
+$ctoEncoding :: CacheClusterSize -&gt; Encoding
+toJSON :: CacheClusterSize -&gt; Value
+$ctoJSON :: CacheClusterSize -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364244"><span id="local-6989586621679364246"><span class="annot"><span class="annottext">ToJSONKeyFunction [CacheClusterSize]
+ToJSONKeyFunction CacheClusterSize
+ToJSONKeyFunction CacheClusterSize
+-&gt; ToJSONKeyFunction [CacheClusterSize]
+-&gt; ToJSONKey CacheClusterSize
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CacheClusterSize]
+$ctoJSONKeyList :: ToJSONKeyFunction [CacheClusterSize]
+toJSONKey :: ToJSONKeyFunction CacheClusterSize
+$ctoJSONKey :: ToJSONKeyFunction CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364241"><span class="annot"><span class="annottext">[Node] -&gt; Either String CacheClusterSize
+([Node] -&gt; Either String CacheClusterSize)
+-&gt; FromXML CacheClusterSize
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CacheClusterSize
+$cparseXML :: [Node] -&gt; Either String CacheClusterSize
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364238"><span class="annot"><span class="annottext">CacheClusterSize -&gt; XML
+(CacheClusterSize -&gt; XML) -&gt; ToXML CacheClusterSize
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CacheClusterSize -&gt; XML
+$ctoXML :: CacheClusterSize -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize_"><span class="hs-identifier hs-type">CacheClusterSize_</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize"><span class="hs-identifier hs-type">CacheClusterSize</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCacheClusterSize_"><span id="%24mCacheClusterSize_"><span id="CacheClusterSize_"><span class="annot"><span class="annottext">$bCacheClusterSize_ :: CacheClusterSize
+$mCacheClusterSize_ :: forall r. CacheClusterSize -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#%24bCacheClusterSize_"><span class="hs-identifier hs-var hs-var hs-var">CacheClusterSize_</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize%27"><span class="hs-identifier hs-type">CacheClusterSize'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;13.5&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize_"><span class="hs-pragma hs-type">CacheClusterSize_</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.CacheClusterSize.html#CacheClusterSize%27"><span class="hs-pragma hs-type">CacheClusterSize'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

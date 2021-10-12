@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Athena.Types.QueryExecution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Athena.Types.QueryExecution</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html"><span class="hs-identifier">Network.AWS.Athena.Types.EngineVersion</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionContext.html"><span class="hs-identifier">Network.AWS.Athena.Types.QueryExecutionContext</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatistics.html"><span class="hs-identifier">Network.AWS.Athena.Types.QueryExecutionStatistics</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatus.html"><span class="hs-identifier">Network.AWS.Athena.Types.QueryExecutionStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html"><span class="hs-identifier">Network.AWS.Athena.Types.ResultConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html"><span class="hs-identifier">Network.AWS.Athena.Types.StatementType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Information about a single instance of a query execution.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newQueryExecution' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679218684"><span id="local-6989586621679218685"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryExecution"><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-var">QueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryExecution%27"><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-var">QueryExecution'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The completion date, current state, submission time, and state change</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- reason (if applicable) for the query execution.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe QueryExecutionStatus
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatus%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatus.html#QueryExecutionStatus"><span class="hs-identifier hs-type">QueryExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier for each query execution.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AqueryExecutionId%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionId%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Query execution statistics, such as the amount of data scanned, the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- amount of time that the query took to process, and the type of statement</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- that was run.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatistics%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe QueryExecutionStatistics
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatistics%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The SQL query statements which the query execution ran.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aquery%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Aquery%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The database in which the query execution occurred.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AqueryExecutionContext%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe QueryExecutionContext
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionContext%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryExecutionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionContext.html#QueryExecutionContext"><span class="hs-identifier hs-type">QueryExecutionContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The engine version that executed the query.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AengineVersion%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe EngineVersion
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AengineVersion%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The location in Amazon S3 where query results were stored and the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- encryption option, if any, used for query results. These are known as</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- \&quot;client-side settings\&quot;. If workgroup settings override client-side</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- settings, then the query uses the location for the query results and the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- encryption configuration that are specified for the workgroup.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AresultConfiguration%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe ResultConfiguration
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AresultConfiguration%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">resultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the workgroup in which the query ran.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AworkGroup%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AworkGroup%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The type of query statement that was run. @DDL@ indicates DDL query</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- statements. @DML@ indicates DML (Data Manipulation Language) query</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @DESCRIBE TABLE@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AstatementType%3AQueryExecution%27"><span class="annot"><span class="annottext">QueryExecution -&gt; Maybe StatementType
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AstatementType%3AQueryExecution%27"><span class="hs-identifier hs-var hs-var">statementType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType"><span class="hs-identifier hs-type">StatementType</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218670"><span id="local-6989586621679218672"><span class="annot"><span class="annottext">QueryExecution -&gt; QueryExecution -&gt; Bool
+(QueryExecution -&gt; QueryExecution -&gt; Bool)
+-&gt; (QueryExecution -&gt; QueryExecution -&gt; Bool) -&gt; Eq QueryExecution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QueryExecution -&gt; QueryExecution -&gt; Bool
+$c/= :: QueryExecution -&gt; QueryExecution -&gt; Bool
+== :: QueryExecution -&gt; QueryExecution -&gt; Bool
+$c== :: QueryExecution -&gt; QueryExecution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218661"><span id="local-6989586621679218663"><span id="local-6989586621679218665"><span id="local-6989586621679218667"><span class="annot"><span class="annottext">ReadPrec [QueryExecution]
+ReadPrec QueryExecution
+Int -&gt; ReadS QueryExecution
+ReadS [QueryExecution]
+(Int -&gt; ReadS QueryExecution)
+-&gt; ReadS [QueryExecution]
+-&gt; ReadPrec QueryExecution
+-&gt; ReadPrec [QueryExecution]
+-&gt; Read QueryExecution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QueryExecution]
+$creadListPrec :: ReadPrec [QueryExecution]
+readPrec :: ReadPrec QueryExecution
+$creadPrec :: ReadPrec QueryExecution
+readList :: ReadS [QueryExecution]
+$creadList :: ReadS [QueryExecution]
+readsPrec :: Int -&gt; ReadS QueryExecution
+$creadsPrec :: Int -&gt; ReadS QueryExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218654"><span id="local-6989586621679218656"><span id="local-6989586621679218658"><span class="annot"><span class="annottext">Int -&gt; QueryExecution -&gt; ShowS
+[QueryExecution] -&gt; ShowS
+QueryExecution -&gt; String
+(Int -&gt; QueryExecution -&gt; ShowS)
+-&gt; (QueryExecution -&gt; String)
+-&gt; ([QueryExecution] -&gt; ShowS)
+-&gt; Show QueryExecution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QueryExecution] -&gt; ShowS
+$cshowList :: [QueryExecution] -&gt; ShowS
+show :: QueryExecution -&gt; String
+$cshow :: QueryExecution -&gt; String
+showsPrec :: Int -&gt; QueryExecution -&gt; ShowS
+$cshowsPrec :: Int -&gt; QueryExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. QueryExecution -&gt; Rep QueryExecution x)
+-&gt; (forall x. Rep QueryExecution x -&gt; QueryExecution)
+-&gt; Generic QueryExecution
+forall x. Rep QueryExecution x -&gt; QueryExecution
+forall x. QueryExecution -&gt; Rep QueryExecution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QueryExecution x -&gt; QueryExecution
+$cfrom :: forall x. QueryExecution -&gt; Rep QueryExecution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'QueryExecution' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'status', 'queryExecution_status' - The completion date, current state, submission time, and state change</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- reason (if applicable) for the query execution.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'queryExecutionId', 'queryExecution_queryExecutionId' - The unique identifier for each query execution.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'statistics', 'queryExecution_statistics' - Query execution statistics, such as the amount of data scanned, the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- amount of time that the query took to process, and the type of statement</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- that was run.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'query', 'queryExecution_query' - The SQL query statements which the query execution ran.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'queryExecutionContext', 'queryExecution_queryExecutionContext' - The database in which the query execution occurred.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'engineVersion', 'queryExecution_engineVersion' - The engine version that executed the query.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'resultConfiguration', 'queryExecution_resultConfiguration' - The location in Amazon S3 where query results were stored and the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- encryption option, if any, used for query results. These are known as</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- \&quot;client-side settings\&quot;. If workgroup settings override client-side</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- settings, then the query uses the location for the query results and the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- encryption configuration that are specified for the workgroup.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'workGroup', 'queryExecution_workGroup' - The name of the workgroup in which the query ran.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'statementType', 'queryExecution_statementType' - The type of query statement that was run. @DDL@ indicates DDL query</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- statements. @DML@ indicates DML (Data Manipulation Language) query</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @DESCRIBE TABLE@.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#newQueryExecution"><span class="hs-identifier hs-type">newQueryExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span>
+</span><span id="line-106"></span><span id="newQueryExecution"><span class="annot"><span class="annottext">newQueryExecution :: QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#newQueryExecution"><span class="hs-identifier hs-var hs-var">newQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">QueryExecution' :: Maybe QueryExecutionStatus
+-&gt; Maybe Text
+-&gt; Maybe QueryExecutionStatistics
+-&gt; Maybe Text
+-&gt; Maybe QueryExecutionContext
+-&gt; Maybe EngineVersion
+-&gt; Maybe ResultConfiguration
+-&gt; Maybe Text
+-&gt; Maybe StatementType
+-&gt; QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:QueryExecution' :: Maybe QueryExecutionStatus
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatus%3AQueryExecution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryExecutionId:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionId%3AQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:statistics:QueryExecution' :: Maybe QueryExecutionStatistics
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatistics%3AQueryExecution%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:query:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Aquery%3AQueryExecution%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryExecutionContext:QueryExecution' :: Maybe QueryExecutionContext
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionContext%3AQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:QueryExecution' :: Maybe EngineVersion
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AengineVersion%3AQueryExecution%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultConfiguration:QueryExecution' :: Maybe ResultConfiguration
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AresultConfiguration%3AQueryExecution%27"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AworkGroup%3AQueryExecution%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:statementType:QueryExecution' :: Maybe StatementType
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AstatementType%3AQueryExecution%27"><span class="hs-identifier hs-var">statementType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatementType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The completion date, current state, submission time, and state change</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- reason (if applicable) for the query execution.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_status"><span class="hs-identifier hs-type">queryExecution_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatus.html#QueryExecutionStatus"><span class="hs-identifier hs-type">QueryExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="queryExecution_status"><span class="annot"><span class="annottext">queryExecution_status :: (Maybe QueryExecutionStatus -&gt; f (Maybe QueryExecutionStatus))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_status"><span class="hs-identifier hs-var hs-var">queryExecution_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe QueryExecutionStatus)
+-&gt; (QueryExecution -&gt; Maybe QueryExecutionStatus -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe QueryExecutionStatus)
+     (Maybe QueryExecutionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218645"><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+status :: Maybe QueryExecutionStatus
+$sel:status:QueryExecution' :: QueryExecution -&gt; Maybe QueryExecutionStatus
+</span><a href="#local-6989586621679218645"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+</span><a href="#local-6989586621679218645"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218644"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218643"><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+</span><a href="#local-6989586621679218643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:QueryExecution' :: Maybe QueryExecutionStatus
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatus%3AQueryExecution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+</span><a href="#local-6989586621679218643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The unique identifier for each query execution.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_queryExecutionId"><span class="hs-identifier hs-type">queryExecution_queryExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="queryExecution_queryExecutionId"><span class="annot"><span class="annottext">queryExecution_queryExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_queryExecutionId"><span class="hs-identifier hs-var hs-var">queryExecution_queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe Text)
+-&gt; (QueryExecution -&gt; Maybe Text -&gt; QueryExecution)
+-&gt; Lens QueryExecution QueryExecution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218641"><span class="annot"><span class="annottext">Maybe Text
+queryExecutionId :: Maybe Text
+$sel:queryExecutionId:QueryExecution' :: QueryExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679218641"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218641"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218640"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionId%3AQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Query execution statistics, such as the amount of data scanned, the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- amount of time that the query took to process, and the type of statement</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- that was run.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_statistics"><span class="hs-identifier hs-type">queryExecution_statistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionStatistics.html#QueryExecutionStatistics"><span class="hs-identifier hs-type">QueryExecutionStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="queryExecution_statistics"><span class="annot"><span class="annottext">queryExecution_statistics :: (Maybe QueryExecutionStatistics
+ -&gt; f (Maybe QueryExecutionStatistics))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_statistics"><span class="hs-identifier hs-var hs-var">queryExecution_statistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe QueryExecutionStatistics)
+-&gt; (QueryExecution
+    -&gt; Maybe QueryExecutionStatistics -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe QueryExecutionStatistics)
+     (Maybe QueryExecutionStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218637"><span class="annot"><span class="annottext">Maybe QueryExecutionStatistics
+statistics :: Maybe QueryExecutionStatistics
+$sel:statistics:QueryExecution' :: QueryExecution -&gt; Maybe QueryExecutionStatistics
+</span><a href="#local-6989586621679218637"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatistics
+</span><a href="#local-6989586621679218637"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218636"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218635"><span class="annot"><span class="annottext">Maybe QueryExecutionStatistics
+</span><a href="#local-6989586621679218635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:QueryExecution' :: Maybe QueryExecutionStatistics
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Astatistics%3AQueryExecution%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatistics
+</span><a href="#local-6989586621679218635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The SQL query statements which the query execution ran.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_query"><span class="hs-identifier hs-type">queryExecution_query</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="queryExecution_query"><span class="annot"><span class="annottext">queryExecution_query :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_query"><span class="hs-identifier hs-var hs-var">queryExecution_query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe Text)
+-&gt; (QueryExecution -&gt; Maybe Text -&gt; QueryExecution)
+-&gt; Lens QueryExecution QueryExecution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218633"><span class="annot"><span class="annottext">Maybe Text
+query :: Maybe Text
+$sel:query:QueryExecution' :: QueryExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679218633"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218633"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218632"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3Aquery%3AQueryExecution%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The database in which the query execution occurred.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_queryExecutionContext"><span class="hs-identifier hs-type">queryExecution_queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecutionContext.html#QueryExecutionContext"><span class="hs-identifier hs-type">QueryExecutionContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="queryExecution_queryExecutionContext"><span class="annot"><span class="annottext">queryExecution_queryExecutionContext :: (Maybe QueryExecutionContext -&gt; f (Maybe QueryExecutionContext))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_queryExecutionContext"><span class="hs-identifier hs-var hs-var">queryExecution_queryExecutionContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe QueryExecutionContext)
+-&gt; (QueryExecution
+    -&gt; Maybe QueryExecutionContext -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe QueryExecutionContext)
+     (Maybe QueryExecutionContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218629"><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+queryExecutionContext :: Maybe QueryExecutionContext
+$sel:queryExecutionContext:QueryExecution' :: QueryExecution -&gt; Maybe QueryExecutionContext
+</span><a href="#local-6989586621679218629"><span class="hs-identifier hs-var hs-var">queryExecutionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679218629"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218628"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218627"><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679218627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionContext:QueryExecution' :: Maybe QueryExecutionContext
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AqueryExecutionContext%3AQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecutionContext
+</span><a href="#local-6989586621679218627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The engine version that executed the query.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_engineVersion"><span class="hs-identifier hs-type">queryExecution_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="queryExecution_engineVersion"><span class="annot"><span class="annottext">queryExecution_engineVersion :: (Maybe EngineVersion -&gt; f (Maybe EngineVersion))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_engineVersion"><span class="hs-identifier hs-var hs-var">queryExecution_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe EngineVersion)
+-&gt; (QueryExecution -&gt; Maybe EngineVersion -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe EngineVersion)
+     (Maybe EngineVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218625"><span class="annot"><span class="annottext">Maybe EngineVersion
+engineVersion :: Maybe EngineVersion
+$sel:engineVersion:QueryExecution' :: QueryExecution -&gt; Maybe EngineVersion
+</span><a href="#local-6989586621679218625"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineVersion
+</span><a href="#local-6989586621679218625"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218624"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218623"><span class="annot"><span class="annottext">Maybe EngineVersion
+</span><a href="#local-6989586621679218623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:QueryExecution' :: Maybe EngineVersion
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AengineVersion%3AQueryExecution%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineVersion
+</span><a href="#local-6989586621679218623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The location in Amazon S3 where query results were stored and the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- encryption option, if any, used for query results. These are known as</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- \&quot;client-side settings\&quot;. If workgroup settings override client-side</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- settings, then the query uses the location for the query results and the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- encryption configuration that are specified for the workgroup.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_resultConfiguration"><span class="hs-identifier hs-type">queryExecution_resultConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfiguration.html#ResultConfiguration"><span class="hs-identifier hs-type">ResultConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="queryExecution_resultConfiguration"><span class="annot"><span class="annottext">queryExecution_resultConfiguration :: (Maybe ResultConfiguration -&gt; f (Maybe ResultConfiguration))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_resultConfiguration"><span class="hs-identifier hs-var hs-var">queryExecution_resultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe ResultConfiguration)
+-&gt; (QueryExecution -&gt; Maybe ResultConfiguration -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe ResultConfiguration)
+     (Maybe ResultConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218621"><span class="annot"><span class="annottext">Maybe ResultConfiguration
+resultConfiguration :: Maybe ResultConfiguration
+$sel:resultConfiguration:QueryExecution' :: QueryExecution -&gt; Maybe ResultConfiguration
+</span><a href="#local-6989586621679218621"><span class="hs-identifier hs-var hs-var">resultConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679218621"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218620"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218619"><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679218619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultConfiguration:QueryExecution' :: Maybe ResultConfiguration
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AresultConfiguration%3AQueryExecution%27"><span class="hs-identifier hs-var">resultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResultConfiguration
+</span><a href="#local-6989586621679218619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The name of the workgroup in which the query ran.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_workGroup"><span class="hs-identifier hs-type">queryExecution_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="queryExecution_workGroup"><span class="annot"><span class="annottext">queryExecution_workGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_workGroup"><span class="hs-identifier hs-var hs-var">queryExecution_workGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe Text)
+-&gt; (QueryExecution -&gt; Maybe Text -&gt; QueryExecution)
+-&gt; Lens QueryExecution QueryExecution (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218617"><span class="annot"><span class="annottext">Maybe Text
+workGroup :: Maybe Text
+$sel:workGroup:QueryExecution' :: QueryExecution -&gt; Maybe Text
+</span><a href="#local-6989586621679218617"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218617"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218616"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:QueryExecution' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AworkGroup%3AQueryExecution%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The type of query statement that was run. @DDL@ indicates DDL query</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- statements. @DML@ indicates DML (Data Manipulation Language) query</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @DESCRIBE TABLE@.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_statementType"><span class="hs-identifier hs-type">queryExecution_statementType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType"><span class="hs-identifier hs-type">StatementType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="queryExecution_statementType"><span class="annot"><span class="annottext">queryExecution_statementType :: (Maybe StatementType -&gt; f (Maybe StatementType))
+-&gt; QueryExecution -&gt; f QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#queryExecution_statementType"><span class="hs-identifier hs-var hs-var">queryExecution_statementType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryExecution -&gt; Maybe StatementType)
+-&gt; (QueryExecution -&gt; Maybe StatementType -&gt; QueryExecution)
+-&gt; Lens
+     QueryExecution
+     QueryExecution
+     (Maybe StatementType)
+     (Maybe StatementType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218613"><span class="annot"><span class="annottext">Maybe StatementType
+statementType :: Maybe StatementType
+$sel:statementType:QueryExecution' :: QueryExecution -&gt; Maybe StatementType
+</span><a href="#local-6989586621679218613"><span class="hs-identifier hs-var hs-var">statementType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatementType
+</span><a href="#local-6989586621679218613"><span class="hs-identifier hs-var">statementType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218612"><span class="annot"><span class="annottext">s :: QueryExecution
+</span><a href="#local-6989586621679218612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-type">QueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218611"><span class="annot"><span class="annottext">Maybe StatementType
+</span><a href="#local-6989586621679218611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryExecution
+</span><a href="#local-6989586621679218612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementType:QueryExecution' :: Maybe StatementType
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#%24sel%3AstatementType%3AQueryExecution%27"><span class="hs-identifier hs-var">statementType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatementType
+</span><a href="#local-6989586621679218611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218608"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679218606"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryExecution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser QueryExecution)
+-&gt; Value
+-&gt; Parser QueryExecution
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;QueryExecution&quot;</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218603"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryExecutionStatus
+-&gt; Maybe Text
+-&gt; Maybe QueryExecutionStatistics
+-&gt; Maybe Text
+-&gt; Maybe QueryExecutionContext
+-&gt; Maybe EngineVersion
+-&gt; Maybe ResultConfiguration
+-&gt; Maybe Text
+-&gt; Maybe StatementType
+-&gt; QueryExecution
+</span><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution%27"><span class="hs-identifier hs-var">QueryExecution'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe QueryExecutionStatus
+ -&gt; Maybe Text
+ -&gt; Maybe QueryExecutionStatistics
+ -&gt; Maybe Text
+ -&gt; Maybe QueryExecutionContext
+ -&gt; Maybe EngineVersion
+ -&gt; Maybe ResultConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe StatementType
+ -&gt; QueryExecution)
+-&gt; Parser (Maybe QueryExecutionStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe QueryExecutionStatistics
+      -&gt; Maybe Text
+      -&gt; Maybe QueryExecutionContext
+      -&gt; Maybe EngineVersion
+      -&gt; Maybe ResultConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe StatementType
+      -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryExecutionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe QueryExecutionStatistics
+   -&gt; Maybe Text
+   -&gt; Maybe QueryExecutionContext
+   -&gt; Maybe EngineVersion
+   -&gt; Maybe ResultConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe StatementType
+   -&gt; QueryExecution)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe QueryExecutionStatistics
+      -&gt; Maybe Text
+      -&gt; Maybe QueryExecutionContext
+      -&gt; Maybe EngineVersion
+      -&gt; Maybe ResultConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe StatementType
+      -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe QueryExecutionStatistics
+   -&gt; Maybe Text
+   -&gt; Maybe QueryExecutionContext
+   -&gt; Maybe EngineVersion
+   -&gt; Maybe ResultConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe StatementType
+   -&gt; QueryExecution)
+-&gt; Parser (Maybe QueryExecutionStatistics)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe QueryExecutionContext
+      -&gt; Maybe EngineVersion
+      -&gt; Maybe ResultConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe StatementType
+      -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryExecutionStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Statistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe QueryExecutionContext
+   -&gt; Maybe EngineVersion
+   -&gt; Maybe ResultConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe StatementType
+   -&gt; QueryExecution)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe QueryExecutionContext
+      -&gt; Maybe EngineVersion
+      -&gt; Maybe ResultConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe StatementType
+      -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Query&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe QueryExecutionContext
+   -&gt; Maybe EngineVersion
+   -&gt; Maybe ResultConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe StatementType
+   -&gt; QueryExecution)
+-&gt; Parser (Maybe QueryExecutionContext)
+-&gt; Parser
+     (Maybe EngineVersion
+      -&gt; Maybe ResultConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe StatementType
+      -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryExecutionContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryExecutionContext&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EngineVersion
+   -&gt; Maybe ResultConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe StatementType
+   -&gt; QueryExecution)
+-&gt; Parser (Maybe EngineVersion)
+-&gt; Parser
+     (Maybe ResultConfiguration
+      -&gt; Maybe Text -&gt; Maybe StatementType -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResultConfiguration
+   -&gt; Maybe Text -&gt; Maybe StatementType -&gt; QueryExecution)
+-&gt; Parser (Maybe ResultConfiguration)
+-&gt; Parser (Maybe Text -&gt; Maybe StatementType -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResultConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResultConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe StatementType -&gt; QueryExecution)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe StatementType -&gt; QueryExecution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StatementType -&gt; QueryExecution)
+-&gt; Parser (Maybe StatementType) -&gt; Parser QueryExecution
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatementType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatementType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218597"><span id="local-6989586621679218599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

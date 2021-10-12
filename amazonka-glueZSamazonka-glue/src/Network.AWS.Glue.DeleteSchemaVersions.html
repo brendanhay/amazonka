@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.DeleteSchemaVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Remove versions from the specified schema. A version number or range may</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- be supplied. If the compatibility mode forbids deleting of a version</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that is necessary, such as BACKWARDS_FULL, an error is returned. Calling</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the @GetSchemaVersions@ API after this call will list the status of the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- deleted versions.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When the range of version numbers contain check pointed version, the API</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- will return a 409 conflict and will not proceed with the deletion. You</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- have to remove the checkpoint first using the @DeleteSchemaCheckpoint@</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- API before using this API.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- You cannot use the @DeleteSchemaVersions@ API to delete the first schema</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- version in the schema set. The first schema version can only be deleted</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- by the @DeleteSchema@ API. This operation will also delete the attached</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- @SchemaVersionMetadata@ under the schema versions. Hard deletes will be</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- enforced on the database.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- If the compatibility mode forbids deleting of a version that is</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- necessary, such as BACKWARDS_FULL, an error is returned.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.DeleteSchemaVersions</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersions"><span class="hs-identifier">newDeleteSchemaVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_schemaId"><span class="hs-identifier">deleteSchemaVersions_schemaId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_versions"><span class="hs-identifier">deleteSchemaVersions_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier">DeleteSchemaVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersionsResponse"><span class="hs-identifier">newDeleteSchemaVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_schemaVersionErrors"><span class="hs-identifier">deleteSchemaVersionsResponse_schemaVersionErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_httpStatus"><span class="hs-identifier">deleteSchemaVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.html"><span class="hs-identifier">Network.AWS.Glue.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newDeleteSchemaVersions' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679732447"><span id="local-6989586621679732448"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchemaVersions"><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-var">DeleteSchemaVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchemaVersions%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-var">DeleteSchemaVersions'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a wrapper structure that may contain the schema name and Amazon</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AschemaId%3ADeleteSchemaVersions%27"><span class="annot"><span class="annottext">DeleteSchemaVersions -&gt; SchemaId
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaId%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A version range may be supplied which may be of the format:</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   a single version number, 5</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   a range, 5-8 : deletes versions 5, 6, 7, 8</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aversions%3ADeleteSchemaVersions%27"><span class="annot"><span class="annottext">DeleteSchemaVersions -&gt; Text
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3Aversions%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732440"><span id="local-6989586621679732442"><span class="annot"><span class="annottext">DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool
+(DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool)
+-&gt; (DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool)
+-&gt; Eq DeleteSchemaVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool
+$c/= :: DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool
+== :: DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool
+$c== :: DeleteSchemaVersions -&gt; DeleteSchemaVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732431"><span id="local-6989586621679732433"><span id="local-6989586621679732435"><span id="local-6989586621679732437"><span class="annot"><span class="annottext">ReadPrec [DeleteSchemaVersions]
+ReadPrec DeleteSchemaVersions
+Int -&gt; ReadS DeleteSchemaVersions
+ReadS [DeleteSchemaVersions]
+(Int -&gt; ReadS DeleteSchemaVersions)
+-&gt; ReadS [DeleteSchemaVersions]
+-&gt; ReadPrec DeleteSchemaVersions
+-&gt; ReadPrec [DeleteSchemaVersions]
+-&gt; Read DeleteSchemaVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSchemaVersions]
+$creadListPrec :: ReadPrec [DeleteSchemaVersions]
+readPrec :: ReadPrec DeleteSchemaVersions
+$creadPrec :: ReadPrec DeleteSchemaVersions
+readList :: ReadS [DeleteSchemaVersions]
+$creadList :: ReadS [DeleteSchemaVersions]
+readsPrec :: Int -&gt; ReadS DeleteSchemaVersions
+$creadsPrec :: Int -&gt; ReadS DeleteSchemaVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732424"><span id="local-6989586621679732426"><span id="local-6989586621679732428"><span class="annot"><span class="annottext">Int -&gt; DeleteSchemaVersions -&gt; ShowS
+[DeleteSchemaVersions] -&gt; ShowS
+DeleteSchemaVersions -&gt; String
+(Int -&gt; DeleteSchemaVersions -&gt; ShowS)
+-&gt; (DeleteSchemaVersions -&gt; String)
+-&gt; ([DeleteSchemaVersions] -&gt; ShowS)
+-&gt; Show DeleteSchemaVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSchemaVersions] -&gt; ShowS
+$cshowList :: [DeleteSchemaVersions] -&gt; ShowS
+show :: DeleteSchemaVersions -&gt; String
+$cshow :: DeleteSchemaVersions -&gt; String
+showsPrec :: Int -&gt; DeleteSchemaVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSchemaVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSchemaVersions -&gt; Rep DeleteSchemaVersions x)
+-&gt; (forall x. Rep DeleteSchemaVersions x -&gt; DeleteSchemaVersions)
+-&gt; Generic DeleteSchemaVersions
+forall x. Rep DeleteSchemaVersions x -&gt; DeleteSchemaVersions
+forall x. DeleteSchemaVersions -&gt; Rep DeleteSchemaVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSchemaVersions x -&gt; DeleteSchemaVersions
+$cfrom :: forall x. DeleteSchemaVersions -&gt; Rep DeleteSchemaVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'DeleteSchemaVersions' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'schemaId', 'deleteSchemaVersions_schemaId' - This is a wrapper structure that may contain the schema name and Amazon</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'versions', 'deleteSchemaVersions_versions' - A version range may be supplied which may be of the format:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   a single version number, 5</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   a range, 5-8 : deletes versions 5, 6, 7, 8</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersions"><span class="hs-identifier hs-type">newDeleteSchemaVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'schemaId'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'versions'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span>
+</span><span id="line-104"></span><span id="newDeleteSchemaVersions"><span class="annot"><span class="annottext">newDeleteSchemaVersions :: SchemaId -&gt; Text -&gt; DeleteSchemaVersions
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersions"><span class="hs-identifier hs-var hs-var">newDeleteSchemaVersions</span></a></span></span><span> </span><span id="local-6989586621679732419"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732419"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span> </span><span id="local-6989586621679732418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732418"><span class="hs-identifier hs-var">pVersions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">DeleteSchemaVersions' :: SchemaId -&gt; Text -&gt; DeleteSchemaVersions
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaId:DeleteSchemaVersions' :: SchemaId
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaId%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732419"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:versions:DeleteSchemaVersions' :: Text
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3Aversions%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732418"><span class="hs-identifier hs-var">pVersions_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | This is a wrapper structure that may contain the schema name and Amazon</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_schemaId"><span class="hs-identifier hs-type">deleteSchemaVersions_schemaId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span>
+</span><span id="line-113"></span><span id="deleteSchemaVersions_schemaId"><span class="annot"><span class="annottext">deleteSchemaVersions_schemaId :: (SchemaId -&gt; f SchemaId)
+-&gt; DeleteSchemaVersions -&gt; f DeleteSchemaVersions
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_schemaId"><span class="hs-identifier hs-var hs-var">deleteSchemaVersions_schemaId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSchemaVersions -&gt; SchemaId)
+-&gt; (DeleteSchemaVersions -&gt; SchemaId -&gt; DeleteSchemaVersions)
+-&gt; Lens DeleteSchemaVersions DeleteSchemaVersions SchemaId SchemaId
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732415"><span class="annot"><span class="annottext">SchemaId
+schemaId :: SchemaId
+$sel:schemaId:DeleteSchemaVersions' :: DeleteSchemaVersions -&gt; SchemaId
+</span><a href="#local-6989586621679732415"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732415"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732414"><span class="annot"><span class="annottext">s :: DeleteSchemaVersions
+</span><a href="#local-6989586621679732414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732413"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaVersions
+</span><a href="#local-6989586621679732414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:DeleteSchemaVersions' :: SchemaId
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaId%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A version range may be supplied which may be of the format:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   a single version number, 5</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   a range, 5-8 : deletes versions 5, 6, 7, 8</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_versions"><span class="hs-identifier hs-type">deleteSchemaVersions_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="deleteSchemaVersions_versions"><span class="annot"><span class="annottext">deleteSchemaVersions_versions :: (Text -&gt; f Text) -&gt; DeleteSchemaVersions -&gt; f DeleteSchemaVersions
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersions_versions"><span class="hs-identifier hs-var hs-var">deleteSchemaVersions_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSchemaVersions -&gt; Text)
+-&gt; (DeleteSchemaVersions -&gt; Text -&gt; DeleteSchemaVersions)
+-&gt; Lens DeleteSchemaVersions DeleteSchemaVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732412"><span class="annot"><span class="annottext">Text
+versions :: Text
+$sel:versions:DeleteSchemaVersions' :: DeleteSchemaVersions -&gt; Text
+</span><a href="#local-6989586621679732412"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732412"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732411"><span class="annot"><span class="annottext">s :: DeleteSchemaVersions
+</span><a href="#local-6989586621679732411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaVersions
+</span><a href="#local-6989586621679732411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:DeleteSchemaVersions' :: Text
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3Aversions%3ADeleteSchemaVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679732406"><span class="annot"><span class="annottext">request :: DeleteSchemaVersions -&gt; Request DeleteSchemaVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSchemaVersions -&gt; Request DeleteSchemaVersions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679732402"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteSchemaVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSchemaVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteSchemaVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteSchemaVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSchemaVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732399"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732398"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679732398"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+-&gt; Int -&gt; DeleteSchemaVersionsResponse
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">DeleteSchemaVersionsResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SchemaVersionErrorItem]
+ -&gt; Int -&gt; DeleteSchemaVersionsResponse)
+-&gt; Either String (Maybe [SchemaVersionErrorItem])
+-&gt; Either String (Int -&gt; DeleteSchemaVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [SchemaVersionErrorItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersionErrors&quot;</span></span><span>
+</span><span id="line-133"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SchemaVersionErrorItem]))
+-&gt; Maybe [SchemaVersionErrorItem]
+-&gt; Either String (Maybe [SchemaVersionErrorItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteSchemaVersionsResponse)
+-&gt; Either String Int -&gt; Either String DeleteSchemaVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732399"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732388"><span id="local-6989586621679732390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679732381"><span class="annot"><span class="annottext">toHeaders :: DeleteSchemaVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSchemaVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSGlue.DeleteSchemaVersions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732371"><span id="local-6989586621679732373"><span id="local-6989586621679732375"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679732369"><span class="annot"><span class="annottext">toJSON :: DeleteSchemaVersions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions%27"><span class="hs-identifier hs-type">DeleteSchemaVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732366"><span id="local-6989586621679732367"><span class="annot"><span class="annottext">Text
+SchemaId
+versions :: Text
+schemaId :: SchemaId
+$sel:versions:DeleteSchemaVersions' :: DeleteSchemaVersions -&gt; Text
+$sel:schemaId:DeleteSchemaVersions' :: DeleteSchemaVersions -&gt; SchemaId
+</span><a href="#local-6989586621679732366"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaId -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679732367"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Versions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732366"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679732360"><span class="annot"><span class="annottext">toPath :: DeleteSchemaVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSchemaVersions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersions"><span class="hs-identifier hs-type">DeleteSchemaVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679732356"><span class="annot"><span class="annottext">toQuery :: DeleteSchemaVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSchemaVersions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newDeleteSchemaVersionsResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679732353"><span id="local-6989586621679732354"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchemaVersionsResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-var">DeleteSchemaVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchemaVersionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">DeleteSchemaVersionsResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @SchemaVersionErrorItem@ objects, each containing an error and</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- schema version.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AschemaVersionErrors%3ADeleteSchemaVersionsResponse%27"><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse -&gt; Maybe [SchemaVersionErrorItem]
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaVersionErrors%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var hs-var">schemaVersionErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionErrorItem.html#SchemaVersionErrorItem"><span class="hs-identifier hs-type">SchemaVersionErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSchemaVersionsResponse%27"><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse -&gt; Int
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AhttpStatus%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732347"><span id="local-6989586621679732349"><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse
+-&gt; DeleteSchemaVersionsResponse -&gt; Bool
+(DeleteSchemaVersionsResponse
+ -&gt; DeleteSchemaVersionsResponse -&gt; Bool)
+-&gt; (DeleteSchemaVersionsResponse
+    -&gt; DeleteSchemaVersionsResponse -&gt; Bool)
+-&gt; Eq DeleteSchemaVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSchemaVersionsResponse
+-&gt; DeleteSchemaVersionsResponse -&gt; Bool
+$c/= :: DeleteSchemaVersionsResponse
+-&gt; DeleteSchemaVersionsResponse -&gt; Bool
+== :: DeleteSchemaVersionsResponse
+-&gt; DeleteSchemaVersionsResponse -&gt; Bool
+$c== :: DeleteSchemaVersionsResponse
+-&gt; DeleteSchemaVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732339"><span id="local-6989586621679732341"><span id="local-6989586621679732343"><span id="local-6989586621679732345"><span class="annot"><span class="annottext">ReadPrec [DeleteSchemaVersionsResponse]
+ReadPrec DeleteSchemaVersionsResponse
+Int -&gt; ReadS DeleteSchemaVersionsResponse
+ReadS [DeleteSchemaVersionsResponse]
+(Int -&gt; ReadS DeleteSchemaVersionsResponse)
+-&gt; ReadS [DeleteSchemaVersionsResponse]
+-&gt; ReadPrec DeleteSchemaVersionsResponse
+-&gt; ReadPrec [DeleteSchemaVersionsResponse]
+-&gt; Read DeleteSchemaVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSchemaVersionsResponse]
+$creadListPrec :: ReadPrec [DeleteSchemaVersionsResponse]
+readPrec :: ReadPrec DeleteSchemaVersionsResponse
+$creadPrec :: ReadPrec DeleteSchemaVersionsResponse
+readList :: ReadS [DeleteSchemaVersionsResponse]
+$creadList :: ReadS [DeleteSchemaVersionsResponse]
+readsPrec :: Int -&gt; ReadS DeleteSchemaVersionsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteSchemaVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732333"><span id="local-6989586621679732335"><span id="local-6989586621679732337"><span class="annot"><span class="annottext">Int -&gt; DeleteSchemaVersionsResponse -&gt; ShowS
+[DeleteSchemaVersionsResponse] -&gt; ShowS
+DeleteSchemaVersionsResponse -&gt; String
+(Int -&gt; DeleteSchemaVersionsResponse -&gt; ShowS)
+-&gt; (DeleteSchemaVersionsResponse -&gt; String)
+-&gt; ([DeleteSchemaVersionsResponse] -&gt; ShowS)
+-&gt; Show DeleteSchemaVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSchemaVersionsResponse] -&gt; ShowS
+$cshowList :: [DeleteSchemaVersionsResponse] -&gt; ShowS
+show :: DeleteSchemaVersionsResponse -&gt; String
+$cshow :: DeleteSchemaVersionsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteSchemaVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSchemaVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteSchemaVersionsResponse -&gt; Rep DeleteSchemaVersionsResponse x)
+-&gt; (forall x.
+    Rep DeleteSchemaVersionsResponse x -&gt; DeleteSchemaVersionsResponse)
+-&gt; Generic DeleteSchemaVersionsResponse
+forall x.
+Rep DeleteSchemaVersionsResponse x -&gt; DeleteSchemaVersionsResponse
+forall x.
+DeleteSchemaVersionsResponse -&gt; Rep DeleteSchemaVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteSchemaVersionsResponse x -&gt; DeleteSchemaVersionsResponse
+$cfrom :: forall x.
+DeleteSchemaVersionsResponse -&gt; Rep DeleteSchemaVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'DeleteSchemaVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'schemaVersionErrors', 'deleteSchemaVersionsResponse_schemaVersionErrors' - A list of @SchemaVersionErrorItem@ objects, each containing an error and</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- schema version.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'deleteSchemaVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">newDeleteSchemaVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newDeleteSchemaVersionsResponse"><span class="annot"><span class="annottext">newDeleteSchemaVersionsResponse :: Int -&gt; DeleteSchemaVersionsResponse
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#newDeleteSchemaVersionsResponse"><span class="hs-identifier hs-var hs-var">newDeleteSchemaVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679732330"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse' :: Maybe [SchemaVersionErrorItem]
+-&gt; Int -&gt; DeleteSchemaVersionsResponse
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaVersionErrors:DeleteSchemaVersionsResponse' :: Maybe [SchemaVersionErrorItem]
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaVersionErrors%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">schemaVersionErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSchemaVersionsResponse' :: Int
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AhttpStatus%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of @SchemaVersionErrorItem@ objects, each containing an error and</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- schema version.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_schemaVersionErrors"><span class="hs-identifier hs-type">deleteSchemaVersionsResponse_schemaVersionErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionErrorItem.html#SchemaVersionErrorItem"><span class="hs-identifier hs-type">SchemaVersionErrorItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="deleteSchemaVersionsResponse_schemaVersionErrors"><span class="annot"><span class="annottext">deleteSchemaVersionsResponse_schemaVersionErrors :: (Maybe [SchemaVersionErrorItem]
+ -&gt; f (Maybe [SchemaVersionErrorItem]))
+-&gt; DeleteSchemaVersionsResponse -&gt; f DeleteSchemaVersionsResponse
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_schemaVersionErrors"><span class="hs-identifier hs-var hs-var">deleteSchemaVersionsResponse_schemaVersionErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSchemaVersionsResponse -&gt; Maybe [SchemaVersionErrorItem])
+-&gt; (DeleteSchemaVersionsResponse
+    -&gt; Maybe [SchemaVersionErrorItem] -&gt; DeleteSchemaVersionsResponse)
+-&gt; Lens
+     DeleteSchemaVersionsResponse
+     DeleteSchemaVersionsResponse
+     (Maybe [SchemaVersionErrorItem])
+     (Maybe [SchemaVersionErrorItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732329"><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+schemaVersionErrors :: Maybe [SchemaVersionErrorItem]
+$sel:schemaVersionErrors:DeleteSchemaVersionsResponse' :: DeleteSchemaVersionsResponse -&gt; Maybe [SchemaVersionErrorItem]
+</span><a href="#local-6989586621679732329"><span class="hs-identifier hs-var hs-var">schemaVersionErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+</span><a href="#local-6989586621679732329"><span class="hs-identifier hs-var">schemaVersionErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732328"><span class="annot"><span class="annottext">s :: DeleteSchemaVersionsResponse
+</span><a href="#local-6989586621679732328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732327"><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+</span><a href="#local-6989586621679732327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse
+</span><a href="#local-6989586621679732328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionErrors:DeleteSchemaVersionsResponse' :: Maybe [SchemaVersionErrorItem]
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AschemaVersionErrors%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">schemaVersionErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SchemaVersionErrorItem]
+</span><a href="#local-6989586621679732327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SchemaVersionErrorItem]
+  -&gt; f (Maybe [SchemaVersionErrorItem]))
+ -&gt; DeleteSchemaVersionsResponse -&gt; f DeleteSchemaVersionsResponse)
+-&gt; ((Maybe [SchemaVersionErrorItem]
+     -&gt; f (Maybe [SchemaVersionErrorItem]))
+    -&gt; Maybe [SchemaVersionErrorItem]
+    -&gt; f (Maybe [SchemaVersionErrorItem]))
+-&gt; (Maybe [SchemaVersionErrorItem]
+    -&gt; f (Maybe [SchemaVersionErrorItem]))
+-&gt; DeleteSchemaVersionsResponse
+-&gt; f DeleteSchemaVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+-&gt; Iso
+     (Maybe [SchemaVersionErrorItem])
+     (Maybe [SchemaVersionErrorItem])
+     (Maybe [SchemaVersionErrorItem])
+     (Maybe [SchemaVersionErrorItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+  [SchemaVersionErrorItem]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_httpStatus"><span class="hs-identifier hs-type">deleteSchemaVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="deleteSchemaVersionsResponse_httpStatus"><span class="annot"><span class="annottext">deleteSchemaVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteSchemaVersionsResponse -&gt; f DeleteSchemaVersionsResponse
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#deleteSchemaVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteSchemaVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSchemaVersionsResponse -&gt; Int)
+-&gt; (DeleteSchemaVersionsResponse
+    -&gt; Int -&gt; DeleteSchemaVersionsResponse)
+-&gt; Lens
+     DeleteSchemaVersionsResponse DeleteSchemaVersionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732323"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteSchemaVersionsResponse' :: DeleteSchemaVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679732323"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732323"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732322"><span class="annot"><span class="annottext">s :: DeleteSchemaVersionsResponse
+</span><a href="#local-6989586621679732322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaVersionsResponse
+</span><a href="#local-6989586621679732322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSchemaVersionsResponse' :: Int
+</span><a href="Network.AWS.Glue.DeleteSchemaVersions.html#%24sel%3AhttpStatus%3ADeleteSchemaVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchemaVersions.html#DeleteSchemaVersionsResponse"><span class="hs-identifier hs-type">DeleteSchemaVersionsResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkMail.AssociateMemberToGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a member (user or group) to the group\'s set.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkMail.AssociateMemberToGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroup"><span class="hs-identifier">newAssociateMemberToGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_organizationId"><span class="hs-identifier">associateMemberToGroup_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_groupId"><span class="hs-identifier">associateMemberToGroup_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_memberId"><span class="hs-identifier">associateMemberToGroup_memberId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier">AssociateMemberToGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroupResponse"><span class="hs-identifier">newAssociateMemberToGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroupResponse_httpStatus"><span class="hs-identifier">associateMemberToGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAssociateMemberToGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679273699"><span id="local-6989586621679273700"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateMemberToGroup"><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-var">AssociateMemberToGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateMemberToGroup%27"><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-var">AssociateMemberToGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The organization under which the group exists.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AorganizationId%3AAssociateMemberToGroup%27"><span class="annot"><span class="annottext">AssociateMemberToGroup -&gt; Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AorganizationId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The group to which the member (user or group) is associated.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupId%3AAssociateMemberToGroup%27"><span class="annot"><span class="annottext">AssociateMemberToGroup -&gt; Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AgroupId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The member (user or group) to associate to the group.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmemberId%3AAssociateMemberToGroup%27"><span class="annot"><span class="annottext">AssociateMemberToGroup -&gt; Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AmemberId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273691"><span id="local-6989586621679273693"><span class="annot"><span class="annottext">AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool
+(AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool)
+-&gt; (AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool)
+-&gt; Eq AssociateMemberToGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool
+$c/= :: AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool
+== :: AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool
+$c== :: AssociateMemberToGroup -&gt; AssociateMemberToGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273682"><span id="local-6989586621679273684"><span id="local-6989586621679273686"><span id="local-6989586621679273688"><span class="annot"><span class="annottext">ReadPrec [AssociateMemberToGroup]
+ReadPrec AssociateMemberToGroup
+Int -&gt; ReadS AssociateMemberToGroup
+ReadS [AssociateMemberToGroup]
+(Int -&gt; ReadS AssociateMemberToGroup)
+-&gt; ReadS [AssociateMemberToGroup]
+-&gt; ReadPrec AssociateMemberToGroup
+-&gt; ReadPrec [AssociateMemberToGroup]
+-&gt; Read AssociateMemberToGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateMemberToGroup]
+$creadListPrec :: ReadPrec [AssociateMemberToGroup]
+readPrec :: ReadPrec AssociateMemberToGroup
+$creadPrec :: ReadPrec AssociateMemberToGroup
+readList :: ReadS [AssociateMemberToGroup]
+$creadList :: ReadS [AssociateMemberToGroup]
+readsPrec :: Int -&gt; ReadS AssociateMemberToGroup
+$creadsPrec :: Int -&gt; ReadS AssociateMemberToGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273675"><span id="local-6989586621679273677"><span id="local-6989586621679273679"><span class="annot"><span class="annottext">Int -&gt; AssociateMemberToGroup -&gt; ShowS
+[AssociateMemberToGroup] -&gt; ShowS
+AssociateMemberToGroup -&gt; String
+(Int -&gt; AssociateMemberToGroup -&gt; ShowS)
+-&gt; (AssociateMemberToGroup -&gt; String)
+-&gt; ([AssociateMemberToGroup] -&gt; ShowS)
+-&gt; Show AssociateMemberToGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateMemberToGroup] -&gt; ShowS
+$cshowList :: [AssociateMemberToGroup] -&gt; ShowS
+show :: AssociateMemberToGroup -&gt; String
+$cshow :: AssociateMemberToGroup -&gt; String
+showsPrec :: Int -&gt; AssociateMemberToGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateMemberToGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateMemberToGroup -&gt; Rep AssociateMemberToGroup x)
+-&gt; (forall x.
+    Rep AssociateMemberToGroup x -&gt; AssociateMemberToGroup)
+-&gt; Generic AssociateMemberToGroup
+forall x. Rep AssociateMemberToGroup x -&gt; AssociateMemberToGroup
+forall x. AssociateMemberToGroup -&gt; Rep AssociateMemberToGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateMemberToGroup x -&gt; AssociateMemberToGroup
+$cfrom :: forall x. AssociateMemberToGroup -&gt; Rep AssociateMemberToGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'AssociateMemberToGroup' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'organizationId', 'associateMemberToGroup_organizationId' - The organization under which the group exists.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'groupId', 'associateMemberToGroup_groupId' - The group to which the member (user or group) is associated.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'memberId', 'associateMemberToGroup_memberId' - The member (user or group) to associate to the group.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroup"><span class="hs-identifier hs-type">newAssociateMemberToGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'memberId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span>
+</span><span id="line-82"></span><span id="newAssociateMemberToGroup"><span class="annot"><span class="annottext">newAssociateMemberToGroup :: Text -&gt; Text -&gt; Text -&gt; AssociateMemberToGroup
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroup"><span class="hs-identifier hs-var hs-var">newAssociateMemberToGroup</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679273670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273670"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679273669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273669"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679273668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273668"><span class="hs-identifier hs-var">pMemberId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">AssociateMemberToGroup' :: Text -&gt; Text -&gt; Text -&gt; AssociateMemberToGroup
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AorganizationId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273670"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AgroupId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273669"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AmemberId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273668"><span class="hs-identifier hs-var">pMemberId_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The organization under which the group exists.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_organizationId"><span class="hs-identifier hs-type">associateMemberToGroup_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="associateMemberToGroup_organizationId"><span class="annot"><span class="annottext">associateMemberToGroup_organizationId :: (Text -&gt; f Text)
+-&gt; AssociateMemberToGroup -&gt; f AssociateMemberToGroup
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_organizationId"><span class="hs-identifier hs-var hs-var">associateMemberToGroup_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateMemberToGroup -&gt; Text)
+-&gt; (AssociateMemberToGroup -&gt; Text -&gt; AssociateMemberToGroup)
+-&gt; Lens AssociateMemberToGroup AssociateMemberToGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273665"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+</span><a href="#local-6989586621679273665"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273665"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273664"><span class="annot"><span class="annottext">s :: AssociateMemberToGroup
+</span><a href="#local-6989586621679273664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateMemberToGroup
+</span><a href="#local-6989586621679273664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AorganizationId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The group to which the member (user or group) is associated.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_groupId"><span class="hs-identifier hs-type">associateMemberToGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="associateMemberToGroup_groupId"><span class="annot"><span class="annottext">associateMemberToGroup_groupId :: (Text -&gt; f Text)
+-&gt; AssociateMemberToGroup -&gt; f AssociateMemberToGroup
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_groupId"><span class="hs-identifier hs-var hs-var">associateMemberToGroup_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateMemberToGroup -&gt; Text)
+-&gt; (AssociateMemberToGroup -&gt; Text -&gt; AssociateMemberToGroup)
+-&gt; Lens AssociateMemberToGroup AssociateMemberToGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273662"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+</span><a href="#local-6989586621679273662"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273662"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273661"><span class="annot"><span class="annottext">s :: AssociateMemberToGroup
+</span><a href="#local-6989586621679273661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateMemberToGroup
+</span><a href="#local-6989586621679273661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AgroupId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The member (user or group) to associate to the group.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_memberId"><span class="hs-identifier hs-type">associateMemberToGroup_memberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="associateMemberToGroup_memberId"><span class="annot"><span class="annottext">associateMemberToGroup_memberId :: (Text -&gt; f Text)
+-&gt; AssociateMemberToGroup -&gt; f AssociateMemberToGroup
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroup_memberId"><span class="hs-identifier hs-var hs-var">associateMemberToGroup_memberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateMemberToGroup -&gt; Text)
+-&gt; (AssociateMemberToGroup -&gt; Text -&gt; AssociateMemberToGroup)
+-&gt; Lens AssociateMemberToGroup AssociateMemberToGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273659"><span class="annot"><span class="annottext">Text
+memberId :: Text
+$sel:memberId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+</span><a href="#local-6989586621679273659"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273659"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273658"><span class="annot"><span class="annottext">s :: AssociateMemberToGroup
+</span><a href="#local-6989586621679273658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273657"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateMemberToGroup
+</span><a href="#local-6989586621679273658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberId:AssociateMemberToGroup' :: Text
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AmemberId%3AAssociateMemberToGroup%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679273653"><span class="annot"><span class="annottext">request :: AssociateMemberToGroup -&gt; Request AssociateMemberToGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateMemberToGroup -&gt; Request AssociateMemberToGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679273649"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateMemberToGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateMemberToGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateMemberToGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateMemberToGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateMemberToGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679273645"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679273645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679273644"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679273644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateMemberToGroupResponse
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse%27"><span class="hs-identifier hs-var">AssociateMemberToGroupResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateMemberToGroupResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateMemberToGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273637"><span id="local-6989586621679273639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679273630"><span class="annot"><span class="annottext">toHeaders :: AssociateMemberToGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateMemberToGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.AssociateMemberToGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273620"><span id="local-6989586621679273622"><span id="local-6989586621679273624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679273618"><span class="annot"><span class="annottext">toJSON :: AssociateMemberToGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup%27"><span class="hs-identifier hs-type">AssociateMemberToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273614"><span id="local-6989586621679273615"><span id="local-6989586621679273616"><span class="annot"><span class="annottext">Text
+memberId :: Text
+groupId :: Text
+organizationId :: Text
+$sel:memberId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+$sel:groupId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+$sel:organizationId:AssociateMemberToGroup' :: AssociateMemberToGroup -&gt; Text
+</span><a href="#local-6989586621679273614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273616"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273615"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273614"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679273608"><span class="annot"><span class="annottext">toPath :: AssociateMemberToGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateMemberToGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroup"><span class="hs-identifier hs-type">AssociateMemberToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679273604"><span class="annot"><span class="annottext">toQuery :: AssociateMemberToGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateMemberToGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newAssociateMemberToGroupResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679273601"><span id="local-6989586621679273602"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateMemberToGroupResponse"><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-var">AssociateMemberToGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateMemberToGroupResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse%27"><span class="hs-identifier hs-var">AssociateMemberToGroupResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateMemberToGroupResponse%27"><span class="annot"><span class="annottext">AssociateMemberToGroupResponse -&gt; Int
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AhttpStatus%3AAssociateMemberToGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273596"><span id="local-6989586621679273598"><span class="annot"><span class="annottext">AssociateMemberToGroupResponse
+-&gt; AssociateMemberToGroupResponse -&gt; Bool
+(AssociateMemberToGroupResponse
+ -&gt; AssociateMemberToGroupResponse -&gt; Bool)
+-&gt; (AssociateMemberToGroupResponse
+    -&gt; AssociateMemberToGroupResponse -&gt; Bool)
+-&gt; Eq AssociateMemberToGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateMemberToGroupResponse
+-&gt; AssociateMemberToGroupResponse -&gt; Bool
+$c/= :: AssociateMemberToGroupResponse
+-&gt; AssociateMemberToGroupResponse -&gt; Bool
+== :: AssociateMemberToGroupResponse
+-&gt; AssociateMemberToGroupResponse -&gt; Bool
+$c== :: AssociateMemberToGroupResponse
+-&gt; AssociateMemberToGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273588"><span id="local-6989586621679273590"><span id="local-6989586621679273592"><span id="local-6989586621679273594"><span class="annot"><span class="annottext">ReadPrec [AssociateMemberToGroupResponse]
+ReadPrec AssociateMemberToGroupResponse
+Int -&gt; ReadS AssociateMemberToGroupResponse
+ReadS [AssociateMemberToGroupResponse]
+(Int -&gt; ReadS AssociateMemberToGroupResponse)
+-&gt; ReadS [AssociateMemberToGroupResponse]
+-&gt; ReadPrec AssociateMemberToGroupResponse
+-&gt; ReadPrec [AssociateMemberToGroupResponse]
+-&gt; Read AssociateMemberToGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateMemberToGroupResponse]
+$creadListPrec :: ReadPrec [AssociateMemberToGroupResponse]
+readPrec :: ReadPrec AssociateMemberToGroupResponse
+$creadPrec :: ReadPrec AssociateMemberToGroupResponse
+readList :: ReadS [AssociateMemberToGroupResponse]
+$creadList :: ReadS [AssociateMemberToGroupResponse]
+readsPrec :: Int -&gt; ReadS AssociateMemberToGroupResponse
+$creadsPrec :: Int -&gt; ReadS AssociateMemberToGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273582"><span id="local-6989586621679273584"><span id="local-6989586621679273586"><span class="annot"><span class="annottext">Int -&gt; AssociateMemberToGroupResponse -&gt; ShowS
+[AssociateMemberToGroupResponse] -&gt; ShowS
+AssociateMemberToGroupResponse -&gt; String
+(Int -&gt; AssociateMemberToGroupResponse -&gt; ShowS)
+-&gt; (AssociateMemberToGroupResponse -&gt; String)
+-&gt; ([AssociateMemberToGroupResponse] -&gt; ShowS)
+-&gt; Show AssociateMemberToGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateMemberToGroupResponse] -&gt; ShowS
+$cshowList :: [AssociateMemberToGroupResponse] -&gt; ShowS
+show :: AssociateMemberToGroupResponse -&gt; String
+$cshow :: AssociateMemberToGroupResponse -&gt; String
+showsPrec :: Int -&gt; AssociateMemberToGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateMemberToGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateMemberToGroupResponse
+ -&gt; Rep AssociateMemberToGroupResponse x)
+-&gt; (forall x.
+    Rep AssociateMemberToGroupResponse x
+    -&gt; AssociateMemberToGroupResponse)
+-&gt; Generic AssociateMemberToGroupResponse
+forall x.
+Rep AssociateMemberToGroupResponse x
+-&gt; AssociateMemberToGroupResponse
+forall x.
+AssociateMemberToGroupResponse
+-&gt; Rep AssociateMemberToGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateMemberToGroupResponse x
+-&gt; AssociateMemberToGroupResponse
+$cfrom :: forall x.
+AssociateMemberToGroupResponse
+-&gt; Rep AssociateMemberToGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'AssociateMemberToGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'associateMemberToGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroupResponse"><span class="hs-identifier hs-type">newAssociateMemberToGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newAssociateMemberToGroupResponse"><span class="annot"><span class="annottext">newAssociateMemberToGroupResponse :: Int -&gt; AssociateMemberToGroupResponse
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#newAssociateMemberToGroupResponse"><span class="hs-identifier hs-var hs-var">newAssociateMemberToGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679273579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">AssociateMemberToGroupResponse' :: Int -&gt; AssociateMemberToGroupResponse
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse%27"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateMemberToGroupResponse' :: Int
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AhttpStatus%3AAssociateMemberToGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroupResponse_httpStatus"><span class="hs-identifier hs-type">associateMemberToGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="associateMemberToGroupResponse_httpStatus"><span class="annot"><span class="annottext">associateMemberToGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateMemberToGroupResponse
+-&gt; f AssociateMemberToGroupResponse
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#associateMemberToGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateMemberToGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateMemberToGroupResponse -&gt; Int)
+-&gt; (AssociateMemberToGroupResponse
+    -&gt; Int -&gt; AssociateMemberToGroupResponse)
+-&gt; Lens
+     AssociateMemberToGroupResponse
+     AssociateMemberToGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse%27"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273578"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateMemberToGroupResponse' :: AssociateMemberToGroupResponse -&gt; Int
+</span><a href="#local-6989586621679273578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273577"><span class="annot"><span class="annottext">s :: AssociateMemberToGroupResponse
+</span><a href="#local-6989586621679273577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse%27"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateMemberToGroupResponse
+</span><a href="#local-6989586621679273577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateMemberToGroupResponse' :: Int
+</span><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#%24sel%3AhttpStatus%3AAssociateMemberToGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679273574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.AssociateMemberToGroup.html#AssociateMemberToGroupResponse"><span class="hs-identifier hs-type">AssociateMemberToGroupResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

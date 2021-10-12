@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of distributions that have a cache behavior that&#8217;s</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- associated with the specified real-time log configuration.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You can specify the real-time log configuration by its name or its</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Resource Name (ARN). You must provide at least one. If you</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- provide both, CloudFront uses the name to identify the real-time log</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- configuration to list distributions for.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can optionally specify the maximum number of items to receive in the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- response. If the total number of items in the list exceeds the maximum</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- that you specify, or the default maximum, the response is paginated. To</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- get the next page of items, send a subsequent request that specifies the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @NextMarker@ value from the current response as the @Marker@ value in</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- the subsequent request.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfig"><span class="hs-identifier">newListDistributionsByRealtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigName"><span class="hs-identifier">listDistributionsByRealtimeLogConfig_realtimeLogConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigArn"><span class="hs-identifier">listDistributionsByRealtimeLogConfig_realtimeLogConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_maxItems"><span class="hs-identifier">listDistributionsByRealtimeLogConfig_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_marker"><span class="hs-identifier">listDistributionsByRealtimeLogConfig_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier">newListDistributionsByRealtimeLogConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_distributionList"><span class="hs-identifier">listDistributionsByRealtimeLogConfigResponse_distributionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier">listDistributionsByRealtimeLogConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newListDistributionsByRealtimeLogConfig' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679411333"><span id="local-6989586621679411334"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDistributionsByRealtimeLogConfig"><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-var">ListDistributionsByRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDistributionsByRealtimeLogConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">ListDistributionsByRealtimeLogConfig'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the real-time log configuration whose associated</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- distributions you want to list.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ArealtimeLogConfigName%3AListDistributionsByRealtimeLogConfig%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigName%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">realtimeLogConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the real-time log configuration whose</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- associated distributions you want to list.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ArealtimeLogConfigArn%3AListDistributionsByRealtimeLogConfig%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigArn%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">realtimeLogConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of distributions that you want in the response.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxItems%3AListDistributionsByRealtimeLogConfig%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AmaxItems%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Use this field when paginating results to indicate where to begin in</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- your list of distributions. The response includes distributions in the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- list that occur after the marker. To get the next page of the list, set</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- this field&#8217;s value to the value of @NextMarker@ from the current page&#8217;s</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Amarker%3AListDistributionsByRealtimeLogConfig%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3Amarker%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411324"><span id="local-6989586621679411326"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool
+(ListDistributionsByRealtimeLogConfig
+ -&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool)
+-&gt; (ListDistributionsByRealtimeLogConfig
+    -&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool)
+-&gt; Eq ListDistributionsByRealtimeLogConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDistributionsByRealtimeLogConfig
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool
+$c/= :: ListDistributionsByRealtimeLogConfig
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool
+== :: ListDistributionsByRealtimeLogConfig
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool
+$c== :: ListDistributionsByRealtimeLogConfig
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411315"><span id="local-6989586621679411317"><span id="local-6989586621679411319"><span id="local-6989586621679411321"><span class="annot"><span class="annottext">ReadPrec [ListDistributionsByRealtimeLogConfig]
+ReadPrec ListDistributionsByRealtimeLogConfig
+Int -&gt; ReadS ListDistributionsByRealtimeLogConfig
+ReadS [ListDistributionsByRealtimeLogConfig]
+(Int -&gt; ReadS ListDistributionsByRealtimeLogConfig)
+-&gt; ReadS [ListDistributionsByRealtimeLogConfig]
+-&gt; ReadPrec ListDistributionsByRealtimeLogConfig
+-&gt; ReadPrec [ListDistributionsByRealtimeLogConfig]
+-&gt; Read ListDistributionsByRealtimeLogConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDistributionsByRealtimeLogConfig]
+$creadListPrec :: ReadPrec [ListDistributionsByRealtimeLogConfig]
+readPrec :: ReadPrec ListDistributionsByRealtimeLogConfig
+$creadPrec :: ReadPrec ListDistributionsByRealtimeLogConfig
+readList :: ReadS [ListDistributionsByRealtimeLogConfig]
+$creadList :: ReadS [ListDistributionsByRealtimeLogConfig]
+readsPrec :: Int -&gt; ReadS ListDistributionsByRealtimeLogConfig
+$creadsPrec :: Int -&gt; ReadS ListDistributionsByRealtimeLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411308"><span id="local-6989586621679411310"><span id="local-6989586621679411312"><span class="annot"><span class="annottext">Int -&gt; ListDistributionsByRealtimeLogConfig -&gt; ShowS
+[ListDistributionsByRealtimeLogConfig] -&gt; ShowS
+ListDistributionsByRealtimeLogConfig -&gt; String
+(Int -&gt; ListDistributionsByRealtimeLogConfig -&gt; ShowS)
+-&gt; (ListDistributionsByRealtimeLogConfig -&gt; String)
+-&gt; ([ListDistributionsByRealtimeLogConfig] -&gt; ShowS)
+-&gt; Show ListDistributionsByRealtimeLogConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDistributionsByRealtimeLogConfig] -&gt; ShowS
+$cshowList :: [ListDistributionsByRealtimeLogConfig] -&gt; ShowS
+show :: ListDistributionsByRealtimeLogConfig -&gt; String
+$cshow :: ListDistributionsByRealtimeLogConfig -&gt; String
+showsPrec :: Int -&gt; ListDistributionsByRealtimeLogConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDistributionsByRealtimeLogConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDistributionsByRealtimeLogConfig
+ -&gt; Rep ListDistributionsByRealtimeLogConfig x)
+-&gt; (forall x.
+    Rep ListDistributionsByRealtimeLogConfig x
+    -&gt; ListDistributionsByRealtimeLogConfig)
+-&gt; Generic ListDistributionsByRealtimeLogConfig
+forall x.
+Rep ListDistributionsByRealtimeLogConfig x
+-&gt; ListDistributionsByRealtimeLogConfig
+forall x.
+ListDistributionsByRealtimeLogConfig
+-&gt; Rep ListDistributionsByRealtimeLogConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDistributionsByRealtimeLogConfig x
+-&gt; ListDistributionsByRealtimeLogConfig
+$cfrom :: forall x.
+ListDistributionsByRealtimeLogConfig
+-&gt; Rep ListDistributionsByRealtimeLogConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'ListDistributionsByRealtimeLogConfig' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'realtimeLogConfigName', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigName' - The name of the real-time log configuration whose associated</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- distributions you want to list.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'realtimeLogConfigArn', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigArn' - The Amazon Resource Name (ARN) of the real-time log configuration whose</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- associated distributions you want to list.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxItems', 'listDistributionsByRealtimeLogConfig_maxItems' - The maximum number of distributions that you want in the response.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'marker', 'listDistributionsByRealtimeLogConfig_marker' - Use this field when paginating results to indicate where to begin in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- your list of distributions. The response includes distributions in the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- list that occur after the marker. To get the next page of the list, set</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- this field&#8217;s value to the value of @NextMarker@ from the current page&#8217;s</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">newListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-107"></span><span id="newListDistributionsByRealtimeLogConfig"><span class="annot"><span class="annottext">newListDistributionsByRealtimeLogConfig :: ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-var hs-var">newListDistributionsByRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeLogConfigName:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigName%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">realtimeLogConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:realtimeLogConfigArn:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigArn%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AmaxItems%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3Amarker%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of the real-time log configuration whose associated</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- distributions you want to list.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigName"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfig_realtimeLogConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="listDistributionsByRealtimeLogConfig_realtimeLogConfigName"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfig_realtimeLogConfigName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDistributionsByRealtimeLogConfig
+-&gt; f ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigName"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfig_realtimeLogConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (ListDistributionsByRealtimeLogConfig
+    -&gt; Maybe Text -&gt; ListDistributionsByRealtimeLogConfig)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfig
+     ListDistributionsByRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411301"><span class="annot"><span class="annottext">Maybe Text
+realtimeLogConfigName :: Maybe Text
+$sel:realtimeLogConfigName:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679411301"><span class="hs-identifier hs-var hs-var">realtimeLogConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411301"><span class="hs-identifier hs-var">realtimeLogConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411300"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigName:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigName%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">realtimeLogConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the real-time log configuration whose</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- associated distributions you want to list.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigArn"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfig_realtimeLogConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listDistributionsByRealtimeLogConfig_realtimeLogConfigArn"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDistributionsByRealtimeLogConfig
+-&gt; f ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_realtimeLogConfigArn"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfig_realtimeLogConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (ListDistributionsByRealtimeLogConfig
+    -&gt; Maybe Text -&gt; ListDistributionsByRealtimeLogConfig)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfig
+     ListDistributionsByRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411298"><span class="annot"><span class="annottext">Maybe Text
+realtimeLogConfigArn :: Maybe Text
+$sel:realtimeLogConfigArn:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679411298"><span class="hs-identifier hs-var hs-var">realtimeLogConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411298"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411297"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigArn:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3ArealtimeLogConfigArn%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The maximum number of distributions that you want in the response.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_maxItems"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfig_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listDistributionsByRealtimeLogConfig_maxItems"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfig_maxItems :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDistributionsByRealtimeLogConfig
+-&gt; f ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_maxItems"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfig_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (ListDistributionsByRealtimeLogConfig
+    -&gt; Maybe Text -&gt; ListDistributionsByRealtimeLogConfig)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfig
+     ListDistributionsByRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411295"><span class="annot"><span class="annottext">Maybe Text
+maxItems :: Maybe Text
+$sel:maxItems:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679411295"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411295"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411294"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AmaxItems%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Use this field when paginating results to indicate where to begin in</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- your list of distributions. The response includes distributions in the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- list that occur after the marker. To get the next page of the list, set</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- this field&#8217;s value to the value of @NextMarker@ from the current page&#8217;s</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_marker"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfig_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listDistributionsByRealtimeLogConfig_marker"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfig_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDistributionsByRealtimeLogConfig
+-&gt; f ListDistributionsByRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfig_marker"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfig_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (ListDistributionsByRealtimeLogConfig
+    -&gt; Maybe Text -&gt; ListDistributionsByRealtimeLogConfig)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfig
+     ListDistributionsByRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411292"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679411292"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411292"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411291"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfig
+</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListDistributionsByRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3Amarker%3AListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679411286"><span class="annot"><span class="annottext">request :: ListDistributionsByRealtimeLogConfig
+-&gt; Request ListDistributionsByRealtimeLogConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListDistributionsByRealtimeLogConfig
+-&gt; Request ListDistributionsByRealtimeLogConfig
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679411282"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDistributionsByRealtimeLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListDistributionsByRealtimeLogConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse ListDistributionsByRealtimeLogConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDistributionsByRealtimeLogConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListDistributionsByRealtimeLogConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411278"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411277"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe DistributionList
+-&gt; Int -&gt; ListDistributionsByRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DistributionList
+ -&gt; Int -&gt; ListDistributionsByRealtimeLogConfigResponse)
+-&gt; Either String (Maybe DistributionList)
+-&gt; Either
+     String (Int -&gt; ListDistributionsByRealtimeLogConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe DistributionList)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411277"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDistributionsByRealtimeLogConfigResponse)
+-&gt; Either String Int
+-&gt; Either String ListDistributionsByRealtimeLogConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679411269"><span id="local-6989586621679411271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679411266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679411262"><span class="annot"><span class="annottext">toElement :: ListDistributionsByRealtimeLogConfig -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; ListDistributionsByRealtimeLogConfig -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}ListDistributionsByRealtimeLogConfigRequest&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679411257"><span class="annot"><span class="annottext">toHeaders :: ListDistributionsByRealtimeLogConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListDistributionsByRealtimeLogConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679411252"><span class="annot"><span class="annottext">toPath :: ListDistributionsByRealtimeLogConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListDistributionsByRealtimeLogConfig -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/distributionsByRealtimeLogConfig/&quot;</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679411248"><span class="annot"><span class="annottext">toQuery :: ListDistributionsByRealtimeLogConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDistributionsByRealtimeLogConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679411244"><span class="annot"><span class="annottext">toXML :: ListDistributionsByRealtimeLogConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfig%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411239"><span id="local-6989586621679411240"><span id="local-6989586621679411241"><span id="local-6989586621679411242"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+maxItems :: Maybe Text
+realtimeLogConfigArn :: Maybe Text
+realtimeLogConfigName :: Maybe Text
+$sel:marker:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+$sel:maxItems:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+$sel:realtimeLogConfigArn:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+$sel:realtimeLogConfigName:ListDistributionsByRealtimeLogConfig' :: ListDistributionsByRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679411239"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RealtimeLogConfigName&quot;</span></span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411242"><span class="hs-identifier hs-var">realtimeLogConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RealtimeLogConfigArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411241"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411240"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411239"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newListDistributionsByRealtimeLogConfigResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679411236"><span id="local-6989586621679411237"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDistributionsByRealtimeLogConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-var">ListDistributionsByRealtimeLogConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDistributionsByRealtimeLogConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">ListDistributionsByRealtimeLogConfigResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdistributionList%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse
+-&gt; Maybe DistributionList
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AdistributionList%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">distributionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionList.html#DistributionList"><span class="hs-identifier hs-type">DistributionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AhttpStatus%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411230"><span id="local-6989586621679411232"><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse
+-&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool
+(ListDistributionsByRealtimeLogConfigResponse
+ -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool)
+-&gt; (ListDistributionsByRealtimeLogConfigResponse
+    -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool)
+-&gt; Eq ListDistributionsByRealtimeLogConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDistributionsByRealtimeLogConfigResponse
+-&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool
+$c/= :: ListDistributionsByRealtimeLogConfigResponse
+-&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool
+== :: ListDistributionsByRealtimeLogConfigResponse
+-&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool
+$c== :: ListDistributionsByRealtimeLogConfigResponse
+-&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411222"><span id="local-6989586621679411224"><span id="local-6989586621679411226"><span id="local-6989586621679411228"><span class="annot"><span class="annottext">ReadPrec [ListDistributionsByRealtimeLogConfigResponse]
+ReadPrec ListDistributionsByRealtimeLogConfigResponse
+Int -&gt; ReadS ListDistributionsByRealtimeLogConfigResponse
+ReadS [ListDistributionsByRealtimeLogConfigResponse]
+(Int -&gt; ReadS ListDistributionsByRealtimeLogConfigResponse)
+-&gt; ReadS [ListDistributionsByRealtimeLogConfigResponse]
+-&gt; ReadPrec ListDistributionsByRealtimeLogConfigResponse
+-&gt; ReadPrec [ListDistributionsByRealtimeLogConfigResponse]
+-&gt; Read ListDistributionsByRealtimeLogConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDistributionsByRealtimeLogConfigResponse]
+$creadListPrec :: ReadPrec [ListDistributionsByRealtimeLogConfigResponse]
+readPrec :: ReadPrec ListDistributionsByRealtimeLogConfigResponse
+$creadPrec :: ReadPrec ListDistributionsByRealtimeLogConfigResponse
+readList :: ReadS [ListDistributionsByRealtimeLogConfigResponse]
+$creadList :: ReadS [ListDistributionsByRealtimeLogConfigResponse]
+readsPrec :: Int -&gt; ReadS ListDistributionsByRealtimeLogConfigResponse
+$creadsPrec :: Int -&gt; ReadS ListDistributionsByRealtimeLogConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411216"><span id="local-6989586621679411218"><span id="local-6989586621679411220"><span class="annot"><span class="annottext">Int -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; ShowS
+[ListDistributionsByRealtimeLogConfigResponse] -&gt; ShowS
+ListDistributionsByRealtimeLogConfigResponse -&gt; String
+(Int -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; ShowS)
+-&gt; (ListDistributionsByRealtimeLogConfigResponse -&gt; String)
+-&gt; ([ListDistributionsByRealtimeLogConfigResponse] -&gt; ShowS)
+-&gt; Show ListDistributionsByRealtimeLogConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDistributionsByRealtimeLogConfigResponse] -&gt; ShowS
+$cshowList :: [ListDistributionsByRealtimeLogConfigResponse] -&gt; ShowS
+show :: ListDistributionsByRealtimeLogConfigResponse -&gt; String
+$cshow :: ListDistributionsByRealtimeLogConfigResponse -&gt; String
+showsPrec :: Int -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDistributionsByRealtimeLogConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDistributionsByRealtimeLogConfigResponse
+ -&gt; Rep ListDistributionsByRealtimeLogConfigResponse x)
+-&gt; (forall x.
+    Rep ListDistributionsByRealtimeLogConfigResponse x
+    -&gt; ListDistributionsByRealtimeLogConfigResponse)
+-&gt; Generic ListDistributionsByRealtimeLogConfigResponse
+forall x.
+Rep ListDistributionsByRealtimeLogConfigResponse x
+-&gt; ListDistributionsByRealtimeLogConfigResponse
+forall x.
+ListDistributionsByRealtimeLogConfigResponse
+-&gt; Rep ListDistributionsByRealtimeLogConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDistributionsByRealtimeLogConfigResponse x
+-&gt; ListDistributionsByRealtimeLogConfigResponse
+$cfrom :: forall x.
+ListDistributionsByRealtimeLogConfigResponse
+-&gt; Rep ListDistributionsByRealtimeLogConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'ListDistributionsByRealtimeLogConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'distributionList', 'listDistributionsByRealtimeLogConfigResponse_distributionList' - Undocumented member.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'httpStatus', 'listDistributionsByRealtimeLogConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">newListDistributionsByRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-227"></span><span id="newListDistributionsByRealtimeLogConfigResponse"><span class="annot"><span class="annottext">newListDistributionsByRealtimeLogConfigResponse :: Int -&gt; ListDistributionsByRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#newListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-var hs-var">newListDistributionsByRealtimeLogConfigResponse</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679411213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse' :: Maybe DistributionList
+-&gt; Int -&gt; ListDistributionsByRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributionList:ListDistributionsByRealtimeLogConfigResponse' :: Maybe DistributionList
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AdistributionList%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">distributionList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe DistributionList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDistributionsByRealtimeLogConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AhttpStatus%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411213"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_distributionList"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfigResponse_distributionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionList.html#DistributionList"><span class="hs-identifier hs-type">DistributionList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="listDistributionsByRealtimeLogConfigResponse_distributionList"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfigResponse_distributionList :: (Maybe DistributionList -&gt; f (Maybe DistributionList))
+-&gt; ListDistributionsByRealtimeLogConfigResponse
+-&gt; f ListDistributionsByRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_distributionList"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfigResponse_distributionList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfigResponse
+ -&gt; Maybe DistributionList)
+-&gt; (ListDistributionsByRealtimeLogConfigResponse
+    -&gt; Maybe DistributionList
+    -&gt; ListDistributionsByRealtimeLogConfigResponse)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfigResponse
+     ListDistributionsByRealtimeLogConfigResponse
+     (Maybe DistributionList)
+     (Maybe DistributionList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411212"><span class="annot"><span class="annottext">Maybe DistributionList
+distributionList :: Maybe DistributionList
+$sel:distributionList:ListDistributionsByRealtimeLogConfigResponse' :: ListDistributionsByRealtimeLogConfigResponse
+-&gt; Maybe DistributionList
+</span><a href="#local-6989586621679411212"><span class="hs-identifier hs-var hs-var">distributionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionList
+</span><a href="#local-6989586621679411212"><span class="hs-identifier hs-var">distributionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411211"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfigResponse
+</span><a href="#local-6989586621679411211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411210"><span class="annot"><span class="annottext">Maybe DistributionList
+</span><a href="#local-6989586621679411210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse
+</span><a href="#local-6989586621679411211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionList:ListDistributionsByRealtimeLogConfigResponse' :: Maybe DistributionList
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AdistributionList%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">distributionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DistributionList
+</span><a href="#local-6989586621679411210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-type">listDistributionsByRealtimeLogConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span id="listDistributionsByRealtimeLogConfigResponse_httpStatus"><span class="annot"><span class="annottext">listDistributionsByRealtimeLogConfigResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDistributionsByRealtimeLogConfigResponse
+-&gt; f ListDistributionsByRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#listDistributionsByRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDistributionsByRealtimeLogConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDistributionsByRealtimeLogConfigResponse -&gt; Int)
+-&gt; (ListDistributionsByRealtimeLogConfigResponse
+    -&gt; Int -&gt; ListDistributionsByRealtimeLogConfigResponse)
+-&gt; Lens
+     ListDistributionsByRealtimeLogConfigResponse
+     ListDistributionsByRealtimeLogConfigResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411209"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDistributionsByRealtimeLogConfigResponse' :: ListDistributionsByRealtimeLogConfigResponse -&gt; Int
+</span><a href="#local-6989586621679411209"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411209"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411208"><span class="annot"><span class="annottext">s :: ListDistributionsByRealtimeLogConfigResponse
+</span><a href="#local-6989586621679411208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411207"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDistributionsByRealtimeLogConfigResponse
+</span><a href="#local-6989586621679411208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDistributionsByRealtimeLogConfigResponse' :: Int
+</span><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#%24sel%3AhttpStatus%3AListDistributionsByRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679411205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig.html#ListDistributionsByRealtimeLogConfigResponse"><span class="hs-identifier hs-type">ListDistributionsByRealtimeLogConfigResponse</span></a></span></span><span>
+</span><span id="line-246"></span></pre></body></html>

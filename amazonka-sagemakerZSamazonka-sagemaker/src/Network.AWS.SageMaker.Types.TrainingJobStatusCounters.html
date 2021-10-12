@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.TrainingJobStatusCounters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.TrainingJobStatusCounters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The numbers of training jobs launched by a hyperparameter tuning job,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- categorized by status.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTrainingJobStatusCounters' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680348784"><span id="local-6989586621680348785"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingJobStatusCounters"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-var">TrainingJobStatusCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobStatusCounters%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-var">TrainingJobStatusCounters'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of training jobs launched by a hyperparameter tuning job that</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- were manually stopped.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astopped%3ATrainingJobStatusCounters%27"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Astopped%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of training jobs that failed and can\'t be retried. A failed</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- training job can\'t be retried if it failed because a client error</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- occurred.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnonRetryableError%3ATrainingJobStatusCounters%27"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AnonRetryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var hs-var">nonRetryableError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of completed training jobs launched by the hyperparameter</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acompleted%3ATrainingJobStatusCounters%27"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Acompleted%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of in-progress training jobs launched by a hyperparameter</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinProgress%3ATrainingJobStatusCounters%27"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AinProgress%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var hs-var">inProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of training jobs that failed, but can be retried. A failed</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- training job can be retried only if it failed because an internal</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- service error occurred.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AretryableError%3ATrainingJobStatusCounters%27"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AretryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var hs-var">retryableError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680348774"><span id="local-6989586621680348776"><span class="annot"><span class="annottext">TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool
+(TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool)
+-&gt; (TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool)
+-&gt; Eq TrainingJobStatusCounters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool
+$c/= :: TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool
+== :: TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool
+$c== :: TrainingJobStatusCounters -&gt; TrainingJobStatusCounters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348765"><span id="local-6989586621680348767"><span id="local-6989586621680348769"><span id="local-6989586621680348771"><span class="annot"><span class="annottext">ReadPrec [TrainingJobStatusCounters]
+ReadPrec TrainingJobStatusCounters
+Int -&gt; ReadS TrainingJobStatusCounters
+ReadS [TrainingJobStatusCounters]
+(Int -&gt; ReadS TrainingJobStatusCounters)
+-&gt; ReadS [TrainingJobStatusCounters]
+-&gt; ReadPrec TrainingJobStatusCounters
+-&gt; ReadPrec [TrainingJobStatusCounters]
+-&gt; Read TrainingJobStatusCounters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TrainingJobStatusCounters]
+$creadListPrec :: ReadPrec [TrainingJobStatusCounters]
+readPrec :: ReadPrec TrainingJobStatusCounters
+$creadPrec :: ReadPrec TrainingJobStatusCounters
+readList :: ReadS [TrainingJobStatusCounters]
+$creadList :: ReadS [TrainingJobStatusCounters]
+readsPrec :: Int -&gt; ReadS TrainingJobStatusCounters
+$creadsPrec :: Int -&gt; ReadS TrainingJobStatusCounters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348758"><span id="local-6989586621680348760"><span id="local-6989586621680348762"><span class="annot"><span class="annottext">Int -&gt; TrainingJobStatusCounters -&gt; ShowS
+[TrainingJobStatusCounters] -&gt; ShowS
+TrainingJobStatusCounters -&gt; String
+(Int -&gt; TrainingJobStatusCounters -&gt; ShowS)
+-&gt; (TrainingJobStatusCounters -&gt; String)
+-&gt; ([TrainingJobStatusCounters] -&gt; ShowS)
+-&gt; Show TrainingJobStatusCounters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TrainingJobStatusCounters] -&gt; ShowS
+$cshowList :: [TrainingJobStatusCounters] -&gt; ShowS
+show :: TrainingJobStatusCounters -&gt; String
+$cshow :: TrainingJobStatusCounters -&gt; String
+showsPrec :: Int -&gt; TrainingJobStatusCounters -&gt; ShowS
+$cshowsPrec :: Int -&gt; TrainingJobStatusCounters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TrainingJobStatusCounters -&gt; Rep TrainingJobStatusCounters x)
+-&gt; (forall x.
+    Rep TrainingJobStatusCounters x -&gt; TrainingJobStatusCounters)
+-&gt; Generic TrainingJobStatusCounters
+forall x.
+Rep TrainingJobStatusCounters x -&gt; TrainingJobStatusCounters
+forall x.
+TrainingJobStatusCounters -&gt; Rep TrainingJobStatusCounters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TrainingJobStatusCounters x -&gt; TrainingJobStatusCounters
+$cfrom :: forall x.
+TrainingJobStatusCounters -&gt; Rep TrainingJobStatusCounters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'TrainingJobStatusCounters' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'stopped', 'trainingJobStatusCounters_stopped' - The number of training jobs launched by a hyperparameter tuning job that</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- were manually stopped.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'nonRetryableError', 'trainingJobStatusCounters_nonRetryableError' - The number of training jobs that failed and can\'t be retried. A failed</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- training job can\'t be retried if it failed because a client error</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- occurred.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'completed', 'trainingJobStatusCounters_completed' - The number of completed training jobs launched by the hyperparameter</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'inProgress', 'trainingJobStatusCounters_inProgress' - The number of in-progress training jobs launched by a hyperparameter</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'retryableError', 'trainingJobStatusCounters_retryableError' - The number of training jobs that failed, but can be retried. A failed</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- training job can be retried only if it failed because an internal</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- service error occurred.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#newTrainingJobStatusCounters"><span class="hs-identifier hs-type">newTrainingJobStatusCounters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span>
+</span><span id="line-77"></span><span id="newTrainingJobStatusCounters"><span class="annot"><span class="annottext">newTrainingJobStatusCounters :: TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#newTrainingJobStatusCounters"><span class="hs-identifier hs-var hs-var">newTrainingJobStatusCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">TrainingJobStatusCounters' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stopped:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Astopped%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonRetryableError:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AnonRetryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">nonRetryableError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:completed:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Acompleted%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">completed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:inProgress:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AinProgress%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">inProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryableError:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AretryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">retryableError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The number of training jobs launched by a hyperparameter tuning job that</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- were manually stopped.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_stopped"><span class="hs-identifier hs-type">trainingJobStatusCounters_stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="trainingJobStatusCounters_stopped"><span class="annot"><span class="annottext">trainingJobStatusCounters_stopped :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TrainingJobStatusCounters -&gt; f TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_stopped"><span class="hs-identifier hs-var hs-var">trainingJobStatusCounters_stopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobStatusCounters -&gt; Maybe Natural)
+-&gt; (TrainingJobStatusCounters
+    -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Lens
+     TrainingJobStatusCounters
+     TrainingJobStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348749"><span class="annot"><span class="annottext">Maybe Natural
+stopped :: Maybe Natural
+$sel:stopped:TrainingJobStatusCounters' :: TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680348749"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348749"><span class="hs-identifier hs-var">stopped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348748"><span class="annot"><span class="annottext">s :: TrainingJobStatusCounters
+</span><a href="#local-6989586621680348748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348747"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatusCounters
+</span><a href="#local-6989586621680348748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopped:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Astopped%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of training jobs that failed and can\'t be retried. A failed</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- training job can\'t be retried if it failed because a client error</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- occurred.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_nonRetryableError"><span class="hs-identifier hs-type">trainingJobStatusCounters_nonRetryableError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="trainingJobStatusCounters_nonRetryableError"><span class="annot"><span class="annottext">trainingJobStatusCounters_nonRetryableError :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TrainingJobStatusCounters -&gt; f TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_nonRetryableError"><span class="hs-identifier hs-var hs-var">trainingJobStatusCounters_nonRetryableError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobStatusCounters -&gt; Maybe Natural)
+-&gt; (TrainingJobStatusCounters
+    -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Lens
+     TrainingJobStatusCounters
+     TrainingJobStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348745"><span class="annot"><span class="annottext">Maybe Natural
+nonRetryableError :: Maybe Natural
+$sel:nonRetryableError:TrainingJobStatusCounters' :: TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680348745"><span class="hs-identifier hs-var hs-var">nonRetryableError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348745"><span class="hs-identifier hs-var">nonRetryableError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348744"><span class="annot"><span class="annottext">s :: TrainingJobStatusCounters
+</span><a href="#local-6989586621680348744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348743"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatusCounters
+</span><a href="#local-6989586621680348744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonRetryableError:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AnonRetryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">nonRetryableError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The number of completed training jobs launched by the hyperparameter</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_completed"><span class="hs-identifier hs-type">trainingJobStatusCounters_completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="trainingJobStatusCounters_completed"><span class="annot"><span class="annottext">trainingJobStatusCounters_completed :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TrainingJobStatusCounters -&gt; f TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_completed"><span class="hs-identifier hs-var hs-var">trainingJobStatusCounters_completed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobStatusCounters -&gt; Maybe Natural)
+-&gt; (TrainingJobStatusCounters
+    -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Lens
+     TrainingJobStatusCounters
+     TrainingJobStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348741"><span class="annot"><span class="annottext">Maybe Natural
+completed :: Maybe Natural
+$sel:completed:TrainingJobStatusCounters' :: TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680348741"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348741"><span class="hs-identifier hs-var">completed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348740"><span class="annot"><span class="annottext">s :: TrainingJobStatusCounters
+</span><a href="#local-6989586621680348740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348739"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatusCounters
+</span><a href="#local-6989586621680348740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completed:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3Acompleted%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">completed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The number of in-progress training jobs launched by a hyperparameter</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- tuning job.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_inProgress"><span class="hs-identifier hs-type">trainingJobStatusCounters_inProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="trainingJobStatusCounters_inProgress"><span class="annot"><span class="annottext">trainingJobStatusCounters_inProgress :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TrainingJobStatusCounters -&gt; f TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_inProgress"><span class="hs-identifier hs-var hs-var">trainingJobStatusCounters_inProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobStatusCounters -&gt; Maybe Natural)
+-&gt; (TrainingJobStatusCounters
+    -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Lens
+     TrainingJobStatusCounters
+     TrainingJobStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348737"><span class="annot"><span class="annottext">Maybe Natural
+inProgress :: Maybe Natural
+$sel:inProgress:TrainingJobStatusCounters' :: TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680348737"><span class="hs-identifier hs-var hs-var">inProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348737"><span class="hs-identifier hs-var">inProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348736"><span class="annot"><span class="annottext">s :: TrainingJobStatusCounters
+</span><a href="#local-6989586621680348736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348735"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatusCounters
+</span><a href="#local-6989586621680348736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgress:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AinProgress%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">inProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The number of training jobs that failed, but can be retried. A failed</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- training job can be retried only if it failed because an internal</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- service error occurred.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_retryableError"><span class="hs-identifier hs-type">trainingJobStatusCounters_retryableError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="trainingJobStatusCounters_retryableError"><span class="annot"><span class="annottext">trainingJobStatusCounters_retryableError :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TrainingJobStatusCounters -&gt; f TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#trainingJobStatusCounters_retryableError"><span class="hs-identifier hs-var hs-var">trainingJobStatusCounters_retryableError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobStatusCounters -&gt; Maybe Natural)
+-&gt; (TrainingJobStatusCounters
+    -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Lens
+     TrainingJobStatusCounters
+     TrainingJobStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348733"><span class="annot"><span class="annottext">Maybe Natural
+retryableError :: Maybe Natural
+$sel:retryableError:TrainingJobStatusCounters' :: TrainingJobStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680348733"><span class="hs-identifier hs-var hs-var">retryableError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348733"><span class="hs-identifier hs-var">retryableError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348732"><span class="annot"><span class="annottext">s :: TrainingJobStatusCounters
+</span><a href="#local-6989586621680348732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-type">TrainingJobStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348731"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatusCounters
+</span><a href="#local-6989586621680348732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryableError:TrainingJobStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#%24sel%3AretryableError%3ATrainingJobStatusCounters%27"><span class="hs-identifier hs-var">retryableError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680348731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348728"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680348726"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingJobStatusCounters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TrainingJobStatusCounters)
+-&gt; Value
+-&gt; Parser TrainingJobStatusCounters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TrainingJobStatusCounters&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680348723"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; TrainingJobStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters%27"><span class="hs-identifier hs-var">TrainingJobStatusCounters'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; TrainingJobStatusCounters)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; TrainingJobStatusCounters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Stopped&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; TrainingJobStatusCounters)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NonRetryableError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Completed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; TrainingJobStatusCounters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InProgress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; TrainingJobStatusCounters)
+-&gt; Parser (Maybe Natural) -&gt; Parser TrainingJobStatusCounters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryableError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348717"><span id="local-6989586621680348719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatusCounters.html#TrainingJobStatusCounters"><span class="hs-identifier hs-type">TrainingJobStatusCounters</span></a></span></span><span>
+</span><span id="line-130"></span></pre></body></html>

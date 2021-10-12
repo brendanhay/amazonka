@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glue.Types.CsvClassifier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.CsvClassifier</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html"><span class="hs-identifier">Network.AWS.Glue.Types.CsvHeaderOption</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A classifier for custom @CSV@ content.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCsvClassifier' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679682250"><span id="local-6989586621679682251"></span></span><span class="hs-keyword">data</span><span> </span><span id="CsvClassifier"><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-var">CsvClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsvClassifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-var">CsvClassifier'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcreationTime%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Indicates whether the CSV file contains a header.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontainsHeader%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe CsvHeaderOption
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcontainsHeader%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">containsHeader</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption"><span class="hs-identifier hs-type">CsvHeaderOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A custom symbol to denote what separates each column entry in the row.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adelimiter%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Adelimiter%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies not to trim values before identifying the type of column</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- values. The default value is @true@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdisableValueTrimming%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AdisableValueTrimming%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">disableValueTrimming</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The version of this classifier.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aversion%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe Integer
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aversion%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of strings representing column names.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aheader%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aheader%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">header</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time that this classifier was last updated.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastUpdated%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AlastUpdated%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A custom symbol to denote what combines content into a single column</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- value. It must be different from the column delimiter.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AquoteSymbol%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AquoteSymbol%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">quoteSymbol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Enables the processing of files that contain only one column.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AallowSingleColumn%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AallowSingleColumn%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">allowSingleColumn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the classifier.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ACsvClassifier%27"><span class="annot"><span class="annottext">CsvClassifier -&gt; Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aname%3ACsvClassifier%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679682235"><span id="local-6989586621679682237"><span class="annot"><span class="annottext">CsvClassifier -&gt; CsvClassifier -&gt; Bool
+(CsvClassifier -&gt; CsvClassifier -&gt; Bool)
+-&gt; (CsvClassifier -&gt; CsvClassifier -&gt; Bool) -&gt; Eq CsvClassifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CsvClassifier -&gt; CsvClassifier -&gt; Bool
+$c/= :: CsvClassifier -&gt; CsvClassifier -&gt; Bool
+== :: CsvClassifier -&gt; CsvClassifier -&gt; Bool
+$c== :: CsvClassifier -&gt; CsvClassifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679682226"><span id="local-6989586621679682228"><span id="local-6989586621679682230"><span id="local-6989586621679682232"><span class="annot"><span class="annottext">ReadPrec [CsvClassifier]
+ReadPrec CsvClassifier
+Int -&gt; ReadS CsvClassifier
+ReadS [CsvClassifier]
+(Int -&gt; ReadS CsvClassifier)
+-&gt; ReadS [CsvClassifier]
+-&gt; ReadPrec CsvClassifier
+-&gt; ReadPrec [CsvClassifier]
+-&gt; Read CsvClassifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CsvClassifier]
+$creadListPrec :: ReadPrec [CsvClassifier]
+readPrec :: ReadPrec CsvClassifier
+$creadPrec :: ReadPrec CsvClassifier
+readList :: ReadS [CsvClassifier]
+$creadList :: ReadS [CsvClassifier]
+readsPrec :: Int -&gt; ReadS CsvClassifier
+$creadsPrec :: Int -&gt; ReadS CsvClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679682219"><span id="local-6989586621679682221"><span id="local-6989586621679682223"><span class="annot"><span class="annottext">Int -&gt; CsvClassifier -&gt; ShowS
+[CsvClassifier] -&gt; ShowS
+CsvClassifier -&gt; String
+(Int -&gt; CsvClassifier -&gt; ShowS)
+-&gt; (CsvClassifier -&gt; String)
+-&gt; ([CsvClassifier] -&gt; ShowS)
+-&gt; Show CsvClassifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CsvClassifier] -&gt; ShowS
+$cshowList :: [CsvClassifier] -&gt; ShowS
+show :: CsvClassifier -&gt; String
+$cshow :: CsvClassifier -&gt; String
+showsPrec :: Int -&gt; CsvClassifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; CsvClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CsvClassifier -&gt; Rep CsvClassifier x)
+-&gt; (forall x. Rep CsvClassifier x -&gt; CsvClassifier)
+-&gt; Generic CsvClassifier
+forall x. Rep CsvClassifier x -&gt; CsvClassifier
+forall x. CsvClassifier -&gt; Rep CsvClassifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CsvClassifier x -&gt; CsvClassifier
+$cfrom :: forall x. CsvClassifier -&gt; Rep CsvClassifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'CsvClassifier' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'creationTime', 'csvClassifier_creationTime' - The time that this classifier was registered.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'containsHeader', 'csvClassifier_containsHeader' - Indicates whether the CSV file contains a header.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'delimiter', 'csvClassifier_delimiter' - A custom symbol to denote what separates each column entry in the row.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'disableValueTrimming', 'csvClassifier_disableValueTrimming' - Specifies not to trim values before identifying the type of column</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- values. The default value is @true@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'version', 'csvClassifier_version' - The version of this classifier.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'header', 'csvClassifier_header' - A list of strings representing column names.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'lastUpdated', 'csvClassifier_lastUpdated' - The time that this classifier was last updated.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'quoteSymbol', 'csvClassifier_quoteSymbol' - A custom symbol to denote what combines content into a single column</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- value. It must be different from the column delimiter.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'allowSingleColumn', 'csvClassifier_allowSingleColumn' - Enables the processing of files that contain only one column.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'name', 'csvClassifier_name' - The name of the classifier.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#newCsvClassifier"><span class="hs-identifier hs-type">newCsvClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span>
+</span><span id="line-89"></span><span id="newCsvClassifier"><span class="annot"><span class="annottext">newCsvClassifier :: Text -&gt; CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#newCsvClassifier"><span class="hs-identifier hs-var hs-var">newCsvClassifier</span></a></span></span><span> </span><span id="local-6989586621679682213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679682213"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">CsvClassifier' :: Maybe POSIX
+-&gt; Maybe CsvHeaderOption
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Integer
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:CsvClassifier' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcreationTime%3ACsvClassifier%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:containsHeader:CsvClassifier' :: Maybe CsvHeaderOption
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcontainsHeader%3ACsvClassifier%27"><span class="hs-identifier hs-var">containsHeader</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CsvHeaderOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:delimiter:CsvClassifier' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Adelimiter%3ACsvClassifier%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:disableValueTrimming:CsvClassifier' :: Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AdisableValueTrimming%3ACsvClassifier%27"><span class="hs-identifier hs-var">disableValueTrimming</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:CsvClassifier' :: Maybe Integer
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aversion%3ACsvClassifier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:header:CsvClassifier' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aheader%3ACsvClassifier%27"><span class="hs-identifier hs-var">header</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:CsvClassifier' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AlastUpdated%3ACsvClassifier%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:quoteSymbol:CsvClassifier' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AquoteSymbol%3ACsvClassifier%27"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowSingleColumn:CsvClassifier' :: Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AallowSingleColumn%3ACsvClassifier%27"><span class="hs-identifier hs-var">allowSingleColumn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CsvClassifier' :: Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aname%3ACsvClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679682213"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_creationTime"><span class="hs-identifier hs-type">csvClassifier_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="csvClassifier_creationTime"><span class="annot"><span class="annottext">csvClassifier_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_creationTime"><span class="hs-identifier hs-var hs-var">csvClassifier_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe POSIX)
+-&gt; (CsvClassifier -&gt; Maybe POSIX -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682209"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:CsvClassifier' :: CsvClassifier -&gt; Maybe POSIX
+</span><a href="#local-6989586621679682209"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682209"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682208"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682207"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CsvClassifier' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcreationTime%3ACsvClassifier%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CsvClassifier -&gt; f CsvClassifier)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CsvClassifier
+-&gt; f CsvClassifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates whether the CSV file contains a header.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_containsHeader"><span class="hs-identifier hs-type">csvClassifier_containsHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption"><span class="hs-identifier hs-type">CsvHeaderOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="csvClassifier_containsHeader"><span class="annot"><span class="annottext">csvClassifier_containsHeader :: (Maybe CsvHeaderOption -&gt; f (Maybe CsvHeaderOption))
+-&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_containsHeader"><span class="hs-identifier hs-var hs-var">csvClassifier_containsHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe CsvHeaderOption)
+-&gt; (CsvClassifier -&gt; Maybe CsvHeaderOption -&gt; CsvClassifier)
+-&gt; Lens
+     CsvClassifier
+     CsvClassifier
+     (Maybe CsvHeaderOption)
+     (Maybe CsvHeaderOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682202"><span class="annot"><span class="annottext">Maybe CsvHeaderOption
+containsHeader :: Maybe CsvHeaderOption
+$sel:containsHeader:CsvClassifier' :: CsvClassifier -&gt; Maybe CsvHeaderOption
+</span><a href="#local-6989586621679682202"><span class="hs-identifier hs-var hs-var">containsHeader</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CsvHeaderOption
+</span><a href="#local-6989586621679682202"><span class="hs-identifier hs-var">containsHeader</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682201"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682200"><span class="annot"><span class="annottext">Maybe CsvHeaderOption
+</span><a href="#local-6989586621679682200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containsHeader:CsvClassifier' :: Maybe CsvHeaderOption
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AcontainsHeader%3ACsvClassifier%27"><span class="hs-identifier hs-var">containsHeader</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CsvHeaderOption
+</span><a href="#local-6989586621679682200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A custom symbol to denote what separates each column entry in the row.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_delimiter"><span class="hs-identifier hs-type">csvClassifier_delimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="csvClassifier_delimiter"><span class="annot"><span class="annottext">csvClassifier_delimiter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_delimiter"><span class="hs-identifier hs-var hs-var">csvClassifier_delimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe Text)
+-&gt; (CsvClassifier -&gt; Maybe Text -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682198"><span class="annot"><span class="annottext">Maybe Text
+delimiter :: Maybe Text
+$sel:delimiter:CsvClassifier' :: CsvClassifier -&gt; Maybe Text
+</span><a href="#local-6989586621679682198"><span class="hs-identifier hs-var hs-var">delimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682198"><span class="hs-identifier hs-var">delimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682197"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682196"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delimiter:CsvClassifier' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Adelimiter%3ACsvClassifier%27"><span class="hs-identifier hs-var">delimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Specifies not to trim values before identifying the type of column</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- values. The default value is @true@.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_disableValueTrimming"><span class="hs-identifier hs-type">csvClassifier_disableValueTrimming</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="csvClassifier_disableValueTrimming"><span class="annot"><span class="annottext">csvClassifier_disableValueTrimming :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_disableValueTrimming"><span class="hs-identifier hs-var hs-var">csvClassifier_disableValueTrimming</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe Bool)
+-&gt; (CsvClassifier -&gt; Maybe Bool -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682194"><span class="annot"><span class="annottext">Maybe Bool
+disableValueTrimming :: Maybe Bool
+$sel:disableValueTrimming:CsvClassifier' :: CsvClassifier -&gt; Maybe Bool
+</span><a href="#local-6989586621679682194"><span class="hs-identifier hs-var hs-var">disableValueTrimming</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682194"><span class="hs-identifier hs-var">disableValueTrimming</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682193"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682192"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableValueTrimming:CsvClassifier' :: Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AdisableValueTrimming%3ACsvClassifier%27"><span class="hs-identifier hs-var">disableValueTrimming</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The version of this classifier.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_version"><span class="hs-identifier hs-type">csvClassifier_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="csvClassifier_version"><span class="annot"><span class="annottext">csvClassifier_version :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_version"><span class="hs-identifier hs-var hs-var">csvClassifier_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe Integer)
+-&gt; (CsvClassifier -&gt; Maybe Integer -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682190"><span class="annot"><span class="annottext">Maybe Integer
+version :: Maybe Integer
+$sel:version:CsvClassifier' :: CsvClassifier -&gt; Maybe Integer
+</span><a href="#local-6989586621679682190"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679682190"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682189"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682188"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679682188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CsvClassifier' :: Maybe Integer
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aversion%3ACsvClassifier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679682188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A list of strings representing column names.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_header"><span class="hs-identifier hs-type">csvClassifier_header</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="csvClassifier_header"><span class="annot"><span class="annottext">csvClassifier_header :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_header"><span class="hs-identifier hs-var hs-var">csvClassifier_header</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe [Text])
+-&gt; (CsvClassifier -&gt; Maybe [Text] -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682186"><span class="annot"><span class="annottext">Maybe [Text]
+header :: Maybe [Text]
+$sel:header:CsvClassifier' :: CsvClassifier -&gt; Maybe [Text]
+</span><a href="#local-6989586621679682186"><span class="hs-identifier hs-var hs-var">header</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679682186"><span class="hs-identifier hs-var">header</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682185"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682184"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679682184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:header:CsvClassifier' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aheader%3ACsvClassifier%27"><span class="hs-identifier hs-var">header</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679682184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CsvClassifier -&gt; f CsvClassifier)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CsvClassifier
+-&gt; f CsvClassifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The time that this classifier was last updated.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_lastUpdated"><span class="hs-identifier hs-type">csvClassifier_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="csvClassifier_lastUpdated"><span class="annot"><span class="annottext">csvClassifier_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_lastUpdated"><span class="hs-identifier hs-var hs-var">csvClassifier_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe POSIX)
+-&gt; (CsvClassifier -&gt; Maybe POSIX -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682181"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdated :: Maybe POSIX
+$sel:lastUpdated:CsvClassifier' :: CsvClassifier -&gt; Maybe POSIX
+</span><a href="#local-6989586621679682181"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682181"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682180"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682179"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:CsvClassifier' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AlastUpdated%3ACsvClassifier%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679682179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CsvClassifier -&gt; f CsvClassifier)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CsvClassifier
+-&gt; f CsvClassifier
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | A custom symbol to denote what combines content into a single column</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- value. It must be different from the column delimiter.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_quoteSymbol"><span class="hs-identifier hs-type">csvClassifier_quoteSymbol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="csvClassifier_quoteSymbol"><span class="annot"><span class="annottext">csvClassifier_quoteSymbol :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_quoteSymbol"><span class="hs-identifier hs-var hs-var">csvClassifier_quoteSymbol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe Text)
+-&gt; (CsvClassifier -&gt; Maybe Text -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682177"><span class="annot"><span class="annottext">Maybe Text
+quoteSymbol :: Maybe Text
+$sel:quoteSymbol:CsvClassifier' :: CsvClassifier -&gt; Maybe Text
+</span><a href="#local-6989586621679682177"><span class="hs-identifier hs-var hs-var">quoteSymbol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682177"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682176"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteSymbol:CsvClassifier' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AquoteSymbol%3ACsvClassifier%27"><span class="hs-identifier hs-var">quoteSymbol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679682175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Enables the processing of files that contain only one column.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_allowSingleColumn"><span class="hs-identifier hs-type">csvClassifier_allowSingleColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="csvClassifier_allowSingleColumn"><span class="annot"><span class="annottext">csvClassifier_allowSingleColumn :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_allowSingleColumn"><span class="hs-identifier hs-var hs-var">csvClassifier_allowSingleColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Maybe Bool)
+-&gt; (CsvClassifier -&gt; Maybe Bool -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682173"><span class="annot"><span class="annottext">Maybe Bool
+allowSingleColumn :: Maybe Bool
+$sel:allowSingleColumn:CsvClassifier' :: CsvClassifier -&gt; Maybe Bool
+</span><a href="#local-6989586621679682173"><span class="hs-identifier hs-var hs-var">allowSingleColumn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682173"><span class="hs-identifier hs-var">allowSingleColumn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682172"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682171"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSingleColumn:CsvClassifier' :: Maybe Bool
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3AallowSingleColumn%3ACsvClassifier%27"><span class="hs-identifier hs-var">allowSingleColumn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679682171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The name of the classifier.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_name"><span class="hs-identifier hs-type">csvClassifier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="csvClassifier_name"><span class="annot"><span class="annottext">csvClassifier_name :: (Text -&gt; f Text) -&gt; CsvClassifier -&gt; f CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#csvClassifier_name"><span class="hs-identifier hs-var hs-var">csvClassifier_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CsvClassifier -&gt; Text)
+-&gt; (CsvClassifier -&gt; Text -&gt; CsvClassifier)
+-&gt; Lens CsvClassifier CsvClassifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682169"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CsvClassifier' :: CsvClassifier -&gt; Text
+</span><a href="#local-6989586621679682169"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679682169"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682168"><span class="annot"><span class="annottext">s :: CsvClassifier
+</span><a href="#local-6989586621679682168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-type">CsvClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679682167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsvClassifier
+</span><a href="#local-6989586621679682168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CsvClassifier' :: Text
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#%24sel%3Aname%3ACsvClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679682167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679682162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CsvClassifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CsvClassifier)
+-&gt; Value
+-&gt; Parser CsvClassifier
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CsvClassifier&quot;</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679682159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe CsvHeaderOption
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Integer
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; CsvClassifier
+</span><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier%27"><span class="hs-identifier hs-var">CsvClassifier'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe CsvHeaderOption
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Integer
+ -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Text
+ -&gt; CsvClassifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe CsvHeaderOption
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Integer
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CsvHeaderOption
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Integer
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; CsvClassifier)
+-&gt; Parser (Maybe CsvHeaderOption)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Integer
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CsvHeaderOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainsHeader&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Integer
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; CsvClassifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Integer
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Delimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Integer
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; CsvClassifier)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisableValueTrimming&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; CsvClassifier)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; CsvClassifier)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Header&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CsvClassifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CsvClassifier)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; Text -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteSymbol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Text -&gt; CsvClassifier)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; CsvClassifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllowSingleColumn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CsvClassifier)
+-&gt; Parser Text -&gt; Parser CsvClassifier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682151"><span id="local-6989586621679682153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.UpdateCostCategoryDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing Cost Category. Changes made to the Cost Category</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- rules will be used to categorize the current month&#8217;s expenses and future</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- expenses. This won&#8217;t change categorization for the previous months.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.UpdateCostCategoryDefinition</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinition"><span class="hs-identifier">newUpdateCostCategoryDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_splitChargeRules"><span class="hs-identifier">updateCostCategoryDefinition_splitChargeRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_defaultValue"><span class="hs-identifier">updateCostCategoryDefinition_defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_costCategoryArn"><span class="hs-identifier">updateCostCategoryDefinition_costCategoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_ruleVersion"><span class="hs-identifier">updateCostCategoryDefinition_ruleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_rules"><span class="hs-identifier">updateCostCategoryDefinition_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier">UpdateCostCategoryDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinitionResponse"><span class="hs-identifier">newUpdateCostCategoryDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_costCategoryArn"><span class="hs-identifier">updateCostCategoryDefinitionResponse_costCategoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_effectiveStart"><span class="hs-identifier">updateCostCategoryDefinitionResponse_effectiveStart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_httpStatus"><span class="hs-identifier">updateCostCategoryDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateCostCategoryDefinition' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679349274"><span id="local-6989586621679349275"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCostCategoryDefinition"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-var">UpdateCostCategoryDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCostCategoryDefinition%27"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">UpdateCostCategoryDefinition'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The split charge rules used to allocate your charges between your Cost</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Category values.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsplitChargeRules%3AUpdateCostCategoryDefinition%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+-&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AsplitChargeRules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var hs-var">splitChargeRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule.html#CostCategorySplitChargeRule"><span class="hs-identifier hs-type">CostCategorySplitChargeRule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdefaultValue%3AUpdateCostCategoryDefinition%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AdefaultValue%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique identifier for your Cost Category.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinition%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition -&gt; Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleVersion%3AUpdateCostCategoryDefinition%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition -&gt; CostCategoryRuleVersion
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AruleVersion%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleVersion.html#CostCategoryRuleVersion"><span class="hs-identifier hs-type">CostCategoryRuleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The @Expression@ object used to categorize costs. For more information,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- .</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Arules%3AUpdateCostCategoryDefinition%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition -&gt; NonEmpty CostCategoryRule
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3Arules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRule.html#CostCategoryRule"><span class="hs-identifier hs-type">CostCategoryRule</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349264"><span id="local-6989586621679349266"><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+-&gt; UpdateCostCategoryDefinition -&gt; Bool
+(UpdateCostCategoryDefinition
+ -&gt; UpdateCostCategoryDefinition -&gt; Bool)
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; UpdateCostCategoryDefinition -&gt; Bool)
+-&gt; Eq UpdateCostCategoryDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCostCategoryDefinition
+-&gt; UpdateCostCategoryDefinition -&gt; Bool
+$c/= :: UpdateCostCategoryDefinition
+-&gt; UpdateCostCategoryDefinition -&gt; Bool
+== :: UpdateCostCategoryDefinition
+-&gt; UpdateCostCategoryDefinition -&gt; Bool
+$c== :: UpdateCostCategoryDefinition
+-&gt; UpdateCostCategoryDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349255"><span id="local-6989586621679349257"><span id="local-6989586621679349259"><span id="local-6989586621679349261"><span class="annot"><span class="annottext">ReadPrec [UpdateCostCategoryDefinition]
+ReadPrec UpdateCostCategoryDefinition
+Int -&gt; ReadS UpdateCostCategoryDefinition
+ReadS [UpdateCostCategoryDefinition]
+(Int -&gt; ReadS UpdateCostCategoryDefinition)
+-&gt; ReadS [UpdateCostCategoryDefinition]
+-&gt; ReadPrec UpdateCostCategoryDefinition
+-&gt; ReadPrec [UpdateCostCategoryDefinition]
+-&gt; Read UpdateCostCategoryDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCostCategoryDefinition]
+$creadListPrec :: ReadPrec [UpdateCostCategoryDefinition]
+readPrec :: ReadPrec UpdateCostCategoryDefinition
+$creadPrec :: ReadPrec UpdateCostCategoryDefinition
+readList :: ReadS [UpdateCostCategoryDefinition]
+$creadList :: ReadS [UpdateCostCategoryDefinition]
+readsPrec :: Int -&gt; ReadS UpdateCostCategoryDefinition
+$creadsPrec :: Int -&gt; ReadS UpdateCostCategoryDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349248"><span id="local-6989586621679349250"><span id="local-6989586621679349252"><span class="annot"><span class="annottext">Int -&gt; UpdateCostCategoryDefinition -&gt; ShowS
+[UpdateCostCategoryDefinition] -&gt; ShowS
+UpdateCostCategoryDefinition -&gt; String
+(Int -&gt; UpdateCostCategoryDefinition -&gt; ShowS)
+-&gt; (UpdateCostCategoryDefinition -&gt; String)
+-&gt; ([UpdateCostCategoryDefinition] -&gt; ShowS)
+-&gt; Show UpdateCostCategoryDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCostCategoryDefinition] -&gt; ShowS
+$cshowList :: [UpdateCostCategoryDefinition] -&gt; ShowS
+show :: UpdateCostCategoryDefinition -&gt; String
+$cshow :: UpdateCostCategoryDefinition -&gt; String
+showsPrec :: Int -&gt; UpdateCostCategoryDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCostCategoryDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCostCategoryDefinition -&gt; Rep UpdateCostCategoryDefinition x)
+-&gt; (forall x.
+    Rep UpdateCostCategoryDefinition x -&gt; UpdateCostCategoryDefinition)
+-&gt; Generic UpdateCostCategoryDefinition
+forall x.
+Rep UpdateCostCategoryDefinition x -&gt; UpdateCostCategoryDefinition
+forall x.
+UpdateCostCategoryDefinition -&gt; Rep UpdateCostCategoryDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateCostCategoryDefinition x -&gt; UpdateCostCategoryDefinition
+$cfrom :: forall x.
+UpdateCostCategoryDefinition -&gt; Rep UpdateCostCategoryDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'UpdateCostCategoryDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'splitChargeRules', 'updateCostCategoryDefinition_splitChargeRules' - The split charge rules used to allocate your charges between your Cost</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Category values.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'defaultValue', 'updateCostCategoryDefinition_defaultValue' - Undocumented member.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'costCategoryArn', 'updateCostCategoryDefinition_costCategoryArn' - The unique identifier for your Cost Category.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'ruleVersion', 'updateCostCategoryDefinition_ruleVersion' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'rules', 'updateCostCategoryDefinition_rules' - The @Expression@ object used to categorize costs. For more information,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule&gt;</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinition"><span class="hs-identifier hs-type">newUpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'costCategoryArn'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'ruleVersion'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleVersion.html#CostCategoryRuleVersion"><span class="hs-identifier hs-type">CostCategoryRuleVersion</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'rules'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRule.html#CostCategoryRule"><span class="hs-identifier hs-type">CostCategoryRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span>
+</span><span id="line-102"></span><span id="newUpdateCostCategoryDefinition"><span class="annot"><span class="annottext">newUpdateCostCategoryDefinition :: Text
+-&gt; CostCategoryRuleVersion
+-&gt; NonEmpty CostCategoryRule
+-&gt; UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinition"><span class="hs-identifier hs-var hs-var">newUpdateCostCategoryDefinition</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679349243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349243"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679349242"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349242"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679349241"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349241"><span class="hs-identifier hs-var">pRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition' :: Maybe (NonEmpty CostCategorySplitChargeRule)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; CostCategoryRuleVersion
+-&gt; NonEmpty CostCategoryRule
+-&gt; UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:splitChargeRules:UpdateCostCategoryDefinition' :: Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AsplitChargeRules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultValue:UpdateCostCategoryDefinition' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AdefaultValue%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:costCategoryArn:UpdateCostCategoryDefinition' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349243"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleVersion:UpdateCostCategoryDefinition' :: CostCategoryRuleVersion
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AruleVersion%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349242"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:rules:UpdateCostCategoryDefinition' :: NonEmpty CostCategoryRule
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3Arules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty CostCategoryRule) (Identity (NonEmpty CostCategoryRule))
+-&gt; Tagged
+     (NonEmpty CostCategoryRule) (Identity (NonEmpty CostCategoryRule))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty CostCategoryRule) (Identity (NonEmpty CostCategoryRule))
+ -&gt; Tagged
+      (NonEmpty CostCategoryRule) (Identity (NonEmpty CostCategoryRule)))
+-&gt; NonEmpty CostCategoryRule -&gt; NonEmpty CostCategoryRule
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349241"><span class="hs-identifier hs-var">pRules_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The split charge rules used to allocate your charges between your Cost</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Category values.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_splitChargeRules"><span class="hs-identifier hs-type">updateCostCategoryDefinition_splitChargeRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule.html#CostCategorySplitChargeRule"><span class="hs-identifier hs-type">CostCategorySplitChargeRule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="updateCostCategoryDefinition_splitChargeRules"><span class="annot"><span class="annottext">updateCostCategoryDefinition_splitChargeRules :: (Maybe (NonEmpty CostCategorySplitChargeRule)
+ -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
+-&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_splitChargeRules"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinition_splitChargeRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinition
+ -&gt; Maybe (NonEmpty CostCategorySplitChargeRule))
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
+    -&gt; UpdateCostCategoryDefinition)
+-&gt; Lens
+     UpdateCostCategoryDefinition
+     UpdateCostCategoryDefinition
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349236"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+splitChargeRules :: Maybe (NonEmpty CostCategorySplitChargeRule)
+$sel:splitChargeRules:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition
+-&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349236"><span class="hs-identifier hs-var hs-var">splitChargeRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349236"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349235"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349234"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:splitChargeRules:UpdateCostCategoryDefinition' :: Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AsplitChargeRules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CostCategorySplitChargeRule)
+  -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
+ -&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition)
+-&gt; ((Maybe (NonEmpty CostCategorySplitChargeRule)
+     -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
+    -&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
+    -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
+-&gt; (Maybe (NonEmpty CostCategorySplitChargeRule)
+    -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
+-&gt; UpdateCostCategoryDefinition
+-&gt; f UpdateCostCategoryDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+-&gt; Iso
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+     (Maybe (NonEmpty CostCategorySplitChargeRule))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+  (NonEmpty CostCategorySplitChargeRule)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_defaultValue"><span class="hs-identifier hs-type">updateCostCategoryDefinition_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateCostCategoryDefinition_defaultValue"><span class="annot"><span class="annottext">updateCostCategoryDefinition_defaultValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_defaultValue"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinition_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinition -&gt; Maybe Text)
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; Maybe Text -&gt; UpdateCostCategoryDefinition)
+-&gt; Lens
+     UpdateCostCategoryDefinition
+     UpdateCostCategoryDefinition
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349231"><span class="annot"><span class="annottext">Maybe Text
+defaultValue :: Maybe Text
+$sel:defaultValue:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679349231"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349231"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349230"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:UpdateCostCategoryDefinition' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AdefaultValue%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The unique identifier for your Cost Category.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_costCategoryArn"><span class="hs-identifier hs-type">updateCostCategoryDefinition_costCategoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="updateCostCategoryDefinition_costCategoryArn"><span class="annot"><span class="annottext">updateCostCategoryDefinition_costCategoryArn :: (Text -&gt; f Text)
+-&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_costCategoryArn"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinition_costCategoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinition -&gt; Text)
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; Text -&gt; UpdateCostCategoryDefinition)
+-&gt; Lens
+     UpdateCostCategoryDefinition UpdateCostCategoryDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349228"><span class="annot"><span class="annottext">Text
+costCategoryArn :: Text
+$sel:costCategoryArn:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; Text
+</span><a href="#local-6989586621679349228"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349228"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349227"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategoryArn:UpdateCostCategoryDefinition' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_ruleVersion"><span class="hs-identifier hs-type">updateCostCategoryDefinition_ruleVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleVersion.html#CostCategoryRuleVersion"><span class="hs-identifier hs-type">CostCategoryRuleVersion</span></a></span><span>
+</span><span id="line-130"></span><span id="updateCostCategoryDefinition_ruleVersion"><span class="annot"><span class="annottext">updateCostCategoryDefinition_ruleVersion :: (CostCategoryRuleVersion -&gt; f CostCategoryRuleVersion)
+-&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_ruleVersion"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinition_ruleVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinition -&gt; CostCategoryRuleVersion)
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; CostCategoryRuleVersion -&gt; UpdateCostCategoryDefinition)
+-&gt; Lens
+     UpdateCostCategoryDefinition
+     UpdateCostCategoryDefinition
+     CostCategoryRuleVersion
+     CostCategoryRuleVersion
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349225"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+ruleVersion :: CostCategoryRuleVersion
+$sel:ruleVersion:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; CostCategoryRuleVersion
+</span><a href="#local-6989586621679349225"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349225"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349224"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349223"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleVersion:UpdateCostCategoryDefinition' :: CostCategoryRuleVersion
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AruleVersion%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The @Expression@ object used to categorize costs. For more information,</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule&gt;</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_rules"><span class="hs-identifier hs-type">updateCostCategoryDefinition_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRule.html#CostCategoryRule"><span class="hs-identifier hs-type">CostCategoryRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="updateCostCategoryDefinition_rules"><span class="annot"><span class="annottext">updateCostCategoryDefinition_rules :: (NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+-&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinition_rules"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinition_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinition -&gt; NonEmpty CostCategoryRule)
+-&gt; (UpdateCostCategoryDefinition
+    -&gt; NonEmpty CostCategoryRule -&gt; UpdateCostCategoryDefinition)
+-&gt; Lens
+     UpdateCostCategoryDefinition
+     UpdateCostCategoryDefinition
+     (NonEmpty CostCategoryRule)
+     (NonEmpty CostCategoryRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349222"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+rules :: NonEmpty CostCategoryRule
+$sel:rules:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349222"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349222"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349221"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349220"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinition
+</span><a href="#local-6989586621679349221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:UpdateCostCategoryDefinition' :: NonEmpty CostCategoryRule
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3Arules%3AUpdateCostCategoryDefinition%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+ -&gt; UpdateCostCategoryDefinition -&gt; f UpdateCostCategoryDefinition)
+-&gt; ((NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+    -&gt; NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+-&gt; (NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+-&gt; UpdateCostCategoryDefinition
+-&gt; f UpdateCostCategoryDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+-&gt; NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679349216"><span class="annot"><span class="annottext">request :: UpdateCostCategoryDefinition
+-&gt; Request UpdateCostCategoryDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateCostCategoryDefinition
+-&gt; Request UpdateCostCategoryDefinition
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679349212"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateCostCategoryDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCostCategoryDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateCostCategoryDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateCostCategoryDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateCostCategoryDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349208"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349207"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">UpdateCostCategoryDefinitionResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostCategoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateCostCategoryDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EffectiveStart&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateCostCategoryDefinitionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679349199"><span id="local-6989586621679349201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679349192"><span class="annot"><span class="annottext">toHeaders :: UpdateCostCategoryDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCostCategoryDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSInsightsIndexService.UpdateCostCategoryDefinition&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349182"><span id="local-6989586621679349184"><span id="local-6989586621679349186"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679349180"><span class="annot"><span class="annottext">toJSON :: UpdateCostCategoryDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349174"><span id="local-6989586621679349175"><span id="local-6989586621679349176"><span id="local-6989586621679349177"><span id="local-6989586621679349178"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+Maybe Text
+NonEmpty CostCategoryRule
+Text
+CostCategoryRuleVersion
+rules :: NonEmpty CostCategoryRule
+ruleVersion :: CostCategoryRuleVersion
+costCategoryArn :: Text
+defaultValue :: Maybe Text
+splitChargeRules :: Maybe (NonEmpty CostCategorySplitChargeRule)
+$sel:rules:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; NonEmpty CostCategoryRule
+$sel:ruleVersion:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; CostCategoryRuleVersion
+$sel:costCategoryArn:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; Text
+$sel:defaultValue:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition -&gt; Maybe Text
+$sel:splitChargeRules:UpdateCostCategoryDefinition' :: UpdateCostCategoryDefinition
+-&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349174"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SplitChargeRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CostCategorySplitChargeRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty CostCategorySplitChargeRule -&gt; Pair)
+-&gt; Maybe (NonEmpty CostCategorySplitChargeRule) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679349178"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349177"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-182"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostCategoryArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349176"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CostCategoryRuleVersion -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679349175"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CostCategoryRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679349174"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679349168"><span class="annot"><span class="annottext">toPath :: UpdateCostCategoryDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCostCategoryDefinition -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinition"><span class="hs-identifier hs-type">UpdateCostCategoryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679349164"><span class="annot"><span class="annottext">toQuery :: UpdateCostCategoryDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCostCategoryDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newUpdateCostCategoryDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679349161"><span id="local-6989586621679349162"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCostCategoryDefinitionResponse"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-var">UpdateCostCategoryDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCostCategoryDefinitionResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">UpdateCostCategoryDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for your Cost Category.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The Cost Category\'s effective start date.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AeffectiveStart%3AUpdateCostCategoryDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AeffectiveStart%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">effectiveStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCostCategoryDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse -&gt; Int
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AhttpStatus%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349154"><span id="local-6989586621679349156"><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse
+-&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool
+(UpdateCostCategoryDefinitionResponse
+ -&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool)
+-&gt; (UpdateCostCategoryDefinitionResponse
+    -&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool)
+-&gt; Eq UpdateCostCategoryDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateCostCategoryDefinitionResponse
+-&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool
+$c/= :: UpdateCostCategoryDefinitionResponse
+-&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool
+== :: UpdateCostCategoryDefinitionResponse
+-&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool
+$c== :: UpdateCostCategoryDefinitionResponse
+-&gt; UpdateCostCategoryDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349146"><span id="local-6989586621679349148"><span id="local-6989586621679349150"><span id="local-6989586621679349152"><span class="annot"><span class="annottext">ReadPrec [UpdateCostCategoryDefinitionResponse]
+ReadPrec UpdateCostCategoryDefinitionResponse
+Int -&gt; ReadS UpdateCostCategoryDefinitionResponse
+ReadS [UpdateCostCategoryDefinitionResponse]
+(Int -&gt; ReadS UpdateCostCategoryDefinitionResponse)
+-&gt; ReadS [UpdateCostCategoryDefinitionResponse]
+-&gt; ReadPrec UpdateCostCategoryDefinitionResponse
+-&gt; ReadPrec [UpdateCostCategoryDefinitionResponse]
+-&gt; Read UpdateCostCategoryDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateCostCategoryDefinitionResponse]
+$creadListPrec :: ReadPrec [UpdateCostCategoryDefinitionResponse]
+readPrec :: ReadPrec UpdateCostCategoryDefinitionResponse
+$creadPrec :: ReadPrec UpdateCostCategoryDefinitionResponse
+readList :: ReadS [UpdateCostCategoryDefinitionResponse]
+$creadList :: ReadS [UpdateCostCategoryDefinitionResponse]
+readsPrec :: Int -&gt; ReadS UpdateCostCategoryDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateCostCategoryDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349140"><span id="local-6989586621679349142"><span id="local-6989586621679349144"><span class="annot"><span class="annottext">Int -&gt; UpdateCostCategoryDefinitionResponse -&gt; ShowS
+[UpdateCostCategoryDefinitionResponse] -&gt; ShowS
+UpdateCostCategoryDefinitionResponse -&gt; String
+(Int -&gt; UpdateCostCategoryDefinitionResponse -&gt; ShowS)
+-&gt; (UpdateCostCategoryDefinitionResponse -&gt; String)
+-&gt; ([UpdateCostCategoryDefinitionResponse] -&gt; ShowS)
+-&gt; Show UpdateCostCategoryDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateCostCategoryDefinitionResponse] -&gt; ShowS
+$cshowList :: [UpdateCostCategoryDefinitionResponse] -&gt; ShowS
+show :: UpdateCostCategoryDefinitionResponse -&gt; String
+$cshow :: UpdateCostCategoryDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateCostCategoryDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateCostCategoryDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateCostCategoryDefinitionResponse
+ -&gt; Rep UpdateCostCategoryDefinitionResponse x)
+-&gt; (forall x.
+    Rep UpdateCostCategoryDefinitionResponse x
+    -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Generic UpdateCostCategoryDefinitionResponse
+forall x.
+Rep UpdateCostCategoryDefinitionResponse x
+-&gt; UpdateCostCategoryDefinitionResponse
+forall x.
+UpdateCostCategoryDefinitionResponse
+-&gt; Rep UpdateCostCategoryDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateCostCategoryDefinitionResponse x
+-&gt; UpdateCostCategoryDefinitionResponse
+$cfrom :: forall x.
+UpdateCostCategoryDefinitionResponse
+-&gt; Rep UpdateCostCategoryDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'UpdateCostCategoryDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'costCategoryArn', 'updateCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'effectiveStart', 'updateCostCategoryDefinitionResponse_effectiveStart' - The Cost Category\'s effective start date.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'httpStatus', 'updateCostCategoryDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">newUpdateCostCategoryDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span>
+</span><span id="line-222"></span><span id="newUpdateCostCategoryDefinitionResponse"><span class="annot"><span class="annottext">newUpdateCostCategoryDefinitionResponse :: Int -&gt; UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#newUpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-var hs-var">newUpdateCostCategoryDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679349137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:costCategoryArn:UpdateCostCategoryDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:effectiveStart:UpdateCostCategoryDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AeffectiveStart%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCostCategoryDefinitionResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AhttpStatus%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The unique identifier for your Cost Category.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_costCategoryArn"><span class="hs-identifier hs-type">updateCostCategoryDefinitionResponse_costCategoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="updateCostCategoryDefinitionResponse_costCategoryArn"><span class="annot"><span class="annottext">updateCostCategoryDefinitionResponse_costCategoryArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCostCategoryDefinitionResponse
+-&gt; f UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_costCategoryArn"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinitionResponse_costCategoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateCostCategoryDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Lens
+     UpdateCostCategoryDefinitionResponse
+     UpdateCostCategoryDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349136"><span class="annot"><span class="annottext">Maybe Text
+costCategoryArn :: Maybe Text
+$sel:costCategoryArn:UpdateCostCategoryDefinitionResponse' :: UpdateCostCategoryDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679349136"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349136"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349135"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategoryArn:UpdateCostCategoryDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AcostCategoryArn%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The Cost Category\'s effective start date.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_effectiveStart"><span class="hs-identifier hs-type">updateCostCategoryDefinitionResponse_effectiveStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateCostCategoryDefinitionResponse_effectiveStart"><span class="annot"><span class="annottext">updateCostCategoryDefinitionResponse_effectiveStart :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCostCategoryDefinitionResponse
+-&gt; f UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_effectiveStart"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinitionResponse_effectiveStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateCostCategoryDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Lens
+     UpdateCostCategoryDefinitionResponse
+     UpdateCostCategoryDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349133"><span class="annot"><span class="annottext">Maybe Text
+effectiveStart :: Maybe Text
+$sel:effectiveStart:UpdateCostCategoryDefinitionResponse' :: UpdateCostCategoryDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679349133"><span class="hs-identifier hs-var hs-var">effectiveStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349133"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349132"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveStart:UpdateCostCategoryDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AeffectiveStart%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">updateCostCategoryDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="updateCostCategoryDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">updateCostCategoryDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateCostCategoryDefinitionResponse
+-&gt; f UpdateCostCategoryDefinitionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#updateCostCategoryDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateCostCategoryDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCostCategoryDefinitionResponse -&gt; Int)
+-&gt; (UpdateCostCategoryDefinitionResponse
+    -&gt; Int -&gt; UpdateCostCategoryDefinitionResponse)
+-&gt; Lens
+     UpdateCostCategoryDefinitionResponse
+     UpdateCostCategoryDefinitionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349130"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateCostCategoryDefinitionResponse' :: UpdateCostCategoryDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621679349130"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349130"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349129"><span class="annot"><span class="annottext">s :: UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCostCategoryDefinitionResponse
+</span><a href="#local-6989586621679349129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCostCategoryDefinitionResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#%24sel%3AhttpStatus%3AUpdateCostCategoryDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679349126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateCostCategoryDefinition.html#UpdateCostCategoryDefinitionResponse"><span class="hs-identifier hs-type">UpdateCostCategoryDefinitionResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

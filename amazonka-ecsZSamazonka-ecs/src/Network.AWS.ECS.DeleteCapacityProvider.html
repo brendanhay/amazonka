@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.DeleteCapacityProvider</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified capacity provider.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The @FARGATE@ and @FARGATE_SPOT@ capacity providers are reserved and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- cannot be deleted. You can disassociate them from a cluster using either</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the PutClusterCapacityProviders API or by deleting the cluster.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Prior to a capacity provider being deleted, the capacity provider must</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- be removed from the capacity provider strategy from all services. The</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- UpdateService API can be used to remove a capacity provider from a</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- service\'s capacity provider strategy. When updating a service, the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @forceNewDeployment@ option can be used to ensure that any tasks using</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- the Amazon EC2 instance capacity provided by the capacity provider are</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- transitioned to use the capacity from the remaining capacity providers.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Only capacity providers that are not associated with a cluster can be</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- deleted. To remove a capacity provider from a cluster, you can either</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- use PutClusterCapacityProviders or delete the cluster.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.DeleteCapacityProvider</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProvider"><span class="hs-identifier">newDeleteCapacityProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProvider_capacityProvider"><span class="hs-identifier">deleteCapacityProvider_capacityProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier">DeleteCapacityProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProviderResponse"><span class="hs-identifier">newDeleteCapacityProviderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_capacityProvider"><span class="hs-identifier">deleteCapacityProviderResponse_capacityProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_httpStatus"><span class="hs-identifier">deleteCapacityProviderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.html"><span class="hs-identifier">Network.AWS.ECS.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newDeleteCapacityProvider' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679477973"><span id="local-6989586621679477974"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCapacityProvider"><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-var">DeleteCapacityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCapacityProvider%27"><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider%27"><span class="hs-identifier hs-var">DeleteCapacityProvider'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the capacity</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- provider to delete.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcapacityProvider%3ADeleteCapacityProvider%27"><span class="annot"><span class="annottext">DeleteCapacityProvider -&gt; Text
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProvider%27"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477967"><span id="local-6989586621679477969"><span class="annot"><span class="annottext">DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool
+(DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool)
+-&gt; (DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool)
+-&gt; Eq DeleteCapacityProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool
+$c/= :: DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool
+== :: DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool
+$c== :: DeleteCapacityProvider -&gt; DeleteCapacityProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477958"><span id="local-6989586621679477960"><span id="local-6989586621679477962"><span id="local-6989586621679477964"><span class="annot"><span class="annottext">ReadPrec [DeleteCapacityProvider]
+ReadPrec DeleteCapacityProvider
+Int -&gt; ReadS DeleteCapacityProvider
+ReadS [DeleteCapacityProvider]
+(Int -&gt; ReadS DeleteCapacityProvider)
+-&gt; ReadS [DeleteCapacityProvider]
+-&gt; ReadPrec DeleteCapacityProvider
+-&gt; ReadPrec [DeleteCapacityProvider]
+-&gt; Read DeleteCapacityProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCapacityProvider]
+$creadListPrec :: ReadPrec [DeleteCapacityProvider]
+readPrec :: ReadPrec DeleteCapacityProvider
+$creadPrec :: ReadPrec DeleteCapacityProvider
+readList :: ReadS [DeleteCapacityProvider]
+$creadList :: ReadS [DeleteCapacityProvider]
+readsPrec :: Int -&gt; ReadS DeleteCapacityProvider
+$creadsPrec :: Int -&gt; ReadS DeleteCapacityProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477951"><span id="local-6989586621679477953"><span id="local-6989586621679477955"><span class="annot"><span class="annottext">Int -&gt; DeleteCapacityProvider -&gt; ShowS
+[DeleteCapacityProvider] -&gt; ShowS
+DeleteCapacityProvider -&gt; String
+(Int -&gt; DeleteCapacityProvider -&gt; ShowS)
+-&gt; (DeleteCapacityProvider -&gt; String)
+-&gt; ([DeleteCapacityProvider] -&gt; ShowS)
+-&gt; Show DeleteCapacityProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCapacityProvider] -&gt; ShowS
+$cshowList :: [DeleteCapacityProvider] -&gt; ShowS
+show :: DeleteCapacityProvider -&gt; String
+$cshow :: DeleteCapacityProvider -&gt; String
+showsPrec :: Int -&gt; DeleteCapacityProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCapacityProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteCapacityProvider -&gt; Rep DeleteCapacityProvider x)
+-&gt; (forall x.
+    Rep DeleteCapacityProvider x -&gt; DeleteCapacityProvider)
+-&gt; Generic DeleteCapacityProvider
+forall x. Rep DeleteCapacityProvider x -&gt; DeleteCapacityProvider
+forall x. DeleteCapacityProvider -&gt; Rep DeleteCapacityProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteCapacityProvider x -&gt; DeleteCapacityProvider
+$cfrom :: forall x. DeleteCapacityProvider -&gt; Rep DeleteCapacityProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'DeleteCapacityProvider' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'capacityProvider', 'deleteCapacityProvider_capacityProvider' - The short name or full Amazon Resource Name (ARN) of the capacity</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- provider to delete.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProvider"><span class="hs-identifier hs-type">newDeleteCapacityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'capacityProvider'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span>
+</span><span id="line-86"></span><span id="newDeleteCapacityProvider"><span class="annot"><span class="annottext">newDeleteCapacityProvider :: Text -&gt; DeleteCapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProvider"><span class="hs-identifier hs-var hs-var">newDeleteCapacityProvider</span></a></span></span><span> </span><span id="local-6989586621679477946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477946"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DeleteCapacityProvider' :: Text -&gt; DeleteCapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider%27"><span class="hs-identifier hs-type">DeleteCapacityProvider'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityProvider:DeleteCapacityProvider' :: Text
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProvider%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477946"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the capacity</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- provider to delete.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProvider_capacityProvider"><span class="hs-identifier hs-type">deleteCapacityProvider_capacityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="deleteCapacityProvider_capacityProvider"><span class="annot"><span class="annottext">deleteCapacityProvider_capacityProvider :: (Text -&gt; f Text)
+-&gt; DeleteCapacityProvider -&gt; f DeleteCapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProvider_capacityProvider"><span class="hs-identifier hs-var hs-var">deleteCapacityProvider_capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCapacityProvider -&gt; Text)
+-&gt; (DeleteCapacityProvider -&gt; Text -&gt; DeleteCapacityProvider)
+-&gt; Lens DeleteCapacityProvider DeleteCapacityProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider%27"><span class="hs-identifier hs-type">DeleteCapacityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477943"><span class="annot"><span class="annottext">Text
+capacityProvider :: Text
+$sel:capacityProvider:DeleteCapacityProvider' :: DeleteCapacityProvider -&gt; Text
+</span><a href="#local-6989586621679477943"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477943"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477942"><span class="annot"><span class="annottext">s :: DeleteCapacityProvider
+</span><a href="#local-6989586621679477942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider%27"><span class="hs-identifier hs-type">DeleteCapacityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCapacityProvider
+</span><a href="#local-6989586621679477942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:DeleteCapacityProvider' :: Text
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProvider%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679477937"><span class="annot"><span class="annottext">request :: DeleteCapacityProvider -&gt; Request DeleteCapacityProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCapacityProvider -&gt; Request DeleteCapacityProvider
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679477933"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteCapacityProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCapacityProvider)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteCapacityProvider))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteCapacityProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteCapacityProvider)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679477930"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477930"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679477929"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679477929"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679477928"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe CapacityProvider -&gt; Int -&gt; DeleteCapacityProviderResponse
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">DeleteCapacityProviderResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CapacityProvider -&gt; Int -&gt; DeleteCapacityProviderResponse)
+-&gt; Either String (Maybe CapacityProvider)
+-&gt; Either String (Int -&gt; DeleteCapacityProviderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CapacityProvider)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteCapacityProviderResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteCapacityProviderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477930"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477920"><span id="local-6989586621679477922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679477913"><span class="annot"><span class="annottext">toHeaders :: DeleteCapacityProvider -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCapacityProvider -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-121"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477903"><span id="local-6989586621679477905"><span id="local-6989586621679477907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679477901"><span class="annot"><span class="annottext">toJSON :: DeleteCapacityProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider%27"><span class="hs-identifier hs-type">DeleteCapacityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477899"><span class="annot"><span class="annottext">Text
+capacityProvider :: Text
+$sel:capacityProvider:DeleteCapacityProvider' :: DeleteCapacityProvider -&gt; Text
+</span><a href="#local-6989586621679477899"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679477899"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679477893"><span class="annot"><span class="annottext">toPath :: DeleteCapacityProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCapacityProvider -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProvider"><span class="hs-identifier hs-type">DeleteCapacityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679477889"><span class="annot"><span class="annottext">toQuery :: DeleteCapacityProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCapacityProvider -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDeleteCapacityProviderResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679477886"><span id="local-6989586621679477887"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCapacityProviderResponse"><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-var">DeleteCapacityProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCapacityProviderResponse%27"><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">DeleteCapacityProviderResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the capacity provider.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AcapacityProvider%3ADeleteCapacityProviderResponse%27"><span class="annot"><span class="annottext">DeleteCapacityProviderResponse -&gt; Maybe CapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProvider.html#CapacityProvider"><span class="hs-identifier hs-type">CapacityProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCapacityProviderResponse%27"><span class="annot"><span class="annottext">DeleteCapacityProviderResponse -&gt; Int
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AhttpStatus%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477880"><span id="local-6989586621679477882"><span class="annot"><span class="annottext">DeleteCapacityProviderResponse
+-&gt; DeleteCapacityProviderResponse -&gt; Bool
+(DeleteCapacityProviderResponse
+ -&gt; DeleteCapacityProviderResponse -&gt; Bool)
+-&gt; (DeleteCapacityProviderResponse
+    -&gt; DeleteCapacityProviderResponse -&gt; Bool)
+-&gt; Eq DeleteCapacityProviderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteCapacityProviderResponse
+-&gt; DeleteCapacityProviderResponse -&gt; Bool
+$c/= :: DeleteCapacityProviderResponse
+-&gt; DeleteCapacityProviderResponse -&gt; Bool
+== :: DeleteCapacityProviderResponse
+-&gt; DeleteCapacityProviderResponse -&gt; Bool
+$c== :: DeleteCapacityProviderResponse
+-&gt; DeleteCapacityProviderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477872"><span id="local-6989586621679477874"><span id="local-6989586621679477876"><span id="local-6989586621679477878"><span class="annot"><span class="annottext">ReadPrec [DeleteCapacityProviderResponse]
+ReadPrec DeleteCapacityProviderResponse
+Int -&gt; ReadS DeleteCapacityProviderResponse
+ReadS [DeleteCapacityProviderResponse]
+(Int -&gt; ReadS DeleteCapacityProviderResponse)
+-&gt; ReadS [DeleteCapacityProviderResponse]
+-&gt; ReadPrec DeleteCapacityProviderResponse
+-&gt; ReadPrec [DeleteCapacityProviderResponse]
+-&gt; Read DeleteCapacityProviderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteCapacityProviderResponse]
+$creadListPrec :: ReadPrec [DeleteCapacityProviderResponse]
+readPrec :: ReadPrec DeleteCapacityProviderResponse
+$creadPrec :: ReadPrec DeleteCapacityProviderResponse
+readList :: ReadS [DeleteCapacityProviderResponse]
+$creadList :: ReadS [DeleteCapacityProviderResponse]
+readsPrec :: Int -&gt; ReadS DeleteCapacityProviderResponse
+$creadsPrec :: Int -&gt; ReadS DeleteCapacityProviderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477866"><span id="local-6989586621679477868"><span id="local-6989586621679477870"><span class="annot"><span class="annottext">Int -&gt; DeleteCapacityProviderResponse -&gt; ShowS
+[DeleteCapacityProviderResponse] -&gt; ShowS
+DeleteCapacityProviderResponse -&gt; String
+(Int -&gt; DeleteCapacityProviderResponse -&gt; ShowS)
+-&gt; (DeleteCapacityProviderResponse -&gt; String)
+-&gt; ([DeleteCapacityProviderResponse] -&gt; ShowS)
+-&gt; Show DeleteCapacityProviderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteCapacityProviderResponse] -&gt; ShowS
+$cshowList :: [DeleteCapacityProviderResponse] -&gt; ShowS
+show :: DeleteCapacityProviderResponse -&gt; String
+$cshow :: DeleteCapacityProviderResponse -&gt; String
+showsPrec :: Int -&gt; DeleteCapacityProviderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteCapacityProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteCapacityProviderResponse
+ -&gt; Rep DeleteCapacityProviderResponse x)
+-&gt; (forall x.
+    Rep DeleteCapacityProviderResponse x
+    -&gt; DeleteCapacityProviderResponse)
+-&gt; Generic DeleteCapacityProviderResponse
+forall x.
+Rep DeleteCapacityProviderResponse x
+-&gt; DeleteCapacityProviderResponse
+forall x.
+DeleteCapacityProviderResponse
+-&gt; Rep DeleteCapacityProviderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteCapacityProviderResponse x
+-&gt; DeleteCapacityProviderResponse
+$cfrom :: forall x.
+DeleteCapacityProviderResponse
+-&gt; Rep DeleteCapacityProviderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'DeleteCapacityProviderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'capacityProvider', 'deleteCapacityProviderResponse_capacityProvider' - The details of the capacity provider.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'deleteCapacityProviderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProviderResponse"><span class="hs-identifier hs-type">newDeleteCapacityProviderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newDeleteCapacityProviderResponse"><span class="annot"><span class="annottext">newDeleteCapacityProviderResponse :: Int -&gt; DeleteCapacityProviderResponse
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#newDeleteCapacityProviderResponse"><span class="hs-identifier hs-var hs-var">newDeleteCapacityProviderResponse</span></a></span></span><span> </span><span id="local-6989586621679477863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">DeleteCapacityProviderResponse' :: Maybe CapacityProvider -&gt; Int -&gt; DeleteCapacityProviderResponse
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityProvider:DeleteCapacityProviderResponse' :: Maybe CapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityProvider
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCapacityProviderResponse' :: Int
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AhttpStatus%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The details of the capacity provider.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_capacityProvider"><span class="hs-identifier hs-type">deleteCapacityProviderResponse_capacityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProvider.html#CapacityProvider"><span class="hs-identifier hs-type">CapacityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="deleteCapacityProviderResponse_capacityProvider"><span class="annot"><span class="annottext">deleteCapacityProviderResponse_capacityProvider :: (Maybe CapacityProvider -&gt; f (Maybe CapacityProvider))
+-&gt; DeleteCapacityProviderResponse
+-&gt; f DeleteCapacityProviderResponse
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_capacityProvider"><span class="hs-identifier hs-var hs-var">deleteCapacityProviderResponse_capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCapacityProviderResponse -&gt; Maybe CapacityProvider)
+-&gt; (DeleteCapacityProviderResponse
+    -&gt; Maybe CapacityProvider -&gt; DeleteCapacityProviderResponse)
+-&gt; Lens
+     DeleteCapacityProviderResponse
+     DeleteCapacityProviderResponse
+     (Maybe CapacityProvider)
+     (Maybe CapacityProvider)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477862"><span class="annot"><span class="annottext">Maybe CapacityProvider
+capacityProvider :: Maybe CapacityProvider
+$sel:capacityProvider:DeleteCapacityProviderResponse' :: DeleteCapacityProviderResponse -&gt; Maybe CapacityProvider
+</span><a href="#local-6989586621679477862"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityProvider
+</span><a href="#local-6989586621679477862"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477861"><span class="annot"><span class="annottext">s :: DeleteCapacityProviderResponse
+</span><a href="#local-6989586621679477861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477860"><span class="annot"><span class="annottext">Maybe CapacityProvider
+</span><a href="#local-6989586621679477860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCapacityProviderResponse
+</span><a href="#local-6989586621679477861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:DeleteCapacityProviderResponse' :: Maybe CapacityProvider
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AcapacityProvider%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityProvider
+</span><a href="#local-6989586621679477860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_httpStatus"><span class="hs-identifier hs-type">deleteCapacityProviderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="deleteCapacityProviderResponse_httpStatus"><span class="annot"><span class="annottext">deleteCapacityProviderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteCapacityProviderResponse
+-&gt; f DeleteCapacityProviderResponse
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#deleteCapacityProviderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteCapacityProviderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteCapacityProviderResponse -&gt; Int)
+-&gt; (DeleteCapacityProviderResponse
+    -&gt; Int -&gt; DeleteCapacityProviderResponse)
+-&gt; Lens
+     DeleteCapacityProviderResponse
+     DeleteCapacityProviderResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477859"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteCapacityProviderResponse' :: DeleteCapacityProviderResponse -&gt; Int
+</span><a href="#local-6989586621679477859"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477859"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477858"><span class="annot"><span class="annottext">s :: DeleteCapacityProviderResponse
+</span><a href="#local-6989586621679477858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse%27"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCapacityProviderResponse
+</span><a href="#local-6989586621679477858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCapacityProviderResponse' :: Int
+</span><a href="Network.AWS.ECS.DeleteCapacityProvider.html#%24sel%3AhttpStatus%3ADeleteCapacityProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679477855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.DeleteCapacityProvider.html#DeleteCapacityProviderResponse"><span class="hs-identifier hs-type">DeleteCapacityProviderResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

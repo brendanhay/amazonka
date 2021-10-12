@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.ListAccountSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the account settings for a specified principal.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.ListAccountSettings</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettings"><span class="hs-identifier">newListAccountSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_nextToken"><span class="hs-identifier">listAccountSettings_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_maxResults"><span class="hs-identifier">listAccountSettings_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_effectiveSettings"><span class="hs-identifier">listAccountSettings_effectiveSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_name"><span class="hs-identifier">listAccountSettings_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_principalArn"><span class="hs-identifier">listAccountSettings_principalArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_value"><span class="hs-identifier">listAccountSettings_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier">ListAccountSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettingsResponse"><span class="hs-identifier">newListAccountSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_nextToken"><span class="hs-identifier">listAccountSettingsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_settings"><span class="hs-identifier">listAccountSettingsResponse_settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_httpStatus"><span class="hs-identifier">listAccountSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.html"><span class="hs-identifier">Network.AWS.ECS.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListAccountSettings' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679474390"><span id="local-6989586621679474391"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountSettings"><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-var">ListAccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountSettings%27"><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-var">ListAccountSettings'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value returned from a @ListAccountSettings@ request</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- indicating that more results are available to fulfill the request and</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- further calls will be needed. If @maxResults@ was provided, it is</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- possible the number of results to be fewer than @maxResults@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of account setting results returned by</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @ListAccountSettings@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @ListAccountSettings@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- initial request can be seen by sending another @ListAccountSettings@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- request with the returned @nextToken@ value. This value can be between 1</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- and 10. If this parameter is not used, then @ListAccountSettings@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- returns up to 10 results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AmaxResults%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Specifies whether to return the effective settings. If @true@, the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- account settings for the root user or the default setting for the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @principalArn@ are returned. If @false@, the account settings for the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @principalArn@ are returned if they are set. Otherwise, no account</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- settings are returned.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AeffectiveSettings%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe Bool
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AeffectiveSettings%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">effectiveSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name of the account setting you want to list the settings for.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aname%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe SettingName
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Aname%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SettingName.html#SettingName"><span class="hs-identifier hs-type">SettingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- root user. If this field is omitted, the account settings are listed</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- only for the authenticated user.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Federated users assume the account setting of the root user and can\'t</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- have explicit account settings set for them.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AprincipalArn%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AprincipalArn%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The value of the account settings with which to filter results. You must</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- also specify an account setting name to use this parameter.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Avalue%3AListAccountSettings%27"><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Avalue%3AListAccountSettings%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679474379"><span id="local-6989586621679474381"><span class="annot"><span class="annottext">ListAccountSettings -&gt; ListAccountSettings -&gt; Bool
+(ListAccountSettings -&gt; ListAccountSettings -&gt; Bool)
+-&gt; (ListAccountSettings -&gt; ListAccountSettings -&gt; Bool)
+-&gt; Eq ListAccountSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountSettings -&gt; ListAccountSettings -&gt; Bool
+$c/= :: ListAccountSettings -&gt; ListAccountSettings -&gt; Bool
+== :: ListAccountSettings -&gt; ListAccountSettings -&gt; Bool
+$c== :: ListAccountSettings -&gt; ListAccountSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474370"><span id="local-6989586621679474372"><span id="local-6989586621679474374"><span id="local-6989586621679474376"><span class="annot"><span class="annottext">ReadPrec [ListAccountSettings]
+ReadPrec ListAccountSettings
+Int -&gt; ReadS ListAccountSettings
+ReadS [ListAccountSettings]
+(Int -&gt; ReadS ListAccountSettings)
+-&gt; ReadS [ListAccountSettings]
+-&gt; ReadPrec ListAccountSettings
+-&gt; ReadPrec [ListAccountSettings]
+-&gt; Read ListAccountSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountSettings]
+$creadListPrec :: ReadPrec [ListAccountSettings]
+readPrec :: ReadPrec ListAccountSettings
+$creadPrec :: ReadPrec ListAccountSettings
+readList :: ReadS [ListAccountSettings]
+$creadList :: ReadS [ListAccountSettings]
+readsPrec :: Int -&gt; ReadS ListAccountSettings
+$creadsPrec :: Int -&gt; ReadS ListAccountSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474363"><span id="local-6989586621679474365"><span id="local-6989586621679474367"><span class="annot"><span class="annottext">Int -&gt; ListAccountSettings -&gt; ShowS
+[ListAccountSettings] -&gt; ShowS
+ListAccountSettings -&gt; String
+(Int -&gt; ListAccountSettings -&gt; ShowS)
+-&gt; (ListAccountSettings -&gt; String)
+-&gt; ([ListAccountSettings] -&gt; ShowS)
+-&gt; Show ListAccountSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountSettings] -&gt; ShowS
+$cshowList :: [ListAccountSettings] -&gt; ShowS
+show :: ListAccountSettings -&gt; String
+$cshow :: ListAccountSettings -&gt; String
+showsPrec :: Int -&gt; ListAccountSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAccountSettings -&gt; Rep ListAccountSettings x)
+-&gt; (forall x. Rep ListAccountSettings x -&gt; ListAccountSettings)
+-&gt; Generic ListAccountSettings
+forall x. Rep ListAccountSettings x -&gt; ListAccountSettings
+forall x. ListAccountSettings -&gt; Rep ListAccountSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAccountSettings x -&gt; ListAccountSettings
+$cfrom :: forall x. ListAccountSettings -&gt; Rep ListAccountSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'ListAccountSettings' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'nextToken', 'listAccountSettings_nextToken' - The @nextToken@ value returned from a @ListAccountSettings@ request</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- indicating that more results are available to fulfill the request and</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- further calls will be needed. If @maxResults@ was provided, it is</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- possible the number of results to be fewer than @maxResults@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'maxResults', 'listAccountSettings_maxResults' - The maximum number of account setting results returned by</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @ListAccountSettings@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- @ListAccountSettings@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- initial request can be seen by sending another @ListAccountSettings@</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- request with the returned @nextToken@ value. This value can be between 1</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- and 10. If this parameter is not used, then @ListAccountSettings@</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- returns up to 10 results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'effectiveSettings', 'listAccountSettings_effectiveSettings' - Specifies whether to return the effective settings. If @true@, the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- account settings for the root user or the default setting for the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @principalArn@ are returned. If @false@, the account settings for the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @principalArn@ are returned if they are set. Otherwise, no account</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- settings are returned.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'name', 'listAccountSettings_name' - The name of the account setting you want to list the settings for.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'principalArn', 'listAccountSettings_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- root user. If this field is omitted, the account settings are listed</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- only for the authenticated user.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Federated users assume the account setting of the root user and can\'t</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- have explicit account settings set for them.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'value', 'listAccountSettings_value' - The value of the account settings with which to filter results. You must</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- also specify an account setting name to use this parameter.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettings"><span class="hs-identifier hs-type">newListAccountSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span>
+</span><span id="line-143"></span><span id="newListAccountSettings"><span class="annot"><span class="annottext">newListAccountSettings :: ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettings"><span class="hs-identifier hs-var hs-var">newListAccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">ListAccountSettings' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe SettingName
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountSettings' :: Maybe Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AmaxResults%3AListAccountSettings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:effectiveSettings:ListAccountSettings' :: Maybe Bool
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AeffectiveSettings%3AListAccountSettings%27"><span class="hs-identifier hs-var">effectiveSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ListAccountSettings' :: Maybe SettingName
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Aname%3AListAccountSettings%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalArn:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AprincipalArn%3AListAccountSettings%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Avalue%3AListAccountSettings%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The @nextToken@ value returned from a @ListAccountSettings@ request</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- indicating that more results are available to fulfill the request and</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- further calls will be needed. If @maxResults@ was provided, it is</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- possible the number of results to be fewer than @maxResults@.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_nextToken"><span class="hs-identifier hs-type">listAccountSettings_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="listAccountSettings_nextToken"><span class="annot"><span class="annottext">listAccountSettings_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_nextToken"><span class="hs-identifier hs-var hs-var">listAccountSettings_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe Text)
+-&gt; (ListAccountSettings -&gt; Maybe Text -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings ListAccountSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474357"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679474357"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474357"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474356"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The maximum number of account setting results returned by</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @ListAccountSettings@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @ListAccountSettings@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- along with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- initial request can be seen by sending another @ListAccountSettings@</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- request with the returned @nextToken@ value. This value can be between 1</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- and 10. If this parameter is not used, then @ListAccountSettings@</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- returns up to 10 results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_maxResults"><span class="hs-identifier hs-type">listAccountSettings_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="listAccountSettings_maxResults"><span class="annot"><span class="annottext">listAccountSettings_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_maxResults"><span class="hs-identifier hs-var hs-var">listAccountSettings_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe Int)
+-&gt; (ListAccountSettings -&gt; Maybe Int -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings ListAccountSettings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474354"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Int
+</span><a href="#local-6989586621679474354"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679474354"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474353"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474352"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679474352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountSettings' :: Maybe Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AmaxResults%3AListAccountSettings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679474352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Specifies whether to return the effective settings. If @true@, the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- account settings for the root user or the default setting for the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @principalArn@ are returned. If @false@, the account settings for the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @principalArn@ are returned if they are set. Otherwise, no account</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- settings are returned.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_effectiveSettings"><span class="hs-identifier hs-type">listAccountSettings_effectiveSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="listAccountSettings_effectiveSettings"><span class="annot"><span class="annottext">listAccountSettings_effectiveSettings :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_effectiveSettings"><span class="hs-identifier hs-var hs-var">listAccountSettings_effectiveSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe Bool)
+-&gt; (ListAccountSettings -&gt; Maybe Bool -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings ListAccountSettings (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474351"><span class="annot"><span class="annottext">Maybe Bool
+effectiveSettings :: Maybe Bool
+$sel:effectiveSettings:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Bool
+</span><a href="#local-6989586621679474351"><span class="hs-identifier hs-var hs-var">effectiveSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474351"><span class="hs-identifier hs-var">effectiveSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474350"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474349"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveSettings:ListAccountSettings' :: Maybe Bool
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AeffectiveSettings%3AListAccountSettings%27"><span class="hs-identifier hs-var">effectiveSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The name of the account setting you want to list the settings for.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_name"><span class="hs-identifier hs-type">listAccountSettings_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SettingName.html#SettingName"><span class="hs-identifier hs-type">SettingName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="listAccountSettings_name"><span class="annot"><span class="annottext">listAccountSettings_name :: (Maybe SettingName -&gt; f (Maybe SettingName))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_name"><span class="hs-identifier hs-var hs-var">listAccountSettings_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe SettingName)
+-&gt; (ListAccountSettings
+    -&gt; Maybe SettingName -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings
+     ListAccountSettings
+     (Maybe SettingName)
+     (Maybe SettingName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474348"><span class="annot"><span class="annottext">Maybe SettingName
+name :: Maybe SettingName
+$sel:name:ListAccountSettings' :: ListAccountSettings -&gt; Maybe SettingName
+</span><a href="#local-6989586621679474348"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679474348"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474347"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474346"><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679474346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListAccountSettings' :: Maybe SettingName
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Aname%3AListAccountSettings%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679474346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- root user. If this field is omitted, the account settings are listed</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- only for the authenticated user.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Federated users assume the account setting of the root user and can\'t</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- have explicit account settings set for them.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_principalArn"><span class="hs-identifier hs-type">listAccountSettings_principalArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listAccountSettings_principalArn"><span class="annot"><span class="annottext">listAccountSettings_principalArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_principalArn"><span class="hs-identifier hs-var hs-var">listAccountSettings_principalArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe Text)
+-&gt; (ListAccountSettings -&gt; Maybe Text -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings ListAccountSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474345"><span class="annot"><span class="annottext">Maybe Text
+principalArn :: Maybe Text
+$sel:principalArn:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679474345"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474345"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474344"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AprincipalArn%3AListAccountSettings%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The value of the account settings with which to filter results. You must</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- also specify an account setting name to use this parameter.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_value"><span class="hs-identifier hs-type">listAccountSettings_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listAccountSettings_value"><span class="annot"><span class="annottext">listAccountSettings_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountSettings -&gt; f ListAccountSettings
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_value"><span class="hs-identifier hs-var hs-var">listAccountSettings_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe Text)
+-&gt; (ListAccountSettings -&gt; Maybe Text -&gt; ListAccountSettings)
+-&gt; Lens
+     ListAccountSettings ListAccountSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474342"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679474342"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474342"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474341"><span class="annot"><span class="annottext">s :: ListAccountSettings
+</span><a href="#local-6989586621679474341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ListAccountSettings' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Avalue%3AListAccountSettings%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679474336"><span class="annot"><span class="annottext">page :: ListAccountSettings
+-&gt; AWSResponse ListAccountSettings -&gt; Maybe ListAccountSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679474334"><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474334"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679474333"><span class="annot"><span class="annottext">AWSResponse ListAccountSettings
+</span><a href="#local-6989586621679474333"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-204"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountSettings
+ListAccountSettingsResponse
+</span><a href="#local-6989586621679474333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+-&gt; Getting (First Text) ListAccountSettingsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountSettingsResponse
+-&gt; Const (First Text) ListAccountSettingsResponse
+Lens' ListAccountSettingsResponse (Maybe Text)
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_nextToken"><span class="hs-identifier hs-var">listAccountSettingsResponse_nextToken</span></a></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountSettingsResponse
+ -&gt; Const (First Text) ListAccountSettingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountSettingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-207"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Setting] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountSettings
+ListAccountSettingsResponse
+</span><a href="#local-6989586621679474333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+-&gt; Getting (First [Setting]) ListAccountSettingsResponse [Setting]
+-&gt; Maybe [Setting]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Setting] -&gt; Const (First [Setting]) (Maybe [Setting]))
+-&gt; ListAccountSettingsResponse
+-&gt; Const (First [Setting]) ListAccountSettingsResponse
+Lens' ListAccountSettingsResponse (Maybe [Setting])
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_settings"><span class="hs-identifier hs-var">listAccountSettingsResponse_settings</span></a></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Setting] -&gt; Const (First [Setting]) (Maybe [Setting]))
+ -&gt; ListAccountSettingsResponse
+ -&gt; Const (First [Setting]) ListAccountSettingsResponse)
+-&gt; (([Setting] -&gt; Const (First [Setting]) [Setting])
+    -&gt; Maybe [Setting] -&gt; Const (First [Setting]) (Maybe [Setting]))
+-&gt; Getting (First [Setting]) ListAccountSettingsResponse [Setting]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Setting] -&gt; Const (First [Setting]) [Setting])
+-&gt; Maybe [Setting] -&gt; Const (First [Setting]) (Maybe [Setting])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-213"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">ListAccountSettings -&gt; Maybe ListAccountSettings
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAccountSettings -&gt; Maybe ListAccountSettings)
+-&gt; ListAccountSettings -&gt; Maybe ListAccountSettings
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ListAccountSettings
+</span><a href="#local-6989586621679474334"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">ListAccountSettings
+-&gt; (ListAccountSettings -&gt; ListAccountSettings)
+-&gt; ListAccountSettings
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAccountSettings -&gt; Identity ListAccountSettings
+Lens
+  ListAccountSettings ListAccountSettings (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettings_nextToken"><span class="hs-identifier hs-var">listAccountSettings_nextToken</span></a></span><span>
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAccountSettings -&gt; Identity ListAccountSettings)
+-&gt; Maybe Text -&gt; ListAccountSettings -&gt; ListAccountSettings
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountSettings
+ListAccountSettingsResponse
+</span><a href="#local-6989586621679474333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+-&gt; Getting (First Text) ListAccountSettingsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountSettingsResponse
+-&gt; Const (First Text) ListAccountSettingsResponse
+Lens' ListAccountSettingsResponse (Maybe Text)
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_nextToken"><span class="hs-identifier hs-var">listAccountSettingsResponse_nextToken</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountSettingsResponse
+ -&gt; Const (First Text) ListAccountSettingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountSettingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-225"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679474323"><span class="annot"><span class="annottext">request :: ListAccountSettings -&gt; Request ListAccountSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccountSettings -&gt; Request ListAccountSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679474319"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAccountSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAccountSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAccountSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679474316"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474316"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679474315"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679474315"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679474314"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Setting] -&gt; Int -&gt; ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-var">ListAccountSettingsResponse'</span></a></span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Setting] -&gt; Int -&gt; ListAccountSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Setting] -&gt; Int -&gt; ListAccountSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Setting] -&gt; Int -&gt; ListAccountSettingsResponse)
+-&gt; Either String (Maybe [Setting])
+-&gt; Either String (Int -&gt; ListAccountSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679474314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Setting]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Setting]))
+-&gt; Maybe [Setting] -&gt; Either String (Maybe [Setting])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Setting]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAccountSettingsResponse)
+-&gt; Either String Int -&gt; Either String ListAccountSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474316"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474305"><span id="local-6989586621679474307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span></span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679474298"><span class="annot"><span class="annottext">toHeaders :: ListAccountSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccountSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonEC2ContainerServiceV20141113.ListAccountSettings&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-251"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-252"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474288"><span id="local-6989586621679474290"><span id="local-6989586621679474292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679474286"><span class="annot"><span class="annottext">toJSON :: ListAccountSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings%27"><span class="hs-identifier hs-type">ListAccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474279"><span id="local-6989586621679474280"><span id="local-6989586621679474281"><span id="local-6989586621679474282"><span id="local-6989586621679474283"><span id="local-6989586621679474284"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe Text
+Maybe SettingName
+value :: Maybe Text
+principalArn :: Maybe Text
+name :: Maybe SettingName
+effectiveSettings :: Maybe Bool
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:value:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+$sel:principalArn:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+$sel:name:ListAccountSettings' :: ListAccountSettings -&gt; Maybe SettingName
+$sel:effectiveSettings:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Bool
+$sel:maxResults:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Int
+$sel:nextToken:ListAccountSettings' :: ListAccountSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679474279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474284"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679474283"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;effectiveSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679474282"><span class="hs-identifier hs-var">effectiveSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SettingName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SettingName -&gt; Pair) -&gt; Maybe SettingName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679474281"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principalArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474280"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474279"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679474273"><span class="annot"><span class="annottext">toPath :: ListAccountSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccountSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettings"><span class="hs-identifier hs-type">ListAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679474269"><span class="annot"><span class="annottext">toQuery :: ListAccountSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAccountSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | /See:/ 'newListAccountSettingsResponse' smart constructor.</span><span>
+</span><span id="line-277"></span><span id="local-6989586621679474266"><span id="local-6989586621679474267"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountSettingsResponse"><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-var">ListAccountSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountSettingsResponse%27"><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-var">ListAccountSettingsResponse'</span></a></span></span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListAccountSettings@</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- request. When the results of a @ListAccountSettings@ request exceed</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-282"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountSettingsResponse%27"><span class="annot"><span class="annottext">ListAccountSettingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">-- | The account settings for the resource.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3Asettings%3AListAccountSettingsResponse%27"><span class="annot"><span class="annottext">ListAccountSettingsResponse -&gt; Maybe [Setting]
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Asettings%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccountSettingsResponse%27"><span class="annot"><span class="annottext">ListAccountSettingsResponse -&gt; Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AhttpStatus%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679474259"><span id="local-6989586621679474261"><span class="annot"><span class="annottext">ListAccountSettingsResponse -&gt; ListAccountSettingsResponse -&gt; Bool
+(ListAccountSettingsResponse
+ -&gt; ListAccountSettingsResponse -&gt; Bool)
+-&gt; (ListAccountSettingsResponse
+    -&gt; ListAccountSettingsResponse -&gt; Bool)
+-&gt; Eq ListAccountSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountSettingsResponse -&gt; ListAccountSettingsResponse -&gt; Bool
+$c/= :: ListAccountSettingsResponse -&gt; ListAccountSettingsResponse -&gt; Bool
+== :: ListAccountSettingsResponse -&gt; ListAccountSettingsResponse -&gt; Bool
+$c== :: ListAccountSettingsResponse -&gt; ListAccountSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474251"><span id="local-6989586621679474253"><span id="local-6989586621679474255"><span id="local-6989586621679474257"><span class="annot"><span class="annottext">ReadPrec [ListAccountSettingsResponse]
+ReadPrec ListAccountSettingsResponse
+Int -&gt; ReadS ListAccountSettingsResponse
+ReadS [ListAccountSettingsResponse]
+(Int -&gt; ReadS ListAccountSettingsResponse)
+-&gt; ReadS [ListAccountSettingsResponse]
+-&gt; ReadPrec ListAccountSettingsResponse
+-&gt; ReadPrec [ListAccountSettingsResponse]
+-&gt; Read ListAccountSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountSettingsResponse]
+$creadListPrec :: ReadPrec [ListAccountSettingsResponse]
+readPrec :: ReadPrec ListAccountSettingsResponse
+$creadPrec :: ReadPrec ListAccountSettingsResponse
+readList :: ReadS [ListAccountSettingsResponse]
+$creadList :: ReadS [ListAccountSettingsResponse]
+readsPrec :: Int -&gt; ReadS ListAccountSettingsResponse
+$creadsPrec :: Int -&gt; ReadS ListAccountSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679474245"><span id="local-6989586621679474247"><span id="local-6989586621679474249"><span class="annot"><span class="annottext">Int -&gt; ListAccountSettingsResponse -&gt; ShowS
+[ListAccountSettingsResponse] -&gt; ShowS
+ListAccountSettingsResponse -&gt; String
+(Int -&gt; ListAccountSettingsResponse -&gt; ShowS)
+-&gt; (ListAccountSettingsResponse -&gt; String)
+-&gt; ([ListAccountSettingsResponse] -&gt; ShowS)
+-&gt; Show ListAccountSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountSettingsResponse] -&gt; ShowS
+$cshowList :: [ListAccountSettingsResponse] -&gt; ShowS
+show :: ListAccountSettingsResponse -&gt; String
+$cshow :: ListAccountSettingsResponse -&gt; String
+showsPrec :: Int -&gt; ListAccountSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAccountSettingsResponse -&gt; Rep ListAccountSettingsResponse x)
+-&gt; (forall x.
+    Rep ListAccountSettingsResponse x -&gt; ListAccountSettingsResponse)
+-&gt; Generic ListAccountSettingsResponse
+forall x.
+Rep ListAccountSettingsResponse x -&gt; ListAccountSettingsResponse
+forall x.
+ListAccountSettingsResponse -&gt; Rep ListAccountSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAccountSettingsResponse x -&gt; ListAccountSettingsResponse
+$cfrom :: forall x.
+ListAccountSettingsResponse -&gt; Rep ListAccountSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- Create a value of 'ListAccountSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'nextToken', 'listAccountSettingsResponse_nextToken' - The @nextToken@ value to include in a future @ListAccountSettings@</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- request. When the results of a @ListAccountSettings@ request exceed</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'settings', 'listAccountSettingsResponse_settings' - The account settings for the resource.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'httpStatus', 'listAccountSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettingsResponse"><span class="hs-identifier hs-type">newListAccountSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span>
+</span><span id="line-310"></span><span id="newListAccountSettingsResponse"><span class="annot"><span class="annottext">newListAccountSettingsResponse :: Int -&gt; ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#newListAccountSettingsResponse"><span class="hs-identifier hs-var hs-var">newListAccountSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679474242"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><span class="annottext">ListAccountSettingsResponse' :: Maybe Text -&gt; Maybe [Setting] -&gt; Int -&gt; ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span>
+</span><span id="line-312"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:settings:ListAccountSettingsResponse' :: Maybe [Setting]
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Asettings%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Setting]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountSettingsResponse' :: Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AhttpStatus%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListAccountSettings@</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- request. When the results of a @ListAccountSettings@ request exceed</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_nextToken"><span class="hs-identifier hs-type">listAccountSettingsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="listAccountSettingsResponse_nextToken"><span class="annot"><span class="annottext">listAccountSettingsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountSettingsResponse -&gt; f ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAccountSettingsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettingsResponse -&gt; Maybe Text)
+-&gt; (ListAccountSettingsResponse
+    -&gt; Maybe Text -&gt; ListAccountSettingsResponse)
+-&gt; Lens' ListAccountSettingsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474241"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountSettingsResponse' :: ListAccountSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679474241"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474241"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474240"><span class="annot"><span class="annottext">s :: ListAccountSettingsResponse
+</span><a href="#local-6989586621679474240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+</span><a href="#local-6989586621679474240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AnextToken%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679474239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | The account settings for the resource.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_settings"><span class="hs-identifier hs-type">listAccountSettingsResponse_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="listAccountSettingsResponse_settings"><span class="annot"><span class="annottext">listAccountSettingsResponse_settings :: (Maybe [Setting] -&gt; f (Maybe [Setting]))
+-&gt; ListAccountSettingsResponse -&gt; f ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_settings"><span class="hs-identifier hs-var hs-var">listAccountSettingsResponse_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettingsResponse -&gt; Maybe [Setting])
+-&gt; (ListAccountSettingsResponse
+    -&gt; Maybe [Setting] -&gt; ListAccountSettingsResponse)
+-&gt; Lens' ListAccountSettingsResponse (Maybe [Setting])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474238"><span class="annot"><span class="annottext">Maybe [Setting]
+settings :: Maybe [Setting]
+$sel:settings:ListAccountSettingsResponse' :: ListAccountSettingsResponse -&gt; Maybe [Setting]
+</span><a href="#local-6989586621679474238"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Setting]
+</span><a href="#local-6989586621679474238"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474237"><span class="annot"><span class="annottext">s :: ListAccountSettingsResponse
+</span><a href="#local-6989586621679474237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474236"><span class="annot"><span class="annottext">Maybe [Setting]
+</span><a href="#local-6989586621679474236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+</span><a href="#local-6989586621679474237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:ListAccountSettingsResponse' :: Maybe [Setting]
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3Asettings%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Setting]
+</span><a href="#local-6989586621679474236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Setting] -&gt; f (Maybe [Setting]))
+ -&gt; ListAccountSettingsResponse -&gt; f ListAccountSettingsResponse)
+-&gt; ((Maybe [Setting] -&gt; f (Maybe [Setting]))
+    -&gt; Maybe [Setting] -&gt; f (Maybe [Setting]))
+-&gt; (Maybe [Setting] -&gt; f (Maybe [Setting]))
+-&gt; ListAccountSettingsResponse
+-&gt; f ListAccountSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Setting] [Setting] [Setting] [Setting]
+-&gt; Iso
+     (Maybe [Setting])
+     (Maybe [Setting])
+     (Maybe [Setting])
+     (Maybe [Setting])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Setting] [Setting] [Setting] [Setting]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_httpStatus"><span class="hs-identifier hs-type">listAccountSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-331"></span><span id="listAccountSettingsResponse_httpStatus"><span class="annot"><span class="annottext">listAccountSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAccountSettingsResponse -&gt; f ListAccountSettingsResponse
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#listAccountSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAccountSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountSettingsResponse -&gt; Int)
+-&gt; (ListAccountSettingsResponse
+    -&gt; Int -&gt; ListAccountSettingsResponse)
+-&gt; Lens
+     ListAccountSettingsResponse ListAccountSettingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679474233"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAccountSettingsResponse' :: ListAccountSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679474233"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474233"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679474232"><span class="annot"><span class="annottext">s :: ListAccountSettingsResponse
+</span><a href="#local-6989586621679474232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse%27"><span class="hs-identifier hs-type">ListAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679474231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountSettingsResponse
+</span><a href="#local-6989586621679474232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountSettingsResponse' :: Int
+</span><a href="Network.AWS.ECS.ListAccountSettings.html#%24sel%3AhttpStatus%3AListAccountSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679474231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679474229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListAccountSettings.html#ListAccountSettingsResponse"><span class="hs-identifier hs-type">ListAccountSettingsResponse</span></a></span></span><span>
+</span><span id="line-334"></span></pre></body></html>

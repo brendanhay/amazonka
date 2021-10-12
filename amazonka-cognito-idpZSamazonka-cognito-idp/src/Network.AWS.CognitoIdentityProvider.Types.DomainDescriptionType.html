@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainStatusType.html"><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.DomainStatusType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A container for information about a domain.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDomainDescriptionType' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679427502"><span id="local-6989586621679427503"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainDescriptionType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-var">DomainDescriptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainDescriptionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-var">DomainDescriptionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain status.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe DomainStatusType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Astatus%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainStatusType.html#DomainStatusType"><span class="hs-identifier hs-type">DomainStatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The account ID for the user pool owner.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaWSAccountId%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AaWSAccountId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">aWSAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcustomDomainConfig%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcustomDomainConfig%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">customDomainConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType.html#CustomDomainConfigType"><span class="hs-identifier hs-type">CustomDomainConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The S3 bucket where the static files for this domain are stored.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3As3Bucket%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3As3Bucket%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AuserPoolId%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AuserPoolId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The domain string.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Adomain%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Adomain%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The app version.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aversion%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Aversion%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ARN of the CloudFront distribution.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcloudFrontDistribution%3ADomainDescriptionType%27"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcloudFrontDistribution%3ADomainDescriptionType%27"><span class="hs-identifier hs-var hs-var">cloudFrontDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427489"><span id="local-6989586621679427491"><span class="annot"><span class="annottext">DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool
+(DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool)
+-&gt; (DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool)
+-&gt; Eq DomainDescriptionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool
+$c/= :: DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool
+== :: DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool
+$c== :: DomainDescriptionType -&gt; DomainDescriptionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427480"><span id="local-6989586621679427482"><span id="local-6989586621679427484"><span id="local-6989586621679427486"><span class="annot"><span class="annottext">ReadPrec [DomainDescriptionType]
+ReadPrec DomainDescriptionType
+Int -&gt; ReadS DomainDescriptionType
+ReadS [DomainDescriptionType]
+(Int -&gt; ReadS DomainDescriptionType)
+-&gt; ReadS [DomainDescriptionType]
+-&gt; ReadPrec DomainDescriptionType
+-&gt; ReadPrec [DomainDescriptionType]
+-&gt; Read DomainDescriptionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainDescriptionType]
+$creadListPrec :: ReadPrec [DomainDescriptionType]
+readPrec :: ReadPrec DomainDescriptionType
+$creadPrec :: ReadPrec DomainDescriptionType
+readList :: ReadS [DomainDescriptionType]
+$creadList :: ReadS [DomainDescriptionType]
+readsPrec :: Int -&gt; ReadS DomainDescriptionType
+$creadsPrec :: Int -&gt; ReadS DomainDescriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427473"><span id="local-6989586621679427475"><span id="local-6989586621679427477"><span class="annot"><span class="annottext">Int -&gt; DomainDescriptionType -&gt; ShowS
+[DomainDescriptionType] -&gt; ShowS
+DomainDescriptionType -&gt; String
+(Int -&gt; DomainDescriptionType -&gt; ShowS)
+-&gt; (DomainDescriptionType -&gt; String)
+-&gt; ([DomainDescriptionType] -&gt; ShowS)
+-&gt; Show DomainDescriptionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainDescriptionType] -&gt; ShowS
+$cshowList :: [DomainDescriptionType] -&gt; ShowS
+show :: DomainDescriptionType -&gt; String
+$cshow :: DomainDescriptionType -&gt; String
+showsPrec :: Int -&gt; DomainDescriptionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainDescriptionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DomainDescriptionType -&gt; Rep DomainDescriptionType x)
+-&gt; (forall x. Rep DomainDescriptionType x -&gt; DomainDescriptionType)
+-&gt; Generic DomainDescriptionType
+forall x. Rep DomainDescriptionType x -&gt; DomainDescriptionType
+forall x. DomainDescriptionType -&gt; Rep DomainDescriptionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainDescriptionType x -&gt; DomainDescriptionType
+$cfrom :: forall x. DomainDescriptionType -&gt; Rep DomainDescriptionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DomainDescriptionType' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'status', 'domainDescriptionType_status' - The domain status.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'aWSAccountId', 'domainDescriptionType_aWSAccountId' - The account ID for the user pool owner.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'customDomainConfig', 'domainDescriptionType_customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 's3Bucket', 'domainDescriptionType_s3Bucket' - The S3 bucket where the static files for this domain are stored.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'userPoolId', 'domainDescriptionType_userPoolId' - The user pool ID.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'domain', 'domainDescriptionType_domain' - The domain string.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'version', 'domainDescriptionType_version' - The app version.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'cloudFrontDistribution', 'domainDescriptionType_cloudFrontDistribution' - The ARN of the CloudFront distribution.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#newDomainDescriptionType"><span class="hs-identifier hs-type">newDomainDescriptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span>
+</span><span id="line-78"></span><span id="newDomainDescriptionType"><span class="annot"><span class="annottext">newDomainDescriptionType :: DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#newDomainDescriptionType"><span class="hs-identifier hs-var hs-var">newDomainDescriptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DomainDescriptionType' :: Maybe DomainStatusType
+-&gt; Maybe Text
+-&gt; Maybe CustomDomainConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DomainDescriptionType' :: Maybe DomainStatusType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Astatus%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:aWSAccountId:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AaWSAccountId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:customDomainConfig:DomainDescriptionType' :: Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcustomDomainConfig%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3As3Bucket%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AuserPoolId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Adomain%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Aversion%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudFrontDistribution:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcloudFrontDistribution%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">cloudFrontDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The domain status.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_status"><span class="hs-identifier hs-type">domainDescriptionType_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainStatusType.html#DomainStatusType"><span class="hs-identifier hs-type">DomainStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="domainDescriptionType_status"><span class="annot"><span class="annottext">domainDescriptionType_status :: (Maybe DomainStatusType -&gt; f (Maybe DomainStatusType))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_status"><span class="hs-identifier hs-var hs-var">domainDescriptionType_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe DomainStatusType)
+-&gt; (DomainDescriptionType
+    -&gt; Maybe DomainStatusType -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe DomainStatusType)
+     (Maybe DomainStatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427464"><span class="annot"><span class="annottext">Maybe DomainStatusType
+status :: Maybe DomainStatusType
+$sel:status:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe DomainStatusType
+</span><a href="#local-6989586621679427464"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatusType
+</span><a href="#local-6989586621679427464"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427463"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427462"><span class="annot"><span class="annottext">Maybe DomainStatusType
+</span><a href="#local-6989586621679427462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DomainDescriptionType' :: Maybe DomainStatusType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Astatus%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatusType
+</span><a href="#local-6989586621679427462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The account ID for the user pool owner.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_aWSAccountId"><span class="hs-identifier hs-type">domainDescriptionType_aWSAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="domainDescriptionType_aWSAccountId"><span class="annot"><span class="annottext">domainDescriptionType_aWSAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_aWSAccountId"><span class="hs-identifier hs-var hs-var">domainDescriptionType_aWSAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427460"><span class="annot"><span class="annottext">Maybe Text
+aWSAccountId :: Maybe Text
+$sel:aWSAccountId:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427460"><span class="hs-identifier hs-var hs-var">aWSAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427460"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427459"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSAccountId:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AaWSAccountId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">aWSAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The configuration for a custom domain that hosts the sign-up and sign-in</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- webpages for your application.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_customDomainConfig"><span class="hs-identifier hs-type">domainDescriptionType_customDomainConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType.html#CustomDomainConfigType"><span class="hs-identifier hs-type">CustomDomainConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="domainDescriptionType_customDomainConfig"><span class="annot"><span class="annottext">domainDescriptionType_customDomainConfig :: (Maybe CustomDomainConfigType -&gt; f (Maybe CustomDomainConfigType))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_customDomainConfig"><span class="hs-identifier hs-var hs-var">domainDescriptionType_customDomainConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe CustomDomainConfigType)
+-&gt; (DomainDescriptionType
+    -&gt; Maybe CustomDomainConfigType -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe CustomDomainConfigType)
+     (Maybe CustomDomainConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427456"><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+customDomainConfig :: Maybe CustomDomainConfigType
+$sel:customDomainConfig:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679427456"><span class="hs-identifier hs-var hs-var">customDomainConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679427456"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427455"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427454"><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679427454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDomainConfig:DomainDescriptionType' :: Maybe CustomDomainConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcustomDomainConfig%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">customDomainConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomDomainConfigType
+</span><a href="#local-6989586621679427454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The S3 bucket where the static files for this domain are stored.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_s3Bucket"><span class="hs-identifier hs-type">domainDescriptionType_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="domainDescriptionType_s3Bucket"><span class="annot"><span class="annottext">domainDescriptionType_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_s3Bucket"><span class="hs-identifier hs-var hs-var">domainDescriptionType_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427452"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427452"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427452"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427451"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3As3Bucket%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_userPoolId"><span class="hs-identifier hs-type">domainDescriptionType_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="domainDescriptionType_userPoolId"><span class="annot"><span class="annottext">domainDescriptionType_userPoolId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_userPoolId"><span class="hs-identifier hs-var hs-var">domainDescriptionType_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427448"><span class="annot"><span class="annottext">Maybe Text
+userPoolId :: Maybe Text
+$sel:userPoolId:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427448"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427448"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427447"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AuserPoolId%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The domain string.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_domain"><span class="hs-identifier hs-type">domainDescriptionType_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="domainDescriptionType_domain"><span class="annot"><span class="annottext">domainDescriptionType_domain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_domain"><span class="hs-identifier hs-var hs-var">domainDescriptionType_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427444"><span class="annot"><span class="annottext">Maybe Text
+domain :: Maybe Text
+$sel:domain:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427444"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427444"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427443"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Adomain%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The app version.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_version"><span class="hs-identifier hs-type">domainDescriptionType_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="domainDescriptionType_version"><span class="annot"><span class="annottext">domainDescriptionType_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_version"><span class="hs-identifier hs-var hs-var">domainDescriptionType_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427440"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427440"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427440"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427439"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3Aversion%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ARN of the CloudFront distribution.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_cloudFrontDistribution"><span class="hs-identifier hs-type">domainDescriptionType_cloudFrontDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="domainDescriptionType_cloudFrontDistribution"><span class="annot"><span class="annottext">domainDescriptionType_cloudFrontDistribution :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescriptionType -&gt; f DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#domainDescriptionType_cloudFrontDistribution"><span class="hs-identifier hs-var hs-var">domainDescriptionType_cloudFrontDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescriptionType -&gt; Maybe Text)
+-&gt; (DomainDescriptionType -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Lens
+     DomainDescriptionType
+     DomainDescriptionType
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427436"><span class="annot"><span class="annottext">Maybe Text
+cloudFrontDistribution :: Maybe Text
+$sel:cloudFrontDistribution:DomainDescriptionType' :: DomainDescriptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679427436"><span class="hs-identifier hs-var hs-var">cloudFrontDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427436"><span class="hs-identifier hs-var">cloudFrontDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427435"><span class="annot"><span class="annottext">s :: DomainDescriptionType
+</span><a href="#local-6989586621679427435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-type">DomainDescriptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescriptionType
+</span><a href="#local-6989586621679427435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDistribution:DomainDescriptionType' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#%24sel%3AcloudFrontDistribution%3ADomainDescriptionType%27"><span class="hs-identifier hs-var">cloudFrontDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679427429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainDescriptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DomainDescriptionType)
+-&gt; Value
+-&gt; Parser DomainDescriptionType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DomainDescriptionType&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe DomainStatusType
+-&gt; Maybe Text
+-&gt; Maybe CustomDomainConfigType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DomainDescriptionType
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType%27"><span class="hs-identifier hs-var">DomainDescriptionType'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DomainStatusType
+ -&gt; Maybe Text
+ -&gt; Maybe CustomDomainConfigType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe DomainStatusType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CustomDomainConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CustomDomainConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CustomDomainConfigType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AWSAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CustomDomainConfigType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe CustomDomainConfigType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomDomainConfigType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomDomainConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; DomainDescriptionType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DomainDescriptionType)
+-&gt; Parser (Maybe Text) -&gt; Parser DomainDescriptionType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudFrontDistribution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427420"><span id="local-6989586621679427422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType.html#DomainDescriptionType"><span class="hs-identifier hs-type">DomainDescriptionType</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

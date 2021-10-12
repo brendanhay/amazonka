@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.Types.EndpointAccess</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.Types.EndpointAccess</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html"><span class="hs-identifier">Network.AWS.Redshift.Types.VpcEndpoint</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcSecurityGroupMembership.html"><span class="hs-identifier">Network.AWS.Redshift.Types.VpcSecurityGroupMembership</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes a Redshift-managed VPC endpoint.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEndpointAccess' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679502248"><span id="local-6989586621679502249"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-var">EndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-var">EndpointAccess'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security groups associated with the endpoint.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcSecurityGroups%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe [VpcSecurityGroupMembership]
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcSecurityGroups%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">vpcSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcSecurityGroupMembership.html#VpcSecurityGroupMembership"><span class="hs-identifier hs-type">VpcSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the endpoint.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AendpointName%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointName%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The DNS address of the endpoint.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aaddress%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aaddress%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the cluster.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AresourceOwner%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AresourceOwner%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time (UTC) that the endpoint was created.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AendpointCreateTime%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointCreateTime%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">endpointCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The status of the endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AendpointStatus%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointStatus%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">endpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The cluster identifier of the cluster associated with the endpoint.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AclusterIdentifier%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The port number on which the cluster accepts incoming connections.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aport%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aport%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AvpcEndpoint%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe VpcEndpoint
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcEndpoint%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">vpcEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html#VpcEndpoint"><span class="hs-identifier hs-type">VpcEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The subnet group name where Amazon Redshift chooses to deploy the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsubnetGroupName%3AEndpointAccess%27"><span class="annot"><span class="annottext">EndpointAccess -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AsubnetGroupName%3AEndpointAccess%27"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679502233"><span id="local-6989586621679502235"><span class="annot"><span class="annottext">EndpointAccess -&gt; EndpointAccess -&gt; Bool
+(EndpointAccess -&gt; EndpointAccess -&gt; Bool)
+-&gt; (EndpointAccess -&gt; EndpointAccess -&gt; Bool) -&gt; Eq EndpointAccess
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EndpointAccess -&gt; EndpointAccess -&gt; Bool
+$c/= :: EndpointAccess -&gt; EndpointAccess -&gt; Bool
+== :: EndpointAccess -&gt; EndpointAccess -&gt; Bool
+$c== :: EndpointAccess -&gt; EndpointAccess -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679502224"><span id="local-6989586621679502226"><span id="local-6989586621679502228"><span id="local-6989586621679502230"><span class="annot"><span class="annottext">ReadPrec [EndpointAccess]
+ReadPrec EndpointAccess
+Int -&gt; ReadS EndpointAccess
+ReadS [EndpointAccess]
+(Int -&gt; ReadS EndpointAccess)
+-&gt; ReadS [EndpointAccess]
+-&gt; ReadPrec EndpointAccess
+-&gt; ReadPrec [EndpointAccess]
+-&gt; Read EndpointAccess
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EndpointAccess]
+$creadListPrec :: ReadPrec [EndpointAccess]
+readPrec :: ReadPrec EndpointAccess
+$creadPrec :: ReadPrec EndpointAccess
+readList :: ReadS [EndpointAccess]
+$creadList :: ReadS [EndpointAccess]
+readsPrec :: Int -&gt; ReadS EndpointAccess
+$creadsPrec :: Int -&gt; ReadS EndpointAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679502217"><span id="local-6989586621679502219"><span id="local-6989586621679502221"><span class="annot"><span class="annottext">Int -&gt; EndpointAccess -&gt; ShowS
+[EndpointAccess] -&gt; ShowS
+EndpointAccess -&gt; String
+(Int -&gt; EndpointAccess -&gt; ShowS)
+-&gt; (EndpointAccess -&gt; String)
+-&gt; ([EndpointAccess] -&gt; ShowS)
+-&gt; Show EndpointAccess
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EndpointAccess] -&gt; ShowS
+$cshowList :: [EndpointAccess] -&gt; ShowS
+show :: EndpointAccess -&gt; String
+$cshow :: EndpointAccess -&gt; String
+showsPrec :: Int -&gt; EndpointAccess -&gt; ShowS
+$cshowsPrec :: Int -&gt; EndpointAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EndpointAccess -&gt; Rep EndpointAccess x)
+-&gt; (forall x. Rep EndpointAccess x -&gt; EndpointAccess)
+-&gt; Generic EndpointAccess
+forall x. Rep EndpointAccess x -&gt; EndpointAccess
+forall x. EndpointAccess -&gt; Rep EndpointAccess x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EndpointAccess x -&gt; EndpointAccess
+$cfrom :: forall x. EndpointAccess -&gt; Rep EndpointAccess x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'EndpointAccess' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'vpcSecurityGroups', 'endpointAccess_vpcSecurityGroups' - The security groups associated with the endpoint.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'endpointName', 'endpointAccess_endpointName' - The name of the endpoint.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'address', 'endpointAccess_address' - The DNS address of the endpoint.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'resourceOwner', 'endpointAccess_resourceOwner' - The Amazon Web Services account ID of the owner of the cluster.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'endpointCreateTime', 'endpointAccess_endpointCreateTime' - The time (UTC) that the endpoint was created.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'endpointStatus', 'endpointAccess_endpointStatus' - The status of the endpoint.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'clusterIdentifier', 'endpointAccess_clusterIdentifier' - The cluster identifier of the cluster associated with the endpoint.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'port', 'endpointAccess_port' - The port number on which the cluster accepts incoming connections.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'vpcEndpoint', 'endpointAccess_vpcEndpoint' - Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'subnetGroupName', 'endpointAccess_subnetGroupName' - The subnet group name where Amazon Redshift chooses to deploy the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#newEndpointAccess"><span class="hs-identifier hs-type">newEndpointAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span>
+</span><span id="line-86"></span><span id="newEndpointAccess"><span class="annot"><span class="annottext">newEndpointAccess :: EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#newEndpointAccess"><span class="hs-identifier hs-var hs-var">newEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">EndpointAccess' :: Maybe [VpcSecurityGroupMembership]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe VpcEndpoint
+-&gt; Maybe Text
+-&gt; EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroups:EndpointAccess' :: Maybe [VpcSecurityGroupMembership]
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcSecurityGroups%3AEndpointAccess%27"><span class="hs-identifier hs-var">vpcSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointName:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointName%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:address:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aaddress%3AEndpointAccess%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceOwner:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AresourceOwner%3AEndpointAccess%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointCreateTime:EndpointAccess' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointCreateTime%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointStatus:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointStatus%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AclusterIdentifier%3AEndpointAccess%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:EndpointAccess' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aport%3AEndpointAccess%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpoint:EndpointAccess' :: Maybe VpcEndpoint
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcEndpoint%3AEndpointAccess%27"><span class="hs-identifier hs-var">vpcEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcEndpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupName:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AsubnetGroupName%3AEndpointAccess%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The security groups associated with the endpoint.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_vpcSecurityGroups"><span class="hs-identifier hs-type">endpointAccess_vpcSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcSecurityGroupMembership.html#VpcSecurityGroupMembership"><span class="hs-identifier hs-type">VpcSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="endpointAccess_vpcSecurityGroups"><span class="annot"><span class="annottext">endpointAccess_vpcSecurityGroups :: (Maybe [VpcSecurityGroupMembership]
+ -&gt; f (Maybe [VpcSecurityGroupMembership]))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_vpcSecurityGroups"><span class="hs-identifier hs-var hs-var">endpointAccess_vpcSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe [VpcSecurityGroupMembership])
+-&gt; (EndpointAccess
+    -&gt; Maybe [VpcSecurityGroupMembership] -&gt; EndpointAccess)
+-&gt; Lens
+     EndpointAccess
+     EndpointAccess
+     (Maybe [VpcSecurityGroupMembership])
+     (Maybe [VpcSecurityGroupMembership])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502208"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+vpcSecurityGroups :: Maybe [VpcSecurityGroupMembership]
+$sel:vpcSecurityGroups:EndpointAccess' :: EndpointAccess -&gt; Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679502208"><span class="hs-identifier hs-var hs-var">vpcSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679502208"><span class="hs-identifier hs-var">vpcSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502207"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502206"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679502206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroups:EndpointAccess' :: Maybe [VpcSecurityGroupMembership]
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcSecurityGroups%3AEndpointAccess%27"><span class="hs-identifier hs-var">vpcSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679502206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcSecurityGroupMembership]
+  -&gt; f (Maybe [VpcSecurityGroupMembership]))
+ -&gt; EndpointAccess -&gt; f EndpointAccess)
+-&gt; ((Maybe [VpcSecurityGroupMembership]
+     -&gt; f (Maybe [VpcSecurityGroupMembership]))
+    -&gt; Maybe [VpcSecurityGroupMembership]
+    -&gt; f (Maybe [VpcSecurityGroupMembership]))
+-&gt; (Maybe [VpcSecurityGroupMembership]
+    -&gt; f (Maybe [VpcSecurityGroupMembership]))
+-&gt; EndpointAccess
+-&gt; f EndpointAccess
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+-&gt; Iso
+     (Maybe [VpcSecurityGroupMembership])
+     (Maybe [VpcSecurityGroupMembership])
+     (Maybe [VpcSecurityGroupMembership])
+     (Maybe [VpcSecurityGroupMembership])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+  [VpcSecurityGroupMembership]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the endpoint.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointName"><span class="hs-identifier hs-type">endpointAccess_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="endpointAccess_endpointName"><span class="annot"><span class="annottext">endpointAccess_endpointName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointName"><span class="hs-identifier hs-var hs-var">endpointAccess_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502201"><span class="annot"><span class="annottext">Maybe Text
+endpointName :: Maybe Text
+$sel:endpointName:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502201"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502201"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502200"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointName%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The DNS address of the endpoint.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_address"><span class="hs-identifier hs-type">endpointAccess_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="endpointAccess_address"><span class="annot"><span class="annottext">endpointAccess_address :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_address"><span class="hs-identifier hs-var hs-var">endpointAccess_address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502197"><span class="annot"><span class="annottext">Maybe Text
+address :: Maybe Text
+$sel:address:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502197"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502197"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502196"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aaddress%3AEndpointAccess%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the cluster.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_resourceOwner"><span class="hs-identifier hs-type">endpointAccess_resourceOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="endpointAccess_resourceOwner"><span class="annot"><span class="annottext">endpointAccess_resourceOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_resourceOwner"><span class="hs-identifier hs-var hs-var">endpointAccess_resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502193"><span class="annot"><span class="annottext">Maybe Text
+resourceOwner :: Maybe Text
+$sel:resourceOwner:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502193"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502193"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502192"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AresourceOwner%3AEndpointAccess%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The time (UTC) that the endpoint was created.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointCreateTime"><span class="hs-identifier hs-type">endpointAccess_endpointCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="endpointAccess_endpointCreateTime"><span class="annot"><span class="annottext">endpointAccess_endpointCreateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointCreateTime"><span class="hs-identifier hs-var hs-var">endpointAccess_endpointCreateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe ISO8601)
+-&gt; (EndpointAccess -&gt; Maybe ISO8601 -&gt; EndpointAccess)
+-&gt; Lens
+     EndpointAccess EndpointAccess (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502189"><span class="annot"><span class="annottext">Maybe ISO8601
+endpointCreateTime :: Maybe ISO8601
+$sel:endpointCreateTime:EndpointAccess' :: EndpointAccess -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679502189"><span class="hs-identifier hs-var hs-var">endpointCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679502189"><span class="hs-identifier hs-var">endpointCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502188"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502187"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679502187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointCreateTime:EndpointAccess' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointCreateTime%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679502187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; EndpointAccess -&gt; f EndpointAccess)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EndpointAccess
+-&gt; f EndpointAccess
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The status of the endpoint.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointStatus"><span class="hs-identifier hs-type">endpointAccess_endpointStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="endpointAccess_endpointStatus"><span class="annot"><span class="annottext">endpointAccess_endpointStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_endpointStatus"><span class="hs-identifier hs-var hs-var">endpointAccess_endpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502184"><span class="annot"><span class="annottext">Maybe Text
+endpointStatus :: Maybe Text
+$sel:endpointStatus:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502184"><span class="hs-identifier hs-var hs-var">endpointStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502184"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502183"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointStatus:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AendpointStatus%3AEndpointAccess%27"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The cluster identifier of the cluster associated with the endpoint.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_clusterIdentifier"><span class="hs-identifier hs-type">endpointAccess_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="endpointAccess_clusterIdentifier"><span class="annot"><span class="annottext">endpointAccess_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_clusterIdentifier"><span class="hs-identifier hs-var hs-var">endpointAccess_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502180"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502180"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502180"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502179"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AclusterIdentifier%3AEndpointAccess%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The port number on which the cluster accepts incoming connections.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_port"><span class="hs-identifier hs-type">endpointAccess_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="endpointAccess_port"><span class="annot"><span class="annottext">endpointAccess_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_port"><span class="hs-identifier hs-var hs-var">endpointAccess_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Int)
+-&gt; (EndpointAccess -&gt; Maybe Int -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502176"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:EndpointAccess' :: EndpointAccess -&gt; Maybe Int
+</span><a href="#local-6989586621679502176"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679502176"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502175"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502174"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679502174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:EndpointAccess' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3Aport%3AEndpointAccess%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679502174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_vpcEndpoint"><span class="hs-identifier hs-type">endpointAccess_vpcEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.VpcEndpoint.html#VpcEndpoint"><span class="hs-identifier hs-type">VpcEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="endpointAccess_vpcEndpoint"><span class="annot"><span class="annottext">endpointAccess_vpcEndpoint :: (Maybe VpcEndpoint -&gt; f (Maybe VpcEndpoint))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_vpcEndpoint"><span class="hs-identifier hs-var hs-var">endpointAccess_vpcEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe VpcEndpoint)
+-&gt; (EndpointAccess -&gt; Maybe VpcEndpoint -&gt; EndpointAccess)
+-&gt; Lens
+     EndpointAccess
+     EndpointAccess
+     (Maybe VpcEndpoint)
+     (Maybe VpcEndpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502172"><span class="annot"><span class="annottext">Maybe VpcEndpoint
+vpcEndpoint :: Maybe VpcEndpoint
+$sel:vpcEndpoint:EndpointAccess' :: EndpointAccess -&gt; Maybe VpcEndpoint
+</span><a href="#local-6989586621679502172"><span class="hs-identifier hs-var hs-var">vpcEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcEndpoint
+</span><a href="#local-6989586621679502172"><span class="hs-identifier hs-var">vpcEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502171"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502170"><span class="annot"><span class="annottext">Maybe VpcEndpoint
+</span><a href="#local-6989586621679502170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpoint:EndpointAccess' :: Maybe VpcEndpoint
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AvpcEndpoint%3AEndpointAccess%27"><span class="hs-identifier hs-var">vpcEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcEndpoint
+</span><a href="#local-6989586621679502170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The subnet group name where Amazon Redshift chooses to deploy the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_subnetGroupName"><span class="hs-identifier hs-type">endpointAccess_subnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="endpointAccess_subnetGroupName"><span class="annot"><span class="annottext">endpointAccess_subnetGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointAccess -&gt; f EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#endpointAccess_subnetGroupName"><span class="hs-identifier hs-var hs-var">endpointAccess_subnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointAccess -&gt; Maybe Text)
+-&gt; (EndpointAccess -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Lens EndpointAccess EndpointAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502168"><span class="annot"><span class="annottext">Maybe Text
+subnetGroupName :: Maybe Text
+$sel:subnetGroupName:EndpointAccess' :: EndpointAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679502168"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502168"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502167"><span class="annot"><span class="annottext">s :: EndpointAccess
+</span><a href="#local-6989586621679502167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-type">EndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointAccess
+</span><a href="#local-6989586621679502167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:EndpointAccess' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#%24sel%3AsubnetGroupName%3AEndpointAccess%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679502163"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EndpointAccess
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679502161"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe VpcEndpoint
+-&gt; Maybe Text
+-&gt; EndpointAccess
+</span><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess%27"><span class="hs-identifier hs-var">EndpointAccess'</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [VpcSecurityGroupMembership]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe VpcEndpoint
+ -&gt; Maybe Text
+ -&gt; EndpointAccess)
+-&gt; Either String (Maybe [VpcSecurityGroupMembership])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe VpcEndpoint
+      -&gt; Maybe Text
+      -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcSecurityGroups&quot;</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [VpcSecurityGroupMembership]))
+-&gt; Either String (Maybe [VpcSecurityGroupMembership])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [VpcSecurityGroupMembership])
+-&gt; [Node] -&gt; Either String (Maybe [VpcSecurityGroupMembership])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [VpcSecurityGroupMembership]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe VpcEndpoint
+   -&gt; Maybe Text
+   -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe VpcEndpoint
+      -&gt; Maybe Text
+      -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe VpcEndpoint
+   -&gt; Maybe Text
+   -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe VpcEndpoint
+      -&gt; Maybe Text
+      -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe VpcEndpoint
+   -&gt; Maybe Text
+   -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe VpcEndpoint
+      -&gt; Maybe Text
+      -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe VpcEndpoint
+   -&gt; Maybe Text
+   -&gt; EndpointAccess)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe VpcEndpoint
+      -&gt; Maybe Text
+      -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointCreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe VpcEndpoint
+   -&gt; Maybe Text
+   -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int -&gt; Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int -&gt; Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String (Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe VpcEndpoint -&gt; Maybe Text -&gt; EndpointAccess)
+-&gt; Either String (Maybe VpcEndpoint)
+-&gt; Either String (Maybe Text -&gt; EndpointAccess)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpcEndpoint)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; EndpointAccess)
+-&gt; Either String (Maybe Text) -&gt; Either String EndpointAccess
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679502152"><span id="local-6989586621679502154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679502149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

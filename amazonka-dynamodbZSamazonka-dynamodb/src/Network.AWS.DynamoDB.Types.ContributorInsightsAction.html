@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.ContributorInsightsAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.ContributorInsightsAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction"><span class="hs-identifier">ContributorInsightsAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_DISABLE"><span class="hs-identifier">ContributorInsightsAction_DISABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_ENABLE"><span class="hs-identifier">ContributorInsightsAction_ENABLE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679370413"><span id="local-6989586621679370414"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContributorInsightsAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction"><span class="hs-identifier hs-var">ContributorInsightsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContributorInsightsAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction%27"><span class="hs-identifier hs-var">ContributorInsightsAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContributorInsightsAction"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#fromContributorInsightsAction"><span class="hs-identifier hs-var hs-var">fromContributorInsightsAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370405"><span id="local-6989586621679370407"><span id="local-6989586621679370409"><span class="annot"><span class="annottext">Int -&gt; ContributorInsightsAction -&gt; ShowS
+[ContributorInsightsAction] -&gt; ShowS
+ContributorInsightsAction -&gt; String
+(Int -&gt; ContributorInsightsAction -&gt; ShowS)
+-&gt; (ContributorInsightsAction -&gt; String)
+-&gt; ([ContributorInsightsAction] -&gt; ShowS)
+-&gt; Show ContributorInsightsAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContributorInsightsAction] -&gt; ShowS
+$cshowList :: [ContributorInsightsAction] -&gt; ShowS
+show :: ContributorInsightsAction -&gt; String
+$cshow :: ContributorInsightsAction -&gt; String
+showsPrec :: Int -&gt; ContributorInsightsAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContributorInsightsAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679370396"><span id="local-6989586621679370398"><span id="local-6989586621679370400"><span id="local-6989586621679370402"><span class="annot"><span class="annottext">ReadPrec [ContributorInsightsAction]
+ReadPrec ContributorInsightsAction
+Int -&gt; ReadS ContributorInsightsAction
+ReadS [ContributorInsightsAction]
+(Int -&gt; ReadS ContributorInsightsAction)
+-&gt; ReadS [ContributorInsightsAction]
+-&gt; ReadPrec ContributorInsightsAction
+-&gt; ReadPrec [ContributorInsightsAction]
+-&gt; Read ContributorInsightsAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContributorInsightsAction]
+$creadListPrec :: ReadPrec [ContributorInsightsAction]
+readPrec :: ReadPrec ContributorInsightsAction
+$creadPrec :: ReadPrec ContributorInsightsAction
+readList :: ReadS [ContributorInsightsAction]
+$creadList :: ReadS [ContributorInsightsAction]
+readsPrec :: Int -&gt; ReadS ContributorInsightsAction
+$creadsPrec :: Int -&gt; ReadS ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370391"><span id="local-6989586621679370393"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+(ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; (ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; Eq ContributorInsightsAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c/= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+== :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c== :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370375"><span id="local-6989586621679370377"><span id="local-6989586621679370379"><span id="local-6989586621679370381"><span id="local-6989586621679370383"><span id="local-6989586621679370385"><span id="local-6989586621679370387"><span class="annot"><span class="annottext">Eq ContributorInsightsAction
+Eq ContributorInsightsAction
+-&gt; (ContributorInsightsAction
+    -&gt; ContributorInsightsAction -&gt; Ordering)
+-&gt; (ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; (ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; (ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; (ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool)
+-&gt; (ContributorInsightsAction
+    -&gt; ContributorInsightsAction -&gt; ContributorInsightsAction)
+-&gt; (ContributorInsightsAction
+    -&gt; ContributorInsightsAction -&gt; ContributorInsightsAction)
+-&gt; Ord ContributorInsightsAction
+ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Ordering
+ContributorInsightsAction
+-&gt; ContributorInsightsAction -&gt; ContributorInsightsAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ContributorInsightsAction
+-&gt; ContributorInsightsAction -&gt; ContributorInsightsAction
+$cmin :: ContributorInsightsAction
+-&gt; ContributorInsightsAction -&gt; ContributorInsightsAction
+max :: ContributorInsightsAction
+-&gt; ContributorInsightsAction -&gt; ContributorInsightsAction
+$cmax :: ContributorInsightsAction
+-&gt; ContributorInsightsAction -&gt; ContributorInsightsAction
+&gt;= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c&gt;= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+&gt; :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c&gt; :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+&lt;= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c&lt;= :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+&lt; :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+$c&lt; :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Bool
+compare :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Ordering
+$ccompare :: ContributorInsightsAction -&gt; ContributorInsightsAction -&gt; Ordering
+$cp1Ord :: Eq ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ContributorInsightsAction -&gt; Rep ContributorInsightsAction x)
+-&gt; (forall x.
+    Rep ContributorInsightsAction x -&gt; ContributorInsightsAction)
+-&gt; Generic ContributorInsightsAction
+forall x.
+Rep ContributorInsightsAction x -&gt; ContributorInsightsAction
+forall x.
+ContributorInsightsAction -&gt; Rep ContributorInsightsAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ContributorInsightsAction x -&gt; ContributorInsightsAction
+$cfrom :: forall x.
+ContributorInsightsAction -&gt; Rep ContributorInsightsAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370367"><span id="local-6989586621679370369"><span class="annot"><span class="annottext">Int -&gt; ContributorInsightsAction -&gt; Int
+ContributorInsightsAction -&gt; Int
+(Int -&gt; ContributorInsightsAction -&gt; Int)
+-&gt; (ContributorInsightsAction -&gt; Int)
+-&gt; Hashable ContributorInsightsAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ContributorInsightsAction -&gt; Int
+$chash :: ContributorInsightsAction -&gt; Int
+hashWithSalt :: Int -&gt; ContributorInsightsAction -&gt; Int
+$chashWithSalt :: Int -&gt; ContributorInsightsAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679370364"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; ()
+(ContributorInsightsAction -&gt; ())
+-&gt; NFData ContributorInsightsAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ContributorInsightsAction -&gt; ()
+$crnf :: ContributorInsightsAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370361"><span class="annot"><span class="annottext">Text -&gt; Either String ContributorInsightsAction
+(Text -&gt; Either String ContributorInsightsAction)
+-&gt; FromText ContributorInsightsAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ContributorInsightsAction
+$cfromText :: Text -&gt; Either String ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370358"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; Text
+(ContributorInsightsAction -&gt; Text)
+-&gt; ToText ContributorInsightsAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ContributorInsightsAction -&gt; Text
+$ctoText :: ContributorInsightsAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370355"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; ByteString
+(ContributorInsightsAction -&gt; ByteString)
+-&gt; ToByteString ContributorInsightsAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ContributorInsightsAction -&gt; ByteString
+$ctoBS :: ContributorInsightsAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370352"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; ByteStringBuilder
+(ContributorInsightsAction -&gt; ByteStringBuilder)
+-&gt; ToLog ContributorInsightsAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ContributorInsightsAction -&gt; ByteStringBuilder
+$cbuild :: ContributorInsightsAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370349"><span class="annot"><span class="annottext">HeaderName -&gt; ContributorInsightsAction -&gt; [Header]
+(HeaderName -&gt; ContributorInsightsAction -&gt; [Header])
+-&gt; ToHeader ContributorInsightsAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ContributorInsightsAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ContributorInsightsAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370346"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; QueryString
+(ContributorInsightsAction -&gt; QueryString)
+-&gt; ToQuery ContributorInsightsAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ContributorInsightsAction -&gt; QueryString
+$ctoQuery :: ContributorInsightsAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370341"><span id="local-6989586621679370343"><span class="annot"><span class="annottext">Value -&gt; Parser [ContributorInsightsAction]
+Value -&gt; Parser ContributorInsightsAction
+(Value -&gt; Parser ContributorInsightsAction)
+-&gt; (Value -&gt; Parser [ContributorInsightsAction])
+-&gt; FromJSON ContributorInsightsAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ContributorInsightsAction]
+$cparseJSONList :: Value -&gt; Parser [ContributorInsightsAction]
+parseJSON :: Value -&gt; Parser ContributorInsightsAction
+$cparseJSON :: Value -&gt; Parser ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370336"><span id="local-6989586621679370338"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContributorInsightsAction]
+FromJSONKeyFunction ContributorInsightsAction
+FromJSONKeyFunction ContributorInsightsAction
+-&gt; FromJSONKeyFunction [ContributorInsightsAction]
+-&gt; FromJSONKey ContributorInsightsAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ContributorInsightsAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [ContributorInsightsAction]
+fromJSONKey :: FromJSONKeyFunction ContributorInsightsAction
+$cfromJSONKey :: FromJSONKeyFunction ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370327"><span id="local-6989586621679370329"><span id="local-6989586621679370331"><span id="local-6989586621679370333"><span class="annot"><span class="annottext">[ContributorInsightsAction] -&gt; Encoding
+[ContributorInsightsAction] -&gt; Value
+ContributorInsightsAction -&gt; Encoding
+ContributorInsightsAction -&gt; Value
+(ContributorInsightsAction -&gt; Value)
+-&gt; (ContributorInsightsAction -&gt; Encoding)
+-&gt; ([ContributorInsightsAction] -&gt; Value)
+-&gt; ([ContributorInsightsAction] -&gt; Encoding)
+-&gt; ToJSON ContributorInsightsAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ContributorInsightsAction] -&gt; Encoding
+$ctoEncodingList :: [ContributorInsightsAction] -&gt; Encoding
+toJSONList :: [ContributorInsightsAction] -&gt; Value
+$ctoJSONList :: [ContributorInsightsAction] -&gt; Value
+toEncoding :: ContributorInsightsAction -&gt; Encoding
+$ctoEncoding :: ContributorInsightsAction -&gt; Encoding
+toJSON :: ContributorInsightsAction -&gt; Value
+$ctoJSON :: ContributorInsightsAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370322"><span id="local-6989586621679370324"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContributorInsightsAction]
+ToJSONKeyFunction ContributorInsightsAction
+ToJSONKeyFunction ContributorInsightsAction
+-&gt; ToJSONKeyFunction [ContributorInsightsAction]
+-&gt; ToJSONKey ContributorInsightsAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ContributorInsightsAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [ContributorInsightsAction]
+toJSONKey :: ToJSONKeyFunction ContributorInsightsAction
+$ctoJSONKey :: ToJSONKeyFunction ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370319"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContributorInsightsAction
+([Node] -&gt; Either String ContributorInsightsAction)
+-&gt; FromXML ContributorInsightsAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ContributorInsightsAction
+$cparseXML :: [Node] -&gt; Either String ContributorInsightsAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370316"><span class="annot"><span class="annottext">ContributorInsightsAction -&gt; XML
+(ContributorInsightsAction -&gt; XML)
+-&gt; ToXML ContributorInsightsAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ContributorInsightsAction -&gt; XML
+$ctoXML :: ContributorInsightsAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_DISABLE"><span class="hs-identifier hs-type">ContributorInsightsAction_DISABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction"><span class="hs-identifier hs-type">ContributorInsightsAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContributorInsightsAction_DISABLE"><span id="%24mContributorInsightsAction_DISABLE"><span id="ContributorInsightsAction_DISABLE"><span class="annot"><span class="annottext">$bContributorInsightsAction_DISABLE :: ContributorInsightsAction
+$mContributorInsightsAction_DISABLE :: forall r.
+ContributorInsightsAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#%24bContributorInsightsAction_DISABLE"><span class="hs-identifier hs-var hs-var hs-var">ContributorInsightsAction_DISABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction%27"><span class="hs-identifier hs-type">ContributorInsightsAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_ENABLE"><span class="hs-identifier hs-type">ContributorInsightsAction_ENABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction"><span class="hs-identifier hs-type">ContributorInsightsAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bContributorInsightsAction_ENABLE"><span id="%24mContributorInsightsAction_ENABLE"><span id="ContributorInsightsAction_ENABLE"><span class="annot"><span class="annottext">$bContributorInsightsAction_ENABLE :: ContributorInsightsAction
+$mContributorInsightsAction_ENABLE :: forall r.
+ContributorInsightsAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#%24bContributorInsightsAction_ENABLE"><span class="hs-identifier hs-var hs-var hs-var">ContributorInsightsAction_ENABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction%27"><span class="hs-identifier hs-type">ContributorInsightsAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_DISABLE"><span class="hs-pragma hs-type">ContributorInsightsAction_DISABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction_ENABLE"><span class="hs-pragma hs-type">ContributorInsightsAction_ENABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ContributorInsightsAction.html#ContributorInsightsAction%27"><span class="hs-pragma hs-type">ContributorInsightsAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the API key authorization parameters to use to update the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- connection.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpdateConnectionApiKeyAuthRequestParameters' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679307203"><span id="local-6989586621679307204"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConnectionApiKeyAuthRequestParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-var">UpdateConnectionApiKeyAuthRequestParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConnectionApiKeyAuthRequestParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value associated with teh API key to use for authorization.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AapiKeyValue%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyValue%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var hs-var">apiKeyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the API key to use for authorization.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AapiKeyName%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyName%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var hs-var">apiKeyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307196"><span id="local-6989586621679307198"><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters
+-&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool
+(UpdateConnectionApiKeyAuthRequestParameters
+ -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool)
+-&gt; (UpdateConnectionApiKeyAuthRequestParameters
+    -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool)
+-&gt; Eq UpdateConnectionApiKeyAuthRequestParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateConnectionApiKeyAuthRequestParameters
+-&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool
+$c/= :: UpdateConnectionApiKeyAuthRequestParameters
+-&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool
+== :: UpdateConnectionApiKeyAuthRequestParameters
+-&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool
+$c== :: UpdateConnectionApiKeyAuthRequestParameters
+-&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307187"><span id="local-6989586621679307189"><span id="local-6989586621679307191"><span id="local-6989586621679307193"><span class="annot"><span class="annottext">ReadPrec [UpdateConnectionApiKeyAuthRequestParameters]
+ReadPrec UpdateConnectionApiKeyAuthRequestParameters
+Int -&gt; ReadS UpdateConnectionApiKeyAuthRequestParameters
+ReadS [UpdateConnectionApiKeyAuthRequestParameters]
+(Int -&gt; ReadS UpdateConnectionApiKeyAuthRequestParameters)
+-&gt; ReadS [UpdateConnectionApiKeyAuthRequestParameters]
+-&gt; ReadPrec UpdateConnectionApiKeyAuthRequestParameters
+-&gt; ReadPrec [UpdateConnectionApiKeyAuthRequestParameters]
+-&gt; Read UpdateConnectionApiKeyAuthRequestParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateConnectionApiKeyAuthRequestParameters]
+$creadListPrec :: ReadPrec [UpdateConnectionApiKeyAuthRequestParameters]
+readPrec :: ReadPrec UpdateConnectionApiKeyAuthRequestParameters
+$creadPrec :: ReadPrec UpdateConnectionApiKeyAuthRequestParameters
+readList :: ReadS [UpdateConnectionApiKeyAuthRequestParameters]
+$creadList :: ReadS [UpdateConnectionApiKeyAuthRequestParameters]
+readsPrec :: Int -&gt; ReadS UpdateConnectionApiKeyAuthRequestParameters
+$creadsPrec :: Int -&gt; ReadS UpdateConnectionApiKeyAuthRequestParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307180"><span id="local-6989586621679307182"><span id="local-6989586621679307184"><span class="annot"><span class="annottext">Int -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; ShowS
+[UpdateConnectionApiKeyAuthRequestParameters] -&gt; ShowS
+UpdateConnectionApiKeyAuthRequestParameters -&gt; String
+(Int -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; ShowS)
+-&gt; (UpdateConnectionApiKeyAuthRequestParameters -&gt; String)
+-&gt; ([UpdateConnectionApiKeyAuthRequestParameters] -&gt; ShowS)
+-&gt; Show UpdateConnectionApiKeyAuthRequestParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateConnectionApiKeyAuthRequestParameters] -&gt; ShowS
+$cshowList :: [UpdateConnectionApiKeyAuthRequestParameters] -&gt; ShowS
+show :: UpdateConnectionApiKeyAuthRequestParameters -&gt; String
+$cshow :: UpdateConnectionApiKeyAuthRequestParameters -&gt; String
+showsPrec :: Int -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateConnectionApiKeyAuthRequestParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateConnectionApiKeyAuthRequestParameters
+ -&gt; Rep UpdateConnectionApiKeyAuthRequestParameters x)
+-&gt; (forall x.
+    Rep UpdateConnectionApiKeyAuthRequestParameters x
+    -&gt; UpdateConnectionApiKeyAuthRequestParameters)
+-&gt; Generic UpdateConnectionApiKeyAuthRequestParameters
+forall x.
+Rep UpdateConnectionApiKeyAuthRequestParameters x
+-&gt; UpdateConnectionApiKeyAuthRequestParameters
+forall x.
+UpdateConnectionApiKeyAuthRequestParameters
+-&gt; Rep UpdateConnectionApiKeyAuthRequestParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateConnectionApiKeyAuthRequestParameters x
+-&gt; UpdateConnectionApiKeyAuthRequestParameters
+$cfrom :: forall x.
+UpdateConnectionApiKeyAuthRequestParameters
+-&gt; Rep UpdateConnectionApiKeyAuthRequestParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'UpdateConnectionApiKeyAuthRequestParameters' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'apiKeyValue', 'updateConnectionApiKeyAuthRequestParameters_apiKeyValue' - The value associated with teh API key to use for authorization.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'apiKeyName', 'updateConnectionApiKeyAuthRequestParameters_apiKeyName' - The name of the API key to use for authorization.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#newUpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">newUpdateConnectionApiKeyAuthRequestParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span><span>
+</span><span id="line-51"></span><span id="newUpdateConnectionApiKeyAuthRequestParameters"><span class="annot"><span class="annottext">newUpdateConnectionApiKeyAuthRequestParameters :: UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#newUpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-var hs-var">newUpdateConnectionApiKeyAuthRequestParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters' :: Maybe Text
+-&gt; Maybe Text -&gt; UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiKeyValue:UpdateConnectionApiKeyAuthRequestParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyValue%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var">apiKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeyName:UpdateConnectionApiKeyAuthRequestParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyName%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var">apiKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The value associated with teh API key to use for authorization.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#updateConnectionApiKeyAuthRequestParameters_apiKeyValue"><span class="hs-identifier hs-type">updateConnectionApiKeyAuthRequestParameters_apiKeyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="updateConnectionApiKeyAuthRequestParameters_apiKeyValue"><span class="annot"><span class="annottext">updateConnectionApiKeyAuthRequestParameters_apiKeyValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConnectionApiKeyAuthRequestParameters
+-&gt; f UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#updateConnectionApiKeyAuthRequestParameters_apiKeyValue"><span class="hs-identifier hs-var hs-var">updateConnectionApiKeyAuthRequestParameters_apiKeyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text)
+-&gt; (UpdateConnectionApiKeyAuthRequestParameters
+    -&gt; Maybe Text -&gt; UpdateConnectionApiKeyAuthRequestParameters)
+-&gt; Lens
+     UpdateConnectionApiKeyAuthRequestParameters
+     UpdateConnectionApiKeyAuthRequestParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307171"><span class="annot"><span class="annottext">Maybe Text
+apiKeyValue :: Maybe Text
+$sel:apiKeyValue:UpdateConnectionApiKeyAuthRequestParameters' :: UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var hs-var">apiKeyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">apiKeyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307170"><span class="annot"><span class="annottext">s :: UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyValue:UpdateConnectionApiKeyAuthRequestParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyValue%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var">apiKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of the API key to use for authorization.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#updateConnectionApiKeyAuthRequestParameters_apiKeyName"><span class="hs-identifier hs-type">updateConnectionApiKeyAuthRequestParameters_apiKeyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="updateConnectionApiKeyAuthRequestParameters_apiKeyName"><span class="annot"><span class="annottext">updateConnectionApiKeyAuthRequestParameters_apiKeyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateConnectionApiKeyAuthRequestParameters
+-&gt; f UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#updateConnectionApiKeyAuthRequestParameters_apiKeyName"><span class="hs-identifier hs-var hs-var">updateConnectionApiKeyAuthRequestParameters_apiKeyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text)
+-&gt; (UpdateConnectionApiKeyAuthRequestParameters
+    -&gt; Maybe Text -&gt; UpdateConnectionApiKeyAuthRequestParameters)
+-&gt; Lens
+     UpdateConnectionApiKeyAuthRequestParameters
+     UpdateConnectionApiKeyAuthRequestParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307167"><span class="annot"><span class="annottext">Maybe Text
+apiKeyName :: Maybe Text
+$sel:apiKeyName:UpdateConnectionApiKeyAuthRequestParameters' :: UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var hs-var">apiKeyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307167"><span class="hs-identifier hs-var">apiKeyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307166"><span class="annot"><span class="annottext">s :: UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectionApiKeyAuthRequestParameters
+</span><a href="#local-6989586621679307166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyName:UpdateConnectionApiKeyAuthRequestParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#%24sel%3AapiKeyName%3AUpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-var">apiKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679307161"><span id="local-6989586621679307163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679307158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679307150"><span id="local-6989586621679307152"><span id="local-6989586621679307154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters</span></a></span></span></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679307148"><span class="annot"><span class="annottext">toJSON :: UpdateConnectionApiKeyAuthRequestParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters.html#UpdateConnectionApiKeyAuthRequestParameters%27"><span class="hs-identifier hs-type">UpdateConnectionApiKeyAuthRequestParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307145"><span id="local-6989586621679307146"><span class="annot"><span class="annottext">Maybe Text
+apiKeyName :: Maybe Text
+apiKeyValue :: Maybe Text
+$sel:apiKeyName:UpdateConnectionApiKeyAuthRequestParameters' :: UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+$sel:apiKeyValue:UpdateConnectionApiKeyAuthRequestParameters' :: UpdateConnectionApiKeyAuthRequestParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679307145"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiKeyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307146"><span class="hs-identifier hs-var">apiKeyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiKeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307145"><span class="hs-identifier hs-var">apiKeyName</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>

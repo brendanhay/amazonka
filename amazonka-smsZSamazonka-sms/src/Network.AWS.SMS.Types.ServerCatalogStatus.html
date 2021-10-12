@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SMS.Types.ServerCatalogStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SMS.Types.ServerCatalogStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_AVAILABLE"><span class="hs-identifier">ServerCatalogStatus_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_DELETED"><span class="hs-identifier">ServerCatalogStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_EXPIRED"><span class="hs-identifier">ServerCatalogStatus_EXPIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_IMPORTING"><span class="hs-identifier">ServerCatalogStatus_IMPORTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_NOT_IMPORTED"><span class="hs-identifier">ServerCatalogStatus_NOT_IMPORTED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679247162"><span id="local-6989586621679247163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerCatalogStatus"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-var">ServerCatalogStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerCatalogStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-var">ServerCatalogStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServerCatalogStatus"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; Text
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#fromServerCatalogStatus"><span class="hs-identifier hs-var hs-var">fromServerCatalogStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247154"><span id="local-6989586621679247156"><span id="local-6989586621679247158"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; ShowS
+[ServerCatalogStatus] -&gt; ShowS
+ServerCatalogStatus -&gt; String
+(Int -&gt; ServerCatalogStatus -&gt; ShowS)
+-&gt; (ServerCatalogStatus -&gt; String)
+-&gt; ([ServerCatalogStatus] -&gt; ShowS)
+-&gt; Show ServerCatalogStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServerCatalogStatus] -&gt; ShowS
+$cshowList :: [ServerCatalogStatus] -&gt; ShowS
+show :: ServerCatalogStatus -&gt; String
+$cshow :: ServerCatalogStatus -&gt; String
+showsPrec :: Int -&gt; ServerCatalogStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServerCatalogStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679247145"><span id="local-6989586621679247147"><span id="local-6989586621679247149"><span id="local-6989586621679247151"><span class="annot"><span class="annottext">ReadPrec [ServerCatalogStatus]
+ReadPrec ServerCatalogStatus
+Int -&gt; ReadS ServerCatalogStatus
+ReadS [ServerCatalogStatus]
+(Int -&gt; ReadS ServerCatalogStatus)
+-&gt; ReadS [ServerCatalogStatus]
+-&gt; ReadPrec ServerCatalogStatus
+-&gt; ReadPrec [ServerCatalogStatus]
+-&gt; Read ServerCatalogStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServerCatalogStatus]
+$creadListPrec :: ReadPrec [ServerCatalogStatus]
+readPrec :: ReadPrec ServerCatalogStatus
+$creadPrec :: ReadPrec ServerCatalogStatus
+readList :: ReadS [ServerCatalogStatus]
+$creadList :: ReadS [ServerCatalogStatus]
+readsPrec :: Int -&gt; ReadS ServerCatalogStatus
+$creadsPrec :: Int -&gt; ReadS ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679247140"><span id="local-6989586621679247142"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+(ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; Eq ServerCatalogStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c/= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+== :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c== :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679247124"><span id="local-6989586621679247126"><span id="local-6989586621679247128"><span id="local-6989586621679247130"><span id="local-6989586621679247132"><span id="local-6989586621679247134"><span id="local-6989586621679247136"><span class="annot"><span class="annottext">Eq ServerCatalogStatus
+Eq ServerCatalogStatus
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Ordering)
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
+-&gt; (ServerCatalogStatus
+    -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus)
+-&gt; (ServerCatalogStatus
+    -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus)
+-&gt; Ord ServerCatalogStatus
+ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Ordering
+ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus
+$cmin :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus
+max :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus
+$cmax :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; ServerCatalogStatus
+&gt;= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c&gt;= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+&gt; :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c&gt; :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+&lt;= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c&lt;= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+&lt; :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+$c&lt; :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+compare :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Ordering
+$ccompare :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Ordering
+$cp1Ord :: Eq ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServerCatalogStatus -&gt; Rep ServerCatalogStatus x)
+-&gt; (forall x. Rep ServerCatalogStatus x -&gt; ServerCatalogStatus)
+-&gt; Generic ServerCatalogStatus
+forall x. Rep ServerCatalogStatus x -&gt; ServerCatalogStatus
+forall x. ServerCatalogStatus -&gt; Rep ServerCatalogStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServerCatalogStatus x -&gt; ServerCatalogStatus
+$cfrom :: forall x. ServerCatalogStatus -&gt; Rep ServerCatalogStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247116"><span id="local-6989586621679247118"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; Int
+ServerCatalogStatus -&gt; Int
+(Int -&gt; ServerCatalogStatus -&gt; Int)
+-&gt; (ServerCatalogStatus -&gt; Int) -&gt; Hashable ServerCatalogStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServerCatalogStatus -&gt; Int
+$chash :: ServerCatalogStatus -&gt; Int
+hashWithSalt :: Int -&gt; ServerCatalogStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ServerCatalogStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247113"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ()
+(ServerCatalogStatus -&gt; ()) -&gt; NFData ServerCatalogStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServerCatalogStatus -&gt; ()
+$crnf :: ServerCatalogStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247110"><span class="annot"><span class="annottext">Text -&gt; Either String ServerCatalogStatus
+(Text -&gt; Either String ServerCatalogStatus)
+-&gt; FromText ServerCatalogStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServerCatalogStatus
+$cfromText :: Text -&gt; Either String ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247107"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; Text
+(ServerCatalogStatus -&gt; Text) -&gt; ToText ServerCatalogStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServerCatalogStatus -&gt; Text
+$ctoText :: ServerCatalogStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247104"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteString
+(ServerCatalogStatus -&gt; ByteString)
+-&gt; ToByteString ServerCatalogStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServerCatalogStatus -&gt; ByteString
+$ctoBS :: ServerCatalogStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247101"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteStringBuilder
+(ServerCatalogStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ServerCatalogStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServerCatalogStatus -&gt; ByteStringBuilder
+$cbuild :: ServerCatalogStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247098"><span class="annot"><span class="annottext">HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
+(HeaderName -&gt; ServerCatalogStatus -&gt; [Header])
+-&gt; ToHeader ServerCatalogStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247095"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; QueryString
+(ServerCatalogStatus -&gt; QueryString) -&gt; ToQuery ServerCatalogStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServerCatalogStatus -&gt; QueryString
+$ctoQuery :: ServerCatalogStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247090"><span id="local-6989586621679247092"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerCatalogStatus]
+Value -&gt; Parser ServerCatalogStatus
+(Value -&gt; Parser ServerCatalogStatus)
+-&gt; (Value -&gt; Parser [ServerCatalogStatus])
+-&gt; FromJSON ServerCatalogStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServerCatalogStatus]
+$cparseJSONList :: Value -&gt; Parser [ServerCatalogStatus]
+parseJSON :: Value -&gt; Parser ServerCatalogStatus
+$cparseJSON :: Value -&gt; Parser ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247085"><span id="local-6989586621679247087"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerCatalogStatus]
+FromJSONKeyFunction ServerCatalogStatus
+FromJSONKeyFunction ServerCatalogStatus
+-&gt; FromJSONKeyFunction [ServerCatalogStatus]
+-&gt; FromJSONKey ServerCatalogStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServerCatalogStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServerCatalogStatus]
+fromJSONKey :: FromJSONKeyFunction ServerCatalogStatus
+$cfromJSONKey :: FromJSONKeyFunction ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247076"><span id="local-6989586621679247078"><span id="local-6989586621679247080"><span id="local-6989586621679247082"><span class="annot"><span class="annottext">[ServerCatalogStatus] -&gt; Encoding
+[ServerCatalogStatus] -&gt; Value
+ServerCatalogStatus -&gt; Encoding
+ServerCatalogStatus -&gt; Value
+(ServerCatalogStatus -&gt; Value)
+-&gt; (ServerCatalogStatus -&gt; Encoding)
+-&gt; ([ServerCatalogStatus] -&gt; Value)
+-&gt; ([ServerCatalogStatus] -&gt; Encoding)
+-&gt; ToJSON ServerCatalogStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServerCatalogStatus] -&gt; Encoding
+$ctoEncodingList :: [ServerCatalogStatus] -&gt; Encoding
+toJSONList :: [ServerCatalogStatus] -&gt; Value
+$ctoJSONList :: [ServerCatalogStatus] -&gt; Value
+toEncoding :: ServerCatalogStatus -&gt; Encoding
+$ctoEncoding :: ServerCatalogStatus -&gt; Encoding
+toJSON :: ServerCatalogStatus -&gt; Value
+$ctoJSON :: ServerCatalogStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247071"><span id="local-6989586621679247073"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerCatalogStatus]
+ToJSONKeyFunction ServerCatalogStatus
+ToJSONKeyFunction ServerCatalogStatus
+-&gt; ToJSONKeyFunction [ServerCatalogStatus]
+-&gt; ToJSONKey ServerCatalogStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServerCatalogStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServerCatalogStatus]
+toJSONKey :: ToJSONKeyFunction ServerCatalogStatus
+$ctoJSONKey :: ToJSONKeyFunction ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247068"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerCatalogStatus
+([Node] -&gt; Either String ServerCatalogStatus)
+-&gt; FromXML ServerCatalogStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServerCatalogStatus
+$cparseXML :: [Node] -&gt; Either String ServerCatalogStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247065"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; XML
+(ServerCatalogStatus -&gt; XML) -&gt; ToXML ServerCatalogStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServerCatalogStatus -&gt; XML
+$ctoXML :: ServerCatalogStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_AVAILABLE"><span class="hs-identifier hs-type">ServerCatalogStatus_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-type">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerCatalogStatus_AVAILABLE"><span id="%24mServerCatalogStatus_AVAILABLE"><span id="ServerCatalogStatus_AVAILABLE"><span class="annot"><span class="annottext">$bServerCatalogStatus_AVAILABLE :: ServerCatalogStatus
+$mServerCatalogStatus_AVAILABLE :: forall r. ServerCatalogStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#%24bServerCatalogStatus_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">ServerCatalogStatus_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-type">ServerCatalogStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AVAILABLE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_DELETED"><span class="hs-identifier hs-type">ServerCatalogStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-type">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerCatalogStatus_DELETED"><span id="%24mServerCatalogStatus_DELETED"><span id="ServerCatalogStatus_DELETED"><span class="annot"><span class="annottext">$bServerCatalogStatus_DELETED :: ServerCatalogStatus
+$mServerCatalogStatus_DELETED :: forall r. ServerCatalogStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#%24bServerCatalogStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">ServerCatalogStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-type">ServerCatalogStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_EXPIRED"><span class="hs-identifier hs-type">ServerCatalogStatus_EXPIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-type">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerCatalogStatus_EXPIRED"><span id="%24mServerCatalogStatus_EXPIRED"><span id="ServerCatalogStatus_EXPIRED"><span class="annot"><span class="annottext">$bServerCatalogStatus_EXPIRED :: ServerCatalogStatus
+$mServerCatalogStatus_EXPIRED :: forall r. ServerCatalogStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#%24bServerCatalogStatus_EXPIRED"><span class="hs-identifier hs-var hs-var hs-var">ServerCatalogStatus_EXPIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-type">ServerCatalogStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXPIRED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_IMPORTING"><span class="hs-identifier hs-type">ServerCatalogStatus_IMPORTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-type">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerCatalogStatus_IMPORTING"><span id="%24mServerCatalogStatus_IMPORTING"><span id="ServerCatalogStatus_IMPORTING"><span class="annot"><span class="annottext">$bServerCatalogStatus_IMPORTING :: ServerCatalogStatus
+$mServerCatalogStatus_IMPORTING :: forall r. ServerCatalogStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#%24bServerCatalogStatus_IMPORTING"><span class="hs-identifier hs-var hs-var hs-var">ServerCatalogStatus_IMPORTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-type">ServerCatalogStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPORTING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_NOT_IMPORTED"><span class="hs-identifier hs-type">ServerCatalogStatus_NOT_IMPORTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-type">ServerCatalogStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServerCatalogStatus_NOT_IMPORTED"><span id="%24mServerCatalogStatus_NOT_IMPORTED"><span id="ServerCatalogStatus_NOT_IMPORTED"><span class="annot"><span class="annottext">$bServerCatalogStatus_NOT_IMPORTED :: ServerCatalogStatus
+$mServerCatalogStatus_NOT_IMPORTED :: forall r. ServerCatalogStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#%24bServerCatalogStatus_NOT_IMPORTED"><span class="hs-identifier hs-var hs-var hs-var">ServerCatalogStatus_NOT_IMPORTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-type">ServerCatalogStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_IMPORTED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_AVAILABLE"><span class="hs-pragma hs-type">ServerCatalogStatus_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_DELETED"><span class="hs-pragma hs-type">ServerCatalogStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_EXPIRED"><span class="hs-pragma hs-type">ServerCatalogStatus_EXPIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_IMPORTING"><span class="hs-pragma hs-type">ServerCatalogStatus_IMPORTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus_NOT_IMPORTED"><span class="hs-pragma hs-type">ServerCatalogStatus_NOT_IMPORTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-pragma hs-type">ServerCatalogStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

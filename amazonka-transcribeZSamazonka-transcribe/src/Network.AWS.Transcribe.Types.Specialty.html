@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.Types.Specialty</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.Types.Specialty</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier">Specialty</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty_PRIMARYCARE"><span class="hs-identifier">Specialty_PRIMARYCARE</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679274958"><span id="local-6989586621679274959"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Specialty"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-var">Specialty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Specialty%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty%27"><span class="hs-identifier hs-var">Specialty'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpecialty"><span class="annot"><span class="annottext">Specialty -&gt; Text
+</span><a href="Network.AWS.Transcribe.Types.Specialty.html#fromSpecialty"><span class="hs-identifier hs-var hs-var">fromSpecialty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274950"><span id="local-6989586621679274952"><span id="local-6989586621679274954"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; ShowS
+[Specialty] -&gt; ShowS
+Specialty -&gt; String
+(Int -&gt; Specialty -&gt; ShowS)
+-&gt; (Specialty -&gt; String)
+-&gt; ([Specialty] -&gt; ShowS)
+-&gt; Show Specialty
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Specialty] -&gt; ShowS
+$cshowList :: [Specialty] -&gt; ShowS
+show :: Specialty -&gt; String
+$cshow :: Specialty -&gt; String
+showsPrec :: Int -&gt; Specialty -&gt; ShowS
+$cshowsPrec :: Int -&gt; Specialty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679274941"><span id="local-6989586621679274943"><span id="local-6989586621679274945"><span id="local-6989586621679274947"><span class="annot"><span class="annottext">ReadPrec [Specialty]
+ReadPrec Specialty
+Int -&gt; ReadS Specialty
+ReadS [Specialty]
+(Int -&gt; ReadS Specialty)
+-&gt; ReadS [Specialty]
+-&gt; ReadPrec Specialty
+-&gt; ReadPrec [Specialty]
+-&gt; Read Specialty
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Specialty]
+$creadListPrec :: ReadPrec [Specialty]
+readPrec :: ReadPrec Specialty
+$creadPrec :: ReadPrec Specialty
+readList :: ReadS [Specialty]
+$creadList :: ReadS [Specialty]
+readsPrec :: Int -&gt; ReadS Specialty
+$creadsPrec :: Int -&gt; ReadS Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679274936"><span id="local-6989586621679274938"><span class="annot"><span class="annottext">Specialty -&gt; Specialty -&gt; Bool
+(Specialty -&gt; Specialty -&gt; Bool)
+-&gt; (Specialty -&gt; Specialty -&gt; Bool) -&gt; Eq Specialty
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Specialty -&gt; Specialty -&gt; Bool
+$c/= :: Specialty -&gt; Specialty -&gt; Bool
+== :: Specialty -&gt; Specialty -&gt; Bool
+$c== :: Specialty -&gt; Specialty -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274920"><span id="local-6989586621679274922"><span id="local-6989586621679274924"><span id="local-6989586621679274926"><span id="local-6989586621679274928"><span id="local-6989586621679274930"><span id="local-6989586621679274932"><span class="annot"><span class="annottext">Eq Specialty
+Eq Specialty
+-&gt; (Specialty -&gt; Specialty -&gt; Ordering)
+-&gt; (Specialty -&gt; Specialty -&gt; Bool)
+-&gt; (Specialty -&gt; Specialty -&gt; Bool)
+-&gt; (Specialty -&gt; Specialty -&gt; Bool)
+-&gt; (Specialty -&gt; Specialty -&gt; Bool)
+-&gt; (Specialty -&gt; Specialty -&gt; Specialty)
+-&gt; (Specialty -&gt; Specialty -&gt; Specialty)
+-&gt; Ord Specialty
+Specialty -&gt; Specialty -&gt; Bool
+Specialty -&gt; Specialty -&gt; Ordering
+Specialty -&gt; Specialty -&gt; Specialty
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Specialty -&gt; Specialty -&gt; Specialty
+$cmin :: Specialty -&gt; Specialty -&gt; Specialty
+max :: Specialty -&gt; Specialty -&gt; Specialty
+$cmax :: Specialty -&gt; Specialty -&gt; Specialty
+&gt;= :: Specialty -&gt; Specialty -&gt; Bool
+$c&gt;= :: Specialty -&gt; Specialty -&gt; Bool
+&gt; :: Specialty -&gt; Specialty -&gt; Bool
+$c&gt; :: Specialty -&gt; Specialty -&gt; Bool
+&lt;= :: Specialty -&gt; Specialty -&gt; Bool
+$c&lt;= :: Specialty -&gt; Specialty -&gt; Bool
+&lt; :: Specialty -&gt; Specialty -&gt; Bool
+$c&lt; :: Specialty -&gt; Specialty -&gt; Bool
+compare :: Specialty -&gt; Specialty -&gt; Ordering
+$ccompare :: Specialty -&gt; Specialty -&gt; Ordering
+$cp1Ord :: Eq Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Specialty -&gt; Rep Specialty x)
+-&gt; (forall x. Rep Specialty x -&gt; Specialty) -&gt; Generic Specialty
+forall x. Rep Specialty x -&gt; Specialty
+forall x. Specialty -&gt; Rep Specialty x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Specialty x -&gt; Specialty
+$cfrom :: forall x. Specialty -&gt; Rep Specialty x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274912"><span id="local-6989586621679274914"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; Int
+Specialty -&gt; Int
+(Int -&gt; Specialty -&gt; Int)
+-&gt; (Specialty -&gt; Int) -&gt; Hashable Specialty
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Specialty -&gt; Int
+$chash :: Specialty -&gt; Int
+hashWithSalt :: Int -&gt; Specialty -&gt; Int
+$chashWithSalt :: Int -&gt; Specialty -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679274909"><span class="annot"><span class="annottext">Specialty -&gt; ()
+(Specialty -&gt; ()) -&gt; NFData Specialty
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Specialty -&gt; ()
+$crnf :: Specialty -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679274906"><span class="annot"><span class="annottext">Text -&gt; Either String Specialty
+(Text -&gt; Either String Specialty) -&gt; FromText Specialty
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Specialty
+$cfromText :: Text -&gt; Either String Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274903"><span class="annot"><span class="annottext">Specialty -&gt; Text
+(Specialty -&gt; Text) -&gt; ToText Specialty
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Specialty -&gt; Text
+$ctoText :: Specialty -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274900"><span class="annot"><span class="annottext">Specialty -&gt; ByteString
+(Specialty -&gt; ByteString) -&gt; ToByteString Specialty
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Specialty -&gt; ByteString
+$ctoBS :: Specialty -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274897"><span class="annot"><span class="annottext">Specialty -&gt; ByteStringBuilder
+(Specialty -&gt; ByteStringBuilder) -&gt; ToLog Specialty
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Specialty -&gt; ByteStringBuilder
+$cbuild :: Specialty -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274894"><span class="annot"><span class="annottext">HeaderName -&gt; Specialty -&gt; [Header]
+(HeaderName -&gt; Specialty -&gt; [Header]) -&gt; ToHeader Specialty
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Specialty -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Specialty -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274891"><span class="annot"><span class="annottext">Specialty -&gt; QueryString
+(Specialty -&gt; QueryString) -&gt; ToQuery Specialty
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Specialty -&gt; QueryString
+$ctoQuery :: Specialty -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274886"><span id="local-6989586621679274888"><span class="annot"><span class="annottext">Value -&gt; Parser [Specialty]
+Value -&gt; Parser Specialty
+(Value -&gt; Parser Specialty)
+-&gt; (Value -&gt; Parser [Specialty]) -&gt; FromJSON Specialty
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Specialty]
+$cparseJSONList :: Value -&gt; Parser [Specialty]
+parseJSON :: Value -&gt; Parser Specialty
+$cparseJSON :: Value -&gt; Parser Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274881"><span id="local-6989586621679274883"><span class="annot"><span class="annottext">FromJSONKeyFunction [Specialty]
+FromJSONKeyFunction Specialty
+FromJSONKeyFunction Specialty
+-&gt; FromJSONKeyFunction [Specialty] -&gt; FromJSONKey Specialty
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Specialty]
+$cfromJSONKeyList :: FromJSONKeyFunction [Specialty]
+fromJSONKey :: FromJSONKeyFunction Specialty
+$cfromJSONKey :: FromJSONKeyFunction Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274872"><span id="local-6989586621679274874"><span id="local-6989586621679274876"><span id="local-6989586621679274878"><span class="annot"><span class="annottext">[Specialty] -&gt; Encoding
+[Specialty] -&gt; Value
+Specialty -&gt; Encoding
+Specialty -&gt; Value
+(Specialty -&gt; Value)
+-&gt; (Specialty -&gt; Encoding)
+-&gt; ([Specialty] -&gt; Value)
+-&gt; ([Specialty] -&gt; Encoding)
+-&gt; ToJSON Specialty
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Specialty] -&gt; Encoding
+$ctoEncodingList :: [Specialty] -&gt; Encoding
+toJSONList :: [Specialty] -&gt; Value
+$ctoJSONList :: [Specialty] -&gt; Value
+toEncoding :: Specialty -&gt; Encoding
+$ctoEncoding :: Specialty -&gt; Encoding
+toJSON :: Specialty -&gt; Value
+$ctoJSON :: Specialty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274867"><span id="local-6989586621679274869"><span class="annot"><span class="annottext">ToJSONKeyFunction [Specialty]
+ToJSONKeyFunction Specialty
+ToJSONKeyFunction Specialty
+-&gt; ToJSONKeyFunction [Specialty] -&gt; ToJSONKey Specialty
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Specialty]
+$ctoJSONKeyList :: ToJSONKeyFunction [Specialty]
+toJSONKey :: ToJSONKeyFunction Specialty
+$ctoJSONKey :: ToJSONKeyFunction Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274864"><span class="annot"><span class="annottext">[Node] -&gt; Either String Specialty
+([Node] -&gt; Either String Specialty) -&gt; FromXML Specialty
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Specialty
+$cparseXML :: [Node] -&gt; Either String Specialty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274861"><span class="annot"><span class="annottext">Specialty -&gt; XML
+(Specialty -&gt; XML) -&gt; ToXML Specialty
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Specialty -&gt; XML
+$ctoXML :: Specialty -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty_PRIMARYCARE"><span class="hs-identifier hs-type">Specialty_PRIMARYCARE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-type">Specialty</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpecialty_PRIMARYCARE"><span id="%24mSpecialty_PRIMARYCARE"><span id="Specialty_PRIMARYCARE"><span class="annot"><span class="annottext">$bSpecialty_PRIMARYCARE :: Specialty
+$mSpecialty_PRIMARYCARE :: forall r. Specialty -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Transcribe.Types.Specialty.html#%24bSpecialty_PRIMARYCARE"><span class="hs-identifier hs-var hs-var hs-var">Specialty_PRIMARYCARE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty%27"><span class="hs-identifier hs-type">Specialty'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIMARYCARE&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty_PRIMARYCARE"><span class="hs-pragma hs-type">Specialty_PRIMARYCARE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty%27"><span class="hs-pragma hs-type">Specialty'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

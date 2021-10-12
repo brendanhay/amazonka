@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.SubscribedWorkteam</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.SubscribedWorkteam</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes a work team of a vendor that does the a labelling job.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSubscribedWorkteam' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621680344105"><span id="local-6989586621680344106"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribedWorkteam"><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-var">SubscribedWorkteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribedWorkteam%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-var">SubscribedWorkteam'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Marketplace product listing ID.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AlistingId%3ASubscribedWorkteam%27"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AlistingId%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var hs-var">listingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The title of the service provided by the vendor in the Amazon</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmarketplaceTitle%3ASubscribedWorkteam%27"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceTitle%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var hs-var">marketplaceTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The description of the vendor from the Amazon Marketplace.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmarketplaceDescription%3ASubscribedWorkteam%27"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceDescription%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var hs-var">marketplaceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the vendor in the Amazon Marketplace.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsellerName%3ASubscribedWorkteam%27"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AsellerName%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var hs-var">sellerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vendor that you have subscribed.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AworkteamArn%3ASubscribedWorkteam%27"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AworkteamArn%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680344095"><span id="local-6989586621680344097"><span class="annot"><span class="annottext">SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool
+(SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool)
+-&gt; (SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool)
+-&gt; Eq SubscribedWorkteam
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool
+$c/= :: SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool
+== :: SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool
+$c== :: SubscribedWorkteam -&gt; SubscribedWorkteam -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344086"><span id="local-6989586621680344088"><span id="local-6989586621680344090"><span id="local-6989586621680344092"><span class="annot"><span class="annottext">ReadPrec [SubscribedWorkteam]
+ReadPrec SubscribedWorkteam
+Int -&gt; ReadS SubscribedWorkteam
+ReadS [SubscribedWorkteam]
+(Int -&gt; ReadS SubscribedWorkteam)
+-&gt; ReadS [SubscribedWorkteam]
+-&gt; ReadPrec SubscribedWorkteam
+-&gt; ReadPrec [SubscribedWorkteam]
+-&gt; Read SubscribedWorkteam
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscribedWorkteam]
+$creadListPrec :: ReadPrec [SubscribedWorkteam]
+readPrec :: ReadPrec SubscribedWorkteam
+$creadPrec :: ReadPrec SubscribedWorkteam
+readList :: ReadS [SubscribedWorkteam]
+$creadList :: ReadS [SubscribedWorkteam]
+readsPrec :: Int -&gt; ReadS SubscribedWorkteam
+$creadsPrec :: Int -&gt; ReadS SubscribedWorkteam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680344079"><span id="local-6989586621680344081"><span id="local-6989586621680344083"><span class="annot"><span class="annottext">Int -&gt; SubscribedWorkteam -&gt; ShowS
+[SubscribedWorkteam] -&gt; ShowS
+SubscribedWorkteam -&gt; String
+(Int -&gt; SubscribedWorkteam -&gt; ShowS)
+-&gt; (SubscribedWorkteam -&gt; String)
+-&gt; ([SubscribedWorkteam] -&gt; ShowS)
+-&gt; Show SubscribedWorkteam
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscribedWorkteam] -&gt; ShowS
+$cshowList :: [SubscribedWorkteam] -&gt; ShowS
+show :: SubscribedWorkteam -&gt; String
+$cshow :: SubscribedWorkteam -&gt; String
+showsPrec :: Int -&gt; SubscribedWorkteam -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscribedWorkteam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SubscribedWorkteam -&gt; Rep SubscribedWorkteam x)
+-&gt; (forall x. Rep SubscribedWorkteam x -&gt; SubscribedWorkteam)
+-&gt; Generic SubscribedWorkteam
+forall x. Rep SubscribedWorkteam x -&gt; SubscribedWorkteam
+forall x. SubscribedWorkteam -&gt; Rep SubscribedWorkteam x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubscribedWorkteam x -&gt; SubscribedWorkteam
+$cfrom :: forall x. SubscribedWorkteam -&gt; Rep SubscribedWorkteam x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'SubscribedWorkteam' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'listingId', 'subscribedWorkteam_listingId' - Marketplace product listing ID.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'marketplaceTitle', 'subscribedWorkteam_marketplaceTitle' - The title of the service provided by the vendor in the Amazon</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'marketplaceDescription', 'subscribedWorkteam_marketplaceDescription' - The description of the vendor from the Amazon Marketplace.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'sellerName', 'subscribedWorkteam_sellerName' - The name of the vendor in the Amazon Marketplace.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'workteamArn', 'subscribedWorkteam_workteamArn' - The Amazon Resource Name (ARN) of the vendor that you have subscribed.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#newSubscribedWorkteam"><span class="hs-identifier hs-type">newSubscribedWorkteam</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'workteamArn'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span>
+</span><span id="line-66"></span><span id="newSubscribedWorkteam"><span class="annot"><span class="annottext">newSubscribedWorkteam :: Text -&gt; SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#newSubscribedWorkteam"><span class="hs-identifier hs-var hs-var">newSubscribedWorkteam</span></a></span></span><span> </span><span id="local-6989586621680344073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344073"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">SubscribedWorkteam' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:listingId:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AlistingId%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">listingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:marketplaceTitle:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceTitle%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">marketplaceTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:marketplaceDescription:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceDescription%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">marketplaceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:sellerName:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AsellerName%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">sellerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:workteamArn:SubscribedWorkteam' :: Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AworkteamArn%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344073"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Marketplace product listing ID.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_listingId"><span class="hs-identifier hs-type">subscribedWorkteam_listingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="subscribedWorkteam_listingId"><span class="annot"><span class="annottext">subscribedWorkteam_listingId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubscribedWorkteam -&gt; f SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_listingId"><span class="hs-identifier hs-var hs-var">subscribedWorkteam_listingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribedWorkteam -&gt; Maybe Text)
+-&gt; (SubscribedWorkteam -&gt; Maybe Text -&gt; SubscribedWorkteam)
+-&gt; Lens
+     SubscribedWorkteam SubscribedWorkteam (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344069"><span class="annot"><span class="annottext">Maybe Text
+listingId :: Maybe Text
+$sel:listingId:SubscribedWorkteam' :: SubscribedWorkteam -&gt; Maybe Text
+</span><a href="#local-6989586621680344069"><span class="hs-identifier hs-var hs-var">listingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344069"><span class="hs-identifier hs-var">listingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344068"><span class="annot"><span class="annottext">s :: SubscribedWorkteam
+</span><a href="#local-6989586621680344068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedWorkteam
+</span><a href="#local-6989586621680344068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listingId:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AlistingId%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">listingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The title of the service provided by the vendor in the Amazon</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_marketplaceTitle"><span class="hs-identifier hs-type">subscribedWorkteam_marketplaceTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="subscribedWorkteam_marketplaceTitle"><span class="annot"><span class="annottext">subscribedWorkteam_marketplaceTitle :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubscribedWorkteam -&gt; f SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_marketplaceTitle"><span class="hs-identifier hs-var hs-var">subscribedWorkteam_marketplaceTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribedWorkteam -&gt; Maybe Text)
+-&gt; (SubscribedWorkteam -&gt; Maybe Text -&gt; SubscribedWorkteam)
+-&gt; Lens
+     SubscribedWorkteam SubscribedWorkteam (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344065"><span class="annot"><span class="annottext">Maybe Text
+marketplaceTitle :: Maybe Text
+$sel:marketplaceTitle:SubscribedWorkteam' :: SubscribedWorkteam -&gt; Maybe Text
+</span><a href="#local-6989586621680344065"><span class="hs-identifier hs-var hs-var">marketplaceTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344065"><span class="hs-identifier hs-var">marketplaceTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344064"><span class="annot"><span class="annottext">s :: SubscribedWorkteam
+</span><a href="#local-6989586621680344064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedWorkteam
+</span><a href="#local-6989586621680344064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marketplaceTitle:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceTitle%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">marketplaceTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The description of the vendor from the Amazon Marketplace.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_marketplaceDescription"><span class="hs-identifier hs-type">subscribedWorkteam_marketplaceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="subscribedWorkteam_marketplaceDescription"><span class="annot"><span class="annottext">subscribedWorkteam_marketplaceDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubscribedWorkteam -&gt; f SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_marketplaceDescription"><span class="hs-identifier hs-var hs-var">subscribedWorkteam_marketplaceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribedWorkteam -&gt; Maybe Text)
+-&gt; (SubscribedWorkteam -&gt; Maybe Text -&gt; SubscribedWorkteam)
+-&gt; Lens
+     SubscribedWorkteam SubscribedWorkteam (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344061"><span class="annot"><span class="annottext">Maybe Text
+marketplaceDescription :: Maybe Text
+$sel:marketplaceDescription:SubscribedWorkteam' :: SubscribedWorkteam -&gt; Maybe Text
+</span><a href="#local-6989586621680344061"><span class="hs-identifier hs-var hs-var">marketplaceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344061"><span class="hs-identifier hs-var">marketplaceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344060"><span class="annot"><span class="annottext">s :: SubscribedWorkteam
+</span><a href="#local-6989586621680344060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedWorkteam
+</span><a href="#local-6989586621680344060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marketplaceDescription:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AmarketplaceDescription%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">marketplaceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the vendor in the Amazon Marketplace.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_sellerName"><span class="hs-identifier hs-type">subscribedWorkteam_sellerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="subscribedWorkteam_sellerName"><span class="annot"><span class="annottext">subscribedWorkteam_sellerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubscribedWorkteam -&gt; f SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_sellerName"><span class="hs-identifier hs-var hs-var">subscribedWorkteam_sellerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribedWorkteam -&gt; Maybe Text)
+-&gt; (SubscribedWorkteam -&gt; Maybe Text -&gt; SubscribedWorkteam)
+-&gt; Lens
+     SubscribedWorkteam SubscribedWorkteam (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344057"><span class="annot"><span class="annottext">Maybe Text
+sellerName :: Maybe Text
+$sel:sellerName:SubscribedWorkteam' :: SubscribedWorkteam -&gt; Maybe Text
+</span><a href="#local-6989586621680344057"><span class="hs-identifier hs-var hs-var">sellerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344057"><span class="hs-identifier hs-var">sellerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344056"><span class="annot"><span class="annottext">s :: SubscribedWorkteam
+</span><a href="#local-6989586621680344056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedWorkteam
+</span><a href="#local-6989586621680344056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sellerName:SubscribedWorkteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AsellerName%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">sellerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680344055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vendor that you have subscribed.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_workteamArn"><span class="hs-identifier hs-type">subscribedWorkteam_workteamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="subscribedWorkteam_workteamArn"><span class="annot"><span class="annottext">subscribedWorkteam_workteamArn :: (Text -&gt; f Text) -&gt; SubscribedWorkteam -&gt; f SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#subscribedWorkteam_workteamArn"><span class="hs-identifier hs-var hs-var">subscribedWorkteam_workteamArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribedWorkteam -&gt; Text)
+-&gt; (SubscribedWorkteam -&gt; Text -&gt; SubscribedWorkteam)
+-&gt; Lens SubscribedWorkteam SubscribedWorkteam Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680344053"><span class="annot"><span class="annottext">Text
+workteamArn :: Text
+$sel:workteamArn:SubscribedWorkteam' :: SubscribedWorkteam -&gt; Text
+</span><a href="#local-6989586621680344053"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344053"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680344052"><span class="annot"><span class="annottext">s :: SubscribedWorkteam
+</span><a href="#local-6989586621680344052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-type">SubscribedWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680344051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribedWorkteam
+</span><a href="#local-6989586621680344052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:SubscribedWorkteam' :: Text
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#%24sel%3AworkteamArn%3ASubscribedWorkteam%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680344051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680344046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscribedWorkteam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SubscribedWorkteam)
+-&gt; Value
+-&gt; Parser SubscribedWorkteam
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SubscribedWorkteam&quot;</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680344043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; SubscribedWorkteam
+</span><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam%27"><span class="hs-identifier hs-var">SubscribedWorkteam'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; SubscribedWorkteam)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListingId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MarketplaceTitle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MarketplaceDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; SubscribedWorkteam)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; SubscribedWorkteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SellerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SubscribedWorkteam)
+-&gt; Parser Text -&gt; Parser SubscribedWorkteam
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680344043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkteamArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344036"><span id="local-6989586621680344038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680344033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SubscribedWorkteam.html#SubscribedWorkteam"><span class="hs-identifier hs-type">SubscribedWorkteam</span></a></span></span><span>
+</span><span id="line-112"></span></pre></body></html>

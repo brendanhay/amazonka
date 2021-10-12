@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.Types.FileShareInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.Types.FileShareInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareType.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types.FileShareType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a file share. Only supported S3 File Gateway.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFileShareInfo' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679367695"><span id="local-6989586621679367696"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileShareInfo"><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-var">FileShareInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileShareInfo%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-var">FileShareInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AfileShareStatus%3AFileShareInfo%27"><span class="annot"><span class="annottext">FileShareInfo -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareStatus%3AFileShareInfo%27"><span class="hs-identifier hs-var hs-var">fileShareStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AgatewayARN%3AFileShareInfo%27"><span class="annot"><span class="annottext">FileShareInfo -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AgatewayARN%3AFileShareInfo%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfileShareId%3AFileShareInfo%27"><span class="annot"><span class="annottext">FileShareInfo -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareId%3AFileShareInfo%27"><span class="hs-identifier hs-var hs-var">fileShareId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AfileShareARN%3AFileShareInfo%27"><span class="annot"><span class="annottext">FileShareInfo -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareARN%3AFileShareInfo%27"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfileShareType%3AFileShareInfo%27"><span class="annot"><span class="annottext">FileShareInfo -&gt; Maybe FileShareType
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareType%3AFileShareInfo%27"><span class="hs-identifier hs-var hs-var">fileShareType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier hs-type">FileShareType</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367685"><span id="local-6989586621679367687"><span class="annot"><span class="annottext">FileShareInfo -&gt; FileShareInfo -&gt; Bool
+(FileShareInfo -&gt; FileShareInfo -&gt; Bool)
+-&gt; (FileShareInfo -&gt; FileShareInfo -&gt; Bool) -&gt; Eq FileShareInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileShareInfo -&gt; FileShareInfo -&gt; Bool
+$c/= :: FileShareInfo -&gt; FileShareInfo -&gt; Bool
+== :: FileShareInfo -&gt; FileShareInfo -&gt; Bool
+$c== :: FileShareInfo -&gt; FileShareInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367676"><span id="local-6989586621679367678"><span id="local-6989586621679367680"><span id="local-6989586621679367682"><span class="annot"><span class="annottext">ReadPrec [FileShareInfo]
+ReadPrec FileShareInfo
+Int -&gt; ReadS FileShareInfo
+ReadS [FileShareInfo]
+(Int -&gt; ReadS FileShareInfo)
+-&gt; ReadS [FileShareInfo]
+-&gt; ReadPrec FileShareInfo
+-&gt; ReadPrec [FileShareInfo]
+-&gt; Read FileShareInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileShareInfo]
+$creadListPrec :: ReadPrec [FileShareInfo]
+readPrec :: ReadPrec FileShareInfo
+$creadPrec :: ReadPrec FileShareInfo
+readList :: ReadS [FileShareInfo]
+$creadList :: ReadS [FileShareInfo]
+readsPrec :: Int -&gt; ReadS FileShareInfo
+$creadsPrec :: Int -&gt; ReadS FileShareInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367669"><span id="local-6989586621679367671"><span id="local-6989586621679367673"><span class="annot"><span class="annottext">Int -&gt; FileShareInfo -&gt; ShowS
+[FileShareInfo] -&gt; ShowS
+FileShareInfo -&gt; String
+(Int -&gt; FileShareInfo -&gt; ShowS)
+-&gt; (FileShareInfo -&gt; String)
+-&gt; ([FileShareInfo] -&gt; ShowS)
+-&gt; Show FileShareInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileShareInfo] -&gt; ShowS
+$cshowList :: [FileShareInfo] -&gt; ShowS
+show :: FileShareInfo -&gt; String
+$cshow :: FileShareInfo -&gt; String
+showsPrec :: Int -&gt; FileShareInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileShareInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FileShareInfo -&gt; Rep FileShareInfo x)
+-&gt; (forall x. Rep FileShareInfo x -&gt; FileShareInfo)
+-&gt; Generic FileShareInfo
+forall x. Rep FileShareInfo x -&gt; FileShareInfo
+forall x. FileShareInfo -&gt; Rep FileShareInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileShareInfo x -&gt; FileShareInfo
+$cfrom :: forall x. FileShareInfo -&gt; Rep FileShareInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'FileShareInfo' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'fileShareStatus', 'fileShareInfo_fileShareStatus' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'gatewayARN', 'fileShareInfo_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'fileShareId', 'fileShareInfo_fileShareId' - Undocumented member.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'fileShareARN', 'fileShareInfo_fileShareARN' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'fileShareType', 'fileShareInfo_fileShareType' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#newFileShareInfo"><span class="hs-identifier hs-type">newFileShareInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span>
+</span><span id="line-58"></span><span id="newFileShareInfo"><span class="annot"><span class="annottext">newFileShareInfo :: FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#newFileShareInfo"><span class="hs-identifier hs-var hs-var">newFileShareInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">FileShareInfo' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FileShareType
+-&gt; FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileShareStatus:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareStatus%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayARN:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AgatewayARN%3AFileShareInfo%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileShareId:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareId%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileShareARN:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareARN%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileShareType:FileShareInfo' :: Maybe FileShareType
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareType%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileShareType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareStatus"><span class="hs-identifier hs-type">fileShareInfo_fileShareStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="fileShareInfo_fileShareStatus"><span class="annot"><span class="annottext">fileShareInfo_fileShareStatus :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FileShareInfo -&gt; f FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareStatus"><span class="hs-identifier hs-var hs-var">fileShareInfo_fileShareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileShareInfo -&gt; Maybe Text)
+-&gt; (FileShareInfo -&gt; Maybe Text -&gt; FileShareInfo)
+-&gt; Lens FileShareInfo FileShareInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367660"><span class="annot"><span class="annottext">Maybe Text
+fileShareStatus :: Maybe Text
+$sel:fileShareStatus:FileShareInfo' :: FileShareInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679367660"><span class="hs-identifier hs-var hs-var">fileShareStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367660"><span class="hs-identifier hs-var">fileShareStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367659"><span class="annot"><span class="annottext">s :: FileShareInfo
+</span><a href="#local-6989586621679367659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileShareInfo
+</span><a href="#local-6989586621679367659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareStatus:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareStatus%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_gatewayARN"><span class="hs-identifier hs-type">fileShareInfo_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="fileShareInfo_gatewayARN"><span class="annot"><span class="annottext">fileShareInfo_gatewayARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FileShareInfo -&gt; f FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_gatewayARN"><span class="hs-identifier hs-var hs-var">fileShareInfo_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileShareInfo -&gt; Maybe Text)
+-&gt; (FileShareInfo -&gt; Maybe Text -&gt; FileShareInfo)
+-&gt; Lens FileShareInfo FileShareInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367656"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:FileShareInfo' :: FileShareInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679367656"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367656"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367655"><span class="annot"><span class="annottext">s :: FileShareInfo
+</span><a href="#local-6989586621679367655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileShareInfo
+</span><a href="#local-6989586621679367655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AgatewayARN%3AFileShareInfo%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareId"><span class="hs-identifier hs-type">fileShareInfo_fileShareId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="fileShareInfo_fileShareId"><span class="annot"><span class="annottext">fileShareInfo_fileShareId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FileShareInfo -&gt; f FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareId"><span class="hs-identifier hs-var hs-var">fileShareInfo_fileShareId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileShareInfo -&gt; Maybe Text)
+-&gt; (FileShareInfo -&gt; Maybe Text -&gt; FileShareInfo)
+-&gt; Lens FileShareInfo FileShareInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367652"><span class="annot"><span class="annottext">Maybe Text
+fileShareId :: Maybe Text
+$sel:fileShareId:FileShareInfo' :: FileShareInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679367652"><span class="hs-identifier hs-var hs-var">fileShareId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367652"><span class="hs-identifier hs-var">fileShareId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367651"><span class="annot"><span class="annottext">s :: FileShareInfo
+</span><a href="#local-6989586621679367651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileShareInfo
+</span><a href="#local-6989586621679367651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareId:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareId%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareARN"><span class="hs-identifier hs-type">fileShareInfo_fileShareARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="fileShareInfo_fileShareARN"><span class="annot"><span class="annottext">fileShareInfo_fileShareARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FileShareInfo -&gt; f FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareARN"><span class="hs-identifier hs-var hs-var">fileShareInfo_fileShareARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileShareInfo -&gt; Maybe Text)
+-&gt; (FileShareInfo -&gt; Maybe Text -&gt; FileShareInfo)
+-&gt; Lens FileShareInfo FileShareInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367648"><span class="annot"><span class="annottext">Maybe Text
+fileShareARN :: Maybe Text
+$sel:fileShareARN:FileShareInfo' :: FileShareInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679367648"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367648"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367647"><span class="annot"><span class="annottext">s :: FileShareInfo
+</span><a href="#local-6989586621679367647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileShareInfo
+</span><a href="#local-6989586621679367647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARN:FileShareInfo' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareARN%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareType"><span class="hs-identifier hs-type">fileShareInfo_fileShareType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareType.html#FileShareType"><span class="hs-identifier hs-type">FileShareType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="fileShareInfo_fileShareType"><span class="annot"><span class="annottext">fileShareInfo_fileShareType :: (Maybe FileShareType -&gt; f (Maybe FileShareType))
+-&gt; FileShareInfo -&gt; f FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#fileShareInfo_fileShareType"><span class="hs-identifier hs-var hs-var">fileShareInfo_fileShareType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileShareInfo -&gt; Maybe FileShareType)
+-&gt; (FileShareInfo -&gt; Maybe FileShareType -&gt; FileShareInfo)
+-&gt; Lens
+     FileShareInfo
+     FileShareInfo
+     (Maybe FileShareType)
+     (Maybe FileShareType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367644"><span class="annot"><span class="annottext">Maybe FileShareType
+fileShareType :: Maybe FileShareType
+$sel:fileShareType:FileShareInfo' :: FileShareInfo -&gt; Maybe FileShareType
+</span><a href="#local-6989586621679367644"><span class="hs-identifier hs-var hs-var">fileShareType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileShareType
+</span><a href="#local-6989586621679367644"><span class="hs-identifier hs-var">fileShareType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367643"><span class="annot"><span class="annottext">s :: FileShareInfo
+</span><a href="#local-6989586621679367643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-type">FileShareInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367642"><span class="annot"><span class="annottext">Maybe FileShareType
+</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileShareInfo
+</span><a href="#local-6989586621679367643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareType:FileShareInfo' :: Maybe FileShareType
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#%24sel%3AfileShareType%3AFileShareInfo%27"><span class="hs-identifier hs-var">fileShareType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileShareType
+</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679367637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileShareInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FileShareInfo)
+-&gt; Value
+-&gt; Parser FileShareInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FileShareInfo&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FileShareType
+-&gt; FileShareInfo
+</span><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo%27"><span class="hs-identifier hs-var">FileShareInfo'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe FileShareType
+ -&gt; FileShareInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FileShareType
+      -&gt; FileShareInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileShareStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FileShareType
+   -&gt; FileShareInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe FileShareType -&gt; FileShareInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe FileShareType -&gt; FileShareInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe FileShareType -&gt; FileShareInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileShareId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe FileShareType -&gt; FileShareInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe FileShareType -&gt; FileShareInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileShareARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FileShareType -&gt; FileShareInfo)
+-&gt; Parser (Maybe FileShareType) -&gt; Parser FileShareInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileShareType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileShareType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367628"><span id="local-6989586621679367630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.FileShareInfo.html#FileShareInfo"><span class="hs-identifier hs-type">FileShareInfo</span></a></span></span><span>
+</span><span id="line-103"></span></pre></body></html>

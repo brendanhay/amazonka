@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Translate.DescribeTextTranslationJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the properties associated with an asycnhronous batch translation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- job including name, ID, status, source and target languages,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- input\/output S3 buckets, and so on.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Translate.DescribeTextTranslationJob</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJob"><span class="hs-identifier">newDescribeTextTranslationJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJob_jobId"><span class="hs-identifier">describeTextTranslationJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier">DescribeTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJobResponse"><span class="hs-identifier">newDescribeTextTranslationJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_textTranslationJobProperties"><span class="hs-identifier">describeTextTranslationJobResponse_textTranslationJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_httpStatus"><span class="hs-identifier">describeTextTranslationJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.html"><span class="hs-identifier">Network.AWS.Translate.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeTextTranslationJob' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679187565"><span id="local-6989586621679187566"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTextTranslationJob"><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-var">DescribeTextTranslationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTextTranslationJob%27"><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob%27"><span class="hs-identifier hs-var">DescribeTextTranslationJob'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier that Amazon Translate generated for the job. The</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- StartTextTranslationJob operation returns this identifier in its</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AjobId%3ADescribeTextTranslationJob%27"><span class="annot"><span class="annottext">DescribeTextTranslationJob -&gt; Text
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AjobId%3ADescribeTextTranslationJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187559"><span id="local-6989586621679187561"><span class="annot"><span class="annottext">DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool
+(DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool)
+-&gt; (DescribeTextTranslationJob
+    -&gt; DescribeTextTranslationJob -&gt; Bool)
+-&gt; Eq DescribeTextTranslationJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool
+$c/= :: DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool
+== :: DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool
+$c== :: DescribeTextTranslationJob -&gt; DescribeTextTranslationJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187550"><span id="local-6989586621679187552"><span id="local-6989586621679187554"><span id="local-6989586621679187556"><span class="annot"><span class="annottext">ReadPrec [DescribeTextTranslationJob]
+ReadPrec DescribeTextTranslationJob
+Int -&gt; ReadS DescribeTextTranslationJob
+ReadS [DescribeTextTranslationJob]
+(Int -&gt; ReadS DescribeTextTranslationJob)
+-&gt; ReadS [DescribeTextTranslationJob]
+-&gt; ReadPrec DescribeTextTranslationJob
+-&gt; ReadPrec [DescribeTextTranslationJob]
+-&gt; Read DescribeTextTranslationJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTextTranslationJob]
+$creadListPrec :: ReadPrec [DescribeTextTranslationJob]
+readPrec :: ReadPrec DescribeTextTranslationJob
+$creadPrec :: ReadPrec DescribeTextTranslationJob
+readList :: ReadS [DescribeTextTranslationJob]
+$creadList :: ReadS [DescribeTextTranslationJob]
+readsPrec :: Int -&gt; ReadS DescribeTextTranslationJob
+$creadsPrec :: Int -&gt; ReadS DescribeTextTranslationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187543"><span id="local-6989586621679187545"><span id="local-6989586621679187547"><span class="annot"><span class="annottext">Int -&gt; DescribeTextTranslationJob -&gt; ShowS
+[DescribeTextTranslationJob] -&gt; ShowS
+DescribeTextTranslationJob -&gt; String
+(Int -&gt; DescribeTextTranslationJob -&gt; ShowS)
+-&gt; (DescribeTextTranslationJob -&gt; String)
+-&gt; ([DescribeTextTranslationJob] -&gt; ShowS)
+-&gt; Show DescribeTextTranslationJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTextTranslationJob] -&gt; ShowS
+$cshowList :: [DescribeTextTranslationJob] -&gt; ShowS
+show :: DescribeTextTranslationJob -&gt; String
+$cshow :: DescribeTextTranslationJob -&gt; String
+showsPrec :: Int -&gt; DescribeTextTranslationJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTextTranslationJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTextTranslationJob -&gt; Rep DescribeTextTranslationJob x)
+-&gt; (forall x.
+    Rep DescribeTextTranslationJob x -&gt; DescribeTextTranslationJob)
+-&gt; Generic DescribeTextTranslationJob
+forall x.
+Rep DescribeTextTranslationJob x -&gt; DescribeTextTranslationJob
+forall x.
+DescribeTextTranslationJob -&gt; Rep DescribeTextTranslationJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTextTranslationJob x -&gt; DescribeTextTranslationJob
+$cfrom :: forall x.
+DescribeTextTranslationJob -&gt; Rep DescribeTextTranslationJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DescribeTextTranslationJob' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'jobId', 'describeTextTranslationJob_jobId' - The identifier that Amazon Translate generated for the job. The</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- StartTextTranslationJob operation returns this identifier in its</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJob"><span class="hs-identifier hs-type">newDescribeTextTranslationJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span>
+</span><span id="line-75"></span><span id="newDescribeTextTranslationJob"><span class="annot"><span class="annottext">newDescribeTextTranslationJob :: Text -&gt; DescribeTextTranslationJob
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJob"><span class="hs-identifier hs-var hs-var">newDescribeTextTranslationJob</span></a></span></span><span> </span><span id="local-6989586621679187538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187538"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeTextTranslationJob' :: Text -&gt; DescribeTextTranslationJob
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob%27"><span class="hs-identifier hs-type">DescribeTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeTextTranslationJob' :: Text
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AjobId%3ADescribeTextTranslationJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187538"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The identifier that Amazon Translate generated for the job. The</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- StartTextTranslationJob operation returns this identifier in its</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJob_jobId"><span class="hs-identifier hs-type">describeTextTranslationJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeTextTranslationJob_jobId"><span class="annot"><span class="annottext">describeTextTranslationJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribeTextTranslationJob -&gt; f DescribeTextTranslationJob
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJob_jobId"><span class="hs-identifier hs-var hs-var">describeTextTranslationJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTextTranslationJob -&gt; Text)
+-&gt; (DescribeTextTranslationJob
+    -&gt; Text -&gt; DescribeTextTranslationJob)
+-&gt; Lens
+     DescribeTextTranslationJob DescribeTextTranslationJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob%27"><span class="hs-identifier hs-type">DescribeTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187535"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeTextTranslationJob' :: DescribeTextTranslationJob -&gt; Text
+</span><a href="#local-6989586621679187535"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187535"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187534"><span class="annot"><span class="annottext">s :: DescribeTextTranslationJob
+</span><a href="#local-6989586621679187534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob%27"><span class="hs-identifier hs-type">DescribeTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTextTranslationJob
+</span><a href="#local-6989586621679187534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeTextTranslationJob' :: Text
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AjobId%3ADescribeTextTranslationJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679187529"><span class="annot"><span class="annottext">request :: DescribeTextTranslationJob -&gt; Request DescribeTextTranslationJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeTextTranslationJob -&gt; Request DescribeTextTranslationJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Translate.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679187525"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTextTranslationJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTextTranslationJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeTextTranslationJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTextTranslationJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTextTranslationJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187522"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187521"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187521"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187520"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+-&gt; Int -&gt; DescribeTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">DescribeTextTranslationJobResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TextTranslationJobProperties
+ -&gt; Int -&gt; DescribeTextTranslationJobResponse)
+-&gt; Either String (Maybe TextTranslationJobProperties)
+-&gt; Either String (Int -&gt; DescribeTextTranslationJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe TextTranslationJobProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextTranslationJobProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTextTranslationJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeTextTranslationJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187522"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187512"><span id="local-6989586621679187514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679187505"><span class="annot"><span class="annottext">toHeaders :: DescribeTextTranslationJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTextTranslationJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSShineFrontendService_20170701.DescribeTextTranslationJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187495"><span id="local-6989586621679187497"><span id="local-6989586621679187499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679187493"><span class="annot"><span class="annottext">toJSON :: DescribeTextTranslationJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob%27"><span class="hs-identifier hs-type">DescribeTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187491"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribeTextTranslationJob' :: DescribeTextTranslationJob -&gt; Text
+</span><a href="#local-6989586621679187491"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187491"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679187485"><span class="annot"><span class="annottext">toPath :: DescribeTextTranslationJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTextTranslationJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJob"><span class="hs-identifier hs-type">DescribeTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679187481"><span class="annot"><span class="annottext">toQuery :: DescribeTextTranslationJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTextTranslationJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeTextTranslationJobResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679187478"><span id="local-6989586621679187479"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTextTranslationJobResponse"><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-var">DescribeTextTranslationJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTextTranslationJobResponse%27"><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">DescribeTextTranslationJobResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains the properties associated with an asynchronous</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- batch translation job.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AtextTranslationJobProperties%3ADescribeTextTranslationJobResponse%27"><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse
+-&gt; Maybe TextTranslationJobProperties
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AtextTranslationJobProperties%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">textTranslationJobProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.TextTranslationJobProperties.html#TextTranslationJobProperties"><span class="hs-identifier hs-type">TextTranslationJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTextTranslationJobResponse%27"><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse -&gt; Int
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AhttpStatus%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187472"><span id="local-6989586621679187474"><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse
+-&gt; DescribeTextTranslationJobResponse -&gt; Bool
+(DescribeTextTranslationJobResponse
+ -&gt; DescribeTextTranslationJobResponse -&gt; Bool)
+-&gt; (DescribeTextTranslationJobResponse
+    -&gt; DescribeTextTranslationJobResponse -&gt; Bool)
+-&gt; Eq DescribeTextTranslationJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTextTranslationJobResponse
+-&gt; DescribeTextTranslationJobResponse -&gt; Bool
+$c/= :: DescribeTextTranslationJobResponse
+-&gt; DescribeTextTranslationJobResponse -&gt; Bool
+== :: DescribeTextTranslationJobResponse
+-&gt; DescribeTextTranslationJobResponse -&gt; Bool
+$c== :: DescribeTextTranslationJobResponse
+-&gt; DescribeTextTranslationJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187464"><span id="local-6989586621679187466"><span id="local-6989586621679187468"><span id="local-6989586621679187470"><span class="annot"><span class="annottext">ReadPrec [DescribeTextTranslationJobResponse]
+ReadPrec DescribeTextTranslationJobResponse
+Int -&gt; ReadS DescribeTextTranslationJobResponse
+ReadS [DescribeTextTranslationJobResponse]
+(Int -&gt; ReadS DescribeTextTranslationJobResponse)
+-&gt; ReadS [DescribeTextTranslationJobResponse]
+-&gt; ReadPrec DescribeTextTranslationJobResponse
+-&gt; ReadPrec [DescribeTextTranslationJobResponse]
+-&gt; Read DescribeTextTranslationJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTextTranslationJobResponse]
+$creadListPrec :: ReadPrec [DescribeTextTranslationJobResponse]
+readPrec :: ReadPrec DescribeTextTranslationJobResponse
+$creadPrec :: ReadPrec DescribeTextTranslationJobResponse
+readList :: ReadS [DescribeTextTranslationJobResponse]
+$creadList :: ReadS [DescribeTextTranslationJobResponse]
+readsPrec :: Int -&gt; ReadS DescribeTextTranslationJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTextTranslationJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187458"><span id="local-6989586621679187460"><span id="local-6989586621679187462"><span class="annot"><span class="annottext">Int -&gt; DescribeTextTranslationJobResponse -&gt; ShowS
+[DescribeTextTranslationJobResponse] -&gt; ShowS
+DescribeTextTranslationJobResponse -&gt; String
+(Int -&gt; DescribeTextTranslationJobResponse -&gt; ShowS)
+-&gt; (DescribeTextTranslationJobResponse -&gt; String)
+-&gt; ([DescribeTextTranslationJobResponse] -&gt; ShowS)
+-&gt; Show DescribeTextTranslationJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTextTranslationJobResponse] -&gt; ShowS
+$cshowList :: [DescribeTextTranslationJobResponse] -&gt; ShowS
+show :: DescribeTextTranslationJobResponse -&gt; String
+$cshow :: DescribeTextTranslationJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTextTranslationJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTextTranslationJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTextTranslationJobResponse
+ -&gt; Rep DescribeTextTranslationJobResponse x)
+-&gt; (forall x.
+    Rep DescribeTextTranslationJobResponse x
+    -&gt; DescribeTextTranslationJobResponse)
+-&gt; Generic DescribeTextTranslationJobResponse
+forall x.
+Rep DescribeTextTranslationJobResponse x
+-&gt; DescribeTextTranslationJobResponse
+forall x.
+DescribeTextTranslationJobResponse
+-&gt; Rep DescribeTextTranslationJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTextTranslationJobResponse x
+-&gt; DescribeTextTranslationJobResponse
+$cfrom :: forall x.
+DescribeTextTranslationJobResponse
+-&gt; Rep DescribeTextTranslationJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DescribeTextTranslationJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'textTranslationJobProperties', 'describeTextTranslationJobResponse_textTranslationJobProperties' - An object that contains the properties associated with an asynchronous</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- batch translation job.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'describeTextTranslationJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">newDescribeTextTranslationJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newDescribeTextTranslationJobResponse"><span class="annot"><span class="annottext">newDescribeTextTranslationJobResponse :: Int -&gt; DescribeTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#newDescribeTextTranslationJobResponse"><span class="hs-identifier hs-var hs-var">newDescribeTextTranslationJobResponse</span></a></span></span><span> </span><span id="local-6989586621679187455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse' :: Maybe TextTranslationJobProperties
+-&gt; Int -&gt; DescribeTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textTranslationJobProperties:DescribeTextTranslationJobResponse' :: Maybe TextTranslationJobProperties
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AtextTranslationJobProperties%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">textTranslationJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTextTranslationJobResponse' :: Int
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AhttpStatus%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | An object that contains the properties associated with an asynchronous</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- batch translation job.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_textTranslationJobProperties"><span class="hs-identifier hs-type">describeTextTranslationJobResponse_textTranslationJobProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.TextTranslationJobProperties.html#TextTranslationJobProperties"><span class="hs-identifier hs-type">TextTranslationJobProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="describeTextTranslationJobResponse_textTranslationJobProperties"><span class="annot"><span class="annottext">describeTextTranslationJobResponse_textTranslationJobProperties :: (Maybe TextTranslationJobProperties
+ -&gt; f (Maybe TextTranslationJobProperties))
+-&gt; DescribeTextTranslationJobResponse
+-&gt; f DescribeTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_textTranslationJobProperties"><span class="hs-identifier hs-var hs-var">describeTextTranslationJobResponse_textTranslationJobProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTextTranslationJobResponse
+ -&gt; Maybe TextTranslationJobProperties)
+-&gt; (DescribeTextTranslationJobResponse
+    -&gt; Maybe TextTranslationJobProperties
+    -&gt; DescribeTextTranslationJobResponse)
+-&gt; Lens
+     DescribeTextTranslationJobResponse
+     DescribeTextTranslationJobResponse
+     (Maybe TextTranslationJobProperties)
+     (Maybe TextTranslationJobProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187454"><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+textTranslationJobProperties :: Maybe TextTranslationJobProperties
+$sel:textTranslationJobProperties:DescribeTextTranslationJobResponse' :: DescribeTextTranslationJobResponse
+-&gt; Maybe TextTranslationJobProperties
+</span><a href="#local-6989586621679187454"><span class="hs-identifier hs-var hs-var">textTranslationJobProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+</span><a href="#local-6989586621679187454"><span class="hs-identifier hs-var">textTranslationJobProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187453"><span class="annot"><span class="annottext">s :: DescribeTextTranslationJobResponse
+</span><a href="#local-6989586621679187453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187452"><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+</span><a href="#local-6989586621679187452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse
+</span><a href="#local-6989586621679187453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTranslationJobProperties:DescribeTextTranslationJobResponse' :: Maybe TextTranslationJobProperties
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AtextTranslationJobProperties%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">textTranslationJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TextTranslationJobProperties
+</span><a href="#local-6989586621679187452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_httpStatus"><span class="hs-identifier hs-type">describeTextTranslationJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="describeTextTranslationJobResponse_httpStatus"><span class="annot"><span class="annottext">describeTextTranslationJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeTextTranslationJobResponse
+-&gt; f DescribeTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#describeTextTranslationJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeTextTranslationJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTextTranslationJobResponse -&gt; Int)
+-&gt; (DescribeTextTranslationJobResponse
+    -&gt; Int -&gt; DescribeTextTranslationJobResponse)
+-&gt; Lens
+     DescribeTextTranslationJobResponse
+     DescribeTextTranslationJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187451"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeTextTranslationJobResponse' :: DescribeTextTranslationJobResponse -&gt; Int
+</span><a href="#local-6989586621679187451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187450"><span class="annot"><span class="annottext">s :: DescribeTextTranslationJobResponse
+</span><a href="#local-6989586621679187450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTextTranslationJobResponse
+</span><a href="#local-6989586621679187450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTextTranslationJobResponse' :: Int
+</span><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#%24sel%3AhttpStatus%3ADescribeTextTranslationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679187447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.DescribeTextTranslationJob.html#DescribeTextTranslationJobResponse"><span class="hs-identifier hs-type">DescribeTextTranslationJobResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.CreateGlobalCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an Aurora global database spread across multiple Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services Regions. The global database contains a single primary cluster</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with read-write capability, and a read-only secondary cluster that</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- receives data from the primary cluster through high-speed replication</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- performed by the Aurora storage subsystem.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can create a global database that is initially empty, and then add a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- primary cluster and a secondary cluster to it. Or you can specify an</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- existing Aurora cluster during the create operation, and this cluster</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- becomes the primary cluster of the global database.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- This action only applies to Aurora DB clusters.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.CreateGlobalCluster</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalCluster"><span class="hs-identifier">newCreateGlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_deletionProtection"><span class="hs-identifier">createGlobalCluster_deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_storageEncrypted"><span class="hs-identifier">createGlobalCluster_storageEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engineVersion"><span class="hs-identifier">createGlobalCluster_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engine"><span class="hs-identifier">createGlobalCluster_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_globalClusterIdentifier"><span class="hs-identifier">createGlobalCluster_globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_databaseName"><span class="hs-identifier">createGlobalCluster_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_sourceDBClusterIdentifier"><span class="hs-identifier">createGlobalCluster_sourceDBClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier">CreateGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalClusterResponse"><span class="hs-identifier">newCreateGlobalClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_globalCluster"><span class="hs-identifier">createGlobalClusterResponse_globalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_httpStatus"><span class="hs-identifier">createGlobalClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.html"><span class="hs-identifier">Network.AWS.RDS.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalCluster' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679799227"><span id="local-6989586621679799228"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-var">CreateGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-var">CreateGlobalCluster'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deletion protection setting for the new global database. The global</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- database can\'t be deleted when deletion protection is enabled.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdeletionProtection%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdeletionProtection%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The storage encryption setting for the new global database cluster.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AstorageEncrypted%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AstorageEncrypted%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">storageEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The engine version of the Aurora global database.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AengineVersion%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AengineVersion%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the database engine to be used for this DB cluster.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aengine%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3Aengine%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The cluster identifier of the new global database cluster.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name for your database of up to 64 alpha-numeric characters. If you</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- do not provide a name, Amazon Aurora will not create a database in the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- global database cluster you are creating.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AdatabaseName%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdatabaseName%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) to use as the primary cluster of the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- global database. This parameter is optional.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsourceDBClusterIdentifier%3ACreateGlobalCluster%27"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AsourceDBClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var hs-var">sourceDBClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799215"><span id="local-6989586621679799217"><span class="annot"><span class="annottext">CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool
+(CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool)
+-&gt; (CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool)
+-&gt; Eq CreateGlobalCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool
+$c/= :: CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool
+== :: CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool
+$c== :: CreateGlobalCluster -&gt; CreateGlobalCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799206"><span id="local-6989586621679799208"><span id="local-6989586621679799210"><span id="local-6989586621679799212"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalCluster]
+ReadPrec CreateGlobalCluster
+Int -&gt; ReadS CreateGlobalCluster
+ReadS [CreateGlobalCluster]
+(Int -&gt; ReadS CreateGlobalCluster)
+-&gt; ReadS [CreateGlobalCluster]
+-&gt; ReadPrec CreateGlobalCluster
+-&gt; ReadPrec [CreateGlobalCluster]
+-&gt; Read CreateGlobalCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGlobalCluster]
+$creadListPrec :: ReadPrec [CreateGlobalCluster]
+readPrec :: ReadPrec CreateGlobalCluster
+$creadPrec :: ReadPrec CreateGlobalCluster
+readList :: ReadS [CreateGlobalCluster]
+$creadList :: ReadS [CreateGlobalCluster]
+readsPrec :: Int -&gt; ReadS CreateGlobalCluster
+$creadsPrec :: Int -&gt; ReadS CreateGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799199"><span id="local-6989586621679799201"><span id="local-6989586621679799203"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalCluster -&gt; ShowS
+[CreateGlobalCluster] -&gt; ShowS
+CreateGlobalCluster -&gt; String
+(Int -&gt; CreateGlobalCluster -&gt; ShowS)
+-&gt; (CreateGlobalCluster -&gt; String)
+-&gt; ([CreateGlobalCluster] -&gt; ShowS)
+-&gt; Show CreateGlobalCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGlobalCluster] -&gt; ShowS
+$cshowList :: [CreateGlobalCluster] -&gt; ShowS
+show :: CreateGlobalCluster -&gt; String
+$cshow :: CreateGlobalCluster -&gt; String
+showsPrec :: Int -&gt; CreateGlobalCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateGlobalCluster -&gt; Rep CreateGlobalCluster x)
+-&gt; (forall x. Rep CreateGlobalCluster x -&gt; CreateGlobalCluster)
+-&gt; Generic CreateGlobalCluster
+forall x. Rep CreateGlobalCluster x -&gt; CreateGlobalCluster
+forall x. CreateGlobalCluster -&gt; Rep CreateGlobalCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateGlobalCluster x -&gt; CreateGlobalCluster
+$cfrom :: forall x. CreateGlobalCluster -&gt; Rep CreateGlobalCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Create a value of 'CreateGlobalCluster' with all optional fields omitted.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'deletionProtection', 'createGlobalCluster_deletionProtection' - The deletion protection setting for the new global database. The global</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- database can\'t be deleted when deletion protection is enabled.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global database cluster.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'engineVersion', 'createGlobalCluster_engineVersion' - The engine version of the Aurora global database.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used for this DB cluster.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global database cluster.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'databaseName', 'createGlobalCluster_databaseName' - The name for your database of up to 64 alpha-numeric characters. If you</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- do not provide a name, Amazon Aurora will not create a database in the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- global database cluster you are creating.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- global database. This parameter is optional.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalCluster"><span class="hs-identifier hs-type">newCreateGlobalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span>
+</span><span id="line-116"></span><span id="newCreateGlobalCluster"><span class="annot"><span class="annottext">newCreateGlobalCluster :: CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalCluster"><span class="hs-identifier hs-var hs-var">newCreateGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">CreateGlobalCluster' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletionProtection:CreateGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdeletionProtection%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageEncrypted:CreateGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AstorageEncrypted%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AengineVersion%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3Aengine%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdatabaseName%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceDBClusterIdentifier:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AsourceDBClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">sourceDBClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The deletion protection setting for the new global database. The global</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- database can\'t be deleted when deletion protection is enabled.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_deletionProtection"><span class="hs-identifier hs-type">createGlobalCluster_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="createGlobalCluster_deletionProtection"><span class="annot"><span class="annottext">createGlobalCluster_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_deletionProtection"><span class="hs-identifier hs-var hs-var">createGlobalCluster_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Bool)
+-&gt; (CreateGlobalCluster -&gt; Maybe Bool -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799192"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679799192"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799192"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799191"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799190"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:CreateGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdeletionProtection%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The storage encryption setting for the new global database cluster.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_storageEncrypted"><span class="hs-identifier hs-type">createGlobalCluster_storageEncrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="createGlobalCluster_storageEncrypted"><span class="annot"><span class="annottext">createGlobalCluster_storageEncrypted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_storageEncrypted"><span class="hs-identifier hs-var hs-var">createGlobalCluster_storageEncrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Bool)
+-&gt; (CreateGlobalCluster -&gt; Maybe Bool -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799189"><span class="annot"><span class="annottext">Maybe Bool
+storageEncrypted :: Maybe Bool
+$sel:storageEncrypted:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679799189"><span class="hs-identifier hs-var hs-var">storageEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799189"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799188"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799187"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageEncrypted:CreateGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AstorageEncrypted%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The engine version of the Aurora global database.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engineVersion"><span class="hs-identifier hs-type">createGlobalCluster_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="createGlobalCluster_engineVersion"><span class="annot"><span class="annottext">createGlobalCluster_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engineVersion"><span class="hs-identifier hs-var hs-var">createGlobalCluster_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Text)
+-&gt; (CreateGlobalCluster -&gt; Maybe Text -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799186"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679799186"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799186"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799185"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AengineVersion%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The name of the database engine to be used for this DB cluster.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engine"><span class="hs-identifier hs-type">createGlobalCluster_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="createGlobalCluster_engine"><span class="annot"><span class="annottext">createGlobalCluster_engine :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_engine"><span class="hs-identifier hs-var hs-var">createGlobalCluster_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Text)
+-&gt; (CreateGlobalCluster -&gt; Maybe Text -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799183"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679799183"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799183"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799182"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3Aengine%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The cluster identifier of the new global database cluster.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">createGlobalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="createGlobalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">createGlobalCluster_globalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-var hs-var">createGlobalCluster_globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Text)
+-&gt; (CreateGlobalCluster -&gt; Maybe Text -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799180"><span class="annot"><span class="annottext">Maybe Text
+globalClusterIdentifier :: Maybe Text
+$sel:globalClusterIdentifier:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679799180"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799180"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799179"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The name for your database of up to 64 alpha-numeric characters. If you</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- do not provide a name, Amazon Aurora will not create a database in the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- global database cluster you are creating.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_databaseName"><span class="hs-identifier hs-type">createGlobalCluster_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="createGlobalCluster_databaseName"><span class="annot"><span class="annottext">createGlobalCluster_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_databaseName"><span class="hs-identifier hs-var hs-var">createGlobalCluster_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Text)
+-&gt; (CreateGlobalCluster -&gt; Maybe Text -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799177"><span class="annot"><span class="annottext">Maybe Text
+databaseName :: Maybe Text
+$sel:databaseName:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679799177"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799177"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799176"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AdatabaseName%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) to use as the primary cluster of the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- global database. This parameter is optional.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_sourceDBClusterIdentifier"><span class="hs-identifier hs-type">createGlobalCluster_sourceDBClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="createGlobalCluster_sourceDBClusterIdentifier"><span class="annot"><span class="annottext">createGlobalCluster_sourceDBClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateGlobalCluster -&gt; f CreateGlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalCluster_sourceDBClusterIdentifier"><span class="hs-identifier hs-var hs-var">createGlobalCluster_sourceDBClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalCluster -&gt; Maybe Text)
+-&gt; (CreateGlobalCluster -&gt; Maybe Text -&gt; CreateGlobalCluster)
+-&gt; Lens
+     CreateGlobalCluster CreateGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799174"><span class="annot"><span class="annottext">Maybe Text
+sourceDBClusterIdentifier :: Maybe Text
+$sel:sourceDBClusterIdentifier:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679799174"><span class="hs-identifier hs-var hs-var">sourceDBClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799174"><span class="hs-identifier hs-var">sourceDBClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799173"><span class="annot"><span class="annottext">s :: CreateGlobalCluster
+</span><a href="#local-6989586621679799173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalCluster
+</span><a href="#local-6989586621679799173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDBClusterIdentifier:CreateGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AsourceDBClusterIdentifier%3ACreateGlobalCluster%27"><span class="hs-identifier hs-var">sourceDBClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679799168"><span class="annot"><span class="annottext">request :: CreateGlobalCluster -&gt; Request CreateGlobalCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGlobalCluster -&gt; Request CreateGlobalCluster
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679799164"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateGlobalCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateGlobalCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateGlobalCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateGlobalCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateGlobalClusterResult&quot;</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799160"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679799160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799159"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; CreateGlobalClusterResponse
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">CreateGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; CreateGlobalClusterResponse)
+-&gt; Either String (Maybe GlobalCluster)
+-&gt; Either String (Int -&gt; CreateGlobalClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateGlobalClusterResponse)
+-&gt; Either String Int -&gt; Either String CreateGlobalClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799151"><span id="local-6989586621679799153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679799144"><span class="annot"><span class="annottext">toHeaders :: CreateGlobalCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGlobalCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679799139"><span class="annot"><span class="annottext">toPath :: CreateGlobalCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGlobalCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster"><span class="hs-identifier hs-type">CreateGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679799135"><span class="annot"><span class="annottext">toQuery :: CreateGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalCluster%27"><span class="hs-identifier hs-type">CreateGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799127"><span id="local-6989586621679799128"><span id="local-6989586621679799129"><span id="local-6989586621679799130"><span id="local-6989586621679799131"><span id="local-6989586621679799132"><span id="local-6989586621679799133"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+sourceDBClusterIdentifier :: Maybe Text
+databaseName :: Maybe Text
+globalClusterIdentifier :: Maybe Text
+engine :: Maybe Text
+engineVersion :: Maybe Text
+storageEncrypted :: Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:sourceDBClusterIdentifier:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+$sel:databaseName:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+$sel:globalClusterIdentifier:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+$sel:engine:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+$sel:engineVersion:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Text
+$sel:storageEncrypted:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Bool
+$sel:deletionProtection:CreateGlobalCluster' :: CreateGlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679799127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateGlobalCluster&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799133"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageEncrypted&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799132"><span class="hs-identifier hs-var">storageEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799131"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799130"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799129"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799128"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceDBClusterIdentifier&quot;</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799127"><span class="hs-identifier hs-var">sourceDBClusterIdentifier</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalClusterResponse' smart constructor.</span><span>
+</span><span id="line-203"></span><span id="local-6989586621679799124"><span id="local-6989586621679799125"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-var">CreateGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">CreateGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3ACreateGlobalClusterResponse%27"><span class="annot"><span class="annottext">CreateGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalCluster%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGlobalClusterResponse%27"><span class="annot"><span class="annottext">CreateGlobalClusterResponse -&gt; Int
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AhttpStatus%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799118"><span id="local-6989586621679799120"><span class="annot"><span class="annottext">CreateGlobalClusterResponse -&gt; CreateGlobalClusterResponse -&gt; Bool
+(CreateGlobalClusterResponse
+ -&gt; CreateGlobalClusterResponse -&gt; Bool)
+-&gt; (CreateGlobalClusterResponse
+    -&gt; CreateGlobalClusterResponse -&gt; Bool)
+-&gt; Eq CreateGlobalClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateGlobalClusterResponse -&gt; CreateGlobalClusterResponse -&gt; Bool
+$c/= :: CreateGlobalClusterResponse -&gt; CreateGlobalClusterResponse -&gt; Bool
+== :: CreateGlobalClusterResponse -&gt; CreateGlobalClusterResponse -&gt; Bool
+$c== :: CreateGlobalClusterResponse -&gt; CreateGlobalClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799110"><span id="local-6989586621679799112"><span id="local-6989586621679799114"><span id="local-6989586621679799116"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalClusterResponse]
+ReadPrec CreateGlobalClusterResponse
+Int -&gt; ReadS CreateGlobalClusterResponse
+ReadS [CreateGlobalClusterResponse]
+(Int -&gt; ReadS CreateGlobalClusterResponse)
+-&gt; ReadS [CreateGlobalClusterResponse]
+-&gt; ReadPrec CreateGlobalClusterResponse
+-&gt; ReadPrec [CreateGlobalClusterResponse]
+-&gt; Read CreateGlobalClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateGlobalClusterResponse]
+$creadListPrec :: ReadPrec [CreateGlobalClusterResponse]
+readPrec :: ReadPrec CreateGlobalClusterResponse
+$creadPrec :: ReadPrec CreateGlobalClusterResponse
+readList :: ReadS [CreateGlobalClusterResponse]
+$creadList :: ReadS [CreateGlobalClusterResponse]
+readsPrec :: Int -&gt; ReadS CreateGlobalClusterResponse
+$creadsPrec :: Int -&gt; ReadS CreateGlobalClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799104"><span id="local-6989586621679799106"><span id="local-6989586621679799108"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalClusterResponse -&gt; ShowS
+[CreateGlobalClusterResponse] -&gt; ShowS
+CreateGlobalClusterResponse -&gt; String
+(Int -&gt; CreateGlobalClusterResponse -&gt; ShowS)
+-&gt; (CreateGlobalClusterResponse -&gt; String)
+-&gt; ([CreateGlobalClusterResponse] -&gt; ShowS)
+-&gt; Show CreateGlobalClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateGlobalClusterResponse] -&gt; ShowS
+$cshowList :: [CreateGlobalClusterResponse] -&gt; ShowS
+show :: CreateGlobalClusterResponse -&gt; String
+$cshow :: CreateGlobalClusterResponse -&gt; String
+showsPrec :: Int -&gt; CreateGlobalClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateGlobalClusterResponse -&gt; Rep CreateGlobalClusterResponse x)
+-&gt; (forall x.
+    Rep CreateGlobalClusterResponse x -&gt; CreateGlobalClusterResponse)
+-&gt; Generic CreateGlobalClusterResponse
+forall x.
+Rep CreateGlobalClusterResponse x -&gt; CreateGlobalClusterResponse
+forall x.
+CreateGlobalClusterResponse -&gt; Rep CreateGlobalClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateGlobalClusterResponse x -&gt; CreateGlobalClusterResponse
+$cfrom :: forall x.
+CreateGlobalClusterResponse -&gt; Rep CreateGlobalClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'CreateGlobalClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'globalCluster', 'createGlobalClusterResponse_globalCluster' - Undocumented member.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'createGlobalClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalClusterResponse"><span class="hs-identifier hs-type">newCreateGlobalClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newCreateGlobalClusterResponse"><span class="annot"><span class="annottext">newCreateGlobalClusterResponse :: Int -&gt; CreateGlobalClusterResponse
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#newCreateGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newCreateGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679799101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">CreateGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; CreateGlobalClusterResponse
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-type">CreateGlobalClusterResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:CreateGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalCluster%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalClusterResponse' :: Int
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AhttpStatus%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-type">createGlobalClusterResponse_globalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createGlobalClusterResponse_globalCluster"><span class="annot"><span class="annottext">createGlobalClusterResponse_globalCluster :: (Maybe GlobalCluster -&gt; f (Maybe GlobalCluster))
+-&gt; CreateGlobalClusterResponse -&gt; f CreateGlobalClusterResponse
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_globalCluster"><span class="hs-identifier hs-var hs-var">createGlobalClusterResponse_globalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalClusterResponse -&gt; Maybe GlobalCluster)
+-&gt; (CreateGlobalClusterResponse
+    -&gt; Maybe GlobalCluster -&gt; CreateGlobalClusterResponse)
+-&gt; Lens
+     CreateGlobalClusterResponse
+     CreateGlobalClusterResponse
+     (Maybe GlobalCluster)
+     (Maybe GlobalCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-type">CreateGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799100"><span class="annot"><span class="annottext">Maybe GlobalCluster
+globalCluster :: Maybe GlobalCluster
+$sel:globalCluster:CreateGlobalClusterResponse' :: CreateGlobalClusterResponse -&gt; Maybe GlobalCluster
+</span><a href="#local-6989586621679799100"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679799100"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799099"><span class="annot"><span class="annottext">s :: CreateGlobalClusterResponse
+</span><a href="#local-6989586621679799099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-type">CreateGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799098"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679799098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalClusterResponse
+</span><a href="#local-6989586621679799099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:CreateGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AglobalCluster%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679799098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">createGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="createGlobalClusterResponse_httpStatus"><span class="annot"><span class="annottext">createGlobalClusterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateGlobalClusterResponse -&gt; f CreateGlobalClusterResponse
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#createGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createGlobalClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateGlobalClusterResponse -&gt; Int)
+-&gt; (CreateGlobalClusterResponse
+    -&gt; Int -&gt; CreateGlobalClusterResponse)
+-&gt; Lens
+     CreateGlobalClusterResponse CreateGlobalClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-type">CreateGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799097"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateGlobalClusterResponse' :: CreateGlobalClusterResponse -&gt; Int
+</span><a href="#local-6989586621679799097"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799097"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799096"><span class="annot"><span class="annottext">s :: CreateGlobalClusterResponse
+</span><a href="#local-6989586621679799096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse%27"><span class="hs-identifier hs-type">CreateGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799095"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalClusterResponse
+</span><a href="#local-6989586621679799096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalClusterResponse' :: Int
+</span><a href="Network.AWS.RDS.CreateGlobalCluster.html#%24sel%3AhttpStatus%3ACreateGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateGlobalCluster.html#CreateGlobalClusterResponse"><span class="hs-identifier hs-type">CreateGlobalClusterResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

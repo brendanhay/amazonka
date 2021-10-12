@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode"><span class="hs-identifier">CmafTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier">CmafTargetDurationCompatibilityMode_LEGACY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier">CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When set to LEGACY, the segment target duration is always rounded up to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the nearest integer value above its current value in seconds. When set</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to SPEC\\\\_COMPLIANT, the segment target duration is rounded up to the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- nearest integer value if fraction seconds are greater than or equal to</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- 0.5 (&gt;= 0.5) and rounded down if less than 0.5 (\&lt; 0.5). You may need to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- use LEGACY if your client needs to ensure that the target duration is</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- always longer than the actual duration of the segment. Some older</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- players may experience interrupted playback when the actual duration of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- a track in a segment is longer than the target duration.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679944977"><span id="local-6989586621679944978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafTargetDurationCompatibilityMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode"><span class="hs-identifier hs-var">CmafTargetDurationCompatibilityMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafTargetDurationCompatibilityMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-var">CmafTargetDurationCompatibilityMode'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafTargetDurationCompatibilityMode"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#fromCmafTargetDurationCompatibilityMode"><span class="hs-identifier hs-var hs-var">fromCmafTargetDurationCompatibilityMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944969"><span id="local-6989586621679944971"><span id="local-6989586621679944973"><span class="annot"><span class="annottext">Int -&gt; CmafTargetDurationCompatibilityMode -&gt; ShowS
+[CmafTargetDurationCompatibilityMode] -&gt; ShowS
+CmafTargetDurationCompatibilityMode -&gt; String
+(Int -&gt; CmafTargetDurationCompatibilityMode -&gt; ShowS)
+-&gt; (CmafTargetDurationCompatibilityMode -&gt; String)
+-&gt; ([CmafTargetDurationCompatibilityMode] -&gt; ShowS)
+-&gt; Show CmafTargetDurationCompatibilityMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmafTargetDurationCompatibilityMode] -&gt; ShowS
+$cshowList :: [CmafTargetDurationCompatibilityMode] -&gt; ShowS
+show :: CmafTargetDurationCompatibilityMode -&gt; String
+$cshow :: CmafTargetDurationCompatibilityMode -&gt; String
+showsPrec :: Int -&gt; CmafTargetDurationCompatibilityMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmafTargetDurationCompatibilityMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679944960"><span id="local-6989586621679944962"><span id="local-6989586621679944964"><span id="local-6989586621679944966"><span class="annot"><span class="annottext">ReadPrec [CmafTargetDurationCompatibilityMode]
+ReadPrec CmafTargetDurationCompatibilityMode
+Int -&gt; ReadS CmafTargetDurationCompatibilityMode
+ReadS [CmafTargetDurationCompatibilityMode]
+(Int -&gt; ReadS CmafTargetDurationCompatibilityMode)
+-&gt; ReadS [CmafTargetDurationCompatibilityMode]
+-&gt; ReadPrec CmafTargetDurationCompatibilityMode
+-&gt; ReadPrec [CmafTargetDurationCompatibilityMode]
+-&gt; Read CmafTargetDurationCompatibilityMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmafTargetDurationCompatibilityMode]
+$creadListPrec :: ReadPrec [CmafTargetDurationCompatibilityMode]
+readPrec :: ReadPrec CmafTargetDurationCompatibilityMode
+$creadPrec :: ReadPrec CmafTargetDurationCompatibilityMode
+readList :: ReadS [CmafTargetDurationCompatibilityMode]
+$creadList :: ReadS [CmafTargetDurationCompatibilityMode]
+readsPrec :: Int -&gt; ReadS CmafTargetDurationCompatibilityMode
+$creadsPrec :: Int -&gt; ReadS CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679944955"><span id="local-6989586621679944957"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+(CmafTargetDurationCompatibilityMode
+ -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; Eq CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c/= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+== :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c== :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679944939"><span id="local-6989586621679944941"><span id="local-6989586621679944943"><span id="local-6989586621679944945"><span id="local-6989586621679944947"><span id="local-6989586621679944949"><span id="local-6989586621679944951"><span class="annot"><span class="annottext">Eq CmafTargetDurationCompatibilityMode
+Eq CmafTargetDurationCompatibilityMode
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Ordering)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode -&gt; Bool)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode)
+-&gt; (CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode
+    -&gt; CmafTargetDurationCompatibilityMode)
+-&gt; Ord CmafTargetDurationCompatibilityMode
+CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Ordering
+CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+$cmin :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+max :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+$cmax :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode
+&gt;= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c&gt;= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+&gt; :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c&gt; :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+&lt;= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c&lt;= :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+&lt; :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+$c&lt; :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Bool
+compare :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Ordering
+$ccompare :: CmafTargetDurationCompatibilityMode
+-&gt; CmafTargetDurationCompatibilityMode -&gt; Ordering
+$cp1Ord :: Eq CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CmafTargetDurationCompatibilityMode
+ -&gt; Rep CmafTargetDurationCompatibilityMode x)
+-&gt; (forall x.
+    Rep CmafTargetDurationCompatibilityMode x
+    -&gt; CmafTargetDurationCompatibilityMode)
+-&gt; Generic CmafTargetDurationCompatibilityMode
+forall x.
+Rep CmafTargetDurationCompatibilityMode x
+-&gt; CmafTargetDurationCompatibilityMode
+forall x.
+CmafTargetDurationCompatibilityMode
+-&gt; Rep CmafTargetDurationCompatibilityMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CmafTargetDurationCompatibilityMode x
+-&gt; CmafTargetDurationCompatibilityMode
+$cfrom :: forall x.
+CmafTargetDurationCompatibilityMode
+-&gt; Rep CmafTargetDurationCompatibilityMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679944931"><span id="local-6989586621679944933"><span class="annot"><span class="annottext">Int -&gt; CmafTargetDurationCompatibilityMode -&gt; Int
+CmafTargetDurationCompatibilityMode -&gt; Int
+(Int -&gt; CmafTargetDurationCompatibilityMode -&gt; Int)
+-&gt; (CmafTargetDurationCompatibilityMode -&gt; Int)
+-&gt; Hashable CmafTargetDurationCompatibilityMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmafTargetDurationCompatibilityMode -&gt; Int
+$chash :: CmafTargetDurationCompatibilityMode -&gt; Int
+hashWithSalt :: Int -&gt; CmafTargetDurationCompatibilityMode -&gt; Int
+$chashWithSalt :: Int -&gt; CmafTargetDurationCompatibilityMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679944928"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; ()
+(CmafTargetDurationCompatibilityMode -&gt; ())
+-&gt; NFData CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmafTargetDurationCompatibilityMode -&gt; ()
+$crnf :: CmafTargetDurationCompatibilityMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679944925"><span class="annot"><span class="annottext">Text -&gt; Either String CmafTargetDurationCompatibilityMode
+(Text -&gt; Either String CmafTargetDurationCompatibilityMode)
+-&gt; FromText CmafTargetDurationCompatibilityMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmafTargetDurationCompatibilityMode
+$cfromText :: Text -&gt; Either String CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679944922"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; Text
+(CmafTargetDurationCompatibilityMode -&gt; Text)
+-&gt; ToText CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmafTargetDurationCompatibilityMode -&gt; Text
+$ctoText :: CmafTargetDurationCompatibilityMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679944919"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; ByteString
+(CmafTargetDurationCompatibilityMode -&gt; ByteString)
+-&gt; ToByteString CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmafTargetDurationCompatibilityMode -&gt; ByteString
+$ctoBS :: CmafTargetDurationCompatibilityMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679944916"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+(CmafTargetDurationCompatibilityMode -&gt; ByteStringBuilder)
+-&gt; ToLog CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmafTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+$cbuild :: CmafTargetDurationCompatibilityMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679944913"><span class="annot"><span class="annottext">HeaderName -&gt; CmafTargetDurationCompatibilityMode -&gt; [Header]
+(HeaderName -&gt; CmafTargetDurationCompatibilityMode -&gt; [Header])
+-&gt; ToHeader CmafTargetDurationCompatibilityMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmafTargetDurationCompatibilityMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmafTargetDurationCompatibilityMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679944910"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; QueryString
+(CmafTargetDurationCompatibilityMode -&gt; QueryString)
+-&gt; ToQuery CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmafTargetDurationCompatibilityMode -&gt; QueryString
+$ctoQuery :: CmafTargetDurationCompatibilityMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679944905"><span id="local-6989586621679944907"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafTargetDurationCompatibilityMode]
+Value -&gt; Parser CmafTargetDurationCompatibilityMode
+(Value -&gt; Parser CmafTargetDurationCompatibilityMode)
+-&gt; (Value -&gt; Parser [CmafTargetDurationCompatibilityMode])
+-&gt; FromJSON CmafTargetDurationCompatibilityMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmafTargetDurationCompatibilityMode]
+$cparseJSONList :: Value -&gt; Parser [CmafTargetDurationCompatibilityMode]
+parseJSON :: Value -&gt; Parser CmafTargetDurationCompatibilityMode
+$cparseJSON :: Value -&gt; Parser CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679944900"><span id="local-6989586621679944902"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+FromJSONKeyFunction CmafTargetDurationCompatibilityMode
+FromJSONKeyFunction CmafTargetDurationCompatibilityMode
+-&gt; FromJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+-&gt; FromJSONKey CmafTargetDurationCompatibilityMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+fromJSONKey :: FromJSONKeyFunction CmafTargetDurationCompatibilityMode
+$cfromJSONKey :: FromJSONKeyFunction CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679944891"><span id="local-6989586621679944893"><span id="local-6989586621679944895"><span id="local-6989586621679944897"><span class="annot"><span class="annottext">[CmafTargetDurationCompatibilityMode] -&gt; Encoding
+[CmafTargetDurationCompatibilityMode] -&gt; Value
+CmafTargetDurationCompatibilityMode -&gt; Encoding
+CmafTargetDurationCompatibilityMode -&gt; Value
+(CmafTargetDurationCompatibilityMode -&gt; Value)
+-&gt; (CmafTargetDurationCompatibilityMode -&gt; Encoding)
+-&gt; ([CmafTargetDurationCompatibilityMode] -&gt; Value)
+-&gt; ([CmafTargetDurationCompatibilityMode] -&gt; Encoding)
+-&gt; ToJSON CmafTargetDurationCompatibilityMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmafTargetDurationCompatibilityMode] -&gt; Encoding
+$ctoEncodingList :: [CmafTargetDurationCompatibilityMode] -&gt; Encoding
+toJSONList :: [CmafTargetDurationCompatibilityMode] -&gt; Value
+$ctoJSONList :: [CmafTargetDurationCompatibilityMode] -&gt; Value
+toEncoding :: CmafTargetDurationCompatibilityMode -&gt; Encoding
+$ctoEncoding :: CmafTargetDurationCompatibilityMode -&gt; Encoding
+toJSON :: CmafTargetDurationCompatibilityMode -&gt; Value
+$ctoJSON :: CmafTargetDurationCompatibilityMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679944886"><span id="local-6989586621679944888"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+ToJSONKeyFunction CmafTargetDurationCompatibilityMode
+ToJSONKeyFunction CmafTargetDurationCompatibilityMode
+-&gt; ToJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+-&gt; ToJSONKey CmafTargetDurationCompatibilityMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmafTargetDurationCompatibilityMode]
+toJSONKey :: ToJSONKeyFunction CmafTargetDurationCompatibilityMode
+$ctoJSONKey :: ToJSONKeyFunction CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679944883"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafTargetDurationCompatibilityMode
+([Node] -&gt; Either String CmafTargetDurationCompatibilityMode)
+-&gt; FromXML CmafTargetDurationCompatibilityMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmafTargetDurationCompatibilityMode
+$cparseXML :: [Node] -&gt; Either String CmafTargetDurationCompatibilityMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679944880"><span class="annot"><span class="annottext">CmafTargetDurationCompatibilityMode -&gt; XML
+(CmafTargetDurationCompatibilityMode -&gt; XML)
+-&gt; ToXML CmafTargetDurationCompatibilityMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmafTargetDurationCompatibilityMode -&gt; XML
+$ctoXML :: CmafTargetDurationCompatibilityMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode_LEGACY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafTargetDurationCompatibilityMode_LEGACY"><span id="%24mCmafTargetDurationCompatibilityMode_LEGACY"><span id="CmafTargetDurationCompatibilityMode_LEGACY"><span class="annot"><span class="annottext">$bCmafTargetDurationCompatibilityMode_LEGACY :: CmafTargetDurationCompatibilityMode
+$mCmafTargetDurationCompatibilityMode_LEGACY :: forall r.
+CmafTargetDurationCompatibilityMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#%24bCmafTargetDurationCompatibilityMode_LEGACY"><span class="hs-identifier hs-var hs-var hs-var">CmafTargetDurationCompatibilityMode_LEGACY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEGACY&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span id="%24mCmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span id="CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="annot"><span class="annottext">$bCmafTargetDurationCompatibilityMode_SPEC_COMPLIANT :: CmafTargetDurationCompatibilityMode
+$mCmafTargetDurationCompatibilityMode_SPEC_COMPLIANT :: forall r.
+CmafTargetDurationCompatibilityMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#%24bCmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-identifier hs-var hs-var hs-var">CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode%27"><span class="hs-identifier hs-type">CmafTargetDurationCompatibilityMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEC_COMPLIANT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_LEGACY"><span class="hs-pragma hs-type">CmafTargetDurationCompatibilityMode_LEGACY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT"><span class="hs-pragma hs-type">CmafTargetDurationCompatibilityMode_SPEC_COMPLIANT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode.html#CmafTargetDurationCompatibilityMode%27"><span class="hs-pragma hs-type">CmafTargetDurationCompatibilityMode'</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-80"></span></pre></body></html>

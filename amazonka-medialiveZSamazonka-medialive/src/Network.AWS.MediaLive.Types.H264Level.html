@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.H264Level</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.H264Level</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier">H264Level</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1"><span class="hs-identifier">H264Level_H264_LEVEL_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_1"><span class="hs-identifier">H264Level_H264_LEVEL_1_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_2"><span class="hs-identifier">H264Level_H264_LEVEL_1_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_3"><span class="hs-identifier">H264Level_H264_LEVEL_1_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2"><span class="hs-identifier">H264Level_H264_LEVEL_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_1"><span class="hs-identifier">H264Level_H264_LEVEL_2_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_2"><span class="hs-identifier">H264Level_H264_LEVEL_2_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3"><span class="hs-identifier">H264Level_H264_LEVEL_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_1"><span class="hs-identifier">H264Level_H264_LEVEL_3_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_2"><span class="hs-identifier">H264Level_H264_LEVEL_3_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4"><span class="hs-identifier">H264Level_H264_LEVEL_4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_1"><span class="hs-identifier">H264Level_H264_LEVEL_4_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_2"><span class="hs-identifier">H264Level_H264_LEVEL_4_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5"><span class="hs-identifier">H264Level_H264_LEVEL_5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_1"><span class="hs-identifier">H264Level_H264_LEVEL_5_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_2"><span class="hs-identifier">H264Level_H264_LEVEL_5_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_AUTO"><span class="hs-identifier">H264Level_H264_LEVEL_AUTO</span></a></span><span>
+</span><span id="line-40"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | H264 Level</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679873814"><span id="local-6989586621679873815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Level"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-var">H264Level</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Level%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-var">H264Level'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264Level"><span class="annot"><span class="annottext">H264Level -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#fromH264Level"><span class="hs-identifier hs-var hs-var">fromH264Level</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873806"><span id="local-6989586621679873808"><span id="local-6989586621679873810"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; ShowS
+[H264Level] -&gt; ShowS
+H264Level -&gt; String
+(Int -&gt; H264Level -&gt; ShowS)
+-&gt; (H264Level -&gt; String)
+-&gt; ([H264Level] -&gt; ShowS)
+-&gt; Show H264Level
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264Level] -&gt; ShowS
+$cshowList :: [H264Level] -&gt; ShowS
+show :: H264Level -&gt; String
+$cshow :: H264Level -&gt; String
+showsPrec :: Int -&gt; H264Level -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264Level -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679873797"><span id="local-6989586621679873799"><span id="local-6989586621679873801"><span id="local-6989586621679873803"><span class="annot"><span class="annottext">ReadPrec [H264Level]
+ReadPrec H264Level
+Int -&gt; ReadS H264Level
+ReadS [H264Level]
+(Int -&gt; ReadS H264Level)
+-&gt; ReadS [H264Level]
+-&gt; ReadPrec H264Level
+-&gt; ReadPrec [H264Level]
+-&gt; Read H264Level
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264Level]
+$creadListPrec :: ReadPrec [H264Level]
+readPrec :: ReadPrec H264Level
+$creadPrec :: ReadPrec H264Level
+readList :: ReadS [H264Level]
+$creadList :: ReadS [H264Level]
+readsPrec :: Int -&gt; ReadS H264Level
+$creadsPrec :: Int -&gt; ReadS H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679873792"><span id="local-6989586621679873794"><span class="annot"><span class="annottext">H264Level -&gt; H264Level -&gt; Bool
+(H264Level -&gt; H264Level -&gt; Bool)
+-&gt; (H264Level -&gt; H264Level -&gt; Bool) -&gt; Eq H264Level
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264Level -&gt; H264Level -&gt; Bool
+$c/= :: H264Level -&gt; H264Level -&gt; Bool
+== :: H264Level -&gt; H264Level -&gt; Bool
+$c== :: H264Level -&gt; H264Level -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679873776"><span id="local-6989586621679873778"><span id="local-6989586621679873780"><span id="local-6989586621679873782"><span id="local-6989586621679873784"><span id="local-6989586621679873786"><span id="local-6989586621679873788"><span class="annot"><span class="annottext">Eq H264Level
+Eq H264Level
+-&gt; (H264Level -&gt; H264Level -&gt; Ordering)
+-&gt; (H264Level -&gt; H264Level -&gt; Bool)
+-&gt; (H264Level -&gt; H264Level -&gt; Bool)
+-&gt; (H264Level -&gt; H264Level -&gt; Bool)
+-&gt; (H264Level -&gt; H264Level -&gt; Bool)
+-&gt; (H264Level -&gt; H264Level -&gt; H264Level)
+-&gt; (H264Level -&gt; H264Level -&gt; H264Level)
+-&gt; Ord H264Level
+H264Level -&gt; H264Level -&gt; Bool
+H264Level -&gt; H264Level -&gt; Ordering
+H264Level -&gt; H264Level -&gt; H264Level
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264Level -&gt; H264Level -&gt; H264Level
+$cmin :: H264Level -&gt; H264Level -&gt; H264Level
+max :: H264Level -&gt; H264Level -&gt; H264Level
+$cmax :: H264Level -&gt; H264Level -&gt; H264Level
+&gt;= :: H264Level -&gt; H264Level -&gt; Bool
+$c&gt;= :: H264Level -&gt; H264Level -&gt; Bool
+&gt; :: H264Level -&gt; H264Level -&gt; Bool
+$c&gt; :: H264Level -&gt; H264Level -&gt; Bool
+&lt;= :: H264Level -&gt; H264Level -&gt; Bool
+$c&lt;= :: H264Level -&gt; H264Level -&gt; Bool
+&lt; :: H264Level -&gt; H264Level -&gt; Bool
+$c&lt; :: H264Level -&gt; H264Level -&gt; Bool
+compare :: H264Level -&gt; H264Level -&gt; Ordering
+$ccompare :: H264Level -&gt; H264Level -&gt; Ordering
+$cp1Ord :: Eq H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264Level -&gt; Rep H264Level x)
+-&gt; (forall x. Rep H264Level x -&gt; H264Level) -&gt; Generic H264Level
+forall x. Rep H264Level x -&gt; H264Level
+forall x. H264Level -&gt; Rep H264Level x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264Level x -&gt; H264Level
+$cfrom :: forall x. H264Level -&gt; Rep H264Level x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873768"><span id="local-6989586621679873770"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; Int
+H264Level -&gt; Int
+(Int -&gt; H264Level -&gt; Int)
+-&gt; (H264Level -&gt; Int) -&gt; Hashable H264Level
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264Level -&gt; Int
+$chash :: H264Level -&gt; Int
+hashWithSalt :: Int -&gt; H264Level -&gt; Int
+$chashWithSalt :: Int -&gt; H264Level -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679873765"><span class="annot"><span class="annottext">H264Level -&gt; ()
+(H264Level -&gt; ()) -&gt; NFData H264Level
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264Level -&gt; ()
+$crnf :: H264Level -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679873762"><span class="annot"><span class="annottext">Text -&gt; Either String H264Level
+(Text -&gt; Either String H264Level) -&gt; FromText H264Level
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264Level
+$cfromText :: Text -&gt; Either String H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679873759"><span class="annot"><span class="annottext">H264Level -&gt; Text
+(H264Level -&gt; Text) -&gt; ToText H264Level
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264Level -&gt; Text
+$ctoText :: H264Level -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679873756"><span class="annot"><span class="annottext">H264Level -&gt; ByteString
+(H264Level -&gt; ByteString) -&gt; ToByteString H264Level
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264Level -&gt; ByteString
+$ctoBS :: H264Level -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679873753"><span class="annot"><span class="annottext">H264Level -&gt; ByteStringBuilder
+(H264Level -&gt; ByteStringBuilder) -&gt; ToLog H264Level
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264Level -&gt; ByteStringBuilder
+$cbuild :: H264Level -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679873750"><span class="annot"><span class="annottext">HeaderName -&gt; H264Level -&gt; [Header]
+(HeaderName -&gt; H264Level -&gt; [Header]) -&gt; ToHeader H264Level
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264Level -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264Level -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679873747"><span class="annot"><span class="annottext">H264Level -&gt; QueryString
+(H264Level -&gt; QueryString) -&gt; ToQuery H264Level
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264Level -&gt; QueryString
+$ctoQuery :: H264Level -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679873742"><span id="local-6989586621679873744"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Level]
+Value -&gt; Parser H264Level
+(Value -&gt; Parser H264Level)
+-&gt; (Value -&gt; Parser [H264Level]) -&gt; FromJSON H264Level
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264Level]
+$cparseJSONList :: Value -&gt; Parser [H264Level]
+parseJSON :: Value -&gt; Parser H264Level
+$cparseJSON :: Value -&gt; Parser H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679873737"><span id="local-6989586621679873739"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Level]
+FromJSONKeyFunction H264Level
+FromJSONKeyFunction H264Level
+-&gt; FromJSONKeyFunction [H264Level] -&gt; FromJSONKey H264Level
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264Level]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264Level]
+fromJSONKey :: FromJSONKeyFunction H264Level
+$cfromJSONKey :: FromJSONKeyFunction H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679873728"><span id="local-6989586621679873730"><span id="local-6989586621679873732"><span id="local-6989586621679873734"><span class="annot"><span class="annottext">[H264Level] -&gt; Encoding
+[H264Level] -&gt; Value
+H264Level -&gt; Encoding
+H264Level -&gt; Value
+(H264Level -&gt; Value)
+-&gt; (H264Level -&gt; Encoding)
+-&gt; ([H264Level] -&gt; Value)
+-&gt; ([H264Level] -&gt; Encoding)
+-&gt; ToJSON H264Level
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264Level] -&gt; Encoding
+$ctoEncodingList :: [H264Level] -&gt; Encoding
+toJSONList :: [H264Level] -&gt; Value
+$ctoJSONList :: [H264Level] -&gt; Value
+toEncoding :: H264Level -&gt; Encoding
+$ctoEncoding :: H264Level -&gt; Encoding
+toJSON :: H264Level -&gt; Value
+$ctoJSON :: H264Level -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679873723"><span id="local-6989586621679873725"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Level]
+ToJSONKeyFunction H264Level
+ToJSONKeyFunction H264Level
+-&gt; ToJSONKeyFunction [H264Level] -&gt; ToJSONKey H264Level
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264Level]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264Level]
+toJSONKey :: ToJSONKeyFunction H264Level
+$ctoJSONKey :: ToJSONKeyFunction H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679873720"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Level
+([Node] -&gt; Either String H264Level) -&gt; FromXML H264Level
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264Level
+$cparseXML :: [Node] -&gt; Either String H264Level
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679873717"><span class="annot"><span class="annottext">H264Level -&gt; XML
+(H264Level -&gt; XML) -&gt; ToXML H264Level
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264Level -&gt; XML
+$ctoXML :: H264Level -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_1"><span id="%24mH264Level_H264_LEVEL_1"><span id="H264Level_H264_LEVEL_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_1 :: H264Level
+$mH264Level_H264_LEVEL_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_1&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_1_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_1_1"><span id="%24mH264Level_H264_LEVEL_1_1"><span id="H264Level_H264_LEVEL_1_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_1_1 :: H264Level
+$mH264Level_H264_LEVEL_1_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_1_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_1_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_1_1&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_1_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_1_2"><span id="%24mH264Level_H264_LEVEL_1_2"><span id="H264Level_H264_LEVEL_1_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_1_2 :: H264Level
+$mH264Level_H264_LEVEL_1_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_1_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_1_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_1_2&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_3"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_1_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_1_3"><span id="%24mH264Level_H264_LEVEL_1_3"><span id="H264Level_H264_LEVEL_1_3"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_1_3 :: H264Level
+$mH264Level_H264_LEVEL_1_3 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_1_3"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_1_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_1_3&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_2"><span id="%24mH264Level_H264_LEVEL_2"><span id="H264Level_H264_LEVEL_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_2 :: H264Level
+$mH264Level_H264_LEVEL_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_2&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_2_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_2_1"><span id="%24mH264Level_H264_LEVEL_2_1"><span id="H264Level_H264_LEVEL_2_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_2_1 :: H264Level
+$mH264Level_H264_LEVEL_2_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_2_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_2_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_2_1&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_2_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_2_2"><span id="%24mH264Level_H264_LEVEL_2_2"><span id="H264Level_H264_LEVEL_2_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_2_2 :: H264Level
+$mH264Level_H264_LEVEL_2_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_2_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_2_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_2_2&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_3"><span id="%24mH264Level_H264_LEVEL_3"><span id="H264Level_H264_LEVEL_3"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_3 :: H264Level
+$mH264Level_H264_LEVEL_3 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_3"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_3&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_3_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_3_1"><span id="%24mH264Level_H264_LEVEL_3_1"><span id="H264Level_H264_LEVEL_3_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_3_1 :: H264Level
+$mH264Level_H264_LEVEL_3_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_3_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_3_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_3_1&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_3_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_3_2"><span id="%24mH264Level_H264_LEVEL_3_2"><span id="H264Level_H264_LEVEL_3_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_3_2 :: H264Level
+$mH264Level_H264_LEVEL_3_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_3_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_3_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_3_2&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_4"><span id="%24mH264Level_H264_LEVEL_4"><span id="H264Level_H264_LEVEL_4"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_4 :: H264Level
+$mH264Level_H264_LEVEL_4 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_4"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_4&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_4_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_4_1"><span id="%24mH264Level_H264_LEVEL_4_1"><span id="H264Level_H264_LEVEL_4_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_4_1 :: H264Level
+$mH264Level_H264_LEVEL_4_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_4_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_4_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_4_1&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_4_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_4_2"><span id="%24mH264Level_H264_LEVEL_4_2"><span id="H264Level_H264_LEVEL_4_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_4_2 :: H264Level
+$mH264Level_H264_LEVEL_4_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_4_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_4_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_4_2&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_5"><span id="%24mH264Level_H264_LEVEL_5"><span id="H264Level_H264_LEVEL_5"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_5 :: H264Level
+$mH264Level_H264_LEVEL_5 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_5"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_5</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_5&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_1"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_5_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_5_1"><span id="%24mH264Level_H264_LEVEL_5_1"><span id="H264Level_H264_LEVEL_5_1"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_5_1 :: H264Level
+$mH264Level_H264_LEVEL_5_1 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_5_1"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_5_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_5_1&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_2"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_5_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_5_2"><span id="%24mH264Level_H264_LEVEL_5_2"><span id="H264Level_H264_LEVEL_5_2"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_5_2 :: H264Level
+$mH264Level_H264_LEVEL_5_2 :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_5_2"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_5_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_5_2&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_AUTO"><span class="hs-identifier hs-type">H264Level_H264_LEVEL_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-type">H264Level</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264Level_H264_LEVEL_AUTO"><span id="%24mH264Level_H264_LEVEL_AUTO"><span id="H264Level_H264_LEVEL_AUTO"><span class="annot"><span class="annottext">$bH264Level_H264_LEVEL_AUTO :: H264Level
+$mH264Level_H264_LEVEL_AUTO :: forall r. H264Level -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H264Level.html#%24bH264Level_H264_LEVEL_AUTO"><span class="hs-identifier hs-var hs-var hs-var">H264Level_H264_LEVEL_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-type">H264Level'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;H264_LEVEL_AUTO&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_1_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_1_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_1_3"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_1_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_2_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_2_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_2_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_3_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_3_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_3_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_4_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_4_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_4_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_5</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_1"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_5_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_5_2"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_5_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level_H264_LEVEL_AUTO"><span class="hs-pragma hs-type">H264Level_H264_LEVEL_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-pragma hs-type">H264Level'</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-147"></span></pre></body></html>

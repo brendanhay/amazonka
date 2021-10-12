@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.VideoSelector</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.VideoSelector</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.AlphaBehavior</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.ColorSpace</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpaceUsage.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.ColorSpaceUsage</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Metadata.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Hdr10Metadata</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputRotate.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.InputRotate</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.InputSampleRange</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Input video selectors contain the video settings for the input. Each of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- your inputs can have up to one video selector.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newVideoSelector' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621680007228"><span id="local-6989586621680007229"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelector"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-var">VideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelector%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | There are two sources for color metadata, the input file and the job</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- input settings Color space (ColorSpace) and HDR master display</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- information settings(Hdr10Metadata). The Color space usage setting</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- determines which takes precedence. Choose Force (FORCE) to use color</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- metadata from the input job settings. If you don\'t specify values for</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- those settings, the service defaults to using metadata from your input.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- source when it is present. If there\'s no color metadata in your input</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- file, the service defaults to using values you specify in the input</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe ColorSpaceUsage
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpaceUsage.html#ColorSpaceUsage"><span class="hs-identifier hs-type">ColorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Use this setting when your input video codec is AVC-Intra. Ignore this</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- setting for all other inputs. If the sample range metadata in your input</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- video is accurate, or if you don\'t know about sample range, keep the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- default value, Follow (FOLLOW), for this setting. When you do, the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- service automatically detects your input sample range. If your input</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- video has metadata indicating the wrong sample range, specify the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- accurate sample range here. When you do, MediaConvert ignores any sample</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- range information in the input metadata. Regardless of whether</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- MediaConvert uses the input sample range or the sample range that you</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- specify, MediaConvert uses the sample range for transcoding and also</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- writes it to the output metadata.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsampleRange%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe InputSampleRange
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AsampleRange%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">sampleRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Use these settings to provide HDR 10 metadata that is missing or</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- inaccurate in your input video. Appropriate values vary depending on the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- input video and must be provided by a color grader. The color grader</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- generates these values during the HDR 10 mastering process. The valid</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- range for each of these settings is 0 to 50,000. Each increment</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- represents 0.00002 in CIE1931 color coordinate. Related settings - When</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you specify these values, you must also set Color space (ColorSpace) to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- HDR 10 (HDR10). To specify whether the the values you specify here take</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- precedence over the values in the metadata of your input file, set Color</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- space usage (ColorSpaceUsage). To specify whether color metadata is</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- included in an output, set Color metadata (ColorMetadata). For more</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Ahdr10Metadata%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe Hdr10Metadata
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Ahdr10Metadata%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Selects a specific program from within a multi-program transport stream.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Note that Quad 4K is not currently supported.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AprogramNumber%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AprogramNumber%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Use Rotate (InputRotate) to specify how the service rotates your video.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- You can choose automatic rotation or specify a rotation. You can specify</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- container is .mov or .mp4 and your input has rotation metadata, you can</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- choose Automatic to have the service rotate your video according to the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- rotation specified in the metadata. The rotation must be within one</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- degree of 90, 180, or 270 degrees. If the rotation metadata specifies</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- any other rotation, the service will default to no rotation. By default,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- the service does no rotation, even if your input video has rotation</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- metadata. The service doesn\'t pass through rotation metadata.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Arotate%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe InputRotate
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Arotate%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">rotate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputRotate.html#InputRotate"><span class="hs-identifier hs-type">InputRotate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | If your input video has accurate color space metadata, or if you don\'t</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- know about color space, leave this set to the default value Follow</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- (FOLLOW). The service will automatically detect your input color space.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- If your input video has metadata indicating the wrong color space,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- specify the accurate color space here. If your input video is HDR 10 and</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- present in your video stream, or if that metadata is present but not</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AcolorSpace%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe ColorSpace
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace"><span class="hs-identifier hs-type">ColorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Ignore this setting unless this input is a QuickTime animation with an</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- alpha channel. Use this setting to create separate Key and Fill outputs.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- In each output, specify which part of the input MediaConvert uses. Leave</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- this setting at the default value DISCARD to delete the alpha channel</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- map the alpha channel to the luma channel of your outputs.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AalphaBehavior%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe AlphaBehavior
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AalphaBehavior%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">alphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-type">AlphaBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Use PID (Pid) to select specific video data from an input file. Specify</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- this value as an integer; the system automatically converts it to the</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- identifier, is an identifier for a set of data in an MPEG-2 transport</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- stream container.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Apid%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Apid%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007215"><span id="local-6989586621680007217"><span class="annot"><span class="annottext">VideoSelector -&gt; VideoSelector -&gt; Bool
+(VideoSelector -&gt; VideoSelector -&gt; Bool)
+-&gt; (VideoSelector -&gt; VideoSelector -&gt; Bool) -&gt; Eq VideoSelector
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VideoSelector -&gt; VideoSelector -&gt; Bool
+$c/= :: VideoSelector -&gt; VideoSelector -&gt; Bool
+== :: VideoSelector -&gt; VideoSelector -&gt; Bool
+$c== :: VideoSelector -&gt; VideoSelector -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007206"><span id="local-6989586621680007208"><span id="local-6989586621680007210"><span id="local-6989586621680007212"><span class="annot"><span class="annottext">ReadPrec [VideoSelector]
+ReadPrec VideoSelector
+Int -&gt; ReadS VideoSelector
+ReadS [VideoSelector]
+(Int -&gt; ReadS VideoSelector)
+-&gt; ReadS [VideoSelector]
+-&gt; ReadPrec VideoSelector
+-&gt; ReadPrec [VideoSelector]
+-&gt; Read VideoSelector
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VideoSelector]
+$creadListPrec :: ReadPrec [VideoSelector]
+readPrec :: ReadPrec VideoSelector
+$creadPrec :: ReadPrec VideoSelector
+readList :: ReadS [VideoSelector]
+$creadList :: ReadS [VideoSelector]
+readsPrec :: Int -&gt; ReadS VideoSelector
+$creadsPrec :: Int -&gt; ReadS VideoSelector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007199"><span id="local-6989586621680007201"><span id="local-6989586621680007203"><span class="annot"><span class="annottext">Int -&gt; VideoSelector -&gt; ShowS
+[VideoSelector] -&gt; ShowS
+VideoSelector -&gt; String
+(Int -&gt; VideoSelector -&gt; ShowS)
+-&gt; (VideoSelector -&gt; String)
+-&gt; ([VideoSelector] -&gt; ShowS)
+-&gt; Show VideoSelector
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VideoSelector] -&gt; ShowS
+$cshowList :: [VideoSelector] -&gt; ShowS
+show :: VideoSelector -&gt; String
+$cshow :: VideoSelector -&gt; String
+showsPrec :: Int -&gt; VideoSelector -&gt; ShowS
+$cshowsPrec :: Int -&gt; VideoSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VideoSelector -&gt; Rep VideoSelector x)
+-&gt; (forall x. Rep VideoSelector x -&gt; VideoSelector)
+-&gt; Generic VideoSelector
+forall x. Rep VideoSelector x -&gt; VideoSelector
+forall x. VideoSelector -&gt; Rep VideoSelector x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VideoSelector x -&gt; VideoSelector
+$cfrom :: forall x. VideoSelector -&gt; Rep VideoSelector x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'VideoSelector' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - There are two sources for color metadata, the input file and the job</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- input settings Color space (ColorSpace) and HDR master display</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- information settings(Hdr10Metadata). The Color space usage setting</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- determines which takes precedence. Choose Force (FORCE) to use color</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- metadata from the input job settings. If you don\'t specify values for</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- those settings, the service defaults to using metadata from your input.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- source when it is present. If there\'s no color metadata in your input</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- file, the service defaults to using values you specify in the input</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'sampleRange', 'videoSelector_sampleRange' - Use this setting when your input video codec is AVC-Intra. Ignore this</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- setting for all other inputs. If the sample range metadata in your input</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- video is accurate, or if you don\'t know about sample range, keep the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- default value, Follow (FOLLOW), for this setting. When you do, the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- service automatically detects your input sample range. If your input</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- video has metadata indicating the wrong sample range, specify the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- accurate sample range here. When you do, MediaConvert ignores any sample</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- range information in the input metadata. Regardless of whether</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- MediaConvert uses the input sample range or the sample range that you</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- specify, MediaConvert uses the sample range for transcoding and also</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- writes it to the output metadata.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'hdr10Metadata', 'videoSelector_hdr10Metadata' - Use these settings to provide HDR 10 metadata that is missing or</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- inaccurate in your input video. Appropriate values vary depending on the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- input video and must be provided by a color grader. The color grader</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- generates these values during the HDR 10 mastering process. The valid</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- range for each of these settings is 0 to 50,000. Each increment</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- represents 0.00002 in CIE1931 color coordinate. Related settings - When</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- you specify these values, you must also set Color space (ColorSpace) to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- HDR 10 (HDR10). To specify whether the the values you specify here take</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- precedence over the values in the metadata of your input file, set Color</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- space usage (ColorSpaceUsage). To specify whether color metadata is</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- included in an output, set Color metadata (ColorMetadata). For more</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'programNumber', 'videoSelector_programNumber' - Selects a specific program from within a multi-program transport stream.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Note that Quad 4K is not currently supported.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'rotate', 'videoSelector_rotate' - Use Rotate (InputRotate) to specify how the service rotates your video.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- You can choose automatic rotation or specify a rotation. You can specify</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- container is .mov or .mp4 and your input has rotation metadata, you can</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- choose Automatic to have the service rotate your video according to the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- rotation specified in the metadata. The rotation must be within one</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- degree of 90, 180, or 270 degrees. If the rotation metadata specifies</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- any other rotation, the service will default to no rotation. By default,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the service does no rotation, even if your input video has rotation</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- metadata. The service doesn\'t pass through rotation metadata.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'colorSpace', 'videoSelector_colorSpace' - If your input video has accurate color space metadata, or if you don\'t</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- know about color space, leave this set to the default value Follow</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- (FOLLOW). The service will automatically detect your input color space.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- If your input video has metadata indicating the wrong color space,</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- specify the accurate color space here. If your input video is HDR 10 and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- present in your video stream, or if that metadata is present but not</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'alphaBehavior', 'videoSelector_alphaBehavior' - Ignore this setting unless this input is a QuickTime animation with an</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- alpha channel. Use this setting to create separate Key and Fill outputs.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- In each output, specify which part of the input MediaConvert uses. Leave</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- this setting at the default value DISCARD to delete the alpha channel</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- map the alpha channel to the luma channel of your outputs.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'pid', 'videoSelector_pid' - Use PID (Pid) to select specific video data from an input file. Specify</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- this value as an integer; the system automatically converts it to the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- identifier, is an identifier for a set of data in an MPEG-2 transport</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- stream container.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#newVideoSelector"><span class="hs-identifier hs-type">newVideoSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span>
+</span><span id="line-201"></span><span id="newVideoSelector"><span class="annot"><span class="annottext">newVideoSelector :: VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#newVideoSelector"><span class="hs-identifier hs-var hs-var">newVideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">VideoSelector' :: Maybe ColorSpaceUsage
+-&gt; Maybe InputSampleRange
+-&gt; Maybe Hdr10Metadata
+-&gt; Maybe Int
+-&gt; Maybe InputRotate
+-&gt; Maybe ColorSpace
+-&gt; Maybe AlphaBehavior
+-&gt; Maybe Natural
+-&gt; VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe ColorSpaceUsage
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:sampleRange:VideoSelector' :: Maybe InputSampleRange
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AsampleRange%3AVideoSelector%27"><span class="hs-identifier hs-var">sampleRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:hdr10Metadata:VideoSelector' :: Maybe Hdr10Metadata
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Ahdr10Metadata%3AVideoSelector%27"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:programNumber:VideoSelector' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AprogramNumber%3AVideoSelector%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:rotate:VideoSelector' :: Maybe InputRotate
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Arotate%3AVideoSelector%27"><span class="hs-identifier hs-var">rotate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe ColorSpace
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:alphaBehavior:VideoSelector' :: Maybe AlphaBehavior
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AalphaBehavior%3AVideoSelector%27"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:pid:VideoSelector' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Apid%3AVideoSelector%27"><span class="hs-identifier hs-var">pid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | There are two sources for color metadata, the input file and the job</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- input settings Color space (ColorSpace) and HDR master display</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- information settings(Hdr10Metadata). The Color space usage setting</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- determines which takes precedence. Choose Force (FORCE) to use color</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- metadata from the input job settings. If you don\'t specify values for</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- those settings, the service defaults to using metadata from your input.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- source when it is present. If there\'s no color metadata in your input</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- file, the service defaults to using values you specify in the input</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_colorSpaceUsage"><span class="hs-identifier hs-type">videoSelector_colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpaceUsage.html#ColorSpaceUsage"><span class="hs-identifier hs-type">ColorSpaceUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="videoSelector_colorSpaceUsage"><span class="annot"><span class="annottext">videoSelector_colorSpaceUsage :: (Maybe ColorSpaceUsage -&gt; f (Maybe ColorSpaceUsage))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_colorSpaceUsage"><span class="hs-identifier hs-var hs-var">videoSelector_colorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe ColorSpaceUsage)
+-&gt; (VideoSelector -&gt; Maybe ColorSpaceUsage -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector
+     VideoSelector
+     (Maybe ColorSpaceUsage)
+     (Maybe ColorSpaceUsage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007190"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+colorSpaceUsage :: Maybe ColorSpaceUsage
+$sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007190"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007190"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007189"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007188"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe ColorSpaceUsage
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Use this setting when your input video codec is AVC-Intra. Ignore this</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- setting for all other inputs. If the sample range metadata in your input</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- video is accurate, or if you don\'t know about sample range, keep the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- default value, Follow (FOLLOW), for this setting. When you do, the</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- service automatically detects your input sample range. If your input</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- video has metadata indicating the wrong sample range, specify the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- accurate sample range here. When you do, MediaConvert ignores any sample</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- range information in the input metadata. Regardless of whether</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- MediaConvert uses the input sample range or the sample range that you</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- specify, MediaConvert uses the sample range for transcoding and also</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- writes it to the output metadata.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_sampleRange"><span class="hs-identifier hs-type">videoSelector_sampleRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="videoSelector_sampleRange"><span class="annot"><span class="annottext">videoSelector_sampleRange :: (Maybe InputSampleRange -&gt; f (Maybe InputSampleRange))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_sampleRange"><span class="hs-identifier hs-var hs-var">videoSelector_sampleRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe InputSampleRange)
+-&gt; (VideoSelector -&gt; Maybe InputSampleRange -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector
+     VideoSelector
+     (Maybe InputSampleRange)
+     (Maybe InputSampleRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007186"><span class="annot"><span class="annottext">Maybe InputSampleRange
+sampleRange :: Maybe InputSampleRange
+$sel:sampleRange:VideoSelector' :: VideoSelector -&gt; Maybe InputSampleRange
+</span><a href="#local-6989586621680007186"><span class="hs-identifier hs-var hs-var">sampleRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680007186"><span class="hs-identifier hs-var">sampleRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007185"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007184"><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680007184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRange:VideoSelector' :: Maybe InputSampleRange
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AsampleRange%3AVideoSelector%27"><span class="hs-identifier hs-var">sampleRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680007184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Use these settings to provide HDR 10 metadata that is missing or</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- inaccurate in your input video. Appropriate values vary depending on the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- input video and must be provided by a color grader. The color grader</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- generates these values during the HDR 10 mastering process. The valid</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- range for each of these settings is 0 to 50,000. Each increment</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- represents 0.00002 in CIE1931 color coordinate. Related settings - When</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- you specify these values, you must also set Color space (ColorSpace) to</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- HDR 10 (HDR10). To specify whether the the values you specify here take</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- precedence over the values in the metadata of your input file, set Color</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- space usage (ColorSpaceUsage). To specify whether color metadata is</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- included in an output, set Color metadata (ColorMetadata). For more</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_hdr10Metadata"><span class="hs-identifier hs-type">videoSelector_hdr10Metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Hdr10Metadata.html#Hdr10Metadata"><span class="hs-identifier hs-type">Hdr10Metadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="videoSelector_hdr10Metadata"><span class="annot"><span class="annottext">videoSelector_hdr10Metadata :: (Maybe Hdr10Metadata -&gt; f (Maybe Hdr10Metadata))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_hdr10Metadata"><span class="hs-identifier hs-var hs-var">videoSelector_hdr10Metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe Hdr10Metadata)
+-&gt; (VideoSelector -&gt; Maybe Hdr10Metadata -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector
+     VideoSelector
+     (Maybe Hdr10Metadata)
+     (Maybe Hdr10Metadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007182"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+hdr10Metadata :: Maybe Hdr10Metadata
+$sel:hdr10Metadata:VideoSelector' :: VideoSelector -&gt; Maybe Hdr10Metadata
+</span><a href="#local-6989586621680007182"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680007182"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007181"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007180"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680007180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Metadata:VideoSelector' :: Maybe Hdr10Metadata
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Ahdr10Metadata%3AVideoSelector%27"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680007180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Selects a specific program from within a multi-program transport stream.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- Note that Quad 4K is not currently supported.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_programNumber"><span class="hs-identifier hs-type">videoSelector_programNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="videoSelector_programNumber"><span class="annot"><span class="annottext">videoSelector_programNumber :: (Maybe Int -&gt; f (Maybe Int)) -&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_programNumber"><span class="hs-identifier hs-var hs-var">videoSelector_programNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe Int)
+-&gt; (VideoSelector -&gt; Maybe Int -&gt; VideoSelector)
+-&gt; Lens VideoSelector VideoSelector (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007178"><span class="annot"><span class="annottext">Maybe Int
+programNumber :: Maybe Int
+$sel:programNumber:VideoSelector' :: VideoSelector -&gt; Maybe Int
+</span><a href="#local-6989586621680007178"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680007178"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007177"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007176"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680007176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:VideoSelector' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AprogramNumber%3AVideoSelector%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680007176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | Use Rotate (InputRotate) to specify how the service rotates your video.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- You can choose automatic rotation or specify a rotation. You can specify</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- container is .mov or .mp4 and your input has rotation metadata, you can</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- choose Automatic to have the service rotate your video according to the</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- rotation specified in the metadata. The rotation must be within one</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- degree of 90, 180, or 270 degrees. If the rotation metadata specifies</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- any other rotation, the service will default to no rotation. By default,</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- the service does no rotation, even if your input video has rotation</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- metadata. The service doesn\'t pass through rotation metadata.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_rotate"><span class="hs-identifier hs-type">videoSelector_rotate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputRotate.html#InputRotate"><span class="hs-identifier hs-type">InputRotate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="videoSelector_rotate"><span class="annot"><span class="annottext">videoSelector_rotate :: (Maybe InputRotate -&gt; f (Maybe InputRotate))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_rotate"><span class="hs-identifier hs-var hs-var">videoSelector_rotate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe InputRotate)
+-&gt; (VideoSelector -&gt; Maybe InputRotate -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector VideoSelector (Maybe InputRotate) (Maybe InputRotate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007174"><span class="annot"><span class="annottext">Maybe InputRotate
+rotate :: Maybe InputRotate
+$sel:rotate:VideoSelector' :: VideoSelector -&gt; Maybe InputRotate
+</span><a href="#local-6989586621680007174"><span class="hs-identifier hs-var hs-var">rotate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680007174"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007173"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007172"><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680007172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotate:VideoSelector' :: Maybe InputRotate
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Arotate%3AVideoSelector%27"><span class="hs-identifier hs-var">rotate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680007172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | If your input video has accurate color space metadata, or if you don\'t</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- know about color space, leave this set to the default value Follow</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- (FOLLOW). The service will automatically detect your input color space.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- If your input video has metadata indicating the wrong color space,</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- specify the accurate color space here. If your input video is HDR 10 and</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- present in your video stream, or if that metadata is present but not</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- values in the input HDR 10 metadata (Hdr10Metadata) settings. For more</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- information about MediaConvert HDR jobs, see</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_colorSpace"><span class="hs-identifier hs-type">videoSelector_colorSpace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorSpace.html#ColorSpace"><span class="hs-identifier hs-type">ColorSpace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="videoSelector_colorSpace"><span class="annot"><span class="annottext">videoSelector_colorSpace :: (Maybe ColorSpace -&gt; f (Maybe ColorSpace))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_colorSpace"><span class="hs-identifier hs-var hs-var">videoSelector_colorSpace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe ColorSpace)
+-&gt; (VideoSelector -&gt; Maybe ColorSpace -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector VideoSelector (Maybe ColorSpace) (Maybe ColorSpace)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007170"><span class="annot"><span class="annottext">Maybe ColorSpace
+colorSpace :: Maybe ColorSpace
+$sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpace
+</span><a href="#local-6989586621680007170"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680007170"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007169"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007168"><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680007168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe ColorSpace
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680007168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Ignore this setting unless this input is a QuickTime animation with an</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- alpha channel. Use this setting to create separate Key and Fill outputs.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- In each output, specify which part of the input MediaConvert uses. Leave</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- this setting at the default value DISCARD to delete the alpha channel</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- map the alpha channel to the luma channel of your outputs.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_alphaBehavior"><span class="hs-identifier hs-type">videoSelector_alphaBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AlphaBehavior.html#AlphaBehavior"><span class="hs-identifier hs-type">AlphaBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="videoSelector_alphaBehavior"><span class="annot"><span class="annottext">videoSelector_alphaBehavior :: (Maybe AlphaBehavior -&gt; f (Maybe AlphaBehavior))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_alphaBehavior"><span class="hs-identifier hs-var hs-var">videoSelector_alphaBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe AlphaBehavior)
+-&gt; (VideoSelector -&gt; Maybe AlphaBehavior -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector
+     VideoSelector
+     (Maybe AlphaBehavior)
+     (Maybe AlphaBehavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007166"><span class="annot"><span class="annottext">Maybe AlphaBehavior
+alphaBehavior :: Maybe AlphaBehavior
+$sel:alphaBehavior:VideoSelector' :: VideoSelector -&gt; Maybe AlphaBehavior
+</span><a href="#local-6989586621680007166"><span class="hs-identifier hs-var hs-var">alphaBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680007166"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007165"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007164"><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680007164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alphaBehavior:VideoSelector' :: Maybe AlphaBehavior
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AalphaBehavior%3AVideoSelector%27"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680007164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | Use PID (Pid) to select specific video data from an input file. Specify</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- this value as an integer; the system automatically converts it to the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- identifier, is an identifier for a set of data in an MPEG-2 transport</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- stream container.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_pid"><span class="hs-identifier hs-type">videoSelector_pid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="videoSelector_pid"><span class="annot"><span class="annottext">videoSelector_pid :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#videoSelector_pid"><span class="hs-identifier hs-var hs-var">videoSelector_pid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe Natural)
+-&gt; (VideoSelector -&gt; Maybe Natural -&gt; VideoSelector)
+-&gt; Lens VideoSelector VideoSelector (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007162"><span class="annot"><span class="annottext">Maybe Natural
+pid :: Maybe Natural
+$sel:pid:VideoSelector' :: VideoSelector -&gt; Maybe Natural
+</span><a href="#local-6989586621680007162"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007162"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007161"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680007161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007160"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680007161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pid:VideoSelector' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Apid%3AVideoSelector%27"><span class="hs-identifier hs-var">pid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007157"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621680007155"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VideoSelector)
+-&gt; Value
+-&gt; Parser VideoSelector
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-308"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VideoSelector&quot;</span></span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+-&gt; Maybe InputSampleRange
+-&gt; Maybe Hdr10Metadata
+-&gt; Maybe Int
+-&gt; Maybe InputRotate
+-&gt; Maybe ColorSpace
+-&gt; Maybe AlphaBehavior
+-&gt; Maybe Natural
+-&gt; VideoSelector
+</span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ColorSpaceUsage
+ -&gt; Maybe InputSampleRange
+ -&gt; Maybe Hdr10Metadata
+ -&gt; Maybe Int
+ -&gt; Maybe InputRotate
+ -&gt; Maybe ColorSpace
+ -&gt; Maybe AlphaBehavior
+ -&gt; Maybe Natural
+ -&gt; VideoSelector)
+-&gt; Parser (Maybe ColorSpaceUsage)
+-&gt; Parser
+     (Maybe InputSampleRange
+      -&gt; Maybe Hdr10Metadata
+      -&gt; Maybe Int
+      -&gt; Maybe InputRotate
+      -&gt; Maybe ColorSpace
+      -&gt; Maybe AlphaBehavior
+      -&gt; Maybe Natural
+      -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpaceUsage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputSampleRange
+   -&gt; Maybe Hdr10Metadata
+   -&gt; Maybe Int
+   -&gt; Maybe InputRotate
+   -&gt; Maybe ColorSpace
+   -&gt; Maybe AlphaBehavior
+   -&gt; Maybe Natural
+   -&gt; VideoSelector)
+-&gt; Parser (Maybe InputSampleRange)
+-&gt; Parser
+     (Maybe Hdr10Metadata
+      -&gt; Maybe Int
+      -&gt; Maybe InputRotate
+      -&gt; Maybe ColorSpace
+      -&gt; Maybe AlphaBehavior
+      -&gt; Maybe Natural
+      -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSampleRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Hdr10Metadata
+   -&gt; Maybe Int
+   -&gt; Maybe InputRotate
+   -&gt; Maybe ColorSpace
+   -&gt; Maybe AlphaBehavior
+   -&gt; Maybe Natural
+   -&gt; VideoSelector)
+-&gt; Parser (Maybe Hdr10Metadata)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe InputRotate
+      -&gt; Maybe ColorSpace
+      -&gt; Maybe AlphaBehavior
+      -&gt; Maybe Natural
+      -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Metadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe InputRotate
+   -&gt; Maybe ColorSpace
+   -&gt; Maybe AlphaBehavior
+   -&gt; Maybe Natural
+   -&gt; VideoSelector)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe InputRotate
+      -&gt; Maybe ColorSpace
+      -&gt; Maybe AlphaBehavior
+      -&gt; Maybe Natural
+      -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;programNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputRotate
+   -&gt; Maybe ColorSpace
+   -&gt; Maybe AlphaBehavior
+   -&gt; Maybe Natural
+   -&gt; VideoSelector)
+-&gt; Parser (Maybe InputRotate)
+-&gt; Parser
+     (Maybe ColorSpace
+      -&gt; Maybe AlphaBehavior -&gt; Maybe Natural -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputRotate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rotate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ColorSpace
+   -&gt; Maybe AlphaBehavior -&gt; Maybe Natural -&gt; VideoSelector)
+-&gt; Parser (Maybe ColorSpace)
+-&gt; Parser (Maybe AlphaBehavior -&gt; Maybe Natural -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpace)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AlphaBehavior -&gt; Maybe Natural -&gt; VideoSelector)
+-&gt; Parser (Maybe AlphaBehavior)
+-&gt; Parser (Maybe Natural -&gt; VideoSelector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlphaBehavior)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alphaBehavior&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; VideoSelector)
+-&gt; Parser (Maybe Natural) -&gt; Parser VideoSelector
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pid&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007146"><span id="local-6989586621680007148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007135"><span id="local-6989586621680007137"><span id="local-6989586621680007139"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621680007133"><span class="annot"><span class="annottext">toJSON :: VideoSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007124"><span id="local-6989586621680007125"><span id="local-6989586621680007126"><span id="local-6989586621680007127"><span id="local-6989586621680007128"><span id="local-6989586621680007129"><span id="local-6989586621680007130"><span id="local-6989586621680007131"><span class="annot"><span class="annottext">Maybe Int
+Maybe Natural
+Maybe AlphaBehavior
+Maybe ColorSpace
+Maybe ColorSpaceUsage
+Maybe Hdr10Metadata
+Maybe InputRotate
+Maybe InputSampleRange
+pid :: Maybe Natural
+alphaBehavior :: Maybe AlphaBehavior
+colorSpace :: Maybe ColorSpace
+rotate :: Maybe InputRotate
+programNumber :: Maybe Int
+hdr10Metadata :: Maybe Hdr10Metadata
+sampleRange :: Maybe InputSampleRange
+colorSpaceUsage :: Maybe ColorSpaceUsage
+$sel:pid:VideoSelector' :: VideoSelector -&gt; Maybe Natural
+$sel:alphaBehavior:VideoSelector' :: VideoSelector -&gt; Maybe AlphaBehavior
+$sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpace
+$sel:rotate:VideoSelector' :: VideoSelector -&gt; Maybe InputRotate
+$sel:programNumber:VideoSelector' :: VideoSelector -&gt; Maybe Int
+$sel:hdr10Metadata:VideoSelector' :: VideoSelector -&gt; Maybe Hdr10Metadata
+$sel:sampleRange:VideoSelector' :: VideoSelector -&gt; Maybe InputSampleRange
+$sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007124"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-328"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-329"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpaceUsage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>              </span><span class="annot"><span class="annottext">(ColorSpaceUsage -&gt; Pair) -&gt; Maybe ColorSpaceUsage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680007131"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSampleRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputSampleRange -&gt; Pair) -&gt; Maybe InputSampleRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680007130"><span class="hs-identifier hs-var">sampleRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Hdr10Metadata -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Pair) -&gt; Maybe Hdr10Metadata -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680007129"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;programNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680007128"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rotate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputRotate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputRotate -&gt; Pair) -&gt; Maybe InputRotate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680007127"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpace -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ColorSpace -&gt; Pair) -&gt; Maybe ColorSpace -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680007126"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alphaBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AlphaBehavior -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AlphaBehavior -&gt; Pair) -&gt; Maybe AlphaBehavior -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680007125"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007124"><span class="hs-identifier hs-var">pid</span></a></span><span>
+</span><span id="line-338"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span></pre></body></html>

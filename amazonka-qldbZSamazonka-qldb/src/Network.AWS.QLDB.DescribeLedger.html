@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QLDB.DescribeLedger</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a ledger, including its state, permissions</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- mode, encryption at rest settings, and when it was created.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QLDB.DescribeLedger</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier">DescribeLedger</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedger"><span class="hs-identifier">newDescribeLedger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedger_name"><span class="hs-identifier">describeLedger_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedgerResponse"><span class="hs-identifier">newDescribeLedgerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_deletionProtection"><span class="hs-identifier">describeLedgerResponse_deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_permissionsMode"><span class="hs-identifier">describeLedgerResponse_permissionsMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_arn"><span class="hs-identifier">describeLedgerResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_name"><span class="hs-identifier">describeLedgerResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_state"><span class="hs-identifier">describeLedgerResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_encryptionDescription"><span class="hs-identifier">describeLedgerResponse_encryptionDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_creationDateTime"><span class="hs-identifier">describeLedgerResponse_creationDateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_httpStatus"><span class="hs-identifier">describeLedgerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.html"><span class="hs-identifier">Network.AWS.QLDB.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeLedger' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679186752"><span id="local-6989586621679186753"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLedger"><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-var">DescribeLedger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLedger%27"><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger%27"><span class="hs-identifier hs-var">DescribeLedger'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the ledger that you want to describe.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3ADescribeLedger%27"><span class="annot"><span class="annottext">DescribeLedger -&gt; Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedger%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186746"><span id="local-6989586621679186748"><span class="annot"><span class="annottext">DescribeLedger -&gt; DescribeLedger -&gt; Bool
+(DescribeLedger -&gt; DescribeLedger -&gt; Bool)
+-&gt; (DescribeLedger -&gt; DescribeLedger -&gt; Bool) -&gt; Eq DescribeLedger
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLedger -&gt; DescribeLedger -&gt; Bool
+$c/= :: DescribeLedger -&gt; DescribeLedger -&gt; Bool
+== :: DescribeLedger -&gt; DescribeLedger -&gt; Bool
+$c== :: DescribeLedger -&gt; DescribeLedger -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186737"><span id="local-6989586621679186739"><span id="local-6989586621679186741"><span id="local-6989586621679186743"><span class="annot"><span class="annottext">ReadPrec [DescribeLedger]
+ReadPrec DescribeLedger
+Int -&gt; ReadS DescribeLedger
+ReadS [DescribeLedger]
+(Int -&gt; ReadS DescribeLedger)
+-&gt; ReadS [DescribeLedger]
+-&gt; ReadPrec DescribeLedger
+-&gt; ReadPrec [DescribeLedger]
+-&gt; Read DescribeLedger
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLedger]
+$creadListPrec :: ReadPrec [DescribeLedger]
+readPrec :: ReadPrec DescribeLedger
+$creadPrec :: ReadPrec DescribeLedger
+readList :: ReadS [DescribeLedger]
+$creadList :: ReadS [DescribeLedger]
+readsPrec :: Int -&gt; ReadS DescribeLedger
+$creadsPrec :: Int -&gt; ReadS DescribeLedger
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186730"><span id="local-6989586621679186732"><span id="local-6989586621679186734"><span class="annot"><span class="annottext">Int -&gt; DescribeLedger -&gt; ShowS
+[DescribeLedger] -&gt; ShowS
+DescribeLedger -&gt; String
+(Int -&gt; DescribeLedger -&gt; ShowS)
+-&gt; (DescribeLedger -&gt; String)
+-&gt; ([DescribeLedger] -&gt; ShowS)
+-&gt; Show DescribeLedger
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLedger] -&gt; ShowS
+$cshowList :: [DescribeLedger] -&gt; ShowS
+show :: DescribeLedger -&gt; String
+$cshow :: DescribeLedger -&gt; String
+showsPrec :: Int -&gt; DescribeLedger -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLedger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeLedger -&gt; Rep DescribeLedger x)
+-&gt; (forall x. Rep DescribeLedger x -&gt; DescribeLedger)
+-&gt; Generic DescribeLedger
+forall x. Rep DescribeLedger x -&gt; DescribeLedger
+forall x. DescribeLedger -&gt; Rep DescribeLedger x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeLedger x -&gt; DescribeLedger
+$cfrom :: forall x. DescribeLedger -&gt; Rep DescribeLedger x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeLedger' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'name', 'describeLedger_name' - The name of the ledger that you want to describe.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedger"><span class="hs-identifier hs-type">newDescribeLedger</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span>
+</span><span id="line-76"></span><span id="newDescribeLedger"><span class="annot"><span class="annottext">newDescribeLedger :: Text -&gt; DescribeLedger
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedger"><span class="hs-identifier hs-var hs-var">newDescribeLedger</span></a></span></span><span> </span><span id="local-6989586621679186725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186725"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DescribeLedger' :: Text -&gt; DescribeLedger
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger%27"><span class="hs-identifier hs-type">DescribeLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeLedger' :: Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186725"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the ledger that you want to describe.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedger_name"><span class="hs-identifier hs-type">describeLedger_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="describeLedger_name"><span class="annot"><span class="annottext">describeLedger_name :: (Text -&gt; f Text) -&gt; DescribeLedger -&gt; f DescribeLedger
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedger_name"><span class="hs-identifier hs-var hs-var">describeLedger_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedger -&gt; Text)
+-&gt; (DescribeLedger -&gt; Text -&gt; DescribeLedger)
+-&gt; Lens DescribeLedger DescribeLedger Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger%27"><span class="hs-identifier hs-type">DescribeLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186722"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DescribeLedger' :: DescribeLedger -&gt; Text
+</span><a href="#local-6989586621679186722"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186722"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186721"><span class="annot"><span class="annottext">s :: DescribeLedger
+</span><a href="#local-6989586621679186721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger%27"><span class="hs-identifier hs-type">DescribeLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedger
+</span><a href="#local-6989586621679186721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeLedger' :: Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679186716"><span class="annot"><span class="annottext">request :: DescribeLedger -&gt; Request DescribeLedger
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLedger -&gt; Request DescribeLedger
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679186712"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeLedger
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeLedger)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeLedger))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeLedger
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeLedger)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186709"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186709"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186708"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186708"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe PermissionsMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LedgerState
+-&gt; Maybe LedgerEncryptionDescription
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-var">DescribeLedgerResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe PermissionsMode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe LedgerState
+ -&gt; Maybe LedgerEncryptionDescription
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe PermissionsMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe LedgerState
+      -&gt; Maybe LedgerEncryptionDescription
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PermissionsMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe LedgerState
+   -&gt; Maybe LedgerEncryptionDescription
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe PermissionsMode)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe LedgerState
+      -&gt; Maybe LedgerEncryptionDescription
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PermissionsMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionsMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe LedgerState
+   -&gt; Maybe LedgerEncryptionDescription
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe LedgerState
+      -&gt; Maybe LedgerEncryptionDescription
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe LedgerState
+   -&gt; Maybe LedgerEncryptionDescription
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LedgerState
+      -&gt; Maybe LedgerEncryptionDescription
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LedgerState
+   -&gt; Maybe LedgerEncryptionDescription
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe LedgerState)
+-&gt; Either
+     String
+     (Maybe LedgerEncryptionDescription
+      -&gt; Maybe POSIX -&gt; Int -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LedgerState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LedgerEncryptionDescription
+   -&gt; Maybe POSIX -&gt; Int -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe LedgerEncryptionDescription)
+-&gt; Either String (Maybe POSIX -&gt; Int -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LedgerEncryptionDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; DescribeLedgerResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; DescribeLedgerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeLedgerResponse)
+-&gt; Either String Int -&gt; Either String DescribeLedgerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186709"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186699"><span id="local-6989586621679186701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679186692"><span class="annot"><span class="annottext">toHeaders :: DescribeLedger -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLedger -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679186686"><span class="annot"><span class="annottext">toPath :: DescribeLedger -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger%27"><span class="hs-identifier hs-type">DescribeLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186684"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DescribeLedger' :: DescribeLedger -&gt; Text
+</span><a href="#local-6989586621679186684"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ledgers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186684"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedger"><span class="hs-identifier hs-type">DescribeLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679186680"><span class="annot"><span class="annottext">toQuery :: DescribeLedger -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLedger -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDescribeLedgerResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679186677"><span id="local-6989586621679186678"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLedgerResponse"><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-var">DescribeLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLedgerResponse%27"><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-var">DescribeLedgerResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The flag that prevents a ledger from being deleted by any user. If not</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- provided on ledger creation, this feature is enabled (@true@) by</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- If deletion protection is enabled, you must first disable it before you</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- can delete the ledger. You can disable it by calling the @UpdateLedger@</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- operation to set the flag to @false@.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AdeletionProtection%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AdeletionProtection%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The permissions mode of the ledger.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3ApermissionsMode%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe PermissionsMode
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3ApermissionsMode%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">permissionsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode"><span class="hs-identifier hs-type">PermissionsMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the ledger.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aarn%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The name of the ledger.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Aname%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The current status of the ledger.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Astate%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe LedgerState
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Astate%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerState.html#LedgerState"><span class="hs-identifier hs-type">LedgerState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | Information about the encryption of data at rest in the ledger. This</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- includes the current status, the KMS key, and when the key became</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- inaccessible (in the case of an error).</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AencryptionDescription%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe LedgerEncryptionDescription
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AencryptionDescription%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">encryptionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The date and time, in epoch time format, when the ledger was created.</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- (Epoch time format is the number of seconds elapsed since 12:00:00 AM</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- January 1, 1970 UTC.)</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AcreationDateTime%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AcreationDateTime%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLedgerResponse%27"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; Int
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AhttpStatus%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186665"><span id="local-6989586621679186667"><span class="annot"><span class="annottext">DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool
+(DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool)
+-&gt; (DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool)
+-&gt; Eq DescribeLedgerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool
+$c/= :: DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool
+== :: DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool
+$c== :: DescribeLedgerResponse -&gt; DescribeLedgerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186657"><span id="local-6989586621679186659"><span id="local-6989586621679186661"><span id="local-6989586621679186663"><span class="annot"><span class="annottext">ReadPrec [DescribeLedgerResponse]
+ReadPrec DescribeLedgerResponse
+Int -&gt; ReadS DescribeLedgerResponse
+ReadS [DescribeLedgerResponse]
+(Int -&gt; ReadS DescribeLedgerResponse)
+-&gt; ReadS [DescribeLedgerResponse]
+-&gt; ReadPrec DescribeLedgerResponse
+-&gt; ReadPrec [DescribeLedgerResponse]
+-&gt; Read DescribeLedgerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeLedgerResponse]
+$creadListPrec :: ReadPrec [DescribeLedgerResponse]
+readPrec :: ReadPrec DescribeLedgerResponse
+$creadPrec :: ReadPrec DescribeLedgerResponse
+readList :: ReadS [DescribeLedgerResponse]
+$creadList :: ReadS [DescribeLedgerResponse]
+readsPrec :: Int -&gt; ReadS DescribeLedgerResponse
+$creadsPrec :: Int -&gt; ReadS DescribeLedgerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186651"><span id="local-6989586621679186653"><span id="local-6989586621679186655"><span class="annot"><span class="annottext">Int -&gt; DescribeLedgerResponse -&gt; ShowS
+[DescribeLedgerResponse] -&gt; ShowS
+DescribeLedgerResponse -&gt; String
+(Int -&gt; DescribeLedgerResponse -&gt; ShowS)
+-&gt; (DescribeLedgerResponse -&gt; String)
+-&gt; ([DescribeLedgerResponse] -&gt; ShowS)
+-&gt; Show DescribeLedgerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeLedgerResponse] -&gt; ShowS
+$cshowList :: [DescribeLedgerResponse] -&gt; ShowS
+show :: DescribeLedgerResponse -&gt; String
+$cshow :: DescribeLedgerResponse -&gt; String
+showsPrec :: Int -&gt; DescribeLedgerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeLedgerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeLedgerResponse -&gt; Rep DescribeLedgerResponse x)
+-&gt; (forall x.
+    Rep DescribeLedgerResponse x -&gt; DescribeLedgerResponse)
+-&gt; Generic DescribeLedgerResponse
+forall x. Rep DescribeLedgerResponse x -&gt; DescribeLedgerResponse
+forall x. DescribeLedgerResponse -&gt; Rep DescribeLedgerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeLedgerResponse x -&gt; DescribeLedgerResponse
+$cfrom :: forall x. DescribeLedgerResponse -&gt; Rep DescribeLedgerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Create a value of 'DescribeLedgerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'deletionProtection', 'describeLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- provided on ledger creation, this feature is enabled (@true@) by</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- If deletion protection is enabled, you must first disable it before you</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- can delete the ledger. You can disable it by calling the @UpdateLedger@</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- operation to set the flag to @false@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'permissionsMode', 'describeLedgerResponse_permissionsMode' - The permissions mode of the ledger.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'arn', 'describeLedgerResponse_arn' - The Amazon Resource Name (ARN) for the ledger.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'name', 'describeLedgerResponse_name' - The name of the ledger.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'state', 'describeLedgerResponse_state' - The current status of the ledger.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'encryptionDescription', 'describeLedgerResponse_encryptionDescription' - Information about the encryption of data at rest in the ledger. This</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- includes the current status, the KMS key, and when the key became</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- inaccessible (in the case of an error).</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'creationDateTime', 'describeLedgerResponse_creationDateTime' - The date and time, in epoch time format, when the ledger was created.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- (Epoch time format is the number of seconds elapsed since 12:00:00 AM</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- January 1, 1970 UTC.)</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'describeLedgerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedgerResponse"><span class="hs-identifier hs-type">newDescribeLedgerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newDescribeLedgerResponse"><span class="annot"><span class="annottext">newDescribeLedgerResponse :: Int -&gt; DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#newDescribeLedgerResponse"><span class="hs-identifier hs-var hs-var">newDescribeLedgerResponse</span></a></span></span><span> </span><span id="local-6989586621679186648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186648"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">DescribeLedgerResponse' :: Maybe Bool
+-&gt; Maybe PermissionsMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LedgerState
+-&gt; Maybe LedgerEncryptionDescription
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletionProtection:DescribeLedgerResponse' :: Maybe Bool
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AdeletionProtection%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionsMode:DescribeLedgerResponse' :: Maybe PermissionsMode
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3ApermissionsMode%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">permissionsMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionsMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeLedgerResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aarn%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeLedgerResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:DescribeLedgerResponse' :: Maybe LedgerState
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Astate%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionDescription:DescribeLedgerResponse' :: Maybe LedgerEncryptionDescription
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AencryptionDescription%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">encryptionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerEncryptionDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:DescribeLedgerResponse' :: Maybe POSIX
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AcreationDateTime%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLedgerResponse' :: Int
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AhttpStatus%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186648"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The flag that prevents a ledger from being deleted by any user. If not</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- provided on ledger creation, this feature is enabled (@true@) by</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- default.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- If deletion protection is enabled, you must first disable it before you</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- can delete the ledger. You can disable it by calling the @UpdateLedger@</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- operation to set the flag to @false@.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_deletionProtection"><span class="hs-identifier hs-type">describeLedgerResponse_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="describeLedgerResponse_deletionProtection"><span class="annot"><span class="annottext">describeLedgerResponse_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_deletionProtection"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe Bool)
+-&gt; (DescribeLedgerResponse -&gt; Maybe Bool -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186647"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679186647"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679186647"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186646"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186645"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679186645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:DescribeLedgerResponse' :: Maybe Bool
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AdeletionProtection%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679186645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The permissions mode of the ledger.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_permissionsMode"><span class="hs-identifier hs-type">describeLedgerResponse_permissionsMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode"><span class="hs-identifier hs-type">PermissionsMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="describeLedgerResponse_permissionsMode"><span class="annot"><span class="annottext">describeLedgerResponse_permissionsMode :: (Maybe PermissionsMode -&gt; f (Maybe PermissionsMode))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_permissionsMode"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_permissionsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe PermissionsMode)
+-&gt; (DescribeLedgerResponse
+    -&gt; Maybe PermissionsMode -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe PermissionsMode)
+     (Maybe PermissionsMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186644"><span class="annot"><span class="annottext">Maybe PermissionsMode
+permissionsMode :: Maybe PermissionsMode
+$sel:permissionsMode:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe PermissionsMode
+</span><a href="#local-6989586621679186644"><span class="hs-identifier hs-var hs-var">permissionsMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionsMode
+</span><a href="#local-6989586621679186644"><span class="hs-identifier hs-var">permissionsMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186643"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186642"><span class="annot"><span class="annottext">Maybe PermissionsMode
+</span><a href="#local-6989586621679186642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsMode:DescribeLedgerResponse' :: Maybe PermissionsMode
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3ApermissionsMode%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">permissionsMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionsMode
+</span><a href="#local-6989586621679186642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the ledger.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_arn"><span class="hs-identifier hs-type">describeLedgerResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="describeLedgerResponse_arn"><span class="annot"><span class="annottext">describeLedgerResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_arn"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe Text)
+-&gt; (DescribeLedgerResponse -&gt; Maybe Text -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186641"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679186641"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186641"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186640"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeLedgerResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aarn%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The name of the ledger.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_name"><span class="hs-identifier hs-type">describeLedgerResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="describeLedgerResponse_name"><span class="annot"><span class="annottext">describeLedgerResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_name"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe Text)
+-&gt; (DescribeLedgerResponse -&gt; Maybe Text -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186638"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679186638"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186638"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186637"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeLedgerResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Aname%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The current status of the ledger.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_state"><span class="hs-identifier hs-type">describeLedgerResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerState.html#LedgerState"><span class="hs-identifier hs-type">LedgerState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="describeLedgerResponse_state"><span class="annot"><span class="annottext">describeLedgerResponse_state :: (Maybe LedgerState -&gt; f (Maybe LedgerState))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_state"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe LedgerState)
+-&gt; (DescribeLedgerResponse
+    -&gt; Maybe LedgerState -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe LedgerState)
+     (Maybe LedgerState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186635"><span class="annot"><span class="annottext">Maybe LedgerState
+state :: Maybe LedgerState
+$sel:state:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe LedgerState
+</span><a href="#local-6989586621679186635"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
+</span><a href="#local-6989586621679186635"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186634"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186633"><span class="annot"><span class="annottext">Maybe LedgerState
+</span><a href="#local-6989586621679186633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:DescribeLedgerResponse' :: Maybe LedgerState
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3Astate%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerState
+</span><a href="#local-6989586621679186633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Information about the encryption of data at rest in the ledger. This</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- includes the current status, the KMS key, and when the key became</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- inaccessible (in the case of an error).</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_encryptionDescription"><span class="hs-identifier hs-type">describeLedgerResponse_encryptionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeLedgerResponse_encryptionDescription"><span class="annot"><span class="annottext">describeLedgerResponse_encryptionDescription :: (Maybe LedgerEncryptionDescription
+ -&gt; f (Maybe LedgerEncryptionDescription))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_encryptionDescription"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_encryptionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe LedgerEncryptionDescription)
+-&gt; (DescribeLedgerResponse
+    -&gt; Maybe LedgerEncryptionDescription -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe LedgerEncryptionDescription)
+     (Maybe LedgerEncryptionDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186632"><span class="annot"><span class="annottext">Maybe LedgerEncryptionDescription
+encryptionDescription :: Maybe LedgerEncryptionDescription
+$sel:encryptionDescription:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe LedgerEncryptionDescription
+</span><a href="#local-6989586621679186632"><span class="hs-identifier hs-var hs-var">encryptionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerEncryptionDescription
+</span><a href="#local-6989586621679186632"><span class="hs-identifier hs-var">encryptionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186631"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186630"><span class="annot"><span class="annottext">Maybe LedgerEncryptionDescription
+</span><a href="#local-6989586621679186630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionDescription:DescribeLedgerResponse' :: Maybe LedgerEncryptionDescription
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AencryptionDescription%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">encryptionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LedgerEncryptionDescription
+</span><a href="#local-6989586621679186630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The date and time, in epoch time format, when the ledger was created.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- (Epoch time format is the number of seconds elapsed since 12:00:00 AM</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- January 1, 1970 UTC.)</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_creationDateTime"><span class="hs-identifier hs-type">describeLedgerResponse_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="describeLedgerResponse_creationDateTime"><span class="annot"><span class="annottext">describeLedgerResponse_creationDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_creationDateTime"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Maybe POSIX)
+-&gt; (DescribeLedgerResponse
+    -&gt; Maybe POSIX -&gt; DescribeLedgerResponse)
+-&gt; Lens
+     DescribeLedgerResponse
+     DescribeLedgerResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186629"><span class="annot"><span class="annottext">Maybe POSIX
+creationDateTime :: Maybe POSIX
+$sel:creationDateTime:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679186629"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679186629"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186628"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186627"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679186627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:DescribeLedgerResponse' :: Maybe POSIX
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AcreationDateTime%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679186627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeLedgerResponse
+-&gt; f DescribeLedgerResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_httpStatus"><span class="hs-identifier hs-type">describeLedgerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span id="describeLedgerResponse_httpStatus"><span class="annot"><span class="annottext">describeLedgerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeLedgerResponse -&gt; f DescribeLedgerResponse
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#describeLedgerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeLedgerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLedgerResponse -&gt; Int)
+-&gt; (DescribeLedgerResponse -&gt; Int -&gt; DescribeLedgerResponse)
+-&gt; Lens DescribeLedgerResponse DescribeLedgerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186623"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeLedgerResponse' :: DescribeLedgerResponse -&gt; Int
+</span><a href="#local-6989586621679186623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186622"><span class="annot"><span class="annottext">s :: DescribeLedgerResponse
+</span><a href="#local-6989586621679186622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse%27"><span class="hs-identifier hs-type">DescribeLedgerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLedgerResponse
+</span><a href="#local-6989586621679186622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLedgerResponse' :: Int
+</span><a href="Network.AWS.QLDB.DescribeLedger.html#%24sel%3AhttpStatus%3ADescribeLedgerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DescribeLedger.html#DescribeLedgerResponse"><span class="hs-identifier hs-type">DescribeLedgerResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

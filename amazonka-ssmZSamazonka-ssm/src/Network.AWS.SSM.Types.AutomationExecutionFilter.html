@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.AutomationExecutionFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.AutomationExecutionFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html"><span class="hs-identifier">Network.AWS.SSM.Types.AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A filter used to match specific automation executions. This is used to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- limit the scope of Automation execution information returned.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutomationExecutionFilter' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679787219"><span id="local-6989586621679787220"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomationExecutionFilter"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-var">AutomationExecutionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-var">AutomationExecutionFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more keys to limit the results.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AAutomationExecutionFilter%27"><span class="annot"><span class="annottext">AutomationExecutionFilter -&gt; AutomationExecutionFilterKey
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Akey%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The values used to limit the execution information associated with the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- filter\'s key.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3AAutomationExecutionFilter%27"><span class="annot"><span class="annottext">AutomationExecutionFilter -&gt; NonEmpty Text
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Avalues%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787212"><span id="local-6989586621679787214"><span class="annot"><span class="annottext">AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool
+(AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool)
+-&gt; (AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool)
+-&gt; Eq AutomationExecutionFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool
+$c/= :: AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool
+== :: AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool
+$c== :: AutomationExecutionFilter -&gt; AutomationExecutionFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787203"><span id="local-6989586621679787205"><span id="local-6989586621679787207"><span id="local-6989586621679787209"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionFilter]
+ReadPrec AutomationExecutionFilter
+Int -&gt; ReadS AutomationExecutionFilter
+ReadS [AutomationExecutionFilter]
+(Int -&gt; ReadS AutomationExecutionFilter)
+-&gt; ReadS [AutomationExecutionFilter]
+-&gt; ReadPrec AutomationExecutionFilter
+-&gt; ReadPrec [AutomationExecutionFilter]
+-&gt; Read AutomationExecutionFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutomationExecutionFilter]
+$creadListPrec :: ReadPrec [AutomationExecutionFilter]
+readPrec :: ReadPrec AutomationExecutionFilter
+$creadPrec :: ReadPrec AutomationExecutionFilter
+readList :: ReadS [AutomationExecutionFilter]
+$creadList :: ReadS [AutomationExecutionFilter]
+readsPrec :: Int -&gt; ReadS AutomationExecutionFilter
+$creadsPrec :: Int -&gt; ReadS AutomationExecutionFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787196"><span id="local-6989586621679787198"><span id="local-6989586621679787200"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilter -&gt; ShowS
+[AutomationExecutionFilter] -&gt; ShowS
+AutomationExecutionFilter -&gt; String
+(Int -&gt; AutomationExecutionFilter -&gt; ShowS)
+-&gt; (AutomationExecutionFilter -&gt; String)
+-&gt; ([AutomationExecutionFilter] -&gt; ShowS)
+-&gt; Show AutomationExecutionFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutomationExecutionFilter] -&gt; ShowS
+$cshowList :: [AutomationExecutionFilter] -&gt; ShowS
+show :: AutomationExecutionFilter -&gt; String
+$cshow :: AutomationExecutionFilter -&gt; String
+showsPrec :: Int -&gt; AutomationExecutionFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutomationExecutionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AutomationExecutionFilter -&gt; Rep AutomationExecutionFilter x)
+-&gt; (forall x.
+    Rep AutomationExecutionFilter x -&gt; AutomationExecutionFilter)
+-&gt; Generic AutomationExecutionFilter
+forall x.
+Rep AutomationExecutionFilter x -&gt; AutomationExecutionFilter
+forall x.
+AutomationExecutionFilter -&gt; Rep AutomationExecutionFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutomationExecutionFilter x -&gt; AutomationExecutionFilter
+$cfrom :: forall x.
+AutomationExecutionFilter -&gt; Rep AutomationExecutionFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'AutomationExecutionFilter' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'key', 'automationExecutionFilter_key' - One or more keys to limit the results.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'values', 'automationExecutionFilter_values' - The values used to limit the execution information associated with the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- filter\'s key.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#newAutomationExecutionFilter"><span class="hs-identifier hs-type">newAutomationExecutionFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'values'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span><span>
+</span><span id="line-58"></span><span id="newAutomationExecutionFilter"><span class="annot"><span class="annottext">newAutomationExecutionFilter :: AutomationExecutionFilterKey
+-&gt; NonEmpty Text -&gt; AutomationExecutionFilter
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#newAutomationExecutionFilter"><span class="hs-identifier hs-var hs-var">newAutomationExecutionFilter</span></a></span></span><span> </span><span id="local-6989586621679787190"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787190"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679787189"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787189"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">AutomationExecutionFilter' :: AutomationExecutionFilterKey
+-&gt; NonEmpty Text -&gt; AutomationExecutionFilter
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:AutomationExecutionFilter' :: AutomationExecutionFilterKey
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Akey%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787190"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:AutomationExecutionFilter' :: NonEmpty Text
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Avalues%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787189"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | One or more keys to limit the results.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#automationExecutionFilter_key"><span class="hs-identifier hs-type">automationExecutionFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-type">AutomationExecutionFilterKey</span></a></span><span>
+</span><span id="line-66"></span><span id="automationExecutionFilter_key"><span class="annot"><span class="annottext">automationExecutionFilter_key :: (AutomationExecutionFilterKey -&gt; f AutomationExecutionFilterKey)
+-&gt; AutomationExecutionFilter -&gt; f AutomationExecutionFilter
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#automationExecutionFilter_key"><span class="hs-identifier hs-var hs-var">automationExecutionFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutomationExecutionFilter -&gt; AutomationExecutionFilterKey)
+-&gt; (AutomationExecutionFilter
+    -&gt; AutomationExecutionFilterKey -&gt; AutomationExecutionFilter)
+-&gt; Lens
+     AutomationExecutionFilter
+     AutomationExecutionFilter
+     AutomationExecutionFilterKey
+     AutomationExecutionFilterKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787183"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+key :: AutomationExecutionFilterKey
+$sel:key:AutomationExecutionFilter' :: AutomationExecutionFilter -&gt; AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787183"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787183"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787182"><span class="annot"><span class="annottext">s :: AutomationExecutionFilter
+</span><a href="#local-6989586621679787182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787181"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilter
+</span><a href="#local-6989586621679787182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:AutomationExecutionFilter' :: AutomationExecutionFilterKey
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Akey%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The values used to limit the execution information associated with the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- filter\'s key.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#automationExecutionFilter_values"><span class="hs-identifier hs-type">automationExecutionFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="automationExecutionFilter_values"><span class="annot"><span class="annottext">automationExecutionFilter_values :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; AutomationExecutionFilter -&gt; f AutomationExecutionFilter
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#automationExecutionFilter_values"><span class="hs-identifier hs-var hs-var">automationExecutionFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutomationExecutionFilter -&gt; NonEmpty Text)
+-&gt; (AutomationExecutionFilter
+    -&gt; NonEmpty Text -&gt; AutomationExecutionFilter)
+-&gt; Lens
+     AutomationExecutionFilter
+     AutomationExecutionFilter
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787179"><span class="annot"><span class="annottext">NonEmpty Text
+values :: NonEmpty Text
+$sel:values:AutomationExecutionFilter' :: AutomationExecutionFilter -&gt; NonEmpty Text
+</span><a href="#local-6989586621679787179"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787179"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787178"><span class="annot"><span class="annottext">s :: AutomationExecutionFilter
+</span><a href="#local-6989586621679787178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787177"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilter
+</span><a href="#local-6989586621679787178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AutomationExecutionFilter' :: NonEmpty Text
+</span><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#%24sel%3Avalues%3AAutomationExecutionFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; AutomationExecutionFilter -&gt; f AutomationExecutionFilter)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; AutomationExecutionFilter
+-&gt; f AutomationExecutionFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787172"><span id="local-6989586621679787174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787161"><span id="local-6989586621679787163"><span id="local-6989586621679787165"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter"><span class="hs-identifier hs-type">AutomationExecutionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679787159"><span class="annot"><span class="annottext">toJSON :: AutomationExecutionFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilter.html#AutomationExecutionFilter%27"><span class="hs-identifier hs-type">AutomationExecutionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787156"><span id="local-6989586621679787157"><span class="annot"><span class="annottext">NonEmpty Text
+AutomationExecutionFilterKey
+values :: NonEmpty Text
+key :: AutomationExecutionFilterKey
+$sel:values:AutomationExecutionFilter' :: AutomationExecutionFilter -&gt; NonEmpty Text
+$sel:key:AutomationExecutionFilter' :: AutomationExecutionFilter -&gt; AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787156"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutomationExecutionFilterKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><a href="#local-6989586621679787157"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679787156"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span></pre></body></html>

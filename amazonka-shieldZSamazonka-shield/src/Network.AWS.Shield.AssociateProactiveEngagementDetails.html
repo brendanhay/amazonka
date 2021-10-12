@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Shield.AssociateProactiveEngagementDetails</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Initializes proactive engagement and sets the list of contacts for the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Shield Response Team (SRT) to use. You must provide at least one phone</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- number in the emergency contact list.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- After you have initialized proactive engagement using this call, to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- disable or enable proactive engagement, use the calls</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @DisableProactiveEngagement@ and @EnableProactiveEngagement@.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This call defines the list of email addresses and phone numbers that the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- SRT can use to contact you for escalations to the SRT and to initiate</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- proactive customer support.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- The contacts that you provide in the request replace any contacts that</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- were already defined. If you already have contacts defined and want to</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- use them, retrieve the list using @DescribeEmergencyContactSettings@ and</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- then provide it to this call.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Shield.AssociateProactiveEngagementDetails</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier">AssociateProactiveEngagementDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetails"><span class="hs-identifier">newAssociateProactiveEngagementDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetails_emergencyContactList"><span class="hs-identifier">associateProactiveEngagementDetails_emergencyContactList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier">AssociateProactiveEngagementDetailsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetailsResponse"><span class="hs-identifier">newAssociateProactiveEngagementDetailsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetailsResponse_httpStatus"><span class="hs-identifier">associateProactiveEngagementDetailsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.html"><span class="hs-identifier">Network.AWS.Shield.Types</span></a></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newAssociateProactiveEngagementDetails' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679210850"><span id="local-6989586621679210851"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateProactiveEngagementDetails"><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-var">AssociateProactiveEngagementDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateProactiveEngagementDetails%27"><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-var">AssociateProactiveEngagementDetails'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of email addresses and phone numbers that the Shield Response</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Team (SRT) can use to contact you for escalations to the SRT and to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- initiate proactive customer support.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- To enable proactive engagement, the contact list must include at least</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- one phone number.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- The contacts that you provide here replace any contacts that were</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- already defined. If you already have contacts defined and want to use</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- them, retrieve the list using @DescribeEmergencyContactSettings@ and</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- then provide it here.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AemergencyContactList%3AAssociateProactiveEngagementDetails%27"><span class="annot"><span class="annottext">AssociateProactiveEngagementDetails -&gt; [EmergencyContact]
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AemergencyContactList%3AAssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-var hs-var">emergencyContactList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210844"><span id="local-6989586621679210846"><span class="annot"><span class="annottext">AssociateProactiveEngagementDetails
+-&gt; AssociateProactiveEngagementDetails -&gt; Bool
+(AssociateProactiveEngagementDetails
+ -&gt; AssociateProactiveEngagementDetails -&gt; Bool)
+-&gt; (AssociateProactiveEngagementDetails
+    -&gt; AssociateProactiveEngagementDetails -&gt; Bool)
+-&gt; Eq AssociateProactiveEngagementDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateProactiveEngagementDetails
+-&gt; AssociateProactiveEngagementDetails -&gt; Bool
+$c/= :: AssociateProactiveEngagementDetails
+-&gt; AssociateProactiveEngagementDetails -&gt; Bool
+== :: AssociateProactiveEngagementDetails
+-&gt; AssociateProactiveEngagementDetails -&gt; Bool
+$c== :: AssociateProactiveEngagementDetails
+-&gt; AssociateProactiveEngagementDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210835"><span id="local-6989586621679210837"><span id="local-6989586621679210839"><span id="local-6989586621679210841"><span class="annot"><span class="annottext">ReadPrec [AssociateProactiveEngagementDetails]
+ReadPrec AssociateProactiveEngagementDetails
+Int -&gt; ReadS AssociateProactiveEngagementDetails
+ReadS [AssociateProactiveEngagementDetails]
+(Int -&gt; ReadS AssociateProactiveEngagementDetails)
+-&gt; ReadS [AssociateProactiveEngagementDetails]
+-&gt; ReadPrec AssociateProactiveEngagementDetails
+-&gt; ReadPrec [AssociateProactiveEngagementDetails]
+-&gt; Read AssociateProactiveEngagementDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateProactiveEngagementDetails]
+$creadListPrec :: ReadPrec [AssociateProactiveEngagementDetails]
+readPrec :: ReadPrec AssociateProactiveEngagementDetails
+$creadPrec :: ReadPrec AssociateProactiveEngagementDetails
+readList :: ReadS [AssociateProactiveEngagementDetails]
+$creadList :: ReadS [AssociateProactiveEngagementDetails]
+readsPrec :: Int -&gt; ReadS AssociateProactiveEngagementDetails
+$creadsPrec :: Int -&gt; ReadS AssociateProactiveEngagementDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210828"><span id="local-6989586621679210830"><span id="local-6989586621679210832"><span class="annot"><span class="annottext">Int -&gt; AssociateProactiveEngagementDetails -&gt; ShowS
+[AssociateProactiveEngagementDetails] -&gt; ShowS
+AssociateProactiveEngagementDetails -&gt; String
+(Int -&gt; AssociateProactiveEngagementDetails -&gt; ShowS)
+-&gt; (AssociateProactiveEngagementDetails -&gt; String)
+-&gt; ([AssociateProactiveEngagementDetails] -&gt; ShowS)
+-&gt; Show AssociateProactiveEngagementDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateProactiveEngagementDetails] -&gt; ShowS
+$cshowList :: [AssociateProactiveEngagementDetails] -&gt; ShowS
+show :: AssociateProactiveEngagementDetails -&gt; String
+$cshow :: AssociateProactiveEngagementDetails -&gt; String
+showsPrec :: Int -&gt; AssociateProactiveEngagementDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateProactiveEngagementDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateProactiveEngagementDetails
+ -&gt; Rep AssociateProactiveEngagementDetails x)
+-&gt; (forall x.
+    Rep AssociateProactiveEngagementDetails x
+    -&gt; AssociateProactiveEngagementDetails)
+-&gt; Generic AssociateProactiveEngagementDetails
+forall x.
+Rep AssociateProactiveEngagementDetails x
+-&gt; AssociateProactiveEngagementDetails
+forall x.
+AssociateProactiveEngagementDetails
+-&gt; Rep AssociateProactiveEngagementDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateProactiveEngagementDetails x
+-&gt; AssociateProactiveEngagementDetails
+$cfrom :: forall x.
+AssociateProactiveEngagementDetails
+-&gt; Rep AssociateProactiveEngagementDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'AssociateProactiveEngagementDetails' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'emergencyContactList', 'associateProactiveEngagementDetails_emergencyContactList' - A list of email addresses and phone numbers that the Shield Response</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Team (SRT) can use to contact you for escalations to the SRT and to</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- initiate proactive customer support.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- To enable proactive engagement, the contact list must include at least</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- one phone number.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The contacts that you provide here replace any contacts that were</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- already defined. If you already have contacts defined and want to use</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- them, retrieve the list using @DescribeEmergencyContactSettings@ and</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- then provide it here.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">newAssociateProactiveEngagementDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span>
+</span><span id="line-101"></span><span id="newAssociateProactiveEngagementDetails"><span class="annot"><span class="annottext">newAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetails
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetails"><span class="hs-identifier hs-var hs-var">newAssociateProactiveEngagementDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">AssociateProactiveEngagementDetails' :: [EmergencyContact] -&gt; AssociateProactiveEngagementDetails
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emergencyContactList:AssociateProactiveEngagementDetails' :: [EmergencyContact]
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AemergencyContactList%3AAssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-var">emergencyContactList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">[EmergencyContact]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A list of email addresses and phone numbers that the Shield Response</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Team (SRT) can use to contact you for escalations to the SRT and to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- initiate proactive customer support.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- To enable proactive engagement, the contact list must include at least</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- one phone number.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The contacts that you provide here replace any contacts that were</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- already defined. If you already have contacts defined and want to use</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- them, retrieve the list using @DescribeEmergencyContactSettings@ and</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- then provide it here.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetails_emergencyContactList"><span class="hs-identifier hs-type">associateProactiveEngagementDetails_emergencyContactList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span id="associateProactiveEngagementDetails_emergencyContactList"><span class="annot"><span class="annottext">associateProactiveEngagementDetails_emergencyContactList :: ([EmergencyContact] -&gt; f [EmergencyContact])
+-&gt; AssociateProactiveEngagementDetails
+-&gt; f AssociateProactiveEngagementDetails
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetails_emergencyContactList"><span class="hs-identifier hs-var hs-var">associateProactiveEngagementDetails_emergencyContactList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateProactiveEngagementDetails -&gt; [EmergencyContact])
+-&gt; (AssociateProactiveEngagementDetails
+    -&gt; [EmergencyContact] -&gt; AssociateProactiveEngagementDetails)
+-&gt; Lens
+     AssociateProactiveEngagementDetails
+     AssociateProactiveEngagementDetails
+     [EmergencyContact]
+     [EmergencyContact]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210821"><span class="annot"><span class="annottext">[EmergencyContact]
+emergencyContactList :: [EmergencyContact]
+$sel:emergencyContactList:AssociateProactiveEngagementDetails' :: AssociateProactiveEngagementDetails -&gt; [EmergencyContact]
+</span><a href="#local-6989586621679210821"><span class="hs-identifier hs-var hs-var">emergencyContactList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EmergencyContact]
+</span><a href="#local-6989586621679210821"><span class="hs-identifier hs-var">emergencyContactList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210820"><span class="annot"><span class="annottext">s :: AssociateProactiveEngagementDetails
+</span><a href="#local-6989586621679210820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210819"><span class="annot"><span class="annottext">[EmergencyContact]
+</span><a href="#local-6989586621679210819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateProactiveEngagementDetails
+</span><a href="#local-6989586621679210820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emergencyContactList:AssociateProactiveEngagementDetails' :: [EmergencyContact]
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AemergencyContactList%3AAssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-var">emergencyContactList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EmergencyContact]
+</span><a href="#local-6989586621679210819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EmergencyContact] -&gt; f [EmergencyContact])
+ -&gt; AssociateProactiveEngagementDetails
+ -&gt; f AssociateProactiveEngagementDetails)
+-&gt; (([EmergencyContact] -&gt; f [EmergencyContact])
+    -&gt; [EmergencyContact] -&gt; f [EmergencyContact])
+-&gt; ([EmergencyContact] -&gt; f [EmergencyContact])
+-&gt; AssociateProactiveEngagementDetails
+-&gt; f AssociateProactiveEngagementDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EmergencyContact] -&gt; f [EmergencyContact])
+-&gt; [EmergencyContact] -&gt; f [EmergencyContact]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679210813"><span class="annot"><span class="annottext">request :: AssociateProactiveEngagementDetails
+-&gt; Request AssociateProactiveEngagementDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AssociateProactiveEngagementDetails
+-&gt; Request AssociateProactiveEngagementDetails
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679210809"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateProactiveEngagementDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateProactiveEngagementDetails)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateProactiveEngagementDetails))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateProactiveEngagementDetails
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AssociateProactiveEngagementDetails)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210806"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210805"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210805"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210804"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679210804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateProactiveEngagementDetailsResponse
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-var">AssociateProactiveEngagementDetailsResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateProactiveEngagementDetailsResponse)
+-&gt; Either String Int
+-&gt; Either String AssociateProactiveEngagementDetailsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210806"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679210797"><span id="local-6989586621679210799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679210794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679210790"><span class="annot"><span class="annottext">toHeaders :: AssociateProactiveEngagementDetails -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AssociateProactiveEngagementDetails -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSShield_20160616.AssociateProactiveEngagementDetails&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679210780"><span id="local-6989586621679210782"><span id="local-6989586621679210784"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span></span></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679210778"><span class="annot"><span class="annottext">toJSON :: AssociateProactiveEngagementDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210776"><span class="annot"><span class="annottext">[EmergencyContact]
+emergencyContactList :: [EmergencyContact]
+$sel:emergencyContactList:AssociateProactiveEngagementDetails' :: AssociateProactiveEngagementDetails -&gt; [EmergencyContact]
+</span><a href="#local-6989586621679210776"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmergencyContactList&quot;</span></span><span>
+</span><span id="line-171"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [EmergencyContact] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[EmergencyContact]
+</span><a href="#local-6989586621679210776"><span class="hs-identifier hs-var">emergencyContactList</span></a></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679210770"><span class="annot"><span class="annottext">toPath :: AssociateProactiveEngagementDetails -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateProactiveEngagementDetails -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetails"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetails</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679210766"><span class="annot"><span class="annottext">toQuery :: AssociateProactiveEngagementDetails -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateProactiveEngagementDetails -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newAssociateProactiveEngagementDetailsResponse' smart constructor.</span><span>
+</span><span id="line-189"></span><span id="local-6989586621679210763"><span id="local-6989586621679210764"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateProactiveEngagementDetailsResponse"><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-var">AssociateProactiveEngagementDetailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateProactiveEngagementDetailsResponse%27"><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-var">AssociateProactiveEngagementDetailsResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateProactiveEngagementDetailsResponse%27"><span class="annot"><span class="annottext">AssociateProactiveEngagementDetailsResponse -&gt; Int
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AhttpStatus%3AAssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210758"><span id="local-6989586621679210760"><span class="annot"><span class="annottext">AssociateProactiveEngagementDetailsResponse
+-&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool
+(AssociateProactiveEngagementDetailsResponse
+ -&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool)
+-&gt; (AssociateProactiveEngagementDetailsResponse
+    -&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool)
+-&gt; Eq AssociateProactiveEngagementDetailsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateProactiveEngagementDetailsResponse
+-&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool
+$c/= :: AssociateProactiveEngagementDetailsResponse
+-&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool
+== :: AssociateProactiveEngagementDetailsResponse
+-&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool
+$c== :: AssociateProactiveEngagementDetailsResponse
+-&gt; AssociateProactiveEngagementDetailsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210750"><span id="local-6989586621679210752"><span id="local-6989586621679210754"><span id="local-6989586621679210756"><span class="annot"><span class="annottext">ReadPrec [AssociateProactiveEngagementDetailsResponse]
+ReadPrec AssociateProactiveEngagementDetailsResponse
+Int -&gt; ReadS AssociateProactiveEngagementDetailsResponse
+ReadS [AssociateProactiveEngagementDetailsResponse]
+(Int -&gt; ReadS AssociateProactiveEngagementDetailsResponse)
+-&gt; ReadS [AssociateProactiveEngagementDetailsResponse]
+-&gt; ReadPrec AssociateProactiveEngagementDetailsResponse
+-&gt; ReadPrec [AssociateProactiveEngagementDetailsResponse]
+-&gt; Read AssociateProactiveEngagementDetailsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateProactiveEngagementDetailsResponse]
+$creadListPrec :: ReadPrec [AssociateProactiveEngagementDetailsResponse]
+readPrec :: ReadPrec AssociateProactiveEngagementDetailsResponse
+$creadPrec :: ReadPrec AssociateProactiveEngagementDetailsResponse
+readList :: ReadS [AssociateProactiveEngagementDetailsResponse]
+$creadList :: ReadS [AssociateProactiveEngagementDetailsResponse]
+readsPrec :: Int -&gt; ReadS AssociateProactiveEngagementDetailsResponse
+$creadsPrec :: Int -&gt; ReadS AssociateProactiveEngagementDetailsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210744"><span id="local-6989586621679210746"><span id="local-6989586621679210748"><span class="annot"><span class="annottext">Int -&gt; AssociateProactiveEngagementDetailsResponse -&gt; ShowS
+[AssociateProactiveEngagementDetailsResponse] -&gt; ShowS
+AssociateProactiveEngagementDetailsResponse -&gt; String
+(Int -&gt; AssociateProactiveEngagementDetailsResponse -&gt; ShowS)
+-&gt; (AssociateProactiveEngagementDetailsResponse -&gt; String)
+-&gt; ([AssociateProactiveEngagementDetailsResponse] -&gt; ShowS)
+-&gt; Show AssociateProactiveEngagementDetailsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateProactiveEngagementDetailsResponse] -&gt; ShowS
+$cshowList :: [AssociateProactiveEngagementDetailsResponse] -&gt; ShowS
+show :: AssociateProactiveEngagementDetailsResponse -&gt; String
+$cshow :: AssociateProactiveEngagementDetailsResponse -&gt; String
+showsPrec :: Int -&gt; AssociateProactiveEngagementDetailsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateProactiveEngagementDetailsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateProactiveEngagementDetailsResponse
+ -&gt; Rep AssociateProactiveEngagementDetailsResponse x)
+-&gt; (forall x.
+    Rep AssociateProactiveEngagementDetailsResponse x
+    -&gt; AssociateProactiveEngagementDetailsResponse)
+-&gt; Generic AssociateProactiveEngagementDetailsResponse
+forall x.
+Rep AssociateProactiveEngagementDetailsResponse x
+-&gt; AssociateProactiveEngagementDetailsResponse
+forall x.
+AssociateProactiveEngagementDetailsResponse
+-&gt; Rep AssociateProactiveEngagementDetailsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateProactiveEngagementDetailsResponse x
+-&gt; AssociateProactiveEngagementDetailsResponse
+$cfrom :: forall x.
+AssociateProactiveEngagementDetailsResponse
+-&gt; Rep AssociateProactiveEngagementDetailsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'AssociateProactiveEngagementDetailsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'httpStatus', 'associateProactiveEngagementDetailsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">newAssociateProactiveEngagementDetailsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newAssociateProactiveEngagementDetailsResponse"><span class="annot"><span class="annottext">newAssociateProactiveEngagementDetailsResponse :: Int -&gt; AssociateProactiveEngagementDetailsResponse
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#newAssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-var hs-var">newAssociateProactiveEngagementDetailsResponse</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679210741"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210741"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">AssociateProactiveEngagementDetailsResponse' :: Int -&gt; AssociateProactiveEngagementDetailsResponse
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateProactiveEngagementDetailsResponse' :: Int
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AhttpStatus%3AAssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210741"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetailsResponse_httpStatus"><span class="hs-identifier hs-type">associateProactiveEngagementDetailsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="associateProactiveEngagementDetailsResponse_httpStatus"><span class="annot"><span class="annottext">associateProactiveEngagementDetailsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateProactiveEngagementDetailsResponse
+-&gt; f AssociateProactiveEngagementDetailsResponse
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#associateProactiveEngagementDetailsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateProactiveEngagementDetailsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateProactiveEngagementDetailsResponse -&gt; Int)
+-&gt; (AssociateProactiveEngagementDetailsResponse
+    -&gt; Int -&gt; AssociateProactiveEngagementDetailsResponse)
+-&gt; Lens
+     AssociateProactiveEngagementDetailsResponse
+     AssociateProactiveEngagementDetailsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210740"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateProactiveEngagementDetailsResponse' :: AssociateProactiveEngagementDetailsResponse -&gt; Int
+</span><a href="#local-6989586621679210740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210739"><span class="annot"><span class="annottext">s :: AssociateProactiveEngagementDetailsResponse
+</span><a href="#local-6989586621679210739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateProactiveEngagementDetailsResponse
+</span><a href="#local-6989586621679210739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateProactiveEngagementDetailsResponse' :: Int
+</span><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#%24sel%3AhttpStatus%3AAssociateProactiveEngagementDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679210736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.AssociateProactiveEngagementDetails.html#AssociateProactiveEngagementDetailsResponse"><span class="hs-identifier hs-type">AssociateProactiveEngagementDetailsResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

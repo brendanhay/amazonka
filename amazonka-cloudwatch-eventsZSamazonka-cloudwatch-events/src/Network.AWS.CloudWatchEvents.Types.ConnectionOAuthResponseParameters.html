@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html"><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters.html"><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html"><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains the response parameters when OAuth is specified as the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- authorization type.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConnectionOAuthResponseParameters' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300961"><span id="local-6989586621679300962"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionOAuthResponseParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-var">ConnectionOAuthResponseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionOAuthResponseParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">ConnectionOAuthResponseParameters'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The method used to connect to the HTTP endpoint.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhttpMethod%3AConnectionOAuthResponseParameters%27"><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+-&gt; Maybe ConnectionOAuthHttpMethod
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AhttpMethod%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod"><span class="hs-identifier hs-type">ConnectionOAuthHttpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A @ConnectionOAuthClientResponseParameters@ object that contains details</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- about the client parameters returned when OAuth is specified as the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- authorization type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AclientParameters%3AConnectionOAuthResponseParameters%27"><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+-&gt; Maybe ConnectionOAuthClientResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AclientParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var hs-var">clientParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters.html#ConnectionOAuthClientResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthClientResponseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The URL to the HTTP endpoint that authorized the request.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AauthorizationEndpoint%3AConnectionOAuthResponseParameters%27"><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AauthorizationEndpoint%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var hs-var">authorizationEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The additional HTTP parameters used for the OAuth authorization request.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AoAuthHttpParameters%3AConnectionOAuthResponseParameters%27"><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters -&gt; Maybe ConnectionHttpParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AoAuthHttpParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var hs-var">oAuthHttpParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300952"><span id="local-6989586621679300954"><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+-&gt; ConnectionOAuthResponseParameters -&gt; Bool
+(ConnectionOAuthResponseParameters
+ -&gt; ConnectionOAuthResponseParameters -&gt; Bool)
+-&gt; (ConnectionOAuthResponseParameters
+    -&gt; ConnectionOAuthResponseParameters -&gt; Bool)
+-&gt; Eq ConnectionOAuthResponseParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionOAuthResponseParameters
+-&gt; ConnectionOAuthResponseParameters -&gt; Bool
+$c/= :: ConnectionOAuthResponseParameters
+-&gt; ConnectionOAuthResponseParameters -&gt; Bool
+== :: ConnectionOAuthResponseParameters
+-&gt; ConnectionOAuthResponseParameters -&gt; Bool
+$c== :: ConnectionOAuthResponseParameters
+-&gt; ConnectionOAuthResponseParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300943"><span id="local-6989586621679300945"><span id="local-6989586621679300947"><span id="local-6989586621679300949"><span class="annot"><span class="annottext">ReadPrec [ConnectionOAuthResponseParameters]
+ReadPrec ConnectionOAuthResponseParameters
+Int -&gt; ReadS ConnectionOAuthResponseParameters
+ReadS [ConnectionOAuthResponseParameters]
+(Int -&gt; ReadS ConnectionOAuthResponseParameters)
+-&gt; ReadS [ConnectionOAuthResponseParameters]
+-&gt; ReadPrec ConnectionOAuthResponseParameters
+-&gt; ReadPrec [ConnectionOAuthResponseParameters]
+-&gt; Read ConnectionOAuthResponseParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionOAuthResponseParameters]
+$creadListPrec :: ReadPrec [ConnectionOAuthResponseParameters]
+readPrec :: ReadPrec ConnectionOAuthResponseParameters
+$creadPrec :: ReadPrec ConnectionOAuthResponseParameters
+readList :: ReadS [ConnectionOAuthResponseParameters]
+$creadList :: ReadS [ConnectionOAuthResponseParameters]
+readsPrec :: Int -&gt; ReadS ConnectionOAuthResponseParameters
+$creadsPrec :: Int -&gt; ReadS ConnectionOAuthResponseParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300936"><span id="local-6989586621679300938"><span id="local-6989586621679300940"><span class="annot"><span class="annottext">Int -&gt; ConnectionOAuthResponseParameters -&gt; ShowS
+[ConnectionOAuthResponseParameters] -&gt; ShowS
+ConnectionOAuthResponseParameters -&gt; String
+(Int -&gt; ConnectionOAuthResponseParameters -&gt; ShowS)
+-&gt; (ConnectionOAuthResponseParameters -&gt; String)
+-&gt; ([ConnectionOAuthResponseParameters] -&gt; ShowS)
+-&gt; Show ConnectionOAuthResponseParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionOAuthResponseParameters] -&gt; ShowS
+$cshowList :: [ConnectionOAuthResponseParameters] -&gt; ShowS
+show :: ConnectionOAuthResponseParameters -&gt; String
+$cshow :: ConnectionOAuthResponseParameters -&gt; String
+showsPrec :: Int -&gt; ConnectionOAuthResponseParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionOAuthResponseParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConnectionOAuthResponseParameters
+ -&gt; Rep ConnectionOAuthResponseParameters x)
+-&gt; (forall x.
+    Rep ConnectionOAuthResponseParameters x
+    -&gt; ConnectionOAuthResponseParameters)
+-&gt; Generic ConnectionOAuthResponseParameters
+forall x.
+Rep ConnectionOAuthResponseParameters x
+-&gt; ConnectionOAuthResponseParameters
+forall x.
+ConnectionOAuthResponseParameters
+-&gt; Rep ConnectionOAuthResponseParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConnectionOAuthResponseParameters x
+-&gt; ConnectionOAuthResponseParameters
+$cfrom :: forall x.
+ConnectionOAuthResponseParameters
+-&gt; Rep ConnectionOAuthResponseParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'ConnectionOAuthResponseParameters' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'httpMethod', 'connectionOAuthResponseParameters_httpMethod' - The method used to connect to the HTTP endpoint.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'clientParameters', 'connectionOAuthResponseParameters_clientParameters' - A @ConnectionOAuthClientResponseParameters@ object that contains details</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- about the client parameters returned when OAuth is specified as the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- authorization type.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'authorizationEndpoint', 'connectionOAuthResponseParameters_authorizationEndpoint' - The URL to the HTTP endpoint that authorized the request.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'oAuthHttpParameters', 'connectionOAuthResponseParameters_oAuthHttpParameters' - The additional HTTP parameters used for the OAuth authorization request.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#newConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">newConnectionOAuthResponseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span>
+</span><span id="line-66"></span><span id="newConnectionOAuthResponseParameters"><span class="annot"><span class="annottext">newConnectionOAuthResponseParameters :: ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#newConnectionOAuthResponseParameters"><span class="hs-identifier hs-var hs-var">newConnectionOAuthResponseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters' :: Maybe ConnectionOAuthHttpMethod
+-&gt; Maybe ConnectionOAuthClientResponseParameters
+-&gt; Maybe Text
+-&gt; Maybe ConnectionHttpParameters
+-&gt; ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpMethod:ConnectionOAuthResponseParameters' :: Maybe ConnectionOAuthHttpMethod
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AhttpMethod%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientParameters:ConnectionOAuthResponseParameters' :: Maybe ConnectionOAuthClientResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AclientParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">clientParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthClientResponseParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizationEndpoint:ConnectionOAuthResponseParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AauthorizationEndpoint%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:oAuthHttpParameters:ConnectionOAuthResponseParameters' :: Maybe ConnectionHttpParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AoAuthHttpParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">oAuthHttpParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionHttpParameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The method used to connect to the HTTP endpoint.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_httpMethod"><span class="hs-identifier hs-type">connectionOAuthResponseParameters_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod"><span class="hs-identifier hs-type">ConnectionOAuthHttpMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="connectionOAuthResponseParameters_httpMethod"><span class="annot"><span class="annottext">connectionOAuthResponseParameters_httpMethod :: (Maybe ConnectionOAuthHttpMethod
+ -&gt; f (Maybe ConnectionOAuthHttpMethod))
+-&gt; ConnectionOAuthResponseParameters
+-&gt; f ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_httpMethod"><span class="hs-identifier hs-var hs-var">connectionOAuthResponseParameters_httpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionOAuthResponseParameters
+ -&gt; Maybe ConnectionOAuthHttpMethod)
+-&gt; (ConnectionOAuthResponseParameters
+    -&gt; Maybe ConnectionOAuthHttpMethod
+    -&gt; ConnectionOAuthResponseParameters)
+-&gt; Lens
+     ConnectionOAuthResponseParameters
+     ConnectionOAuthResponseParameters
+     (Maybe ConnectionOAuthHttpMethod)
+     (Maybe ConnectionOAuthHttpMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300927"><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+httpMethod :: Maybe ConnectionOAuthHttpMethod
+$sel:httpMethod:ConnectionOAuthResponseParameters' :: ConnectionOAuthResponseParameters
+-&gt; Maybe ConnectionOAuthHttpMethod
+</span><a href="#local-6989586621679300927"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+</span><a href="#local-6989586621679300927"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300926"><span class="annot"><span class="annottext">s :: ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300925"><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+</span><a href="#local-6989586621679300925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:ConnectionOAuthResponseParameters' :: Maybe ConnectionOAuthHttpMethod
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AhttpMethod%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+</span><a href="#local-6989586621679300925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A @ConnectionOAuthClientResponseParameters@ object that contains details</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- about the client parameters returned when OAuth is specified as the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- authorization type.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_clientParameters"><span class="hs-identifier hs-type">connectionOAuthResponseParameters_clientParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters.html#ConnectionOAuthClientResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthClientResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="connectionOAuthResponseParameters_clientParameters"><span class="annot"><span class="annottext">connectionOAuthResponseParameters_clientParameters :: (Maybe ConnectionOAuthClientResponseParameters
+ -&gt; f (Maybe ConnectionOAuthClientResponseParameters))
+-&gt; ConnectionOAuthResponseParameters
+-&gt; f ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_clientParameters"><span class="hs-identifier hs-var hs-var">connectionOAuthResponseParameters_clientParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionOAuthResponseParameters
+ -&gt; Maybe ConnectionOAuthClientResponseParameters)
+-&gt; (ConnectionOAuthResponseParameters
+    -&gt; Maybe ConnectionOAuthClientResponseParameters
+    -&gt; ConnectionOAuthResponseParameters)
+-&gt; Lens
+     ConnectionOAuthResponseParameters
+     ConnectionOAuthResponseParameters
+     (Maybe ConnectionOAuthClientResponseParameters)
+     (Maybe ConnectionOAuthClientResponseParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300923"><span class="annot"><span class="annottext">Maybe ConnectionOAuthClientResponseParameters
+clientParameters :: Maybe ConnectionOAuthClientResponseParameters
+$sel:clientParameters:ConnectionOAuthResponseParameters' :: ConnectionOAuthResponseParameters
+-&gt; Maybe ConnectionOAuthClientResponseParameters
+</span><a href="#local-6989586621679300923"><span class="hs-identifier hs-var hs-var">clientParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthClientResponseParameters
+</span><a href="#local-6989586621679300923"><span class="hs-identifier hs-var">clientParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300922"><span class="annot"><span class="annottext">s :: ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300921"><span class="annot"><span class="annottext">Maybe ConnectionOAuthClientResponseParameters
+</span><a href="#local-6989586621679300921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientParameters:ConnectionOAuthResponseParameters' :: Maybe ConnectionOAuthClientResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AclientParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">clientParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthClientResponseParameters
+</span><a href="#local-6989586621679300921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The URL to the HTTP endpoint that authorized the request.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_authorizationEndpoint"><span class="hs-identifier hs-type">connectionOAuthResponseParameters_authorizationEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="connectionOAuthResponseParameters_authorizationEndpoint"><span class="annot"><span class="annottext">connectionOAuthResponseParameters_authorizationEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionOAuthResponseParameters
+-&gt; f ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_authorizationEndpoint"><span class="hs-identifier hs-var hs-var">connectionOAuthResponseParameters_authorizationEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionOAuthResponseParameters -&gt; Maybe Text)
+-&gt; (ConnectionOAuthResponseParameters
+    -&gt; Maybe Text -&gt; ConnectionOAuthResponseParameters)
+-&gt; Lens
+     ConnectionOAuthResponseParameters
+     ConnectionOAuthResponseParameters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300919"><span class="annot"><span class="annottext">Maybe Text
+authorizationEndpoint :: Maybe Text
+$sel:authorizationEndpoint:ConnectionOAuthResponseParameters' :: ConnectionOAuthResponseParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679300919"><span class="hs-identifier hs-var hs-var">authorizationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300919"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300918"><span class="annot"><span class="annottext">s :: ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationEndpoint:ConnectionOAuthResponseParameters' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AauthorizationEndpoint%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The additional HTTP parameters used for the OAuth authorization request.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_oAuthHttpParameters"><span class="hs-identifier hs-type">connectionOAuthResponseParameters_oAuthHttpParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters.html#ConnectionHttpParameters"><span class="hs-identifier hs-type">ConnectionHttpParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="connectionOAuthResponseParameters_oAuthHttpParameters"><span class="annot"><span class="annottext">connectionOAuthResponseParameters_oAuthHttpParameters :: (Maybe ConnectionHttpParameters
+ -&gt; f (Maybe ConnectionHttpParameters))
+-&gt; ConnectionOAuthResponseParameters
+-&gt; f ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#connectionOAuthResponseParameters_oAuthHttpParameters"><span class="hs-identifier hs-var hs-var">connectionOAuthResponseParameters_oAuthHttpParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionOAuthResponseParameters
+ -&gt; Maybe ConnectionHttpParameters)
+-&gt; (ConnectionOAuthResponseParameters
+    -&gt; Maybe ConnectionHttpParameters
+    -&gt; ConnectionOAuthResponseParameters)
+-&gt; Lens
+     ConnectionOAuthResponseParameters
+     ConnectionOAuthResponseParameters
+     (Maybe ConnectionHttpParameters)
+     (Maybe ConnectionHttpParameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300915"><span class="annot"><span class="annottext">Maybe ConnectionHttpParameters
+oAuthHttpParameters :: Maybe ConnectionHttpParameters
+$sel:oAuthHttpParameters:ConnectionOAuthResponseParameters' :: ConnectionOAuthResponseParameters -&gt; Maybe ConnectionHttpParameters
+</span><a href="#local-6989586621679300915"><span class="hs-identifier hs-var hs-var">oAuthHttpParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionHttpParameters
+</span><a href="#local-6989586621679300915"><span class="hs-identifier hs-var">oAuthHttpParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300914"><span class="annot"><span class="annottext">s :: ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300913"><span class="annot"><span class="annottext">Maybe ConnectionHttpParameters
+</span><a href="#local-6989586621679300913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionOAuthResponseParameters
+</span><a href="#local-6989586621679300914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oAuthHttpParameters:ConnectionOAuthResponseParameters' :: Maybe ConnectionHttpParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#%24sel%3AoAuthHttpParameters%3AConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">oAuthHttpParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionHttpParameters
+</span><a href="#local-6989586621679300913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679300910"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679300908"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionOAuthResponseParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConnectionOAuthResponseParameters)
+-&gt; Value
+-&gt; Parser ConnectionOAuthResponseParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConnectionOAuthResponseParameters&quot;</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300905"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConnectionOAuthHttpMethod
+-&gt; Maybe ConnectionOAuthClientResponseParameters
+-&gt; Maybe Text
+-&gt; Maybe ConnectionHttpParameters
+-&gt; ConnectionOAuthResponseParameters
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters%27"><span class="hs-identifier hs-var">ConnectionOAuthResponseParameters'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConnectionOAuthHttpMethod
+ -&gt; Maybe ConnectionOAuthClientResponseParameters
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectionHttpParameters
+ -&gt; ConnectionOAuthResponseParameters)
+-&gt; Parser (Maybe ConnectionOAuthHttpMethod)
+-&gt; Parser
+     (Maybe ConnectionOAuthClientResponseParameters
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionHttpParameters
+      -&gt; ConnectionOAuthResponseParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionOAuthHttpMethod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpMethod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionOAuthClientResponseParameters
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionHttpParameters
+   -&gt; ConnectionOAuthResponseParameters)
+-&gt; Parser (Maybe ConnectionOAuthClientResponseParameters)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ConnectionHttpParameters
+      -&gt; ConnectionOAuthResponseParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ConnectionOAuthClientResponseParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ConnectionHttpParameters
+   -&gt; ConnectionOAuthResponseParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ConnectionHttpParameters
+      -&gt; ConnectionOAuthResponseParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthorizationEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionHttpParameters
+   -&gt; ConnectionOAuthResponseParameters)
+-&gt; Parser (Maybe ConnectionHttpParameters)
+-&gt; Parser ConnectionOAuthResponseParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionHttpParameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OAuthHttpParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679300899"><span id="local-6989586621679300901"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679300896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters.html#ConnectionOAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionOAuthResponseParameters</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes whether S3 data event logs will be automatically enabled for</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- new members of the organization.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrganizationS3LogsConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679297849"><span id="local-6989586621679297850"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationS3LogsConfiguration"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-var">OrganizationS3LogsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationS3LogsConfiguration%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-var">OrganizationS3LogsConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that contains information on whether S3 data event logs will be</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- enabled automatically as a data source for the organization.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AautoEnable%3AOrganizationS3LogsConfiguration%27"><span class="annot"><span class="annottext">OrganizationS3LogsConfiguration -&gt; Bool
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#%24sel%3AautoEnable%3AOrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-var hs-var">autoEnable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297843"><span id="local-6989586621679297845"><span class="annot"><span class="annottext">OrganizationS3LogsConfiguration
+-&gt; OrganizationS3LogsConfiguration -&gt; Bool
+(OrganizationS3LogsConfiguration
+ -&gt; OrganizationS3LogsConfiguration -&gt; Bool)
+-&gt; (OrganizationS3LogsConfiguration
+    -&gt; OrganizationS3LogsConfiguration -&gt; Bool)
+-&gt; Eq OrganizationS3LogsConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OrganizationS3LogsConfiguration
+-&gt; OrganizationS3LogsConfiguration -&gt; Bool
+$c/= :: OrganizationS3LogsConfiguration
+-&gt; OrganizationS3LogsConfiguration -&gt; Bool
+== :: OrganizationS3LogsConfiguration
+-&gt; OrganizationS3LogsConfiguration -&gt; Bool
+$c== :: OrganizationS3LogsConfiguration
+-&gt; OrganizationS3LogsConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297834"><span id="local-6989586621679297836"><span id="local-6989586621679297838"><span id="local-6989586621679297840"><span class="annot"><span class="annottext">ReadPrec [OrganizationS3LogsConfiguration]
+ReadPrec OrganizationS3LogsConfiguration
+Int -&gt; ReadS OrganizationS3LogsConfiguration
+ReadS [OrganizationS3LogsConfiguration]
+(Int -&gt; ReadS OrganizationS3LogsConfiguration)
+-&gt; ReadS [OrganizationS3LogsConfiguration]
+-&gt; ReadPrec OrganizationS3LogsConfiguration
+-&gt; ReadPrec [OrganizationS3LogsConfiguration]
+-&gt; Read OrganizationS3LogsConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OrganizationS3LogsConfiguration]
+$creadListPrec :: ReadPrec [OrganizationS3LogsConfiguration]
+readPrec :: ReadPrec OrganizationS3LogsConfiguration
+$creadPrec :: ReadPrec OrganizationS3LogsConfiguration
+readList :: ReadS [OrganizationS3LogsConfiguration]
+$creadList :: ReadS [OrganizationS3LogsConfiguration]
+readsPrec :: Int -&gt; ReadS OrganizationS3LogsConfiguration
+$creadsPrec :: Int -&gt; ReadS OrganizationS3LogsConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297827"><span id="local-6989586621679297829"><span id="local-6989586621679297831"><span class="annot"><span class="annottext">Int -&gt; OrganizationS3LogsConfiguration -&gt; ShowS
+[OrganizationS3LogsConfiguration] -&gt; ShowS
+OrganizationS3LogsConfiguration -&gt; String
+(Int -&gt; OrganizationS3LogsConfiguration -&gt; ShowS)
+-&gt; (OrganizationS3LogsConfiguration -&gt; String)
+-&gt; ([OrganizationS3LogsConfiguration] -&gt; ShowS)
+-&gt; Show OrganizationS3LogsConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OrganizationS3LogsConfiguration] -&gt; ShowS
+$cshowList :: [OrganizationS3LogsConfiguration] -&gt; ShowS
+show :: OrganizationS3LogsConfiguration -&gt; String
+$cshow :: OrganizationS3LogsConfiguration -&gt; String
+showsPrec :: Int -&gt; OrganizationS3LogsConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; OrganizationS3LogsConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ OrganizationS3LogsConfiguration
+ -&gt; Rep OrganizationS3LogsConfiguration x)
+-&gt; (forall x.
+    Rep OrganizationS3LogsConfiguration x
+    -&gt; OrganizationS3LogsConfiguration)
+-&gt; Generic OrganizationS3LogsConfiguration
+forall x.
+Rep OrganizationS3LogsConfiguration x
+-&gt; OrganizationS3LogsConfiguration
+forall x.
+OrganizationS3LogsConfiguration
+-&gt; Rep OrganizationS3LogsConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep OrganizationS3LogsConfiguration x
+-&gt; OrganizationS3LogsConfiguration
+$cfrom :: forall x.
+OrganizationS3LogsConfiguration
+-&gt; Rep OrganizationS3LogsConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'OrganizationS3LogsConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'autoEnable', 'organizationS3LogsConfiguration_autoEnable' - A value that contains information on whether S3 data event logs will be</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- enabled automatically as a data source for the organization.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#newOrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">newOrganizationS3LogsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-comment">-- | 'autoEnable'</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span><span>
+</span><span id="line-51"></span><span id="newOrganizationS3LogsConfiguration"><span class="annot"><span class="annottext">newOrganizationS3LogsConfiguration :: Bool -&gt; OrganizationS3LogsConfiguration
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#newOrganizationS3LogsConfiguration"><span class="hs-identifier hs-var hs-var">newOrganizationS3LogsConfiguration</span></a></span></span><span> </span><span id="local-6989586621679297821"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297821"><span class="hs-identifier hs-var">pAutoEnable_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">OrganizationS3LogsConfiguration' :: Bool -&gt; OrganizationS3LogsConfiguration
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoEnable:OrganizationS3LogsConfiguration' :: Bool
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#%24sel%3AautoEnable%3AOrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-var">autoEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297821"><span class="hs-identifier hs-var">pAutoEnable_</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | A value that contains information on whether S3 data event logs will be</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- enabled automatically as a data source for the organization.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#organizationS3LogsConfiguration_autoEnable"><span class="hs-identifier hs-type">organizationS3LogsConfiguration_autoEnable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-60"></span><span id="organizationS3LogsConfiguration_autoEnable"><span class="annot"><span class="annottext">organizationS3LogsConfiguration_autoEnable :: (Bool -&gt; f Bool)
+-&gt; OrganizationS3LogsConfiguration
+-&gt; f OrganizationS3LogsConfiguration
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#organizationS3LogsConfiguration_autoEnable"><span class="hs-identifier hs-var hs-var">organizationS3LogsConfiguration_autoEnable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationS3LogsConfiguration -&gt; Bool)
+-&gt; (OrganizationS3LogsConfiguration
+    -&gt; Bool -&gt; OrganizationS3LogsConfiguration)
+-&gt; Lens
+     OrganizationS3LogsConfiguration
+     OrganizationS3LogsConfiguration
+     Bool
+     Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297817"><span class="annot"><span class="annottext">Bool
+autoEnable :: Bool
+$sel:autoEnable:OrganizationS3LogsConfiguration' :: OrganizationS3LogsConfiguration -&gt; Bool
+</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var hs-var">autoEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var">autoEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297816"><span class="annot"><span class="annottext">s :: OrganizationS3LogsConfiguration
+</span><a href="#local-6989586621679297816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297815"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationS3LogsConfiguration
+</span><a href="#local-6989586621679297816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoEnable:OrganizationS3LogsConfiguration' :: Bool
+</span><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#%24sel%3AautoEnable%3AOrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-var">autoEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679297811"><span id="local-6989586621679297813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679297808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297800"><span id="local-6989586621679297802"><span id="local-6989586621679297804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679297798"><span class="annot"><span class="annottext">toJSON :: OrganizationS3LogsConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration.html#OrganizationS3LogsConfiguration%27"><span class="hs-identifier hs-type">OrganizationS3LogsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297796"><span class="annot"><span class="annottext">Bool
+autoEnable :: Bool
+$sel:autoEnable:OrganizationS3LogsConfiguration' :: OrganizationS3LogsConfiguration -&gt; Bool
+</span><a href="#local-6989586621679297796"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoEnable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679297796"><span class="hs-identifier hs-var">autoEnable</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span></pre></body></html>

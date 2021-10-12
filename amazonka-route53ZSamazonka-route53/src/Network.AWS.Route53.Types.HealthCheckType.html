@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.Types.HealthCheckType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.Types.HealthCheckType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier">HealthCheckType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CALCULATED"><span class="hs-identifier">HealthCheckType_CALCULATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CLOUDWATCH_METRIC"><span class="hs-identifier">HealthCheckType_CLOUDWATCH_METRIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP"><span class="hs-identifier">HealthCheckType_HTTP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS"><span class="hs-identifier">HealthCheckType_HTTPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS_STR_MATCH"><span class="hs-identifier">HealthCheckType_HTTPS_STR_MATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP_STR_MATCH"><span class="hs-identifier">HealthCheckType_HTTP_STR_MATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_RECOVERY_CONTROL"><span class="hs-identifier">HealthCheckType_RECOVERY_CONTROL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_TCP"><span class="hs-identifier">HealthCheckType_TCP</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679294453"><span id="local-6989586621679294454"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckType"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-var">HealthCheckType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckType%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-var">HealthCheckType'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthCheckType"><span class="annot"><span class="annottext">HealthCheckType -&gt; Text
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#fromHealthCheckType"><span class="hs-identifier hs-var hs-var">fromHealthCheckType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294445"><span id="local-6989586621679294447"><span id="local-6989586621679294449"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; ShowS
+[HealthCheckType] -&gt; ShowS
+HealthCheckType -&gt; String
+(Int -&gt; HealthCheckType -&gt; ShowS)
+-&gt; (HealthCheckType -&gt; String)
+-&gt; ([HealthCheckType] -&gt; ShowS)
+-&gt; Show HealthCheckType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HealthCheckType] -&gt; ShowS
+$cshowList :: [HealthCheckType] -&gt; ShowS
+show :: HealthCheckType -&gt; String
+$cshow :: HealthCheckType -&gt; String
+showsPrec :: Int -&gt; HealthCheckType -&gt; ShowS
+$cshowsPrec :: Int -&gt; HealthCheckType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294436"><span id="local-6989586621679294438"><span id="local-6989586621679294440"><span id="local-6989586621679294442"><span class="annot"><span class="annottext">ReadPrec [HealthCheckType]
+ReadPrec HealthCheckType
+Int -&gt; ReadS HealthCheckType
+ReadS [HealthCheckType]
+(Int -&gt; ReadS HealthCheckType)
+-&gt; ReadS [HealthCheckType]
+-&gt; ReadPrec HealthCheckType
+-&gt; ReadPrec [HealthCheckType]
+-&gt; Read HealthCheckType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HealthCheckType]
+$creadListPrec :: ReadPrec [HealthCheckType]
+readPrec :: ReadPrec HealthCheckType
+$creadPrec :: ReadPrec HealthCheckType
+readList :: ReadS [HealthCheckType]
+$creadList :: ReadS [HealthCheckType]
+readsPrec :: Int -&gt; ReadS HealthCheckType
+$creadsPrec :: Int -&gt; ReadS HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294431"><span id="local-6989586621679294433"><span class="annot"><span class="annottext">HealthCheckType -&gt; HealthCheckType -&gt; Bool
+(HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; Eq HealthCheckType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c/= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+== :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c== :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294415"><span id="local-6989586621679294417"><span id="local-6989586621679294419"><span id="local-6989586621679294421"><span id="local-6989586621679294423"><span id="local-6989586621679294425"><span id="local-6989586621679294427"><span class="annot"><span class="annottext">Eq HealthCheckType
+Eq HealthCheckType
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Ordering)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType)
+-&gt; (HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType)
+-&gt; Ord HealthCheckType
+HealthCheckType -&gt; HealthCheckType -&gt; Bool
+HealthCheckType -&gt; HealthCheckType -&gt; Ordering
+HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType
+$cmin :: HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType
+max :: HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType
+$cmax :: HealthCheckType -&gt; HealthCheckType -&gt; HealthCheckType
+&gt;= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c&gt;= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+&gt; :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c&gt; :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+&lt;= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c&lt;= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+&lt; :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+$c&lt; :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
+compare :: HealthCheckType -&gt; HealthCheckType -&gt; Ordering
+$ccompare :: HealthCheckType -&gt; HealthCheckType -&gt; Ordering
+$cp1Ord :: Eq HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HealthCheckType -&gt; Rep HealthCheckType x)
+-&gt; (forall x. Rep HealthCheckType x -&gt; HealthCheckType)
+-&gt; Generic HealthCheckType
+forall x. Rep HealthCheckType x -&gt; HealthCheckType
+forall x. HealthCheckType -&gt; Rep HealthCheckType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HealthCheckType x -&gt; HealthCheckType
+$cfrom :: forall x. HealthCheckType -&gt; Rep HealthCheckType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294407"><span id="local-6989586621679294409"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; Int
+HealthCheckType -&gt; Int
+(Int -&gt; HealthCheckType -&gt; Int)
+-&gt; (HealthCheckType -&gt; Int) -&gt; Hashable HealthCheckType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HealthCheckType -&gt; Int
+$chash :: HealthCheckType -&gt; Int
+hashWithSalt :: Int -&gt; HealthCheckType -&gt; Int
+$chashWithSalt :: Int -&gt; HealthCheckType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294404"><span class="annot"><span class="annottext">HealthCheckType -&gt; ()
+(HealthCheckType -&gt; ()) -&gt; NFData HealthCheckType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HealthCheckType -&gt; ()
+$crnf :: HealthCheckType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294401"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckType
+(Text -&gt; Either String HealthCheckType) -&gt; FromText HealthCheckType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HealthCheckType
+$cfromText :: Text -&gt; Either String HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294398"><span class="annot"><span class="annottext">HealthCheckType -&gt; Text
+(HealthCheckType -&gt; Text) -&gt; ToText HealthCheckType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HealthCheckType -&gt; Text
+$ctoText :: HealthCheckType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294395"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteString
+(HealthCheckType -&gt; ByteString) -&gt; ToByteString HealthCheckType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HealthCheckType -&gt; ByteString
+$ctoBS :: HealthCheckType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294392"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteStringBuilder
+(HealthCheckType -&gt; ByteStringBuilder) -&gt; ToLog HealthCheckType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HealthCheckType -&gt; ByteStringBuilder
+$cbuild :: HealthCheckType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294389"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckType -&gt; [Header]
+(HeaderName -&gt; HealthCheckType -&gt; [Header])
+-&gt; ToHeader HealthCheckType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HealthCheckType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HealthCheckType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294386"><span class="annot"><span class="annottext">HealthCheckType -&gt; QueryString
+(HealthCheckType -&gt; QueryString) -&gt; ToQuery HealthCheckType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HealthCheckType -&gt; QueryString
+$ctoQuery :: HealthCheckType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294381"><span id="local-6989586621679294383"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckType]
+Value -&gt; Parser HealthCheckType
+(Value -&gt; Parser HealthCheckType)
+-&gt; (Value -&gt; Parser [HealthCheckType]) -&gt; FromJSON HealthCheckType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HealthCheckType]
+$cparseJSONList :: Value -&gt; Parser [HealthCheckType]
+parseJSON :: Value -&gt; Parser HealthCheckType
+$cparseJSON :: Value -&gt; Parser HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294376"><span id="local-6989586621679294378"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckType]
+FromJSONKeyFunction HealthCheckType
+FromJSONKeyFunction HealthCheckType
+-&gt; FromJSONKeyFunction [HealthCheckType]
+-&gt; FromJSONKey HealthCheckType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HealthCheckType]
+$cfromJSONKeyList :: FromJSONKeyFunction [HealthCheckType]
+fromJSONKey :: FromJSONKeyFunction HealthCheckType
+$cfromJSONKey :: FromJSONKeyFunction HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294367"><span id="local-6989586621679294369"><span id="local-6989586621679294371"><span id="local-6989586621679294373"><span class="annot"><span class="annottext">[HealthCheckType] -&gt; Encoding
+[HealthCheckType] -&gt; Value
+HealthCheckType -&gt; Encoding
+HealthCheckType -&gt; Value
+(HealthCheckType -&gt; Value)
+-&gt; (HealthCheckType -&gt; Encoding)
+-&gt; ([HealthCheckType] -&gt; Value)
+-&gt; ([HealthCheckType] -&gt; Encoding)
+-&gt; ToJSON HealthCheckType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HealthCheckType] -&gt; Encoding
+$ctoEncodingList :: [HealthCheckType] -&gt; Encoding
+toJSONList :: [HealthCheckType] -&gt; Value
+$ctoJSONList :: [HealthCheckType] -&gt; Value
+toEncoding :: HealthCheckType -&gt; Encoding
+$ctoEncoding :: HealthCheckType -&gt; Encoding
+toJSON :: HealthCheckType -&gt; Value
+$ctoJSON :: HealthCheckType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294362"><span id="local-6989586621679294364"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckType]
+ToJSONKeyFunction HealthCheckType
+ToJSONKeyFunction HealthCheckType
+-&gt; ToJSONKeyFunction [HealthCheckType] -&gt; ToJSONKey HealthCheckType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HealthCheckType]
+$ctoJSONKeyList :: ToJSONKeyFunction [HealthCheckType]
+toJSONKey :: ToJSONKeyFunction HealthCheckType
+$ctoJSONKey :: ToJSONKeyFunction HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294359"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckType
+([Node] -&gt; Either String HealthCheckType)
+-&gt; FromXML HealthCheckType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HealthCheckType
+$cparseXML :: [Node] -&gt; Either String HealthCheckType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294356"><span class="annot"><span class="annottext">HealthCheckType -&gt; XML
+(HealthCheckType -&gt; XML) -&gt; ToXML HealthCheckType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HealthCheckType -&gt; XML
+$ctoXML :: HealthCheckType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CALCULATED"><span class="hs-identifier hs-type">HealthCheckType_CALCULATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_CALCULATED"><span id="%24mHealthCheckType_CALCULATED"><span id="HealthCheckType_CALCULATED"><span class="annot"><span class="annottext">$bHealthCheckType_CALCULATED :: HealthCheckType
+$mHealthCheckType_CALCULATED :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_CALCULATED"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_CALCULATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CALCULATED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CLOUDWATCH_METRIC"><span class="hs-identifier hs-type">HealthCheckType_CLOUDWATCH_METRIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_CLOUDWATCH_METRIC"><span id="%24mHealthCheckType_CLOUDWATCH_METRIC"><span id="HealthCheckType_CLOUDWATCH_METRIC"><span class="annot"><span class="annottext">$bHealthCheckType_CLOUDWATCH_METRIC :: HealthCheckType
+$mHealthCheckType_CLOUDWATCH_METRIC :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_CLOUDWATCH_METRIC"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_CLOUDWATCH_METRIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUDWATCH_METRIC&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP"><span class="hs-identifier hs-type">HealthCheckType_HTTP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_HTTP"><span id="%24mHealthCheckType_HTTP"><span id="HealthCheckType_HTTP"><span class="annot"><span class="annottext">$bHealthCheckType_HTTP :: HealthCheckType
+$mHealthCheckType_HTTP :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_HTTP"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_HTTP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS"><span class="hs-identifier hs-type">HealthCheckType_HTTPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_HTTPS"><span id="%24mHealthCheckType_HTTPS"><span id="HealthCheckType_HTTPS"><span class="annot"><span class="annottext">$bHealthCheckType_HTTPS :: HealthCheckType
+$mHealthCheckType_HTTPS :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_HTTPS"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_HTTPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTPS&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS_STR_MATCH"><span class="hs-identifier hs-type">HealthCheckType_HTTPS_STR_MATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_HTTPS_STR_MATCH"><span id="%24mHealthCheckType_HTTPS_STR_MATCH"><span id="HealthCheckType_HTTPS_STR_MATCH"><span class="annot"><span class="annottext">$bHealthCheckType_HTTPS_STR_MATCH :: HealthCheckType
+$mHealthCheckType_HTTPS_STR_MATCH :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_HTTPS_STR_MATCH"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_HTTPS_STR_MATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTPS_STR_MATCH&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP_STR_MATCH"><span class="hs-identifier hs-type">HealthCheckType_HTTP_STR_MATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_HTTP_STR_MATCH"><span id="%24mHealthCheckType_HTTP_STR_MATCH"><span id="HealthCheckType_HTTP_STR_MATCH"><span class="annot"><span class="annottext">$bHealthCheckType_HTTP_STR_MATCH :: HealthCheckType
+$mHealthCheckType_HTTP_STR_MATCH :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_HTTP_STR_MATCH"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_HTTP_STR_MATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP_STR_MATCH&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_RECOVERY_CONTROL"><span class="hs-identifier hs-type">HealthCheckType_RECOVERY_CONTROL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_RECOVERY_CONTROL"><span id="%24mHealthCheckType_RECOVERY_CONTROL"><span id="HealthCheckType_RECOVERY_CONTROL"><span class="annot"><span class="annottext">$bHealthCheckType_RECOVERY_CONTROL :: HealthCheckType
+$mHealthCheckType_RECOVERY_CONTROL :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_RECOVERY_CONTROL"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_RECOVERY_CONTROL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RECOVERY_CONTROL&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_TCP"><span class="hs-identifier hs-type">HealthCheckType_TCP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckType_TCP"><span id="%24mHealthCheckType_TCP"><span id="HealthCheckType_TCP"><span class="annot"><span class="annottext">$bHealthCheckType_TCP :: HealthCheckType
+$mHealthCheckType_TCP :: forall r. HealthCheckType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53.Types.HealthCheckType.html#%24bHealthCheckType_TCP"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckType_TCP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-type">HealthCheckType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TCP&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CALCULATED"><span class="hs-pragma hs-type">HealthCheckType_CALCULATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_CLOUDWATCH_METRIC"><span class="hs-pragma hs-type">HealthCheckType_CLOUDWATCH_METRIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP"><span class="hs-pragma hs-type">HealthCheckType_HTTP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS"><span class="hs-pragma hs-type">HealthCheckType_HTTPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTPS_STR_MATCH"><span class="hs-pragma hs-type">HealthCheckType_HTTPS_STR_MATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_HTTP_STR_MATCH"><span class="hs-pragma hs-type">HealthCheckType_HTTP_STR_MATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_RECOVERY_CONTROL"><span class="hs-pragma hs-type">HealthCheckType_RECOVERY_CONTROL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType_TCP"><span class="hs-pragma hs-type">HealthCheckType_TCP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-pragma hs-type">HealthCheckType'</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-102"></span></pre></body></html>

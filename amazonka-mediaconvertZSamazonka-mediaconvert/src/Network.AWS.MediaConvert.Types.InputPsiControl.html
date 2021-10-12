@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.InputPsiControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.InputPsiControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl"><span class="hs-identifier">InputPsiControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_IGNORE_PSI"><span class="hs-identifier">InputPsiControl_IGNORE_PSI</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_USE_PSI"><span class="hs-identifier">InputPsiControl_USE_PSI</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Set PSI control (InputPsiControl) for transport stream inputs to specify</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- which data the demux process to scans. * Ignore PSI - Scan all PIDs for</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- audio and video. * Use PSI - Scan only PSI data.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679976129"><span id="local-6989586621679976130"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputPsiControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl"><span class="hs-identifier hs-var">InputPsiControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputPsiControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl%27"><span class="hs-identifier hs-var">InputPsiControl'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputPsiControl"><span class="annot"><span class="annottext">InputPsiControl -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#fromInputPsiControl"><span class="hs-identifier hs-var hs-var">fromInputPsiControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976121"><span id="local-6989586621679976123"><span id="local-6989586621679976125"><span class="annot"><span class="annottext">Int -&gt; InputPsiControl -&gt; ShowS
+[InputPsiControl] -&gt; ShowS
+InputPsiControl -&gt; String
+(Int -&gt; InputPsiControl -&gt; ShowS)
+-&gt; (InputPsiControl -&gt; String)
+-&gt; ([InputPsiControl] -&gt; ShowS)
+-&gt; Show InputPsiControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputPsiControl] -&gt; ShowS
+$cshowList :: [InputPsiControl] -&gt; ShowS
+show :: InputPsiControl -&gt; String
+$cshow :: InputPsiControl -&gt; String
+showsPrec :: Int -&gt; InputPsiControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputPsiControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679976112"><span id="local-6989586621679976114"><span id="local-6989586621679976116"><span id="local-6989586621679976118"><span class="annot"><span class="annottext">ReadPrec [InputPsiControl]
+ReadPrec InputPsiControl
+Int -&gt; ReadS InputPsiControl
+ReadS [InputPsiControl]
+(Int -&gt; ReadS InputPsiControl)
+-&gt; ReadS [InputPsiControl]
+-&gt; ReadPrec InputPsiControl
+-&gt; ReadPrec [InputPsiControl]
+-&gt; Read InputPsiControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputPsiControl]
+$creadListPrec :: ReadPrec [InputPsiControl]
+readPrec :: ReadPrec InputPsiControl
+$creadPrec :: ReadPrec InputPsiControl
+readList :: ReadS [InputPsiControl]
+$creadList :: ReadS [InputPsiControl]
+readsPrec :: Int -&gt; ReadS InputPsiControl
+$creadsPrec :: Int -&gt; ReadS InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679976107"><span id="local-6989586621679976109"><span class="annot"><span class="annottext">InputPsiControl -&gt; InputPsiControl -&gt; Bool
+(InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; Eq InputPsiControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c/= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+== :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c== :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679976091"><span id="local-6989586621679976093"><span id="local-6989586621679976095"><span id="local-6989586621679976097"><span id="local-6989586621679976099"><span id="local-6989586621679976101"><span id="local-6989586621679976103"><span class="annot"><span class="annottext">Eq InputPsiControl
+Eq InputPsiControl
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Ordering)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; Bool)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl)
+-&gt; (InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl)
+-&gt; Ord InputPsiControl
+InputPsiControl -&gt; InputPsiControl -&gt; Bool
+InputPsiControl -&gt; InputPsiControl -&gt; Ordering
+InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl
+$cmin :: InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl
+max :: InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl
+$cmax :: InputPsiControl -&gt; InputPsiControl -&gt; InputPsiControl
+&gt;= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c&gt;= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+&gt; :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c&gt; :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+&lt;= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c&lt;= :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+&lt; :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+$c&lt; :: InputPsiControl -&gt; InputPsiControl -&gt; Bool
+compare :: InputPsiControl -&gt; InputPsiControl -&gt; Ordering
+$ccompare :: InputPsiControl -&gt; InputPsiControl -&gt; Ordering
+$cp1Ord :: Eq InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InputPsiControl -&gt; Rep InputPsiControl x)
+-&gt; (forall x. Rep InputPsiControl x -&gt; InputPsiControl)
+-&gt; Generic InputPsiControl
+forall x. Rep InputPsiControl x -&gt; InputPsiControl
+forall x. InputPsiControl -&gt; Rep InputPsiControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputPsiControl x -&gt; InputPsiControl
+$cfrom :: forall x. InputPsiControl -&gt; Rep InputPsiControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976083"><span id="local-6989586621679976085"><span class="annot"><span class="annottext">Int -&gt; InputPsiControl -&gt; Int
+InputPsiControl -&gt; Int
+(Int -&gt; InputPsiControl -&gt; Int)
+-&gt; (InputPsiControl -&gt; Int) -&gt; Hashable InputPsiControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InputPsiControl -&gt; Int
+$chash :: InputPsiControl -&gt; Int
+hashWithSalt :: Int -&gt; InputPsiControl -&gt; Int
+$chashWithSalt :: Int -&gt; InputPsiControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679976080"><span class="annot"><span class="annottext">InputPsiControl -&gt; ()
+(InputPsiControl -&gt; ()) -&gt; NFData InputPsiControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InputPsiControl -&gt; ()
+$crnf :: InputPsiControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679976077"><span class="annot"><span class="annottext">Text -&gt; Either String InputPsiControl
+(Text -&gt; Either String InputPsiControl) -&gt; FromText InputPsiControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InputPsiControl
+$cfromText :: Text -&gt; Either String InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679976074"><span class="annot"><span class="annottext">InputPsiControl -&gt; Text
+(InputPsiControl -&gt; Text) -&gt; ToText InputPsiControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InputPsiControl -&gt; Text
+$ctoText :: InputPsiControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679976071"><span class="annot"><span class="annottext">InputPsiControl -&gt; ByteString
+(InputPsiControl -&gt; ByteString) -&gt; ToByteString InputPsiControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InputPsiControl -&gt; ByteString
+$ctoBS :: InputPsiControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679976068"><span class="annot"><span class="annottext">InputPsiControl -&gt; ByteStringBuilder
+(InputPsiControl -&gt; ByteStringBuilder) -&gt; ToLog InputPsiControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InputPsiControl -&gt; ByteStringBuilder
+$cbuild :: InputPsiControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679976065"><span class="annot"><span class="annottext">HeaderName -&gt; InputPsiControl -&gt; [Header]
+(HeaderName -&gt; InputPsiControl -&gt; [Header])
+-&gt; ToHeader InputPsiControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InputPsiControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InputPsiControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679976062"><span class="annot"><span class="annottext">InputPsiControl -&gt; QueryString
+(InputPsiControl -&gt; QueryString) -&gt; ToQuery InputPsiControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InputPsiControl -&gt; QueryString
+$ctoQuery :: InputPsiControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679976057"><span id="local-6989586621679976059"><span class="annot"><span class="annottext">Value -&gt; Parser [InputPsiControl]
+Value -&gt; Parser InputPsiControl
+(Value -&gt; Parser InputPsiControl)
+-&gt; (Value -&gt; Parser [InputPsiControl]) -&gt; FromJSON InputPsiControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InputPsiControl]
+$cparseJSONList :: Value -&gt; Parser [InputPsiControl]
+parseJSON :: Value -&gt; Parser InputPsiControl
+$cparseJSON :: Value -&gt; Parser InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679976052"><span id="local-6989586621679976054"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputPsiControl]
+FromJSONKeyFunction InputPsiControl
+FromJSONKeyFunction InputPsiControl
+-&gt; FromJSONKeyFunction [InputPsiControl]
+-&gt; FromJSONKey InputPsiControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InputPsiControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [InputPsiControl]
+fromJSONKey :: FromJSONKeyFunction InputPsiControl
+$cfromJSONKey :: FromJSONKeyFunction InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679976043"><span id="local-6989586621679976045"><span id="local-6989586621679976047"><span id="local-6989586621679976049"><span class="annot"><span class="annottext">[InputPsiControl] -&gt; Encoding
+[InputPsiControl] -&gt; Value
+InputPsiControl -&gt; Encoding
+InputPsiControl -&gt; Value
+(InputPsiControl -&gt; Value)
+-&gt; (InputPsiControl -&gt; Encoding)
+-&gt; ([InputPsiControl] -&gt; Value)
+-&gt; ([InputPsiControl] -&gt; Encoding)
+-&gt; ToJSON InputPsiControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InputPsiControl] -&gt; Encoding
+$ctoEncodingList :: [InputPsiControl] -&gt; Encoding
+toJSONList :: [InputPsiControl] -&gt; Value
+$ctoJSONList :: [InputPsiControl] -&gt; Value
+toEncoding :: InputPsiControl -&gt; Encoding
+$ctoEncoding :: InputPsiControl -&gt; Encoding
+toJSON :: InputPsiControl -&gt; Value
+$ctoJSON :: InputPsiControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679976038"><span id="local-6989586621679976040"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputPsiControl]
+ToJSONKeyFunction InputPsiControl
+ToJSONKeyFunction InputPsiControl
+-&gt; ToJSONKeyFunction [InputPsiControl] -&gt; ToJSONKey InputPsiControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InputPsiControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [InputPsiControl]
+toJSONKey :: ToJSONKeyFunction InputPsiControl
+$ctoJSONKey :: ToJSONKeyFunction InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679976035"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputPsiControl
+([Node] -&gt; Either String InputPsiControl)
+-&gt; FromXML InputPsiControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InputPsiControl
+$cparseXML :: [Node] -&gt; Either String InputPsiControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679976032"><span class="annot"><span class="annottext">InputPsiControl -&gt; XML
+(InputPsiControl -&gt; XML) -&gt; ToXML InputPsiControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InputPsiControl -&gt; XML
+$ctoXML :: InputPsiControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_IGNORE_PSI"><span class="hs-identifier hs-type">InputPsiControl_IGNORE_PSI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl"><span class="hs-identifier hs-type">InputPsiControl</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputPsiControl_IGNORE_PSI"><span id="%24mInputPsiControl_IGNORE_PSI"><span id="InputPsiControl_IGNORE_PSI"><span class="annot"><span class="annottext">$bInputPsiControl_IGNORE_PSI :: InputPsiControl
+$mInputPsiControl_IGNORE_PSI :: forall r. InputPsiControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#%24bInputPsiControl_IGNORE_PSI"><span class="hs-identifier hs-var hs-var hs-var">InputPsiControl_IGNORE_PSI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl%27"><span class="hs-identifier hs-type">InputPsiControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IGNORE_PSI&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_USE_PSI"><span class="hs-identifier hs-type">InputPsiControl_USE_PSI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl"><span class="hs-identifier hs-type">InputPsiControl</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputPsiControl_USE_PSI"><span id="%24mInputPsiControl_USE_PSI"><span id="InputPsiControl_USE_PSI"><span class="annot"><span class="annottext">$bInputPsiControl_USE_PSI :: InputPsiControl
+$mInputPsiControl_USE_PSI :: forall r. InputPsiControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#%24bInputPsiControl_USE_PSI"><span class="hs-identifier hs-var hs-var hs-var">InputPsiControl_USE_PSI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl%27"><span class="hs-identifier hs-type">InputPsiControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_PSI&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_IGNORE_PSI"><span class="hs-pragma hs-type">InputPsiControl_IGNORE_PSI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl_USE_PSI"><span class="hs-pragma hs-type">InputPsiControl_USE_PSI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputPsiControl.html#InputPsiControl%27"><span class="hs-pragma hs-type">InputPsiControl'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

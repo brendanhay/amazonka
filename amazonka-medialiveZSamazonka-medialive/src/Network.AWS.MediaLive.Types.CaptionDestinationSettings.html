@@ -1,0 +1,1090 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.CaptionDestinationSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.CaptionDestinationSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.AribDestinationSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.BurnInDestinationSettings</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbSubDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.DvbSubDestinationSettings</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.EbuTtDDestinationSettings</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.EmbeddedDestinationSettings</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27DestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte27DestinationSettings</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.SmpteTtDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.SmpteTtDestinationSettings</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TeletextDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.TeletextDestinationSettings</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TtmlDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.TtmlDestinationSettings</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationSettings.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.WebvttDestinationSettings</span></a></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- | Caption Destination Settings</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newCaptionDestinationSettings' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679925407"><span id="local-6989586621679925408"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionDestinationSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-var">CaptionDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-var">CaptionDestinationSettings'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AembeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe EmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">embeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AwebvttDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe WebvttDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AwebvttDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">webvttDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationSettings.html#WebvttDestinationSettings"><span class="hs-identifier hs-type">WebvttDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaribDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe AribDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AaribDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">aribDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribDestinationSettings.html#AribDestinationSettings"><span class="hs-identifier hs-type">AribDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AembeddedPlusScte20DestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedPlusScte20DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">embeddedPlusScte20DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings.html#EmbeddedPlusScte20DestinationSettings"><span class="hs-identifier hs-type">EmbeddedPlusScte20DestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Ascte20PlusEmbeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte20PlusEmbeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings.html#Scte20PlusEmbeddedDestinationSettings"><span class="hs-identifier hs-type">Scte20PlusEmbeddedDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ascte27DestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe Scte27DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte27DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">scte27DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27DestinationSettings.html#Scte27DestinationSettings"><span class="hs-identifier hs-type">Scte27DestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdvbSubDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe DvbSubDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AdvbSubDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">dvbSubDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbSubDestinationSettings.html#DvbSubDestinationSettings"><span class="hs-identifier hs-type">DvbSubDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArtmpCaptionInfoDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings
+-&gt; Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3ArtmpCaptionInfoDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">rtmpCaptionInfoDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings.html#RtmpCaptionInfoDestinationSettings"><span class="hs-identifier hs-type">RtmpCaptionInfoDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AebuTtDDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe EbuTtDDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AebuTtDDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">ebuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AteletextDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe TeletextDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AteletextDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">teletextDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TeletextDestinationSettings.html#TeletextDestinationSettings"><span class="hs-identifier hs-type">TeletextDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsmpteTtDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe SmpteTtDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AsmpteTtDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">smpteTtDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.SmpteTtDestinationSettings.html#SmpteTtDestinationSettings"><span class="hs-identifier hs-type">SmpteTtDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AttmlDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe TtmlDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AttmlDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">ttmlDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TtmlDestinationSettings.html#TtmlDestinationSettings"><span class="hs-identifier hs-type">TtmlDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AburnInDestinationSettings%3ACaptionDestinationSettings%27"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; Maybe BurnInDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AburnInDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var hs-var">burnInDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInDestinationSettings.html#BurnInDestinationSettings"><span class="hs-identifier hs-type">BurnInDestinationSettings</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679925389"><span id="local-6989586621679925391"><span class="annot"><span class="annottext">CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool
+(CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool)
+-&gt; (CaptionDestinationSettings
+    -&gt; CaptionDestinationSettings -&gt; Bool)
+-&gt; Eq CaptionDestinationSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool
+$c/= :: CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool
+== :: CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool
+$c== :: CaptionDestinationSettings -&gt; CaptionDestinationSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925380"><span id="local-6989586621679925382"><span id="local-6989586621679925384"><span id="local-6989586621679925386"><span class="annot"><span class="annottext">ReadPrec [CaptionDestinationSettings]
+ReadPrec CaptionDestinationSettings
+Int -&gt; ReadS CaptionDestinationSettings
+ReadS [CaptionDestinationSettings]
+(Int -&gt; ReadS CaptionDestinationSettings)
+-&gt; ReadS [CaptionDestinationSettings]
+-&gt; ReadPrec CaptionDestinationSettings
+-&gt; ReadPrec [CaptionDestinationSettings]
+-&gt; Read CaptionDestinationSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptionDestinationSettings]
+$creadListPrec :: ReadPrec [CaptionDestinationSettings]
+readPrec :: ReadPrec CaptionDestinationSettings
+$creadPrec :: ReadPrec CaptionDestinationSettings
+readList :: ReadS [CaptionDestinationSettings]
+$creadList :: ReadS [CaptionDestinationSettings]
+readsPrec :: Int -&gt; ReadS CaptionDestinationSettings
+$creadsPrec :: Int -&gt; ReadS CaptionDestinationSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925373"><span id="local-6989586621679925375"><span id="local-6989586621679925377"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationSettings -&gt; ShowS
+[CaptionDestinationSettings] -&gt; ShowS
+CaptionDestinationSettings -&gt; String
+(Int -&gt; CaptionDestinationSettings -&gt; ShowS)
+-&gt; (CaptionDestinationSettings -&gt; String)
+-&gt; ([CaptionDestinationSettings] -&gt; ShowS)
+-&gt; Show CaptionDestinationSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptionDestinationSettings] -&gt; ShowS
+$cshowList :: [CaptionDestinationSettings] -&gt; ShowS
+show :: CaptionDestinationSettings -&gt; String
+$cshow :: CaptionDestinationSettings -&gt; String
+showsPrec :: Int -&gt; CaptionDestinationSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptionDestinationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CaptionDestinationSettings -&gt; Rep CaptionDestinationSettings x)
+-&gt; (forall x.
+    Rep CaptionDestinationSettings x -&gt; CaptionDestinationSettings)
+-&gt; Generic CaptionDestinationSettings
+forall x.
+Rep CaptionDestinationSettings x -&gt; CaptionDestinationSettings
+forall x.
+CaptionDestinationSettings -&gt; Rep CaptionDestinationSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CaptionDestinationSettings x -&gt; CaptionDestinationSettings
+$cfrom :: forall x.
+CaptionDestinationSettings -&gt; Rep CaptionDestinationSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CaptionDestinationSettings' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'embeddedDestinationSettings', 'captionDestinationSettings_embeddedDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'webvttDestinationSettings', 'captionDestinationSettings_webvttDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'aribDestinationSettings', 'captionDestinationSettings_aribDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'embeddedPlusScte20DestinationSettings', 'captionDestinationSettings_embeddedPlusScte20DestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'scte20PlusEmbeddedDestinationSettings', 'captionDestinationSettings_scte20PlusEmbeddedDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'scte27DestinationSettings', 'captionDestinationSettings_scte27DestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dvbSubDestinationSettings', 'captionDestinationSettings_dvbSubDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'rtmpCaptionInfoDestinationSettings', 'captionDestinationSettings_rtmpCaptionInfoDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'ebuTtDDestinationSettings', 'captionDestinationSettings_ebuTtDDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'teletextDestinationSettings', 'captionDestinationSettings_teletextDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'smpteTtDestinationSettings', 'captionDestinationSettings_smpteTtDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'ttmlDestinationSettings', 'captionDestinationSettings_ttmlDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'burnInDestinationSettings', 'captionDestinationSettings_burnInDestinationSettings' - Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#newCaptionDestinationSettings"><span class="hs-identifier hs-type">newCaptionDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span>
+</span><span id="line-94"></span><span id="newCaptionDestinationSettings"><span class="annot"><span class="annottext">newCaptionDestinationSettings :: CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#newCaptionDestinationSettings"><span class="hs-identifier hs-var hs-var">newCaptionDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">CaptionDestinationSettings' :: Maybe EmbeddedDestinationSettings
+-&gt; Maybe WebvttDestinationSettings
+-&gt; Maybe AribDestinationSettings
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+-&gt; Maybe Scte27DestinationSettings
+-&gt; Maybe DvbSubDestinationSettings
+-&gt; Maybe RtmpCaptionInfoDestinationSettings
+-&gt; Maybe EbuTtDDestinationSettings
+-&gt; Maybe TeletextDestinationSettings
+-&gt; Maybe SmpteTtDestinationSettings
+-&gt; Maybe TtmlDestinationSettings
+-&gt; Maybe BurnInDestinationSettings
+-&gt; CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:embeddedDestinationSettings:CaptionDestinationSettings' :: Maybe EmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">embeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:webvttDestinationSettings:CaptionDestinationSettings' :: Maybe WebvttDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AwebvttDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">webvttDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:aribDestinationSettings:CaptionDestinationSettings' :: Maybe AribDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AaribDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">aribDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:embeddedPlusScte20DestinationSettings:CaptionDestinationSettings' :: Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedPlusScte20DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">embeddedPlusScte20DestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:scte20PlusEmbeddedDestinationSettings:CaptionDestinationSettings' :: Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte20PlusEmbeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:scte27DestinationSettings:CaptionDestinationSettings' :: Maybe Scte27DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte27DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">scte27DestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:dvbSubDestinationSettings:CaptionDestinationSettings' :: Maybe DvbSubDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AdvbSubDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">dvbSubDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:rtmpCaptionInfoDestinationSettings:CaptionDestinationSettings' :: Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3ArtmpCaptionInfoDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">rtmpCaptionInfoDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:ebuTtDDestinationSettings:CaptionDestinationSettings' :: Maybe EbuTtDDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AebuTtDDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">ebuTtDDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:teletextDestinationSettings:CaptionDestinationSettings' :: Maybe TeletextDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AteletextDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">teletextDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:smpteTtDestinationSettings:CaptionDestinationSettings' :: Maybe SmpteTtDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AsmpteTtDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">smpteTtDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:ttmlDestinationSettings:CaptionDestinationSettings' :: Maybe TtmlDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AttmlDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">ttmlDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:burnInDestinationSettings:CaptionDestinationSettings' :: Maybe BurnInDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AburnInDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">burnInDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_embeddedDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_embeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="captionDestinationSettings_embeddedDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_embeddedDestinationSettings :: (Maybe EmbeddedDestinationSettings
+ -&gt; f (Maybe EmbeddedDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_embeddedDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_embeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe EmbeddedDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe EmbeddedDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe EmbeddedDestinationSettings)
+     (Maybe EmbeddedDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925364"><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+embeddedDestinationSettings :: Maybe EmbeddedDestinationSettings
+$sel:embeddedDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925364"><span class="hs-identifier hs-var hs-var">embeddedDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925364"><span class="hs-identifier hs-var">embeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925363"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925362"><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embeddedDestinationSettings:CaptionDestinationSettings' :: Maybe EmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">embeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_webvttDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_webvttDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationSettings.html#WebvttDestinationSettings"><span class="hs-identifier hs-type">WebvttDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="captionDestinationSettings_webvttDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_webvttDestinationSettings :: (Maybe WebvttDestinationSettings
+ -&gt; f (Maybe WebvttDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_webvttDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_webvttDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe WebvttDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe WebvttDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe WebvttDestinationSettings)
+     (Maybe WebvttDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925360"><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+webvttDestinationSettings :: Maybe WebvttDestinationSettings
+$sel:webvttDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe WebvttDestinationSettings
+</span><a href="#local-6989586621679925360"><span class="hs-identifier hs-var hs-var">webvttDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+</span><a href="#local-6989586621679925360"><span class="hs-identifier hs-var">webvttDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925359"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925358"><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+</span><a href="#local-6989586621679925358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webvttDestinationSettings:CaptionDestinationSettings' :: Maybe WebvttDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AwebvttDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">webvttDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+</span><a href="#local-6989586621679925358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_aribDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_aribDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AribDestinationSettings.html#AribDestinationSettings"><span class="hs-identifier hs-type">AribDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="captionDestinationSettings_aribDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_aribDestinationSettings :: (Maybe AribDestinationSettings
+ -&gt; f (Maybe AribDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_aribDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_aribDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe AribDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe AribDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe AribDestinationSettings)
+     (Maybe AribDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925356"><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+aribDestinationSettings :: Maybe AribDestinationSettings
+$sel:aribDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe AribDestinationSettings
+</span><a href="#local-6989586621679925356"><span class="hs-identifier hs-var hs-var">aribDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+</span><a href="#local-6989586621679925356"><span class="hs-identifier hs-var">aribDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925355"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925354"><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+</span><a href="#local-6989586621679925354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aribDestinationSettings:CaptionDestinationSettings' :: Maybe AribDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AaribDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">aribDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+</span><a href="#local-6989586621679925354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_embeddedPlusScte20DestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_embeddedPlusScte20DestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings.html#EmbeddedPlusScte20DestinationSettings"><span class="hs-identifier hs-type">EmbeddedPlusScte20DestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="captionDestinationSettings_embeddedPlusScte20DestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_embeddedPlusScte20DestinationSettings :: (Maybe EmbeddedPlusScte20DestinationSettings
+ -&gt; f (Maybe EmbeddedPlusScte20DestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_embeddedPlusScte20DestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_embeddedPlusScte20DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings
+ -&gt; Maybe EmbeddedPlusScte20DestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+    -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe EmbeddedPlusScte20DestinationSettings)
+     (Maybe EmbeddedPlusScte20DestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925352"><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+embeddedPlusScte20DestinationSettings :: Maybe EmbeddedPlusScte20DestinationSettings
+$sel:embeddedPlusScte20DestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="#local-6989586621679925352"><span class="hs-identifier hs-var hs-var">embeddedPlusScte20DestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="#local-6989586621679925352"><span class="hs-identifier hs-var">embeddedPlusScte20DestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925351"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925350"><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="#local-6989586621679925350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embeddedPlusScte20DestinationSettings:CaptionDestinationSettings' :: Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AembeddedPlusScte20DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">embeddedPlusScte20DestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="#local-6989586621679925350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_scte20PlusEmbeddedDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_scte20PlusEmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings.html#Scte20PlusEmbeddedDestinationSettings"><span class="hs-identifier hs-type">Scte20PlusEmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="captionDestinationSettings_scte20PlusEmbeddedDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_scte20PlusEmbeddedDestinationSettings :: (Maybe Scte20PlusEmbeddedDestinationSettings
+ -&gt; f (Maybe Scte20PlusEmbeddedDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_scte20PlusEmbeddedDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_scte20PlusEmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings
+ -&gt; Maybe Scte20PlusEmbeddedDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+    -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe Scte20PlusEmbeddedDestinationSettings)
+     (Maybe Scte20PlusEmbeddedDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925348"><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+scte20PlusEmbeddedDestinationSettings :: Maybe Scte20PlusEmbeddedDestinationSettings
+$sel:scte20PlusEmbeddedDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="#local-6989586621679925348"><span class="hs-identifier hs-var hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="#local-6989586621679925348"><span class="hs-identifier hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925347"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925346"><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="#local-6989586621679925346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte20PlusEmbeddedDestinationSettings:CaptionDestinationSettings' :: Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte20PlusEmbeddedDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="#local-6989586621679925346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_scte27DestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_scte27DestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27DestinationSettings.html#Scte27DestinationSettings"><span class="hs-identifier hs-type">Scte27DestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="captionDestinationSettings_scte27DestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_scte27DestinationSettings :: (Maybe Scte27DestinationSettings
+ -&gt; f (Maybe Scte27DestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_scte27DestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_scte27DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe Scte27DestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe Scte27DestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe Scte27DestinationSettings)
+     (Maybe Scte27DestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925344"><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+scte27DestinationSettings :: Maybe Scte27DestinationSettings
+$sel:scte27DestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe Scte27DestinationSettings
+</span><a href="#local-6989586621679925344"><span class="hs-identifier hs-var hs-var">scte27DestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+</span><a href="#local-6989586621679925344"><span class="hs-identifier hs-var">scte27DestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925343"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925342"><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+</span><a href="#local-6989586621679925342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte27DestinationSettings:CaptionDestinationSettings' :: Maybe Scte27DestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3Ascte27DestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">scte27DestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+</span><a href="#local-6989586621679925342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_dvbSubDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_dvbSubDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbSubDestinationSettings.html#DvbSubDestinationSettings"><span class="hs-identifier hs-type">DvbSubDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="captionDestinationSettings_dvbSubDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_dvbSubDestinationSettings :: (Maybe DvbSubDestinationSettings
+ -&gt; f (Maybe DvbSubDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_dvbSubDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_dvbSubDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe DvbSubDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe DvbSubDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe DvbSubDestinationSettings)
+     (Maybe DvbSubDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925340"><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+dvbSubDestinationSettings :: Maybe DvbSubDestinationSettings
+$sel:dvbSubDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe DvbSubDestinationSettings
+</span><a href="#local-6989586621679925340"><span class="hs-identifier hs-var hs-var">dvbSubDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+</span><a href="#local-6989586621679925340"><span class="hs-identifier hs-var">dvbSubDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925339"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925338"><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+</span><a href="#local-6989586621679925338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dvbSubDestinationSettings:CaptionDestinationSettings' :: Maybe DvbSubDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AdvbSubDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">dvbSubDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+</span><a href="#local-6989586621679925338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_rtmpCaptionInfoDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_rtmpCaptionInfoDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings.html#RtmpCaptionInfoDestinationSettings"><span class="hs-identifier hs-type">RtmpCaptionInfoDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="captionDestinationSettings_rtmpCaptionInfoDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_rtmpCaptionInfoDestinationSettings :: (Maybe RtmpCaptionInfoDestinationSettings
+ -&gt; f (Maybe RtmpCaptionInfoDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_rtmpCaptionInfoDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_rtmpCaptionInfoDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings
+ -&gt; Maybe RtmpCaptionInfoDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe RtmpCaptionInfoDestinationSettings
+    -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe RtmpCaptionInfoDestinationSettings)
+     (Maybe RtmpCaptionInfoDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925336"><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+rtmpCaptionInfoDestinationSettings :: Maybe RtmpCaptionInfoDestinationSettings
+$sel:rtmpCaptionInfoDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="#local-6989586621679925336"><span class="hs-identifier hs-var hs-var">rtmpCaptionInfoDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="#local-6989586621679925336"><span class="hs-identifier hs-var">rtmpCaptionInfoDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925335"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925334"><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="#local-6989586621679925334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rtmpCaptionInfoDestinationSettings:CaptionDestinationSettings' :: Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3ArtmpCaptionInfoDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">rtmpCaptionInfoDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="#local-6989586621679925334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_ebuTtDDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_ebuTtDDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="captionDestinationSettings_ebuTtDDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_ebuTtDDestinationSettings :: (Maybe EbuTtDDestinationSettings
+ -&gt; f (Maybe EbuTtDDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_ebuTtDDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_ebuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe EbuTtDDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe EbuTtDDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe EbuTtDDestinationSettings)
+     (Maybe EbuTtDDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925332"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+ebuTtDDestinationSettings :: Maybe EbuTtDDestinationSettings
+$sel:ebuTtDDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe EbuTtDDestinationSettings
+</span><a href="#local-6989586621679925332"><span class="hs-identifier hs-var hs-var">ebuTtDDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+</span><a href="#local-6989586621679925332"><span class="hs-identifier hs-var">ebuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925331"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925330"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+</span><a href="#local-6989586621679925330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebuTtDDestinationSettings:CaptionDestinationSettings' :: Maybe EbuTtDDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AebuTtDDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">ebuTtDDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+</span><a href="#local-6989586621679925330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_teletextDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_teletextDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TeletextDestinationSettings.html#TeletextDestinationSettings"><span class="hs-identifier hs-type">TeletextDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="captionDestinationSettings_teletextDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_teletextDestinationSettings :: (Maybe TeletextDestinationSettings
+ -&gt; f (Maybe TeletextDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_teletextDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_teletextDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe TeletextDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe TeletextDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe TeletextDestinationSettings)
+     (Maybe TeletextDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925328"><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+teletextDestinationSettings :: Maybe TeletextDestinationSettings
+$sel:teletextDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe TeletextDestinationSettings
+</span><a href="#local-6989586621679925328"><span class="hs-identifier hs-var hs-var">teletextDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+</span><a href="#local-6989586621679925328"><span class="hs-identifier hs-var">teletextDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925327"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925326"><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+</span><a href="#local-6989586621679925326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teletextDestinationSettings:CaptionDestinationSettings' :: Maybe TeletextDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AteletextDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">teletextDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+</span><a href="#local-6989586621679925326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_smpteTtDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_smpteTtDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.SmpteTtDestinationSettings.html#SmpteTtDestinationSettings"><span class="hs-identifier hs-type">SmpteTtDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="captionDestinationSettings_smpteTtDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_smpteTtDestinationSettings :: (Maybe SmpteTtDestinationSettings
+ -&gt; f (Maybe SmpteTtDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_smpteTtDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_smpteTtDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe SmpteTtDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe SmpteTtDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe SmpteTtDestinationSettings)
+     (Maybe SmpteTtDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925324"><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+smpteTtDestinationSettings :: Maybe SmpteTtDestinationSettings
+$sel:smpteTtDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe SmpteTtDestinationSettings
+</span><a href="#local-6989586621679925324"><span class="hs-identifier hs-var hs-var">smpteTtDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+</span><a href="#local-6989586621679925324"><span class="hs-identifier hs-var">smpteTtDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925323"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925322"><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+</span><a href="#local-6989586621679925322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smpteTtDestinationSettings:CaptionDestinationSettings' :: Maybe SmpteTtDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AsmpteTtDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">smpteTtDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+</span><a href="#local-6989586621679925322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_ttmlDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_ttmlDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TtmlDestinationSettings.html#TtmlDestinationSettings"><span class="hs-identifier hs-type">TtmlDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="captionDestinationSettings_ttmlDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_ttmlDestinationSettings :: (Maybe TtmlDestinationSettings
+ -&gt; f (Maybe TtmlDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_ttmlDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_ttmlDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe TtmlDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe TtmlDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe TtmlDestinationSettings)
+     (Maybe TtmlDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925320"><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+ttmlDestinationSettings :: Maybe TtmlDestinationSettings
+$sel:ttmlDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe TtmlDestinationSettings
+</span><a href="#local-6989586621679925320"><span class="hs-identifier hs-var hs-var">ttmlDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+</span><a href="#local-6989586621679925320"><span class="hs-identifier hs-var">ttmlDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925319"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925318"><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+</span><a href="#local-6989586621679925318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttmlDestinationSettings:CaptionDestinationSettings' :: Maybe TtmlDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AttmlDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">ttmlDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+</span><a href="#local-6989586621679925318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_burnInDestinationSettings"><span class="hs-identifier hs-type">captionDestinationSettings_burnInDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInDestinationSettings.html#BurnInDestinationSettings"><span class="hs-identifier hs-type">BurnInDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="captionDestinationSettings_burnInDestinationSettings"><span class="annot"><span class="annottext">captionDestinationSettings_burnInDestinationSettings :: (Maybe BurnInDestinationSettings
+ -&gt; f (Maybe BurnInDestinationSettings))
+-&gt; CaptionDestinationSettings -&gt; f CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#captionDestinationSettings_burnInDestinationSettings"><span class="hs-identifier hs-var hs-var">captionDestinationSettings_burnInDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionDestinationSettings -&gt; Maybe BurnInDestinationSettings)
+-&gt; (CaptionDestinationSettings
+    -&gt; Maybe BurnInDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Lens
+     CaptionDestinationSettings
+     CaptionDestinationSettings
+     (Maybe BurnInDestinationSettings)
+     (Maybe BurnInDestinationSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925316"><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+burnInDestinationSettings :: Maybe BurnInDestinationSettings
+$sel:burnInDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe BurnInDestinationSettings
+</span><a href="#local-6989586621679925316"><span class="hs-identifier hs-var hs-var">burnInDestinationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+</span><a href="#local-6989586621679925316"><span class="hs-identifier hs-var">burnInDestinationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925315"><span class="annot"><span class="annottext">s :: CaptionDestinationSettings
+</span><a href="#local-6989586621679925315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925314"><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+</span><a href="#local-6989586621679925314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionDestinationSettings
+</span><a href="#local-6989586621679925315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:burnInDestinationSettings:CaptionDestinationSettings' :: Maybe BurnInDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#%24sel%3AburnInDestinationSettings%3ACaptionDestinationSettings%27"><span class="hs-identifier hs-var">burnInDestinationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+</span><a href="#local-6989586621679925314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925311"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679925309"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionDestinationSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CaptionDestinationSettings)
+-&gt; Value
+-&gt; Parser CaptionDestinationSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CaptionDestinationSettings&quot;</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+-&gt; Maybe WebvttDestinationSettings
+-&gt; Maybe AribDestinationSettings
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+-&gt; Maybe Scte27DestinationSettings
+-&gt; Maybe DvbSubDestinationSettings
+-&gt; Maybe RtmpCaptionInfoDestinationSettings
+-&gt; Maybe EbuTtDDestinationSettings
+-&gt; Maybe TeletextDestinationSettings
+-&gt; Maybe SmpteTtDestinationSettings
+-&gt; Maybe TtmlDestinationSettings
+-&gt; Maybe BurnInDestinationSettings
+-&gt; CaptionDestinationSettings
+</span><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-var">CaptionDestinationSettings'</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EmbeddedDestinationSettings
+ -&gt; Maybe WebvttDestinationSettings
+ -&gt; Maybe AribDestinationSettings
+ -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+ -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+ -&gt; Maybe Scte27DestinationSettings
+ -&gt; Maybe DvbSubDestinationSettings
+ -&gt; Maybe RtmpCaptionInfoDestinationSettings
+ -&gt; Maybe EbuTtDDestinationSettings
+ -&gt; Maybe TeletextDestinationSettings
+ -&gt; Maybe SmpteTtDestinationSettings
+ -&gt; Maybe TtmlDestinationSettings
+ -&gt; Maybe BurnInDestinationSettings
+ -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe EmbeddedDestinationSettings)
+-&gt; Parser
+     (Maybe WebvttDestinationSettings
+      -&gt; Maybe AribDestinationSettings
+      -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+      -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+      -&gt; Maybe Scte27DestinationSettings
+      -&gt; Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WebvttDestinationSettings
+   -&gt; Maybe AribDestinationSettings
+   -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+   -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+   -&gt; Maybe Scte27DestinationSettings
+   -&gt; Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe WebvttDestinationSettings)
+-&gt; Parser
+     (Maybe AribDestinationSettings
+      -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+      -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+      -&gt; Maybe Scte27DestinationSettings
+      -&gt; Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WebvttDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webvttDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AribDestinationSettings
+   -&gt; Maybe EmbeddedPlusScte20DestinationSettings
+   -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+   -&gt; Maybe Scte27DestinationSettings
+   -&gt; Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe AribDestinationSettings)
+-&gt; Parser
+     (Maybe EmbeddedPlusScte20DestinationSettings
+      -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+      -&gt; Maybe Scte27DestinationSettings
+      -&gt; Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AribDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aribDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EmbeddedPlusScte20DestinationSettings
+   -&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+   -&gt; Maybe Scte27DestinationSettings
+   -&gt; Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe EmbeddedPlusScte20DestinationSettings)
+-&gt; Parser
+     (Maybe Scte20PlusEmbeddedDestinationSettings
+      -&gt; Maybe Scte27DestinationSettings
+      -&gt; Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe EmbeddedPlusScte20DestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedPlusScte20DestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Scte20PlusEmbeddedDestinationSettings
+   -&gt; Maybe Scte27DestinationSettings
+   -&gt; Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe Scte20PlusEmbeddedDestinationSettings)
+-&gt; Parser
+     (Maybe Scte27DestinationSettings
+      -&gt; Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe Scte20PlusEmbeddedDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte20PlusEmbeddedDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Scte27DestinationSettings
+   -&gt; Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe Scte27DestinationSettings)
+-&gt; Parser
+     (Maybe DvbSubDestinationSettings
+      -&gt; Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scte27DestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte27DestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DvbSubDestinationSettings
+   -&gt; Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe DvbSubDestinationSettings)
+-&gt; Parser
+     (Maybe RtmpCaptionInfoDestinationSettings
+      -&gt; Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DvbSubDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dvbSubDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RtmpCaptionInfoDestinationSettings
+   -&gt; Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe RtmpCaptionInfoDestinationSettings)
+-&gt; Parser
+     (Maybe EbuTtDDestinationSettings
+      -&gt; Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpCaptionInfoDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rtmpCaptionInfoDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EbuTtDDestinationSettings
+   -&gt; Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe EbuTtDDestinationSettings)
+-&gt; Parser
+     (Maybe TeletextDestinationSettings
+      -&gt; Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EbuTtDDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebuTtDDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TeletextDestinationSettings
+   -&gt; Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe TeletextDestinationSettings)
+-&gt; Parser
+     (Maybe SmpteTtDestinationSettings
+      -&gt; Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings
+      -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TeletextDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;teletextDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SmpteTtDestinationSettings
+   -&gt; Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings
+   -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe SmpteTtDestinationSettings)
+-&gt; Parser
+     (Maybe TtmlDestinationSettings
+      -&gt; Maybe BurnInDestinationSettings -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SmpteTtDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smpteTtDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TtmlDestinationSettings
+   -&gt; Maybe BurnInDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe TtmlDestinationSettings)
+-&gt; Parser
+     (Maybe BurnInDestinationSettings -&gt; CaptionDestinationSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TtmlDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ttmlDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BurnInDestinationSettings -&gt; CaptionDestinationSettings)
+-&gt; Parser (Maybe BurnInDestinationSettings)
+-&gt; Parser CaptionDestinationSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BurnInDestinationSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;burnInDestinationSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925300"><span id="local-6989586621679925302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925289"><span id="local-6989586621679925291"><span id="local-6989586621679925293"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings"><span class="hs-identifier hs-type">CaptionDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679925287"><span class="annot"><span class="annottext">toJSON :: CaptionDestinationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionDestinationSettings.html#CaptionDestinationSettings%27"><span class="hs-identifier hs-type">CaptionDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925273"><span id="local-6989586621679925274"><span id="local-6989586621679925275"><span id="local-6989586621679925276"><span id="local-6989586621679925277"><span id="local-6989586621679925278"><span id="local-6989586621679925279"><span id="local-6989586621679925280"><span id="local-6989586621679925281"><span id="local-6989586621679925282"><span id="local-6989586621679925283"><span id="local-6989586621679925284"><span id="local-6989586621679925285"><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+Maybe EbuTtDDestinationSettings
+Maybe EmbeddedDestinationSettings
+Maybe EmbeddedPlusScte20DestinationSettings
+Maybe DvbSubDestinationSettings
+Maybe BurnInDestinationSettings
+Maybe RtmpCaptionInfoDestinationSettings
+Maybe Scte20PlusEmbeddedDestinationSettings
+Maybe Scte27DestinationSettings
+Maybe SmpteTtDestinationSettings
+Maybe TeletextDestinationSettings
+Maybe TtmlDestinationSettings
+Maybe WebvttDestinationSettings
+burnInDestinationSettings :: Maybe BurnInDestinationSettings
+ttmlDestinationSettings :: Maybe TtmlDestinationSettings
+smpteTtDestinationSettings :: Maybe SmpteTtDestinationSettings
+teletextDestinationSettings :: Maybe TeletextDestinationSettings
+ebuTtDDestinationSettings :: Maybe EbuTtDDestinationSettings
+rtmpCaptionInfoDestinationSettings :: Maybe RtmpCaptionInfoDestinationSettings
+dvbSubDestinationSettings :: Maybe DvbSubDestinationSettings
+scte27DestinationSettings :: Maybe Scte27DestinationSettings
+scte20PlusEmbeddedDestinationSettings :: Maybe Scte20PlusEmbeddedDestinationSettings
+embeddedPlusScte20DestinationSettings :: Maybe EmbeddedPlusScte20DestinationSettings
+aribDestinationSettings :: Maybe AribDestinationSettings
+webvttDestinationSettings :: Maybe WebvttDestinationSettings
+embeddedDestinationSettings :: Maybe EmbeddedDestinationSettings
+$sel:burnInDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe BurnInDestinationSettings
+$sel:ttmlDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe TtmlDestinationSettings
+$sel:smpteTtDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe SmpteTtDestinationSettings
+$sel:teletextDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe TeletextDestinationSettings
+$sel:ebuTtDDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe EbuTtDDestinationSettings
+$sel:rtmpCaptionInfoDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe RtmpCaptionInfoDestinationSettings
+$sel:dvbSubDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe DvbSubDestinationSettings
+$sel:scte27DestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe Scte27DestinationSettings
+$sel:scte20PlusEmbeddedDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings
+$sel:embeddedPlusScte20DestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings
+$sel:aribDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe AribDestinationSettings
+$sel:webvttDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe WebvttDestinationSettings
+$sel:embeddedDestinationSettings:CaptionDestinationSettings' :: CaptionDestinationSettings -&gt; Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmbeddedDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">(EmbeddedDestinationSettings -&gt; Pair)
+-&gt; Maybe EmbeddedDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedDestinationSettings
+</span><a href="#local-6989586621679925285"><span class="hs-identifier hs-var">embeddedDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webvttDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebvttDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(WebvttDestinationSettings -&gt; Pair)
+-&gt; Maybe WebvttDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WebvttDestinationSettings
+</span><a href="#local-6989586621679925284"><span class="hs-identifier hs-var">webvttDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aribDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AribDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(AribDestinationSettings -&gt; Pair)
+-&gt; Maybe AribDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AribDestinationSettings
+</span><a href="#local-6989586621679925283"><span class="hs-identifier hs-var">aribDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedPlusScte20DestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmbeddedPlusScte20DestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(EmbeddedPlusScte20DestinationSettings -&gt; Pair)
+-&gt; Maybe EmbeddedPlusScte20DestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedPlusScte20DestinationSettings
+</span><a href="#local-6989586621679925282"><span class="hs-identifier hs-var">embeddedPlusScte20DestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte20PlusEmbeddedDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte20PlusEmbeddedDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Scte20PlusEmbeddedDestinationSettings -&gt; Pair)
+-&gt; Maybe Scte20PlusEmbeddedDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte20PlusEmbeddedDestinationSettings
+</span><a href="#local-6989586621679925281"><span class="hs-identifier hs-var">scte20PlusEmbeddedDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scte27DestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte27DestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Scte27DestinationSettings -&gt; Pair)
+-&gt; Maybe Scte27DestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte27DestinationSettings
+</span><a href="#local-6989586621679925280"><span class="hs-identifier hs-var">scte27DestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dvbSubDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DvbSubDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(DvbSubDestinationSettings -&gt; Pair)
+-&gt; Maybe DvbSubDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubDestinationSettings
+</span><a href="#local-6989586621679925279"><span class="hs-identifier hs-var">dvbSubDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rtmpCaptionInfoDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RtmpCaptionInfoDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(RtmpCaptionInfoDestinationSettings -&gt; Pair)
+-&gt; Maybe RtmpCaptionInfoDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RtmpCaptionInfoDestinationSettings
+</span><a href="#local-6989586621679925278"><span class="hs-identifier hs-var">rtmpCaptionInfoDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebuTtDDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EbuTtDDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(EbuTtDDestinationSettings -&gt; Pair)
+-&gt; Maybe EbuTtDDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationSettings
+</span><a href="#local-6989586621679925277"><span class="hs-identifier hs-var">ebuTtDDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;teletextDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TeletextDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(TeletextDestinationSettings -&gt; Pair)
+-&gt; Maybe TeletextDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TeletextDestinationSettings
+</span><a href="#local-6989586621679925276"><span class="hs-identifier hs-var">teletextDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smpteTtDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SmpteTtDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(SmpteTtDestinationSettings -&gt; Pair)
+-&gt; Maybe SmpteTtDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SmpteTtDestinationSettings
+</span><a href="#local-6989586621679925275"><span class="hs-identifier hs-var">smpteTtDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ttmlDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TtmlDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(TtmlDestinationSettings -&gt; Pair)
+-&gt; Maybe TtmlDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TtmlDestinationSettings
+</span><a href="#local-6989586621679925274"><span class="hs-identifier hs-var">ttmlDestinationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;burnInDestinationSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BurnInDestinationSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(BurnInDestinationSettings -&gt; Pair)
+-&gt; Maybe BurnInDestinationSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BurnInDestinationSettings
+</span><a href="#local-6989586621679925273"><span class="hs-identifier hs-var">burnInDestinationSettings</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span></pre></body></html>

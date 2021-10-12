@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.GetSegmentVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the configuration, dimension, and other</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- settings for all the versions of a specific segment that\'s associated</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with an application.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.GetSegmentVersions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier">GetSegmentVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersions"><span class="hs-identifier">newGetSegmentVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_pageSize"><span class="hs-identifier">getSegmentVersions_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_token"><span class="hs-identifier">getSegmentVersions_token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_segmentId"><span class="hs-identifier">getSegmentVersions_segmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_applicationId"><span class="hs-identifier">getSegmentVersions_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier">GetSegmentVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersionsResponse"><span class="hs-identifier">newGetSegmentVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_httpStatus"><span class="hs-identifier">getSegmentVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_segmentsResponse"><span class="hs-identifier">getSegmentVersionsResponse_segmentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetSegmentVersions' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679626557"><span id="local-6989586621679626558"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSegmentVersions"><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-var">GetSegmentVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSegmentVersions%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-var">GetSegmentVersions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApageSize%3AGetSegmentVersions%27"><span class="annot"><span class="annottext">GetSegmentVersions -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3ApageSize%3AGetSegmentVersions%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The NextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atoken%3AGetSegmentVersions%27"><span class="annot"><span class="annottext">GetSegmentVersions -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3Atoken%3AGetSegmentVersions%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsegmentId%3AGetSegmentVersions%27"><span class="annot"><span class="annottext">GetSegmentVersions -&gt; Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetSegmentVersions%27"><span class="annot"><span class="annottext">GetSegmentVersions -&gt; Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AapplicationId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679626548"><span id="local-6989586621679626550"><span class="annot"><span class="annottext">GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool
+(GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool)
+-&gt; (GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool)
+-&gt; Eq GetSegmentVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool
+$c/= :: GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool
+== :: GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool
+$c== :: GetSegmentVersions -&gt; GetSegmentVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679626539"><span id="local-6989586621679626541"><span id="local-6989586621679626543"><span id="local-6989586621679626545"><span class="annot"><span class="annottext">ReadPrec [GetSegmentVersions]
+ReadPrec GetSegmentVersions
+Int -&gt; ReadS GetSegmentVersions
+ReadS [GetSegmentVersions]
+(Int -&gt; ReadS GetSegmentVersions)
+-&gt; ReadS [GetSegmentVersions]
+-&gt; ReadPrec GetSegmentVersions
+-&gt; ReadPrec [GetSegmentVersions]
+-&gt; Read GetSegmentVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSegmentVersions]
+$creadListPrec :: ReadPrec [GetSegmentVersions]
+readPrec :: ReadPrec GetSegmentVersions
+$creadPrec :: ReadPrec GetSegmentVersions
+readList :: ReadS [GetSegmentVersions]
+$creadList :: ReadS [GetSegmentVersions]
+readsPrec :: Int -&gt; ReadS GetSegmentVersions
+$creadsPrec :: Int -&gt; ReadS GetSegmentVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679626532"><span id="local-6989586621679626534"><span id="local-6989586621679626536"><span class="annot"><span class="annottext">Int -&gt; GetSegmentVersions -&gt; ShowS
+[GetSegmentVersions] -&gt; ShowS
+GetSegmentVersions -&gt; String
+(Int -&gt; GetSegmentVersions -&gt; ShowS)
+-&gt; (GetSegmentVersions -&gt; String)
+-&gt; ([GetSegmentVersions] -&gt; ShowS)
+-&gt; Show GetSegmentVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSegmentVersions] -&gt; ShowS
+$cshowList :: [GetSegmentVersions] -&gt; ShowS
+show :: GetSegmentVersions -&gt; String
+$cshow :: GetSegmentVersions -&gt; String
+showsPrec :: Int -&gt; GetSegmentVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSegmentVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSegmentVersions -&gt; Rep GetSegmentVersions x)
+-&gt; (forall x. Rep GetSegmentVersions x -&gt; GetSegmentVersions)
+-&gt; Generic GetSegmentVersions
+forall x. Rep GetSegmentVersions x -&gt; GetSegmentVersions
+forall x. GetSegmentVersions -&gt; Rep GetSegmentVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSegmentVersions x -&gt; GetSegmentVersions
+$cfrom :: forall x. GetSegmentVersions -&gt; Rep GetSegmentVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'GetSegmentVersions' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'pageSize', 'getSegmentVersions_pageSize' - The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'token', 'getSegmentVersions_token' - The NextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'segmentId', 'getSegmentVersions_segmentId' - The unique identifier for the segment.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'applicationId', 'getSegmentVersions_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersions"><span class="hs-identifier hs-type">newGetSegmentVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'segmentId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span>
+</span><span id="line-96"></span><span id="newGetSegmentVersions"><span class="annot"><span class="annottext">newGetSegmentVersions :: Text -&gt; Text -&gt; GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersions"><span class="hs-identifier hs-var hs-var">newGetSegmentVersions</span></a></span></span><span> </span><span id="local-6989586621679626527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626527"><span class="hs-identifier hs-var">pSegmentId_</span></a></span></span><span> </span><span id="local-6989586621679626526"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626526"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">GetSegmentVersions' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSize:GetSegmentVersions' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3ApageSize%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:token:GetSegmentVersions' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3Atoken%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentId:GetSegmentVersions' :: Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626527"><span class="hs-identifier hs-var">pSegmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:GetSegmentVersions' :: Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AapplicationId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626526"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- response. This parameter is not supported for application, campaign, and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- journey metrics.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_pageSize"><span class="hs-identifier hs-type">getSegmentVersions_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="getSegmentVersions_pageSize"><span class="annot"><span class="annottext">getSegmentVersions_pageSize :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSegmentVersions -&gt; f GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_pageSize"><span class="hs-identifier hs-var hs-var">getSegmentVersions_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersions -&gt; Maybe Text)
+-&gt; (GetSegmentVersions -&gt; Maybe Text -&gt; GetSegmentVersions)
+-&gt; Lens
+     GetSegmentVersions GetSegmentVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626523"><span class="annot"><span class="annottext">Maybe Text
+pageSize :: Maybe Text
+$sel:pageSize:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679626523"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626523"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626522"><span class="annot"><span class="annottext">s :: GetSegmentVersions
+</span><a href="#local-6989586621679626522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersions
+</span><a href="#local-6989586621679626522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:GetSegmentVersions' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3ApageSize%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The NextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_token"><span class="hs-identifier hs-type">getSegmentVersions_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="getSegmentVersions_token"><span class="annot"><span class="annottext">getSegmentVersions_token :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSegmentVersions -&gt; f GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_token"><span class="hs-identifier hs-var hs-var">getSegmentVersions_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersions -&gt; Maybe Text)
+-&gt; (GetSegmentVersions -&gt; Maybe Text -&gt; GetSegmentVersions)
+-&gt; Lens
+     GetSegmentVersions GetSegmentVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626520"><span class="annot"><span class="annottext">Maybe Text
+token :: Maybe Text
+$sel:token:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679626520"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626520"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626519"><span class="annot"><span class="annottext">s :: GetSegmentVersions
+</span><a href="#local-6989586621679626519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersions
+</span><a href="#local-6989586621679626519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:GetSegmentVersions' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3Atoken%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_segmentId"><span class="hs-identifier hs-type">getSegmentVersions_segmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="getSegmentVersions_segmentId"><span class="annot"><span class="annottext">getSegmentVersions_segmentId :: (Text -&gt; f Text) -&gt; GetSegmentVersions -&gt; f GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_segmentId"><span class="hs-identifier hs-var hs-var">getSegmentVersions_segmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersions -&gt; Text)
+-&gt; (GetSegmentVersions -&gt; Text -&gt; GetSegmentVersions)
+-&gt; Lens GetSegmentVersions GetSegmentVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626517"><span class="annot"><span class="annottext">Text
+segmentId :: Text
+$sel:segmentId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+</span><a href="#local-6989586621679626517"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626517"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626516"><span class="annot"><span class="annottext">s :: GetSegmentVersions
+</span><a href="#local-6989586621679626516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersions
+</span><a href="#local-6989586621679626516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentId:GetSegmentVersions' :: Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_applicationId"><span class="hs-identifier hs-type">getSegmentVersions_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="getSegmentVersions_applicationId"><span class="annot"><span class="annottext">getSegmentVersions_applicationId :: (Text -&gt; f Text) -&gt; GetSegmentVersions -&gt; f GetSegmentVersions
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersions_applicationId"><span class="hs-identifier hs-var hs-var">getSegmentVersions_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersions -&gt; Text)
+-&gt; (GetSegmentVersions -&gt; Text -&gt; GetSegmentVersions)
+-&gt; Lens GetSegmentVersions GetSegmentVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626514"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+</span><a href="#local-6989586621679626514"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626514"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626513"><span class="annot"><span class="annottext">s :: GetSegmentVersions
+</span><a href="#local-6989586621679626513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersions
+</span><a href="#local-6989586621679626513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetSegmentVersions' :: Text
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AapplicationId%3AGetSegmentVersions%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679626508"><span class="annot"><span class="annottext">request :: GetSegmentVersions -&gt; Request GetSegmentVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSegmentVersions -&gt; Request GetSegmentVersions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679626504"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSegmentVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSegmentVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSegmentVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSegmentVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSegmentVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679626501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626501"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679626500"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679626500"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679626499"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679626499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SegmentsResponse -&gt; GetSegmentVersionsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">GetSegmentVersionsResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SegmentsResponse -&gt; GetSegmentVersionsResponse)
+-&gt; Either String Int
+-&gt; Either String (SegmentsResponse -&gt; GetSegmentVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626501"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (SegmentsResponse -&gt; GetSegmentVersionsResponse)
+-&gt; Either String SegmentsResponse
+-&gt; Either String GetSegmentVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String SegmentsResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679626499"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679626491"><span id="local-6989586621679626493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679626488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679626484"><span class="annot"><span class="annottext">toHeaders :: GetSegmentVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSegmentVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679626478"><span class="annot"><span class="annottext">toPath :: GetSegmentVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626473"><span id="local-6989586621679626474"><span id="local-6989586621679626475"><span id="local-6989586621679626476"><span class="annot"><span class="annottext">Maybe Text
+Text
+applicationId :: Text
+segmentId :: Text
+token :: Maybe Text
+pageSize :: Maybe Text
+$sel:applicationId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+$sel:segmentId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+$sel:token:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+$sel:pageSize:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679626473"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626473"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/segments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679626474"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions&quot;</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions"><span class="hs-identifier hs-type">GetSegmentVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679626469"><span class="annot"><span class="annottext">toQuery :: GetSegmentVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersions%27"><span class="hs-identifier hs-type">GetSegmentVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626464"><span id="local-6989586621679626465"><span id="local-6989586621679626466"><span id="local-6989586621679626467"><span class="annot"><span class="annottext">Maybe Text
+Text
+applicationId :: Text
+segmentId :: Text
+token :: Maybe Text
+pageSize :: Maybe Text
+$sel:applicationId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+$sel:segmentId:GetSegmentVersions' :: GetSegmentVersions -&gt; Text
+$sel:token:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+$sel:pageSize:GetSegmentVersions' :: GetSegmentVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679626464"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;page-size&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626467"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679626466"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newGetSegmentVersionsResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679626461"><span id="local-6989586621679626462"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSegmentVersionsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-var">GetSegmentVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSegmentVersionsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">GetSegmentVersionsResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSegmentVersionsResponse%27"><span class="annot"><span class="annottext">GetSegmentVersionsResponse -&gt; Int
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AhttpStatus%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AsegmentsResponse%3AGetSegmentVersionsResponse%27"><span class="annot"><span class="annottext">GetSegmentVersionsResponse -&gt; SegmentsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentsResponse%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var hs-var">segmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentsResponse.html#SegmentsResponse"><span class="hs-identifier hs-type">SegmentsResponse</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679626455"><span id="local-6989586621679626457"><span class="annot"><span class="annottext">GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool
+(GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool)
+-&gt; (GetSegmentVersionsResponse
+    -&gt; GetSegmentVersionsResponse -&gt; Bool)
+-&gt; Eq GetSegmentVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool
+$c/= :: GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool
+== :: GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool
+$c== :: GetSegmentVersionsResponse -&gt; GetSegmentVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679626447"><span id="local-6989586621679626449"><span id="local-6989586621679626451"><span id="local-6989586621679626453"><span class="annot"><span class="annottext">ReadPrec [GetSegmentVersionsResponse]
+ReadPrec GetSegmentVersionsResponse
+Int -&gt; ReadS GetSegmentVersionsResponse
+ReadS [GetSegmentVersionsResponse]
+(Int -&gt; ReadS GetSegmentVersionsResponse)
+-&gt; ReadS [GetSegmentVersionsResponse]
+-&gt; ReadPrec GetSegmentVersionsResponse
+-&gt; ReadPrec [GetSegmentVersionsResponse]
+-&gt; Read GetSegmentVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSegmentVersionsResponse]
+$creadListPrec :: ReadPrec [GetSegmentVersionsResponse]
+readPrec :: ReadPrec GetSegmentVersionsResponse
+$creadPrec :: ReadPrec GetSegmentVersionsResponse
+readList :: ReadS [GetSegmentVersionsResponse]
+$creadList :: ReadS [GetSegmentVersionsResponse]
+readsPrec :: Int -&gt; ReadS GetSegmentVersionsResponse
+$creadsPrec :: Int -&gt; ReadS GetSegmentVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679626441"><span id="local-6989586621679626443"><span id="local-6989586621679626445"><span class="annot"><span class="annottext">Int -&gt; GetSegmentVersionsResponse -&gt; ShowS
+[GetSegmentVersionsResponse] -&gt; ShowS
+GetSegmentVersionsResponse -&gt; String
+(Int -&gt; GetSegmentVersionsResponse -&gt; ShowS)
+-&gt; (GetSegmentVersionsResponse -&gt; String)
+-&gt; ([GetSegmentVersionsResponse] -&gt; ShowS)
+-&gt; Show GetSegmentVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSegmentVersionsResponse] -&gt; ShowS
+$cshowList :: [GetSegmentVersionsResponse] -&gt; ShowS
+show :: GetSegmentVersionsResponse -&gt; String
+$cshow :: GetSegmentVersionsResponse -&gt; String
+showsPrec :: Int -&gt; GetSegmentVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSegmentVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSegmentVersionsResponse -&gt; Rep GetSegmentVersionsResponse x)
+-&gt; (forall x.
+    Rep GetSegmentVersionsResponse x -&gt; GetSegmentVersionsResponse)
+-&gt; Generic GetSegmentVersionsResponse
+forall x.
+Rep GetSegmentVersionsResponse x -&gt; GetSegmentVersionsResponse
+forall x.
+GetSegmentVersionsResponse -&gt; Rep GetSegmentVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSegmentVersionsResponse x -&gt; GetSegmentVersionsResponse
+$cfrom :: forall x.
+GetSegmentVersionsResponse -&gt; Rep GetSegmentVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'GetSegmentVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'getSegmentVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'segmentsResponse', 'getSegmentVersionsResponse_segmentsResponse' - Undocumented member.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersionsResponse"><span class="hs-identifier hs-type">newGetSegmentVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'segmentsResponse'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentsResponse.html#SegmentsResponse"><span class="hs-identifier hs-type">SegmentsResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newGetSegmentVersionsResponse"><span class="annot"><span class="annottext">newGetSegmentVersionsResponse :: Int -&gt; SegmentsResponse -&gt; GetSegmentVersionsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#newGetSegmentVersionsResponse"><span class="hs-identifier hs-var hs-var">newGetSegmentVersionsResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679626438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679626437"><span class="annot"><span class="annottext">SegmentsResponse
+</span><a href="#local-6989586621679626437"><span class="hs-identifier hs-var">pSegmentsResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">GetSegmentVersionsResponse' :: Int -&gt; SegmentsResponse -&gt; GetSegmentVersionsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-type">GetSegmentVersionsResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSegmentVersionsResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AhttpStatus%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:segmentsResponse:GetSegmentVersionsResponse' :: SegmentsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentsResponse%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">segmentsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentsResponse
+</span><a href="#local-6989586621679626437"><span class="hs-identifier hs-var">pSegmentsResponse_</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_httpStatus"><span class="hs-identifier hs-type">getSegmentVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="getSegmentVersionsResponse_httpStatus"><span class="annot"><span class="annottext">getSegmentVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSegmentVersionsResponse -&gt; f GetSegmentVersionsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSegmentVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersionsResponse -&gt; Int)
+-&gt; (GetSegmentVersionsResponse
+    -&gt; Int -&gt; GetSegmentVersionsResponse)
+-&gt; Lens
+     GetSegmentVersionsResponse GetSegmentVersionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-type">GetSegmentVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626436"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSegmentVersionsResponse' :: GetSegmentVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679626436"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626436"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626435"><span class="annot"><span class="annottext">s :: GetSegmentVersionsResponse
+</span><a href="#local-6989586621679626435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-type">GetSegmentVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersionsResponse
+</span><a href="#local-6989586621679626435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSegmentVersionsResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AhttpStatus%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679626434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_segmentsResponse"><span class="hs-identifier hs-type">getSegmentVersionsResponse_segmentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentsResponse.html#SegmentsResponse"><span class="hs-identifier hs-type">SegmentsResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="getSegmentVersionsResponse_segmentsResponse"><span class="annot"><span class="annottext">getSegmentVersionsResponse_segmentsResponse :: (SegmentsResponse -&gt; f SegmentsResponse)
+-&gt; GetSegmentVersionsResponse -&gt; f GetSegmentVersionsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#getSegmentVersionsResponse_segmentsResponse"><span class="hs-identifier hs-var hs-var">getSegmentVersionsResponse_segmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSegmentVersionsResponse -&gt; SegmentsResponse)
+-&gt; (GetSegmentVersionsResponse
+    -&gt; SegmentsResponse -&gt; GetSegmentVersionsResponse)
+-&gt; Lens
+     GetSegmentVersionsResponse
+     GetSegmentVersionsResponse
+     SegmentsResponse
+     SegmentsResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-type">GetSegmentVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679626433"><span class="annot"><span class="annottext">SegmentsResponse
+segmentsResponse :: SegmentsResponse
+$sel:segmentsResponse:GetSegmentVersionsResponse' :: GetSegmentVersionsResponse -&gt; SegmentsResponse
+</span><a href="#local-6989586621679626433"><span class="hs-identifier hs-var hs-var">segmentsResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentsResponse
+</span><a href="#local-6989586621679626433"><span class="hs-identifier hs-var">segmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679626432"><span class="annot"><span class="annottext">s :: GetSegmentVersionsResponse
+</span><a href="#local-6989586621679626432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse%27"><span class="hs-identifier hs-type">GetSegmentVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679626431"><span class="annot"><span class="annottext">SegmentsResponse
+</span><a href="#local-6989586621679626431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSegmentVersionsResponse
+</span><a href="#local-6989586621679626432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentsResponse:GetSegmentVersionsResponse' :: SegmentsResponse
+</span><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#%24sel%3AsegmentsResponse%3AGetSegmentVersionsResponse%27"><span class="hs-identifier hs-var">segmentsResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentsResponse
+</span><a href="#local-6989586621679626431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679626429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetSegmentVersions.html#GetSegmentVersionsResponse"><span class="hs-identifier hs-type">GetSegmentVersionsResponse</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

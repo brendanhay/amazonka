@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ListingState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ListingState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier">ListingState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Available"><span class="hs-identifier">ListingState_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Cancelled"><span class="hs-identifier">ListingState_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Pending"><span class="hs-identifier">ListingState_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Sold"><span class="hs-identifier">ListingState_Sold</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681090929"><span id="local-6989586621681090930"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListingState"><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-var">ListingState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListingState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-identifier hs-var">ListingState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListingState"><span class="annot"><span class="annottext">ListingState -&gt; Text
+</span><a href="Network.AWS.EC2.Types.ListingState.html#fromListingState"><span class="hs-identifier hs-var hs-var">fromListingState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090921"><span id="local-6989586621681090923"><span id="local-6989586621681090925"><span class="annot"><span class="annottext">Int -&gt; ListingState -&gt; ShowS
+[ListingState] -&gt; ShowS
+ListingState -&gt; String
+(Int -&gt; ListingState -&gt; ShowS)
+-&gt; (ListingState -&gt; String)
+-&gt; ([ListingState] -&gt; ShowS)
+-&gt; Show ListingState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListingState] -&gt; ShowS
+$cshowList :: [ListingState] -&gt; ShowS
+show :: ListingState -&gt; String
+$cshow :: ListingState -&gt; String
+showsPrec :: Int -&gt; ListingState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListingState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681090912"><span id="local-6989586621681090914"><span id="local-6989586621681090916"><span id="local-6989586621681090918"><span class="annot"><span class="annottext">ReadPrec [ListingState]
+ReadPrec ListingState
+Int -&gt; ReadS ListingState
+ReadS [ListingState]
+(Int -&gt; ReadS ListingState)
+-&gt; ReadS [ListingState]
+-&gt; ReadPrec ListingState
+-&gt; ReadPrec [ListingState]
+-&gt; Read ListingState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListingState]
+$creadListPrec :: ReadPrec [ListingState]
+readPrec :: ReadPrec ListingState
+$creadPrec :: ReadPrec ListingState
+readList :: ReadS [ListingState]
+$creadList :: ReadS [ListingState]
+readsPrec :: Int -&gt; ReadS ListingState
+$creadsPrec :: Int -&gt; ReadS ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681090907"><span id="local-6989586621681090909"><span class="annot"><span class="annottext">ListingState -&gt; ListingState -&gt; Bool
+(ListingState -&gt; ListingState -&gt; Bool)
+-&gt; (ListingState -&gt; ListingState -&gt; Bool) -&gt; Eq ListingState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListingState -&gt; ListingState -&gt; Bool
+$c/= :: ListingState -&gt; ListingState -&gt; Bool
+== :: ListingState -&gt; ListingState -&gt; Bool
+$c== :: ListingState -&gt; ListingState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681090891"><span id="local-6989586621681090893"><span id="local-6989586621681090895"><span id="local-6989586621681090897"><span id="local-6989586621681090899"><span id="local-6989586621681090901"><span id="local-6989586621681090903"><span class="annot"><span class="annottext">Eq ListingState
+Eq ListingState
+-&gt; (ListingState -&gt; ListingState -&gt; Ordering)
+-&gt; (ListingState -&gt; ListingState -&gt; Bool)
+-&gt; (ListingState -&gt; ListingState -&gt; Bool)
+-&gt; (ListingState -&gt; ListingState -&gt; Bool)
+-&gt; (ListingState -&gt; ListingState -&gt; Bool)
+-&gt; (ListingState -&gt; ListingState -&gt; ListingState)
+-&gt; (ListingState -&gt; ListingState -&gt; ListingState)
+-&gt; Ord ListingState
+ListingState -&gt; ListingState -&gt; Bool
+ListingState -&gt; ListingState -&gt; Ordering
+ListingState -&gt; ListingState -&gt; ListingState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ListingState -&gt; ListingState -&gt; ListingState
+$cmin :: ListingState -&gt; ListingState -&gt; ListingState
+max :: ListingState -&gt; ListingState -&gt; ListingState
+$cmax :: ListingState -&gt; ListingState -&gt; ListingState
+&gt;= :: ListingState -&gt; ListingState -&gt; Bool
+$c&gt;= :: ListingState -&gt; ListingState -&gt; Bool
+&gt; :: ListingState -&gt; ListingState -&gt; Bool
+$c&gt; :: ListingState -&gt; ListingState -&gt; Bool
+&lt;= :: ListingState -&gt; ListingState -&gt; Bool
+$c&lt;= :: ListingState -&gt; ListingState -&gt; Bool
+&lt; :: ListingState -&gt; ListingState -&gt; Bool
+$c&lt; :: ListingState -&gt; ListingState -&gt; Bool
+compare :: ListingState -&gt; ListingState -&gt; Ordering
+$ccompare :: ListingState -&gt; ListingState -&gt; Ordering
+$cp1Ord :: Eq ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ListingState -&gt; Rep ListingState x)
+-&gt; (forall x. Rep ListingState x -&gt; ListingState)
+-&gt; Generic ListingState
+forall x. Rep ListingState x -&gt; ListingState
+forall x. ListingState -&gt; Rep ListingState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListingState x -&gt; ListingState
+$cfrom :: forall x. ListingState -&gt; Rep ListingState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090883"><span id="local-6989586621681090885"><span class="annot"><span class="annottext">Int -&gt; ListingState -&gt; Int
+ListingState -&gt; Int
+(Int -&gt; ListingState -&gt; Int)
+-&gt; (ListingState -&gt; Int) -&gt; Hashable ListingState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ListingState -&gt; Int
+$chash :: ListingState -&gt; Int
+hashWithSalt :: Int -&gt; ListingState -&gt; Int
+$chashWithSalt :: Int -&gt; ListingState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681090880"><span class="annot"><span class="annottext">ListingState -&gt; ()
+(ListingState -&gt; ()) -&gt; NFData ListingState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ListingState -&gt; ()
+$crnf :: ListingState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681090877"><span class="annot"><span class="annottext">Text -&gt; Either String ListingState
+(Text -&gt; Either String ListingState) -&gt; FromText ListingState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ListingState
+$cfromText :: Text -&gt; Either String ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681090874"><span class="annot"><span class="annottext">ListingState -&gt; Text
+(ListingState -&gt; Text) -&gt; ToText ListingState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ListingState -&gt; Text
+$ctoText :: ListingState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681090871"><span class="annot"><span class="annottext">ListingState -&gt; ByteString
+(ListingState -&gt; ByteString) -&gt; ToByteString ListingState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ListingState -&gt; ByteString
+$ctoBS :: ListingState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681090868"><span class="annot"><span class="annottext">ListingState -&gt; ByteStringBuilder
+(ListingState -&gt; ByteStringBuilder) -&gt; ToLog ListingState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ListingState -&gt; ByteStringBuilder
+$cbuild :: ListingState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681090865"><span class="annot"><span class="annottext">HeaderName -&gt; ListingState -&gt; [Header]
+(HeaderName -&gt; ListingState -&gt; [Header]) -&gt; ToHeader ListingState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ListingState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ListingState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681090862"><span class="annot"><span class="annottext">ListingState -&gt; QueryString
+(ListingState -&gt; QueryString) -&gt; ToQuery ListingState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ListingState -&gt; QueryString
+$ctoQuery :: ListingState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681090857"><span id="local-6989586621681090859"><span class="annot"><span class="annottext">Value -&gt; Parser [ListingState]
+Value -&gt; Parser ListingState
+(Value -&gt; Parser ListingState)
+-&gt; (Value -&gt; Parser [ListingState]) -&gt; FromJSON ListingState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ListingState]
+$cparseJSONList :: Value -&gt; Parser [ListingState]
+parseJSON :: Value -&gt; Parser ListingState
+$cparseJSON :: Value -&gt; Parser ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681090852"><span id="local-6989586621681090854"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListingState]
+FromJSONKeyFunction ListingState
+FromJSONKeyFunction ListingState
+-&gt; FromJSONKeyFunction [ListingState] -&gt; FromJSONKey ListingState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ListingState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ListingState]
+fromJSONKey :: FromJSONKeyFunction ListingState
+$cfromJSONKey :: FromJSONKeyFunction ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681090843"><span id="local-6989586621681090845"><span id="local-6989586621681090847"><span id="local-6989586621681090849"><span class="annot"><span class="annottext">[ListingState] -&gt; Encoding
+[ListingState] -&gt; Value
+ListingState -&gt; Encoding
+ListingState -&gt; Value
+(ListingState -&gt; Value)
+-&gt; (ListingState -&gt; Encoding)
+-&gt; ([ListingState] -&gt; Value)
+-&gt; ([ListingState] -&gt; Encoding)
+-&gt; ToJSON ListingState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ListingState] -&gt; Encoding
+$ctoEncodingList :: [ListingState] -&gt; Encoding
+toJSONList :: [ListingState] -&gt; Value
+$ctoJSONList :: [ListingState] -&gt; Value
+toEncoding :: ListingState -&gt; Encoding
+$ctoEncoding :: ListingState -&gt; Encoding
+toJSON :: ListingState -&gt; Value
+$ctoJSON :: ListingState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681090838"><span id="local-6989586621681090840"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListingState]
+ToJSONKeyFunction ListingState
+ToJSONKeyFunction ListingState
+-&gt; ToJSONKeyFunction [ListingState] -&gt; ToJSONKey ListingState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ListingState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ListingState]
+toJSONKey :: ToJSONKeyFunction ListingState
+$ctoJSONKey :: ToJSONKeyFunction ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681090835"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListingState
+([Node] -&gt; Either String ListingState) -&gt; FromXML ListingState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ListingState
+$cparseXML :: [Node] -&gt; Either String ListingState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681090832"><span class="annot"><span class="annottext">ListingState -&gt; XML
+(ListingState -&gt; XML) -&gt; ToXML ListingState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ListingState -&gt; XML
+$ctoXML :: ListingState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Available"><span class="hs-identifier hs-type">ListingState_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-type">ListingState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListingState_Available"><span id="%24mListingState_Available"><span id="ListingState_Available"><span class="annot"><span class="annottext">$bListingState_Available :: ListingState
+$mListingState_Available :: forall r. ListingState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ListingState.html#%24bListingState_Available"><span class="hs-identifier hs-var hs-var hs-var">ListingState_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-identifier hs-type">ListingState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;available&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Cancelled"><span class="hs-identifier hs-type">ListingState_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-type">ListingState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListingState_Cancelled"><span id="%24mListingState_Cancelled"><span id="ListingState_Cancelled"><span class="annot"><span class="annottext">$bListingState_Cancelled :: ListingState
+$mListingState_Cancelled :: forall r. ListingState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ListingState.html#%24bListingState_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">ListingState_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-identifier hs-type">ListingState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cancelled&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Pending"><span class="hs-identifier hs-type">ListingState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-type">ListingState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListingState_Pending"><span id="%24mListingState_Pending"><span id="ListingState_Pending"><span class="annot"><span class="annottext">$bListingState_Pending :: ListingState
+$mListingState_Pending :: forall r. ListingState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ListingState.html#%24bListingState_Pending"><span class="hs-identifier hs-var hs-var hs-var">ListingState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-identifier hs-type">ListingState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pending&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Sold"><span class="hs-identifier hs-type">ListingState_Sold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-type">ListingState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListingState_Sold"><span id="%24mListingState_Sold"><span id="ListingState_Sold"><span class="annot"><span class="annottext">$bListingState_Sold :: ListingState
+$mListingState_Sold :: forall r. ListingState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.ListingState.html#%24bListingState_Sold"><span class="hs-identifier hs-var hs-var hs-var">ListingState_Sold</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-identifier hs-type">ListingState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;sold&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Available"><span class="hs-pragma hs-type">ListingState_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Cancelled"><span class="hs-pragma hs-type">ListingState_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Pending"><span class="hs-pragma hs-type">ListingState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState_Sold"><span class="hs-pragma hs-type">ListingState_Sold</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState%27"><span class="hs-pragma hs-type">ListingState'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

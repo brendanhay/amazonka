@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.Types.InstanceAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.Types.InstanceAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier">InstanceAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_KEEP_ALIVE"><span class="hs-identifier">InstanceAction_KEEP_ALIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_TERMINATE"><span class="hs-identifier">InstanceAction_TERMINATE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679309002"><span id="local-6989586621679309003"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier hs-var">InstanceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-identifier hs-var">InstanceAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAction"><span class="annot"><span class="annottext">InstanceAction -&gt; Text
+</span><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#fromInstanceAction"><span class="hs-identifier hs-var hs-var">fromInstanceAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308994"><span id="local-6989586621679308996"><span id="local-6989586621679308998"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; ShowS
+[InstanceAction] -&gt; ShowS
+InstanceAction -&gt; String
+(Int -&gt; InstanceAction -&gt; ShowS)
+-&gt; (InstanceAction -&gt; String)
+-&gt; ([InstanceAction] -&gt; ShowS)
+-&gt; Show InstanceAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceAction] -&gt; ShowS
+$cshowList :: [InstanceAction] -&gt; ShowS
+show :: InstanceAction -&gt; String
+$cshow :: InstanceAction -&gt; String
+showsPrec :: Int -&gt; InstanceAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679308985"><span id="local-6989586621679308987"><span id="local-6989586621679308989"><span id="local-6989586621679308991"><span class="annot"><span class="annottext">ReadPrec [InstanceAction]
+ReadPrec InstanceAction
+Int -&gt; ReadS InstanceAction
+ReadS [InstanceAction]
+(Int -&gt; ReadS InstanceAction)
+-&gt; ReadS [InstanceAction]
+-&gt; ReadPrec InstanceAction
+-&gt; ReadPrec [InstanceAction]
+-&gt; Read InstanceAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceAction]
+$creadListPrec :: ReadPrec [InstanceAction]
+readPrec :: ReadPrec InstanceAction
+$creadPrec :: ReadPrec InstanceAction
+readList :: ReadS [InstanceAction]
+$creadList :: ReadS [InstanceAction]
+readsPrec :: Int -&gt; ReadS InstanceAction
+$creadsPrec :: Int -&gt; ReadS InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679308980"><span id="local-6989586621679308982"><span class="annot"><span class="annottext">InstanceAction -&gt; InstanceAction -&gt; Bool
+(InstanceAction -&gt; InstanceAction -&gt; Bool)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool) -&gt; Eq InstanceAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c/= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+== :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c== :: InstanceAction -&gt; InstanceAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679308964"><span id="local-6989586621679308966"><span id="local-6989586621679308968"><span id="local-6989586621679308970"><span id="local-6989586621679308972"><span id="local-6989586621679308974"><span id="local-6989586621679308976"><span class="annot"><span class="annottext">Eq InstanceAction
+Eq InstanceAction
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Ordering)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; InstanceAction)
+-&gt; (InstanceAction -&gt; InstanceAction -&gt; InstanceAction)
+-&gt; Ord InstanceAction
+InstanceAction -&gt; InstanceAction -&gt; Bool
+InstanceAction -&gt; InstanceAction -&gt; Ordering
+InstanceAction -&gt; InstanceAction -&gt; InstanceAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceAction -&gt; InstanceAction -&gt; InstanceAction
+$cmin :: InstanceAction -&gt; InstanceAction -&gt; InstanceAction
+max :: InstanceAction -&gt; InstanceAction -&gt; InstanceAction
+$cmax :: InstanceAction -&gt; InstanceAction -&gt; InstanceAction
+&gt;= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c&gt;= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+&gt; :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c&gt; :: InstanceAction -&gt; InstanceAction -&gt; Bool
+&lt;= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c&lt;= :: InstanceAction -&gt; InstanceAction -&gt; Bool
+&lt; :: InstanceAction -&gt; InstanceAction -&gt; Bool
+$c&lt; :: InstanceAction -&gt; InstanceAction -&gt; Bool
+compare :: InstanceAction -&gt; InstanceAction -&gt; Ordering
+$ccompare :: InstanceAction -&gt; InstanceAction -&gt; Ordering
+$cp1Ord :: Eq InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceAction -&gt; Rep InstanceAction x)
+-&gt; (forall x. Rep InstanceAction x -&gt; InstanceAction)
+-&gt; Generic InstanceAction
+forall x. Rep InstanceAction x -&gt; InstanceAction
+forall x. InstanceAction -&gt; Rep InstanceAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceAction x -&gt; InstanceAction
+$cfrom :: forall x. InstanceAction -&gt; Rep InstanceAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308956"><span id="local-6989586621679308958"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; Int
+InstanceAction -&gt; Int
+(Int -&gt; InstanceAction -&gt; Int)
+-&gt; (InstanceAction -&gt; Int) -&gt; Hashable InstanceAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceAction -&gt; Int
+$chash :: InstanceAction -&gt; Int
+hashWithSalt :: Int -&gt; InstanceAction -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679308953"><span class="annot"><span class="annottext">InstanceAction -&gt; ()
+(InstanceAction -&gt; ()) -&gt; NFData InstanceAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceAction -&gt; ()
+$crnf :: InstanceAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679308950"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAction
+(Text -&gt; Either String InstanceAction) -&gt; FromText InstanceAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceAction
+$cfromText :: Text -&gt; Either String InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679308947"><span class="annot"><span class="annottext">InstanceAction -&gt; Text
+(InstanceAction -&gt; Text) -&gt; ToText InstanceAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceAction -&gt; Text
+$ctoText :: InstanceAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679308944"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteString
+(InstanceAction -&gt; ByteString) -&gt; ToByteString InstanceAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceAction -&gt; ByteString
+$ctoBS :: InstanceAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308941"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteStringBuilder
+(InstanceAction -&gt; ByteStringBuilder) -&gt; ToLog InstanceAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceAction -&gt; ByteStringBuilder
+$cbuild :: InstanceAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308938"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAction -&gt; [Header]
+(HeaderName -&gt; InstanceAction -&gt; [Header])
+-&gt; ToHeader InstanceAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308935"><span class="annot"><span class="annottext">InstanceAction -&gt; QueryString
+(InstanceAction -&gt; QueryString) -&gt; ToQuery InstanceAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceAction -&gt; QueryString
+$ctoQuery :: InstanceAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308930"><span id="local-6989586621679308932"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAction]
+Value -&gt; Parser InstanceAction
+(Value -&gt; Parser InstanceAction)
+-&gt; (Value -&gt; Parser [InstanceAction]) -&gt; FromJSON InstanceAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceAction]
+$cparseJSONList :: Value -&gt; Parser [InstanceAction]
+parseJSON :: Value -&gt; Parser InstanceAction
+$cparseJSON :: Value -&gt; Parser InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308925"><span id="local-6989586621679308927"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAction]
+FromJSONKeyFunction InstanceAction
+FromJSONKeyFunction InstanceAction
+-&gt; FromJSONKeyFunction [InstanceAction]
+-&gt; FromJSONKey InstanceAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceAction]
+fromJSONKey :: FromJSONKeyFunction InstanceAction
+$cfromJSONKey :: FromJSONKeyFunction InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308916"><span id="local-6989586621679308918"><span id="local-6989586621679308920"><span id="local-6989586621679308922"><span class="annot"><span class="annottext">[InstanceAction] -&gt; Encoding
+[InstanceAction] -&gt; Value
+InstanceAction -&gt; Encoding
+InstanceAction -&gt; Value
+(InstanceAction -&gt; Value)
+-&gt; (InstanceAction -&gt; Encoding)
+-&gt; ([InstanceAction] -&gt; Value)
+-&gt; ([InstanceAction] -&gt; Encoding)
+-&gt; ToJSON InstanceAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceAction] -&gt; Encoding
+$ctoEncodingList :: [InstanceAction] -&gt; Encoding
+toJSONList :: [InstanceAction] -&gt; Value
+$ctoJSONList :: [InstanceAction] -&gt; Value
+toEncoding :: InstanceAction -&gt; Encoding
+$ctoEncoding :: InstanceAction -&gt; Encoding
+toJSON :: InstanceAction -&gt; Value
+$ctoJSON :: InstanceAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308911"><span id="local-6989586621679308913"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAction]
+ToJSONKeyFunction InstanceAction
+ToJSONKeyFunction InstanceAction
+-&gt; ToJSONKeyFunction [InstanceAction] -&gt; ToJSONKey InstanceAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceAction]
+toJSONKey :: ToJSONKeyFunction InstanceAction
+$ctoJSONKey :: ToJSONKeyFunction InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308908"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAction
+([Node] -&gt; Either String InstanceAction) -&gt; FromXML InstanceAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceAction
+$cparseXML :: [Node] -&gt; Either String InstanceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308905"><span class="annot"><span class="annottext">InstanceAction -&gt; XML
+(InstanceAction -&gt; XML) -&gt; ToXML InstanceAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceAction -&gt; XML
+$ctoXML :: InstanceAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_KEEP_ALIVE"><span class="hs-identifier hs-type">InstanceAction_KEEP_ALIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier hs-type">InstanceAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAction_KEEP_ALIVE"><span id="%24mInstanceAction_KEEP_ALIVE"><span id="InstanceAction_KEEP_ALIVE"><span class="annot"><span class="annottext">$bInstanceAction_KEEP_ALIVE :: InstanceAction
+$mInstanceAction_KEEP_ALIVE :: forall r. InstanceAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#%24bInstanceAction_KEEP_ALIVE"><span class="hs-identifier hs-var hs-var hs-var">InstanceAction_KEEP_ALIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-identifier hs-type">InstanceAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KEEP_ALIVE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_TERMINATE"><span class="hs-identifier hs-type">InstanceAction_TERMINATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier hs-type">InstanceAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAction_TERMINATE"><span id="%24mInstanceAction_TERMINATE"><span id="InstanceAction_TERMINATE"><span class="annot"><span class="annottext">$bInstanceAction_TERMINATE :: InstanceAction
+$mInstanceAction_TERMINATE :: forall r. InstanceAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#%24bInstanceAction_TERMINATE"><span class="hs-identifier hs-var hs-var hs-var">InstanceAction_TERMINATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-identifier hs-type">InstanceAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_KEEP_ALIVE"><span class="hs-pragma hs-type">InstanceAction_KEEP_ALIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction_TERMINATE"><span class="hs-pragma hs-type">InstanceAction_TERMINATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-pragma hs-type">InstanceAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

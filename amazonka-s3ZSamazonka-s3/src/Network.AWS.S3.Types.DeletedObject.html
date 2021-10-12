@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.DeletedObject</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.DeletedObject</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the deleted object.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeletedObject' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679539691"><span id="local-6989586621679539692"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletedObject"><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-var">DeletedObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletedObject%27"><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-var">DeletedObject'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the deleted object.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3ADeletedObject%27"><span class="annot"><span class="annottext">DeletedObject -&gt; Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3Akey%3ADeletedObject%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The version ID of the delete marker created as a result of the DELETE</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- operation. If you delete a specific object version, the value returned</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- by this header is the version ID of the object version deleted.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeleteMarkerVersionId%3ADeletedObject%27"><span class="annot"><span class="annottext">DeletedObject -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarkerVersionId%3ADeletedObject%27"><span class="hs-identifier hs-var hs-var">deleteMarkerVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (true) or was not (false) a delete marker. In a simple DELETE, this</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- header indicates whether (true) or not (false) a delete marker was</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdeleteMarker%3ADeletedObject%27"><span class="annot"><span class="annottext">DeletedObject -&gt; Maybe Bool
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarker%3ADeletedObject%27"><span class="hs-identifier hs-var hs-var">deleteMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The version ID of the deleted object.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AversionId%3ADeletedObject%27"><span class="annot"><span class="annottext">DeletedObject -&gt; Maybe ObjectVersionId
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AversionId%3ADeletedObject%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539682"><span id="local-6989586621679539684"><span class="annot"><span class="annottext">DeletedObject -&gt; DeletedObject -&gt; Bool
+(DeletedObject -&gt; DeletedObject -&gt; Bool)
+-&gt; (DeletedObject -&gt; DeletedObject -&gt; Bool) -&gt; Eq DeletedObject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletedObject -&gt; DeletedObject -&gt; Bool
+$c/= :: DeletedObject -&gt; DeletedObject -&gt; Bool
+== :: DeletedObject -&gt; DeletedObject -&gt; Bool
+$c== :: DeletedObject -&gt; DeletedObject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539673"><span id="local-6989586621679539675"><span id="local-6989586621679539677"><span id="local-6989586621679539679"><span class="annot"><span class="annottext">ReadPrec [DeletedObject]
+ReadPrec DeletedObject
+Int -&gt; ReadS DeletedObject
+ReadS [DeletedObject]
+(Int -&gt; ReadS DeletedObject)
+-&gt; ReadS [DeletedObject]
+-&gt; ReadPrec DeletedObject
+-&gt; ReadPrec [DeletedObject]
+-&gt; Read DeletedObject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletedObject]
+$creadListPrec :: ReadPrec [DeletedObject]
+readPrec :: ReadPrec DeletedObject
+$creadPrec :: ReadPrec DeletedObject
+readList :: ReadS [DeletedObject]
+$creadList :: ReadS [DeletedObject]
+readsPrec :: Int -&gt; ReadS DeletedObject
+$creadsPrec :: Int -&gt; ReadS DeletedObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539666"><span id="local-6989586621679539668"><span id="local-6989586621679539670"><span class="annot"><span class="annottext">Int -&gt; DeletedObject -&gt; ShowS
+[DeletedObject] -&gt; ShowS
+DeletedObject -&gt; String
+(Int -&gt; DeletedObject -&gt; ShowS)
+-&gt; (DeletedObject -&gt; String)
+-&gt; ([DeletedObject] -&gt; ShowS)
+-&gt; Show DeletedObject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletedObject] -&gt; ShowS
+$cshowList :: [DeletedObject] -&gt; ShowS
+show :: DeletedObject -&gt; String
+$cshow :: DeletedObject -&gt; String
+showsPrec :: Int -&gt; DeletedObject -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletedObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletedObject -&gt; Rep DeletedObject x)
+-&gt; (forall x. Rep DeletedObject x -&gt; DeletedObject)
+-&gt; Generic DeletedObject
+forall x. Rep DeletedObject x -&gt; DeletedObject
+forall x. DeletedObject -&gt; Rep DeletedObject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletedObject x -&gt; DeletedObject
+$cfrom :: forall x. DeletedObject -&gt; Rep DeletedObject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'DeletedObject' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'key', 'deletedObject_key' - The name of the deleted object.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'deleteMarkerVersionId', 'deletedObject_deleteMarkerVersionId' - The version ID of the delete marker created as a result of the DELETE</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- operation. If you delete a specific object version, the value returned</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- by this header is the version ID of the object version deleted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'deleteMarker', 'deletedObject_deleteMarker' - Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- (true) or was not (false) a delete marker. In a simple DELETE, this</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- header indicates whether (true) or not (false) a delete marker was</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'versionId', 'deletedObject_versionId' - The version ID of the deleted object.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#newDeletedObject"><span class="hs-identifier hs-type">newDeletedObject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span>
+</span><span id="line-69"></span><span id="newDeletedObject"><span class="annot"><span class="annottext">newDeletedObject :: DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#newDeletedObject"><span class="hs-identifier hs-var hs-var">newDeletedObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeletedObject' :: Maybe ObjectKey
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ObjectVersionId
+-&gt; DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:DeletedObject' :: Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3Akey%3ADeletedObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteMarkerVersionId:DeletedObject' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarkerVersionId%3ADeletedObject%27"><span class="hs-identifier hs-var">deleteMarkerVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteMarker:DeletedObject' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarker%3ADeletedObject%27"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:DeletedObject' :: Maybe ObjectVersionId
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AversionId%3ADeletedObject%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the deleted object.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_key"><span class="hs-identifier hs-type">deletedObject_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="deletedObject_key"><span class="annot"><span class="annottext">deletedObject_key :: (Maybe ObjectKey -&gt; f (Maybe ObjectKey))
+-&gt; DeletedObject -&gt; f DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_key"><span class="hs-identifier hs-var hs-var">deletedObject_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletedObject -&gt; Maybe ObjectKey)
+-&gt; (DeletedObject -&gt; Maybe ObjectKey -&gt; DeletedObject)
+-&gt; Lens
+     DeletedObject DeletedObject (Maybe ObjectKey) (Maybe ObjectKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539657"><span class="annot"><span class="annottext">Maybe ObjectKey
+key :: Maybe ObjectKey
+$sel:key:DeletedObject' :: DeletedObject -&gt; Maybe ObjectKey
+</span><a href="#local-6989586621679539657"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679539657"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539656"><span class="annot"><span class="annottext">s :: DeletedObject
+</span><a href="#local-6989586621679539656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539655"><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679539655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletedObject
+</span><a href="#local-6989586621679539656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeletedObject' :: Maybe ObjectKey
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3Akey%3ADeletedObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectKey
+</span><a href="#local-6989586621679539655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The version ID of the delete marker created as a result of the DELETE</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- operation. If you delete a specific object version, the value returned</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- by this header is the version ID of the object version deleted.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_deleteMarkerVersionId"><span class="hs-identifier hs-type">deletedObject_deleteMarkerVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="deletedObject_deleteMarkerVersionId"><span class="annot"><span class="annottext">deletedObject_deleteMarkerVersionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeletedObject -&gt; f DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_deleteMarkerVersionId"><span class="hs-identifier hs-var hs-var">deletedObject_deleteMarkerVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletedObject -&gt; Maybe Text)
+-&gt; (DeletedObject -&gt; Maybe Text -&gt; DeletedObject)
+-&gt; Lens DeletedObject DeletedObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539653"><span class="annot"><span class="annottext">Maybe Text
+deleteMarkerVersionId :: Maybe Text
+$sel:deleteMarkerVersionId:DeletedObject' :: DeletedObject -&gt; Maybe Text
+</span><a href="#local-6989586621679539653"><span class="hs-identifier hs-var hs-var">deleteMarkerVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679539653"><span class="hs-identifier hs-var">deleteMarkerVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539652"><span class="annot"><span class="annottext">s :: DeletedObject
+</span><a href="#local-6989586621679539652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679539651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletedObject
+</span><a href="#local-6989586621679539652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteMarkerVersionId:DeletedObject' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarkerVersionId%3ADeletedObject%27"><span class="hs-identifier hs-var">deleteMarkerVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679539651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Specifies whether the versioned object that was permanently deleted was</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- (true) or was not (false) a delete marker. In a simple DELETE, this</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- header indicates whether (true) or not (false) a delete marker was</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_deleteMarker"><span class="hs-identifier hs-type">deletedObject_deleteMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="deletedObject_deleteMarker"><span class="annot"><span class="annottext">deletedObject_deleteMarker :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeletedObject -&gt; f DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_deleteMarker"><span class="hs-identifier hs-var hs-var">deletedObject_deleteMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletedObject -&gt; Maybe Bool)
+-&gt; (DeletedObject -&gt; Maybe Bool -&gt; DeletedObject)
+-&gt; Lens DeletedObject DeletedObject (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539649"><span class="annot"><span class="annottext">Maybe Bool
+deleteMarker :: Maybe Bool
+$sel:deleteMarker:DeletedObject' :: DeletedObject -&gt; Maybe Bool
+</span><a href="#local-6989586621679539649"><span class="hs-identifier hs-var hs-var">deleteMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679539649"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539648"><span class="annot"><span class="annottext">s :: DeletedObject
+</span><a href="#local-6989586621679539648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539647"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679539647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletedObject
+</span><a href="#local-6989586621679539648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteMarker:DeletedObject' :: Maybe Bool
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AdeleteMarker%3ADeletedObject%27"><span class="hs-identifier hs-var">deleteMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679539647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The version ID of the deleted object.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_versionId"><span class="hs-identifier hs-type">deletedObject_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="deletedObject_versionId"><span class="annot"><span class="annottext">deletedObject_versionId :: (Maybe ObjectVersionId -&gt; f (Maybe ObjectVersionId))
+-&gt; DeletedObject -&gt; f DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#deletedObject_versionId"><span class="hs-identifier hs-var hs-var">deletedObject_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletedObject -&gt; Maybe ObjectVersionId)
+-&gt; (DeletedObject -&gt; Maybe ObjectVersionId -&gt; DeletedObject)
+-&gt; Lens
+     DeletedObject
+     DeletedObject
+     (Maybe ObjectVersionId)
+     (Maybe ObjectVersionId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539645"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+versionId :: Maybe ObjectVersionId
+$sel:versionId:DeletedObject' :: DeletedObject -&gt; Maybe ObjectVersionId
+</span><a href="#local-6989586621679539645"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679539645"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539644"><span class="annot"><span class="annottext">s :: DeletedObject
+</span><a href="#local-6989586621679539644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-type">DeletedObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539643"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679539643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletedObject
+</span><a href="#local-6989586621679539644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeletedObject' :: Maybe ObjectVersionId
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#%24sel%3AversionId%3ADeletedObject%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679539643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679539640"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeletedObject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679539638"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Maybe ObjectKey
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ObjectVersionId
+-&gt; DeletedObject
+</span><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject%27"><span class="hs-identifier hs-var">DeletedObject'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ObjectKey
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe ObjectVersionId
+ -&gt; DeletedObject)
+-&gt; Either String (Maybe ObjectKey)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool -&gt; Maybe ObjectVersionId -&gt; DeletedObject)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectKey)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Maybe ObjectVersionId -&gt; DeletedObject)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Bool -&gt; Maybe ObjectVersionId -&gt; DeletedObject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteMarkerVersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Maybe ObjectVersionId -&gt; DeletedObject)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe ObjectVersionId -&gt; DeletedObject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ObjectVersionId -&gt; DeletedObject)
+-&gt; Either String (Maybe ObjectVersionId)
+-&gt; Either String DeletedObject
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ObjectVersionId)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539632"><span id="local-6989586621679539634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

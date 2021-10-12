@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.HealthStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.HealthStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier">HealthStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_HEALTHY"><span class="hs-identifier">HealthStatus_HEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNHEALTHY"><span class="hs-identifier">HealthStatus_UNHEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNKNOWN"><span class="hs-identifier">HealthStatus_UNKNOWN</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679453210"><span id="local-6989586621679453211"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthStatus"><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier hs-var">HealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus%27"><span class="hs-identifier hs-var">HealthStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthStatus"><span class="annot"><span class="annottext">HealthStatus -&gt; Text
+</span><a href="Network.AWS.ECS.Types.HealthStatus.html#fromHealthStatus"><span class="hs-identifier hs-var hs-var">fromHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453202"><span id="local-6989586621679453204"><span id="local-6989586621679453206"><span class="annot"><span class="annottext">Int -&gt; HealthStatus -&gt; ShowS
+[HealthStatus] -&gt; ShowS
+HealthStatus -&gt; String
+(Int -&gt; HealthStatus -&gt; ShowS)
+-&gt; (HealthStatus -&gt; String)
+-&gt; ([HealthStatus] -&gt; ShowS)
+-&gt; Show HealthStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HealthStatus] -&gt; ShowS
+$cshowList :: [HealthStatus] -&gt; ShowS
+show :: HealthStatus -&gt; String
+$cshow :: HealthStatus -&gt; String
+showsPrec :: Int -&gt; HealthStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; HealthStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679453193"><span id="local-6989586621679453195"><span id="local-6989586621679453197"><span id="local-6989586621679453199"><span class="annot"><span class="annottext">ReadPrec [HealthStatus]
+ReadPrec HealthStatus
+Int -&gt; ReadS HealthStatus
+ReadS [HealthStatus]
+(Int -&gt; ReadS HealthStatus)
+-&gt; ReadS [HealthStatus]
+-&gt; ReadPrec HealthStatus
+-&gt; ReadPrec [HealthStatus]
+-&gt; Read HealthStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HealthStatus]
+$creadListPrec :: ReadPrec [HealthStatus]
+readPrec :: ReadPrec HealthStatus
+$creadPrec :: ReadPrec HealthStatus
+readList :: ReadS [HealthStatus]
+$creadList :: ReadS [HealthStatus]
+readsPrec :: Int -&gt; ReadS HealthStatus
+$creadsPrec :: Int -&gt; ReadS HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679453188"><span id="local-6989586621679453190"><span class="annot"><span class="annottext">HealthStatus -&gt; HealthStatus -&gt; Bool
+(HealthStatus -&gt; HealthStatus -&gt; Bool)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Bool) -&gt; Eq HealthStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c/= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+== :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c== :: HealthStatus -&gt; HealthStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679453172"><span id="local-6989586621679453174"><span id="local-6989586621679453176"><span id="local-6989586621679453178"><span id="local-6989586621679453180"><span id="local-6989586621679453182"><span id="local-6989586621679453184"><span class="annot"><span class="annottext">Eq HealthStatus
+Eq HealthStatus
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Ordering)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Bool)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Bool)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Bool)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; Bool)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; HealthStatus)
+-&gt; (HealthStatus -&gt; HealthStatus -&gt; HealthStatus)
+-&gt; Ord HealthStatus
+HealthStatus -&gt; HealthStatus -&gt; Bool
+HealthStatus -&gt; HealthStatus -&gt; Ordering
+HealthStatus -&gt; HealthStatus -&gt; HealthStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HealthStatus -&gt; HealthStatus -&gt; HealthStatus
+$cmin :: HealthStatus -&gt; HealthStatus -&gt; HealthStatus
+max :: HealthStatus -&gt; HealthStatus -&gt; HealthStatus
+$cmax :: HealthStatus -&gt; HealthStatus -&gt; HealthStatus
+&gt;= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c&gt;= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+&gt; :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c&gt; :: HealthStatus -&gt; HealthStatus -&gt; Bool
+&lt;= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c&lt;= :: HealthStatus -&gt; HealthStatus -&gt; Bool
+&lt; :: HealthStatus -&gt; HealthStatus -&gt; Bool
+$c&lt; :: HealthStatus -&gt; HealthStatus -&gt; Bool
+compare :: HealthStatus -&gt; HealthStatus -&gt; Ordering
+$ccompare :: HealthStatus -&gt; HealthStatus -&gt; Ordering
+$cp1Ord :: Eq HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HealthStatus -&gt; Rep HealthStatus x)
+-&gt; (forall x. Rep HealthStatus x -&gt; HealthStatus)
+-&gt; Generic HealthStatus
+forall x. Rep HealthStatus x -&gt; HealthStatus
+forall x. HealthStatus -&gt; Rep HealthStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HealthStatus x -&gt; HealthStatus
+$cfrom :: forall x. HealthStatus -&gt; Rep HealthStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453164"><span id="local-6989586621679453166"><span class="annot"><span class="annottext">Int -&gt; HealthStatus -&gt; Int
+HealthStatus -&gt; Int
+(Int -&gt; HealthStatus -&gt; Int)
+-&gt; (HealthStatus -&gt; Int) -&gt; Hashable HealthStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HealthStatus -&gt; Int
+$chash :: HealthStatus -&gt; Int
+hashWithSalt :: Int -&gt; HealthStatus -&gt; Int
+$chashWithSalt :: Int -&gt; HealthStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679453161"><span class="annot"><span class="annottext">HealthStatus -&gt; ()
+(HealthStatus -&gt; ()) -&gt; NFData HealthStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HealthStatus -&gt; ()
+$crnf :: HealthStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679453158"><span class="annot"><span class="annottext">Text -&gt; Either String HealthStatus
+(Text -&gt; Either String HealthStatus) -&gt; FromText HealthStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HealthStatus
+$cfromText :: Text -&gt; Either String HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679453155"><span class="annot"><span class="annottext">HealthStatus -&gt; Text
+(HealthStatus -&gt; Text) -&gt; ToText HealthStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HealthStatus -&gt; Text
+$ctoText :: HealthStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679453152"><span class="annot"><span class="annottext">HealthStatus -&gt; ByteString
+(HealthStatus -&gt; ByteString) -&gt; ToByteString HealthStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HealthStatus -&gt; ByteString
+$ctoBS :: HealthStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679453149"><span class="annot"><span class="annottext">HealthStatus -&gt; ByteStringBuilder
+(HealthStatus -&gt; ByteStringBuilder) -&gt; ToLog HealthStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HealthStatus -&gt; ByteStringBuilder
+$cbuild :: HealthStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679453146"><span class="annot"><span class="annottext">HeaderName -&gt; HealthStatus -&gt; [Header]
+(HeaderName -&gt; HealthStatus -&gt; [Header]) -&gt; ToHeader HealthStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HealthStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HealthStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679453143"><span class="annot"><span class="annottext">HealthStatus -&gt; QueryString
+(HealthStatus -&gt; QueryString) -&gt; ToQuery HealthStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HealthStatus -&gt; QueryString
+$ctoQuery :: HealthStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679453138"><span id="local-6989586621679453140"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthStatus]
+Value -&gt; Parser HealthStatus
+(Value -&gt; Parser HealthStatus)
+-&gt; (Value -&gt; Parser [HealthStatus]) -&gt; FromJSON HealthStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HealthStatus]
+$cparseJSONList :: Value -&gt; Parser [HealthStatus]
+parseJSON :: Value -&gt; Parser HealthStatus
+$cparseJSON :: Value -&gt; Parser HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679453133"><span id="local-6989586621679453135"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthStatus]
+FromJSONKeyFunction HealthStatus
+FromJSONKeyFunction HealthStatus
+-&gt; FromJSONKeyFunction [HealthStatus] -&gt; FromJSONKey HealthStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HealthStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [HealthStatus]
+fromJSONKey :: FromJSONKeyFunction HealthStatus
+$cfromJSONKey :: FromJSONKeyFunction HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679453124"><span id="local-6989586621679453126"><span id="local-6989586621679453128"><span id="local-6989586621679453130"><span class="annot"><span class="annottext">[HealthStatus] -&gt; Encoding
+[HealthStatus] -&gt; Value
+HealthStatus -&gt; Encoding
+HealthStatus -&gt; Value
+(HealthStatus -&gt; Value)
+-&gt; (HealthStatus -&gt; Encoding)
+-&gt; ([HealthStatus] -&gt; Value)
+-&gt; ([HealthStatus] -&gt; Encoding)
+-&gt; ToJSON HealthStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HealthStatus] -&gt; Encoding
+$ctoEncodingList :: [HealthStatus] -&gt; Encoding
+toJSONList :: [HealthStatus] -&gt; Value
+$ctoJSONList :: [HealthStatus] -&gt; Value
+toEncoding :: HealthStatus -&gt; Encoding
+$ctoEncoding :: HealthStatus -&gt; Encoding
+toJSON :: HealthStatus -&gt; Value
+$ctoJSON :: HealthStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679453119"><span id="local-6989586621679453121"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthStatus]
+ToJSONKeyFunction HealthStatus
+ToJSONKeyFunction HealthStatus
+-&gt; ToJSONKeyFunction [HealthStatus] -&gt; ToJSONKey HealthStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HealthStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [HealthStatus]
+toJSONKey :: ToJSONKeyFunction HealthStatus
+$ctoJSONKey :: ToJSONKeyFunction HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679453116"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthStatus
+([Node] -&gt; Either String HealthStatus) -&gt; FromXML HealthStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HealthStatus
+$cparseXML :: [Node] -&gt; Either String HealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679453113"><span class="annot"><span class="annottext">HealthStatus -&gt; XML
+(HealthStatus -&gt; XML) -&gt; ToXML HealthStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HealthStatus -&gt; XML
+$ctoXML :: HealthStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_HEALTHY"><span class="hs-identifier hs-type">HealthStatus_HEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier hs-type">HealthStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthStatus_HEALTHY"><span id="%24mHealthStatus_HEALTHY"><span id="HealthStatus_HEALTHY"><span class="annot"><span class="annottext">$bHealthStatus_HEALTHY :: HealthStatus
+$mHealthStatus_HEALTHY :: forall r. HealthStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.HealthStatus.html#%24bHealthStatus_HEALTHY"><span class="hs-identifier hs-var hs-var hs-var">HealthStatus_HEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus%27"><span class="hs-identifier hs-type">HealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEALTHY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNHEALTHY"><span class="hs-identifier hs-type">HealthStatus_UNHEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier hs-type">HealthStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthStatus_UNHEALTHY"><span id="%24mHealthStatus_UNHEALTHY"><span id="HealthStatus_UNHEALTHY"><span class="annot"><span class="annottext">$bHealthStatus_UNHEALTHY :: HealthStatus
+$mHealthStatus_UNHEALTHY :: forall r. HealthStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.HealthStatus.html#%24bHealthStatus_UNHEALTHY"><span class="hs-identifier hs-var hs-var hs-var">HealthStatus_UNHEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus%27"><span class="hs-identifier hs-type">HealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNHEALTHY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNKNOWN"><span class="hs-identifier hs-type">HealthStatus_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier hs-type">HealthStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthStatus_UNKNOWN"><span id="%24mHealthStatus_UNKNOWN"><span id="HealthStatus_UNKNOWN"><span class="annot"><span class="annottext">$bHealthStatus_UNKNOWN :: HealthStatus
+$mHealthStatus_UNKNOWN :: forall r. HealthStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.HealthStatus.html#%24bHealthStatus_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">HealthStatus_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus%27"><span class="hs-identifier hs-type">HealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_HEALTHY"><span class="hs-pragma hs-type">HealthStatus_HEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNHEALTHY"><span class="hs-pragma hs-type">HealthStatus_UNHEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus_UNKNOWN"><span class="hs-pragma hs-type">HealthStatus_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthStatus.html#HealthStatus%27"><span class="hs-pragma hs-type">HealthStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

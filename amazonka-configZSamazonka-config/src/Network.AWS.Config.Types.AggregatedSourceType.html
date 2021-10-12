@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Config.Types.AggregatedSourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.Types.AggregatedSourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier">AggregatedSourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ACCOUNT"><span class="hs-identifier">AggregatedSourceType_ACCOUNT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ORGANIZATION"><span class="hs-identifier">AggregatedSourceType_ORGANIZATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679394547"><span id="local-6989586621679394548"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregatedSourceType"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-var">AggregatedSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceType%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType%27"><span class="hs-identifier hs-var">AggregatedSourceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAggregatedSourceType"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceType.html#fromAggregatedSourceType"><span class="hs-identifier hs-var hs-var">fromAggregatedSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394539"><span id="local-6989586621679394541"><span id="local-6989586621679394543"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceType -&gt; ShowS
+[AggregatedSourceType] -&gt; ShowS
+AggregatedSourceType -&gt; String
+(Int -&gt; AggregatedSourceType -&gt; ShowS)
+-&gt; (AggregatedSourceType -&gt; String)
+-&gt; ([AggregatedSourceType] -&gt; ShowS)
+-&gt; Show AggregatedSourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AggregatedSourceType] -&gt; ShowS
+$cshowList :: [AggregatedSourceType] -&gt; ShowS
+show :: AggregatedSourceType -&gt; String
+$cshow :: AggregatedSourceType -&gt; String
+showsPrec :: Int -&gt; AggregatedSourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AggregatedSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679394530"><span id="local-6989586621679394532"><span id="local-6989586621679394534"><span id="local-6989586621679394536"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceType]
+ReadPrec AggregatedSourceType
+Int -&gt; ReadS AggregatedSourceType
+ReadS [AggregatedSourceType]
+(Int -&gt; ReadS AggregatedSourceType)
+-&gt; ReadS [AggregatedSourceType]
+-&gt; ReadPrec AggregatedSourceType
+-&gt; ReadPrec [AggregatedSourceType]
+-&gt; Read AggregatedSourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AggregatedSourceType]
+$creadListPrec :: ReadPrec [AggregatedSourceType]
+readPrec :: ReadPrec AggregatedSourceType
+$creadPrec :: ReadPrec AggregatedSourceType
+readList :: ReadS [AggregatedSourceType]
+$creadList :: ReadS [AggregatedSourceType]
+readsPrec :: Int -&gt; ReadS AggregatedSourceType
+$creadsPrec :: Int -&gt; ReadS AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679394525"><span id="local-6989586621679394527"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+(AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; Eq AggregatedSourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c/= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+== :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c== :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679394509"><span id="local-6989586621679394511"><span id="local-6989586621679394513"><span id="local-6989586621679394515"><span id="local-6989586621679394517"><span id="local-6989586621679394519"><span id="local-6989586621679394521"><span class="annot"><span class="annottext">Eq AggregatedSourceType
+Eq AggregatedSourceType
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Ordering)
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; (AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool)
+-&gt; (AggregatedSourceType
+    -&gt; AggregatedSourceType -&gt; AggregatedSourceType)
+-&gt; (AggregatedSourceType
+    -&gt; AggregatedSourceType -&gt; AggregatedSourceType)
+-&gt; Ord AggregatedSourceType
+AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+AggregatedSourceType -&gt; AggregatedSourceType -&gt; Ordering
+AggregatedSourceType
+-&gt; AggregatedSourceType -&gt; AggregatedSourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AggregatedSourceType
+-&gt; AggregatedSourceType -&gt; AggregatedSourceType
+$cmin :: AggregatedSourceType
+-&gt; AggregatedSourceType -&gt; AggregatedSourceType
+max :: AggregatedSourceType
+-&gt; AggregatedSourceType -&gt; AggregatedSourceType
+$cmax :: AggregatedSourceType
+-&gt; AggregatedSourceType -&gt; AggregatedSourceType
+&gt;= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c&gt;= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+&gt; :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c&gt; :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+&lt;= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c&lt;= :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+&lt; :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+$c&lt; :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Bool
+compare :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Ordering
+$ccompare :: AggregatedSourceType -&gt; AggregatedSourceType -&gt; Ordering
+$cp1Ord :: Eq AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AggregatedSourceType -&gt; Rep AggregatedSourceType x)
+-&gt; (forall x. Rep AggregatedSourceType x -&gt; AggregatedSourceType)
+-&gt; Generic AggregatedSourceType
+forall x. Rep AggregatedSourceType x -&gt; AggregatedSourceType
+forall x. AggregatedSourceType -&gt; Rep AggregatedSourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AggregatedSourceType x -&gt; AggregatedSourceType
+$cfrom :: forall x. AggregatedSourceType -&gt; Rep AggregatedSourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679394501"><span id="local-6989586621679394503"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceType -&gt; Int
+AggregatedSourceType -&gt; Int
+(Int -&gt; AggregatedSourceType -&gt; Int)
+-&gt; (AggregatedSourceType -&gt; Int) -&gt; Hashable AggregatedSourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AggregatedSourceType -&gt; Int
+$chash :: AggregatedSourceType -&gt; Int
+hashWithSalt :: Int -&gt; AggregatedSourceType -&gt; Int
+$chashWithSalt :: Int -&gt; AggregatedSourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679394498"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; ()
+(AggregatedSourceType -&gt; ()) -&gt; NFData AggregatedSourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AggregatedSourceType -&gt; ()
+$crnf :: AggregatedSourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679394495"><span class="annot"><span class="annottext">Text -&gt; Either String AggregatedSourceType
+(Text -&gt; Either String AggregatedSourceType)
+-&gt; FromText AggregatedSourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AggregatedSourceType
+$cfromText :: Text -&gt; Either String AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679394492"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; Text
+(AggregatedSourceType -&gt; Text) -&gt; ToText AggregatedSourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AggregatedSourceType -&gt; Text
+$ctoText :: AggregatedSourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679394489"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; ByteString
+(AggregatedSourceType -&gt; ByteString)
+-&gt; ToByteString AggregatedSourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AggregatedSourceType -&gt; ByteString
+$ctoBS :: AggregatedSourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679394486"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; ByteStringBuilder
+(AggregatedSourceType -&gt; ByteStringBuilder)
+-&gt; ToLog AggregatedSourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AggregatedSourceType -&gt; ByteStringBuilder
+$cbuild :: AggregatedSourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679394483"><span class="annot"><span class="annottext">HeaderName -&gt; AggregatedSourceType -&gt; [Header]
+(HeaderName -&gt; AggregatedSourceType -&gt; [Header])
+-&gt; ToHeader AggregatedSourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AggregatedSourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AggregatedSourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679394480"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; QueryString
+(AggregatedSourceType -&gt; QueryString)
+-&gt; ToQuery AggregatedSourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AggregatedSourceType -&gt; QueryString
+$ctoQuery :: AggregatedSourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679394475"><span id="local-6989586621679394477"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregatedSourceType]
+Value -&gt; Parser AggregatedSourceType
+(Value -&gt; Parser AggregatedSourceType)
+-&gt; (Value -&gt; Parser [AggregatedSourceType])
+-&gt; FromJSON AggregatedSourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AggregatedSourceType]
+$cparseJSONList :: Value -&gt; Parser [AggregatedSourceType]
+parseJSON :: Value -&gt; Parser AggregatedSourceType
+$cparseJSON :: Value -&gt; Parser AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679394470"><span id="local-6989586621679394472"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregatedSourceType]
+FromJSONKeyFunction AggregatedSourceType
+FromJSONKeyFunction AggregatedSourceType
+-&gt; FromJSONKeyFunction [AggregatedSourceType]
+-&gt; FromJSONKey AggregatedSourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AggregatedSourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AggregatedSourceType]
+fromJSONKey :: FromJSONKeyFunction AggregatedSourceType
+$cfromJSONKey :: FromJSONKeyFunction AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679394461"><span id="local-6989586621679394463"><span id="local-6989586621679394465"><span id="local-6989586621679394467"><span class="annot"><span class="annottext">[AggregatedSourceType] -&gt; Encoding
+[AggregatedSourceType] -&gt; Value
+AggregatedSourceType -&gt; Encoding
+AggregatedSourceType -&gt; Value
+(AggregatedSourceType -&gt; Value)
+-&gt; (AggregatedSourceType -&gt; Encoding)
+-&gt; ([AggregatedSourceType] -&gt; Value)
+-&gt; ([AggregatedSourceType] -&gt; Encoding)
+-&gt; ToJSON AggregatedSourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AggregatedSourceType] -&gt; Encoding
+$ctoEncodingList :: [AggregatedSourceType] -&gt; Encoding
+toJSONList :: [AggregatedSourceType] -&gt; Value
+$ctoJSONList :: [AggregatedSourceType] -&gt; Value
+toEncoding :: AggregatedSourceType -&gt; Encoding
+$ctoEncoding :: AggregatedSourceType -&gt; Encoding
+toJSON :: AggregatedSourceType -&gt; Value
+$ctoJSON :: AggregatedSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679394456"><span id="local-6989586621679394458"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregatedSourceType]
+ToJSONKeyFunction AggregatedSourceType
+ToJSONKeyFunction AggregatedSourceType
+-&gt; ToJSONKeyFunction [AggregatedSourceType]
+-&gt; ToJSONKey AggregatedSourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AggregatedSourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AggregatedSourceType]
+toJSONKey :: ToJSONKeyFunction AggregatedSourceType
+$ctoJSONKey :: ToJSONKeyFunction AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679394453"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregatedSourceType
+([Node] -&gt; Either String AggregatedSourceType)
+-&gt; FromXML AggregatedSourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AggregatedSourceType
+$cparseXML :: [Node] -&gt; Either String AggregatedSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679394450"><span class="annot"><span class="annottext">AggregatedSourceType -&gt; XML
+(AggregatedSourceType -&gt; XML) -&gt; ToXML AggregatedSourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AggregatedSourceType -&gt; XML
+$ctoXML :: AggregatedSourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ACCOUNT"><span class="hs-identifier hs-type">AggregatedSourceType_ACCOUNT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregatedSourceType_ACCOUNT"><span id="%24mAggregatedSourceType_ACCOUNT"><span id="AggregatedSourceType_ACCOUNT"><span class="annot"><span class="annottext">$bAggregatedSourceType_ACCOUNT :: AggregatedSourceType
+$mAggregatedSourceType_ACCOUNT :: forall r. AggregatedSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.AggregatedSourceType.html#%24bAggregatedSourceType_ACCOUNT"><span class="hs-identifier hs-var hs-var hs-var">AggregatedSourceType_ACCOUNT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType%27"><span class="hs-identifier hs-type">AggregatedSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCOUNT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ORGANIZATION"><span class="hs-identifier hs-type">AggregatedSourceType_ORGANIZATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAggregatedSourceType_ORGANIZATION"><span id="%24mAggregatedSourceType_ORGANIZATION"><span id="AggregatedSourceType_ORGANIZATION"><span class="annot"><span class="annottext">$bAggregatedSourceType_ORGANIZATION :: AggregatedSourceType
+$mAggregatedSourceType_ORGANIZATION :: forall r. AggregatedSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Config.Types.AggregatedSourceType.html#%24bAggregatedSourceType_ORGANIZATION"><span class="hs-identifier hs-var hs-var hs-var">AggregatedSourceType_ORGANIZATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType%27"><span class="hs-identifier hs-type">AggregatedSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ORGANIZATION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ACCOUNT"><span class="hs-pragma hs-type">AggregatedSourceType_ACCOUNT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType_ORGANIZATION"><span class="hs-pragma hs-type">AggregatedSourceType_ORGANIZATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType%27"><span class="hs-pragma hs-type">AggregatedSourceType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

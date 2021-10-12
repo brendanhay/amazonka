@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.DeliveryStreamType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.DeliveryStreamType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier">DeliveryStreamType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_DirectPut"><span class="hs-identifier">DeliveryStreamType_DirectPut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_KinesisStreamAsSource"><span class="hs-identifier">DeliveryStreamType_KinesisStreamAsSource</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679255955"><span id="local-6989586621679255956"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryStreamType"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier hs-var">DeliveryStreamType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStreamType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType%27"><span class="hs-identifier hs-var">DeliveryStreamType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliveryStreamType"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#fromDeliveryStreamType"><span class="hs-identifier hs-var hs-var">fromDeliveryStreamType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255947"><span id="local-6989586621679255949"><span id="local-6989586621679255951"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamType -&gt; ShowS
+[DeliveryStreamType] -&gt; ShowS
+DeliveryStreamType -&gt; String
+(Int -&gt; DeliveryStreamType -&gt; ShowS)
+-&gt; (DeliveryStreamType -&gt; String)
+-&gt; ([DeliveryStreamType] -&gt; ShowS)
+-&gt; Show DeliveryStreamType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeliveryStreamType] -&gt; ShowS
+$cshowList :: [DeliveryStreamType] -&gt; ShowS
+show :: DeliveryStreamType -&gt; String
+$cshow :: DeliveryStreamType -&gt; String
+showsPrec :: Int -&gt; DeliveryStreamType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeliveryStreamType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255938"><span id="local-6989586621679255940"><span id="local-6989586621679255942"><span id="local-6989586621679255944"><span class="annot"><span class="annottext">ReadPrec [DeliveryStreamType]
+ReadPrec DeliveryStreamType
+Int -&gt; ReadS DeliveryStreamType
+ReadS [DeliveryStreamType]
+(Int -&gt; ReadS DeliveryStreamType)
+-&gt; ReadS [DeliveryStreamType]
+-&gt; ReadPrec DeliveryStreamType
+-&gt; ReadPrec [DeliveryStreamType]
+-&gt; Read DeliveryStreamType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeliveryStreamType]
+$creadListPrec :: ReadPrec [DeliveryStreamType]
+readPrec :: ReadPrec DeliveryStreamType
+$creadPrec :: ReadPrec DeliveryStreamType
+readList :: ReadS [DeliveryStreamType]
+$creadList :: ReadS [DeliveryStreamType]
+readsPrec :: Int -&gt; ReadS DeliveryStreamType
+$creadsPrec :: Int -&gt; ReadS DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255933"><span id="local-6989586621679255935"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+(DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; Eq DeliveryStreamType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c/= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+== :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c== :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255917"><span id="local-6989586621679255919"><span id="local-6989586621679255921"><span id="local-6989586621679255923"><span id="local-6989586621679255925"><span id="local-6989586621679255927"><span id="local-6989586621679255929"><span class="annot"><span class="annottext">Eq DeliveryStreamType
+Eq DeliveryStreamType
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Ordering)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType)
+-&gt; (DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType)
+-&gt; Ord DeliveryStreamType
+DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+DeliveryStreamType -&gt; DeliveryStreamType -&gt; Ordering
+DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType
+$cmin :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType
+max :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType
+$cmax :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; DeliveryStreamType
+&gt;= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c&gt;= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+&gt; :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c&gt; :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+&lt;= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c&lt;= :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+&lt; :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+$c&lt; :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Bool
+compare :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Ordering
+$ccompare :: DeliveryStreamType -&gt; DeliveryStreamType -&gt; Ordering
+$cp1Ord :: Eq DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeliveryStreamType -&gt; Rep DeliveryStreamType x)
+-&gt; (forall x. Rep DeliveryStreamType x -&gt; DeliveryStreamType)
+-&gt; Generic DeliveryStreamType
+forall x. Rep DeliveryStreamType x -&gt; DeliveryStreamType
+forall x. DeliveryStreamType -&gt; Rep DeliveryStreamType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeliveryStreamType x -&gt; DeliveryStreamType
+$cfrom :: forall x. DeliveryStreamType -&gt; Rep DeliveryStreamType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255909"><span id="local-6989586621679255911"><span class="annot"><span class="annottext">Int -&gt; DeliveryStreamType -&gt; Int
+DeliveryStreamType -&gt; Int
+(Int -&gt; DeliveryStreamType -&gt; Int)
+-&gt; (DeliveryStreamType -&gt; Int) -&gt; Hashable DeliveryStreamType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeliveryStreamType -&gt; Int
+$chash :: DeliveryStreamType -&gt; Int
+hashWithSalt :: Int -&gt; DeliveryStreamType -&gt; Int
+$chashWithSalt :: Int -&gt; DeliveryStreamType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679255906"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; ()
+(DeliveryStreamType -&gt; ()) -&gt; NFData DeliveryStreamType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeliveryStreamType -&gt; ()
+$crnf :: DeliveryStreamType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679255903"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryStreamType
+(Text -&gt; Either String DeliveryStreamType)
+-&gt; FromText DeliveryStreamType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeliveryStreamType
+$cfromText :: Text -&gt; Either String DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255900"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; Text
+(DeliveryStreamType -&gt; Text) -&gt; ToText DeliveryStreamType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeliveryStreamType -&gt; Text
+$ctoText :: DeliveryStreamType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255897"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; ByteString
+(DeliveryStreamType -&gt; ByteString)
+-&gt; ToByteString DeliveryStreamType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeliveryStreamType -&gt; ByteString
+$ctoBS :: DeliveryStreamType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255894"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; ByteStringBuilder
+(DeliveryStreamType -&gt; ByteStringBuilder)
+-&gt; ToLog DeliveryStreamType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeliveryStreamType -&gt; ByteStringBuilder
+$cbuild :: DeliveryStreamType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255891"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryStreamType -&gt; [Header]
+(HeaderName -&gt; DeliveryStreamType -&gt; [Header])
+-&gt; ToHeader DeliveryStreamType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeliveryStreamType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeliveryStreamType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255888"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; QueryString
+(DeliveryStreamType -&gt; QueryString) -&gt; ToQuery DeliveryStreamType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeliveryStreamType -&gt; QueryString
+$ctoQuery :: DeliveryStreamType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255883"><span id="local-6989586621679255885"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryStreamType]
+Value -&gt; Parser DeliveryStreamType
+(Value -&gt; Parser DeliveryStreamType)
+-&gt; (Value -&gt; Parser [DeliveryStreamType])
+-&gt; FromJSON DeliveryStreamType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeliveryStreamType]
+$cparseJSONList :: Value -&gt; Parser [DeliveryStreamType]
+parseJSON :: Value -&gt; Parser DeliveryStreamType
+$cparseJSON :: Value -&gt; Parser DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255878"><span id="local-6989586621679255880"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryStreamType]
+FromJSONKeyFunction DeliveryStreamType
+FromJSONKeyFunction DeliveryStreamType
+-&gt; FromJSONKeyFunction [DeliveryStreamType]
+-&gt; FromJSONKey DeliveryStreamType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeliveryStreamType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeliveryStreamType]
+fromJSONKey :: FromJSONKeyFunction DeliveryStreamType
+$cfromJSONKey :: FromJSONKeyFunction DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679255869"><span id="local-6989586621679255871"><span id="local-6989586621679255873"><span id="local-6989586621679255875"><span class="annot"><span class="annottext">[DeliveryStreamType] -&gt; Encoding
+[DeliveryStreamType] -&gt; Value
+DeliveryStreamType -&gt; Encoding
+DeliveryStreamType -&gt; Value
+(DeliveryStreamType -&gt; Value)
+-&gt; (DeliveryStreamType -&gt; Encoding)
+-&gt; ([DeliveryStreamType] -&gt; Value)
+-&gt; ([DeliveryStreamType] -&gt; Encoding)
+-&gt; ToJSON DeliveryStreamType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeliveryStreamType] -&gt; Encoding
+$ctoEncodingList :: [DeliveryStreamType] -&gt; Encoding
+toJSONList :: [DeliveryStreamType] -&gt; Value
+$ctoJSONList :: [DeliveryStreamType] -&gt; Value
+toEncoding :: DeliveryStreamType -&gt; Encoding
+$ctoEncoding :: DeliveryStreamType -&gt; Encoding
+toJSON :: DeliveryStreamType -&gt; Value
+$ctoJSON :: DeliveryStreamType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679255864"><span id="local-6989586621679255866"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryStreamType]
+ToJSONKeyFunction DeliveryStreamType
+ToJSONKeyFunction DeliveryStreamType
+-&gt; ToJSONKeyFunction [DeliveryStreamType]
+-&gt; ToJSONKey DeliveryStreamType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeliveryStreamType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeliveryStreamType]
+toJSONKey :: ToJSONKeyFunction DeliveryStreamType
+$ctoJSONKey :: ToJSONKeyFunction DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679255861"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryStreamType
+([Node] -&gt; Either String DeliveryStreamType)
+-&gt; FromXML DeliveryStreamType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeliveryStreamType
+$cparseXML :: [Node] -&gt; Either String DeliveryStreamType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679255858"><span class="annot"><span class="annottext">DeliveryStreamType -&gt; XML
+(DeliveryStreamType -&gt; XML) -&gt; ToXML DeliveryStreamType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeliveryStreamType -&gt; XML
+$ctoXML :: DeliveryStreamType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_DirectPut"><span class="hs-identifier hs-type">DeliveryStreamType_DirectPut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier hs-type">DeliveryStreamType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamType_DirectPut"><span id="%24mDeliveryStreamType_DirectPut"><span id="DeliveryStreamType_DirectPut"><span class="annot"><span class="annottext">$bDeliveryStreamType_DirectPut :: DeliveryStreamType
+$mDeliveryStreamType_DirectPut :: forall r. DeliveryStreamType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#%24bDeliveryStreamType_DirectPut"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamType_DirectPut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType%27"><span class="hs-identifier hs-type">DeliveryStreamType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DirectPut&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_KinesisStreamAsSource"><span class="hs-identifier hs-type">DeliveryStreamType_KinesisStreamAsSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType"><span class="hs-identifier hs-type">DeliveryStreamType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStreamType_KinesisStreamAsSource"><span id="%24mDeliveryStreamType_KinesisStreamAsSource"><span id="DeliveryStreamType_KinesisStreamAsSource"><span class="annot"><span class="annottext">$bDeliveryStreamType_KinesisStreamAsSource :: DeliveryStreamType
+$mDeliveryStreamType_KinesisStreamAsSource :: forall r. DeliveryStreamType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#%24bDeliveryStreamType_KinesisStreamAsSource"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStreamType_KinesisStreamAsSource</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType%27"><span class="hs-identifier hs-type">DeliveryStreamType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KinesisStreamAsSource&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_DirectPut"><span class="hs-pragma hs-type">DeliveryStreamType_DirectPut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType_KinesisStreamAsSource"><span class="hs-pragma hs-type">DeliveryStreamType_KinesisStreamAsSource</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamType.html#DeliveryStreamType%27"><span class="hs-pragma hs-type">DeliveryStreamType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.ListOnPremisesInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a list of names for one or more on-premises instances.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Unless otherwise specified, both registered and deregistered on-premises</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- instance names are listed. To list only registered or deregistered</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- on-premises instance names, use the registration status parameter.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.ListOnPremisesInstances</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstances"><span class="hs-identifier">newListOnPremisesInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_nextToken"><span class="hs-identifier">listOnPremisesInstances_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_tagFilters"><span class="hs-identifier">listOnPremisesInstances_tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_registrationStatus"><span class="hs-identifier">listOnPremisesInstances_registrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier">ListOnPremisesInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstancesResponse"><span class="hs-identifier">newListOnPremisesInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_nextToken"><span class="hs-identifier">listOnPremisesInstancesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_instanceNames"><span class="hs-identifier">listOnPremisesInstancesResponse_instanceNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_httpStatus"><span class="hs-identifier">listOnPremisesInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Represents the input of a @ListOnPremisesInstances@ operation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newListOnPremisesInstances' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679319469"><span id="local-6989586621679319470"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOnPremisesInstances"><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-var">ListOnPremisesInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOnPremisesInstances%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-var">ListOnPremisesInstances'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier returned from the previous list on-premises instances</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- call. It can be used to return the next set of on-premises instances in</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListOnPremisesInstances%27"><span class="annot"><span class="annottext">ListOnPremisesInstances -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The on-premises instance tags that are used to restrict the on-premises</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- instance names returned.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AtagFilters%3AListOnPremisesInstances%27"><span class="annot"><span class="annottext">ListOnPremisesInstances -&gt; Maybe [TagFilter]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AtagFilters%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The registration status of the on-premises instances:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @Deregistered@: Include deregistered on-premises instances in the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @Registered@: Include registered on-premises instances in the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AregistrationStatus%3AListOnPremisesInstances%27"><span class="annot"><span class="annottext">ListOnPremisesInstances -&gt; Maybe RegistrationStatus
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AregistrationStatus%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var hs-var">registrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319461"><span id="local-6989586621679319463"><span class="annot"><span class="annottext">ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool
+(ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool)
+-&gt; (ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool)
+-&gt; Eq ListOnPremisesInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool
+$c/= :: ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool
+== :: ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool
+$c== :: ListOnPremisesInstances -&gt; ListOnPremisesInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319452"><span id="local-6989586621679319454"><span id="local-6989586621679319456"><span id="local-6989586621679319458"><span class="annot"><span class="annottext">ReadPrec [ListOnPremisesInstances]
+ReadPrec ListOnPremisesInstances
+Int -&gt; ReadS ListOnPremisesInstances
+ReadS [ListOnPremisesInstances]
+(Int -&gt; ReadS ListOnPremisesInstances)
+-&gt; ReadS [ListOnPremisesInstances]
+-&gt; ReadPrec ListOnPremisesInstances
+-&gt; ReadPrec [ListOnPremisesInstances]
+-&gt; Read ListOnPremisesInstances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOnPremisesInstances]
+$creadListPrec :: ReadPrec [ListOnPremisesInstances]
+readPrec :: ReadPrec ListOnPremisesInstances
+$creadPrec :: ReadPrec ListOnPremisesInstances
+readList :: ReadS [ListOnPremisesInstances]
+$creadList :: ReadS [ListOnPremisesInstances]
+readsPrec :: Int -&gt; ReadS ListOnPremisesInstances
+$creadsPrec :: Int -&gt; ReadS ListOnPremisesInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319445"><span id="local-6989586621679319447"><span id="local-6989586621679319449"><span class="annot"><span class="annottext">Int -&gt; ListOnPremisesInstances -&gt; ShowS
+[ListOnPremisesInstances] -&gt; ShowS
+ListOnPremisesInstances -&gt; String
+(Int -&gt; ListOnPremisesInstances -&gt; ShowS)
+-&gt; (ListOnPremisesInstances -&gt; String)
+-&gt; ([ListOnPremisesInstances] -&gt; ShowS)
+-&gt; Show ListOnPremisesInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOnPremisesInstances] -&gt; ShowS
+$cshowList :: [ListOnPremisesInstances] -&gt; ShowS
+show :: ListOnPremisesInstances -&gt; String
+$cshow :: ListOnPremisesInstances -&gt; String
+showsPrec :: Int -&gt; ListOnPremisesInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOnPremisesInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListOnPremisesInstances -&gt; Rep ListOnPremisesInstances x)
+-&gt; (forall x.
+    Rep ListOnPremisesInstances x -&gt; ListOnPremisesInstances)
+-&gt; Generic ListOnPremisesInstances
+forall x. Rep ListOnPremisesInstances x -&gt; ListOnPremisesInstances
+forall x. ListOnPremisesInstances -&gt; Rep ListOnPremisesInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListOnPremisesInstances x -&gt; ListOnPremisesInstances
+$cfrom :: forall x. ListOnPremisesInstances -&gt; Rep ListOnPremisesInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'ListOnPremisesInstances' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'listOnPremisesInstances_nextToken' - An identifier returned from the previous list on-premises instances</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- call. It can be used to return the next set of on-premises instances in</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tagFilters', 'listOnPremisesInstances_tagFilters' - The on-premises instance tags that are used to restrict the on-premises</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- instance names returned.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'registrationStatus', 'listOnPremisesInstances_registrationStatus' - The registration status of the on-premises instances:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @Deregistered@: Include deregistered on-premises instances in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @Registered@: Include registered on-premises instances in the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstances"><span class="hs-identifier hs-type">newListOnPremisesInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span>
+</span><span id="line-104"></span><span id="newListOnPremisesInstances"><span class="annot"><span class="annottext">newListOnPremisesInstances :: ListOnPremisesInstances
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstances"><span class="hs-identifier hs-var hs-var">newListOnPremisesInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ListOnPremisesInstances' :: Maybe Text
+-&gt; Maybe [TagFilter]
+-&gt; Maybe RegistrationStatus
+-&gt; ListOnPremisesInstances
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOnPremisesInstances' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagFilters:ListOnPremisesInstances' :: Maybe [TagFilter]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AtagFilters%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrationStatus:ListOnPremisesInstances' :: Maybe RegistrationStatus
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AregistrationStatus%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | An identifier returned from the previous list on-premises instances</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- call. It can be used to return the next set of on-premises instances in</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the list.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_nextToken"><span class="hs-identifier hs-type">listOnPremisesInstances_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listOnPremisesInstances_nextToken"><span class="annot"><span class="annottext">listOnPremisesInstances_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOnPremisesInstances -&gt; f ListOnPremisesInstances
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_nextToken"><span class="hs-identifier hs-var hs-var">listOnPremisesInstances_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstances -&gt; Maybe Text)
+-&gt; (ListOnPremisesInstances
+    -&gt; Maybe Text -&gt; ListOnPremisesInstances)
+-&gt; Lens
+     ListOnPremisesInstances
+     ListOnPremisesInstances
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319439"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe Text
+</span><a href="#local-6989586621679319439"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319439"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319438"><span class="annot"><span class="annottext">s :: ListOnPremisesInstances
+</span><a href="#local-6989586621679319438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstances
+</span><a href="#local-6989586621679319438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOnPremisesInstances' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The on-premises instance tags that are used to restrict the on-premises</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- instance names returned.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_tagFilters"><span class="hs-identifier hs-type">listOnPremisesInstances_tagFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listOnPremisesInstances_tagFilters"><span class="annot"><span class="annottext">listOnPremisesInstances_tagFilters :: (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; ListOnPremisesInstances -&gt; f ListOnPremisesInstances
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_tagFilters"><span class="hs-identifier hs-var hs-var">listOnPremisesInstances_tagFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstances -&gt; Maybe [TagFilter])
+-&gt; (ListOnPremisesInstances
+    -&gt; Maybe [TagFilter] -&gt; ListOnPremisesInstances)
+-&gt; Lens
+     ListOnPremisesInstances
+     ListOnPremisesInstances
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319436"><span class="annot"><span class="annottext">Maybe [TagFilter]
+tagFilters :: Maybe [TagFilter]
+$sel:tagFilters:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe [TagFilter]
+</span><a href="#local-6989586621679319436"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679319436"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319435"><span class="annot"><span class="annottext">s :: ListOnPremisesInstances
+</span><a href="#local-6989586621679319435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319434"><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679319434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstances
+</span><a href="#local-6989586621679319435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:ListOnPremisesInstances' :: Maybe [TagFilter]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AtagFilters%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679319434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+ -&gt; ListOnPremisesInstances -&gt; f ListOnPremisesInstances)
+-&gt; ((Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+    -&gt; Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; (Maybe [TagFilter] -&gt; f (Maybe [TagFilter]))
+-&gt; ListOnPremisesInstances
+-&gt; f ListOnPremisesInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+-&gt; Iso
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+     (Maybe [TagFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagFilter] [TagFilter] [TagFilter] [TagFilter]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The registration status of the on-premises instances:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @Deregistered@: Include deregistered on-premises instances in the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @Registered@: Include registered on-premises instances in the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     resulting list.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_registrationStatus"><span class="hs-identifier hs-type">listOnPremisesInstances_registrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listOnPremisesInstances_registrationStatus"><span class="annot"><span class="annottext">listOnPremisesInstances_registrationStatus :: (Maybe RegistrationStatus -&gt; f (Maybe RegistrationStatus))
+-&gt; ListOnPremisesInstances -&gt; f ListOnPremisesInstances
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_registrationStatus"><span class="hs-identifier hs-var hs-var">listOnPremisesInstances_registrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstances -&gt; Maybe RegistrationStatus)
+-&gt; (ListOnPremisesInstances
+    -&gt; Maybe RegistrationStatus -&gt; ListOnPremisesInstances)
+-&gt; Lens
+     ListOnPremisesInstances
+     ListOnPremisesInstances
+     (Maybe RegistrationStatus)
+     (Maybe RegistrationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319430"><span class="annot"><span class="annottext">Maybe RegistrationStatus
+registrationStatus :: Maybe RegistrationStatus
+$sel:registrationStatus:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe RegistrationStatus
+</span><a href="#local-6989586621679319430"><span class="hs-identifier hs-var hs-var">registrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679319430"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319429"><span class="annot"><span class="annottext">s :: ListOnPremisesInstances
+</span><a href="#local-6989586621679319429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319428"><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679319428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstances
+</span><a href="#local-6989586621679319429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationStatus:ListOnPremisesInstances' :: Maybe RegistrationStatus
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AregistrationStatus%3AListOnPremisesInstances%27"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679319428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679319424"><span class="annot"><span class="annottext">page :: ListOnPremisesInstances
+-&gt; AWSResponse ListOnPremisesInstances
+-&gt; Maybe ListOnPremisesInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679319422"><span class="annot"><span class="annottext">ListOnPremisesInstances
+</span><a href="#local-6989586621679319422"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679319421"><span class="annot"><span class="annottext">AWSResponse ListOnPremisesInstances
+</span><a href="#local-6989586621679319421"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOnPremisesInstances
+ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319421"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+-&gt; Getting (First Text) ListOnPremisesInstancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; Const (First Text) ListOnPremisesInstancesResponse
+Lens' ListOnPremisesInstancesResponse (Maybe Text)
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_nextToken"><span class="hs-identifier hs-var">listOnPremisesInstancesResponse_nextToken</span></a></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOnPremisesInstancesResponse
+ -&gt; Const (First Text) ListOnPremisesInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOnPremisesInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOnPremisesInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOnPremisesInstances
+ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319421"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+-&gt; Getting (First [Text]) ListOnPremisesInstancesResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; Const (First [Text]) ListOnPremisesInstancesResponse
+Lens' ListOnPremisesInstancesResponse (Maybe [Text])
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_instanceNames"><span class="hs-identifier hs-var">listOnPremisesInstancesResponse_instanceNames</span></a></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListOnPremisesInstancesResponse
+ -&gt; Const (First [Text]) ListOnPremisesInstancesResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListOnPremisesInstancesResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListOnPremisesInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">ListOnPremisesInstances -&gt; Maybe ListOnPremisesInstances
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstances -&gt; Maybe ListOnPremisesInstances)
+-&gt; ListOnPremisesInstances -&gt; Maybe ListOnPremisesInstances
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ListOnPremisesInstances
+</span><a href="#local-6989586621679319422"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ListOnPremisesInstances
+-&gt; (ListOnPremisesInstances -&gt; ListOnPremisesInstances)
+-&gt; ListOnPremisesInstances
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListOnPremisesInstances -&gt; Identity ListOnPremisesInstances
+Lens
+  ListOnPremisesInstances
+  ListOnPremisesInstances
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstances_nextToken"><span class="hs-identifier hs-var">listOnPremisesInstances_nextToken</span></a></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListOnPremisesInstances -&gt; Identity ListOnPremisesInstances)
+-&gt; Maybe Text -&gt; ListOnPremisesInstances -&gt; ListOnPremisesInstances
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOnPremisesInstances
+ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319421"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+-&gt; Getting (First Text) ListOnPremisesInstancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; Const (First Text) ListOnPremisesInstancesResponse
+Lens' ListOnPremisesInstancesResponse (Maybe Text)
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_nextToken"><span class="hs-identifier hs-var">listOnPremisesInstancesResponse_nextToken</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListOnPremisesInstancesResponse
+ -&gt; Const (First Text) ListOnPremisesInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListOnPremisesInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679319412"><span class="annot"><span class="annottext">request :: ListOnPremisesInstances -&gt; Request ListOnPremisesInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListOnPremisesInstances -&gt; Request ListOnPremisesInstances
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679319408"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListOnPremisesInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListOnPremisesInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListOnPremisesInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListOnPremisesInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListOnPremisesInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319404"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679319404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text] -&gt; Int -&gt; ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">ListOnPremisesInstancesResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text] -&gt; Int -&gt; ListOnPremisesInstancesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Text] -&gt; Int -&gt; ListOnPremisesInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Text] -&gt; Int -&gt; ListOnPremisesInstancesResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListOnPremisesInstancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListOnPremisesInstancesResponse)
+-&gt; Either String Int
+-&gt; Either String ListOnPremisesInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319394"><span id="local-6989586621679319396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679319387"><span class="annot"><span class="annottext">toHeaders :: ListOnPremisesInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOnPremisesInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeDeploy_20141006.ListOnPremisesInstances&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-184"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319377"><span id="local-6989586621679319379"><span id="local-6989586621679319381"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679319375"><span class="annot"><span class="annottext">toJSON :: ListOnPremisesInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances%27"><span class="hs-identifier hs-type">ListOnPremisesInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319371"><span id="local-6989586621679319372"><span id="local-6989586621679319373"><span class="annot"><span class="annottext">Maybe [TagFilter]
+Maybe Text
+Maybe RegistrationStatus
+registrationStatus :: Maybe RegistrationStatus
+tagFilters :: Maybe [TagFilter]
+nextToken :: Maybe Text
+$sel:registrationStatus:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe RegistrationStatus
+$sel:tagFilters:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe [TagFilter]
+$sel:nextToken:ListOnPremisesInstances' :: ListOnPremisesInstances -&gt; Maybe Text
+</span><a href="#local-6989586621679319371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319373"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagFilter] -&gt; Pair) -&gt; Maybe [TagFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagFilter]
+</span><a href="#local-6989586621679319372"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registrationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistrationStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(RegistrationStatus -&gt; Pair)
+-&gt; Maybe RegistrationStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationStatus
+</span><a href="#local-6989586621679319371"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679319365"><span class="annot"><span class="annottext">toPath :: ListOnPremisesInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOnPremisesInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstances"><span class="hs-identifier hs-type">ListOnPremisesInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679319361"><span class="annot"><span class="annottext">toQuery :: ListOnPremisesInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListOnPremisesInstances -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Represents the output of the list on-premises instances operation.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- /See:/ 'newListOnPremisesInstancesResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679319358"><span id="local-6989586621679319359"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOnPremisesInstancesResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-var">ListOnPremisesInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOnPremisesInstancesResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">ListOnPremisesInstancesResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- returned. It can be used in a subsequent list on-premises instances call</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- to return the next set of on-premises instances in the list.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AnextToken%3AListOnPremisesInstancesResponse%27"><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The list of matching on-premises instance names.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AinstanceNames%3AListOnPremisesInstancesResponse%27"><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AinstanceNames%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var hs-var">instanceNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOnPremisesInstancesResponse%27"><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse -&gt; Int
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AhttpStatus%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319351"><span id="local-6989586621679319353"><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+-&gt; ListOnPremisesInstancesResponse -&gt; Bool
+(ListOnPremisesInstancesResponse
+ -&gt; ListOnPremisesInstancesResponse -&gt; Bool)
+-&gt; (ListOnPremisesInstancesResponse
+    -&gt; ListOnPremisesInstancesResponse -&gt; Bool)
+-&gt; Eq ListOnPremisesInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListOnPremisesInstancesResponse
+-&gt; ListOnPremisesInstancesResponse -&gt; Bool
+$c/= :: ListOnPremisesInstancesResponse
+-&gt; ListOnPremisesInstancesResponse -&gt; Bool
+== :: ListOnPremisesInstancesResponse
+-&gt; ListOnPremisesInstancesResponse -&gt; Bool
+$c== :: ListOnPremisesInstancesResponse
+-&gt; ListOnPremisesInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319343"><span id="local-6989586621679319345"><span id="local-6989586621679319347"><span id="local-6989586621679319349"><span class="annot"><span class="annottext">ReadPrec [ListOnPremisesInstancesResponse]
+ReadPrec ListOnPremisesInstancesResponse
+Int -&gt; ReadS ListOnPremisesInstancesResponse
+ReadS [ListOnPremisesInstancesResponse]
+(Int -&gt; ReadS ListOnPremisesInstancesResponse)
+-&gt; ReadS [ListOnPremisesInstancesResponse]
+-&gt; ReadPrec ListOnPremisesInstancesResponse
+-&gt; ReadPrec [ListOnPremisesInstancesResponse]
+-&gt; Read ListOnPremisesInstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListOnPremisesInstancesResponse]
+$creadListPrec :: ReadPrec [ListOnPremisesInstancesResponse]
+readPrec :: ReadPrec ListOnPremisesInstancesResponse
+$creadPrec :: ReadPrec ListOnPremisesInstancesResponse
+readList :: ReadS [ListOnPremisesInstancesResponse]
+$creadList :: ReadS [ListOnPremisesInstancesResponse]
+readsPrec :: Int -&gt; ReadS ListOnPremisesInstancesResponse
+$creadsPrec :: Int -&gt; ReadS ListOnPremisesInstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319337"><span id="local-6989586621679319339"><span id="local-6989586621679319341"><span class="annot"><span class="annottext">Int -&gt; ListOnPremisesInstancesResponse -&gt; ShowS
+[ListOnPremisesInstancesResponse] -&gt; ShowS
+ListOnPremisesInstancesResponse -&gt; String
+(Int -&gt; ListOnPremisesInstancesResponse -&gt; ShowS)
+-&gt; (ListOnPremisesInstancesResponse -&gt; String)
+-&gt; ([ListOnPremisesInstancesResponse] -&gt; ShowS)
+-&gt; Show ListOnPremisesInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListOnPremisesInstancesResponse] -&gt; ShowS
+$cshowList :: [ListOnPremisesInstancesResponse] -&gt; ShowS
+show :: ListOnPremisesInstancesResponse -&gt; String
+$cshow :: ListOnPremisesInstancesResponse -&gt; String
+showsPrec :: Int -&gt; ListOnPremisesInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListOnPremisesInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListOnPremisesInstancesResponse
+ -&gt; Rep ListOnPremisesInstancesResponse x)
+-&gt; (forall x.
+    Rep ListOnPremisesInstancesResponse x
+    -&gt; ListOnPremisesInstancesResponse)
+-&gt; Generic ListOnPremisesInstancesResponse
+forall x.
+Rep ListOnPremisesInstancesResponse x
+-&gt; ListOnPremisesInstancesResponse
+forall x.
+ListOnPremisesInstancesResponse
+-&gt; Rep ListOnPremisesInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListOnPremisesInstancesResponse x
+-&gt; ListOnPremisesInstancesResponse
+$cfrom :: forall x.
+ListOnPremisesInstancesResponse
+-&gt; Rep ListOnPremisesInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'ListOnPremisesInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'nextToken', 'listOnPremisesInstancesResponse_nextToken' - If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- returned. It can be used in a subsequent list on-premises instances call</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- to return the next set of on-premises instances in the list.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'instanceNames', 'listOnPremisesInstancesResponse_instanceNames' - The list of matching on-premises instance names.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'listOnPremisesInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">newListOnPremisesInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newListOnPremisesInstancesResponse"><span class="annot"><span class="annottext">newListOnPremisesInstancesResponse :: Int -&gt; ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#newListOnPremisesInstancesResponse"><span class="hs-identifier hs-var hs-var">newListOnPremisesInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679319334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse' :: Maybe Text
+-&gt; Maybe [Text] -&gt; Int -&gt; ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListOnPremisesInstancesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceNames:ListOnPremisesInstancesResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AinstanceNames%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">instanceNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOnPremisesInstancesResponse' :: Int
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AhttpStatus%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- returned. It can be used in a subsequent list on-premises instances call</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- to return the next set of on-premises instances in the list.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_nextToken"><span class="hs-identifier hs-type">listOnPremisesInstancesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="listOnPremisesInstancesResponse_nextToken"><span class="annot"><span class="annottext">listOnPremisesInstancesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; f ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listOnPremisesInstancesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstancesResponse -&gt; Maybe Text)
+-&gt; (ListOnPremisesInstancesResponse
+    -&gt; Maybe Text -&gt; ListOnPremisesInstancesResponse)
+-&gt; Lens' ListOnPremisesInstancesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319333"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListOnPremisesInstancesResponse' :: ListOnPremisesInstancesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679319333"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319333"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319332"><span class="annot"><span class="annottext">s :: ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOnPremisesInstancesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AnextToken%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The list of matching on-premises instance names.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_instanceNames"><span class="hs-identifier hs-type">listOnPremisesInstancesResponse_instanceNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="listOnPremisesInstancesResponse_instanceNames"><span class="annot"><span class="annottext">listOnPremisesInstancesResponse_instanceNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; f ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_instanceNames"><span class="hs-identifier hs-var hs-var">listOnPremisesInstancesResponse_instanceNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstancesResponse -&gt; Maybe [Text])
+-&gt; (ListOnPremisesInstancesResponse
+    -&gt; Maybe [Text] -&gt; ListOnPremisesInstancesResponse)
+-&gt; Lens' ListOnPremisesInstancesResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319330"><span class="annot"><span class="annottext">Maybe [Text]
+instanceNames :: Maybe [Text]
+$sel:instanceNames:ListOnPremisesInstancesResponse' :: ListOnPremisesInstancesResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679319330"><span class="hs-identifier hs-var hs-var">instanceNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319330"><span class="hs-identifier hs-var">instanceNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319329"><span class="annot"><span class="annottext">s :: ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319328"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceNames:ListOnPremisesInstancesResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AinstanceNames%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">instanceNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListOnPremisesInstancesResponse
+ -&gt; f ListOnPremisesInstancesResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListOnPremisesInstancesResponse
+-&gt; f ListOnPremisesInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_httpStatus"><span class="hs-identifier hs-type">listOnPremisesInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-259"></span><span id="listOnPremisesInstancesResponse_httpStatus"><span class="annot"><span class="annottext">listOnPremisesInstancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListOnPremisesInstancesResponse
+-&gt; f ListOnPremisesInstancesResponse
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#listOnPremisesInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listOnPremisesInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListOnPremisesInstancesResponse -&gt; Int)
+-&gt; (ListOnPremisesInstancesResponse
+    -&gt; Int -&gt; ListOnPremisesInstancesResponse)
+-&gt; Lens
+     ListOnPremisesInstancesResponse
+     ListOnPremisesInstancesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319327"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListOnPremisesInstancesResponse' :: ListOnPremisesInstancesResponse -&gt; Int
+</span><a href="#local-6989586621679319327"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319327"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319326"><span class="annot"><span class="annottext">s :: ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOnPremisesInstancesResponse
+</span><a href="#local-6989586621679319326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOnPremisesInstancesResponse' :: Int
+</span><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#%24sel%3AhttpStatus%3AListOnPremisesInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679319323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListOnPremisesInstances.html#ListOnPremisesInstancesResponse"><span class="hs-identifier hs-type">ListOnPremisesInstancesResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

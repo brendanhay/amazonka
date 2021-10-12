@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.AssociateCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN)</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with AWS Elemental MediaConvert.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.AssociateCertificate</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier">AssociateCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificate"><span class="hs-identifier">newAssociateCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificate_arn"><span class="hs-identifier">associateCertificate_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier">AssociateCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificateResponse"><span class="hs-identifier">newAssociateCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificateResponse_httpStatus"><span class="hs-identifier">associateCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newAssociateCertificate' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621680028613"><span id="local-6989586621680028614"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateCertificate"><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-var">AssociateCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateCertificate%27"><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate%27"><span class="hs-identifier hs-var">AssociateCertificate'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the ACM certificate that you want to associate with your</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- MediaConvert resource.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aarn%3AAssociateCertificate%27"><span class="annot"><span class="annottext">AssociateCertificate -&gt; Text
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3Aarn%3AAssociateCertificate%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680028607"><span id="local-6989586621680028609"><span class="annot"><span class="annottext">AssociateCertificate -&gt; AssociateCertificate -&gt; Bool
+(AssociateCertificate -&gt; AssociateCertificate -&gt; Bool)
+-&gt; (AssociateCertificate -&gt; AssociateCertificate -&gt; Bool)
+-&gt; Eq AssociateCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateCertificate -&gt; AssociateCertificate -&gt; Bool
+$c/= :: AssociateCertificate -&gt; AssociateCertificate -&gt; Bool
+== :: AssociateCertificate -&gt; AssociateCertificate -&gt; Bool
+$c== :: AssociateCertificate -&gt; AssociateCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028598"><span id="local-6989586621680028600"><span id="local-6989586621680028602"><span id="local-6989586621680028604"><span class="annot"><span class="annottext">ReadPrec [AssociateCertificate]
+ReadPrec AssociateCertificate
+Int -&gt; ReadS AssociateCertificate
+ReadS [AssociateCertificate]
+(Int -&gt; ReadS AssociateCertificate)
+-&gt; ReadS [AssociateCertificate]
+-&gt; ReadPrec AssociateCertificate
+-&gt; ReadPrec [AssociateCertificate]
+-&gt; Read AssociateCertificate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateCertificate]
+$creadListPrec :: ReadPrec [AssociateCertificate]
+readPrec :: ReadPrec AssociateCertificate
+$creadPrec :: ReadPrec AssociateCertificate
+readList :: ReadS [AssociateCertificate]
+$creadList :: ReadS [AssociateCertificate]
+readsPrec :: Int -&gt; ReadS AssociateCertificate
+$creadsPrec :: Int -&gt; ReadS AssociateCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028591"><span id="local-6989586621680028593"><span id="local-6989586621680028595"><span class="annot"><span class="annottext">Int -&gt; AssociateCertificate -&gt; ShowS
+[AssociateCertificate] -&gt; ShowS
+AssociateCertificate -&gt; String
+(Int -&gt; AssociateCertificate -&gt; ShowS)
+-&gt; (AssociateCertificate -&gt; String)
+-&gt; ([AssociateCertificate] -&gt; ShowS)
+-&gt; Show AssociateCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateCertificate] -&gt; ShowS
+$cshowList :: [AssociateCertificate] -&gt; ShowS
+show :: AssociateCertificate -&gt; String
+$cshow :: AssociateCertificate -&gt; String
+showsPrec :: Int -&gt; AssociateCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateCertificate -&gt; Rep AssociateCertificate x)
+-&gt; (forall x. Rep AssociateCertificate x -&gt; AssociateCertificate)
+-&gt; Generic AssociateCertificate
+forall x. Rep AssociateCertificate x -&gt; AssociateCertificate
+forall x. AssociateCertificate -&gt; Rep AssociateCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateCertificate x -&gt; AssociateCertificate
+$cfrom :: forall x. AssociateCertificate -&gt; Rep AssociateCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'AssociateCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'arn', 'associateCertificate_arn' - The ARN of the ACM certificate that you want to associate with your</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- MediaConvert resource.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificate"><span class="hs-identifier hs-type">newAssociateCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span>
+</span><span id="line-71"></span><span id="newAssociateCertificate"><span class="annot"><span class="annottext">newAssociateCertificate :: Text -&gt; AssociateCertificate
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificate"><span class="hs-identifier hs-var hs-var">newAssociateCertificate</span></a></span></span><span> </span><span id="local-6989586621680028586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028586"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">AssociateCertificate' :: Text -&gt; AssociateCertificate
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate%27"><span class="hs-identifier hs-type">AssociateCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssociateCertificate' :: Text
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3Aarn%3AAssociateCertificate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028586"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the ACM certificate that you want to associate with your</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- MediaConvert resource.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificate_arn"><span class="hs-identifier hs-type">associateCertificate_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="associateCertificate_arn"><span class="annot"><span class="annottext">associateCertificate_arn :: (Text -&gt; f Text) -&gt; AssociateCertificate -&gt; f AssociateCertificate
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificate_arn"><span class="hs-identifier hs-var hs-var">associateCertificate_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateCertificate -&gt; Text)
+-&gt; (AssociateCertificate -&gt; Text -&gt; AssociateCertificate)
+-&gt; Lens AssociateCertificate AssociateCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate%27"><span class="hs-identifier hs-type">AssociateCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028583"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:AssociateCertificate' :: AssociateCertificate -&gt; Text
+</span><a href="#local-6989586621680028583"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028583"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680028582"><span class="annot"><span class="annottext">s :: AssociateCertificate
+</span><a href="#local-6989586621680028582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate%27"><span class="hs-identifier hs-type">AssociateCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680028581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateCertificate
+</span><a href="#local-6989586621680028582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssociateCertificate' :: Text
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3Aarn%3AAssociateCertificate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-type">AssociateCertificateResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621680028577"><span class="annot"><span class="annottext">request :: AssociateCertificate -&gt; Request AssociateCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateCertificate -&gt; Request AssociateCertificate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680028573"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse AssociateCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680028570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680028569"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680028569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680028568"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680028568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateCertificateResponse
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse%27"><span class="hs-identifier hs-var">AssociateCertificateResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateCertificateResponse)
+-&gt; Either String Int -&gt; Either String AssociateCertificateResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028561"><span id="local-6989586621680028563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680028554"><span class="annot"><span class="annottext">toHeaders :: AssociateCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028544"><span id="local-6989586621680028546"><span id="local-6989586621680028548"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680028542"><span class="annot"><span class="annottext">toJSON :: AssociateCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate%27"><span class="hs-identifier hs-type">AssociateCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028540"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:AssociateCertificate' :: AssociateCertificate -&gt; Text
+</span><a href="#local-6989586621680028540"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680028540"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621680028534"><span class="annot"><span class="annottext">toPath :: AssociateCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2017-08-29/certificates&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificate"><span class="hs-identifier hs-type">AssociateCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621680028530"><span class="annot"><span class="annottext">toQuery :: AssociateCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateCertificate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newAssociateCertificateResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621680028527"><span id="local-6989586621680028528"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateCertificateResponse"><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-var">AssociateCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateCertificateResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse%27"><span class="hs-identifier hs-var">AssociateCertificateResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateCertificateResponse%27"><span class="annot"><span class="annottext">AssociateCertificateResponse -&gt; Int
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3AhttpStatus%3AAssociateCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680028522"><span id="local-6989586621680028524"><span class="annot"><span class="annottext">AssociateCertificateResponse
+-&gt; AssociateCertificateResponse -&gt; Bool
+(AssociateCertificateResponse
+ -&gt; AssociateCertificateResponse -&gt; Bool)
+-&gt; (AssociateCertificateResponse
+    -&gt; AssociateCertificateResponse -&gt; Bool)
+-&gt; Eq AssociateCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateCertificateResponse
+-&gt; AssociateCertificateResponse -&gt; Bool
+$c/= :: AssociateCertificateResponse
+-&gt; AssociateCertificateResponse -&gt; Bool
+== :: AssociateCertificateResponse
+-&gt; AssociateCertificateResponse -&gt; Bool
+$c== :: AssociateCertificateResponse
+-&gt; AssociateCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028514"><span id="local-6989586621680028516"><span id="local-6989586621680028518"><span id="local-6989586621680028520"><span class="annot"><span class="annottext">ReadPrec [AssociateCertificateResponse]
+ReadPrec AssociateCertificateResponse
+Int -&gt; ReadS AssociateCertificateResponse
+ReadS [AssociateCertificateResponse]
+(Int -&gt; ReadS AssociateCertificateResponse)
+-&gt; ReadS [AssociateCertificateResponse]
+-&gt; ReadPrec AssociateCertificateResponse
+-&gt; ReadPrec [AssociateCertificateResponse]
+-&gt; Read AssociateCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateCertificateResponse]
+$creadListPrec :: ReadPrec [AssociateCertificateResponse]
+readPrec :: ReadPrec AssociateCertificateResponse
+$creadPrec :: ReadPrec AssociateCertificateResponse
+readList :: ReadS [AssociateCertificateResponse]
+$creadList :: ReadS [AssociateCertificateResponse]
+readsPrec :: Int -&gt; ReadS AssociateCertificateResponse
+$creadsPrec :: Int -&gt; ReadS AssociateCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028508"><span id="local-6989586621680028510"><span id="local-6989586621680028512"><span class="annot"><span class="annottext">Int -&gt; AssociateCertificateResponse -&gt; ShowS
+[AssociateCertificateResponse] -&gt; ShowS
+AssociateCertificateResponse -&gt; String
+(Int -&gt; AssociateCertificateResponse -&gt; ShowS)
+-&gt; (AssociateCertificateResponse -&gt; String)
+-&gt; ([AssociateCertificateResponse] -&gt; ShowS)
+-&gt; Show AssociateCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateCertificateResponse] -&gt; ShowS
+$cshowList :: [AssociateCertificateResponse] -&gt; ShowS
+show :: AssociateCertificateResponse -&gt; String
+$cshow :: AssociateCertificateResponse -&gt; String
+showsPrec :: Int -&gt; AssociateCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateCertificateResponse -&gt; Rep AssociateCertificateResponse x)
+-&gt; (forall x.
+    Rep AssociateCertificateResponse x -&gt; AssociateCertificateResponse)
+-&gt; Generic AssociateCertificateResponse
+forall x.
+Rep AssociateCertificateResponse x -&gt; AssociateCertificateResponse
+forall x.
+AssociateCertificateResponse -&gt; Rep AssociateCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateCertificateResponse x -&gt; AssociateCertificateResponse
+$cfrom :: forall x.
+AssociateCertificateResponse -&gt; Rep AssociateCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'AssociateCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'associateCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificateResponse"><span class="hs-identifier hs-type">newAssociateCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-type">AssociateCertificateResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newAssociateCertificateResponse"><span class="annot"><span class="annottext">newAssociateCertificateResponse :: Int -&gt; AssociateCertificateResponse
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#newAssociateCertificateResponse"><span class="hs-identifier hs-var hs-var">newAssociateCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621680028505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">AssociateCertificateResponse' :: Int -&gt; AssociateCertificateResponse
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse%27"><span class="hs-identifier hs-type">AssociateCertificateResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateCertificateResponse' :: Int
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3AhttpStatus%3AAssociateCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificateResponse_httpStatus"><span class="hs-identifier hs-type">associateCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-type">AssociateCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="associateCertificateResponse_httpStatus"><span class="annot"><span class="annottext">associateCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateCertificateResponse -&gt; f AssociateCertificateResponse
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#associateCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateCertificateResponse -&gt; Int)
+-&gt; (AssociateCertificateResponse
+    -&gt; Int -&gt; AssociateCertificateResponse)
+-&gt; Lens
+     AssociateCertificateResponse AssociateCertificateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse%27"><span class="hs-identifier hs-type">AssociateCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028504"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateCertificateResponse' :: AssociateCertificateResponse -&gt; Int
+</span><a href="#local-6989586621680028504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680028503"><span class="annot"><span class="annottext">s :: AssociateCertificateResponse
+</span><a href="#local-6989586621680028503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse%27"><span class="hs-identifier hs-type">AssociateCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680028502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateCertificateResponse
+</span><a href="#local-6989586621680028503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateCertificateResponse' :: Int
+</span><a href="Network.AWS.MediaConvert.AssociateCertificate.html#%24sel%3AhttpStatus%3AAssociateCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680028502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-type">AssociateCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.AssociateCertificate.html#AssociateCertificateResponse"><span class="hs-identifier hs-type">AssociateCertificateResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

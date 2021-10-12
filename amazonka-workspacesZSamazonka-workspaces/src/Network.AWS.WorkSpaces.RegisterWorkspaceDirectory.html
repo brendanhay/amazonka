@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.RegisterWorkspaceDirectory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers the specified directory. This operation is asynchronous and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- returns before the WorkSpace directory is registered. If this is the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- first time you are registering a directory, you will need to create the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- workspaces_DefaultRole role before you can register a directory. For</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role Creating the workspaces_DefaultRole Role&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.RegisterWorkspaceDirectory</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectory"><span class="hs-identifier">newRegisterWorkspaceDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_subnetIds"><span class="hs-identifier">registerWorkspaceDirectory_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tenancy"><span class="hs-identifier">registerWorkspaceDirectory_tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tags"><span class="hs-identifier">registerWorkspaceDirectory_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableSelfService"><span class="hs-identifier">registerWorkspaceDirectory_enableSelfService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_directoryId"><span class="hs-identifier">registerWorkspaceDirectory_directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableWorkDocs"><span class="hs-identifier">registerWorkspaceDirectory_enableWorkDocs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier">RegisterWorkspaceDirectoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectoryResponse"><span class="hs-identifier">newRegisterWorkspaceDirectoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectoryResponse_httpStatus"><span class="hs-identifier">registerWorkspaceDirectoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newRegisterWorkspaceDirectory' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679276516"><span id="local-6989586621679276517"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterWorkspaceDirectory"><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-var">RegisterWorkspaceDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterWorkspaceDirectory%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">RegisterWorkspaceDirectory'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifiers of the subnets for your virtual private cloud (VPC).</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Make sure that the subnets are in supported Availability Zones. The</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- subnets must also be in separate Availability Zones. If these conditions</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- are not met, you will receive an OperationNotSupportedException error.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsubnetIds%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AsubnetIds%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Indicates whether your WorkSpace directory is dedicated or shared. To</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- use Bring Your Own License (BYOL) images, this value must be set to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @DEDICATED@ and your AWS account must be enabled for BYOL. If your</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- account has not been enabled for BYOL, you will receive an</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- InvalidParameterValuesException error. For more information about BYOL</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- images, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atenancy%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atenancy%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The tags associated with the directory.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atags%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atags%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Indicates whether self-service capabilities are enabled or disabled.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AenableSelfService%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableSelfService%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">enableSelfService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The identifier of the directory. You cannot register a directory if it</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- does not have a status of Active. If the directory does not have a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- status of Active, you will receive an InvalidResourceStateException</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- error. If you have already registered the maximum number of directories</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- that you can register with Amazon WorkSpaces, you will receive a</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- ResourceLimitExceededException error. Deregister directories that you</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- are not using for WorkSpaces, and try again.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AdirectoryId%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Text
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AdirectoryId%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled or disabled. If you have</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- enabled this parameter and WorkDocs is not available in the Region, you</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- will receive an OperationNotSupportedException error. Set</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @EnableWorkDocs@ to disabled, and try again.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AenableWorkDocs%3ARegisterWorkspaceDirectory%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableWorkDocs%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276505"><span id="local-6989586621679276507"><span class="annot"><span class="annottext">RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool
+(RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool)
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; RegisterWorkspaceDirectory -&gt; Bool)
+-&gt; Eq RegisterWorkspaceDirectory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool
+$c/= :: RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool
+== :: RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool
+$c== :: RegisterWorkspaceDirectory -&gt; RegisterWorkspaceDirectory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276496"><span id="local-6989586621679276498"><span id="local-6989586621679276500"><span id="local-6989586621679276502"><span class="annot"><span class="annottext">ReadPrec [RegisterWorkspaceDirectory]
+ReadPrec RegisterWorkspaceDirectory
+Int -&gt; ReadS RegisterWorkspaceDirectory
+ReadS [RegisterWorkspaceDirectory]
+(Int -&gt; ReadS RegisterWorkspaceDirectory)
+-&gt; ReadS [RegisterWorkspaceDirectory]
+-&gt; ReadPrec RegisterWorkspaceDirectory
+-&gt; ReadPrec [RegisterWorkspaceDirectory]
+-&gt; Read RegisterWorkspaceDirectory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterWorkspaceDirectory]
+$creadListPrec :: ReadPrec [RegisterWorkspaceDirectory]
+readPrec :: ReadPrec RegisterWorkspaceDirectory
+$creadPrec :: ReadPrec RegisterWorkspaceDirectory
+readList :: ReadS [RegisterWorkspaceDirectory]
+$creadList :: ReadS [RegisterWorkspaceDirectory]
+readsPrec :: Int -&gt; ReadS RegisterWorkspaceDirectory
+$creadsPrec :: Int -&gt; ReadS RegisterWorkspaceDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276489"><span id="local-6989586621679276491"><span id="local-6989586621679276493"><span class="annot"><span class="annottext">Int -&gt; RegisterWorkspaceDirectory -&gt; ShowS
+[RegisterWorkspaceDirectory] -&gt; ShowS
+RegisterWorkspaceDirectory -&gt; String
+(Int -&gt; RegisterWorkspaceDirectory -&gt; ShowS)
+-&gt; (RegisterWorkspaceDirectory -&gt; String)
+-&gt; ([RegisterWorkspaceDirectory] -&gt; ShowS)
+-&gt; Show RegisterWorkspaceDirectory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterWorkspaceDirectory] -&gt; ShowS
+$cshowList :: [RegisterWorkspaceDirectory] -&gt; ShowS
+show :: RegisterWorkspaceDirectory -&gt; String
+$cshow :: RegisterWorkspaceDirectory -&gt; String
+showsPrec :: Int -&gt; RegisterWorkspaceDirectory -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterWorkspaceDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterWorkspaceDirectory -&gt; Rep RegisterWorkspaceDirectory x)
+-&gt; (forall x.
+    Rep RegisterWorkspaceDirectory x -&gt; RegisterWorkspaceDirectory)
+-&gt; Generic RegisterWorkspaceDirectory
+forall x.
+Rep RegisterWorkspaceDirectory x -&gt; RegisterWorkspaceDirectory
+forall x.
+RegisterWorkspaceDirectory -&gt; Rep RegisterWorkspaceDirectory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterWorkspaceDirectory x -&gt; RegisterWorkspaceDirectory
+$cfrom :: forall x.
+RegisterWorkspaceDirectory -&gt; Rep RegisterWorkspaceDirectory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'RegisterWorkspaceDirectory' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'subnetIds', 'registerWorkspaceDirectory_subnetIds' - The identifiers of the subnets for your virtual private cloud (VPC).</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Make sure that the subnets are in supported Availability Zones. The</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- subnets must also be in separate Availability Zones. If these conditions</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- are not met, you will receive an OperationNotSupportedException error.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'tenancy', 'registerWorkspaceDirectory_tenancy' - Indicates whether your WorkSpace directory is dedicated or shared. To</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- use Bring Your Own License (BYOL) images, this value must be set to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @DEDICATED@ and your AWS account must be enabled for BYOL. If your</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- account has not been enabled for BYOL, you will receive an</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- InvalidParameterValuesException error. For more information about BYOL</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- images, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'tags', 'registerWorkspaceDirectory_tags' - The tags associated with the directory.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'enableSelfService', 'registerWorkspaceDirectory_enableSelfService' - Indicates whether self-service capabilities are enabled or disabled.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'directoryId', 'registerWorkspaceDirectory_directoryId' - The identifier of the directory. You cannot register a directory if it</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- does not have a status of Active. If the directory does not have a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- status of Active, you will receive an InvalidResourceStateException</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- error. If you have already registered the maximum number of directories</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- that you can register with Amazon WorkSpaces, you will receive a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- ResourceLimitExceededException error. Deregister directories that you</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- are not using for WorkSpaces, and try again.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'enableWorkDocs', 'registerWorkspaceDirectory_enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled or disabled. If you have</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- enabled this parameter and WorkDocs is not available in the Region, you</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- will receive an OperationNotSupportedException error. Set</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @EnableWorkDocs@ to disabled, and try again.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectory"><span class="hs-identifier hs-type">newRegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'directoryId'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'enableWorkDocs'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span>
+</span><span id="line-136"></span><span id="newRegisterWorkspaceDirectory"><span class="annot"><span class="annottext">newRegisterWorkspaceDirectory :: Text -&gt; Bool -&gt; RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectory"><span class="hs-identifier hs-var hs-var">newRegisterWorkspaceDirectory</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679276484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276484"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679276483"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var">pEnableWorkDocs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory' :: Maybe [Text]
+-&gt; Maybe Tenancy
+-&gt; Maybe [Tag]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Bool
+-&gt; RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetIds:RegisterWorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AsubnetIds%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:tenancy:RegisterWorkspaceDirectory' :: Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atenancy%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:RegisterWorkspaceDirectory' :: Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atags%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:enableSelfService:RegisterWorkspaceDirectory' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableSelfService%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">enableSelfService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryId:RegisterWorkspaceDirectory' :: Text
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AdirectoryId%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276484"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:enableWorkDocs:RegisterWorkspaceDirectory' :: Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableWorkDocs%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276483"><span class="hs-identifier hs-var">pEnableWorkDocs_</span></a></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The identifiers of the subnets for your virtual private cloud (VPC).</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Make sure that the subnets are in supported Availability Zones. The</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- subnets must also be in separate Availability Zones. If these conditions</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- are not met, you will receive an OperationNotSupportedException error.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_subnetIds"><span class="hs-identifier hs-type">registerWorkspaceDirectory_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="registerWorkspaceDirectory_subnetIds"><span class="annot"><span class="annottext">registerWorkspaceDirectory_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_subnetIds"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Maybe [Text])
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Maybe [Text] -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory
+     RegisterWorkspaceDirectory
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276480"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="#local-6989586621679276480"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276480"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276479"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276478"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:RegisterWorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AsubnetIds%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RegisterWorkspaceDirectory
+-&gt; f RegisterWorkspaceDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Indicates whether your WorkSpace directory is dedicated or shared. To</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- use Bring Your Own License (BYOL) images, this value must be set to</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @DEDICATED@ and your AWS account must be enabled for BYOL. If your</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- account has not been enabled for BYOL, you will receive an</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- InvalidParameterValuesException error. For more information about BYOL</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- images, see</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tenancy"><span class="hs-identifier hs-type">registerWorkspaceDirectory_tenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="registerWorkspaceDirectory_tenancy"><span class="annot"><span class="annottext">registerWorkspaceDirectory_tenancy :: (Maybe Tenancy -&gt; f (Maybe Tenancy))
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tenancy"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_tenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Maybe Tenancy)
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Maybe Tenancy -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory
+     RegisterWorkspaceDirectory
+     (Maybe Tenancy)
+     (Maybe Tenancy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276474"><span class="annot"><span class="annottext">Maybe Tenancy
+tenancy :: Maybe Tenancy
+$sel:tenancy:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe Tenancy
+</span><a href="#local-6989586621679276474"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679276474"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276473"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276472"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679276472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:RegisterWorkspaceDirectory' :: Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atenancy%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679276472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The tags associated with the directory.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tags"><span class="hs-identifier hs-type">registerWorkspaceDirectory_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="registerWorkspaceDirectory_tags"><span class="annot"><span class="annottext">registerWorkspaceDirectory_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_tags"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Maybe [Tag])
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Maybe [Tag] -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory
+     RegisterWorkspaceDirectory
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276471"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276471"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276470"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276469"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RegisterWorkspaceDirectory' :: Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3Atags%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; RegisterWorkspaceDirectory
+-&gt; f RegisterWorkspaceDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Indicates whether self-service capabilities are enabled or disabled.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableSelfService"><span class="hs-identifier hs-type">registerWorkspaceDirectory_enableSelfService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="registerWorkspaceDirectory_enableSelfService"><span class="annot"><span class="annottext">registerWorkspaceDirectory_enableSelfService :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableSelfService"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_enableSelfService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Maybe Bool)
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Maybe Bool -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory
+     RegisterWorkspaceDirectory
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276468"><span class="annot"><span class="annottext">Maybe Bool
+enableSelfService :: Maybe Bool
+$sel:enableSelfService:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe Bool
+</span><a href="#local-6989586621679276468"><span class="hs-identifier hs-var hs-var">enableSelfService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276468"><span class="hs-identifier hs-var">enableSelfService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276467"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276466"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSelfService:RegisterWorkspaceDirectory' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableSelfService%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">enableSelfService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The identifier of the directory. You cannot register a directory if it</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- does not have a status of Active. If the directory does not have a</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- status of Active, you will receive an InvalidResourceStateException</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- error. If you have already registered the maximum number of directories</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- that you can register with Amazon WorkSpaces, you will receive a</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- ResourceLimitExceededException error. Deregister directories that you</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- are not using for WorkSpaces, and try again.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_directoryId"><span class="hs-identifier hs-type">registerWorkspaceDirectory_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-182"></span><span id="registerWorkspaceDirectory_directoryId"><span class="annot"><span class="annottext">registerWorkspaceDirectory_directoryId :: (Text -&gt; f Text)
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_directoryId"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Text)
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Text -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory RegisterWorkspaceDirectory Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276465"><span class="annot"><span class="annottext">Text
+directoryId :: Text
+$sel:directoryId:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Text
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276465"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276464"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RegisterWorkspaceDirectory' :: Text
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AdirectoryId%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled or disabled. If you have</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- enabled this parameter and WorkDocs is not available in the Region, you</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- will receive an OperationNotSupportedException error. Set</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @EnableWorkDocs@ to disabled, and try again.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableWorkDocs"><span class="hs-identifier hs-type">registerWorkspaceDirectory_enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-189"></span><span id="registerWorkspaceDirectory_enableWorkDocs"><span class="annot"><span class="annottext">registerWorkspaceDirectory_enableWorkDocs :: (Bool -&gt; f Bool)
+-&gt; RegisterWorkspaceDirectory -&gt; f RegisterWorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectory_enableWorkDocs"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectory_enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectory -&gt; Bool)
+-&gt; (RegisterWorkspaceDirectory
+    -&gt; Bool -&gt; RegisterWorkspaceDirectory)
+-&gt; Lens
+     RegisterWorkspaceDirectory RegisterWorkspaceDirectory Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276462"><span class="annot"><span class="annottext">Bool
+enableWorkDocs :: Bool
+$sel:enableWorkDocs:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Bool
+</span><a href="#local-6989586621679276462"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276462"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276461"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276460"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectory
+</span><a href="#local-6989586621679276461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableWorkDocs:RegisterWorkspaceDirectory' :: Bool
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AenableWorkDocs%3ARegisterWorkspaceDirectory%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-193"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679276456"><span class="annot"><span class="annottext">request :: RegisterWorkspaceDirectory -&gt; Request RegisterWorkspaceDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; RegisterWorkspaceDirectory -&gt; Request RegisterWorkspaceDirectory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679276452"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterWorkspaceDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterWorkspaceDirectory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse RegisterWorkspaceDirectory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterWorkspaceDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterWorkspaceDirectory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276449"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276448"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276448"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276447"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679276447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RegisterWorkspaceDirectoryResponse
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-var">RegisterWorkspaceDirectoryResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RegisterWorkspaceDirectoryResponse)
+-&gt; Either String Int
+-&gt; Either String RegisterWorkspaceDirectoryResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276449"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276440"><span id="local-6989586621679276442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679276433"><span class="annot"><span class="annottext">toHeaders :: RegisterWorkspaceDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterWorkspaceDirectory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkspacesService.RegisterWorkspaceDirectory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-218"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276423"><span id="local-6989586621679276425"><span id="local-6989586621679276427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679276421"><span class="annot"><span class="annottext">toJSON :: RegisterWorkspaceDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276414"><span id="local-6989586621679276415"><span id="local-6989586621679276416"><span id="local-6989586621679276417"><span id="local-6989586621679276418"><span id="local-6989586621679276419"><span class="annot"><span class="annottext">Bool
+Maybe Bool
+Maybe [Text]
+Maybe [Tag]
+Maybe Tenancy
+Text
+enableWorkDocs :: Bool
+directoryId :: Text
+enableSelfService :: Maybe Bool
+tags :: Maybe [Tag]
+tenancy :: Maybe Tenancy
+subnetIds :: Maybe [Text]
+$sel:enableWorkDocs:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Bool
+$sel:directoryId:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Text
+$sel:enableSelfService:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe Bool
+$sel:tags:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe [Tag]
+$sel:tenancy:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe Tenancy
+$sel:subnetIds:RegisterWorkspaceDirectory' :: RegisterWorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="#local-6989586621679276414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276419"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Tenancy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Tenancy -&gt; Pair) -&gt; Maybe Tenancy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679276418"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679276417"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableSelfService&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276416"><span class="hs-identifier hs-var">enableSelfService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276415"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-233"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableWorkDocs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276414"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679276408"><span class="annot"><span class="annottext">toPath :: RegisterWorkspaceDirectory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterWorkspaceDirectory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectory"><span class="hs-identifier hs-type">RegisterWorkspaceDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679276404"><span class="annot"><span class="annottext">toQuery :: RegisterWorkspaceDirectory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterWorkspaceDirectory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | /See:/ 'newRegisterWorkspaceDirectoryResponse' smart constructor.</span><span>
+</span><span id="line-244"></span><span id="local-6989586621679276401"><span id="local-6989586621679276402"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterWorkspaceDirectoryResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-var">RegisterWorkspaceDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterWorkspaceDirectoryResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-var">RegisterWorkspaceDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterWorkspaceDirectoryResponse%27"><span class="annot"><span class="annottext">RegisterWorkspaceDirectoryResponse -&gt; Int
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AhttpStatus%3ARegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276396"><span id="local-6989586621679276398"><span class="annot"><span class="annottext">RegisterWorkspaceDirectoryResponse
+-&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool
+(RegisterWorkspaceDirectoryResponse
+ -&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool)
+-&gt; (RegisterWorkspaceDirectoryResponse
+    -&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool)
+-&gt; Eq RegisterWorkspaceDirectoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterWorkspaceDirectoryResponse
+-&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool
+$c/= :: RegisterWorkspaceDirectoryResponse
+-&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool
+== :: RegisterWorkspaceDirectoryResponse
+-&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool
+$c== :: RegisterWorkspaceDirectoryResponse
+-&gt; RegisterWorkspaceDirectoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276388"><span id="local-6989586621679276390"><span id="local-6989586621679276392"><span id="local-6989586621679276394"><span class="annot"><span class="annottext">ReadPrec [RegisterWorkspaceDirectoryResponse]
+ReadPrec RegisterWorkspaceDirectoryResponse
+Int -&gt; ReadS RegisterWorkspaceDirectoryResponse
+ReadS [RegisterWorkspaceDirectoryResponse]
+(Int -&gt; ReadS RegisterWorkspaceDirectoryResponse)
+-&gt; ReadS [RegisterWorkspaceDirectoryResponse]
+-&gt; ReadPrec RegisterWorkspaceDirectoryResponse
+-&gt; ReadPrec [RegisterWorkspaceDirectoryResponse]
+-&gt; Read RegisterWorkspaceDirectoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterWorkspaceDirectoryResponse]
+$creadListPrec :: ReadPrec [RegisterWorkspaceDirectoryResponse]
+readPrec :: ReadPrec RegisterWorkspaceDirectoryResponse
+$creadPrec :: ReadPrec RegisterWorkspaceDirectoryResponse
+readList :: ReadS [RegisterWorkspaceDirectoryResponse]
+$creadList :: ReadS [RegisterWorkspaceDirectoryResponse]
+readsPrec :: Int -&gt; ReadS RegisterWorkspaceDirectoryResponse
+$creadsPrec :: Int -&gt; ReadS RegisterWorkspaceDirectoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276382"><span id="local-6989586621679276384"><span id="local-6989586621679276386"><span class="annot"><span class="annottext">Int -&gt; RegisterWorkspaceDirectoryResponse -&gt; ShowS
+[RegisterWorkspaceDirectoryResponse] -&gt; ShowS
+RegisterWorkspaceDirectoryResponse -&gt; String
+(Int -&gt; RegisterWorkspaceDirectoryResponse -&gt; ShowS)
+-&gt; (RegisterWorkspaceDirectoryResponse -&gt; String)
+-&gt; ([RegisterWorkspaceDirectoryResponse] -&gt; ShowS)
+-&gt; Show RegisterWorkspaceDirectoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterWorkspaceDirectoryResponse] -&gt; ShowS
+$cshowList :: [RegisterWorkspaceDirectoryResponse] -&gt; ShowS
+show :: RegisterWorkspaceDirectoryResponse -&gt; String
+$cshow :: RegisterWorkspaceDirectoryResponse -&gt; String
+showsPrec :: Int -&gt; RegisterWorkspaceDirectoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterWorkspaceDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterWorkspaceDirectoryResponse
+ -&gt; Rep RegisterWorkspaceDirectoryResponse x)
+-&gt; (forall x.
+    Rep RegisterWorkspaceDirectoryResponse x
+    -&gt; RegisterWorkspaceDirectoryResponse)
+-&gt; Generic RegisterWorkspaceDirectoryResponse
+forall x.
+Rep RegisterWorkspaceDirectoryResponse x
+-&gt; RegisterWorkspaceDirectoryResponse
+forall x.
+RegisterWorkspaceDirectoryResponse
+-&gt; Rep RegisterWorkspaceDirectoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterWorkspaceDirectoryResponse x
+-&gt; RegisterWorkspaceDirectoryResponse
+$cfrom :: forall x.
+RegisterWorkspaceDirectoryResponse
+-&gt; Rep RegisterWorkspaceDirectoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- Create a value of 'RegisterWorkspaceDirectoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'httpStatus', 'registerWorkspaceDirectoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">newRegisterWorkspaceDirectoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse</span></a></span><span>
+</span><span id="line-263"></span><span id="newRegisterWorkspaceDirectoryResponse"><span class="annot"><span class="annottext">newRegisterWorkspaceDirectoryResponse :: Int -&gt; RegisterWorkspaceDirectoryResponse
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#newRegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-var hs-var">newRegisterWorkspaceDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679276379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectoryResponse' :: Int -&gt; RegisterWorkspaceDirectoryResponse
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterWorkspaceDirectoryResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AhttpStatus%3ARegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectoryResponse_httpStatus"><span class="hs-identifier hs-type">registerWorkspaceDirectoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="registerWorkspaceDirectoryResponse_httpStatus"><span class="annot"><span class="annottext">registerWorkspaceDirectoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RegisterWorkspaceDirectoryResponse
+-&gt; f RegisterWorkspaceDirectoryResponse
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#registerWorkspaceDirectoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerWorkspaceDirectoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkspaceDirectoryResponse -&gt; Int)
+-&gt; (RegisterWorkspaceDirectoryResponse
+    -&gt; Int -&gt; RegisterWorkspaceDirectoryResponse)
+-&gt; Lens
+     RegisterWorkspaceDirectoryResponse
+     RegisterWorkspaceDirectoryResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276378"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterWorkspaceDirectoryResponse' :: RegisterWorkspaceDirectoryResponse -&gt; Int
+</span><a href="#local-6989586621679276378"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276378"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276377"><span class="annot"><span class="annottext">s :: RegisterWorkspaceDirectoryResponse
+</span><a href="#local-6989586621679276377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkspaceDirectoryResponse
+</span><a href="#local-6989586621679276377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterWorkspaceDirectoryResponse' :: Int
+</span><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#%24sel%3AhttpStatus%3ARegisterWorkspaceDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679276374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.RegisterWorkspaceDirectory.html#RegisterWorkspaceDirectoryResponse"><span class="hs-identifier hs-type">RegisterWorkspaceDirectoryResponse</span></a></span></span><span>
+</span><span id="line-276"></span></pre></body></html>

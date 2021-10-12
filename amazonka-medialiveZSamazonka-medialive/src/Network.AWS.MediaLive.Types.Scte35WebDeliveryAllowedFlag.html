@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag"><span class="hs-identifier">Scte35WebDeliveryAllowedFlag</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span class="hs-identifier">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span class="hs-identifier">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Corresponds to the web_delivery_allowed_flag parameter. A value of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- WEB_DELIVERY_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- specification. If you include one of the \&quot;restriction\&quot; flags then you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- must include all four of them.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679912071"><span id="local-6989586621679912072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35WebDeliveryAllowedFlag"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag"><span class="hs-identifier hs-var">Scte35WebDeliveryAllowedFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35WebDeliveryAllowedFlag%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag%27"><span class="hs-identifier hs-var">Scte35WebDeliveryAllowedFlag'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35WebDeliveryAllowedFlag"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#fromScte35WebDeliveryAllowedFlag"><span class="hs-identifier hs-var hs-var">fromScte35WebDeliveryAllowedFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679912063"><span id="local-6989586621679912065"><span id="local-6989586621679912067"><span class="annot"><span class="annottext">Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; ShowS
+[Scte35WebDeliveryAllowedFlag] -&gt; ShowS
+Scte35WebDeliveryAllowedFlag -&gt; String
+(Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; ShowS)
+-&gt; (Scte35WebDeliveryAllowedFlag -&gt; String)
+-&gt; ([Scte35WebDeliveryAllowedFlag] -&gt; ShowS)
+-&gt; Show Scte35WebDeliveryAllowedFlag
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Scte35WebDeliveryAllowedFlag] -&gt; ShowS
+$cshowList :: [Scte35WebDeliveryAllowedFlag] -&gt; ShowS
+show :: Scte35WebDeliveryAllowedFlag -&gt; String
+$cshow :: Scte35WebDeliveryAllowedFlag -&gt; String
+showsPrec :: Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; ShowS
+$cshowsPrec :: Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679912054"><span id="local-6989586621679912056"><span id="local-6989586621679912058"><span id="local-6989586621679912060"><span class="annot"><span class="annottext">ReadPrec [Scte35WebDeliveryAllowedFlag]
+ReadPrec Scte35WebDeliveryAllowedFlag
+Int -&gt; ReadS Scte35WebDeliveryAllowedFlag
+ReadS [Scte35WebDeliveryAllowedFlag]
+(Int -&gt; ReadS Scte35WebDeliveryAllowedFlag)
+-&gt; ReadS [Scte35WebDeliveryAllowedFlag]
+-&gt; ReadPrec Scte35WebDeliveryAllowedFlag
+-&gt; ReadPrec [Scte35WebDeliveryAllowedFlag]
+-&gt; Read Scte35WebDeliveryAllowedFlag
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Scte35WebDeliveryAllowedFlag]
+$creadListPrec :: ReadPrec [Scte35WebDeliveryAllowedFlag]
+readPrec :: ReadPrec Scte35WebDeliveryAllowedFlag
+$creadPrec :: ReadPrec Scte35WebDeliveryAllowedFlag
+readList :: ReadS [Scte35WebDeliveryAllowedFlag]
+$creadList :: ReadS [Scte35WebDeliveryAllowedFlag]
+readsPrec :: Int -&gt; ReadS Scte35WebDeliveryAllowedFlag
+$creadsPrec :: Int -&gt; ReadS Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679912049"><span id="local-6989586621679912051"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+(Scte35WebDeliveryAllowedFlag
+ -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; Eq Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c/= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+== :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c== :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679912033"><span id="local-6989586621679912035"><span id="local-6989586621679912037"><span id="local-6989586621679912039"><span id="local-6989586621679912041"><span id="local-6989586621679912043"><span id="local-6989586621679912045"><span class="annot"><span class="annottext">Eq Scte35WebDeliveryAllowedFlag
+Eq Scte35WebDeliveryAllowedFlag
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Ordering)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag)
+-&gt; (Scte35WebDeliveryAllowedFlag
+    -&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag)
+-&gt; Ord Scte35WebDeliveryAllowedFlag
+Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Ordering
+Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag
+$cmin :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag
+max :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag
+$cmax :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Scte35WebDeliveryAllowedFlag
+&gt;= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c&gt;= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+&gt; :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c&gt; :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+&lt;= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c&lt;= :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+&lt; :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+$c&lt; :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Bool
+compare :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Ordering
+$ccompare :: Scte35WebDeliveryAllowedFlag
+-&gt; Scte35WebDeliveryAllowedFlag -&gt; Ordering
+$cp1Ord :: Eq Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Scte35WebDeliveryAllowedFlag -&gt; Rep Scte35WebDeliveryAllowedFlag x)
+-&gt; (forall x.
+    Rep Scte35WebDeliveryAllowedFlag x -&gt; Scte35WebDeliveryAllowedFlag)
+-&gt; Generic Scte35WebDeliveryAllowedFlag
+forall x.
+Rep Scte35WebDeliveryAllowedFlag x -&gt; Scte35WebDeliveryAllowedFlag
+forall x.
+Scte35WebDeliveryAllowedFlag -&gt; Rep Scte35WebDeliveryAllowedFlag x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Scte35WebDeliveryAllowedFlag x -&gt; Scte35WebDeliveryAllowedFlag
+$cfrom :: forall x.
+Scte35WebDeliveryAllowedFlag -&gt; Rep Scte35WebDeliveryAllowedFlag x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679912025"><span id="local-6989586621679912027"><span class="annot"><span class="annottext">Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; Int
+Scte35WebDeliveryAllowedFlag -&gt; Int
+(Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; Int)
+-&gt; (Scte35WebDeliveryAllowedFlag -&gt; Int)
+-&gt; Hashable Scte35WebDeliveryAllowedFlag
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Scte35WebDeliveryAllowedFlag -&gt; Int
+$chash :: Scte35WebDeliveryAllowedFlag -&gt; Int
+hashWithSalt :: Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; Int
+$chashWithSalt :: Int -&gt; Scte35WebDeliveryAllowedFlag -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679912022"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; ()
+(Scte35WebDeliveryAllowedFlag -&gt; ())
+-&gt; NFData Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Scte35WebDeliveryAllowedFlag -&gt; ()
+$crnf :: Scte35WebDeliveryAllowedFlag -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679912019"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35WebDeliveryAllowedFlag
+(Text -&gt; Either String Scte35WebDeliveryAllowedFlag)
+-&gt; FromText Scte35WebDeliveryAllowedFlag
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Scte35WebDeliveryAllowedFlag
+$cfromText :: Text -&gt; Either String Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679912016"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; Text
+(Scte35WebDeliveryAllowedFlag -&gt; Text)
+-&gt; ToText Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Scte35WebDeliveryAllowedFlag -&gt; Text
+$ctoText :: Scte35WebDeliveryAllowedFlag -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679912013"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; ByteString
+(Scte35WebDeliveryAllowedFlag -&gt; ByteString)
+-&gt; ToByteString Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Scte35WebDeliveryAllowedFlag -&gt; ByteString
+$ctoBS :: Scte35WebDeliveryAllowedFlag -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679912010"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; ByteStringBuilder
+(Scte35WebDeliveryAllowedFlag -&gt; ByteStringBuilder)
+-&gt; ToLog Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Scte35WebDeliveryAllowedFlag -&gt; ByteStringBuilder
+$cbuild :: Scte35WebDeliveryAllowedFlag -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679912007"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35WebDeliveryAllowedFlag -&gt; [Header]
+(HeaderName -&gt; Scte35WebDeliveryAllowedFlag -&gt; [Header])
+-&gt; ToHeader Scte35WebDeliveryAllowedFlag
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Scte35WebDeliveryAllowedFlag -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Scte35WebDeliveryAllowedFlag -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679912004"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; QueryString
+(Scte35WebDeliveryAllowedFlag -&gt; QueryString)
+-&gt; ToQuery Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Scte35WebDeliveryAllowedFlag -&gt; QueryString
+$ctoQuery :: Scte35WebDeliveryAllowedFlag -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679911999"><span id="local-6989586621679912001"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35WebDeliveryAllowedFlag]
+Value -&gt; Parser Scte35WebDeliveryAllowedFlag
+(Value -&gt; Parser Scte35WebDeliveryAllowedFlag)
+-&gt; (Value -&gt; Parser [Scte35WebDeliveryAllowedFlag])
+-&gt; FromJSON Scte35WebDeliveryAllowedFlag
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Scte35WebDeliveryAllowedFlag]
+$cparseJSONList :: Value -&gt; Parser [Scte35WebDeliveryAllowedFlag]
+parseJSON :: Value -&gt; Parser Scte35WebDeliveryAllowedFlag
+$cparseJSON :: Value -&gt; Parser Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679911994"><span id="local-6989586621679911996"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+FromJSONKeyFunction Scte35WebDeliveryAllowedFlag
+FromJSONKeyFunction Scte35WebDeliveryAllowedFlag
+-&gt; FromJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+-&gt; FromJSONKey Scte35WebDeliveryAllowedFlag
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+$cfromJSONKeyList :: FromJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+fromJSONKey :: FromJSONKeyFunction Scte35WebDeliveryAllowedFlag
+$cfromJSONKey :: FromJSONKeyFunction Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679911985"><span id="local-6989586621679911987"><span id="local-6989586621679911989"><span id="local-6989586621679911991"><span class="annot"><span class="annottext">[Scte35WebDeliveryAllowedFlag] -&gt; Encoding
+[Scte35WebDeliveryAllowedFlag] -&gt; Value
+Scte35WebDeliveryAllowedFlag -&gt; Encoding
+Scte35WebDeliveryAllowedFlag -&gt; Value
+(Scte35WebDeliveryAllowedFlag -&gt; Value)
+-&gt; (Scte35WebDeliveryAllowedFlag -&gt; Encoding)
+-&gt; ([Scte35WebDeliveryAllowedFlag] -&gt; Value)
+-&gt; ([Scte35WebDeliveryAllowedFlag] -&gt; Encoding)
+-&gt; ToJSON Scte35WebDeliveryAllowedFlag
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Scte35WebDeliveryAllowedFlag] -&gt; Encoding
+$ctoEncodingList :: [Scte35WebDeliveryAllowedFlag] -&gt; Encoding
+toJSONList :: [Scte35WebDeliveryAllowedFlag] -&gt; Value
+$ctoJSONList :: [Scte35WebDeliveryAllowedFlag] -&gt; Value
+toEncoding :: Scte35WebDeliveryAllowedFlag -&gt; Encoding
+$ctoEncoding :: Scte35WebDeliveryAllowedFlag -&gt; Encoding
+toJSON :: Scte35WebDeliveryAllowedFlag -&gt; Value
+$ctoJSON :: Scte35WebDeliveryAllowedFlag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679911980"><span id="local-6989586621679911982"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+ToJSONKeyFunction Scte35WebDeliveryAllowedFlag
+ToJSONKeyFunction Scte35WebDeliveryAllowedFlag
+-&gt; ToJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+-&gt; ToJSONKey Scte35WebDeliveryAllowedFlag
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+$ctoJSONKeyList :: ToJSONKeyFunction [Scte35WebDeliveryAllowedFlag]
+toJSONKey :: ToJSONKeyFunction Scte35WebDeliveryAllowedFlag
+$ctoJSONKey :: ToJSONKeyFunction Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679911977"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35WebDeliveryAllowedFlag
+([Node] -&gt; Either String Scte35WebDeliveryAllowedFlag)
+-&gt; FromXML Scte35WebDeliveryAllowedFlag
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Scte35WebDeliveryAllowedFlag
+$cparseXML :: [Node] -&gt; Either String Scte35WebDeliveryAllowedFlag
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679911974"><span class="annot"><span class="annottext">Scte35WebDeliveryAllowedFlag -&gt; XML
+(Scte35WebDeliveryAllowedFlag -&gt; XML)
+-&gt; ToXML Scte35WebDeliveryAllowedFlag
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Scte35WebDeliveryAllowedFlag -&gt; XML
+$ctoXML :: Scte35WebDeliveryAllowedFlag -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span id="%24mScte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span id="Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span class="annot"><span class="annottext">$bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED :: Scte35WebDeliveryAllowedFlag
+$mScte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED :: forall r.
+Scte35WebDeliveryAllowedFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#%24bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span class="hs-identifier hs-var hs-var hs-var">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag%27"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEB_DELIVERY_ALLOWED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span id="%24mScte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span id="Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span class="annot"><span class="annottext">$bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED :: Scte35WebDeliveryAllowedFlag
+$mScte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED :: forall r.
+Scte35WebDeliveryAllowedFlag -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#%24bScte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span class="hs-identifier hs-var hs-var hs-var">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag%27"><span class="hs-identifier hs-type">Scte35WebDeliveryAllowedFlag'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEB_DELIVERY_NOT_ALLOWED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED"><span class="hs-pragma hs-type">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED"><span class="hs-pragma hs-type">Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_NOT_ALLOWED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag.html#Scte35WebDeliveryAllowedFlag%27"><span class="hs-pragma hs-type">Scte35WebDeliveryAllowedFlag'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

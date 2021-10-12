@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.UpdatePullRequestApprovalState</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the state of a user\'s approval on a pull request. The user is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- derived from the signed-in account when the request is made.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.UpdatePullRequestApprovalState</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalState"><span class="hs-identifier">newUpdatePullRequestApprovalState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_pullRequestId"><span class="hs-identifier">updatePullRequestApprovalState_pullRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_revisionId"><span class="hs-identifier">updatePullRequestApprovalState_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_approvalState"><span class="hs-identifier">updatePullRequestApprovalState_approvalState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse"><span class="hs-identifier">UpdatePullRequestApprovalStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalStateResponse"><span class="hs-identifier">newUpdatePullRequestApprovalStateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestApprovalState' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679374357"><span id="local-6989586621679374358"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestApprovalState"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-var">UpdatePullRequestApprovalState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestApprovalState%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">UpdatePullRequestApprovalState'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3ApullRequestId%3AUpdatePullRequestApprovalState%27"><span class="annot"><span class="annottext">UpdatePullRequestApprovalState -&gt; Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ApullRequestId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The system-generated ID of the revision.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArevisionId%3AUpdatePullRequestApprovalState%27"><span class="annot"><span class="annottext">UpdatePullRequestApprovalState -&gt; Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ArevisionId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The approval state to associate with the user on the pull request.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapprovalState%3AUpdatePullRequestApprovalState%27"><span class="annot"><span class="annottext">UpdatePullRequestApprovalState -&gt; ApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3AapprovalState%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var hs-var">approvalState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374349"><span id="local-6989586621679374351"><span class="annot"><span class="annottext">UpdatePullRequestApprovalState
+-&gt; UpdatePullRequestApprovalState -&gt; Bool
+(UpdatePullRequestApprovalState
+ -&gt; UpdatePullRequestApprovalState -&gt; Bool)
+-&gt; (UpdatePullRequestApprovalState
+    -&gt; UpdatePullRequestApprovalState -&gt; Bool)
+-&gt; Eq UpdatePullRequestApprovalState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePullRequestApprovalState
+-&gt; UpdatePullRequestApprovalState -&gt; Bool
+$c/= :: UpdatePullRequestApprovalState
+-&gt; UpdatePullRequestApprovalState -&gt; Bool
+== :: UpdatePullRequestApprovalState
+-&gt; UpdatePullRequestApprovalState -&gt; Bool
+$c== :: UpdatePullRequestApprovalState
+-&gt; UpdatePullRequestApprovalState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374340"><span id="local-6989586621679374342"><span id="local-6989586621679374344"><span id="local-6989586621679374346"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestApprovalState]
+ReadPrec UpdatePullRequestApprovalState
+Int -&gt; ReadS UpdatePullRequestApprovalState
+ReadS [UpdatePullRequestApprovalState]
+(Int -&gt; ReadS UpdatePullRequestApprovalState)
+-&gt; ReadS [UpdatePullRequestApprovalState]
+-&gt; ReadPrec UpdatePullRequestApprovalState
+-&gt; ReadPrec [UpdatePullRequestApprovalState]
+-&gt; Read UpdatePullRequestApprovalState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePullRequestApprovalState]
+$creadListPrec :: ReadPrec [UpdatePullRequestApprovalState]
+readPrec :: ReadPrec UpdatePullRequestApprovalState
+$creadPrec :: ReadPrec UpdatePullRequestApprovalState
+readList :: ReadS [UpdatePullRequestApprovalState]
+$creadList :: ReadS [UpdatePullRequestApprovalState]
+readsPrec :: Int -&gt; ReadS UpdatePullRequestApprovalState
+$creadsPrec :: Int -&gt; ReadS UpdatePullRequestApprovalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374333"><span id="local-6989586621679374335"><span id="local-6989586621679374337"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestApprovalState -&gt; ShowS
+[UpdatePullRequestApprovalState] -&gt; ShowS
+UpdatePullRequestApprovalState -&gt; String
+(Int -&gt; UpdatePullRequestApprovalState -&gt; ShowS)
+-&gt; (UpdatePullRequestApprovalState -&gt; String)
+-&gt; ([UpdatePullRequestApprovalState] -&gt; ShowS)
+-&gt; Show UpdatePullRequestApprovalState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePullRequestApprovalState] -&gt; ShowS
+$cshowList :: [UpdatePullRequestApprovalState] -&gt; ShowS
+show :: UpdatePullRequestApprovalState -&gt; String
+$cshow :: UpdatePullRequestApprovalState -&gt; String
+showsPrec :: Int -&gt; UpdatePullRequestApprovalState -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePullRequestApprovalState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePullRequestApprovalState
+ -&gt; Rep UpdatePullRequestApprovalState x)
+-&gt; (forall x.
+    Rep UpdatePullRequestApprovalState x
+    -&gt; UpdatePullRequestApprovalState)
+-&gt; Generic UpdatePullRequestApprovalState
+forall x.
+Rep UpdatePullRequestApprovalState x
+-&gt; UpdatePullRequestApprovalState
+forall x.
+UpdatePullRequestApprovalState
+-&gt; Rep UpdatePullRequestApprovalState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePullRequestApprovalState x
+-&gt; UpdatePullRequestApprovalState
+$cfrom :: forall x.
+UpdatePullRequestApprovalState
+-&gt; Rep UpdatePullRequestApprovalState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'UpdatePullRequestApprovalState' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'pullRequestId', 'updatePullRequestApprovalState_pullRequestId' - The system-generated ID of the pull request.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'revisionId', 'updatePullRequestApprovalState_revisionId' - The system-generated ID of the revision.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'approvalState', 'updatePullRequestApprovalState_approvalState' - The approval state to associate with the user on the pull request.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalState"><span class="hs-identifier hs-type">newUpdatePullRequestApprovalState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'pullRequestId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'revisionId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'approvalState'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdatePullRequestApprovalState"><span class="annot"><span class="annottext">newUpdatePullRequestApprovalState :: Text -&gt; Text -&gt; ApprovalState -&gt; UpdatePullRequestApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalState"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestApprovalState</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679374328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374328"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679374327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374327"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679374326"><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374326"><span class="hs-identifier hs-var">pApprovalState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">UpdatePullRequestApprovalState' :: Text -&gt; Text -&gt; ApprovalState -&gt; UpdatePullRequestApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestApprovalState' :: Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ApullRequestId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374328"><span class="hs-identifier hs-var">pPullRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:UpdatePullRequestApprovalState' :: Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ArevisionId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374327"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:approvalState:UpdatePullRequestApprovalState' :: ApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3AapprovalState%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">approvalState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374326"><span class="hs-identifier hs-var">pApprovalState_</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The system-generated ID of the pull request.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_pullRequestId"><span class="hs-identifier hs-type">updatePullRequestApprovalState_pullRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="updatePullRequestApprovalState_pullRequestId"><span class="annot"><span class="annottext">updatePullRequestApprovalState_pullRequestId :: (Text -&gt; f Text)
+-&gt; UpdatePullRequestApprovalState
+-&gt; f UpdatePullRequestApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_pullRequestId"><span class="hs-identifier hs-var hs-var">updatePullRequestApprovalState_pullRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestApprovalState -&gt; Text)
+-&gt; (UpdatePullRequestApprovalState
+    -&gt; Text -&gt; UpdatePullRequestApprovalState)
+-&gt; Lens
+     UpdatePullRequestApprovalState
+     UpdatePullRequestApprovalState
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374323"><span class="annot"><span class="annottext">Text
+pullRequestId :: Text
+$sel:pullRequestId:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; Text
+</span><a href="#local-6989586621679374323"><span class="hs-identifier hs-var hs-var">pullRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374323"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374322"><span class="annot"><span class="annottext">s :: UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestId:UpdatePullRequestApprovalState' :: Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ApullRequestId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The system-generated ID of the revision.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_revisionId"><span class="hs-identifier hs-type">updatePullRequestApprovalState_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="updatePullRequestApprovalState_revisionId"><span class="annot"><span class="annottext">updatePullRequestApprovalState_revisionId :: (Text -&gt; f Text)
+-&gt; UpdatePullRequestApprovalState
+-&gt; f UpdatePullRequestApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_revisionId"><span class="hs-identifier hs-var hs-var">updatePullRequestApprovalState_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestApprovalState -&gt; Text)
+-&gt; (UpdatePullRequestApprovalState
+    -&gt; Text -&gt; UpdatePullRequestApprovalState)
+-&gt; Lens
+     UpdatePullRequestApprovalState
+     UpdatePullRequestApprovalState
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374320"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+$sel:revisionId:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; Text
+</span><a href="#local-6989586621679374320"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374320"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374319"><span class="annot"><span class="annottext">s :: UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:UpdatePullRequestApprovalState' :: Text
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3ArevisionId%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The approval state to associate with the user on the pull request.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_approvalState"><span class="hs-identifier hs-type">updatePullRequestApprovalState_approvalState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span>
+</span><span id="line-101"></span><span id="updatePullRequestApprovalState_approvalState"><span class="annot"><span class="annottext">updatePullRequestApprovalState_approvalState :: (ApprovalState -&gt; f ApprovalState)
+-&gt; UpdatePullRequestApprovalState
+-&gt; f UpdatePullRequestApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#updatePullRequestApprovalState_approvalState"><span class="hs-identifier hs-var hs-var">updatePullRequestApprovalState_approvalState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePullRequestApprovalState -&gt; ApprovalState)
+-&gt; (UpdatePullRequestApprovalState
+    -&gt; ApprovalState -&gt; UpdatePullRequestApprovalState)
+-&gt; Lens
+     UpdatePullRequestApprovalState
+     UpdatePullRequestApprovalState
+     ApprovalState
+     ApprovalState
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374317"><span class="annot"><span class="annottext">ApprovalState
+approvalState :: ApprovalState
+$sel:approvalState:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; ApprovalState
+</span><a href="#local-6989586621679374317"><span class="hs-identifier hs-var hs-var">approvalState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374317"><span class="hs-identifier hs-var">approvalState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374316"><span class="annot"><span class="annottext">s :: UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374315"><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePullRequestApprovalState
+</span><a href="#local-6989586621679374316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalState:UpdatePullRequestApprovalState' :: ApprovalState
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#%24sel%3AapprovalState%3AUpdatePullRequestApprovalState%27"><span class="hs-identifier hs-var">approvalState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-type">UpdatePullRequestApprovalStateResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679374311"><span class="annot"><span class="annottext">request :: UpdatePullRequestApprovalState
+-&gt; Request UpdatePullRequestApprovalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdatePullRequestApprovalState
+-&gt; Request UpdatePullRequestApprovalState
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679374307"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePullRequestApprovalState
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdatePullRequestApprovalState)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdatePullRequestApprovalState
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePullRequestApprovalState
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdatePullRequestApprovalState)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse UpdatePullRequestApprovalState
+UpdatePullRequestApprovalStateResponse
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestApprovalStateResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679374300"><span id="local-6989586621679374302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679374297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679374293"><span class="annot"><span class="annottext">toHeaders :: UpdatePullRequestApprovalState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdatePullRequestApprovalState -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.UpdatePullRequestApprovalState&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374283"><span id="local-6989586621679374285"><span id="local-6989586621679374287"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679374281"><span class="annot"><span class="annottext">toJSON :: UpdatePullRequestApprovalState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState%27"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374277"><span id="local-6989586621679374278"><span id="local-6989586621679374279"><span class="annot"><span class="annottext">Text
+ApprovalState
+approvalState :: ApprovalState
+revisionId :: Text
+pullRequestId :: Text
+$sel:approvalState:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; ApprovalState
+$sel:revisionId:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; Text
+$sel:pullRequestId:UpdatePullRequestApprovalState' :: UpdatePullRequestApprovalState -&gt; Text
+</span><a href="#local-6989586621679374277"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pullRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374279"><span class="hs-identifier hs-var">pullRequestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374278"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApprovalState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ApprovalState
+</span><a href="#local-6989586621679374277"><span class="hs-identifier hs-var">approvalState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679374271"><span class="annot"><span class="annottext">toPath :: UpdatePullRequestApprovalState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePullRequestApprovalState -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalState"><span class="hs-identifier hs-type">UpdatePullRequestApprovalState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679374267"><span class="annot"><span class="annottext">toQuery :: UpdatePullRequestApprovalState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePullRequestApprovalState -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newUpdatePullRequestApprovalStateResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679374264"><span id="local-6989586621679374265"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePullRequestApprovalStateResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-var">UpdatePullRequestApprovalStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePullRequestApprovalStateResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestApprovalStateResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374260"><span id="local-6989586621679374262"><span class="annot"><span class="annottext">UpdatePullRequestApprovalStateResponse
+-&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool
+(UpdatePullRequestApprovalStateResponse
+ -&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool)
+-&gt; (UpdatePullRequestApprovalStateResponse
+    -&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool)
+-&gt; Eq UpdatePullRequestApprovalStateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePullRequestApprovalStateResponse
+-&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool
+$c/= :: UpdatePullRequestApprovalStateResponse
+-&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool
+== :: UpdatePullRequestApprovalStateResponse
+-&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool
+$c== :: UpdatePullRequestApprovalStateResponse
+-&gt; UpdatePullRequestApprovalStateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374252"><span id="local-6989586621679374254"><span id="local-6989586621679374256"><span id="local-6989586621679374258"><span class="annot"><span class="annottext">ReadPrec [UpdatePullRequestApprovalStateResponse]
+ReadPrec UpdatePullRequestApprovalStateResponse
+Int -&gt; ReadS UpdatePullRequestApprovalStateResponse
+ReadS [UpdatePullRequestApprovalStateResponse]
+(Int -&gt; ReadS UpdatePullRequestApprovalStateResponse)
+-&gt; ReadS [UpdatePullRequestApprovalStateResponse]
+-&gt; ReadPrec UpdatePullRequestApprovalStateResponse
+-&gt; ReadPrec [UpdatePullRequestApprovalStateResponse]
+-&gt; Read UpdatePullRequestApprovalStateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePullRequestApprovalStateResponse]
+$creadListPrec :: ReadPrec [UpdatePullRequestApprovalStateResponse]
+readPrec :: ReadPrec UpdatePullRequestApprovalStateResponse
+$creadPrec :: ReadPrec UpdatePullRequestApprovalStateResponse
+readList :: ReadS [UpdatePullRequestApprovalStateResponse]
+$creadList :: ReadS [UpdatePullRequestApprovalStateResponse]
+readsPrec :: Int -&gt; ReadS UpdatePullRequestApprovalStateResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePullRequestApprovalStateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374246"><span id="local-6989586621679374248"><span id="local-6989586621679374250"><span class="annot"><span class="annottext">Int -&gt; UpdatePullRequestApprovalStateResponse -&gt; ShowS
+[UpdatePullRequestApprovalStateResponse] -&gt; ShowS
+UpdatePullRequestApprovalStateResponse -&gt; String
+(Int -&gt; UpdatePullRequestApprovalStateResponse -&gt; ShowS)
+-&gt; (UpdatePullRequestApprovalStateResponse -&gt; String)
+-&gt; ([UpdatePullRequestApprovalStateResponse] -&gt; ShowS)
+-&gt; Show UpdatePullRequestApprovalStateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePullRequestApprovalStateResponse] -&gt; ShowS
+$cshowList :: [UpdatePullRequestApprovalStateResponse] -&gt; ShowS
+show :: UpdatePullRequestApprovalStateResponse -&gt; String
+$cshow :: UpdatePullRequestApprovalStateResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePullRequestApprovalStateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePullRequestApprovalStateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePullRequestApprovalStateResponse
+ -&gt; Rep UpdatePullRequestApprovalStateResponse x)
+-&gt; (forall x.
+    Rep UpdatePullRequestApprovalStateResponse x
+    -&gt; UpdatePullRequestApprovalStateResponse)
+-&gt; Generic UpdatePullRequestApprovalStateResponse
+forall x.
+Rep UpdatePullRequestApprovalStateResponse x
+-&gt; UpdatePullRequestApprovalStateResponse
+forall x.
+UpdatePullRequestApprovalStateResponse
+-&gt; Rep UpdatePullRequestApprovalStateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePullRequestApprovalStateResponse x
+-&gt; UpdatePullRequestApprovalStateResponse
+$cfrom :: forall x.
+UpdatePullRequestApprovalStateResponse
+-&gt; Rep UpdatePullRequestApprovalStateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Create a value of 'UpdatePullRequestApprovalStateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-type">newUpdatePullRequestApprovalStateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-type">UpdatePullRequestApprovalStateResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newUpdatePullRequestApprovalStateResponse"><span class="annot"><span class="annottext">newUpdatePullRequestApprovalStateResponse :: UpdatePullRequestApprovalStateResponse
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#newUpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-var hs-var">newUpdatePullRequestApprovalStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UpdatePullRequestApprovalStateResponse
+</span><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse%27"><span class="hs-identifier hs-var">UpdatePullRequestApprovalStateResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679374242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdatePullRequestApprovalState.html#UpdatePullRequestApprovalStateResponse"><span class="hs-identifier hs-type">UpdatePullRequestApprovalStateResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ResourceGroups.Types.ResourceQuery</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ResourceGroups.Types.ResourceQuery</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html"><span class="hs-identifier">Network.AWS.ResourceGroups.Types.QueryType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The query that is used to define a resource group or a search for</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- resources. A query specifies both a query type and a query string as a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- JSON object. See the examples section for example JSON strings.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The examples that follow are shown as standard JSON strings. If you</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- include such a string as a parameter to the AWS CLI or an SDK API, you</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- might need to \'escape\' the string into a single line. For example, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html Quoting strings&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- in the /AWS CLI User Guide/.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- __Example 1__</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following generic example shows a resource query JSON string that</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- includes only resources that meet the following criteria:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   The resource type must be either @resource_type1@ or</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     @resource_type2@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   The resource must have a tag @Key1@ with a value of either @ValueA@</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     or @ValueB@.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   The resource must have a tag @Key2@ with a value of either @ValueC@</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     or @ValueD@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;TAG_FILTERS_1_0\&quot;, \&quot;Query\&quot;: { \&quot;ResourceTypeFilters\&quot;: [ \&quot;resource_type1\&quot;, \&quot;resource_type2\&quot;], \&quot;TagFilters\&quot;: [ { \&quot;Key\&quot;: \&quot;Key1\&quot;, \&quot;Values\&quot;: [\&quot;ValueA\&quot;,\&quot;ValueB\&quot;] }, { \&quot;Key\&quot;:\&quot;Key2\&quot;, \&quot;Values\&quot;:[\&quot;ValueC\&quot;,\&quot;ValueD\&quot;] } ] } }@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- This has the equivalent \&quot;shortcut\&quot; syntax of the following:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;TAG_FILTERS_1_0\&quot;, \&quot;Query\&quot;: { \&quot;ResourceTypeFilters\&quot;: [ \&quot;resource_type1\&quot;, \&quot;resource_type2\&quot;], \&quot;TagFilters\&quot;: [ { \&quot;Key1\&quot;: [\&quot;ValueA\&quot;,\&quot;ValueB\&quot;] }, { \&quot;Key2\&quot;: [\&quot;ValueC\&quot;,\&quot;ValueD\&quot;] } ] } }@</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- __Example 2__</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following example shows a resource query JSON string that includes</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- only Amazon EC2 instances that are tagged @Stage@ with a value of</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- @Test@.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;TAG_FILTERS_1_0\&quot;, \&quot;Query\&quot;: \&quot;{ \&quot;ResourceTypeFilters\&quot;: \&quot;AWS::EC2::Instance\&quot;, \&quot;TagFilters\&quot;: { \&quot;Stage\&quot;: \&quot;Test\&quot; } } }@</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- __Example 3__</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following example shows a resource query JSON string that includes</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- resource of any supported type as long as it is tagged @Stage@ with a</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- value of @Prod@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;TAG_FILTERS_1_0\&quot;, \&quot;Query\&quot;: { \&quot;ResourceTypeFilters\&quot;: \&quot;AWS::AllSupported\&quot;, \&quot;TagFilters\&quot;: { \&quot;Stage\&quot;: \&quot;Prod\&quot; } } }@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- __Example 4__</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following example shows a resource query JSON string that includes</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- only Amazon EC2 instances and Amazon S3 buckets that are part of the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- specified AWS CloudFormation stack.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;CLOUDFORMATION_STACK_1_0\&quot;, \&quot;Query\&quot;: { \&quot;ResourceTypeFilters\&quot;: [ \&quot;AWS::EC2::Instance\&quot;, \&quot;AWS::S3::Bucket\&quot; ], \&quot;StackIdentifier\&quot;: \&quot;arn:aws:cloudformation:us-west-2:123456789012:stack\/AWStestuseraccount\/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\&quot; } }@</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- /See:/ 'newResourceQuery' smart constructor.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679177086"><span id="local-6989586621679177087"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-var">ResourceQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-var">ResourceQuery'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the query. You can use the following values:</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     ARN for a CloudFormation stack.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     JSON string that represents a collection of simple tag filters for</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     resource types and tags. The JSON string uses a syntax similar to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     the @ GetResources @ operation, but uses only the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     more than one tag key, only resources that match all tag keys, and</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     at least one value of each specified tag key, are returned in your</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     query. If you specify more than one value for a tag key, a resource</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     matches the filter if it has a tag key value that matches /any/ of</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     the specified values.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     For example, consider the following sample query for resources that</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     have two tags, @Stage@ and @Version@, with two values each:</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     @[{\&quot;Stage\&quot;:[\&quot;Test\&quot;,\&quot;Deploy\&quot;]},{\&quot;Version\&quot;:[\&quot;1\&quot;,\&quot;2\&quot;]}]@</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     The results of this query could include the following.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     -   An EC2 instance that has the following two tags:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@, and @{\&quot;Version\&quot;:\&quot;2\&quot;}@</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     -   An S3 bucket that has the following two tags:</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Test\&quot;}@, and @{\&quot;Version\&quot;:\&quot;1\&quot;}@</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     The query would not include the following items in the results,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     however.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     -   An EC2 instance that has only the following tag:</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--         The instance does not have __all__ of the tag keys specified in</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--         the filter, so it is excluded from the results.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     -   An RDS database that has the following two tags:</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Archived\&quot;}@ and @{\&quot;Version\&quot;:\&quot;4\&quot;}@</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--         The database has all of the tag keys, but none of those keys has</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--         an associated value that matches at least one of the specified</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--         values in the filter.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3Atype%27%3AResourceQuery%27"><span class="annot"><span class="annottext">ResourceQuery -&gt; QueryType
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Atype%27%3AResourceQuery%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType"><span class="hs-identifier hs-type">QueryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The query that defines a group or a search.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Aquery%3AResourceQuery%27"><span class="annot"><span class="annottext">ResourceQuery -&gt; Text
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177079"><span id="local-6989586621679177081"><span class="annot"><span class="annottext">ResourceQuery -&gt; ResourceQuery -&gt; Bool
+(ResourceQuery -&gt; ResourceQuery -&gt; Bool)
+-&gt; (ResourceQuery -&gt; ResourceQuery -&gt; Bool) -&gt; Eq ResourceQuery
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
+$c/= :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
+== :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
+$c== :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177070"><span id="local-6989586621679177072"><span id="local-6989586621679177074"><span id="local-6989586621679177076"><span class="annot"><span class="annottext">ReadPrec [ResourceQuery]
+ReadPrec ResourceQuery
+Int -&gt; ReadS ResourceQuery
+ReadS [ResourceQuery]
+(Int -&gt; ReadS ResourceQuery)
+-&gt; ReadS [ResourceQuery]
+-&gt; ReadPrec ResourceQuery
+-&gt; ReadPrec [ResourceQuery]
+-&gt; Read ResourceQuery
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceQuery]
+$creadListPrec :: ReadPrec [ResourceQuery]
+readPrec :: ReadPrec ResourceQuery
+$creadPrec :: ReadPrec ResourceQuery
+readList :: ReadS [ResourceQuery]
+$creadList :: ReadS [ResourceQuery]
+readsPrec :: Int -&gt; ReadS ResourceQuery
+$creadsPrec :: Int -&gt; ReadS ResourceQuery
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177063"><span id="local-6989586621679177065"><span id="local-6989586621679177067"><span class="annot"><span class="annottext">Int -&gt; ResourceQuery -&gt; ShowS
+[ResourceQuery] -&gt; ShowS
+ResourceQuery -&gt; String
+(Int -&gt; ResourceQuery -&gt; ShowS)
+-&gt; (ResourceQuery -&gt; String)
+-&gt; ([ResourceQuery] -&gt; ShowS)
+-&gt; Show ResourceQuery
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceQuery] -&gt; ShowS
+$cshowList :: [ResourceQuery] -&gt; ShowS
+show :: ResourceQuery -&gt; String
+$cshow :: ResourceQuery -&gt; String
+showsPrec :: Int -&gt; ResourceQuery -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResourceQuery -&gt; Rep ResourceQuery x)
+-&gt; (forall x. Rep ResourceQuery x -&gt; ResourceQuery)
+-&gt; Generic ResourceQuery
+forall x. Rep ResourceQuery x -&gt; ResourceQuery
+forall x. ResourceQuery -&gt; Rep ResourceQuery x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceQuery x -&gt; ResourceQuery
+$cfrom :: forall x. ResourceQuery -&gt; Rep ResourceQuery x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'ResourceQuery' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'type'', 'resourceQuery_type' - The type of the query. You can use the following values:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     ARN for a CloudFormation stack.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     JSON string that represents a collection of simple tag filters for</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     resource types and tags. The JSON string uses a syntax similar to</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     the @ GetResources @ operation, but uses only the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     more than one tag key, only resources that match all tag keys, and</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     at least one value of each specified tag key, are returned in your</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     query. If you specify more than one value for a tag key, a resource</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     matches the filter if it has a tag key value that matches /any/ of</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     the specified values.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     For example, consider the following sample query for resources that</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     have two tags, @Stage@ and @Version@, with two values each:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     @[{\&quot;Stage\&quot;:[\&quot;Test\&quot;,\&quot;Deploy\&quot;]},{\&quot;Version\&quot;:[\&quot;1\&quot;,\&quot;2\&quot;]}]@</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     The results of this query could include the following.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     -   An EC2 instance that has the following two tags:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@, and @{\&quot;Version\&quot;:\&quot;2\&quot;}@</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     -   An S3 bucket that has the following two tags:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Test\&quot;}@, and @{\&quot;Version\&quot;:\&quot;1\&quot;}@</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     The query would not include the following items in the results,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     however.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     -   An EC2 instance that has only the following tag:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--         The instance does not have __all__ of the tag keys specified in</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--         the filter, so it is excluded from the results.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     -   An RDS database that has the following two tags:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Archived\&quot;}@ and @{\&quot;Version\&quot;:\&quot;4\&quot;}@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--         The database has all of the tag keys, but none of those keys has</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--         an associated value that matches at least one of the specified</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--         values in the filter.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'query', 'resourceQuery_searchQuery' - The query that defines a group or a search.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#newResourceQuery"><span class="hs-identifier hs-type">newResourceQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType"><span class="hs-identifier hs-type">QueryType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'query'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span>
+</span><span id="line-194"></span><span id="newResourceQuery"><span class="annot"><span class="annottext">newResourceQuery :: QueryType -&gt; Text -&gt; ResourceQuery
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#newResourceQuery"><span class="hs-identifier hs-var hs-var">newResourceQuery</span></a></span></span><span> </span><span id="local-6989586621679177057"><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177057"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679177056"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177056"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ResourceQuery' :: QueryType -&gt; Text -&gt; ResourceQuery
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':ResourceQuery' :: QueryType
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Atype%27%3AResourceQuery%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177057"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:query:ResourceQuery' :: Text
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177056"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The type of the query. You can use the following values:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     ARN for a CloudFormation stack.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     JSON string that represents a collection of simple tag filters for</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     resource types and tags. The JSON string uses a syntax similar to</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     the @ GetResources @ operation, but uses only the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     more than one tag key, only resources that match all tag keys, and</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     at least one value of each specified tag key, are returned in your</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     query. If you specify more than one value for a tag key, a resource</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     matches the filter if it has a tag key value that matches /any/ of</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     the specified values.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     For example, consider the following sample query for resources that</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     have two tags, @Stage@ and @Version@, with two values each:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     @[{\&quot;Stage\&quot;:[\&quot;Test\&quot;,\&quot;Deploy\&quot;]},{\&quot;Version\&quot;:[\&quot;1\&quot;,\&quot;2\&quot;]}]@</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     The results of this query could include the following.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     -   An EC2 instance that has the following two tags:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@, and @{\&quot;Version\&quot;:\&quot;2\&quot;}@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     -   An S3 bucket that has the following two tags:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Test\&quot;}@, and @{\&quot;Version\&quot;:\&quot;1\&quot;}@</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     The query would not include the following items in the results,</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     however.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     -   An EC2 instance that has only the following tag:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Deploy\&quot;}@.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--         The instance does not have __all__ of the tag keys specified in</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--         the filter, so it is excluded from the results.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     -   An RDS database that has the following two tags:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--         @{\&quot;Stage\&quot;:\&quot;Archived\&quot;}@ and @{\&quot;Version\&quot;:\&quot;4\&quot;}@</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--         The database has all of the tag keys, but none of those keys has</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--         an associated value that matches at least one of the specified</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--         values in the filter.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#resourceQuery_type"><span class="hs-identifier hs-type">resourceQuery_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType"><span class="hs-identifier hs-type">QueryType</span></a></span><span>
+</span><span id="line-245"></span><span id="resourceQuery_type"><span class="annot"><span class="annottext">resourceQuery_type :: (QueryType -&gt; f QueryType) -&gt; ResourceQuery -&gt; f ResourceQuery
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#resourceQuery_type"><span class="hs-identifier hs-var hs-var">resourceQuery_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceQuery -&gt; QueryType)
+-&gt; (ResourceQuery -&gt; QueryType -&gt; ResourceQuery)
+-&gt; Lens ResourceQuery ResourceQuery QueryType QueryType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177052"><span class="annot"><span class="annottext">QueryType
+type' :: QueryType
+$sel:type':ResourceQuery' :: ResourceQuery -&gt; QueryType
+</span><a href="#local-6989586621679177052"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177052"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177051"><span class="annot"><span class="annottext">s :: ResourceQuery
+</span><a href="#local-6989586621679177051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177050"><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceQuery' :: QueryType
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Atype%27%3AResourceQuery%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The query that defines a group or a search.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#resourceQuery_searchQuery"><span class="hs-identifier hs-type">resourceQuery_searchQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-249"></span><span id="resourceQuery_searchQuery"><span class="annot"><span class="annottext">resourceQuery_searchQuery :: (Text -&gt; f Text) -&gt; ResourceQuery -&gt; f ResourceQuery
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#resourceQuery_searchQuery"><span class="hs-identifier hs-var hs-var">resourceQuery_searchQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceQuery -&gt; Text)
+-&gt; (ResourceQuery -&gt; Text -&gt; ResourceQuery)
+-&gt; Lens ResourceQuery ResourceQuery Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177048"><span class="annot"><span class="annottext">Text
+query :: Text
+$sel:query:ResourceQuery' :: ResourceQuery -&gt; Text
+</span><a href="#local-6989586621679177048"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177048"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177047"><span class="annot"><span class="annottext">s :: ResourceQuery
+</span><a href="#local-6989586621679177047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:ResourceQuery' :: Text
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177043"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679177041"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceQuery
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceQuery)
+-&gt; Value
+-&gt; Parser ResourceQuery
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177038"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-256"></span><span>          </span><span class="annot"><span class="annottext">QueryType -&gt; Text -&gt; ResourceQuery
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-var">ResourceQuery'</span></a></span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">(QueryType -&gt; Text -&gt; ResourceQuery)
+-&gt; Parser QueryType -&gt; Parser (Text -&gt; ResourceQuery)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser QueryType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; ResourceQuery)
+-&gt; Parser Text -&gt; Parser ResourceQuery
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Query&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177032"><span id="local-6989586621679177034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177021"><span id="local-6989586621679177023"><span id="local-6989586621679177025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679177019"><span class="annot"><span class="annottext">toJSON :: ResourceQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177016"><span id="local-6989586621679177017"><span class="annot"><span class="annottext">Text
+QueryType
+query :: Text
+type' :: QueryType
+$sel:query:ResourceQuery' :: ResourceQuery -&gt; Text
+$sel:type':ResourceQuery' :: ResourceQuery -&gt; QueryType
+</span><a href="#local-6989586621679177016"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-268"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QueryType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177017"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Query&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177016"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span></pre></body></html>

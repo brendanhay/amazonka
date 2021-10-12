@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.Types.EntityRecognizerDataFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.Types.EntityRecognizerDataFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier">EntityRecognizerDataFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span class="hs-identifier">EntityRecognizerDataFormat_AUGMENTED_MANIFEST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_COMPREHEND_CSV"><span class="hs-identifier">EntityRecognizerDataFormat_COMPREHEND_CSV</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679342197"><span id="local-6989586621679342198"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EntityRecognizerDataFormat"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier hs-var">EntityRecognizerDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntityRecognizerDataFormat%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat%27"><span class="hs-identifier hs-var">EntityRecognizerDataFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEntityRecognizerDataFormat"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; Text
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#fromEntityRecognizerDataFormat"><span class="hs-identifier hs-var hs-var">fromEntityRecognizerDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342189"><span id="local-6989586621679342191"><span id="local-6989586621679342193"><span class="annot"><span class="annottext">Int -&gt; EntityRecognizerDataFormat -&gt; ShowS
+[EntityRecognizerDataFormat] -&gt; ShowS
+EntityRecognizerDataFormat -&gt; String
+(Int -&gt; EntityRecognizerDataFormat -&gt; ShowS)
+-&gt; (EntityRecognizerDataFormat -&gt; String)
+-&gt; ([EntityRecognizerDataFormat] -&gt; ShowS)
+-&gt; Show EntityRecognizerDataFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EntityRecognizerDataFormat] -&gt; ShowS
+$cshowList :: [EntityRecognizerDataFormat] -&gt; ShowS
+show :: EntityRecognizerDataFormat -&gt; String
+$cshow :: EntityRecognizerDataFormat -&gt; String
+showsPrec :: Int -&gt; EntityRecognizerDataFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; EntityRecognizerDataFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679342180"><span id="local-6989586621679342182"><span id="local-6989586621679342184"><span id="local-6989586621679342186"><span class="annot"><span class="annottext">ReadPrec [EntityRecognizerDataFormat]
+ReadPrec EntityRecognizerDataFormat
+Int -&gt; ReadS EntityRecognizerDataFormat
+ReadS [EntityRecognizerDataFormat]
+(Int -&gt; ReadS EntityRecognizerDataFormat)
+-&gt; ReadS [EntityRecognizerDataFormat]
+-&gt; ReadPrec EntityRecognizerDataFormat
+-&gt; ReadPrec [EntityRecognizerDataFormat]
+-&gt; Read EntityRecognizerDataFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EntityRecognizerDataFormat]
+$creadListPrec :: ReadPrec [EntityRecognizerDataFormat]
+readPrec :: ReadPrec EntityRecognizerDataFormat
+$creadPrec :: ReadPrec EntityRecognizerDataFormat
+readList :: ReadS [EntityRecognizerDataFormat]
+$creadList :: ReadS [EntityRecognizerDataFormat]
+readsPrec :: Int -&gt; ReadS EntityRecognizerDataFormat
+$creadsPrec :: Int -&gt; ReadS EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679342175"><span id="local-6989586621679342177"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+(EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; Eq EntityRecognizerDataFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c/= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+== :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c== :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679342159"><span id="local-6989586621679342161"><span id="local-6989586621679342163"><span id="local-6989586621679342165"><span id="local-6989586621679342167"><span id="local-6989586621679342169"><span id="local-6989586621679342171"><span class="annot"><span class="annottext">Eq EntityRecognizerDataFormat
+Eq EntityRecognizerDataFormat
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Ordering)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; Bool)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat)
+-&gt; (EntityRecognizerDataFormat
+    -&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat)
+-&gt; Ord EntityRecognizerDataFormat
+EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; Ordering
+EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat
+$cmin :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat
+max :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat
+$cmax :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat
+&gt;= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c&gt;= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+&gt; :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c&gt; :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+&lt;= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c&lt;= :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+&lt; :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+$c&lt; :: EntityRecognizerDataFormat -&gt; EntityRecognizerDataFormat -&gt; Bool
+compare :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; Ordering
+$ccompare :: EntityRecognizerDataFormat
+-&gt; EntityRecognizerDataFormat -&gt; Ordering
+$cp1Ord :: Eq EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ EntityRecognizerDataFormat -&gt; Rep EntityRecognizerDataFormat x)
+-&gt; (forall x.
+    Rep EntityRecognizerDataFormat x -&gt; EntityRecognizerDataFormat)
+-&gt; Generic EntityRecognizerDataFormat
+forall x.
+Rep EntityRecognizerDataFormat x -&gt; EntityRecognizerDataFormat
+forall x.
+EntityRecognizerDataFormat -&gt; Rep EntityRecognizerDataFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EntityRecognizerDataFormat x -&gt; EntityRecognizerDataFormat
+$cfrom :: forall x.
+EntityRecognizerDataFormat -&gt; Rep EntityRecognizerDataFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342151"><span id="local-6989586621679342153"><span class="annot"><span class="annottext">Int -&gt; EntityRecognizerDataFormat -&gt; Int
+EntityRecognizerDataFormat -&gt; Int
+(Int -&gt; EntityRecognizerDataFormat -&gt; Int)
+-&gt; (EntityRecognizerDataFormat -&gt; Int)
+-&gt; Hashable EntityRecognizerDataFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EntityRecognizerDataFormat -&gt; Int
+$chash :: EntityRecognizerDataFormat -&gt; Int
+hashWithSalt :: Int -&gt; EntityRecognizerDataFormat -&gt; Int
+$chashWithSalt :: Int -&gt; EntityRecognizerDataFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679342148"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; ()
+(EntityRecognizerDataFormat -&gt; ())
+-&gt; NFData EntityRecognizerDataFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EntityRecognizerDataFormat -&gt; ()
+$crnf :: EntityRecognizerDataFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679342145"><span class="annot"><span class="annottext">Text -&gt; Either String EntityRecognizerDataFormat
+(Text -&gt; Either String EntityRecognizerDataFormat)
+-&gt; FromText EntityRecognizerDataFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EntityRecognizerDataFormat
+$cfromText :: Text -&gt; Either String EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342142"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; Text
+(EntityRecognizerDataFormat -&gt; Text)
+-&gt; ToText EntityRecognizerDataFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EntityRecognizerDataFormat -&gt; Text
+$ctoText :: EntityRecognizerDataFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679342139"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; ByteString
+(EntityRecognizerDataFormat -&gt; ByteString)
+-&gt; ToByteString EntityRecognizerDataFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EntityRecognizerDataFormat -&gt; ByteString
+$ctoBS :: EntityRecognizerDataFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679342136"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; ByteStringBuilder
+(EntityRecognizerDataFormat -&gt; ByteStringBuilder)
+-&gt; ToLog EntityRecognizerDataFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EntityRecognizerDataFormat -&gt; ByteStringBuilder
+$cbuild :: EntityRecognizerDataFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342133"><span class="annot"><span class="annottext">HeaderName -&gt; EntityRecognizerDataFormat -&gt; [Header]
+(HeaderName -&gt; EntityRecognizerDataFormat -&gt; [Header])
+-&gt; ToHeader EntityRecognizerDataFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EntityRecognizerDataFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EntityRecognizerDataFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342130"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; QueryString
+(EntityRecognizerDataFormat -&gt; QueryString)
+-&gt; ToQuery EntityRecognizerDataFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EntityRecognizerDataFormat -&gt; QueryString
+$ctoQuery :: EntityRecognizerDataFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342125"><span id="local-6989586621679342127"><span class="annot"><span class="annottext">Value -&gt; Parser [EntityRecognizerDataFormat]
+Value -&gt; Parser EntityRecognizerDataFormat
+(Value -&gt; Parser EntityRecognizerDataFormat)
+-&gt; (Value -&gt; Parser [EntityRecognizerDataFormat])
+-&gt; FromJSON EntityRecognizerDataFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EntityRecognizerDataFormat]
+$cparseJSONList :: Value -&gt; Parser [EntityRecognizerDataFormat]
+parseJSON :: Value -&gt; Parser EntityRecognizerDataFormat
+$cparseJSON :: Value -&gt; Parser EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342120"><span id="local-6989586621679342122"><span class="annot"><span class="annottext">FromJSONKeyFunction [EntityRecognizerDataFormat]
+FromJSONKeyFunction EntityRecognizerDataFormat
+FromJSONKeyFunction EntityRecognizerDataFormat
+-&gt; FromJSONKeyFunction [EntityRecognizerDataFormat]
+-&gt; FromJSONKey EntityRecognizerDataFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EntityRecognizerDataFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [EntityRecognizerDataFormat]
+fromJSONKey :: FromJSONKeyFunction EntityRecognizerDataFormat
+$cfromJSONKey :: FromJSONKeyFunction EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342111"><span id="local-6989586621679342113"><span id="local-6989586621679342115"><span id="local-6989586621679342117"><span class="annot"><span class="annottext">[EntityRecognizerDataFormat] -&gt; Encoding
+[EntityRecognizerDataFormat] -&gt; Value
+EntityRecognizerDataFormat -&gt; Encoding
+EntityRecognizerDataFormat -&gt; Value
+(EntityRecognizerDataFormat -&gt; Value)
+-&gt; (EntityRecognizerDataFormat -&gt; Encoding)
+-&gt; ([EntityRecognizerDataFormat] -&gt; Value)
+-&gt; ([EntityRecognizerDataFormat] -&gt; Encoding)
+-&gt; ToJSON EntityRecognizerDataFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EntityRecognizerDataFormat] -&gt; Encoding
+$ctoEncodingList :: [EntityRecognizerDataFormat] -&gt; Encoding
+toJSONList :: [EntityRecognizerDataFormat] -&gt; Value
+$ctoJSONList :: [EntityRecognizerDataFormat] -&gt; Value
+toEncoding :: EntityRecognizerDataFormat -&gt; Encoding
+$ctoEncoding :: EntityRecognizerDataFormat -&gt; Encoding
+toJSON :: EntityRecognizerDataFormat -&gt; Value
+$ctoJSON :: EntityRecognizerDataFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342106"><span id="local-6989586621679342108"><span class="annot"><span class="annottext">ToJSONKeyFunction [EntityRecognizerDataFormat]
+ToJSONKeyFunction EntityRecognizerDataFormat
+ToJSONKeyFunction EntityRecognizerDataFormat
+-&gt; ToJSONKeyFunction [EntityRecognizerDataFormat]
+-&gt; ToJSONKey EntityRecognizerDataFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EntityRecognizerDataFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [EntityRecognizerDataFormat]
+toJSONKey :: ToJSONKeyFunction EntityRecognizerDataFormat
+$ctoJSONKey :: ToJSONKeyFunction EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342103"><span class="annot"><span class="annottext">[Node] -&gt; Either String EntityRecognizerDataFormat
+([Node] -&gt; Either String EntityRecognizerDataFormat)
+-&gt; FromXML EntityRecognizerDataFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EntityRecognizerDataFormat
+$cparseXML :: [Node] -&gt; Either String EntityRecognizerDataFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342100"><span class="annot"><span class="annottext">EntityRecognizerDataFormat -&gt; XML
+(EntityRecognizerDataFormat -&gt; XML)
+-&gt; ToXML EntityRecognizerDataFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EntityRecognizerDataFormat -&gt; XML
+$ctoXML :: EntityRecognizerDataFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span class="hs-identifier hs-type">EntityRecognizerDataFormat_AUGMENTED_MANIFEST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier hs-type">EntityRecognizerDataFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span id="%24mEntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span id="EntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span class="annot"><span class="annottext">$bEntityRecognizerDataFormat_AUGMENTED_MANIFEST :: EntityRecognizerDataFormat
+$mEntityRecognizerDataFormat_AUGMENTED_MANIFEST :: forall r.
+EntityRecognizerDataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#%24bEntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span class="hs-identifier hs-var hs-var hs-var">EntityRecognizerDataFormat_AUGMENTED_MANIFEST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat%27"><span class="hs-identifier hs-type">EntityRecognizerDataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUGMENTED_MANIFEST&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_COMPREHEND_CSV"><span class="hs-identifier hs-type">EntityRecognizerDataFormat_COMPREHEND_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat"><span class="hs-identifier hs-type">EntityRecognizerDataFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEntityRecognizerDataFormat_COMPREHEND_CSV"><span id="%24mEntityRecognizerDataFormat_COMPREHEND_CSV"><span id="EntityRecognizerDataFormat_COMPREHEND_CSV"><span class="annot"><span class="annottext">$bEntityRecognizerDataFormat_COMPREHEND_CSV :: EntityRecognizerDataFormat
+$mEntityRecognizerDataFormat_COMPREHEND_CSV :: forall r.
+EntityRecognizerDataFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#%24bEntityRecognizerDataFormat_COMPREHEND_CSV"><span class="hs-identifier hs-var hs-var hs-var">EntityRecognizerDataFormat_COMPREHEND_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat%27"><span class="hs-identifier hs-type">EntityRecognizerDataFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPREHEND_CSV&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_AUGMENTED_MANIFEST"><span class="hs-pragma hs-type">EntityRecognizerDataFormat_AUGMENTED_MANIFEST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat_COMPREHEND_CSV"><span class="hs-pragma hs-type">EntityRecognizerDataFormat_COMPREHEND_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerDataFormat.html#EntityRecognizerDataFormat%27"><span class="hs-pragma hs-type">EntityRecognizerDataFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

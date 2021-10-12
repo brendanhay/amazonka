@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Glacier.Types.CSVInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glacier.Types.CSVInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.FileHeaderInfo.html"><span class="hs-identifier">Network.AWS.Glacier.Types.FileHeaderInfo</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the comma-separated value (CSV) file to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- select from.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCSVInput' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679216185"><span id="local-6989586621679216186"></span></span><span class="hs-keyword">data</span><span> </span><span id="CSVInput"><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-var">CSVInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CSVInput%27"><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-var">CSVInput'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value used to separate individual records from each other.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">recordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A value used as an escape character where the field delimiter is part of</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AquoteCharacter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">quoteCharacter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes the first line of input. Valid values are @None@, @Ignore@,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- and @Use@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe FileHeaderInfo
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">fileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A value used to separate individual fields from each other within a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">fieldDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the character is present at the start of that row.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Acomments%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A single character used for escaping the quotation-mark character inside</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- an already escaped value.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="annot"><span class="annottext">CSVInput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var hs-var">quoteEscapeCharacter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216174"><span id="local-6989586621679216176"><span class="annot"><span class="annottext">CSVInput -&gt; CSVInput -&gt; Bool
+(CSVInput -&gt; CSVInput -&gt; Bool)
+-&gt; (CSVInput -&gt; CSVInput -&gt; Bool) -&gt; Eq CSVInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CSVInput -&gt; CSVInput -&gt; Bool
+$c/= :: CSVInput -&gt; CSVInput -&gt; Bool
+== :: CSVInput -&gt; CSVInput -&gt; Bool
+$c== :: CSVInput -&gt; CSVInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216165"><span id="local-6989586621679216167"><span id="local-6989586621679216169"><span id="local-6989586621679216171"><span class="annot"><span class="annottext">ReadPrec [CSVInput]
+ReadPrec CSVInput
+Int -&gt; ReadS CSVInput
+ReadS [CSVInput]
+(Int -&gt; ReadS CSVInput)
+-&gt; ReadS [CSVInput]
+-&gt; ReadPrec CSVInput
+-&gt; ReadPrec [CSVInput]
+-&gt; Read CSVInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CSVInput]
+$creadListPrec :: ReadPrec [CSVInput]
+readPrec :: ReadPrec CSVInput
+$creadPrec :: ReadPrec CSVInput
+readList :: ReadS [CSVInput]
+$creadList :: ReadS [CSVInput]
+readsPrec :: Int -&gt; ReadS CSVInput
+$creadsPrec :: Int -&gt; ReadS CSVInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216158"><span id="local-6989586621679216160"><span id="local-6989586621679216162"><span class="annot"><span class="annottext">Int -&gt; CSVInput -&gt; ShowS
+[CSVInput] -&gt; ShowS
+CSVInput -&gt; String
+(Int -&gt; CSVInput -&gt; ShowS)
+-&gt; (CSVInput -&gt; String) -&gt; ([CSVInput] -&gt; ShowS) -&gt; Show CSVInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CSVInput] -&gt; ShowS
+$cshowList :: [CSVInput] -&gt; ShowS
+show :: CSVInput -&gt; String
+$cshow :: CSVInput -&gt; String
+showsPrec :: Int -&gt; CSVInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; CSVInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CSVInput -&gt; Rep CSVInput x)
+-&gt; (forall x. Rep CSVInput x -&gt; CSVInput) -&gt; Generic CSVInput
+forall x. Rep CSVInput x -&gt; CSVInput
+forall x. CSVInput -&gt; Rep CSVInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CSVInput x -&gt; CSVInput
+$cfrom :: forall x. CSVInput -&gt; Rep CSVInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'CSVInput' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'recordDelimiter', 'cSVInput_recordDelimiter' - A value used to separate individual records from each other.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'quoteCharacter', 'cSVInput_quoteCharacter' - A value used as an escape character where the field delimiter is part of</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'fileHeaderInfo', 'cSVInput_fileHeaderInfo' - Describes the first line of input. Valid values are @None@, @Ignore@,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- and @Use@.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A value used to separate individual fields from each other within a</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'comments', 'cSVInput_comments' - A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the character is present at the start of that row.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'quoteEscapeCharacter', 'cSVInput_quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- an already escaped value.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#newCSVInput"><span class="hs-identifier hs-type">newCSVInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span>
+</span><span id="line-78"></span><span id="newCSVInput"><span class="annot"><span class="annottext">newCSVInput :: CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#newCSVInput"><span class="hs-identifier hs-var hs-var">newCSVInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CSVInput' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FileHeaderInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recordDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:quoteCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileHeaderInfo:CSVInput' :: Maybe FileHeaderInfo
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:comments:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:quoteEscapeCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A value used to separate individual records from each other.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_recordDelimiter"><span class="hs-identifier hs-type">cSVInput_recordDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="cSVInput_recordDelimiter"><span class="annot"><span class="annottext">cSVInput_recordDelimiter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_recordDelimiter"><span class="hs-identifier hs-var hs-var">cSVInput_recordDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216149"><span class="annot"><span class="annottext">Maybe Text
+recordDelimiter :: Maybe Text
+$sel:recordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216149"><span class="hs-identifier hs-var hs-var">recordDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216149"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216148"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3ArecordDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A value used as an escape character where the field delimiter is part of</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the value.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_quoteCharacter"><span class="hs-identifier hs-type">cSVInput_quoteCharacter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="cSVInput_quoteCharacter"><span class="annot"><span class="annottext">cSVInput_quoteCharacter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_quoteCharacter"><span class="hs-identifier hs-var hs-var">cSVInput_quoteCharacter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216145"><span class="annot"><span class="annottext">Maybe Text
+quoteCharacter :: Maybe Text
+$sel:quoteCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216145"><span class="hs-identifier hs-var hs-var">quoteCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216145"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216144"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Describes the first line of input. Valid values are @None@, @Ignore@,</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- and @Use@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_fileHeaderInfo"><span class="hs-identifier hs-type">cSVInput_fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="cSVInput_fileHeaderInfo"><span class="annot"><span class="annottext">cSVInput_fileHeaderInfo :: (Maybe FileHeaderInfo -&gt; f (Maybe FileHeaderInfo))
+-&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_fileHeaderInfo"><span class="hs-identifier hs-var hs-var">cSVInput_fileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe FileHeaderInfo)
+-&gt; (CSVInput -&gt; Maybe FileHeaderInfo -&gt; CSVInput)
+-&gt; Lens
+     CSVInput CSVInput (Maybe FileHeaderInfo) (Maybe FileHeaderInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216141"><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+fileHeaderInfo :: Maybe FileHeaderInfo
+$sel:fileHeaderInfo:CSVInput' :: CSVInput -&gt; Maybe FileHeaderInfo
+</span><a href="#local-6989586621679216141"><span class="hs-identifier hs-var hs-var">fileHeaderInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679216141"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216140"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216139"><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679216139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileHeaderInfo:CSVInput' :: Maybe FileHeaderInfo
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfileHeaderInfo%3ACSVInput%27"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679216139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | A value used to separate individual fields from each other within a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- record.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_fieldDelimiter"><span class="hs-identifier hs-type">cSVInput_fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="cSVInput_fieldDelimiter"><span class="annot"><span class="annottext">cSVInput_fieldDelimiter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_fieldDelimiter"><span class="hs-identifier hs-var hs-var">cSVInput_fieldDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216137"><span class="annot"><span class="annottext">Maybe Text
+fieldDelimiter :: Maybe Text
+$sel:fieldDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216137"><span class="hs-identifier hs-var hs-var">fieldDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216137"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216136"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldDelimiter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AfieldDelimiter%3ACSVInput%27"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | A single character used to indicate that a row should be ignored when</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the character is present at the start of that row.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_comments"><span class="hs-identifier hs-type">cSVInput_comments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="cSVInput_comments"><span class="annot"><span class="annottext">cSVInput_comments :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_comments"><span class="hs-identifier hs-var hs-var">cSVInput_comments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216133"><span class="annot"><span class="annottext">Maybe Text
+comments :: Maybe Text
+$sel:comments:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216133"><span class="hs-identifier hs-var hs-var">comments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216133"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216132"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comments:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3Acomments%3ACSVInput%27"><span class="hs-identifier hs-var">comments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A single character used for escaping the quotation-mark character inside</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- an already escaped value.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_quoteEscapeCharacter"><span class="hs-identifier hs-type">cSVInput_quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="cSVInput_quoteEscapeCharacter"><span class="annot"><span class="annottext">cSVInput_quoteEscapeCharacter :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CSVInput -&gt; f CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#cSVInput_quoteEscapeCharacter"><span class="hs-identifier hs-var hs-var">cSVInput_quoteEscapeCharacter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CSVInput -&gt; Maybe Text)
+-&gt; (CSVInput -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Lens CSVInput CSVInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216129"><span class="annot"><span class="annottext">Maybe Text
+quoteEscapeCharacter :: Maybe Text
+$sel:quoteEscapeCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216129"><span class="hs-identifier hs-var hs-var">quoteEscapeCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216129"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216128"><span class="annot"><span class="annottext">s :: CSVInput
+</span><a href="#local-6989586621679216128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CSVInput
+</span><a href="#local-6989586621679216128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quoteEscapeCharacter:CSVInput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#%24sel%3AquoteEscapeCharacter%3ACSVInput%27"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216124"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679216122"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CSVInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser CSVInput) -&gt; Value -&gt; Parser CSVInput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CSVInput&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216119"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FileHeaderInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CSVInput
+</span><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-var">CSVInput'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe FileHeaderInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; CSVInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FileHeaderInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CSVInput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordDelimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FileHeaderInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CSVInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FileHeaderInfo
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteCharacter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FileHeaderInfo
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Parser (Maybe FileHeaderInfo)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileHeaderInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileHeaderInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldDelimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CSVInput)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; CSVInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CSVInput)
+-&gt; Parser (Maybe Text) -&gt; Parser CSVInput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteEscapeCharacter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216113"><span id="local-6989586621679216115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216102"><span id="local-6989586621679216104"><span id="local-6989586621679216106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679216100"><span class="annot"><span class="annottext">toJSON :: CSVInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.CSVInput.html#CSVInput%27"><span class="hs-identifier hs-type">CSVInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216093"><span id="local-6989586621679216094"><span id="local-6989586621679216095"><span id="local-6989586621679216096"><span id="local-6989586621679216097"><span id="local-6989586621679216098"><span class="annot"><span class="annottext">Maybe Text
+Maybe FileHeaderInfo
+quoteEscapeCharacter :: Maybe Text
+comments :: Maybe Text
+fieldDelimiter :: Maybe Text
+fileHeaderInfo :: Maybe FileHeaderInfo
+quoteCharacter :: Maybe Text
+recordDelimiter :: Maybe Text
+$sel:quoteEscapeCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:comments:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:fieldDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:fileHeaderInfo:CSVInput' :: CSVInput -&gt; Maybe FileHeaderInfo
+$sel:quoteCharacter:CSVInput' :: CSVInput -&gt; Maybe Text
+$sel:recordDelimiter:CSVInput' :: CSVInput -&gt; Maybe Text
+</span><a href="#local-6989586621679216093"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216098"><span class="hs-identifier hs-var">recordDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteCharacter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216097"><span class="hs-identifier hs-var">quoteCharacter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FileHeaderInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileHeaderInfo -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(FileHeaderInfo -&gt; Pair) -&gt; Maybe FileHeaderInfo -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileHeaderInfo
+</span><a href="#local-6989586621679216096"><span class="hs-identifier hs-var">fileHeaderInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216095"><span class="hs-identifier hs-var">fieldDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216094"><span class="hs-identifier hs-var">comments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuoteEscapeCharacter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216093"><span class="hs-identifier hs-var">quoteEscapeCharacter</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span></pre></body></html>

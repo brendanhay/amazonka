@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.LoadPermissionRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.LoadPermissionRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PermissionGroup.html"><span class="hs-identifier">Network.AWS.EC2.Types.PermissionGroup</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a load permission.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLoadPermissionRequest' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681098427"><span id="local-6989586621681098428"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadPermissionRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-var">LoadPermissionRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadPermissionRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-var">LoadPermissionRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Agroup%27%3ALoadPermissionRequest%27"><span class="annot"><span class="annottext">LoadPermissionRequest -&gt; Maybe PermissionGroup
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3Agroup%27%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AuserId%3ALoadPermissionRequest%27"><span class="annot"><span class="annottext">LoadPermissionRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3AuserId%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681098420"><span id="local-6989586621681098422"><span class="annot"><span class="annottext">LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool
+(LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool)
+-&gt; (LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool)
+-&gt; Eq LoadPermissionRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool
+$c/= :: LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool
+== :: LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool
+$c== :: LoadPermissionRequest -&gt; LoadPermissionRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098411"><span id="local-6989586621681098413"><span id="local-6989586621681098415"><span id="local-6989586621681098417"><span class="annot"><span class="annottext">ReadPrec [LoadPermissionRequest]
+ReadPrec LoadPermissionRequest
+Int -&gt; ReadS LoadPermissionRequest
+ReadS [LoadPermissionRequest]
+(Int -&gt; ReadS LoadPermissionRequest)
+-&gt; ReadS [LoadPermissionRequest]
+-&gt; ReadPrec LoadPermissionRequest
+-&gt; ReadPrec [LoadPermissionRequest]
+-&gt; Read LoadPermissionRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LoadPermissionRequest]
+$creadListPrec :: ReadPrec [LoadPermissionRequest]
+readPrec :: ReadPrec LoadPermissionRequest
+$creadPrec :: ReadPrec LoadPermissionRequest
+readList :: ReadS [LoadPermissionRequest]
+$creadList :: ReadS [LoadPermissionRequest]
+readsPrec :: Int -&gt; ReadS LoadPermissionRequest
+$creadsPrec :: Int -&gt; ReadS LoadPermissionRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098404"><span id="local-6989586621681098406"><span id="local-6989586621681098408"><span class="annot"><span class="annottext">Int -&gt; LoadPermissionRequest -&gt; ShowS
+[LoadPermissionRequest] -&gt; ShowS
+LoadPermissionRequest -&gt; String
+(Int -&gt; LoadPermissionRequest -&gt; ShowS)
+-&gt; (LoadPermissionRequest -&gt; String)
+-&gt; ([LoadPermissionRequest] -&gt; ShowS)
+-&gt; Show LoadPermissionRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LoadPermissionRequest] -&gt; ShowS
+$cshowList :: [LoadPermissionRequest] -&gt; ShowS
+show :: LoadPermissionRequest -&gt; String
+$cshow :: LoadPermissionRequest -&gt; String
+showsPrec :: Int -&gt; LoadPermissionRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; LoadPermissionRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LoadPermissionRequest -&gt; Rep LoadPermissionRequest x)
+-&gt; (forall x. Rep LoadPermissionRequest x -&gt; LoadPermissionRequest)
+-&gt; Generic LoadPermissionRequest
+forall x. Rep LoadPermissionRequest x -&gt; LoadPermissionRequest
+forall x. LoadPermissionRequest -&gt; Rep LoadPermissionRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LoadPermissionRequest x -&gt; LoadPermissionRequest
+$cfrom :: forall x. LoadPermissionRequest -&gt; Rep LoadPermissionRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'LoadPermissionRequest' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'group'', 'loadPermissionRequest_group' - The name of the group.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'userId', 'loadPermissionRequest_userId' - The AWS account ID.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#newLoadPermissionRequest"><span class="hs-identifier hs-type">newLoadPermissionRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span>
+</span><span id="line-52"></span><span id="newLoadPermissionRequest"><span class="annot"><span class="annottext">newLoadPermissionRequest :: LoadPermissionRequest
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#newLoadPermissionRequest"><span class="hs-identifier hs-var hs-var">newLoadPermissionRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LoadPermissionRequest' :: Maybe PermissionGroup -&gt; Maybe Text -&gt; LoadPermissionRequest
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':LoadPermissionRequest' :: Maybe PermissionGroup
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3Agroup%27%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:LoadPermissionRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3AuserId%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#loadPermissionRequest_group"><span class="hs-identifier hs-type">loadPermissionRequest_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="loadPermissionRequest_group"><span class="annot"><span class="annottext">loadPermissionRequest_group :: (Maybe PermissionGroup -&gt; f (Maybe PermissionGroup))
+-&gt; LoadPermissionRequest -&gt; f LoadPermissionRequest
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#loadPermissionRequest_group"><span class="hs-identifier hs-var hs-var">loadPermissionRequest_group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadPermissionRequest -&gt; Maybe PermissionGroup)
+-&gt; (LoadPermissionRequest
+    -&gt; Maybe PermissionGroup -&gt; LoadPermissionRequest)
+-&gt; Lens
+     LoadPermissionRequest
+     LoadPermissionRequest
+     (Maybe PermissionGroup)
+     (Maybe PermissionGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098395"><span class="annot"><span class="annottext">Maybe PermissionGroup
+group' :: Maybe PermissionGroup
+$sel:group':LoadPermissionRequest' :: LoadPermissionRequest -&gt; Maybe PermissionGroup
+</span><a href="#local-6989586621681098395"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681098395"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098394"><span class="annot"><span class="annottext">s :: LoadPermissionRequest
+</span><a href="#local-6989586621681098394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098393"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681098393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermissionRequest
+</span><a href="#local-6989586621681098394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':LoadPermissionRequest' :: Maybe PermissionGroup
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3Agroup%27%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681098393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#loadPermissionRequest_userId"><span class="hs-identifier hs-type">loadPermissionRequest_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="loadPermissionRequest_userId"><span class="annot"><span class="annottext">loadPermissionRequest_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoadPermissionRequest -&gt; f LoadPermissionRequest
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#loadPermissionRequest_userId"><span class="hs-identifier hs-var hs-var">loadPermissionRequest_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadPermissionRequest -&gt; Maybe Text)
+-&gt; (LoadPermissionRequest -&gt; Maybe Text -&gt; LoadPermissionRequest)
+-&gt; Lens
+     LoadPermissionRequest
+     LoadPermissionRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098391"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:LoadPermissionRequest' :: LoadPermissionRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681098391"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098391"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098390"><span class="annot"><span class="annottext">s :: LoadPermissionRequest
+</span><a href="#local-6989586621681098390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098389"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermissionRequest
+</span><a href="#local-6989586621681098390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:LoadPermissionRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#%24sel%3AuserId%3ALoadPermissionRequest%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098385"><span id="local-6989586621681098387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest"><span class="hs-identifier hs-type">LoadPermissionRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681098378"><span class="annot"><span class="annottext">toQuery :: LoadPermissionRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermissionRequest.html#LoadPermissionRequest%27"><span class="hs-identifier hs-type">LoadPermissionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098375"><span id="local-6989586621681098376"><span class="annot"><span class="annottext">Maybe Text
+Maybe PermissionGroup
+userId :: Maybe Text
+group' :: Maybe PermissionGroup
+$sel:userId:LoadPermissionRequest' :: LoadPermissionRequest -&gt; Maybe Text
+$sel:group':LoadPermissionRequest' :: LoadPermissionRequest -&gt; Maybe PermissionGroup
+</span><a href="#local-6989586621681098375"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Group&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PermissionGroup -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681098376"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098375"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-74"></span></pre></body></html>

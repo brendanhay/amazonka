@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GameLift.DescribeFleetPortSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a fleet\'s inbound connection permissions. Connection</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- permissions specify the range of IP addresses and port settings that</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- incoming traffic can use to access server processes in the fleet. Game</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- sessions that are running on instances in the fleet must use connections</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that fall in this range.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation can be used in the following ways:</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   To retrieve the inbound connection permissions for a fleet, identify</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     the fleet\'s unique identifier.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   To check the status of recent updates to a fleet remote location,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     specify the fleet ID and a location. Port setting updates can take</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     time to propagate across all locations.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- If successful, a set of IpPermission objects is returned for the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- requested fleet ID. When a location is specified, a pending status is</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- included. If the requested fleet has been deleted, the result set is</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- empty.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- ListFleets | DescribeEC2InstanceLimits | DescribeFleetAttributes |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- DescribeFleetCapacity | DescribeFleetEvents |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- DescribeFleetLocationAttributes | DescribeFleetPortSettings |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- DescribeFleetUtilization | DescribeRuntimeConfiguration |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- DescribeScalingPolicies |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GameLift.DescribeFleetPortSettings</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettings"><span class="hs-identifier">newDescribeFleetPortSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_location"><span class="hs-identifier">describeFleetPortSettings_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_fleetId"><span class="hs-identifier">describeFleetPortSettings_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettingsResponse"><span class="hs-identifier">newDescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetId"><span class="hs-identifier">describeFleetPortSettingsResponse_fleetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetArn"><span class="hs-identifier">describeFleetPortSettingsResponse_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_updateStatus"><span class="hs-identifier">describeFleetPortSettingsResponse_updateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_inboundPermissions"><span class="hs-identifier">describeFleetPortSettingsResponse_inboundPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_location"><span class="hs-identifier">describeFleetPortSettingsResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_httpStatus"><span class="hs-identifier">describeFleetPortSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.html"><span class="hs-identifier">Network.AWS.GameLift.Types</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetPortSettings' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679453986"><span id="local-6989586621679453987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetPortSettings"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-var">DescribeFleetPortSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetPortSettings%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-var">DescribeFleetPortSettings'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A remote location to check for status of port setting updates. Use the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- AWS Region code format, such as @us-west-2@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Alocation%3ADescribeFleetPortSettings%27"><span class="annot"><span class="annottext">DescribeFleetPortSettings -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to retrieve port settings for. You can</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AfleetId%3ADescribeFleetPortSettings%27"><span class="annot"><span class="annottext">DescribeFleetPortSettings -&gt; Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453979"><span id="local-6989586621679453981"><span class="annot"><span class="annottext">DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool
+(DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool)
+-&gt; (DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool)
+-&gt; Eq DescribeFleetPortSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool
+$c/= :: DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool
+== :: DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool
+$c== :: DescribeFleetPortSettings -&gt; DescribeFleetPortSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453970"><span id="local-6989586621679453972"><span id="local-6989586621679453974"><span id="local-6989586621679453976"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetPortSettings]
+ReadPrec DescribeFleetPortSettings
+Int -&gt; ReadS DescribeFleetPortSettings
+ReadS [DescribeFleetPortSettings]
+(Int -&gt; ReadS DescribeFleetPortSettings)
+-&gt; ReadS [DescribeFleetPortSettings]
+-&gt; ReadPrec DescribeFleetPortSettings
+-&gt; ReadPrec [DescribeFleetPortSettings]
+-&gt; Read DescribeFleetPortSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFleetPortSettings]
+$creadListPrec :: ReadPrec [DescribeFleetPortSettings]
+readPrec :: ReadPrec DescribeFleetPortSettings
+$creadPrec :: ReadPrec DescribeFleetPortSettings
+readList :: ReadS [DescribeFleetPortSettings]
+$creadList :: ReadS [DescribeFleetPortSettings]
+readsPrec :: Int -&gt; ReadS DescribeFleetPortSettings
+$creadsPrec :: Int -&gt; ReadS DescribeFleetPortSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453963"><span id="local-6989586621679453965"><span id="local-6989586621679453967"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetPortSettings -&gt; ShowS
+[DescribeFleetPortSettings] -&gt; ShowS
+DescribeFleetPortSettings -&gt; String
+(Int -&gt; DescribeFleetPortSettings -&gt; ShowS)
+-&gt; (DescribeFleetPortSettings -&gt; String)
+-&gt; ([DescribeFleetPortSettings] -&gt; ShowS)
+-&gt; Show DescribeFleetPortSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFleetPortSettings] -&gt; ShowS
+$cshowList :: [DescribeFleetPortSettings] -&gt; ShowS
+show :: DescribeFleetPortSettings -&gt; String
+$cshow :: DescribeFleetPortSettings -&gt; String
+showsPrec :: Int -&gt; DescribeFleetPortSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFleetPortSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFleetPortSettings -&gt; Rep DescribeFleetPortSettings x)
+-&gt; (forall x.
+    Rep DescribeFleetPortSettings x -&gt; DescribeFleetPortSettings)
+-&gt; Generic DescribeFleetPortSettings
+forall x.
+Rep DescribeFleetPortSettings x -&gt; DescribeFleetPortSettings
+forall x.
+DescribeFleetPortSettings -&gt; Rep DescribeFleetPortSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFleetPortSettings x -&gt; DescribeFleetPortSettings
+$cfrom :: forall x.
+DescribeFleetPortSettings -&gt; Rep DescribeFleetPortSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'DescribeFleetPortSettings' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'location', 'describeFleetPortSettings_location' - A remote location to check for status of port setting updates. Use the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- AWS Region code format, such as @us-west-2@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'fleetId', 'describeFleetPortSettings_fleetId' - A unique identifier for the fleet to retrieve port settings for. You can</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettings"><span class="hs-identifier hs-type">newDescribeFleetPortSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'fleetId'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span>
+</span><span id="line-115"></span><span id="newDescribeFleetPortSettings"><span class="annot"><span class="annottext">newDescribeFleetPortSettings :: Text -&gt; DescribeFleetPortSettings
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettings"><span class="hs-identifier hs-var hs-var">newDescribeFleetPortSettings</span></a></span></span><span> </span><span id="local-6989586621679453958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453958"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetPortSettings' :: Maybe Text -&gt; Text -&gt; DescribeFleetPortSettings
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:DescribeFleetPortSettings' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:DescribeFleetPortSettings' :: Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453958"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A remote location to check for status of port setting updates. Use the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- AWS Region code format, such as @us-west-2@.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_location"><span class="hs-identifier hs-type">describeFleetPortSettings_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describeFleetPortSettings_location"><span class="annot"><span class="annottext">describeFleetPortSettings_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetPortSettings -&gt; f DescribeFleetPortSettings
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_location"><span class="hs-identifier hs-var hs-var">describeFleetPortSettings_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettings -&gt; Maybe Text)
+-&gt; (DescribeFleetPortSettings
+    -&gt; Maybe Text -&gt; DescribeFleetPortSettings)
+-&gt; Lens
+     DescribeFleetPortSettings
+     DescribeFleetPortSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453955"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:DescribeFleetPortSettings' :: DescribeFleetPortSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679453955"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453955"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453954"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettings
+</span><a href="#local-6989586621679453954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettings
+</span><a href="#local-6989586621679453954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DescribeFleetPortSettings' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A unique identifier for the fleet to retrieve port settings for. You can</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- use either the fleet ID or ARN value.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_fleetId"><span class="hs-identifier hs-type">describeFleetPortSettings_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="describeFleetPortSettings_fleetId"><span class="annot"><span class="annottext">describeFleetPortSettings_fleetId :: (Text -&gt; f Text)
+-&gt; DescribeFleetPortSettings -&gt; f DescribeFleetPortSettings
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettings_fleetId"><span class="hs-identifier hs-var hs-var">describeFleetPortSettings_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettings -&gt; Text)
+-&gt; (DescribeFleetPortSettings -&gt; Text -&gt; DescribeFleetPortSettings)
+-&gt; Lens
+     DescribeFleetPortSettings DescribeFleetPortSettings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453952"><span class="annot"><span class="annottext">Text
+fleetId :: Text
+$sel:fleetId:DescribeFleetPortSettings' :: DescribeFleetPortSettings -&gt; Text
+</span><a href="#local-6989586621679453952"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453952"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453951"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettings
+</span><a href="#local-6989586621679453951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettings
+</span><a href="#local-6989586621679453951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeFleetPortSettings' :: Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettings%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679453946"><span class="annot"><span class="annottext">request :: DescribeFleetPortSettings -&gt; Request DescribeFleetPortSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeFleetPortSettings -&gt; Request DescribeFleetPortSettings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679453942"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeFleetPortSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFleetPortSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeFleetPortSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeFleetPortSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFleetPortSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453939"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453939"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453938"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679453938"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453937"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LocationUpdateStatus
+-&gt; Maybe [IpPermission]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">DescribeFleetPortSettingsResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe LocationUpdateStatus
+ -&gt; Maybe [IpPermission]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe LocationUpdateStatus
+      -&gt; Maybe [IpPermission]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFleetPortSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe LocationUpdateStatus
+   -&gt; Maybe [IpPermission]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LocationUpdateStatus
+      -&gt; Maybe [IpPermission]
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFleetPortSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LocationUpdateStatus
+   -&gt; Maybe [IpPermission]
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String (Maybe LocationUpdateStatus)
+-&gt; Either
+     String
+     (Maybe [IpPermission]
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeFleetPortSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LocationUpdateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [IpPermission]
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String (Maybe [IpPermission])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeFleetPortSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IpPermission]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InboundPermissions&quot;</span></span><span>
+</span><span id="line-145"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IpPermission]))
+-&gt; Maybe [IpPermission] -&gt; Either String (Maybe [IpPermission])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-146"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeFleetPortSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeFleetPortSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453939"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453928"><span id="local-6989586621679453930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679453921"><span class="annot"><span class="annottext">toHeaders :: DescribeFleetPortSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFleetPortSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.DescribeFleetPortSettings&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453911"><span id="local-6989586621679453913"><span id="local-6989586621679453915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679453909"><span class="annot"><span class="annottext">toJSON :: DescribeFleetPortSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings%27"><span class="hs-identifier hs-type">DescribeFleetPortSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453906"><span id="local-6989586621679453907"><span class="annot"><span class="annottext">Maybe Text
+Text
+fleetId :: Text
+location :: Maybe Text
+$sel:fleetId:DescribeFleetPortSettings' :: DescribeFleetPortSettings -&gt; Text
+$sel:location:DescribeFleetPortSettings' :: DescribeFleetPortSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679453906"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453907"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453906"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679453900"><span class="annot"><span class="annottext">toPath :: DescribeFleetPortSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFleetPortSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettings"><span class="hs-identifier hs-type">DescribeFleetPortSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679453896"><span class="annot"><span class="annottext">toQuery :: DescribeFleetPortSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFleetPortSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetPortSettingsResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679453893"><span id="local-6989586621679453894"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetPortSettingsResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-var">DescribeFleetPortSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetPortSettingsResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">DescribeFleetPortSettingsResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet that was requested.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AfleetId%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AfleetArn%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetArn%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The current status of updates to the fleet\'s port settings in the</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- requested fleet location. A status of @PENDING_UPDATE@ indicates that an</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- update was requested for the fleet but has not yet been completed for</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AupdateStatus%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AupdateStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The port settings for the requested fleet ID.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AinboundPermissions%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Maybe [IpPermission]
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AinboundPermissions%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">inboundPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The requested fleet location, expressed as an AWS Region code, such as</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- @us-west-2@.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3Alocation%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFleetPortSettingsResponse%27"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse -&gt; Int
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AhttpStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453883"><span id="local-6989586621679453885"><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+-&gt; DescribeFleetPortSettingsResponse -&gt; Bool
+(DescribeFleetPortSettingsResponse
+ -&gt; DescribeFleetPortSettingsResponse -&gt; Bool)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; DescribeFleetPortSettingsResponse -&gt; Bool)
+-&gt; Eq DescribeFleetPortSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFleetPortSettingsResponse
+-&gt; DescribeFleetPortSettingsResponse -&gt; Bool
+$c/= :: DescribeFleetPortSettingsResponse
+-&gt; DescribeFleetPortSettingsResponse -&gt; Bool
+== :: DescribeFleetPortSettingsResponse
+-&gt; DescribeFleetPortSettingsResponse -&gt; Bool
+$c== :: DescribeFleetPortSettingsResponse
+-&gt; DescribeFleetPortSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453875"><span id="local-6989586621679453877"><span id="local-6989586621679453879"><span id="local-6989586621679453881"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetPortSettingsResponse]
+ReadPrec DescribeFleetPortSettingsResponse
+Int -&gt; ReadS DescribeFleetPortSettingsResponse
+ReadS [DescribeFleetPortSettingsResponse]
+(Int -&gt; ReadS DescribeFleetPortSettingsResponse)
+-&gt; ReadS [DescribeFleetPortSettingsResponse]
+-&gt; ReadPrec DescribeFleetPortSettingsResponse
+-&gt; ReadPrec [DescribeFleetPortSettingsResponse]
+-&gt; Read DescribeFleetPortSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFleetPortSettingsResponse]
+$creadListPrec :: ReadPrec [DescribeFleetPortSettingsResponse]
+readPrec :: ReadPrec DescribeFleetPortSettingsResponse
+$creadPrec :: ReadPrec DescribeFleetPortSettingsResponse
+readList :: ReadS [DescribeFleetPortSettingsResponse]
+$creadList :: ReadS [DescribeFleetPortSettingsResponse]
+readsPrec :: Int -&gt; ReadS DescribeFleetPortSettingsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeFleetPortSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453869"><span id="local-6989586621679453871"><span id="local-6989586621679453873"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetPortSettingsResponse -&gt; ShowS
+[DescribeFleetPortSettingsResponse] -&gt; ShowS
+DescribeFleetPortSettingsResponse -&gt; String
+(Int -&gt; DescribeFleetPortSettingsResponse -&gt; ShowS)
+-&gt; (DescribeFleetPortSettingsResponse -&gt; String)
+-&gt; ([DescribeFleetPortSettingsResponse] -&gt; ShowS)
+-&gt; Show DescribeFleetPortSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFleetPortSettingsResponse] -&gt; ShowS
+$cshowList :: [DescribeFleetPortSettingsResponse] -&gt; ShowS
+show :: DescribeFleetPortSettingsResponse -&gt; String
+$cshow :: DescribeFleetPortSettingsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeFleetPortSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFleetPortSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFleetPortSettingsResponse
+ -&gt; Rep DescribeFleetPortSettingsResponse x)
+-&gt; (forall x.
+    Rep DescribeFleetPortSettingsResponse x
+    -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Generic DescribeFleetPortSettingsResponse
+forall x.
+Rep DescribeFleetPortSettingsResponse x
+-&gt; DescribeFleetPortSettingsResponse
+forall x.
+DescribeFleetPortSettingsResponse
+-&gt; Rep DescribeFleetPortSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFleetPortSettingsResponse x
+-&gt; DescribeFleetPortSettingsResponse
+$cfrom :: forall x.
+DescribeFleetPortSettingsResponse
+-&gt; Rep DescribeFleetPortSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'DescribeFleetPortSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'fleetId', 'describeFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was requested.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'fleetArn', 'describeFleetPortSettingsResponse_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'updateStatus', 'describeFleetPortSettingsResponse_updateStatus' - The current status of updates to the fleet\'s port settings in the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- requested fleet location. A status of @PENDING_UPDATE@ indicates that an</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- update was requested for the fleet but has not yet been completed for</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'inboundPermissions', 'describeFleetPortSettingsResponse_inboundPermissions' - The port settings for the requested fleet ID.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'location', 'describeFleetPortSettingsResponse_location' - The requested fleet location, expressed as an AWS Region code, such as</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @us-west-2@.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'describeFleetPortSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">newDescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span>
+</span><span id="line-243"></span><span id="newDescribeFleetPortSettingsResponse"><span class="annot"><span class="annottext">newDescribeFleetPortSettingsResponse :: Int -&gt; DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#newDescribeFleetPortSettingsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetPortSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679453866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe LocationUpdateStatus
+-&gt; Maybe [IpPermission]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetArn%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateStatus:DescribeFleetPortSettingsResponse' :: Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AupdateStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:inboundPermissions:DescribeFleetPortSettingsResponse' :: Maybe [IpPermission]
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AinboundPermissions%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">inboundPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetPortSettingsResponse' :: Int
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AhttpStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | A unique identifier for the fleet that was requested.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetId"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeFleetPortSettingsResponse_fleetId"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetId"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Maybe Text -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453865"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679453865"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453865"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453864"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetId%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetArn"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="describeFleetPortSettingsResponse_fleetArn"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_fleetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_fleetArn"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Maybe Text -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453862"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679453862"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453862"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453861"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AfleetArn%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The current status of updates to the fleet\'s port settings in the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- requested fleet location. A status of @PENDING_UPDATE@ indicates that an</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- update was requested for the fleet but has not yet been completed for</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_updateStatus"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_updateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="describeFleetPortSettingsResponse_updateStatus"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_updateStatus :: (Maybe LocationUpdateStatus -&gt; f (Maybe LocationUpdateStatus))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_updateStatus"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_updateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Maybe LocationUpdateStatus)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Maybe LocationUpdateStatus -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     (Maybe LocationUpdateStatus)
+     (Maybe LocationUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453859"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+updateStatus :: Maybe LocationUpdateStatus
+$sel:updateStatus:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679453859"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679453859"><span class="hs-identifier hs-var">updateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453858"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453857"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679453857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateStatus:DescribeFleetPortSettingsResponse' :: Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AupdateStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679453857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The port settings for the requested fleet ID.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_inboundPermissions"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_inboundPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="describeFleetPortSettingsResponse_inboundPermissions"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_inboundPermissions :: (Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_inboundPermissions"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_inboundPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Maybe [IpPermission])
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Maybe [IpPermission] -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453856"><span class="annot"><span class="annottext">Maybe [IpPermission]
+inboundPermissions :: Maybe [IpPermission]
+$sel:inboundPermissions:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Maybe [IpPermission]
+</span><a href="#local-6989586621679453856"><span class="hs-identifier hs-var hs-var">inboundPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621679453856"><span class="hs-identifier hs-var">inboundPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453855"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453854"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621679453854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboundPermissions:DescribeFleetPortSettingsResponse' :: Maybe [IpPermission]
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AinboundPermissions%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">inboundPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621679453854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+ -&gt; DescribeFleetPortSettingsResponse
+ -&gt; f DescribeFleetPortSettingsResponse)
+-&gt; ((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+    -&gt; Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; (Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IpPermission] [IpPermission] [IpPermission] [IpPermission]
+-&gt; Iso
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+     (Maybe [IpPermission])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IpPermission] [IpPermission] [IpPermission] [IpPermission]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The requested fleet location, expressed as an AWS Region code, such as</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- @us-west-2@.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_location"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="describeFleetPortSettingsResponse_location"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_location"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Maybe Text)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Maybe Text -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453850"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679453850"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453850"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453849"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DescribeFleetPortSettingsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3Alocation%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679453848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_httpStatus"><span class="hs-identifier hs-type">describeFleetPortSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-284"></span><span id="describeFleetPortSettingsResponse_httpStatus"><span class="annot"><span class="annottext">describeFleetPortSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeFleetPortSettingsResponse
+-&gt; f DescribeFleetPortSettingsResponse
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#describeFleetPortSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeFleetPortSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetPortSettingsResponse -&gt; Int)
+-&gt; (DescribeFleetPortSettingsResponse
+    -&gt; Int -&gt; DescribeFleetPortSettingsResponse)
+-&gt; Lens
+     DescribeFleetPortSettingsResponse
+     DescribeFleetPortSettingsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453847"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeFleetPortSettingsResponse' :: DescribeFleetPortSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679453847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453846"><span class="annot"><span class="annottext">s :: DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetPortSettingsResponse
+</span><a href="#local-6989586621679453846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetPortSettingsResponse' :: Int
+</span><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#%24sel%3AhttpStatus%3ADescribeFleetPortSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679453843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetPortSettings.html#DescribeFleetPortSettingsResponse"><span class="hs-identifier hs-type">DescribeFleetPortSettingsResponse</span></a></span></span><span>
+</span><span id="line-289"></span></pre></body></html>

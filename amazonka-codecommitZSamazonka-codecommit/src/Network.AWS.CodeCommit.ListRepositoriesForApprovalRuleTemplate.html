@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all repositories associated with the specified approval rule</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier">ListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier">newListRepositoriesForApprovalRuleTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_nextToken"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplate_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_maxResults"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplate_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier">newListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_nextToken"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplateResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_repositoryNames"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplateResponse_repositoryNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_httpStatus"><span class="hs-identifier">listRepositoriesForApprovalRuleTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.html"><span class="hs-identifier">Network.AWS.CodeCommit.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListRepositoriesForApprovalRuleTemplate' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679361035"><span id="local-6989586621679361036"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositoriesForApprovalRuleTemplate"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-var">ListRepositoriesForApprovalRuleTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositoriesForApprovalRuleTemplate%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">ListRepositoriesForApprovalRuleTemplate'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRepositoriesForApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AmaxResults%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the approval rule template for which you want to list</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- repositories that are associated with that template.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AapprovalRuleTemplateName%3AListRepositoriesForApprovalRuleTemplate%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate -&gt; Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361027"><span id="local-6989586621679361029"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool
+(ListRepositoriesForApprovalRuleTemplate
+ -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool)
+-&gt; (ListRepositoriesForApprovalRuleTemplate
+    -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool)
+-&gt; Eq ListRepositoriesForApprovalRuleTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRepositoriesForApprovalRuleTemplate
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool
+$c/= :: ListRepositoriesForApprovalRuleTemplate
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool
+== :: ListRepositoriesForApprovalRuleTemplate
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool
+$c== :: ListRepositoriesForApprovalRuleTemplate
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361018"><span id="local-6989586621679361020"><span id="local-6989586621679361022"><span id="local-6989586621679361024"><span class="annot"><span class="annottext">ReadPrec [ListRepositoriesForApprovalRuleTemplate]
+ReadPrec ListRepositoriesForApprovalRuleTemplate
+Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplate
+ReadS [ListRepositoriesForApprovalRuleTemplate]
+(Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplate)
+-&gt; ReadS [ListRepositoriesForApprovalRuleTemplate]
+-&gt; ReadPrec ListRepositoriesForApprovalRuleTemplate
+-&gt; ReadPrec [ListRepositoriesForApprovalRuleTemplate]
+-&gt; Read ListRepositoriesForApprovalRuleTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRepositoriesForApprovalRuleTemplate]
+$creadListPrec :: ReadPrec [ListRepositoriesForApprovalRuleTemplate]
+readPrec :: ReadPrec ListRepositoriesForApprovalRuleTemplate
+$creadPrec :: ReadPrec ListRepositoriesForApprovalRuleTemplate
+readList :: ReadS [ListRepositoriesForApprovalRuleTemplate]
+$creadList :: ReadS [ListRepositoriesForApprovalRuleTemplate]
+readsPrec :: Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplate
+$creadsPrec :: Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361011"><span id="local-6989586621679361013"><span id="local-6989586621679361015"><span class="annot"><span class="annottext">Int -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ShowS
+[ListRepositoriesForApprovalRuleTemplate] -&gt; ShowS
+ListRepositoriesForApprovalRuleTemplate -&gt; String
+(Int -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ShowS)
+-&gt; (ListRepositoriesForApprovalRuleTemplate -&gt; String)
+-&gt; ([ListRepositoriesForApprovalRuleTemplate] -&gt; ShowS)
+-&gt; Show ListRepositoriesForApprovalRuleTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRepositoriesForApprovalRuleTemplate] -&gt; ShowS
+$cshowList :: [ListRepositoriesForApprovalRuleTemplate] -&gt; ShowS
+show :: ListRepositoriesForApprovalRuleTemplate -&gt; String
+$cshow :: ListRepositoriesForApprovalRuleTemplate -&gt; String
+showsPrec :: Int -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRepositoriesForApprovalRuleTemplate
+ -&gt; Rep ListRepositoriesForApprovalRuleTemplate x)
+-&gt; (forall x.
+    Rep ListRepositoriesForApprovalRuleTemplate x
+    -&gt; ListRepositoriesForApprovalRuleTemplate)
+-&gt; Generic ListRepositoriesForApprovalRuleTemplate
+forall x.
+Rep ListRepositoriesForApprovalRuleTemplate x
+-&gt; ListRepositoriesForApprovalRuleTemplate
+forall x.
+ListRepositoriesForApprovalRuleTemplate
+-&gt; Rep ListRepositoriesForApprovalRuleTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRepositoriesForApprovalRuleTemplate x
+-&gt; ListRepositoriesForApprovalRuleTemplate
+$cfrom :: forall x.
+ListRepositoriesForApprovalRuleTemplate
+-&gt; Rep ListRepositoriesForApprovalRuleTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ListRepositoriesForApprovalRuleTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'listRepositoriesForApprovalRuleTemplate_nextToken' - An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'maxResults', 'listRepositoriesForApprovalRuleTemplate_maxResults' - A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'approvalRuleTemplateName', 'listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName' - The name of the approval rule template for which you want to list</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- repositories that are associated with that template.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">newListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'approvalRuleTemplateName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-87"></span><span id="newListRepositoriesForApprovalRuleTemplate"><span class="annot"><span class="annottext">newListRepositoriesForApprovalRuleTemplate :: Text -&gt; ListRepositoriesForApprovalRuleTemplate
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-var hs-var">newListRepositoriesForApprovalRuleTemplate</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679361006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361006"><span class="hs-identifier hs-var">pApprovalRuleTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate' :: Maybe Text
+-&gt; Maybe Int -&gt; Text -&gt; ListRepositoriesForApprovalRuleTemplate
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesForApprovalRuleTemplate' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListRepositoriesForApprovalRuleTemplate' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AmaxResults%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateName:ListRepositoriesForApprovalRuleTemplate' :: Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361006"><span class="hs-identifier hs-var">pApprovalRuleTemplateName_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- batch of the results.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_nextToken"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplate_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listRepositoriesForApprovalRuleTemplate_nextToken"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplate_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRepositoriesForApprovalRuleTemplate
+-&gt; f ListRepositoriesForApprovalRuleTemplate
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_nextToken"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplate_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Text)
+-&gt; (ListRepositoriesForApprovalRuleTemplate
+    -&gt; Maybe Text -&gt; ListRepositoriesForApprovalRuleTemplate)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplate
+     ListRepositoriesForApprovalRuleTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361003"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679361003"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361003"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361002"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679361002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679361002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesForApprovalRuleTemplate' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | A non-zero, non-negative integer used to limit the number of returned</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_maxResults"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplate_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listRepositoriesForApprovalRuleTemplate_maxResults"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplate_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListRepositoriesForApprovalRuleTemplate
+-&gt; f ListRepositoriesForApprovalRuleTemplate
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_maxResults"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplate_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Int)
+-&gt; (ListRepositoriesForApprovalRuleTemplate
+    -&gt; Maybe Int -&gt; ListRepositoriesForApprovalRuleTemplate)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplate
+     ListRepositoriesForApprovalRuleTemplate
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361000"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Int
+</span><a href="#local-6989586621679361000"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361000"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360999"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679360999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360998"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679360998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679360999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRepositoriesForApprovalRuleTemplate' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AmaxResults%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679360998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the approval rule template for which you want to list</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- repositories that are associated with that template.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName :: (Text -&gt; f Text)
+-&gt; ListRepositoriesForApprovalRuleTemplate
+-&gt; f ListRepositoriesForApprovalRuleTemplate
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplate -&gt; Text)
+-&gt; (ListRepositoriesForApprovalRuleTemplate
+    -&gt; Text -&gt; ListRepositoriesForApprovalRuleTemplate)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplate
+     ListRepositoriesForApprovalRuleTemplate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360997"><span class="annot"><span class="annottext">Text
+approvalRuleTemplateName :: Text
+$sel:approvalRuleTemplateName:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Text
+</span><a href="#local-6989586621679360997"><span class="hs-identifier hs-var hs-var">approvalRuleTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360997"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360996"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679360996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplate
+</span><a href="#local-6989586621679360996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalRuleTemplateName:ListRepositoriesForApprovalRuleTemplate' :: Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AapprovalRuleTemplateName%3AListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679360991"><span class="annot"><span class="annottext">request :: ListRepositoriesForApprovalRuleTemplate
+-&gt; Request ListRepositoriesForApprovalRuleTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListRepositoriesForApprovalRuleTemplate
+-&gt; Request ListRepositoriesForApprovalRuleTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679360987"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListRepositoriesForApprovalRuleTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListRepositoriesForApprovalRuleTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse ListRepositoriesForApprovalRuleTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListRepositoriesForApprovalRuleTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListRepositoriesForApprovalRuleTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360984"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360983"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679360983"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Int
+ -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryNames&quot;</span></span><span>
+</span><span id="line-127"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String ListRepositoriesForApprovalRuleTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360984"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679360973"><span id="local-6989586621679360975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679360970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679360966"><span class="annot"><span class="annottext">toHeaders :: ListRepositoriesForApprovalRuleTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679360956"><span id="local-6989586621679360958"><span id="local-6989586621679360960"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span></span></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679360954"><span class="annot"><span class="annottext">toJSON :: ListRepositoriesForApprovalRuleTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360950"><span id="local-6989586621679360951"><span id="local-6989586621679360952"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+approvalRuleTemplateName :: Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:approvalRuleTemplateName:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Text
+$sel:maxResults:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Int
+$sel:nextToken:ListRepositoriesForApprovalRuleTemplate' :: ListRepositoriesForApprovalRuleTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679360950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679360951"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;approvalRuleTemplateName&quot;</span></span><span>
+</span><span id="line-169"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360950"><span class="hs-identifier hs-var">approvalRuleTemplateName</span></a></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679360944"><span class="annot"><span class="annottext">toPath :: ListRepositoriesForApprovalRuleTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRepositoriesForApprovalRuleTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplate"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplate</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679360940"><span class="annot"><span class="annottext">toQuery :: ListRepositoriesForApprovalRuleTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; ListRepositoriesForApprovalRuleTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newListRepositoriesForApprovalRuleTemplateResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679360937"><span id="local-6989586621679360938"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositoriesForApprovalRuleTemplateResponse"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-var">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that allows the operation to batch the next results</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- of the operation.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | A list of repository names that are associated with the specified</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- approval rule template.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3ArepositoryNames%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3ArepositoryNames%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse -&gt; Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AhttpStatus%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360930"><span id="local-6989586621679360932"><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool
+(ListRepositoriesForApprovalRuleTemplateResponse
+ -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool)
+-&gt; (ListRepositoriesForApprovalRuleTemplateResponse
+    -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool)
+-&gt; Eq ListRepositoriesForApprovalRuleTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool
+$c/= :: ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool
+== :: ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool
+$c== :: ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360922"><span id="local-6989586621679360924"><span id="local-6989586621679360926"><span id="local-6989586621679360928"><span class="annot"><span class="annottext">ReadPrec [ListRepositoriesForApprovalRuleTemplateResponse]
+ReadPrec ListRepositoriesForApprovalRuleTemplateResponse
+Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplateResponse
+ReadS [ListRepositoriesForApprovalRuleTemplateResponse]
+(Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; ReadS [ListRepositoriesForApprovalRuleTemplateResponse]
+-&gt; ReadPrec ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; ReadPrec [ListRepositoriesForApprovalRuleTemplateResponse]
+-&gt; Read ListRepositoriesForApprovalRuleTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRepositoriesForApprovalRuleTemplateResponse]
+$creadListPrec :: ReadPrec [ListRepositoriesForApprovalRuleTemplateResponse]
+readPrec :: ReadPrec ListRepositoriesForApprovalRuleTemplateResponse
+$creadPrec :: ReadPrec ListRepositoriesForApprovalRuleTemplateResponse
+readList :: ReadS [ListRepositoriesForApprovalRuleTemplateResponse]
+$creadList :: ReadS [ListRepositoriesForApprovalRuleTemplateResponse]
+readsPrec :: Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplateResponse
+$creadsPrec :: Int -&gt; ReadS ListRepositoriesForApprovalRuleTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360916"><span id="local-6989586621679360918"><span id="local-6989586621679360920"><span class="annot"><span class="annottext">Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; ShowS
+[ListRepositoriesForApprovalRuleTemplateResponse] -&gt; ShowS
+ListRepositoriesForApprovalRuleTemplateResponse -&gt; String
+(Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; ShowS)
+-&gt; (ListRepositoriesForApprovalRuleTemplateResponse -&gt; String)
+-&gt; ([ListRepositoriesForApprovalRuleTemplateResponse] -&gt; ShowS)
+-&gt; Show ListRepositoriesForApprovalRuleTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRepositoriesForApprovalRuleTemplateResponse] -&gt; ShowS
+$cshowList :: [ListRepositoriesForApprovalRuleTemplateResponse] -&gt; ShowS
+show :: ListRepositoriesForApprovalRuleTemplateResponse -&gt; String
+$cshow :: ListRepositoriesForApprovalRuleTemplateResponse -&gt; String
+showsPrec :: Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRepositoriesForApprovalRuleTemplateResponse
+ -&gt; Rep ListRepositoriesForApprovalRuleTemplateResponse x)
+-&gt; (forall x.
+    Rep ListRepositoriesForApprovalRuleTemplateResponse x
+    -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Generic ListRepositoriesForApprovalRuleTemplateResponse
+forall x.
+Rep ListRepositoriesForApprovalRuleTemplateResponse x
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+forall x.
+ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; Rep ListRepositoriesForApprovalRuleTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRepositoriesForApprovalRuleTemplateResponse x
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+$cfrom :: forall x.
+ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; Rep ListRepositoriesForApprovalRuleTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'ListRepositoriesForApprovalRuleTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'listRepositoriesForApprovalRuleTemplateResponse_nextToken' - An enumeration token that allows the operation to batch the next results</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- of the operation.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'repositoryNames', 'listRepositoriesForApprovalRuleTemplateResponse_repositoryNames' - A list of repository names that are associated with the specified</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- approval rule template.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'listRepositoriesForApprovalRuleTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">newListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newListRepositoriesForApprovalRuleTemplateResponse"><span class="annot"><span class="annottext">newListRepositoriesForApprovalRuleTemplateResponse :: Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#newListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-var hs-var">newListRepositoriesForApprovalRuleTemplateResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679360913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Int
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesForApprovalRuleTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryNames:ListRepositoriesForApprovalRuleTemplateResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3ArepositoryNames%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRepositoriesForApprovalRuleTemplateResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AhttpStatus%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | An enumeration token that allows the operation to batch the next results</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- of the operation.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_nextToken"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplateResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="listRepositoriesForApprovalRuleTemplateResponse_nextToken"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplateResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; f ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplateResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe Text)
+-&gt; (ListRepositoriesForApprovalRuleTemplateResponse
+    -&gt; Maybe Text -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplateResponse
+     ListRepositoriesForApprovalRuleTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360912"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRepositoriesForApprovalRuleTemplateResponse' :: ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679360912"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360912"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360911"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360910"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesForApprovalRuleTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AnextToken%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A list of repository names that are associated with the specified</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- approval rule template.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_repositoryNames"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplateResponse_repositoryNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="listRepositoriesForApprovalRuleTemplateResponse_repositoryNames"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplateResponse_repositoryNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; f ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_repositoryNames"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplateResponse_repositoryNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe [Text])
+-&gt; (ListRepositoriesForApprovalRuleTemplateResponse
+    -&gt; Maybe [Text] -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplateResponse
+     ListRepositoriesForApprovalRuleTemplateResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360909"><span class="annot"><span class="annottext">Maybe [Text]
+repositoryNames :: Maybe [Text]
+$sel:repositoryNames:ListRepositoriesForApprovalRuleTemplateResponse' :: ListRepositoriesForApprovalRuleTemplateResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679360909"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679360909"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360908"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360907"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679360907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryNames:ListRepositoriesForApprovalRuleTemplateResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3ArepositoryNames%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679360907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListRepositoriesForApprovalRuleTemplateResponse
+ -&gt; f ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; f ListRepositoriesForApprovalRuleTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_httpStatus"><span class="hs-identifier hs-type">listRepositoriesForApprovalRuleTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="listRepositoriesForApprovalRuleTemplateResponse_httpStatus"><span class="annot"><span class="annottext">listRepositoriesForApprovalRuleTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListRepositoriesForApprovalRuleTemplateResponse
+-&gt; f ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#listRepositoriesForApprovalRuleTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listRepositoriesForApprovalRuleTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRepositoriesForApprovalRuleTemplateResponse -&gt; Int)
+-&gt; (ListRepositoriesForApprovalRuleTemplateResponse
+    -&gt; Int -&gt; ListRepositoriesForApprovalRuleTemplateResponse)
+-&gt; Lens
+     ListRepositoriesForApprovalRuleTemplateResponse
+     ListRepositoriesForApprovalRuleTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360903"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListRepositoriesForApprovalRuleTemplateResponse' :: ListRepositoriesForApprovalRuleTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679360903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360902"><span class="annot"><span class="annottext">s :: ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesForApprovalRuleTemplateResponse
+</span><a href="#local-6989586621679360902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRepositoriesForApprovalRuleTemplateResponse' :: Int
+</span><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#%24sel%3AhttpStatus%3AListRepositoriesForApprovalRuleTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679360899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate.html#ListRepositoriesForApprovalRuleTemplateResponse"><span class="hs-identifier hs-type">ListRepositoriesForApprovalRuleTemplateResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

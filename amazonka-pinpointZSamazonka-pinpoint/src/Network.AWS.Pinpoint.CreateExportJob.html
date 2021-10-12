@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.CreateExportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an export job for an application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.CreateExportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier">CreateExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJob"><span class="hs-identifier">newCreateExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_applicationId"><span class="hs-identifier">createExportJob_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_exportJobRequest"><span class="hs-identifier">createExportJob_exportJobRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier">CreateExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJobResponse"><span class="hs-identifier">newCreateExportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_httpStatus"><span class="hs-identifier">createExportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_exportJobResponse"><span class="hs-identifier">createExportJobResponse_exportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.html"><span class="hs-identifier">Network.AWS.Pinpoint.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newCreateExportJob' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679640956"><span id="local-6989586621679640957"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExportJob"><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-var">CreateExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExportJob%27"><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-var">CreateExportJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AapplicationId%3ACreateExportJob%27"><span class="annot"><span class="annottext">CreateExportJob -&gt; Text
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AapplicationId%3ACreateExportJob%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AexportJobRequest%3ACreateExportJob%27"><span class="annot"><span class="annottext">CreateExportJob -&gt; ExportJobRequest
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobRequest%3ACreateExportJob%27"><span class="hs-identifier hs-var hs-var">exportJobRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640949"><span id="local-6989586621679640951"><span class="annot"><span class="annottext">CreateExportJob -&gt; CreateExportJob -&gt; Bool
+(CreateExportJob -&gt; CreateExportJob -&gt; Bool)
+-&gt; (CreateExportJob -&gt; CreateExportJob -&gt; Bool)
+-&gt; Eq CreateExportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExportJob -&gt; CreateExportJob -&gt; Bool
+$c/= :: CreateExportJob -&gt; CreateExportJob -&gt; Bool
+== :: CreateExportJob -&gt; CreateExportJob -&gt; Bool
+$c== :: CreateExportJob -&gt; CreateExportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640940"><span id="local-6989586621679640942"><span id="local-6989586621679640944"><span id="local-6989586621679640946"><span class="annot"><span class="annottext">ReadPrec [CreateExportJob]
+ReadPrec CreateExportJob
+Int -&gt; ReadS CreateExportJob
+ReadS [CreateExportJob]
+(Int -&gt; ReadS CreateExportJob)
+-&gt; ReadS [CreateExportJob]
+-&gt; ReadPrec CreateExportJob
+-&gt; ReadPrec [CreateExportJob]
+-&gt; Read CreateExportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExportJob]
+$creadListPrec :: ReadPrec [CreateExportJob]
+readPrec :: ReadPrec CreateExportJob
+$creadPrec :: ReadPrec CreateExportJob
+readList :: ReadS [CreateExportJob]
+$creadList :: ReadS [CreateExportJob]
+readsPrec :: Int -&gt; ReadS CreateExportJob
+$creadsPrec :: Int -&gt; ReadS CreateExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640933"><span id="local-6989586621679640935"><span id="local-6989586621679640937"><span class="annot"><span class="annottext">Int -&gt; CreateExportJob -&gt; ShowS
+[CreateExportJob] -&gt; ShowS
+CreateExportJob -&gt; String
+(Int -&gt; CreateExportJob -&gt; ShowS)
+-&gt; (CreateExportJob -&gt; String)
+-&gt; ([CreateExportJob] -&gt; ShowS)
+-&gt; Show CreateExportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExportJob] -&gt; ShowS
+$cshowList :: [CreateExportJob] -&gt; ShowS
+show :: CreateExportJob -&gt; String
+$cshow :: CreateExportJob -&gt; String
+showsPrec :: Int -&gt; CreateExportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateExportJob -&gt; Rep CreateExportJob x)
+-&gt; (forall x. Rep CreateExportJob x -&gt; CreateExportJob)
+-&gt; Generic CreateExportJob
+forall x. Rep CreateExportJob x -&gt; CreateExportJob
+forall x. CreateExportJob -&gt; Rep CreateExportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateExportJob x -&gt; CreateExportJob
+$cfrom :: forall x. CreateExportJob -&gt; Rep CreateExportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CreateExportJob' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'applicationId', 'createExportJob_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'exportJobRequest', 'createExportJob_exportJobRequest' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJob"><span class="hs-identifier hs-type">newCreateExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'exportJobRequest'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span>
+</span><span id="line-77"></span><span id="newCreateExportJob"><span class="annot"><span class="annottext">newCreateExportJob :: Text -&gt; ExportJobRequest -&gt; CreateExportJob
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJob"><span class="hs-identifier hs-var hs-var">newCreateExportJob</span></a></span></span><span> </span><span id="local-6989586621679640928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640928"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span id="local-6989586621679640927"><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640927"><span class="hs-identifier hs-var">pExportJobRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">CreateExportJob' :: Text -&gt; ExportJobRequest -&gt; CreateExportJob
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:CreateExportJob' :: Text
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AapplicationId%3ACreateExportJob%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640928"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportJobRequest:CreateExportJob' :: ExportJobRequest
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobRequest%3ACreateExportJob%27"><span class="hs-identifier hs-var">exportJobRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640927"><span class="hs-identifier hs-var">pExportJobRequest_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_applicationId"><span class="hs-identifier hs-type">createExportJob_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="createExportJob_applicationId"><span class="annot"><span class="annottext">createExportJob_applicationId :: (Text -&gt; f Text) -&gt; CreateExportJob -&gt; f CreateExportJob
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_applicationId"><span class="hs-identifier hs-var hs-var">createExportJob_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportJob -&gt; Text)
+-&gt; (CreateExportJob -&gt; Text -&gt; CreateExportJob)
+-&gt; Lens CreateExportJob CreateExportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640924"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:CreateExportJob' :: CreateExportJob -&gt; Text
+</span><a href="#local-6989586621679640924"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640924"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640923"><span class="annot"><span class="annottext">s :: CreateExportJob
+</span><a href="#local-6989586621679640923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportJob
+</span><a href="#local-6989586621679640923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:CreateExportJob' :: Text
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AapplicationId%3ACreateExportJob%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_exportJobRequest"><span class="hs-identifier hs-type">createExportJob_exportJobRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobRequest.html#ExportJobRequest"><span class="hs-identifier hs-type">ExportJobRequest</span></a></span><span>
+</span><span id="line-90"></span><span id="createExportJob_exportJobRequest"><span class="annot"><span class="annottext">createExportJob_exportJobRequest :: (ExportJobRequest -&gt; f ExportJobRequest)
+-&gt; CreateExportJob -&gt; f CreateExportJob
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJob_exportJobRequest"><span class="hs-identifier hs-var hs-var">createExportJob_exportJobRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportJob -&gt; ExportJobRequest)
+-&gt; (CreateExportJob -&gt; ExportJobRequest -&gt; CreateExportJob)
+-&gt; Lens
+     CreateExportJob CreateExportJob ExportJobRequest ExportJobRequest
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640921"><span class="annot"><span class="annottext">ExportJobRequest
+exportJobRequest :: ExportJobRequest
+$sel:exportJobRequest:CreateExportJob' :: CreateExportJob -&gt; ExportJobRequest
+</span><a href="#local-6989586621679640921"><span class="hs-identifier hs-var hs-var">exportJobRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640921"><span class="hs-identifier hs-var">exportJobRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640920"><span class="annot"><span class="annottext">s :: CreateExportJob
+</span><a href="#local-6989586621679640920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640919"><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportJob
+</span><a href="#local-6989586621679640920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportJobRequest:CreateExportJob' :: ExportJobRequest
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobRequest%3ACreateExportJob%27"><span class="hs-identifier hs-var">exportJobRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679640915"><span class="annot"><span class="annottext">request :: CreateExportJob -&gt; Request CreateExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateExportJob -&gt; Request CreateExportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679640911"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateExportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateExportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateExportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679640908"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640908"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679640907"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679640907"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679640906"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679640906"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ExportJobResponse -&gt; CreateExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-var">CreateExportJobResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ExportJobResponse -&gt; CreateExportJobResponse)
+-&gt; Either String Int
+-&gt; Either String (ExportJobResponse -&gt; CreateExportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640908"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (ExportJobResponse -&gt; CreateExportJobResponse)
+-&gt; Either String ExportJobResponse
+-&gt; Either String CreateExportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String ExportJobResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679640906"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640898"><span id="local-6989586621679640900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679640891"><span class="annot"><span class="annottext">toHeaders :: CreateExportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateExportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640881"><span id="local-6989586621679640883"><span id="local-6989586621679640885"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679640879"><span class="annot"><span class="annottext">toJSON :: CreateExportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640876"><span id="local-6989586621679640877"><span class="annot"><span class="annottext">Text
+ExportJobRequest
+exportJobRequest :: ExportJobRequest
+applicationId :: Text
+$sel:exportJobRequest:CreateExportJob' :: CreateExportJob -&gt; ExportJobRequest
+$sel:applicationId:CreateExportJob' :: CreateExportJob -&gt; Text
+</span><a href="#local-6989586621679640876"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportJobRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExportJobRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ExportJobRequest
+</span><a href="#local-6989586621679640876"><span class="hs-identifier hs-var">exportJobRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679640870"><span class="annot"><span class="annottext">toPath :: CreateExportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob%27"><span class="hs-identifier hs-type">CreateExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640867"><span id="local-6989586621679640868"><span class="annot"><span class="annottext">Text
+ExportJobRequest
+exportJobRequest :: ExportJobRequest
+applicationId :: Text
+$sel:exportJobRequest:CreateExportJob' :: CreateExportJob -&gt; ExportJobRequest
+$sel:applicationId:CreateExportJob' :: CreateExportJob -&gt; Text
+</span><a href="#local-6989586621679640867"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679640868"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs/export&quot;</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJob"><span class="hs-identifier hs-type">CreateExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679640863"><span class="annot"><span class="annottext">toQuery :: CreateExportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateExportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newCreateExportJobResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679640860"><span id="local-6989586621679640861"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateExportJobResponse"><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-var">CreateExportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateExportJobResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-var">CreateExportJobResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateExportJobResponse%27"><span class="annot"><span class="annottext">CreateExportJobResponse -&gt; Int
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AhttpStatus%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AexportJobResponse%3ACreateExportJobResponse%27"><span class="annot"><span class="annottext">CreateExportJobResponse -&gt; ExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobResponse%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var hs-var">exportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobResponse.html#ExportJobResponse"><span class="hs-identifier hs-type">ExportJobResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640854"><span id="local-6989586621679640856"><span class="annot"><span class="annottext">CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool
+(CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool)
+-&gt; (CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool)
+-&gt; Eq CreateExportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool
+$c/= :: CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool
+== :: CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool
+$c== :: CreateExportJobResponse -&gt; CreateExportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640846"><span id="local-6989586621679640848"><span id="local-6989586621679640850"><span id="local-6989586621679640852"><span class="annot"><span class="annottext">ReadPrec [CreateExportJobResponse]
+ReadPrec CreateExportJobResponse
+Int -&gt; ReadS CreateExportJobResponse
+ReadS [CreateExportJobResponse]
+(Int -&gt; ReadS CreateExportJobResponse)
+-&gt; ReadS [CreateExportJobResponse]
+-&gt; ReadPrec CreateExportJobResponse
+-&gt; ReadPrec [CreateExportJobResponse]
+-&gt; Read CreateExportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateExportJobResponse]
+$creadListPrec :: ReadPrec [CreateExportJobResponse]
+readPrec :: ReadPrec CreateExportJobResponse
+$creadPrec :: ReadPrec CreateExportJobResponse
+readList :: ReadS [CreateExportJobResponse]
+$creadList :: ReadS [CreateExportJobResponse]
+readsPrec :: Int -&gt; ReadS CreateExportJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateExportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640840"><span id="local-6989586621679640842"><span id="local-6989586621679640844"><span class="annot"><span class="annottext">Int -&gt; CreateExportJobResponse -&gt; ShowS
+[CreateExportJobResponse] -&gt; ShowS
+CreateExportJobResponse -&gt; String
+(Int -&gt; CreateExportJobResponse -&gt; ShowS)
+-&gt; (CreateExportJobResponse -&gt; String)
+-&gt; ([CreateExportJobResponse] -&gt; ShowS)
+-&gt; Show CreateExportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateExportJobResponse] -&gt; ShowS
+$cshowList :: [CreateExportJobResponse] -&gt; ShowS
+show :: CreateExportJobResponse -&gt; String
+$cshow :: CreateExportJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateExportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateExportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateExportJobResponse -&gt; Rep CreateExportJobResponse x)
+-&gt; (forall x.
+    Rep CreateExportJobResponse x -&gt; CreateExportJobResponse)
+-&gt; Generic CreateExportJobResponse
+forall x. Rep CreateExportJobResponse x -&gt; CreateExportJobResponse
+forall x. CreateExportJobResponse -&gt; Rep CreateExportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateExportJobResponse x -&gt; CreateExportJobResponse
+$cfrom :: forall x. CreateExportJobResponse -&gt; Rep CreateExportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'CreateExportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'createExportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'exportJobResponse', 'createExportJobResponse_exportJobResponse' - Undocumented member.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJobResponse"><span class="hs-identifier hs-type">newCreateExportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'exportJobResponse'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobResponse.html#ExportJobResponse"><span class="hs-identifier hs-type">ExportJobResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newCreateExportJobResponse"><span class="annot"><span class="annottext">newCreateExportJobResponse :: Int -&gt; ExportJobResponse -&gt; CreateExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#newCreateExportJobResponse"><span class="hs-identifier hs-var hs-var">newCreateExportJobResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679640837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679640836"><span class="annot"><span class="annottext">ExportJobResponse
+</span><a href="#local-6989586621679640836"><span class="hs-identifier hs-var">pExportJobResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">CreateExportJobResponse' :: Int -&gt; ExportJobResponse -&gt; CreateExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-type">CreateExportJobResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExportJobResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AhttpStatus%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportJobResponse:CreateExportJobResponse' :: ExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobResponse%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var">exportJobResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportJobResponse
+</span><a href="#local-6989586621679640836"><span class="hs-identifier hs-var">pExportJobResponse_</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_httpStatus"><span class="hs-identifier hs-type">createExportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span id="createExportJobResponse_httpStatus"><span class="annot"><span class="annottext">createExportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateExportJobResponse -&gt; f CreateExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createExportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportJobResponse -&gt; Int)
+-&gt; (CreateExportJobResponse -&gt; Int -&gt; CreateExportJobResponse)
+-&gt; Lens CreateExportJobResponse CreateExportJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-type">CreateExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640835"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateExportJobResponse' :: CreateExportJobResponse -&gt; Int
+</span><a href="#local-6989586621679640835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640834"><span class="annot"><span class="annottext">s :: CreateExportJobResponse
+</span><a href="#local-6989586621679640834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-type">CreateExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportJobResponse
+</span><a href="#local-6989586621679640834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateExportJobResponse' :: Int
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AhttpStatus%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679640833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_exportJobResponse"><span class="hs-identifier hs-type">createExportJobResponse_exportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ExportJobResponse.html#ExportJobResponse"><span class="hs-identifier hs-type">ExportJobResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="createExportJobResponse_exportJobResponse"><span class="annot"><span class="annottext">createExportJobResponse_exportJobResponse :: (ExportJobResponse -&gt; f ExportJobResponse)
+-&gt; CreateExportJobResponse -&gt; f CreateExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#createExportJobResponse_exportJobResponse"><span class="hs-identifier hs-var hs-var">createExportJobResponse_exportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateExportJobResponse -&gt; ExportJobResponse)
+-&gt; (CreateExportJobResponse
+    -&gt; ExportJobResponse -&gt; CreateExportJobResponse)
+-&gt; Lens
+     CreateExportJobResponse
+     CreateExportJobResponse
+     ExportJobResponse
+     ExportJobResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-type">CreateExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640832"><span class="annot"><span class="annottext">ExportJobResponse
+exportJobResponse :: ExportJobResponse
+$sel:exportJobResponse:CreateExportJobResponse' :: CreateExportJobResponse -&gt; ExportJobResponse
+</span><a href="#local-6989586621679640832"><span class="hs-identifier hs-var hs-var">exportJobResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobResponse
+</span><a href="#local-6989586621679640832"><span class="hs-identifier hs-var">exportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640831"><span class="annot"><span class="annottext">s :: CreateExportJobResponse
+</span><a href="#local-6989586621679640831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse%27"><span class="hs-identifier hs-type">CreateExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640830"><span class="annot"><span class="annottext">ExportJobResponse
+</span><a href="#local-6989586621679640830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateExportJobResponse
+</span><a href="#local-6989586621679640831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportJobResponse:CreateExportJobResponse' :: ExportJobResponse
+</span><a href="Network.AWS.Pinpoint.CreateExportJob.html#%24sel%3AexportJobResponse%3ACreateExportJobResponse%27"><span class="hs-identifier hs-var">exportJobResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportJobResponse
+</span><a href="#local-6989586621679640830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.CreateExportJob.html#CreateExportJobResponse"><span class="hs-identifier hs-type">CreateExportJobResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

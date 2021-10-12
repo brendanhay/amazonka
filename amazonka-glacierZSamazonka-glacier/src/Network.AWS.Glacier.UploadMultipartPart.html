@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Glacier.UploadMultipartPart</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation uploads a part of an archive. You can upload archive</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- parts in any order. You can also upload them in parallel. You can upload</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- up to 10,000 parts for a multipart upload.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Glacier rejects your upload part request if any of the following</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- conditions is true:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   __SHA256 tree hash does not match__To ensure that part data is not</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     corrupted in transmission, you compute a SHA256 tree hash of the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     part and include it in your request. Upon receiving the part data,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     Amazon S3 Glacier also computes a SHA256 tree hash. If these hash</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     values don\'t match, the operation fails. For information about</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     computing a SHA256 tree hash, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/checksum-calculations.html Computing Checksums&gt;.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   __Part size does not match__The size of each part except the last</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     must match the size specified in the corresponding</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     InitiateMultipartUpload request. The size of the last part must be</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     the same size as, or smaller than, the specified size.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     If you upload a part whose size is smaller than the part size you</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     specified in your initiate multipart upload request and that part is</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     not the last part, then the upload part request will succeed.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     However, the subsequent Complete Multipart Upload request will fail.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   __Range does not align__The byte range value in the request does not</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     align with the part size specified in the corresponding initiate</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     request. For example, if you specify a part size of 4194304 bytes (4</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     MB), then 0 to 4194303 bytes (4 MB - 1) and 4194304 (4 MB) to</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     8388607 (8 MB - 1) are valid part ranges. However, if you set a</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     range value of 2 MB to 6 MB, the range does not align with the part</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     size and the upload will fail.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- This operation is idempotent. If you upload the same part multiple</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- times, the data included in the most recent request overwrites the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- previously uploaded data.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- An AWS account has full permission to perform all operations (actions).</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- However, AWS Identity and Access Management (IAM) users don\'t have any</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- permissions by default. You must grant them explicit permission to</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- perform specific actions. For more information, see</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)&gt;.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- For conceptual information and underlying REST API, see</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html Uploading Large Archives in Parts (Multipart Upload)&gt;</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html Upload Part&gt;</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- in the /Amazon Glacier Developer Guide/.</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glacier.UploadMultipartPart</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier">UploadMultipartPart</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPart"><span class="hs-identifier">newUploadMultipartPart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_accountId"><span class="hs-identifier">uploadMultipartPart_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_vaultName"><span class="hs-identifier">uploadMultipartPart_vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_uploadId"><span class="hs-identifier">uploadMultipartPart_uploadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_range"><span class="hs-identifier">uploadMultipartPart_range</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_checksum"><span class="hs-identifier">uploadMultipartPart_checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_body"><span class="hs-identifier">uploadMultipartPart_body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier">UploadMultipartPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPartResponse"><span class="hs-identifier">newUploadMultipartPartResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_checksum"><span class="hs-identifier">uploadMultipartPartResponse_checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_httpStatus"><span class="hs-identifier">uploadMultipartPartResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.html"><span class="hs-identifier">Network.AWS.Glacier.Types</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Provides options to upload a part of an archive in a multipart upload</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- /See:/ 'newUploadMultipartPart' smart constructor.</span><span>
+</span><span id="line-105"></span><span id="local-6989586621679226742"><span id="local-6989586621679226743"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadMultipartPart"><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-var">UploadMultipartPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadMultipartPart%27"><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-var">UploadMultipartPart'</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AaccountId%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AaccountId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AvaultName%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AvaultName%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The upload ID of the multipart upload.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AuploadId%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AuploadId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | Identifies the range of bytes in the assembled archive that will be</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- uploaded in this part. Amazon S3 Glacier uses this information to</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- assemble the archive in the proper sequence. The format of this header</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Arange%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Arange%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The SHA256 tree hash of the data being uploaded.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3Achecksum%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The data to upload.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Abody%3AUploadMultipartPart%27"><span class="annot"><span class="annottext">UploadMultipartPart -&gt; HashedBody
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Abody%3AUploadMultipartPart%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226729"><span id="local-6989586621679226731"><span id="local-6989586621679226733"><span class="annot"><span class="annottext">Int -&gt; UploadMultipartPart -&gt; ShowS
+[UploadMultipartPart] -&gt; ShowS
+UploadMultipartPart -&gt; String
+(Int -&gt; UploadMultipartPart -&gt; ShowS)
+-&gt; (UploadMultipartPart -&gt; String)
+-&gt; ([UploadMultipartPart] -&gt; ShowS)
+-&gt; Show UploadMultipartPart
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UploadMultipartPart] -&gt; ShowS
+$cshowList :: [UploadMultipartPart] -&gt; ShowS
+show :: UploadMultipartPart -&gt; String
+$cshow :: UploadMultipartPart -&gt; String
+showsPrec :: Int -&gt; UploadMultipartPart -&gt; ShowS
+$cshowsPrec :: Int -&gt; UploadMultipartPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UploadMultipartPart -&gt; Rep UploadMultipartPart x)
+-&gt; (forall x. Rep UploadMultipartPart x -&gt; UploadMultipartPart)
+-&gt; Generic UploadMultipartPart
+forall x. Rep UploadMultipartPart x -&gt; UploadMultipartPart
+forall x. UploadMultipartPart -&gt; Rep UploadMultipartPart x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UploadMultipartPart x -&gt; UploadMultipartPart
+$cfrom :: forall x. UploadMultipartPart -&gt; Rep UploadMultipartPart x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'UploadMultipartPart' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'accountId', 'uploadMultipartPart_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'vaultName', 'uploadMultipartPart_vaultName' - The name of the vault.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'uploadId', 'uploadMultipartPart_uploadId' - The upload ID of the multipart upload.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'range', 'uploadMultipartPart_range' - Identifies the range of bytes in the assembled archive that will be</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- uploaded in this part. Amazon S3 Glacier uses this information to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- assemble the archive in the proper sequence. The format of this header</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'checksum', 'uploadMultipartPart_checksum' - The SHA256 tree hash of the data being uploaded.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'body', 'uploadMultipartPart_body' - The data to upload.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPart"><span class="hs-identifier hs-type">newUploadMultipartPart</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'vaultName'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'uploadId'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'range'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'checksum'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span>
+</span><span id="line-168"></span><span id="newUploadMultipartPart"><span class="annot"><span class="annottext">newUploadMultipartPart :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; HashedBody
+-&gt; UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPart"><span class="hs-identifier hs-var hs-var">newUploadMultipartPart</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679226724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226724"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679226723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226723"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679226722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226722"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679226721"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226721"><span class="hs-identifier hs-var">pRange_</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679226720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226720"><span class="hs-identifier hs-var">pChecksum_</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679226719"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226719"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">UploadMultipartPart' :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; HashedBody
+-&gt; UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AaccountId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226724"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:vaultName:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AvaultName%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226723"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:uploadId:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AuploadId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226722"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:range:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Arange%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226721"><span class="hs-identifier hs-var">pRange_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:checksum:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226720"><span class="hs-identifier hs-var">pChecksum_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:body:UploadMultipartPart' :: HashedBody
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Abody%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226719"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- ID associated with the credentials used to sign the request. If you use</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- an account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_accountId"><span class="hs-identifier hs-type">uploadMultipartPart_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="uploadMultipartPart_accountId"><span class="annot"><span class="annottext">uploadMultipartPart_accountId :: (Text -&gt; f Text) -&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_accountId"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; Text)
+-&gt; (UploadMultipartPart -&gt; Text -&gt; UploadMultipartPart)
+-&gt; Lens UploadMultipartPart UploadMultipartPart Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226716"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226716"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226716"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226715"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AaccountId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_vaultName"><span class="hs-identifier hs-type">uploadMultipartPart_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-194"></span><span id="uploadMultipartPart_vaultName"><span class="annot"><span class="annottext">uploadMultipartPart_vaultName :: (Text -&gt; f Text) -&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_vaultName"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; Text)
+-&gt; (UploadMultipartPart -&gt; Text -&gt; UploadMultipartPart)
+-&gt; Lens UploadMultipartPart UploadMultipartPart Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226713"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+$sel:vaultName:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226713"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226713"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226712"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AvaultName%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The upload ID of the multipart upload.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_uploadId"><span class="hs-identifier hs-type">uploadMultipartPart_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-198"></span><span id="uploadMultipartPart_uploadId"><span class="annot"><span class="annottext">uploadMultipartPart_uploadId :: (Text -&gt; f Text) -&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_uploadId"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; Text)
+-&gt; (UploadMultipartPart -&gt; Text -&gt; UploadMultipartPart)
+-&gt; Lens UploadMultipartPart UploadMultipartPart Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226710"><span class="annot"><span class="annottext">Text
+uploadId :: Text
+$sel:uploadId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226710"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226710"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226709"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AuploadId%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Identifies the range of bytes in the assembled archive that will be</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- uploaded in this part. Amazon S3 Glacier uses this information to</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- assemble the archive in the proper sequence. The format of this header</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_range"><span class="hs-identifier hs-type">uploadMultipartPart_range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-205"></span><span id="uploadMultipartPart_range"><span class="annot"><span class="annottext">uploadMultipartPart_range :: (Text -&gt; f Text) -&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_range"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; Text)
+-&gt; (UploadMultipartPart -&gt; Text -&gt; UploadMultipartPart)
+-&gt; Lens UploadMultipartPart UploadMultipartPart Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226707"><span class="annot"><span class="annottext">Text
+range :: Text
+$sel:range:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226707"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226707"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226706"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:range:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Arange%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The SHA256 tree hash of the data being uploaded.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_checksum"><span class="hs-identifier hs-type">uploadMultipartPart_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-209"></span><span id="uploadMultipartPart_checksum"><span class="annot"><span class="annottext">uploadMultipartPart_checksum :: (Text -&gt; f Text) -&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_checksum"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; Text)
+-&gt; (UploadMultipartPart -&gt; Text -&gt; UploadMultipartPart)
+-&gt; Lens UploadMultipartPart UploadMultipartPart Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226704"><span class="annot"><span class="annottext">Text
+checksum :: Text
+$sel:checksum:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226704"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226704"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226703"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:UploadMultipartPart' :: Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The data to upload.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_body"><span class="hs-identifier hs-type">uploadMultipartPart_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-213"></span><span id="uploadMultipartPart_body"><span class="annot"><span class="annottext">uploadMultipartPart_body :: (HashedBody -&gt; f HashedBody)
+-&gt; UploadMultipartPart -&gt; f UploadMultipartPart
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPart_body"><span class="hs-identifier hs-var hs-var">uploadMultipartPart_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPart -&gt; HashedBody)
+-&gt; (UploadMultipartPart -&gt; HashedBody -&gt; UploadMultipartPart)
+-&gt; Lens
+     UploadMultipartPart UploadMultipartPart HashedBody HashedBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226701"><span class="annot"><span class="annottext">HashedBody
+body :: HashedBody
+$sel:body:UploadMultipartPart' :: UploadMultipartPart -&gt; HashedBody
+</span><a href="#local-6989586621679226701"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226701"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226700"><span class="annot"><span class="annottext">s :: UploadMultipartPart
+</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226699"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPart
+</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:UploadMultipartPart' :: HashedBody
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Abody%3AUploadMultipartPart%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-217"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679226695"><span class="annot"><span class="annottext">request :: UploadMultipartPart -&gt; Request UploadMultipartPart
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ByteString
+-&gt; Request UploadMultipartPart -&gt; Request UploadMultipartPart
+forall a. ByteString -&gt; Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.glacierVersionHeader</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">Core._serviceVersion</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">(Request UploadMultipartPart -&gt; Request UploadMultipartPart)
+-&gt; (UploadMultipartPart -&gt; Request UploadMultipartPart)
+-&gt; UploadMultipartPart
+-&gt; Request UploadMultipartPart
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; UploadMultipartPart -&gt; Request UploadMultipartPart
+forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putBody</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679226688"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UploadMultipartPart
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UploadMultipartPart)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UploadMultipartPart))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UploadMultipartPart
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UploadMultipartPart)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226684"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226683"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679226683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UploadMultipartPartResponse
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-var">UploadMultipartPartResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UploadMultipartPartResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UploadMultipartPartResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226684"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-sha256-tree-hash&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UploadMultipartPartResponse)
+-&gt; Either String Int -&gt; Either String UploadMultipartPartResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679226676"><span class="annot"><span class="annottext">toBody :: UploadMultipartPart -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226669"><span id="local-6989586621679226670"><span id="local-6989586621679226671"><span id="local-6989586621679226672"><span id="local-6989586621679226673"><span id="local-6989586621679226674"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+checksum :: Text
+range :: Text
+uploadId :: Text
+vaultName :: Text
+accountId :: Text
+$sel:body:UploadMultipartPart' :: UploadMultipartPart -&gt; HashedBody
+$sel:checksum:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:range:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:uploadId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:vaultName:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:accountId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226669"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226669"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679226666"><span class="annot"><span class="annottext">toHeaders :: UploadMultipartPart -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226659"><span id="local-6989586621679226660"><span id="local-6989586621679226661"><span id="local-6989586621679226662"><span id="local-6989586621679226663"><span id="local-6989586621679226664"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+checksum :: Text
+range :: Text
+uploadId :: Text
+vaultName :: Text
+accountId :: Text
+$sel:body:UploadMultipartPart' :: UploadMultipartPart -&gt; HashedBody
+$sel:checksum:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:range:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:uploadId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:vaultName:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:accountId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226659"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Range&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226661"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-sha256-tree-hash&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226660"><span class="hs-identifier hs-var">checksum</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679226655"><span class="annot"><span class="annottext">toPath :: UploadMultipartPart -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart%27"><span class="hs-identifier hs-type">UploadMultipartPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226648"><span id="local-6989586621679226649"><span id="local-6989586621679226650"><span id="local-6989586621679226651"><span id="local-6989586621679226652"><span id="local-6989586621679226653"><span class="annot"><span class="annottext">Text
+HashedBody
+body :: HashedBody
+checksum :: Text
+range :: Text
+uploadId :: Text
+vaultName :: Text
+accountId :: Text
+$sel:body:UploadMultipartPart' :: UploadMultipartPart -&gt; HashedBody
+$sel:checksum:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:range:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:uploadId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:vaultName:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+$sel:accountId:UploadMultipartPart' :: UploadMultipartPart -&gt; Text
+</span><a href="#local-6989586621679226648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226653"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226652"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/multipart-uploads/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226651"><span class="hs-identifier hs-var">uploadId</span></a></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPart"><span class="hs-identifier hs-type">UploadMultipartPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679226644"><span class="annot"><span class="annottext">toQuery :: UploadMultipartPart -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UploadMultipartPart -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- /See:/ 'newUploadMultipartPartResponse' smart constructor.</span><span>
+</span><span id="line-257"></span><span id="local-6989586621679226640"><span id="local-6989586621679226641"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadMultipartPartResponse"><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-var">UploadMultipartPartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadMultipartPartResponse%27"><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-var">UploadMultipartPartResponse'</span></a></span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- part.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3Achecksum%3AUploadMultipartPartResponse%27"><span class="annot"><span class="annottext">UploadMultipartPartResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUploadMultipartPartResponse%27"><span class="annot"><span class="annottext">UploadMultipartPartResponse -&gt; Int
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AhttpStatus%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226634"><span id="local-6989586621679226636"><span class="annot"><span class="annottext">UploadMultipartPartResponse -&gt; UploadMultipartPartResponse -&gt; Bool
+(UploadMultipartPartResponse
+ -&gt; UploadMultipartPartResponse -&gt; Bool)
+-&gt; (UploadMultipartPartResponse
+    -&gt; UploadMultipartPartResponse -&gt; Bool)
+-&gt; Eq UploadMultipartPartResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UploadMultipartPartResponse -&gt; UploadMultipartPartResponse -&gt; Bool
+$c/= :: UploadMultipartPartResponse -&gt; UploadMultipartPartResponse -&gt; Bool
+== :: UploadMultipartPartResponse -&gt; UploadMultipartPartResponse -&gt; Bool
+$c== :: UploadMultipartPartResponse -&gt; UploadMultipartPartResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226625"><span id="local-6989586621679226627"><span id="local-6989586621679226629"><span id="local-6989586621679226631"><span class="annot"><span class="annottext">ReadPrec [UploadMultipartPartResponse]
+ReadPrec UploadMultipartPartResponse
+Int -&gt; ReadS UploadMultipartPartResponse
+ReadS [UploadMultipartPartResponse]
+(Int -&gt; ReadS UploadMultipartPartResponse)
+-&gt; ReadS [UploadMultipartPartResponse]
+-&gt; ReadPrec UploadMultipartPartResponse
+-&gt; ReadPrec [UploadMultipartPartResponse]
+-&gt; Read UploadMultipartPartResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UploadMultipartPartResponse]
+$creadListPrec :: ReadPrec [UploadMultipartPartResponse]
+readPrec :: ReadPrec UploadMultipartPartResponse
+$creadPrec :: ReadPrec UploadMultipartPartResponse
+readList :: ReadS [UploadMultipartPartResponse]
+$creadList :: ReadS [UploadMultipartPartResponse]
+readsPrec :: Int -&gt; ReadS UploadMultipartPartResponse
+$creadsPrec :: Int -&gt; ReadS UploadMultipartPartResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226618"><span id="local-6989586621679226620"><span id="local-6989586621679226622"><span class="annot"><span class="annottext">Int -&gt; UploadMultipartPartResponse -&gt; ShowS
+[UploadMultipartPartResponse] -&gt; ShowS
+UploadMultipartPartResponse -&gt; String
+(Int -&gt; UploadMultipartPartResponse -&gt; ShowS)
+-&gt; (UploadMultipartPartResponse -&gt; String)
+-&gt; ([UploadMultipartPartResponse] -&gt; ShowS)
+-&gt; Show UploadMultipartPartResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UploadMultipartPartResponse] -&gt; ShowS
+$cshowList :: [UploadMultipartPartResponse] -&gt; ShowS
+show :: UploadMultipartPartResponse -&gt; String
+$cshow :: UploadMultipartPartResponse -&gt; String
+showsPrec :: Int -&gt; UploadMultipartPartResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UploadMultipartPartResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UploadMultipartPartResponse -&gt; Rep UploadMultipartPartResponse x)
+-&gt; (forall x.
+    Rep UploadMultipartPartResponse x -&gt; UploadMultipartPartResponse)
+-&gt; Generic UploadMultipartPartResponse
+forall x.
+Rep UploadMultipartPartResponse x -&gt; UploadMultipartPartResponse
+forall x.
+UploadMultipartPartResponse -&gt; Rep UploadMultipartPartResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UploadMultipartPartResponse x -&gt; UploadMultipartPartResponse
+$cfrom :: forall x.
+UploadMultipartPartResponse -&gt; Rep UploadMultipartPartResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Create a value of 'UploadMultipartPartResponse' with all optional fields omitted.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'checksum', 'uploadMultipartPartResponse_checksum' - The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- part.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- 'httpStatus', 'uploadMultipartPartResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPartResponse"><span class="hs-identifier hs-type">newUploadMultipartPartResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span>
+</span><span id="line-282"></span><span id="newUploadMultipartPartResponse"><span class="annot"><span class="annottext">newUploadMultipartPartResponse :: Int -&gt; UploadMultipartPartResponse
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#newUploadMultipartPartResponse"><span class="hs-identifier hs-var hs-var">newUploadMultipartPartResponse</span></a></span></span><span> </span><span id="local-6989586621679226615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">UploadMultipartPartResponse' :: Maybe Text -&gt; Int -&gt; UploadMultipartPartResponse
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-type">UploadMultipartPartResponse'</span></a></span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checksum:UploadMultipartPartResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UploadMultipartPartResponse' :: Int
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AhttpStatus%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- part.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_checksum"><span class="hs-identifier hs-type">uploadMultipartPartResponse_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="uploadMultipartPartResponse_checksum"><span class="annot"><span class="annottext">uploadMultipartPartResponse_checksum :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UploadMultipartPartResponse -&gt; f UploadMultipartPartResponse
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_checksum"><span class="hs-identifier hs-var hs-var">uploadMultipartPartResponse_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPartResponse -&gt; Maybe Text)
+-&gt; (UploadMultipartPartResponse
+    -&gt; Maybe Text -&gt; UploadMultipartPartResponse)
+-&gt; Lens
+     UploadMultipartPartResponse
+     UploadMultipartPartResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-type">UploadMultipartPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226614"><span class="annot"><span class="annottext">Maybe Text
+checksum :: Maybe Text
+$sel:checksum:UploadMultipartPartResponse' :: UploadMultipartPartResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679226614"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226614"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226613"><span class="annot"><span class="annottext">s :: UploadMultipartPartResponse
+</span><a href="#local-6989586621679226613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-type">UploadMultipartPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPartResponse
+</span><a href="#local-6989586621679226613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:UploadMultipartPartResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3Achecksum%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_httpStatus"><span class="hs-identifier hs-type">uploadMultipartPartResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-296"></span><span id="uploadMultipartPartResponse_httpStatus"><span class="annot"><span class="annottext">uploadMultipartPartResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UploadMultipartPartResponse -&gt; f UploadMultipartPartResponse
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#uploadMultipartPartResponse_httpStatus"><span class="hs-identifier hs-var hs-var">uploadMultipartPartResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadMultipartPartResponse -&gt; Int)
+-&gt; (UploadMultipartPartResponse
+    -&gt; Int -&gt; UploadMultipartPartResponse)
+-&gt; Lens
+     UploadMultipartPartResponse UploadMultipartPartResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-type">UploadMultipartPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226611"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UploadMultipartPartResponse' :: UploadMultipartPartResponse -&gt; Int
+</span><a href="#local-6989586621679226611"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226611"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226610"><span class="annot"><span class="annottext">s :: UploadMultipartPartResponse
+</span><a href="#local-6989586621679226610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse%27"><span class="hs-identifier hs-type">UploadMultipartPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226609"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMultipartPartResponse
+</span><a href="#local-6989586621679226610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadMultipartPartResponse' :: Int
+</span><a href="Network.AWS.Glacier.UploadMultipartPart.html#%24sel%3AhttpStatus%3AUploadMultipartPartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadMultipartPart.html#UploadMultipartPartResponse"><span class="hs-identifier hs-type">UploadMultipartPartResponse</span></a></span></span><span>
+</span><span id="line-299"></span></pre></body></html>

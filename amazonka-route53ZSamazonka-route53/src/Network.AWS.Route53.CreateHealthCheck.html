@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53.CreateHealthCheck</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new health check.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For information about adding health checks to resource record sets, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId HealthCheckId&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html ChangeResourceRecordSets&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- __ELB Load Balancers__</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- If you\'re registering EC2 instances with an Elastic Load Balancing</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- (ELB) load balancer, do not create Amazon Route 53 health checks for the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- EC2 instances. When you register an EC2 instance with a load balancer,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- you configure settings for an ELB health check, which performs a similar</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- function to a Route 53 health check.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- __Private Hosted Zones__</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- You can associate health checks with failover resource record sets in a</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- private hosted zone. Note the following:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   Route 53 health checkers are outside the VPC. To check the health of</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     an endpoint within a VPC by IP address, you must assign a public IP</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     address to the instance in the VPC.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- -   You can configure a health checker to check the health of an</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     external resource that the instance relies on, such as a database</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     server.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   You can create a CloudWatch metric, associate an alarm with the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     metric, and then create a health check that is based on the state of</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     the alarm. For example, you might create a CloudWatch metric that</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     checks the status of the Amazon EC2 @StatusCheckFailed@ metric, add</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     an alarm to the metric, and then create a health check that is based</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     on the state of the alarm. For information about creating CloudWatch</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     metrics and alarms by using the CloudWatch console, see the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch User Guide&gt;.</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53.CreateHealthCheck</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier">CreateHealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheck"><span class="hs-identifier">newCreateHealthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_callerReference"><span class="hs-identifier">createHealthCheck_callerReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_healthCheckConfig"><span class="hs-identifier">createHealthCheck_healthCheckConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier">CreateHealthCheckResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheckResponse"><span class="hs-identifier">newCreateHealthCheckResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_httpStatus"><span class="hs-identifier">createHealthCheckResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_healthCheck"><span class="hs-identifier">createHealthCheckResponse_healthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_location"><span class="hs-identifier">createHealthCheckResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.html"><span class="hs-identifier">Network.AWS.Route53.Types</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A complex type that contains the health check request information.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- /See:/ 'newCreateHealthCheck' smart constructor.</span><span>
+</span><span id="line-89"></span><span id="local-6989586621679312012"><span id="local-6989586621679312013"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheck"><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-var">CreateHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-var">CreateHealthCheck'</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string that identifies the request and that allows you to retry</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- a failed @CreateHealthCheck@ request without the risk of creating two</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- identical health checks:</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     @CallerReference@ and settings as a previous request, and if the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     health check doesn\'t exist, Amazon Route 53 creates the health</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     check. If the health check does exist, Route 53 returns the settings</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     for the existing health check.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     @CallerReference@ as a deleted health check, regardless of the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     @CallerReference@ as an existing health check but with different</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with a unique</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     @CallerReference@ but settings identical to an existing health</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     check, Route 53 creates the health check.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | A complex type that contains settings for a new health check.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; HealthCheckConfig
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312005"><span id="local-6989586621679312007"><span class="annot"><span class="annottext">CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+(CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool)
+-&gt; (CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool)
+-&gt; Eq CreateHealthCheck
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+$c/= :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+== :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+$c== :: CreateHealthCheck -&gt; CreateHealthCheck -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311996"><span id="local-6989586621679311998"><span id="local-6989586621679312000"><span id="local-6989586621679312002"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheck]
+ReadPrec CreateHealthCheck
+Int -&gt; ReadS CreateHealthCheck
+ReadS [CreateHealthCheck]
+(Int -&gt; ReadS CreateHealthCheck)
+-&gt; ReadS [CreateHealthCheck]
+-&gt; ReadPrec CreateHealthCheck
+-&gt; ReadPrec [CreateHealthCheck]
+-&gt; Read CreateHealthCheck
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHealthCheck]
+$creadListPrec :: ReadPrec [CreateHealthCheck]
+readPrec :: ReadPrec CreateHealthCheck
+$creadPrec :: ReadPrec CreateHealthCheck
+readList :: ReadS [CreateHealthCheck]
+$creadList :: ReadS [CreateHealthCheck]
+readsPrec :: Int -&gt; ReadS CreateHealthCheck
+$creadsPrec :: Int -&gt; ReadS CreateHealthCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311989"><span id="local-6989586621679311991"><span id="local-6989586621679311993"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheck -&gt; ShowS
+[CreateHealthCheck] -&gt; ShowS
+CreateHealthCheck -&gt; String
+(Int -&gt; CreateHealthCheck -&gt; ShowS)
+-&gt; (CreateHealthCheck -&gt; String)
+-&gt; ([CreateHealthCheck] -&gt; ShowS)
+-&gt; Show CreateHealthCheck
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHealthCheck] -&gt; ShowS
+$cshowList :: [CreateHealthCheck] -&gt; ShowS
+show :: CreateHealthCheck -&gt; String
+$cshow :: CreateHealthCheck -&gt; String
+showsPrec :: Int -&gt; CreateHealthCheck -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateHealthCheck -&gt; Rep CreateHealthCheck x)
+-&gt; (forall x. Rep CreateHealthCheck x -&gt; CreateHealthCheck)
+-&gt; Generic CreateHealthCheck
+forall x. Rep CreateHealthCheck x -&gt; CreateHealthCheck
+forall x. CreateHealthCheck -&gt; Rep CreateHealthCheck x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateHealthCheck x -&gt; CreateHealthCheck
+$cfrom :: forall x. CreateHealthCheck -&gt; Rep CreateHealthCheck x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'CreateHealthCheck' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'callerReference', 'createHealthCheck_callerReference' - A unique string that identifies the request and that allows you to retry</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- a failed @CreateHealthCheck@ request without the risk of creating two</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- identical health checks:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     @CallerReference@ and settings as a previous request, and if the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     health check doesn\'t exist, Amazon Route 53 creates the health</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     check. If the health check does exist, Route 53 returns the settings</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     for the existing health check.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     @CallerReference@ as a deleted health check, regardless of the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     @CallerReference@ as an existing health check but with different</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with a unique</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     @CallerReference@ but settings identical to an existing health</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     check, Route 53 creates the health check.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'healthCheckConfig', 'createHealthCheck_healthCheckConfig' - A complex type that contains settings for a new health check.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheck"><span class="hs-identifier hs-type">newCreateHealthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'callerReference'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'healthCheckConfig'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span>
+</span><span id="line-154"></span><span id="newCreateHealthCheck"><span class="annot"><span class="annottext">newCreateHealthCheck :: Text -&gt; HealthCheckConfig -&gt; CreateHealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheck"><span class="hs-identifier hs-var hs-var">newCreateHealthCheck</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679311984"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311984"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679311983"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311983"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">CreateHealthCheck' :: Text -&gt; HealthCheckConfig -&gt; CreateHealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:callerReference:CreateHealthCheck' :: Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311984"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfig:CreateHealthCheck' :: HealthCheckConfig
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311983"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A unique string that identifies the request and that allows you to retry</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- a failed @CreateHealthCheck@ request without the risk of creating two</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- identical health checks:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     @CallerReference@ and settings as a previous request, and if the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     health check doesn\'t exist, Amazon Route 53 creates the health</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     check. If the health check does exist, Route 53 returns the settings</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     for the existing health check.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     @CallerReference@ as a deleted health check, regardless of the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with the same</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     @CallerReference@ as an existing health check but with different</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     settings, Route 53 returns a @HealthCheckAlreadyExists@ error.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   If you send a @CreateHealthCheck@ request with a unique</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     @CallerReference@ but settings identical to an existing health</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     check, Route 53 creates the health check.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_callerReference"><span class="hs-identifier hs-type">createHealthCheck_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-185"></span><span id="createHealthCheck_callerReference"><span class="annot"><span class="annottext">createHealthCheck_callerReference :: (Text -&gt; f Text) -&gt; CreateHealthCheck -&gt; f CreateHealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_callerReference"><span class="hs-identifier hs-var hs-var">createHealthCheck_callerReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHealthCheck -&gt; Text)
+-&gt; (CreateHealthCheck -&gt; Text -&gt; CreateHealthCheck)
+-&gt; Lens CreateHealthCheck CreateHealthCheck Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311980"><span class="annot"><span class="annottext">Text
+callerReference :: Text
+$sel:callerReference:CreateHealthCheck' :: CreateHealthCheck -&gt; Text
+</span><a href="#local-6989586621679311980"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311980"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311979"><span class="annot"><span class="annottext">s :: CreateHealthCheck
+</span><a href="#local-6989586621679311979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
+</span><a href="#local-6989586621679311979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:CreateHealthCheck' :: Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AcallerReference%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | A complex type that contains settings for a new health check.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_healthCheckConfig"><span class="hs-identifier hs-type">createHealthCheck_healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
+</span><span id="line-189"></span><span id="createHealthCheck_healthCheckConfig"><span class="annot"><span class="annottext">createHealthCheck_healthCheckConfig :: (HealthCheckConfig -&gt; f HealthCheckConfig)
+-&gt; CreateHealthCheck -&gt; f CreateHealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheck_healthCheckConfig"><span class="hs-identifier hs-var hs-var">createHealthCheck_healthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHealthCheck -&gt; HealthCheckConfig)
+-&gt; (CreateHealthCheck -&gt; HealthCheckConfig -&gt; CreateHealthCheck)
+-&gt; Lens
+     CreateHealthCheck
+     CreateHealthCheck
+     HealthCheckConfig
+     HealthCheckConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311977"><span class="annot"><span class="annottext">HealthCheckConfig
+healthCheckConfig :: HealthCheckConfig
+$sel:healthCheckConfig:CreateHealthCheck' :: CreateHealthCheck -&gt; HealthCheckConfig
+</span><a href="#local-6989586621679311977"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311977"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311976"><span class="annot"><span class="annottext">s :: CreateHealthCheck
+</span><a href="#local-6989586621679311976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311975"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheck
+</span><a href="#local-6989586621679311976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:CreateHealthCheck' :: HealthCheckConfig
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheckConfig%3ACreateHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-193"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679311971"><span class="annot"><span class="annottext">request :: CreateHealthCheck -&gt; Request CreateHealthCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateHealthCheck -&gt; Request CreateHealthCheck
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679311967"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateHealthCheck
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateHealthCheck)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateHealthCheck))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateHealthCheck
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateHealthCheck)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311964"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311964"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311963"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311963"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311962"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679311962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-var">CreateHealthCheckResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse)
+-&gt; Either String Int
+-&gt; Either String (HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311964"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse)
+-&gt; Either String HealthCheck
+-&gt; Either String (Text -&gt; CreateHealthCheckResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679311962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheck
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheck&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateHealthCheckResponse)
+-&gt; Either String Text -&gt; Either String CreateHealthCheckResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311963"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String Text
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..#</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311953"><span id="local-6989586621679311955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679311946"><span class="annot"><span class="annottext">toElement :: CreateHealthCheck -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; CreateHealthCheck -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{https://route53.amazonaws.com/doc/2013-04-01/}CreateHealthCheckRequest&quot;</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679311941"><span class="annot"><span class="annottext">toHeaders :: CreateHealthCheck -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateHealthCheck -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679311936"><span class="annot"><span class="annottext">toPath :: CreateHealthCheck -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateHealthCheck -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/healthcheck&quot;</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679311932"><span class="annot"><span class="annottext">toQuery :: CreateHealthCheck -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateHealthCheck -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck"><span class="hs-identifier hs-type">CreateHealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679311928"><span class="annot"><span class="annottext">toXML :: CreateHealthCheck -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheck%27"><span class="hs-identifier hs-type">CreateHealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311925"><span id="local-6989586621679311926"><span class="annot"><span class="annottext">Text
+HealthCheckConfig
+healthCheckConfig :: HealthCheckConfig
+callerReference :: Text
+$sel:healthCheckConfig:CreateHealthCheck' :: CreateHealthCheck -&gt; HealthCheckConfig
+$sel:callerReference:CreateHealthCheck' :: CreateHealthCheck -&gt; Text
+</span><a href="#local-6989586621679311925"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311926"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;HealthCheckConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; HealthCheckConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679311925"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | A complex type containing the response information for the new health</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- /See:/ 'newCreateHealthCheckResponse' smart constructor.</span><span>
+</span><span id="line-234"></span><span id="local-6989586621679311922"><span id="local-6989586621679311923"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHealthCheckResponse"><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-var">CreateHealthCheckResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHealthCheckResponse%27"><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-var">CreateHealthCheckResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; Int
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | A complex type that contains identifying information about the health</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; HealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The unique URL representing the new health check.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311915"><span id="local-6989586621679311917"><span class="annot"><span class="annottext">CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+(CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool)
+-&gt; (CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool)
+-&gt; Eq CreateHealthCheckResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+$c/= :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+== :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+$c== :: CreateHealthCheckResponse -&gt; CreateHealthCheckResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311907"><span id="local-6989586621679311909"><span id="local-6989586621679311911"><span id="local-6989586621679311913"><span class="annot"><span class="annottext">ReadPrec [CreateHealthCheckResponse]
+ReadPrec CreateHealthCheckResponse
+Int -&gt; ReadS CreateHealthCheckResponse
+ReadS [CreateHealthCheckResponse]
+(Int -&gt; ReadS CreateHealthCheckResponse)
+-&gt; ReadS [CreateHealthCheckResponse]
+-&gt; ReadPrec CreateHealthCheckResponse
+-&gt; ReadPrec [CreateHealthCheckResponse]
+-&gt; Read CreateHealthCheckResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHealthCheckResponse]
+$creadListPrec :: ReadPrec [CreateHealthCheckResponse]
+readPrec :: ReadPrec CreateHealthCheckResponse
+$creadPrec :: ReadPrec CreateHealthCheckResponse
+readList :: ReadS [CreateHealthCheckResponse]
+$creadList :: ReadS [CreateHealthCheckResponse]
+readsPrec :: Int -&gt; ReadS CreateHealthCheckResponse
+$creadsPrec :: Int -&gt; ReadS CreateHealthCheckResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311901"><span id="local-6989586621679311903"><span id="local-6989586621679311905"><span class="annot"><span class="annottext">Int -&gt; CreateHealthCheckResponse -&gt; ShowS
+[CreateHealthCheckResponse] -&gt; ShowS
+CreateHealthCheckResponse -&gt; String
+(Int -&gt; CreateHealthCheckResponse -&gt; ShowS)
+-&gt; (CreateHealthCheckResponse -&gt; String)
+-&gt; ([CreateHealthCheckResponse] -&gt; ShowS)
+-&gt; Show CreateHealthCheckResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHealthCheckResponse] -&gt; ShowS
+$cshowList :: [CreateHealthCheckResponse] -&gt; ShowS
+show :: CreateHealthCheckResponse -&gt; String
+$cshow :: CreateHealthCheckResponse -&gt; String
+showsPrec :: Int -&gt; CreateHealthCheckResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHealthCheckResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateHealthCheckResponse -&gt; Rep CreateHealthCheckResponse x)
+-&gt; (forall x.
+    Rep CreateHealthCheckResponse x -&gt; CreateHealthCheckResponse)
+-&gt; Generic CreateHealthCheckResponse
+forall x.
+Rep CreateHealthCheckResponse x -&gt; CreateHealthCheckResponse
+forall x.
+CreateHealthCheckResponse -&gt; Rep CreateHealthCheckResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateHealthCheckResponse x -&gt; CreateHealthCheckResponse
+$cfrom :: forall x.
+CreateHealthCheckResponse -&gt; Rep CreateHealthCheckResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- Create a value of 'CreateHealthCheckResponse' with all optional fields omitted.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'httpStatus', 'createHealthCheckResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'healthCheck', 'createHealthCheckResponse_healthCheck' - A complex type that contains identifying information about the health</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'location', 'createHealthCheckResponse_location' - The unique URL representing the new health check.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheckResponse"><span class="hs-identifier hs-type">newCreateHealthCheckResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'healthCheck'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'location'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newCreateHealthCheckResponse"><span class="annot"><span class="annottext">newCreateHealthCheckResponse :: Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#newCreateHealthCheckResponse"><span class="hs-identifier hs-var hs-var">newCreateHealthCheckResponse</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679311898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679311897"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311897"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679311896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311896"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">CreateHealthCheckResponse' :: Int -&gt; HealthCheck -&gt; Text -&gt; CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHealthCheckResponse' :: Int
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheck:CreateHealthCheckResponse' :: HealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311897"><span class="hs-identifier hs-var">pHealthCheck_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:location:CreateHealthCheckResponse' :: Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311896"><span class="hs-identifier hs-var">pLocation_</span></a></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_httpStatus"><span class="hs-identifier hs-type">createHealthCheckResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span id="createHealthCheckResponse_httpStatus"><span class="annot"><span class="annottext">createHealthCheckResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateHealthCheckResponse -&gt; f CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createHealthCheckResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHealthCheckResponse -&gt; Int)
+-&gt; (CreateHealthCheckResponse -&gt; Int -&gt; CreateHealthCheckResponse)
+-&gt; Lens CreateHealthCheckResponse CreateHealthCheckResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311895"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; Int
+</span><a href="#local-6989586621679311895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311894"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHealthCheckResponse' :: Int
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhttpStatus%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | A complex type that contains identifying information about the health</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_healthCheck"><span class="hs-identifier hs-type">createHealthCheckResponse_healthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span>
+</span><span id="line-285"></span><span id="createHealthCheckResponse_healthCheck"><span class="annot"><span class="annottext">createHealthCheckResponse_healthCheck :: (HealthCheck -&gt; f HealthCheck)
+-&gt; CreateHealthCheckResponse -&gt; f CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_healthCheck"><span class="hs-identifier hs-var hs-var">createHealthCheckResponse_healthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHealthCheckResponse -&gt; HealthCheck)
+-&gt; (CreateHealthCheckResponse
+    -&gt; HealthCheck -&gt; CreateHealthCheckResponse)
+-&gt; Lens
+     CreateHealthCheckResponse
+     CreateHealthCheckResponse
+     HealthCheck
+     HealthCheck
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311892"><span class="annot"><span class="annottext">HealthCheck
+healthCheck :: HealthCheck
+$sel:healthCheck:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; HealthCheck
+</span><a href="#local-6989586621679311892"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311892"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311891"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311890"><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:CreateHealthCheckResponse' :: HealthCheck
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3AhealthCheck%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679311890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The unique URL representing the new health check.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_location"><span class="hs-identifier hs-type">createHealthCheckResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-289"></span><span id="createHealthCheckResponse_location"><span class="annot"><span class="annottext">createHealthCheckResponse_location :: (Text -&gt; f Text)
+-&gt; CreateHealthCheckResponse -&gt; f CreateHealthCheckResponse
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#createHealthCheckResponse_location"><span class="hs-identifier hs-var hs-var">createHealthCheckResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHealthCheckResponse -&gt; Text)
+-&gt; (CreateHealthCheckResponse -&gt; Text -&gt; CreateHealthCheckResponse)
+-&gt; Lens
+     CreateHealthCheckResponse CreateHealthCheckResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311889"><span class="annot"><span class="annottext">Text
+location :: Text
+$sel:location:CreateHealthCheckResponse' :: CreateHealthCheckResponse -&gt; Text
+</span><a href="#local-6989586621679311889"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311889"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311888"><span class="annot"><span class="annottext">s :: CreateHealthCheckResponse
+</span><a href="#local-6989586621679311888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse%27"><span class="hs-identifier hs-type">CreateHealthCheckResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHealthCheckResponse
+</span><a href="#local-6989586621679311888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateHealthCheckResponse' :: Text
+</span><a href="Network.AWS.Route53.CreateHealthCheck.html#%24sel%3Alocation%3ACreateHealthCheckResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.CreateHealthCheck.html#CreateHealthCheckResponse"><span class="hs-identifier hs-type">CreateHealthCheckResponse</span></a></span></span><span>
+</span><span id="line-292"></span></pre></body></html>

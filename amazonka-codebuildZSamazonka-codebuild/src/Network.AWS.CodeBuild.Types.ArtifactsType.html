@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.Types.ArtifactsType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.Types.ArtifactsType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier">ArtifactsType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_CODEPIPELINE"><span class="hs-identifier">ArtifactsType_CODEPIPELINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_NO_ARTIFACTS"><span class="hs-identifier">ArtifactsType_NO_ARTIFACTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_S3"><span class="hs-identifier">ArtifactsType_S3</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679366825"><span id="local-6989586621679366826"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactsType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-var">ArtifactsType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactsType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType%27"><span class="hs-identifier hs-var">ArtifactsType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactsType"><span class="annot"><span class="annottext">ArtifactsType -&gt; Text
+</span><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#fromArtifactsType"><span class="hs-identifier hs-var hs-var">fromArtifactsType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366817"><span id="local-6989586621679366819"><span id="local-6989586621679366821"><span class="annot"><span class="annottext">Int -&gt; ArtifactsType -&gt; ShowS
+[ArtifactsType] -&gt; ShowS
+ArtifactsType -&gt; String
+(Int -&gt; ArtifactsType -&gt; ShowS)
+-&gt; (ArtifactsType -&gt; String)
+-&gt; ([ArtifactsType] -&gt; ShowS)
+-&gt; Show ArtifactsType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ArtifactsType] -&gt; ShowS
+$cshowList :: [ArtifactsType] -&gt; ShowS
+show :: ArtifactsType -&gt; String
+$cshow :: ArtifactsType -&gt; String
+showsPrec :: Int -&gt; ArtifactsType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ArtifactsType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366808"><span id="local-6989586621679366810"><span id="local-6989586621679366812"><span id="local-6989586621679366814"><span class="annot"><span class="annottext">ReadPrec [ArtifactsType]
+ReadPrec ArtifactsType
+Int -&gt; ReadS ArtifactsType
+ReadS [ArtifactsType]
+(Int -&gt; ReadS ArtifactsType)
+-&gt; ReadS [ArtifactsType]
+-&gt; ReadPrec ArtifactsType
+-&gt; ReadPrec [ArtifactsType]
+-&gt; Read ArtifactsType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ArtifactsType]
+$creadListPrec :: ReadPrec [ArtifactsType]
+readPrec :: ReadPrec ArtifactsType
+$creadPrec :: ReadPrec ArtifactsType
+readList :: ReadS [ArtifactsType]
+$creadList :: ReadS [ArtifactsType]
+readsPrec :: Int -&gt; ReadS ArtifactsType
+$creadsPrec :: Int -&gt; ReadS ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366803"><span id="local-6989586621679366805"><span class="annot"><span class="annottext">ArtifactsType -&gt; ArtifactsType -&gt; Bool
+(ArtifactsType -&gt; ArtifactsType -&gt; Bool)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Bool) -&gt; Eq ArtifactsType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c/= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+== :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c== :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679366787"><span id="local-6989586621679366789"><span id="local-6989586621679366791"><span id="local-6989586621679366793"><span id="local-6989586621679366795"><span id="local-6989586621679366797"><span id="local-6989586621679366799"><span class="annot"><span class="annottext">Eq ArtifactsType
+Eq ArtifactsType
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Ordering)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Bool)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Bool)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Bool)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; Bool)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType)
+-&gt; (ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType)
+-&gt; Ord ArtifactsType
+ArtifactsType -&gt; ArtifactsType -&gt; Bool
+ArtifactsType -&gt; ArtifactsType -&gt; Ordering
+ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType
+$cmin :: ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType
+max :: ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType
+$cmax :: ArtifactsType -&gt; ArtifactsType -&gt; ArtifactsType
+&gt;= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c&gt;= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+&gt; :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c&gt; :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+&lt;= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c&lt;= :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+&lt; :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+$c&lt; :: ArtifactsType -&gt; ArtifactsType -&gt; Bool
+compare :: ArtifactsType -&gt; ArtifactsType -&gt; Ordering
+$ccompare :: ArtifactsType -&gt; ArtifactsType -&gt; Ordering
+$cp1Ord :: Eq ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ArtifactsType -&gt; Rep ArtifactsType x)
+-&gt; (forall x. Rep ArtifactsType x -&gt; ArtifactsType)
+-&gt; Generic ArtifactsType
+forall x. Rep ArtifactsType x -&gt; ArtifactsType
+forall x. ArtifactsType -&gt; Rep ArtifactsType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ArtifactsType x -&gt; ArtifactsType
+$cfrom :: forall x. ArtifactsType -&gt; Rep ArtifactsType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366779"><span id="local-6989586621679366781"><span class="annot"><span class="annottext">Int -&gt; ArtifactsType -&gt; Int
+ArtifactsType -&gt; Int
+(Int -&gt; ArtifactsType -&gt; Int)
+-&gt; (ArtifactsType -&gt; Int) -&gt; Hashable ArtifactsType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ArtifactsType -&gt; Int
+$chash :: ArtifactsType -&gt; Int
+hashWithSalt :: Int -&gt; ArtifactsType -&gt; Int
+$chashWithSalt :: Int -&gt; ArtifactsType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366776"><span class="annot"><span class="annottext">ArtifactsType -&gt; ()
+(ArtifactsType -&gt; ()) -&gt; NFData ArtifactsType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ArtifactsType -&gt; ()
+$crnf :: ArtifactsType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366773"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactsType
+(Text -&gt; Either String ArtifactsType) -&gt; FromText ArtifactsType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ArtifactsType
+$cfromText :: Text -&gt; Either String ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366770"><span class="annot"><span class="annottext">ArtifactsType -&gt; Text
+(ArtifactsType -&gt; Text) -&gt; ToText ArtifactsType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ArtifactsType -&gt; Text
+$ctoText :: ArtifactsType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366767"><span class="annot"><span class="annottext">ArtifactsType -&gt; ByteString
+(ArtifactsType -&gt; ByteString) -&gt; ToByteString ArtifactsType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ArtifactsType -&gt; ByteString
+$ctoBS :: ArtifactsType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366764"><span class="annot"><span class="annottext">ArtifactsType -&gt; ByteStringBuilder
+(ArtifactsType -&gt; ByteStringBuilder) -&gt; ToLog ArtifactsType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ArtifactsType -&gt; ByteStringBuilder
+$cbuild :: ArtifactsType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366761"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactsType -&gt; [Header]
+(HeaderName -&gt; ArtifactsType -&gt; [Header]) -&gt; ToHeader ArtifactsType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ArtifactsType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ArtifactsType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366758"><span class="annot"><span class="annottext">ArtifactsType -&gt; QueryString
+(ArtifactsType -&gt; QueryString) -&gt; ToQuery ArtifactsType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ArtifactsType -&gt; QueryString
+$ctoQuery :: ArtifactsType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366753"><span id="local-6989586621679366755"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactsType]
+Value -&gt; Parser ArtifactsType
+(Value -&gt; Parser ArtifactsType)
+-&gt; (Value -&gt; Parser [ArtifactsType]) -&gt; FromJSON ArtifactsType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ArtifactsType]
+$cparseJSONList :: Value -&gt; Parser [ArtifactsType]
+parseJSON :: Value -&gt; Parser ArtifactsType
+$cparseJSON :: Value -&gt; Parser ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366748"><span id="local-6989586621679366750"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactsType]
+FromJSONKeyFunction ArtifactsType
+FromJSONKeyFunction ArtifactsType
+-&gt; FromJSONKeyFunction [ArtifactsType] -&gt; FromJSONKey ArtifactsType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ArtifactsType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ArtifactsType]
+fromJSONKey :: FromJSONKeyFunction ArtifactsType
+$cfromJSONKey :: FromJSONKeyFunction ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366739"><span id="local-6989586621679366741"><span id="local-6989586621679366743"><span id="local-6989586621679366745"><span class="annot"><span class="annottext">[ArtifactsType] -&gt; Encoding
+[ArtifactsType] -&gt; Value
+ArtifactsType -&gt; Encoding
+ArtifactsType -&gt; Value
+(ArtifactsType -&gt; Value)
+-&gt; (ArtifactsType -&gt; Encoding)
+-&gt; ([ArtifactsType] -&gt; Value)
+-&gt; ([ArtifactsType] -&gt; Encoding)
+-&gt; ToJSON ArtifactsType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ArtifactsType] -&gt; Encoding
+$ctoEncodingList :: [ArtifactsType] -&gt; Encoding
+toJSONList :: [ArtifactsType] -&gt; Value
+$ctoJSONList :: [ArtifactsType] -&gt; Value
+toEncoding :: ArtifactsType -&gt; Encoding
+$ctoEncoding :: ArtifactsType -&gt; Encoding
+toJSON :: ArtifactsType -&gt; Value
+$ctoJSON :: ArtifactsType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366734"><span id="local-6989586621679366736"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactsType]
+ToJSONKeyFunction ArtifactsType
+ToJSONKeyFunction ArtifactsType
+-&gt; ToJSONKeyFunction [ArtifactsType] -&gt; ToJSONKey ArtifactsType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ArtifactsType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ArtifactsType]
+toJSONKey :: ToJSONKeyFunction ArtifactsType
+$ctoJSONKey :: ToJSONKeyFunction ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366731"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactsType
+([Node] -&gt; Either String ArtifactsType) -&gt; FromXML ArtifactsType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ArtifactsType
+$cparseXML :: [Node] -&gt; Either String ArtifactsType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366728"><span class="annot"><span class="annottext">ArtifactsType -&gt; XML
+(ArtifactsType -&gt; XML) -&gt; ToXML ArtifactsType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ArtifactsType -&gt; XML
+$ctoXML :: ArtifactsType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_CODEPIPELINE"><span class="hs-identifier hs-type">ArtifactsType_CODEPIPELINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bArtifactsType_CODEPIPELINE"><span id="%24mArtifactsType_CODEPIPELINE"><span id="ArtifactsType_CODEPIPELINE"><span class="annot"><span class="annottext">$bArtifactsType_CODEPIPELINE :: ArtifactsType
+$mArtifactsType_CODEPIPELINE :: forall r. ArtifactsType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#%24bArtifactsType_CODEPIPELINE"><span class="hs-identifier hs-var hs-var hs-var">ArtifactsType_CODEPIPELINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType%27"><span class="hs-identifier hs-type">ArtifactsType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODEPIPELINE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_NO_ARTIFACTS"><span class="hs-identifier hs-type">ArtifactsType_NO_ARTIFACTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bArtifactsType_NO_ARTIFACTS"><span id="%24mArtifactsType_NO_ARTIFACTS"><span id="ArtifactsType_NO_ARTIFACTS"><span class="annot"><span class="annottext">$bArtifactsType_NO_ARTIFACTS :: ArtifactsType
+$mArtifactsType_NO_ARTIFACTS :: forall r. ArtifactsType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#%24bArtifactsType_NO_ARTIFACTS"><span class="hs-identifier hs-var hs-var hs-var">ArtifactsType_NO_ARTIFACTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType%27"><span class="hs-identifier hs-type">ArtifactsType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_ARTIFACTS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_S3"><span class="hs-identifier hs-type">ArtifactsType_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bArtifactsType_S3"><span id="%24mArtifactsType_S3"><span id="ArtifactsType_S3"><span class="annot"><span class="annottext">$bArtifactsType_S3 :: ArtifactsType
+$mArtifactsType_S3 :: forall r. ArtifactsType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#%24bArtifactsType_S3"><span class="hs-identifier hs-var hs-var hs-var">ArtifactsType_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType%27"><span class="hs-identifier hs-type">ArtifactsType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_CODEPIPELINE"><span class="hs-pragma hs-type">ArtifactsType_CODEPIPELINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_NO_ARTIFACTS"><span class="hs-pragma hs-type">ArtifactsType_NO_ARTIFACTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType_S3"><span class="hs-pragma hs-type">ArtifactsType_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType%27"><span class="hs-pragma hs-type">ArtifactsType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

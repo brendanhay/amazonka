@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier">FragmentSelectorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_PRODUCER_TIMESTAMP"><span class="hs-identifier">FragmentSelectorType_PRODUCER_TIMESTAMP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_SERVER_TIMESTAMP"><span class="hs-identifier">FragmentSelectorType_SERVER_TIMESTAMP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679164117"><span id="local-6989586621679164118"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FragmentSelectorType"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-var">FragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FragmentSelectorType%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType%27"><span class="hs-identifier hs-var">FragmentSelectorType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFragmentSelectorType"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; Text
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#fromFragmentSelectorType"><span class="hs-identifier hs-var hs-var">fromFragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164109"><span id="local-6989586621679164111"><span id="local-6989586621679164113"><span class="annot"><span class="annottext">Int -&gt; FragmentSelectorType -&gt; ShowS
+[FragmentSelectorType] -&gt; ShowS
+FragmentSelectorType -&gt; String
+(Int -&gt; FragmentSelectorType -&gt; ShowS)
+-&gt; (FragmentSelectorType -&gt; String)
+-&gt; ([FragmentSelectorType] -&gt; ShowS)
+-&gt; Show FragmentSelectorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FragmentSelectorType] -&gt; ShowS
+$cshowList :: [FragmentSelectorType] -&gt; ShowS
+show :: FragmentSelectorType -&gt; String
+$cshow :: FragmentSelectorType -&gt; String
+showsPrec :: Int -&gt; FragmentSelectorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FragmentSelectorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679164100"><span id="local-6989586621679164102"><span id="local-6989586621679164104"><span id="local-6989586621679164106"><span class="annot"><span class="annottext">ReadPrec [FragmentSelectorType]
+ReadPrec FragmentSelectorType
+Int -&gt; ReadS FragmentSelectorType
+ReadS [FragmentSelectorType]
+(Int -&gt; ReadS FragmentSelectorType)
+-&gt; ReadS [FragmentSelectorType]
+-&gt; ReadPrec FragmentSelectorType
+-&gt; ReadPrec [FragmentSelectorType]
+-&gt; Read FragmentSelectorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FragmentSelectorType]
+$creadListPrec :: ReadPrec [FragmentSelectorType]
+readPrec :: ReadPrec FragmentSelectorType
+$creadPrec :: ReadPrec FragmentSelectorType
+readList :: ReadS [FragmentSelectorType]
+$creadList :: ReadS [FragmentSelectorType]
+readsPrec :: Int -&gt; ReadS FragmentSelectorType
+$creadsPrec :: Int -&gt; ReadS FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164095"><span id="local-6989586621679164097"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+(FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; Eq FragmentSelectorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c/= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+== :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c== :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164079"><span id="local-6989586621679164081"><span id="local-6989586621679164083"><span id="local-6989586621679164085"><span id="local-6989586621679164087"><span id="local-6989586621679164089"><span id="local-6989586621679164091"><span class="annot"><span class="annottext">Eq FragmentSelectorType
+Eq FragmentSelectorType
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Ordering)
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; (FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool)
+-&gt; (FragmentSelectorType
+    -&gt; FragmentSelectorType -&gt; FragmentSelectorType)
+-&gt; (FragmentSelectorType
+    -&gt; FragmentSelectorType -&gt; FragmentSelectorType)
+-&gt; Ord FragmentSelectorType
+FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+FragmentSelectorType -&gt; FragmentSelectorType -&gt; Ordering
+FragmentSelectorType
+-&gt; FragmentSelectorType -&gt; FragmentSelectorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FragmentSelectorType
+-&gt; FragmentSelectorType -&gt; FragmentSelectorType
+$cmin :: FragmentSelectorType
+-&gt; FragmentSelectorType -&gt; FragmentSelectorType
+max :: FragmentSelectorType
+-&gt; FragmentSelectorType -&gt; FragmentSelectorType
+$cmax :: FragmentSelectorType
+-&gt; FragmentSelectorType -&gt; FragmentSelectorType
+&gt;= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c&gt;= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+&gt; :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c&gt; :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+&lt;= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c&lt;= :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+&lt; :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+$c&lt; :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Bool
+compare :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Ordering
+$ccompare :: FragmentSelectorType -&gt; FragmentSelectorType -&gt; Ordering
+$cp1Ord :: Eq FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FragmentSelectorType -&gt; Rep FragmentSelectorType x)
+-&gt; (forall x. Rep FragmentSelectorType x -&gt; FragmentSelectorType)
+-&gt; Generic FragmentSelectorType
+forall x. Rep FragmentSelectorType x -&gt; FragmentSelectorType
+forall x. FragmentSelectorType -&gt; Rep FragmentSelectorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FragmentSelectorType x -&gt; FragmentSelectorType
+$cfrom :: forall x. FragmentSelectorType -&gt; Rep FragmentSelectorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164071"><span id="local-6989586621679164073"><span class="annot"><span class="annottext">Int -&gt; FragmentSelectorType -&gt; Int
+FragmentSelectorType -&gt; Int
+(Int -&gt; FragmentSelectorType -&gt; Int)
+-&gt; (FragmentSelectorType -&gt; Int) -&gt; Hashable FragmentSelectorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FragmentSelectorType -&gt; Int
+$chash :: FragmentSelectorType -&gt; Int
+hashWithSalt :: Int -&gt; FragmentSelectorType -&gt; Int
+$chashWithSalt :: Int -&gt; FragmentSelectorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679164068"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; ()
+(FragmentSelectorType -&gt; ()) -&gt; NFData FragmentSelectorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FragmentSelectorType -&gt; ()
+$crnf :: FragmentSelectorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164065"><span class="annot"><span class="annottext">Text -&gt; Either String FragmentSelectorType
+(Text -&gt; Either String FragmentSelectorType)
+-&gt; FromText FragmentSelectorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FragmentSelectorType
+$cfromText :: Text -&gt; Either String FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164062"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; Text
+(FragmentSelectorType -&gt; Text) -&gt; ToText FragmentSelectorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FragmentSelectorType -&gt; Text
+$ctoText :: FragmentSelectorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164059"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; ByteString
+(FragmentSelectorType -&gt; ByteString)
+-&gt; ToByteString FragmentSelectorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FragmentSelectorType -&gt; ByteString
+$ctoBS :: FragmentSelectorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164056"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; ByteStringBuilder
+(FragmentSelectorType -&gt; ByteStringBuilder)
+-&gt; ToLog FragmentSelectorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FragmentSelectorType -&gt; ByteStringBuilder
+$cbuild :: FragmentSelectorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164053"><span class="annot"><span class="annottext">HeaderName -&gt; FragmentSelectorType -&gt; [Header]
+(HeaderName -&gt; FragmentSelectorType -&gt; [Header])
+-&gt; ToHeader FragmentSelectorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FragmentSelectorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FragmentSelectorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164050"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; QueryString
+(FragmentSelectorType -&gt; QueryString)
+-&gt; ToQuery FragmentSelectorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FragmentSelectorType -&gt; QueryString
+$ctoQuery :: FragmentSelectorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164045"><span id="local-6989586621679164047"><span class="annot"><span class="annottext">Value -&gt; Parser [FragmentSelectorType]
+Value -&gt; Parser FragmentSelectorType
+(Value -&gt; Parser FragmentSelectorType)
+-&gt; (Value -&gt; Parser [FragmentSelectorType])
+-&gt; FromJSON FragmentSelectorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FragmentSelectorType]
+$cparseJSONList :: Value -&gt; Parser [FragmentSelectorType]
+parseJSON :: Value -&gt; Parser FragmentSelectorType
+$cparseJSON :: Value -&gt; Parser FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164040"><span id="local-6989586621679164042"><span class="annot"><span class="annottext">FromJSONKeyFunction [FragmentSelectorType]
+FromJSONKeyFunction FragmentSelectorType
+FromJSONKeyFunction FragmentSelectorType
+-&gt; FromJSONKeyFunction [FragmentSelectorType]
+-&gt; FromJSONKey FragmentSelectorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FragmentSelectorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FragmentSelectorType]
+fromJSONKey :: FromJSONKeyFunction FragmentSelectorType
+$cfromJSONKey :: FromJSONKeyFunction FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164031"><span id="local-6989586621679164033"><span id="local-6989586621679164035"><span id="local-6989586621679164037"><span class="annot"><span class="annottext">[FragmentSelectorType] -&gt; Encoding
+[FragmentSelectorType] -&gt; Value
+FragmentSelectorType -&gt; Encoding
+FragmentSelectorType -&gt; Value
+(FragmentSelectorType -&gt; Value)
+-&gt; (FragmentSelectorType -&gt; Encoding)
+-&gt; ([FragmentSelectorType] -&gt; Value)
+-&gt; ([FragmentSelectorType] -&gt; Encoding)
+-&gt; ToJSON FragmentSelectorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FragmentSelectorType] -&gt; Encoding
+$ctoEncodingList :: [FragmentSelectorType] -&gt; Encoding
+toJSONList :: [FragmentSelectorType] -&gt; Value
+$ctoJSONList :: [FragmentSelectorType] -&gt; Value
+toEncoding :: FragmentSelectorType -&gt; Encoding
+$ctoEncoding :: FragmentSelectorType -&gt; Encoding
+toJSON :: FragmentSelectorType -&gt; Value
+$ctoJSON :: FragmentSelectorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164026"><span id="local-6989586621679164028"><span class="annot"><span class="annottext">ToJSONKeyFunction [FragmentSelectorType]
+ToJSONKeyFunction FragmentSelectorType
+ToJSONKeyFunction FragmentSelectorType
+-&gt; ToJSONKeyFunction [FragmentSelectorType]
+-&gt; ToJSONKey FragmentSelectorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FragmentSelectorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FragmentSelectorType]
+toJSONKey :: ToJSONKeyFunction FragmentSelectorType
+$ctoJSONKey :: ToJSONKeyFunction FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164023"><span class="annot"><span class="annottext">[Node] -&gt; Either String FragmentSelectorType
+([Node] -&gt; Either String FragmentSelectorType)
+-&gt; FromXML FragmentSelectorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FragmentSelectorType
+$cparseXML :: [Node] -&gt; Either String FragmentSelectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164020"><span class="annot"><span class="annottext">FragmentSelectorType -&gt; XML
+(FragmentSelectorType -&gt; XML) -&gt; ToXML FragmentSelectorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FragmentSelectorType -&gt; XML
+$ctoXML :: FragmentSelectorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_PRODUCER_TIMESTAMP"><span class="hs-identifier hs-type">FragmentSelectorType_PRODUCER_TIMESTAMP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-type">FragmentSelectorType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFragmentSelectorType_PRODUCER_TIMESTAMP"><span id="%24mFragmentSelectorType_PRODUCER_TIMESTAMP"><span id="FragmentSelectorType_PRODUCER_TIMESTAMP"><span class="annot"><span class="annottext">$bFragmentSelectorType_PRODUCER_TIMESTAMP :: FragmentSelectorType
+$mFragmentSelectorType_PRODUCER_TIMESTAMP :: forall r. FragmentSelectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#%24bFragmentSelectorType_PRODUCER_TIMESTAMP"><span class="hs-identifier hs-var hs-var hs-var">FragmentSelectorType_PRODUCER_TIMESTAMP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType%27"><span class="hs-identifier hs-type">FragmentSelectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRODUCER_TIMESTAMP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_SERVER_TIMESTAMP"><span class="hs-identifier hs-type">FragmentSelectorType_SERVER_TIMESTAMP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType"><span class="hs-identifier hs-type">FragmentSelectorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFragmentSelectorType_SERVER_TIMESTAMP"><span id="%24mFragmentSelectorType_SERVER_TIMESTAMP"><span id="FragmentSelectorType_SERVER_TIMESTAMP"><span class="annot"><span class="annottext">$bFragmentSelectorType_SERVER_TIMESTAMP :: FragmentSelectorType
+$mFragmentSelectorType_SERVER_TIMESTAMP :: forall r. FragmentSelectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#%24bFragmentSelectorType_SERVER_TIMESTAMP"><span class="hs-identifier hs-var hs-var hs-var">FragmentSelectorType_SERVER_TIMESTAMP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType%27"><span class="hs-identifier hs-type">FragmentSelectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SERVER_TIMESTAMP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_PRODUCER_TIMESTAMP"><span class="hs-pragma hs-type">FragmentSelectorType_PRODUCER_TIMESTAMP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType_SERVER_TIMESTAMP"><span class="hs-pragma hs-type">FragmentSelectorType_SERVER_TIMESTAMP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType.html#FragmentSelectorType%27"><span class="hs-pragma hs-type">FragmentSelectorType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

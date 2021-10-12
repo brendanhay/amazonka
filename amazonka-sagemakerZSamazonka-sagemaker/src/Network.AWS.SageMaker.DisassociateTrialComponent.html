@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.DisassociateTrialComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates a trial component from a trial. This doesn\'t effect other</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- trials the component is associated with. Before you can delete a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- component, you must disassociate the component from all trials it is</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- associated with. To associate a trial component with a trial, call the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- AssociateTrialComponent API.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- To get a list of the trials a component is associated with, use the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Search API. Specify @ExperimentTrialComponent@ for the @Resource@</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- parameter. The list appears in the response under</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @Results.TrialComponent.Parents@.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.DisassociateTrialComponent</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponent"><span class="hs-identifier">newDisassociateTrialComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialComponentName"><span class="hs-identifier">disassociateTrialComponent_trialComponentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialName"><span class="hs-identifier">disassociateTrialComponent_trialName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier">DisassociateTrialComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponentResponse"><span class="hs-identifier">newDisassociateTrialComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialArn"><span class="hs-identifier">disassociateTrialComponentResponse_trialArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialComponentArn"><span class="hs-identifier">disassociateTrialComponentResponse_trialComponentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_httpStatus"><span class="hs-identifier">disassociateTrialComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTrialComponent' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621680388568"><span id="local-6989586621680388569"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTrialComponent"><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-var">DisassociateTrialComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTrialComponent%27"><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-var">DisassociateTrialComponent'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the component to disassociate from the trial.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtrialComponentName%3ADisassociateTrialComponent%27"><span class="annot"><span class="annottext">DisassociateTrialComponent -&gt; Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var hs-var">trialComponentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the trial to disassociate from.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtrialName%3ADisassociateTrialComponent%27"><span class="annot"><span class="annottext">DisassociateTrialComponent -&gt; Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388561"><span id="local-6989586621680388563"><span class="annot"><span class="annottext">DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool
+(DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool)
+-&gt; (DisassociateTrialComponent
+    -&gt; DisassociateTrialComponent -&gt; Bool)
+-&gt; Eq DisassociateTrialComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool
+$c/= :: DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool
+== :: DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool
+$c== :: DisassociateTrialComponent -&gt; DisassociateTrialComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388552"><span id="local-6989586621680388554"><span id="local-6989586621680388556"><span id="local-6989586621680388558"><span class="annot"><span class="annottext">ReadPrec [DisassociateTrialComponent]
+ReadPrec DisassociateTrialComponent
+Int -&gt; ReadS DisassociateTrialComponent
+ReadS [DisassociateTrialComponent]
+(Int -&gt; ReadS DisassociateTrialComponent)
+-&gt; ReadS [DisassociateTrialComponent]
+-&gt; ReadPrec DisassociateTrialComponent
+-&gt; ReadPrec [DisassociateTrialComponent]
+-&gt; Read DisassociateTrialComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateTrialComponent]
+$creadListPrec :: ReadPrec [DisassociateTrialComponent]
+readPrec :: ReadPrec DisassociateTrialComponent
+$creadPrec :: ReadPrec DisassociateTrialComponent
+readList :: ReadS [DisassociateTrialComponent]
+$creadList :: ReadS [DisassociateTrialComponent]
+readsPrec :: Int -&gt; ReadS DisassociateTrialComponent
+$creadsPrec :: Int -&gt; ReadS DisassociateTrialComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388545"><span id="local-6989586621680388547"><span id="local-6989586621680388549"><span class="annot"><span class="annottext">Int -&gt; DisassociateTrialComponent -&gt; ShowS
+[DisassociateTrialComponent] -&gt; ShowS
+DisassociateTrialComponent -&gt; String
+(Int -&gt; DisassociateTrialComponent -&gt; ShowS)
+-&gt; (DisassociateTrialComponent -&gt; String)
+-&gt; ([DisassociateTrialComponent] -&gt; ShowS)
+-&gt; Show DisassociateTrialComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateTrialComponent] -&gt; ShowS
+$cshowList :: [DisassociateTrialComponent] -&gt; ShowS
+show :: DisassociateTrialComponent -&gt; String
+$cshow :: DisassociateTrialComponent -&gt; String
+showsPrec :: Int -&gt; DisassociateTrialComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateTrialComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateTrialComponent -&gt; Rep DisassociateTrialComponent x)
+-&gt; (forall x.
+    Rep DisassociateTrialComponent x -&gt; DisassociateTrialComponent)
+-&gt; Generic DisassociateTrialComponent
+forall x.
+Rep DisassociateTrialComponent x -&gt; DisassociateTrialComponent
+forall x.
+DisassociateTrialComponent -&gt; Rep DisassociateTrialComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateTrialComponent x -&gt; DisassociateTrialComponent
+$cfrom :: forall x.
+DisassociateTrialComponent -&gt; Rep DisassociateTrialComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DisassociateTrialComponent' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'trialComponentName', 'disassociateTrialComponent_trialComponentName' - The name of the component to disassociate from the trial.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'trialName', 'disassociateTrialComponent_trialName' - The name of the trial to disassociate from.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponent"><span class="hs-identifier hs-type">newDisassociateTrialComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'trialComponentName'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'trialName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span>
+</span><span id="line-86"></span><span id="newDisassociateTrialComponent"><span class="annot"><span class="annottext">newDisassociateTrialComponent :: Text -&gt; Text -&gt; DisassociateTrialComponent
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponent"><span class="hs-identifier hs-var hs-var">newDisassociateTrialComponent</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680388540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388540"><span class="hs-identifier hs-var">pTrialComponentName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680388539"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388539"><span class="hs-identifier hs-var">pTrialName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">DisassociateTrialComponent' :: Text -&gt; Text -&gt; DisassociateTrialComponent
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trialComponentName:DisassociateTrialComponent' :: Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var">trialComponentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388540"><span class="hs-identifier hs-var">pTrialComponentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:trialName:DisassociateTrialComponent' :: Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388539"><span class="hs-identifier hs-var">pTrialName_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the component to disassociate from the trial.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialComponentName"><span class="hs-identifier hs-type">disassociateTrialComponent_trialComponentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="disassociateTrialComponent_trialComponentName"><span class="annot"><span class="annottext">disassociateTrialComponent_trialComponentName :: (Text -&gt; f Text)
+-&gt; DisassociateTrialComponent -&gt; f DisassociateTrialComponent
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialComponentName"><span class="hs-identifier hs-var hs-var">disassociateTrialComponent_trialComponentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTrialComponent -&gt; Text)
+-&gt; (DisassociateTrialComponent
+    -&gt; Text -&gt; DisassociateTrialComponent)
+-&gt; Lens
+     DisassociateTrialComponent DisassociateTrialComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388536"><span class="annot"><span class="annottext">Text
+trialComponentName :: Text
+$sel:trialComponentName:DisassociateTrialComponent' :: DisassociateTrialComponent -&gt; Text
+</span><a href="#local-6989586621680388536"><span class="hs-identifier hs-var hs-var">trialComponentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388536"><span class="hs-identifier hs-var">trialComponentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388535"><span class="annot"><span class="annottext">s :: DisassociateTrialComponent
+</span><a href="#local-6989586621680388535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTrialComponent
+</span><a href="#local-6989586621680388535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialComponentName:DisassociateTrialComponent' :: Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var">trialComponentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The name of the trial to disassociate from.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialName"><span class="hs-identifier hs-type">disassociateTrialComponent_trialName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="disassociateTrialComponent_trialName"><span class="annot"><span class="annottext">disassociateTrialComponent_trialName :: (Text -&gt; f Text)
+-&gt; DisassociateTrialComponent -&gt; f DisassociateTrialComponent
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponent_trialName"><span class="hs-identifier hs-var hs-var">disassociateTrialComponent_trialName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTrialComponent -&gt; Text)
+-&gt; (DisassociateTrialComponent
+    -&gt; Text -&gt; DisassociateTrialComponent)
+-&gt; Lens
+     DisassociateTrialComponent DisassociateTrialComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388533"><span class="annot"><span class="annottext">Text
+trialName :: Text
+$sel:trialName:DisassociateTrialComponent' :: DisassociateTrialComponent -&gt; Text
+</span><a href="#local-6989586621680388533"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388533"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388532"><span class="annot"><span class="annottext">s :: DisassociateTrialComponent
+</span><a href="#local-6989586621680388532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTrialComponent
+</span><a href="#local-6989586621680388532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialName:DisassociateTrialComponent' :: Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialName%3ADisassociateTrialComponent%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680388527"><span class="annot"><span class="annottext">request :: DisassociateTrialComponent -&gt; Request DisassociateTrialComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateTrialComponent -&gt; Request DisassociateTrialComponent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680388523"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateTrialComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateTrialComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DisassociateTrialComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateTrialComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisassociateTrialComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680388520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680388519"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680388519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680388518"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">DisassociateTrialComponentResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; DisassociateTrialComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DisassociateTrialComponentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DisassociateTrialComponentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DisassociateTrialComponentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialComponentArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisassociateTrialComponentResponse)
+-&gt; Either String Int
+-&gt; Either String DisassociateTrialComponentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388510"><span id="local-6989586621680388512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621680388503"><span class="annot"><span class="annottext">toHeaders :: DisassociateTrialComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateTrialComponent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DisassociateTrialComponent&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388493"><span id="local-6989586621680388495"><span id="local-6989586621680388497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621680388491"><span class="annot"><span class="annottext">toJSON :: DisassociateTrialComponent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent%27"><span class="hs-identifier hs-type">DisassociateTrialComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388488"><span id="local-6989586621680388489"><span class="annot"><span class="annottext">Text
+trialName :: Text
+trialComponentName :: Text
+$sel:trialName:DisassociateTrialComponent' :: DisassociateTrialComponent -&gt; Text
+$sel:trialComponentName:DisassociateTrialComponent' :: DisassociateTrialComponent -&gt; Text
+</span><a href="#local-6989586621680388488"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialComponentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388489"><span class="hs-identifier hs-var">trialComponentName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680388488"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621680388482"><span class="annot"><span class="annottext">toPath :: DisassociateTrialComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateTrialComponent -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponent"><span class="hs-identifier hs-type">DisassociateTrialComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621680388478"><span class="annot"><span class="annottext">toQuery :: DisassociateTrialComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateTrialComponent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTrialComponentResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621680388475"><span id="local-6989586621680388476"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTrialComponentResponse"><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-var">DisassociateTrialComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTrialComponentResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">DisassociateTrialComponentResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AtrialArn%3ADisassociateTrialComponentResponse%27"><span class="annot"><span class="annottext">DisassociateTrialComponentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The ARN of the trial component.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AtrialComponentArn%3ADisassociateTrialComponentResponse%27"><span class="annot"><span class="annottext">DisassociateTrialComponentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var hs-var">trialComponentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateTrialComponentResponse%27"><span class="annot"><span class="annottext">DisassociateTrialComponentResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AhttpStatus%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388468"><span id="local-6989586621680388470"><span class="annot"><span class="annottext">DisassociateTrialComponentResponse
+-&gt; DisassociateTrialComponentResponse -&gt; Bool
+(DisassociateTrialComponentResponse
+ -&gt; DisassociateTrialComponentResponse -&gt; Bool)
+-&gt; (DisassociateTrialComponentResponse
+    -&gt; DisassociateTrialComponentResponse -&gt; Bool)
+-&gt; Eq DisassociateTrialComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateTrialComponentResponse
+-&gt; DisassociateTrialComponentResponse -&gt; Bool
+$c/= :: DisassociateTrialComponentResponse
+-&gt; DisassociateTrialComponentResponse -&gt; Bool
+== :: DisassociateTrialComponentResponse
+-&gt; DisassociateTrialComponentResponse -&gt; Bool
+$c== :: DisassociateTrialComponentResponse
+-&gt; DisassociateTrialComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388460"><span id="local-6989586621680388462"><span id="local-6989586621680388464"><span id="local-6989586621680388466"><span class="annot"><span class="annottext">ReadPrec [DisassociateTrialComponentResponse]
+ReadPrec DisassociateTrialComponentResponse
+Int -&gt; ReadS DisassociateTrialComponentResponse
+ReadS [DisassociateTrialComponentResponse]
+(Int -&gt; ReadS DisassociateTrialComponentResponse)
+-&gt; ReadS [DisassociateTrialComponentResponse]
+-&gt; ReadPrec DisassociateTrialComponentResponse
+-&gt; ReadPrec [DisassociateTrialComponentResponse]
+-&gt; Read DisassociateTrialComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateTrialComponentResponse]
+$creadListPrec :: ReadPrec [DisassociateTrialComponentResponse]
+readPrec :: ReadPrec DisassociateTrialComponentResponse
+$creadPrec :: ReadPrec DisassociateTrialComponentResponse
+readList :: ReadS [DisassociateTrialComponentResponse]
+$creadList :: ReadS [DisassociateTrialComponentResponse]
+readsPrec :: Int -&gt; ReadS DisassociateTrialComponentResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateTrialComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388454"><span id="local-6989586621680388456"><span id="local-6989586621680388458"><span class="annot"><span class="annottext">Int -&gt; DisassociateTrialComponentResponse -&gt; ShowS
+[DisassociateTrialComponentResponse] -&gt; ShowS
+DisassociateTrialComponentResponse -&gt; String
+(Int -&gt; DisassociateTrialComponentResponse -&gt; ShowS)
+-&gt; (DisassociateTrialComponentResponse -&gt; String)
+-&gt; ([DisassociateTrialComponentResponse] -&gt; ShowS)
+-&gt; Show DisassociateTrialComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateTrialComponentResponse] -&gt; ShowS
+$cshowList :: [DisassociateTrialComponentResponse] -&gt; ShowS
+show :: DisassociateTrialComponentResponse -&gt; String
+$cshow :: DisassociateTrialComponentResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateTrialComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateTrialComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateTrialComponentResponse
+ -&gt; Rep DisassociateTrialComponentResponse x)
+-&gt; (forall x.
+    Rep DisassociateTrialComponentResponse x
+    -&gt; DisassociateTrialComponentResponse)
+-&gt; Generic DisassociateTrialComponentResponse
+forall x.
+Rep DisassociateTrialComponentResponse x
+-&gt; DisassociateTrialComponentResponse
+forall x.
+DisassociateTrialComponentResponse
+-&gt; Rep DisassociateTrialComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateTrialComponentResponse x
+-&gt; DisassociateTrialComponentResponse
+$cfrom :: forall x.
+DisassociateTrialComponentResponse
+-&gt; Rep DisassociateTrialComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'DisassociateTrialComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'trialArn', 'disassociateTrialComponentResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'trialComponentArn', 'disassociateTrialComponentResponse_trialComponentArn' - The ARN of the trial component.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'disassociateTrialComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponentResponse"><span class="hs-identifier hs-type">newDisassociateTrialComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newDisassociateTrialComponentResponse"><span class="annot"><span class="annottext">newDisassociateTrialComponentResponse :: Int -&gt; DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#newDisassociateTrialComponentResponse"><span class="hs-identifier hs-var hs-var">newDisassociateTrialComponentResponse</span></a></span></span><span> </span><span id="local-6989586621680388451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DisassociateTrialComponentResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Int -&gt; DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trialArn:DisassociateTrialComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">trialArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialComponentArn:DisassociateTrialComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">trialComponentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTrialComponentResponse' :: Int
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AhttpStatus%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialArn"><span class="hs-identifier hs-type">disassociateTrialComponentResponse_trialArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="disassociateTrialComponentResponse_trialArn"><span class="annot"><span class="annottext">disassociateTrialComponentResponse_trialArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisassociateTrialComponentResponse
+-&gt; f DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialArn"><span class="hs-identifier hs-var hs-var">disassociateTrialComponentResponse_trialArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTrialComponentResponse -&gt; Maybe Text)
+-&gt; (DisassociateTrialComponentResponse
+    -&gt; Maybe Text -&gt; DisassociateTrialComponentResponse)
+-&gt; Lens
+     DisassociateTrialComponentResponse
+     DisassociateTrialComponentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388450"><span class="annot"><span class="annottext">Maybe Text
+trialArn :: Maybe Text
+$sel:trialArn:DisassociateTrialComponentResponse' :: DisassociateTrialComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680388450"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388450"><span class="hs-identifier hs-var">trialArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388449"><span class="annot"><span class="annottext">s :: DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialArn:DisassociateTrialComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">trialArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The ARN of the trial component.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialComponentArn"><span class="hs-identifier hs-type">disassociateTrialComponentResponse_trialComponentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="disassociateTrialComponentResponse_trialComponentArn"><span class="annot"><span class="annottext">disassociateTrialComponentResponse_trialComponentArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisassociateTrialComponentResponse
+-&gt; f DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_trialComponentArn"><span class="hs-identifier hs-var hs-var">disassociateTrialComponentResponse_trialComponentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTrialComponentResponse -&gt; Maybe Text)
+-&gt; (DisassociateTrialComponentResponse
+    -&gt; Maybe Text -&gt; DisassociateTrialComponentResponse)
+-&gt; Lens
+     DisassociateTrialComponentResponse
+     DisassociateTrialComponentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388447"><span class="annot"><span class="annottext">Maybe Text
+trialComponentArn :: Maybe Text
+$sel:trialComponentArn:DisassociateTrialComponentResponse' :: DisassociateTrialComponentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680388447"><span class="hs-identifier hs-var hs-var">trialComponentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388447"><span class="hs-identifier hs-var">trialComponentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388446"><span class="annot"><span class="annottext">s :: DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388445"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialComponentArn:DisassociateTrialComponentResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AtrialComponentArn%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">trialComponentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_httpStatus"><span class="hs-identifier hs-type">disassociateTrialComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-198"></span><span id="disassociateTrialComponentResponse_httpStatus"><span class="annot"><span class="annottext">disassociateTrialComponentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateTrialComponentResponse
+-&gt; f DisassociateTrialComponentResponse
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#disassociateTrialComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateTrialComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTrialComponentResponse -&gt; Int)
+-&gt; (DisassociateTrialComponentResponse
+    -&gt; Int -&gt; DisassociateTrialComponentResponse)
+-&gt; Lens
+     DisassociateTrialComponentResponse
+     DisassociateTrialComponentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388444"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateTrialComponentResponse' :: DisassociateTrialComponentResponse -&gt; Int
+</span><a href="#local-6989586621680388444"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388444"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388443"><span class="annot"><span class="annottext">s :: DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse%27"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTrialComponentResponse
+</span><a href="#local-6989586621680388443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTrialComponentResponse' :: Int
+</span><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#%24sel%3AhttpStatus%3ADisassociateTrialComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621680388440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DisassociateTrialComponent.html#DisassociateTrialComponentResponse"><span class="hs-identifier hs-type">DisassociateTrialComponentResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

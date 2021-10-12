@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Amazon_linux"><span class="hs-identifier">UpdateTargetsOperatingSystem_Amazon_linux</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Openwrt"><span class="hs-identifier">UpdateTargetsOperatingSystem_Openwrt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Raspbian"><span class="hs-identifier">UpdateTargetsOperatingSystem_Raspbian</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Ubuntu"><span class="hs-identifier">UpdateTargetsOperatingSystem_Ubuntu</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The operating system of the cores which are the targets of an update.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679348074"><span id="local-6989586621679348075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateTargetsOperatingSystem"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTargetsOperatingSystem%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateTargetsOperatingSystem"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; Text
+</span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#fromUpdateTargetsOperatingSystem"><span class="hs-identifier hs-var hs-var">fromUpdateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348066"><span id="local-6989586621679348068"><span id="local-6989586621679348070"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
+[UpdateTargetsOperatingSystem] -&gt; ShowS
+UpdateTargetsOperatingSystem -&gt; String
+(Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS)
+-&gt; (UpdateTargetsOperatingSystem -&gt; String)
+-&gt; ([UpdateTargetsOperatingSystem] -&gt; ShowS)
+-&gt; Show UpdateTargetsOperatingSystem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTargetsOperatingSystem] -&gt; ShowS
+$cshowList :: [UpdateTargetsOperatingSystem] -&gt; ShowS
+show :: UpdateTargetsOperatingSystem -&gt; String
+$cshow :: UpdateTargetsOperatingSystem -&gt; String
+showsPrec :: Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348057"><span id="local-6989586621679348059"><span id="local-6989586621679348061"><span id="local-6989586621679348063"><span class="annot"><span class="annottext">ReadPrec [UpdateTargetsOperatingSystem]
+ReadPrec UpdateTargetsOperatingSystem
+Int -&gt; ReadS UpdateTargetsOperatingSystem
+ReadS [UpdateTargetsOperatingSystem]
+(Int -&gt; ReadS UpdateTargetsOperatingSystem)
+-&gt; ReadS [UpdateTargetsOperatingSystem]
+-&gt; ReadPrec UpdateTargetsOperatingSystem
+-&gt; ReadPrec [UpdateTargetsOperatingSystem]
+-&gt; Read UpdateTargetsOperatingSystem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTargetsOperatingSystem]
+$creadListPrec :: ReadPrec [UpdateTargetsOperatingSystem]
+readPrec :: ReadPrec UpdateTargetsOperatingSystem
+$creadPrec :: ReadPrec UpdateTargetsOperatingSystem
+readList :: ReadS [UpdateTargetsOperatingSystem]
+$creadList :: ReadS [UpdateTargetsOperatingSystem]
+readsPrec :: Int -&gt; ReadS UpdateTargetsOperatingSystem
+$creadsPrec :: Int -&gt; ReadS UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679348052"><span id="local-6989586621679348054"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+(UpdateTargetsOperatingSystem
+ -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; Eq UpdateTargetsOperatingSystem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c/= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+== :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c== :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679348036"><span id="local-6989586621679348038"><span id="local-6989586621679348040"><span id="local-6989586621679348042"><span id="local-6989586621679348044"><span id="local-6989586621679348046"><span id="local-6989586621679348048"><span class="annot"><span class="annottext">Eq UpdateTargetsOperatingSystem
+Eq UpdateTargetsOperatingSystem
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Ordering)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem)
+-&gt; (UpdateTargetsOperatingSystem
+    -&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem)
+-&gt; Ord UpdateTargetsOperatingSystem
+UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Ordering
+UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem
+$cmin :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem
+max :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem
+$cmax :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; UpdateTargetsOperatingSystem
+&gt;= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c&gt;= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+&gt; :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c&gt; :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+&lt;= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c&lt;= :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+&lt; :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+$c&lt; :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Bool
+compare :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Ordering
+$ccompare :: UpdateTargetsOperatingSystem
+-&gt; UpdateTargetsOperatingSystem -&gt; Ordering
+$cp1Ord :: Eq UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ UpdateTargetsOperatingSystem -&gt; Rep UpdateTargetsOperatingSystem x)
+-&gt; (forall x.
+    Rep UpdateTargetsOperatingSystem x -&gt; UpdateTargetsOperatingSystem)
+-&gt; Generic UpdateTargetsOperatingSystem
+forall x.
+Rep UpdateTargetsOperatingSystem x -&gt; UpdateTargetsOperatingSystem
+forall x.
+UpdateTargetsOperatingSystem -&gt; Rep UpdateTargetsOperatingSystem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateTargetsOperatingSystem x -&gt; UpdateTargetsOperatingSystem
+$cfrom :: forall x.
+UpdateTargetsOperatingSystem -&gt; Rep UpdateTargetsOperatingSystem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348028"><span id="local-6989586621679348030"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
+UpdateTargetsOperatingSystem -&gt; Int
+(Int -&gt; UpdateTargetsOperatingSystem -&gt; Int)
+-&gt; (UpdateTargetsOperatingSystem -&gt; Int)
+-&gt; Hashable UpdateTargetsOperatingSystem
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UpdateTargetsOperatingSystem -&gt; Int
+$chash :: UpdateTargetsOperatingSystem -&gt; Int
+hashWithSalt :: Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
+$chashWithSalt :: Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348025"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ()
+(UpdateTargetsOperatingSystem -&gt; ())
+-&gt; NFData UpdateTargetsOperatingSystem
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UpdateTargetsOperatingSystem -&gt; ()
+$crnf :: UpdateTargetsOperatingSystem -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348022"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateTargetsOperatingSystem
+(Text -&gt; Either String UpdateTargetsOperatingSystem)
+-&gt; FromText UpdateTargetsOperatingSystem
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UpdateTargetsOperatingSystem
+$cfromText :: Text -&gt; Either String UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348019"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; Text
+(UpdateTargetsOperatingSystem -&gt; Text)
+-&gt; ToText UpdateTargetsOperatingSystem
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UpdateTargetsOperatingSystem -&gt; Text
+$ctoText :: UpdateTargetsOperatingSystem -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348016"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteString
+(UpdateTargetsOperatingSystem -&gt; ByteString)
+-&gt; ToByteString UpdateTargetsOperatingSystem
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UpdateTargetsOperatingSystem -&gt; ByteString
+$ctoBS :: UpdateTargetsOperatingSystem -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348013"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
+(UpdateTargetsOperatingSystem -&gt; ByteStringBuilder)
+-&gt; ToLog UpdateTargetsOperatingSystem
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
+$cbuild :: UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348010"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
+(HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header])
+-&gt; ToHeader UpdateTargetsOperatingSystem
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348007"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; QueryString
+(UpdateTargetsOperatingSystem -&gt; QueryString)
+-&gt; ToQuery UpdateTargetsOperatingSystem
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UpdateTargetsOperatingSystem -&gt; QueryString
+$ctoQuery :: UpdateTargetsOperatingSystem -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348002"><span id="local-6989586621679348004"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateTargetsOperatingSystem]
+Value -&gt; Parser UpdateTargetsOperatingSystem
+(Value -&gt; Parser UpdateTargetsOperatingSystem)
+-&gt; (Value -&gt; Parser [UpdateTargetsOperatingSystem])
+-&gt; FromJSON UpdateTargetsOperatingSystem
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UpdateTargetsOperatingSystem]
+$cparseJSONList :: Value -&gt; Parser [UpdateTargetsOperatingSystem]
+parseJSON :: Value -&gt; Parser UpdateTargetsOperatingSystem
+$cparseJSON :: Value -&gt; Parser UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347997"><span id="local-6989586621679347999"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateTargetsOperatingSystem]
+FromJSONKeyFunction UpdateTargetsOperatingSystem
+FromJSONKeyFunction UpdateTargetsOperatingSystem
+-&gt; FromJSONKeyFunction [UpdateTargetsOperatingSystem]
+-&gt; FromJSONKey UpdateTargetsOperatingSystem
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UpdateTargetsOperatingSystem]
+$cfromJSONKeyList :: FromJSONKeyFunction [UpdateTargetsOperatingSystem]
+fromJSONKey :: FromJSONKeyFunction UpdateTargetsOperatingSystem
+$cfromJSONKey :: FromJSONKeyFunction UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347988"><span id="local-6989586621679347990"><span id="local-6989586621679347992"><span id="local-6989586621679347994"><span class="annot"><span class="annottext">[UpdateTargetsOperatingSystem] -&gt; Encoding
+[UpdateTargetsOperatingSystem] -&gt; Value
+UpdateTargetsOperatingSystem -&gt; Encoding
+UpdateTargetsOperatingSystem -&gt; Value
+(UpdateTargetsOperatingSystem -&gt; Value)
+-&gt; (UpdateTargetsOperatingSystem -&gt; Encoding)
+-&gt; ([UpdateTargetsOperatingSystem] -&gt; Value)
+-&gt; ([UpdateTargetsOperatingSystem] -&gt; Encoding)
+-&gt; ToJSON UpdateTargetsOperatingSystem
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UpdateTargetsOperatingSystem] -&gt; Encoding
+$ctoEncodingList :: [UpdateTargetsOperatingSystem] -&gt; Encoding
+toJSONList :: [UpdateTargetsOperatingSystem] -&gt; Value
+$ctoJSONList :: [UpdateTargetsOperatingSystem] -&gt; Value
+toEncoding :: UpdateTargetsOperatingSystem -&gt; Encoding
+$ctoEncoding :: UpdateTargetsOperatingSystem -&gt; Encoding
+toJSON :: UpdateTargetsOperatingSystem -&gt; Value
+$ctoJSON :: UpdateTargetsOperatingSystem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347983"><span id="local-6989586621679347985"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateTargetsOperatingSystem]
+ToJSONKeyFunction UpdateTargetsOperatingSystem
+ToJSONKeyFunction UpdateTargetsOperatingSystem
+-&gt; ToJSONKeyFunction [UpdateTargetsOperatingSystem]
+-&gt; ToJSONKey UpdateTargetsOperatingSystem
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UpdateTargetsOperatingSystem]
+$ctoJSONKeyList :: ToJSONKeyFunction [UpdateTargetsOperatingSystem]
+toJSONKey :: ToJSONKeyFunction UpdateTargetsOperatingSystem
+$ctoJSONKey :: ToJSONKeyFunction UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347980"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateTargetsOperatingSystem
+([Node] -&gt; Either String UpdateTargetsOperatingSystem)
+-&gt; FromXML UpdateTargetsOperatingSystem
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UpdateTargetsOperatingSystem
+$cparseXML :: [Node] -&gt; Either String UpdateTargetsOperatingSystem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347977"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; XML
+(UpdateTargetsOperatingSystem -&gt; XML)
+-&gt; ToXML UpdateTargetsOperatingSystem
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UpdateTargetsOperatingSystem -&gt; XML
+$ctoXML :: UpdateTargetsOperatingSystem -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Amazon_linux"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem_Amazon_linux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateTargetsOperatingSystem_Amazon_linux"><span id="%24mUpdateTargetsOperatingSystem_Amazon_linux"><span id="UpdateTargetsOperatingSystem_Amazon_linux"><span class="annot"><span class="annottext">$bUpdateTargetsOperatingSystem_Amazon_linux :: UpdateTargetsOperatingSystem
+$mUpdateTargetsOperatingSystem_Amazon_linux :: forall r.
+UpdateTargetsOperatingSystem -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#%24bUpdateTargetsOperatingSystem_Amazon_linux"><span class="hs-identifier hs-var hs-var hs-var">UpdateTargetsOperatingSystem_Amazon_linux</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;amazon_linux&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Openwrt"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem_Openwrt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateTargetsOperatingSystem_Openwrt"><span id="%24mUpdateTargetsOperatingSystem_Openwrt"><span id="UpdateTargetsOperatingSystem_Openwrt"><span class="annot"><span class="annottext">$bUpdateTargetsOperatingSystem_Openwrt :: UpdateTargetsOperatingSystem
+$mUpdateTargetsOperatingSystem_Openwrt :: forall r.
+UpdateTargetsOperatingSystem -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#%24bUpdateTargetsOperatingSystem_Openwrt"><span class="hs-identifier hs-var hs-var hs-var">UpdateTargetsOperatingSystem_Openwrt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;openwrt&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Raspbian"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem_Raspbian</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateTargetsOperatingSystem_Raspbian"><span id="%24mUpdateTargetsOperatingSystem_Raspbian"><span id="UpdateTargetsOperatingSystem_Raspbian"><span class="annot"><span class="annottext">$bUpdateTargetsOperatingSystem_Raspbian :: UpdateTargetsOperatingSystem
+$mUpdateTargetsOperatingSystem_Raspbian :: forall r.
+UpdateTargetsOperatingSystem -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#%24bUpdateTargetsOperatingSystem_Raspbian"><span class="hs-identifier hs-var hs-var hs-var">UpdateTargetsOperatingSystem_Raspbian</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;raspbian&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Ubuntu"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem_Ubuntu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUpdateTargetsOperatingSystem_Ubuntu"><span id="%24mUpdateTargetsOperatingSystem_Ubuntu"><span id="UpdateTargetsOperatingSystem_Ubuntu"><span class="annot"><span class="annottext">$bUpdateTargetsOperatingSystem_Ubuntu :: UpdateTargetsOperatingSystem
+$mUpdateTargetsOperatingSystem_Ubuntu :: forall r.
+UpdateTargetsOperatingSystem -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#%24bUpdateTargetsOperatingSystem_Ubuntu"><span class="hs-identifier hs-var hs-var hs-var">UpdateTargetsOperatingSystem_Ubuntu</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ubuntu&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Amazon_linux"><span class="hs-pragma hs-type">UpdateTargetsOperatingSystem_Amazon_linux</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Openwrt"><span class="hs-pragma hs-type">UpdateTargetsOperatingSystem_Openwrt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Raspbian"><span class="hs-pragma hs-type">UpdateTargetsOperatingSystem_Raspbian</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem_Ubuntu"><span class="hs-pragma hs-type">UpdateTargetsOperatingSystem_Ubuntu</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-pragma hs-type">UpdateTargetsOperatingSystem'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.EndpointInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.EndpointInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.ProcessingS3InputMode</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Input object for the endpoint</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEndpointInput' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621680330423"><span id="local-6989586621680330424"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-var">EndpointInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-var">EndpointInput'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If specified, monitoring jobs substract this time from the end time. For</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AendTimeOffset%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">endTimeOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The attribute of the input data that represents the ground truth label.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinferenceAttribute%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AinferenceAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">inferenceAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether the @Pipe@ or @File@ is used as the input mode for transfering</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- data for the monitoring job. @Pipe@ mode is recommended for large</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- datasets. @File@ mode is useful for small files that fit in memory.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Defaults to @File@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3As3InputMode%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe ProcessingS3InputMode
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3InputMode%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">s3InputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode"><span class="hs-identifier hs-type">ProcessingS3InputMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Whether input data distributed in Amazon S3 is fully replicated or</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- sharded by an S3 key. Defaults to @FullyReplicated@</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3As3DataDistributionType%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe ProcessingS3DataDistributionType
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3DataDistributionType%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">s3DataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType.html#ProcessingS3DataDistributionType"><span class="hs-identifier hs-type">ProcessingS3DataDistributionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | In a classification problem, the attribute that represents the class</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- probability.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprobabilityAttribute%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">probabilityAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The threshold for the class probability to be evaluated as a positive</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AprobabilityThresholdAttribute%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Double
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityThresholdAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">probabilityThresholdAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The attributes of the input data that are the input features.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AfeaturesAttribute%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AfeaturesAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">featuresAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | If specified, monitoring jobs substract this time from the start time.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- For information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstartTimeOffset%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AstartTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">startTimeOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An endpoint in customer\'s account which has enabled @DataCaptureConfig@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- enabled.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AendpointName%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendpointName%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Path to the filesystem where the endpoint data is available to the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AlocalPath%3AEndpointInput%27"><span class="annot"><span class="annottext">EndpointInput -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AlocalPath%3AEndpointInput%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680330408"><span id="local-6989586621680330410"><span class="annot"><span class="annottext">EndpointInput -&gt; EndpointInput -&gt; Bool
+(EndpointInput -&gt; EndpointInput -&gt; Bool)
+-&gt; (EndpointInput -&gt; EndpointInput -&gt; Bool) -&gt; Eq EndpointInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EndpointInput -&gt; EndpointInput -&gt; Bool
+$c/= :: EndpointInput -&gt; EndpointInput -&gt; Bool
+== :: EndpointInput -&gt; EndpointInput -&gt; Bool
+$c== :: EndpointInput -&gt; EndpointInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330399"><span id="local-6989586621680330401"><span id="local-6989586621680330403"><span id="local-6989586621680330405"><span class="annot"><span class="annottext">ReadPrec [EndpointInput]
+ReadPrec EndpointInput
+Int -&gt; ReadS EndpointInput
+ReadS [EndpointInput]
+(Int -&gt; ReadS EndpointInput)
+-&gt; ReadS [EndpointInput]
+-&gt; ReadPrec EndpointInput
+-&gt; ReadPrec [EndpointInput]
+-&gt; Read EndpointInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EndpointInput]
+$creadListPrec :: ReadPrec [EndpointInput]
+readPrec :: ReadPrec EndpointInput
+$creadPrec :: ReadPrec EndpointInput
+readList :: ReadS [EndpointInput]
+$creadList :: ReadS [EndpointInput]
+readsPrec :: Int -&gt; ReadS EndpointInput
+$creadsPrec :: Int -&gt; ReadS EndpointInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330392"><span id="local-6989586621680330394"><span id="local-6989586621680330396"><span class="annot"><span class="annottext">Int -&gt; EndpointInput -&gt; ShowS
+[EndpointInput] -&gt; ShowS
+EndpointInput -&gt; String
+(Int -&gt; EndpointInput -&gt; ShowS)
+-&gt; (EndpointInput -&gt; String)
+-&gt; ([EndpointInput] -&gt; ShowS)
+-&gt; Show EndpointInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EndpointInput] -&gt; ShowS
+$cshowList :: [EndpointInput] -&gt; ShowS
+show :: EndpointInput -&gt; String
+$cshow :: EndpointInput -&gt; String
+showsPrec :: Int -&gt; EndpointInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; EndpointInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EndpointInput -&gt; Rep EndpointInput x)
+-&gt; (forall x. Rep EndpointInput x -&gt; EndpointInput)
+-&gt; Generic EndpointInput
+forall x. Rep EndpointInput x -&gt; EndpointInput
+forall x. EndpointInput -&gt; Rep EndpointInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EndpointInput x -&gt; EndpointInput
+$cfrom :: forall x. EndpointInput -&gt; Rep EndpointInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'EndpointInput' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'endTimeOffset', 'endpointInput_endTimeOffset' - If specified, monitoring jobs substract this time from the end time. For</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'inferenceAttribute', 'endpointInput_inferenceAttribute' - The attribute of the input data that represents the ground truth label.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 's3InputMode', 'endpointInput_s3InputMode' - Whether the @Pipe@ or @File@ is used as the input mode for transfering</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- data for the monitoring job. @Pipe@ mode is recommended for large</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- datasets. @File@ mode is useful for small files that fit in memory.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Defaults to @File@.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 's3DataDistributionType', 'endpointInput_s3DataDistributionType' - Whether input data distributed in Amazon S3 is fully replicated or</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- sharded by an S3 key. Defaults to @FullyReplicated@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'probabilityAttribute', 'endpointInput_probabilityAttribute' - In a classification problem, the attribute that represents the class</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- probability.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'probabilityThresholdAttribute', 'endpointInput_probabilityThresholdAttribute' - The threshold for the class probability to be evaluated as a positive</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'featuresAttribute', 'endpointInput_featuresAttribute' - The attributes of the input data that are the input features.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'startTimeOffset', 'endpointInput_startTimeOffset' - If specified, monitoring jobs substract this time from the start time.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- For information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'endpointName', 'endpointInput_endpointName' - An endpoint in customer\'s account which has enabled @DataCaptureConfig@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- enabled.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'localPath', 'endpointInput_localPath' - Path to the filesystem where the endpoint data is available to the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#newEndpointInput"><span class="hs-identifier hs-type">newEndpointInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'endpointName'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'localPath'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span>
+</span><span id="line-112"></span><span id="newEndpointInput"><span class="annot"><span class="annottext">newEndpointInput :: Text -&gt; Text -&gt; EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#newEndpointInput"><span class="hs-identifier hs-var hs-var">newEndpointInput</span></a></span></span><span> </span><span id="local-6989586621680330386"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330386"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span id="local-6989586621680330385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330385"><span class="hs-identifier hs-var">pLocalPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">EndpointInput' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProcessingS3InputMode
+-&gt; Maybe ProcessingS3DataDistributionType
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endTimeOffset:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var">endTimeOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AinferenceAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">inferenceAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3InputMode:EndpointInput' :: Maybe ProcessingS3InputMode
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3InputMode%3AEndpointInput%27"><span class="hs-identifier hs-var">s3InputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3DataDistributionType:EndpointInput' :: Maybe ProcessingS3DataDistributionType
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3DataDistributionType%3AEndpointInput%27"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:probabilityAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">probabilityAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:probabilityThresholdAttribute:EndpointInput' :: Maybe Double
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityThresholdAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">probabilityThresholdAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:featuresAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AfeaturesAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">featuresAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimeOffset:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AstartTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var">startTimeOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointName:EndpointInput' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendpointName%3AEndpointInput%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330386"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:localPath:EndpointInput' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AlocalPath%3AEndpointInput%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330385"><span class="hs-identifier hs-var">pLocalPath_</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | If specified, monitoring jobs substract this time from the end time. For</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_endTimeOffset"><span class="hs-identifier hs-type">endpointInput_endTimeOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="endpointInput_endTimeOffset"><span class="annot"><span class="annottext">endpointInput_endTimeOffset :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_endTimeOffset"><span class="hs-identifier hs-var hs-var">endpointInput_endTimeOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Text)
+-&gt; (EndpointInput -&gt; Maybe Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330381"><span class="annot"><span class="annottext">Maybe Text
+endTimeOffset :: Maybe Text
+$sel:endTimeOffset:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330381"><span class="hs-identifier hs-var hs-var">endTimeOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330381"><span class="hs-identifier hs-var">endTimeOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330380"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimeOffset:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var">endTimeOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The attribute of the input data that represents the ground truth label.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_inferenceAttribute"><span class="hs-identifier hs-type">endpointInput_inferenceAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="endpointInput_inferenceAttribute"><span class="annot"><span class="annottext">endpointInput_inferenceAttribute :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_inferenceAttribute"><span class="hs-identifier hs-var hs-var">endpointInput_inferenceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Text)
+-&gt; (EndpointInput -&gt; Maybe Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330377"><span class="annot"><span class="annottext">Maybe Text
+inferenceAttribute :: Maybe Text
+$sel:inferenceAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330377"><span class="hs-identifier hs-var hs-var">inferenceAttribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330377"><span class="hs-identifier hs-var">inferenceAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330376"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330375"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AinferenceAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">inferenceAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Whether the @Pipe@ or @File@ is used as the input mode for transfering</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- data for the monitoring job. @Pipe@ mode is recommended for large</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- datasets. @File@ mode is useful for small files that fit in memory.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Defaults to @File@.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_s3InputMode"><span class="hs-identifier hs-type">endpointInput_s3InputMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode"><span class="hs-identifier hs-type">ProcessingS3InputMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="endpointInput_s3InputMode"><span class="annot"><span class="annottext">endpointInput_s3InputMode :: (Maybe ProcessingS3InputMode -&gt; f (Maybe ProcessingS3InputMode))
+-&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_s3InputMode"><span class="hs-identifier hs-var hs-var">endpointInput_s3InputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe ProcessingS3InputMode)
+-&gt; (EndpointInput -&gt; Maybe ProcessingS3InputMode -&gt; EndpointInput)
+-&gt; Lens
+     EndpointInput
+     EndpointInput
+     (Maybe ProcessingS3InputMode)
+     (Maybe ProcessingS3InputMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330373"><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+s3InputMode :: Maybe ProcessingS3InputMode
+$sel:s3InputMode:EndpointInput' :: EndpointInput -&gt; Maybe ProcessingS3InputMode
+</span><a href="#local-6989586621680330373"><span class="hs-identifier hs-var hs-var">s3InputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+</span><a href="#local-6989586621680330373"><span class="hs-identifier hs-var">s3InputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330372"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330371"><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+</span><a href="#local-6989586621680330371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3InputMode:EndpointInput' :: Maybe ProcessingS3InputMode
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3InputMode%3AEndpointInput%27"><span class="hs-identifier hs-var">s3InputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+</span><a href="#local-6989586621680330371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Whether input data distributed in Amazon S3 is fully replicated or</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- sharded by an S3 key. Defaults to @FullyReplicated@</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_s3DataDistributionType"><span class="hs-identifier hs-type">endpointInput_s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType.html#ProcessingS3DataDistributionType"><span class="hs-identifier hs-type">ProcessingS3DataDistributionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="endpointInput_s3DataDistributionType"><span class="annot"><span class="annottext">endpointInput_s3DataDistributionType :: (Maybe ProcessingS3DataDistributionType
+ -&gt; f (Maybe ProcessingS3DataDistributionType))
+-&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_s3DataDistributionType"><span class="hs-identifier hs-var hs-var">endpointInput_s3DataDistributionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe ProcessingS3DataDistributionType)
+-&gt; (EndpointInput
+    -&gt; Maybe ProcessingS3DataDistributionType -&gt; EndpointInput)
+-&gt; Lens
+     EndpointInput
+     EndpointInput
+     (Maybe ProcessingS3DataDistributionType)
+     (Maybe ProcessingS3DataDistributionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330369"><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+s3DataDistributionType :: Maybe ProcessingS3DataDistributionType
+$sel:s3DataDistributionType:EndpointInput' :: EndpointInput -&gt; Maybe ProcessingS3DataDistributionType
+</span><a href="#local-6989586621680330369"><span class="hs-identifier hs-var hs-var">s3DataDistributionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+</span><a href="#local-6989586621680330369"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330368"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330367"><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+</span><a href="#local-6989586621680330367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataDistributionType:EndpointInput' :: Maybe ProcessingS3DataDistributionType
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3As3DataDistributionType%3AEndpointInput%27"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+</span><a href="#local-6989586621680330367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | In a classification problem, the attribute that represents the class</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- probability.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_probabilityAttribute"><span class="hs-identifier hs-type">endpointInput_probabilityAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="endpointInput_probabilityAttribute"><span class="annot"><span class="annottext">endpointInput_probabilityAttribute :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_probabilityAttribute"><span class="hs-identifier hs-var hs-var">endpointInput_probabilityAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Text)
+-&gt; (EndpointInput -&gt; Maybe Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330365"><span class="annot"><span class="annottext">Maybe Text
+probabilityAttribute :: Maybe Text
+$sel:probabilityAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330365"><span class="hs-identifier hs-var hs-var">probabilityAttribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330365"><span class="hs-identifier hs-var">probabilityAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330364"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330363"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:probabilityAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">probabilityAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The threshold for the class probability to be evaluated as a positive</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_probabilityThresholdAttribute"><span class="hs-identifier hs-type">endpointInput_probabilityThresholdAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="endpointInput_probabilityThresholdAttribute"><span class="annot"><span class="annottext">endpointInput_probabilityThresholdAttribute :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_probabilityThresholdAttribute"><span class="hs-identifier hs-var hs-var">endpointInput_probabilityThresholdAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Double)
+-&gt; (EndpointInput -&gt; Maybe Double -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330361"><span class="annot"><span class="annottext">Maybe Double
+probabilityThresholdAttribute :: Maybe Double
+$sel:probabilityThresholdAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Double
+</span><a href="#local-6989586621680330361"><span class="hs-identifier hs-var hs-var">probabilityThresholdAttribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680330361"><span class="hs-identifier hs-var">probabilityThresholdAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330360"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330359"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680330359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:probabilityThresholdAttribute:EndpointInput' :: Maybe Double
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AprobabilityThresholdAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">probabilityThresholdAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680330359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The attributes of the input data that are the input features.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_featuresAttribute"><span class="hs-identifier hs-type">endpointInput_featuresAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="endpointInput_featuresAttribute"><span class="annot"><span class="annottext">endpointInput_featuresAttribute :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_featuresAttribute"><span class="hs-identifier hs-var hs-var">endpointInput_featuresAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Text)
+-&gt; (EndpointInput -&gt; Maybe Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330357"><span class="annot"><span class="annottext">Maybe Text
+featuresAttribute :: Maybe Text
+$sel:featuresAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330357"><span class="hs-identifier hs-var hs-var">featuresAttribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330357"><span class="hs-identifier hs-var">featuresAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330356"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featuresAttribute:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AfeaturesAttribute%3AEndpointInput%27"><span class="hs-identifier hs-var">featuresAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | If specified, monitoring jobs substract this time from the start time.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- For information about using offsets for scheduling monitoring jobs, see</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html Schedule Model Quality Monitoring Jobs&gt;.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_startTimeOffset"><span class="hs-identifier hs-type">endpointInput_startTimeOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="endpointInput_startTimeOffset"><span class="annot"><span class="annottext">endpointInput_startTimeOffset :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_startTimeOffset"><span class="hs-identifier hs-var hs-var">endpointInput_startTimeOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Maybe Text)
+-&gt; (EndpointInput -&gt; Maybe Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330353"><span class="annot"><span class="annottext">Maybe Text
+startTimeOffset :: Maybe Text
+$sel:startTimeOffset:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330353"><span class="hs-identifier hs-var hs-var">startTimeOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330353"><span class="hs-identifier hs-var">startTimeOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330352"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimeOffset:EndpointInput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AstartTimeOffset%3AEndpointInput%27"><span class="hs-identifier hs-var">startTimeOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | An endpoint in customer\'s account which has enabled @DataCaptureConfig@</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- enabled.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_endpointName"><span class="hs-identifier hs-type">endpointInput_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-171"></span><span id="endpointInput_endpointName"><span class="annot"><span class="annottext">endpointInput_endpointName :: (Text -&gt; f Text) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_endpointName"><span class="hs-identifier hs-var hs-var">endpointInput_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Text)
+-&gt; (EndpointInput -&gt; Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330349"><span class="annot"><span class="annottext">Text
+endpointName :: Text
+$sel:endpointName:EndpointInput' :: EndpointInput -&gt; Text
+</span><a href="#local-6989586621680330349"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330349"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330348"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:EndpointInput' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AendpointName%3AEndpointInput%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | Path to the filesystem where the endpoint data is available to the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- container.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_localPath"><span class="hs-identifier hs-type">endpointInput_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="endpointInput_localPath"><span class="annot"><span class="annottext">endpointInput_localPath :: (Text -&gt; f Text) -&gt; EndpointInput -&gt; f EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#endpointInput_localPath"><span class="hs-identifier hs-var hs-var">endpointInput_localPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointInput -&gt; Text)
+-&gt; (EndpointInput -&gt; Text -&gt; EndpointInput)
+-&gt; Lens EndpointInput EndpointInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330345"><span class="annot"><span class="annottext">Text
+localPath :: Text
+$sel:localPath:EndpointInput' :: EndpointInput -&gt; Text
+</span><a href="#local-6989586621680330345"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330345"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330344"><span class="annot"><span class="annottext">s :: EndpointInput
+</span><a href="#local-6989586621680330344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680330344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:EndpointInput' :: Text
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#%24sel%3AlocalPath%3AEndpointInput%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330340"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621680330338"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EndpointInput)
+-&gt; Value
+-&gt; Parser EndpointInput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EndpointInput&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680330335"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ProcessingS3InputMode
+-&gt; Maybe ProcessingS3DataDistributionType
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; EndpointInput
+</span><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-var">EndpointInput'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ProcessingS3InputMode
+ -&gt; Maybe ProcessingS3DataDistributionType
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; EndpointInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ProcessingS3InputMode
+      -&gt; Maybe ProcessingS3DataDistributionType
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTimeOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProcessingS3InputMode
+   -&gt; Maybe ProcessingS3DataDistributionType
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EndpointInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProcessingS3InputMode
+      -&gt; Maybe ProcessingS3DataDistributionType
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingS3InputMode
+   -&gt; Maybe ProcessingS3DataDistributionType
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EndpointInput)
+-&gt; Parser (Maybe ProcessingS3InputMode)
+-&gt; Parser
+     (Maybe ProcessingS3DataDistributionType
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3InputMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3InputMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingS3DataDistributionType
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EndpointInput)
+-&gt; Parser (Maybe ProcessingS3DataDistributionType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3DataDistributionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataDistributionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; EndpointInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProbabilityAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProbabilityThresholdAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeaturesAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; EndpointInput)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimeOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; EndpointInput)
+-&gt; Parser Text -&gt; Parser (Text -&gt; EndpointInput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; EndpointInput)
+-&gt; Parser Text -&gt; Parser EndpointInput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330328"><span id="local-6989586621680330330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330317"><span id="local-6989586621680330319"><span id="local-6989586621680330321"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621680330315"><span class="annot"><span class="annottext">toJSON :: EndpointInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput%27"><span class="hs-identifier hs-type">EndpointInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330304"><span id="local-6989586621680330305"><span id="local-6989586621680330306"><span id="local-6989586621680330307"><span id="local-6989586621680330308"><span id="local-6989586621680330309"><span id="local-6989586621680330310"><span id="local-6989586621680330311"><span id="local-6989586621680330312"><span id="local-6989586621680330313"><span class="annot"><span class="annottext">Maybe Double
+Maybe Text
+Maybe ProcessingS3DataDistributionType
+Maybe ProcessingS3InputMode
+Text
+localPath :: Text
+endpointName :: Text
+startTimeOffset :: Maybe Text
+featuresAttribute :: Maybe Text
+probabilityThresholdAttribute :: Maybe Double
+probabilityAttribute :: Maybe Text
+s3DataDistributionType :: Maybe ProcessingS3DataDistributionType
+s3InputMode :: Maybe ProcessingS3InputMode
+inferenceAttribute :: Maybe Text
+endTimeOffset :: Maybe Text
+$sel:localPath:EndpointInput' :: EndpointInput -&gt; Text
+$sel:endpointName:EndpointInput' :: EndpointInput -&gt; Text
+$sel:startTimeOffset:EndpointInput' :: EndpointInput -&gt; Maybe Text
+$sel:featuresAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+$sel:probabilityThresholdAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Double
+$sel:probabilityAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+$sel:s3DataDistributionType:EndpointInput' :: EndpointInput -&gt; Maybe ProcessingS3DataDistributionType
+$sel:s3InputMode:EndpointInput' :: EndpointInput -&gt; Maybe ProcessingS3InputMode
+$sel:inferenceAttribute:EndpointInput' :: EndpointInput -&gt; Maybe Text
+$sel:endTimeOffset:EndpointInput' :: EndpointInput -&gt; Maybe Text
+</span><a href="#local-6989586621680330304"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTimeOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330313"><span class="hs-identifier hs-var">endTimeOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceAttribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330312"><span class="hs-identifier hs-var">inferenceAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3InputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingS3InputMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProcessingS3InputMode -&gt; Pair)
+-&gt; Maybe ProcessingS3InputMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3InputMode
+</span><a href="#local-6989586621680330311"><span class="hs-identifier hs-var">s3InputMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3DataDistributionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingS3DataDistributionType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingS3DataDistributionType -&gt; Pair)
+-&gt; Maybe ProcessingS3DataDistributionType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3DataDistributionType
+</span><a href="#local-6989586621680330310"><span class="hs-identifier hs-var">s3DataDistributionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProbabilityAttribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330309"><span class="hs-identifier hs-var">probabilityAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProbabilityThresholdAttribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680330308"><span class="hs-identifier hs-var">probabilityThresholdAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeaturesAttribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330307"><span class="hs-identifier hs-var">featuresAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimeOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680330306"><span class="hs-identifier hs-var">startTimeOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330305"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680330304"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span></pre></body></html>

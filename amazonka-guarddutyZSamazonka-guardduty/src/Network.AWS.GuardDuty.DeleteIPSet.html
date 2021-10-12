@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GuardDuty.DeleteIPSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the IPSet specified by the @ipSetId@. IPSets are called trusted</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- IP lists in the console user interface.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GuardDuty.DeleteIPSet</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier">DeleteIPSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSet"><span class="hs-identifier">newDeleteIPSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_detectorId"><span class="hs-identifier">deleteIPSet_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_ipSetId"><span class="hs-identifier">deleteIPSet_ipSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier">DeleteIPSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSetResponse"><span class="hs-identifier">newDeleteIPSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSetResponse_httpStatus"><span class="hs-identifier">deleteIPSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.html"><span class="hs-identifier">Network.AWS.GuardDuty.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteIPSet' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679312101"><span id="local-6989586621679312102"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIPSet"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-var">DeleteIPSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIPSet%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-var">DeleteIPSet'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector associated with the IPSet.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeleteIPSet%27"><span class="annot"><span class="annottext">DeleteIPSet -&gt; Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AdetectorId%3ADeleteIPSet%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The unique ID of the IPSet to delete.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AipSetId%3ADeleteIPSet%27"><span class="annot"><span class="annottext">DeleteIPSet -&gt; Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AipSetId%3ADeleteIPSet%27"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312094"><span id="local-6989586621679312096"><span class="annot"><span class="annottext">DeleteIPSet -&gt; DeleteIPSet -&gt; Bool
+(DeleteIPSet -&gt; DeleteIPSet -&gt; Bool)
+-&gt; (DeleteIPSet -&gt; DeleteIPSet -&gt; Bool) -&gt; Eq DeleteIPSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteIPSet -&gt; DeleteIPSet -&gt; Bool
+$c/= :: DeleteIPSet -&gt; DeleteIPSet -&gt; Bool
+== :: DeleteIPSet -&gt; DeleteIPSet -&gt; Bool
+$c== :: DeleteIPSet -&gt; DeleteIPSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312085"><span id="local-6989586621679312087"><span id="local-6989586621679312089"><span id="local-6989586621679312091"><span class="annot"><span class="annottext">ReadPrec [DeleteIPSet]
+ReadPrec DeleteIPSet
+Int -&gt; ReadS DeleteIPSet
+ReadS [DeleteIPSet]
+(Int -&gt; ReadS DeleteIPSet)
+-&gt; ReadS [DeleteIPSet]
+-&gt; ReadPrec DeleteIPSet
+-&gt; ReadPrec [DeleteIPSet]
+-&gt; Read DeleteIPSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteIPSet]
+$creadListPrec :: ReadPrec [DeleteIPSet]
+readPrec :: ReadPrec DeleteIPSet
+$creadPrec :: ReadPrec DeleteIPSet
+readList :: ReadS [DeleteIPSet]
+$creadList :: ReadS [DeleteIPSet]
+readsPrec :: Int -&gt; ReadS DeleteIPSet
+$creadsPrec :: Int -&gt; ReadS DeleteIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312078"><span id="local-6989586621679312080"><span id="local-6989586621679312082"><span class="annot"><span class="annottext">Int -&gt; DeleteIPSet -&gt; ShowS
+[DeleteIPSet] -&gt; ShowS
+DeleteIPSet -&gt; String
+(Int -&gt; DeleteIPSet -&gt; ShowS)
+-&gt; (DeleteIPSet -&gt; String)
+-&gt; ([DeleteIPSet] -&gt; ShowS)
+-&gt; Show DeleteIPSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteIPSet] -&gt; ShowS
+$cshowList :: [DeleteIPSet] -&gt; ShowS
+show :: DeleteIPSet -&gt; String
+$cshow :: DeleteIPSet -&gt; String
+showsPrec :: Int -&gt; DeleteIPSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteIPSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteIPSet -&gt; Rep DeleteIPSet x)
+-&gt; (forall x. Rep DeleteIPSet x -&gt; DeleteIPSet)
+-&gt; Generic DeleteIPSet
+forall x. Rep DeleteIPSet x -&gt; DeleteIPSet
+forall x. DeleteIPSet -&gt; Rep DeleteIPSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteIPSet x -&gt; DeleteIPSet
+$cfrom :: forall x. DeleteIPSet -&gt; Rep DeleteIPSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteIPSet' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'detectorId', 'deleteIPSet_detectorId' - The unique ID of the detector associated with the IPSet.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ipSetId', 'deleteIPSet_ipSetId' - The unique ID of the IPSet to delete.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSet"><span class="hs-identifier hs-type">newDeleteIPSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'ipSetId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span>
+</span><span id="line-76"></span><span id="newDeleteIPSet"><span class="annot"><span class="annottext">newDeleteIPSet :: Text -&gt; Text -&gt; DeleteIPSet
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSet"><span class="hs-identifier hs-var hs-var">newDeleteIPSet</span></a></span></span><span> </span><span id="local-6989586621679312073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312073"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679312072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312072"><span class="hs-identifier hs-var">pIpSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteIPSet' :: Text -&gt; Text -&gt; DeleteIPSet
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeleteIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AdetectorId%3ADeleteIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312073"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipSetId:DeleteIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AipSetId%3ADeleteIPSet%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312072"><span class="hs-identifier hs-var">pIpSetId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The unique ID of the detector associated with the IPSet.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_detectorId"><span class="hs-identifier hs-type">deleteIPSet_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="deleteIPSet_detectorId"><span class="annot"><span class="annottext">deleteIPSet_detectorId :: (Text -&gt; f Text) -&gt; DeleteIPSet -&gt; f DeleteIPSet
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_detectorId"><span class="hs-identifier hs-var hs-var">deleteIPSet_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIPSet -&gt; Text)
+-&gt; (DeleteIPSet -&gt; Text -&gt; DeleteIPSet)
+-&gt; Lens DeleteIPSet DeleteIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312069"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:DeleteIPSet' :: DeleteIPSet -&gt; Text
+</span><a href="#local-6989586621679312069"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312069"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312068"><span class="annot"><span class="annottext">s :: DeleteIPSet
+</span><a href="#local-6989586621679312068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIPSet
+</span><a href="#local-6989586621679312068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AdetectorId%3ADeleteIPSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The unique ID of the IPSet to delete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_ipSetId"><span class="hs-identifier hs-type">deleteIPSet_ipSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteIPSet_ipSetId"><span class="annot"><span class="annottext">deleteIPSet_ipSetId :: (Text -&gt; f Text) -&gt; DeleteIPSet -&gt; f DeleteIPSet
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSet_ipSetId"><span class="hs-identifier hs-var hs-var">deleteIPSet_ipSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIPSet -&gt; Text)
+-&gt; (DeleteIPSet -&gt; Text -&gt; DeleteIPSet)
+-&gt; Lens DeleteIPSet DeleteIPSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312066"><span class="annot"><span class="annottext">Text
+ipSetId :: Text
+$sel:ipSetId:DeleteIPSet' :: DeleteIPSet -&gt; Text
+</span><a href="#local-6989586621679312066"><span class="hs-identifier hs-var hs-var">ipSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312066"><span class="hs-identifier hs-var">ipSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312065"><span class="annot"><span class="annottext">s :: DeleteIPSet
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIPSet
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipSetId:DeleteIPSet' :: Text
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AipSetId%3ADeleteIPSet%27"><span class="hs-identifier hs-var">ipSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-type">DeleteIPSetResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312060"><span class="annot"><span class="annottext">request :: DeleteIPSet -&gt; Request DeleteIPSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteIPSet -&gt; Request DeleteIPSet
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679312056"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteIPSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteIPSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteIPSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteIPSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312053"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312053"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312052"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312052"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312051"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679312051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteIPSetResponse
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse%27"><span class="hs-identifier hs-var">DeleteIPSetResponse'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteIPSetResponse)
+-&gt; Either String Int -&gt; Either String DeleteIPSetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312053"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312044"><span id="local-6989586621679312046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679312037"><span class="annot"><span class="annottext">toHeaders :: DeleteIPSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteIPSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679312031"><span class="annot"><span class="annottext">toPath :: DeleteIPSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet%27"><span class="hs-identifier hs-type">DeleteIPSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312028"><span id="local-6989586621679312029"><span class="annot"><span class="annottext">Text
+ipSetId :: Text
+detectorId :: Text
+$sel:ipSetId:DeleteIPSet' :: DeleteIPSet -&gt; Text
+$sel:detectorId:DeleteIPSet' :: DeleteIPSet -&gt; Text
+</span><a href="#local-6989586621679312028"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312029"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ipset/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312028"><span class="hs-identifier hs-var">ipSetId</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSet"><span class="hs-identifier hs-type">DeleteIPSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679312024"><span class="annot"><span class="annottext">toQuery :: DeleteIPSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteIPSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteIPSetResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679312021"><span id="local-6989586621679312022"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIPSetResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-var">DeleteIPSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIPSetResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse%27"><span class="hs-identifier hs-var">DeleteIPSetResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteIPSetResponse%27"><span class="annot"><span class="annottext">DeleteIPSetResponse -&gt; Int
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AhttpStatus%3ADeleteIPSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312016"><span id="local-6989586621679312018"><span class="annot"><span class="annottext">DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool
+(DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool)
+-&gt; (DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool)
+-&gt; Eq DeleteIPSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool
+$c/= :: DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool
+== :: DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool
+$c== :: DeleteIPSetResponse -&gt; DeleteIPSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312008"><span id="local-6989586621679312010"><span id="local-6989586621679312012"><span id="local-6989586621679312014"><span class="annot"><span class="annottext">ReadPrec [DeleteIPSetResponse]
+ReadPrec DeleteIPSetResponse
+Int -&gt; ReadS DeleteIPSetResponse
+ReadS [DeleteIPSetResponse]
+(Int -&gt; ReadS DeleteIPSetResponse)
+-&gt; ReadS [DeleteIPSetResponse]
+-&gt; ReadPrec DeleteIPSetResponse
+-&gt; ReadPrec [DeleteIPSetResponse]
+-&gt; Read DeleteIPSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteIPSetResponse]
+$creadListPrec :: ReadPrec [DeleteIPSetResponse]
+readPrec :: ReadPrec DeleteIPSetResponse
+$creadPrec :: ReadPrec DeleteIPSetResponse
+readList :: ReadS [DeleteIPSetResponse]
+$creadList :: ReadS [DeleteIPSetResponse]
+readsPrec :: Int -&gt; ReadS DeleteIPSetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteIPSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312002"><span id="local-6989586621679312004"><span id="local-6989586621679312006"><span class="annot"><span class="annottext">Int -&gt; DeleteIPSetResponse -&gt; ShowS
+[DeleteIPSetResponse] -&gt; ShowS
+DeleteIPSetResponse -&gt; String
+(Int -&gt; DeleteIPSetResponse -&gt; ShowS)
+-&gt; (DeleteIPSetResponse -&gt; String)
+-&gt; ([DeleteIPSetResponse] -&gt; ShowS)
+-&gt; Show DeleteIPSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteIPSetResponse] -&gt; ShowS
+$cshowList :: [DeleteIPSetResponse] -&gt; ShowS
+show :: DeleteIPSetResponse -&gt; String
+$cshow :: DeleteIPSetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteIPSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteIPSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteIPSetResponse -&gt; Rep DeleteIPSetResponse x)
+-&gt; (forall x. Rep DeleteIPSetResponse x -&gt; DeleteIPSetResponse)
+-&gt; Generic DeleteIPSetResponse
+forall x. Rep DeleteIPSetResponse x -&gt; DeleteIPSetResponse
+forall x. DeleteIPSetResponse -&gt; Rep DeleteIPSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteIPSetResponse x -&gt; DeleteIPSetResponse
+$cfrom :: forall x. DeleteIPSetResponse -&gt; Rep DeleteIPSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DeleteIPSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'deleteIPSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSetResponse"><span class="hs-identifier hs-type">newDeleteIPSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-type">DeleteIPSetResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newDeleteIPSetResponse"><span class="annot"><span class="annottext">newDeleteIPSetResponse :: Int -&gt; DeleteIPSetResponse
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#newDeleteIPSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteIPSetResponse</span></a></span></span><span> </span><span id="local-6989586621679311999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteIPSetResponse' :: Int -&gt; DeleteIPSetResponse
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse%27"><span class="hs-identifier hs-type">DeleteIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIPSetResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AhttpStatus%3ADeleteIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSetResponse_httpStatus"><span class="hs-identifier hs-type">deleteIPSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-type">DeleteIPSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="deleteIPSetResponse_httpStatus"><span class="annot"><span class="annottext">deleteIPSetResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteIPSetResponse -&gt; f DeleteIPSetResponse
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#deleteIPSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteIPSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIPSetResponse -&gt; Int)
+-&gt; (DeleteIPSetResponse -&gt; Int -&gt; DeleteIPSetResponse)
+-&gt; Lens DeleteIPSetResponse DeleteIPSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse%27"><span class="hs-identifier hs-type">DeleteIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311998"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteIPSetResponse' :: DeleteIPSetResponse -&gt; Int
+</span><a href="#local-6989586621679311998"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311998"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311997"><span class="annot"><span class="annottext">s :: DeleteIPSetResponse
+</span><a href="#local-6989586621679311997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse%27"><span class="hs-identifier hs-type">DeleteIPSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIPSetResponse
+</span><a href="#local-6989586621679311997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIPSetResponse' :: Int
+</span><a href="Network.AWS.GuardDuty.DeleteIPSet.html#%24sel%3AhttpStatus%3ADeleteIPSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-type">DeleteIPSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteIPSet.html#DeleteIPSetResponse"><span class="hs-identifier hs-type">DeleteIPSetResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

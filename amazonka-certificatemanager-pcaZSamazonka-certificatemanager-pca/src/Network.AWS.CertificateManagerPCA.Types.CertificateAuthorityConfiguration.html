@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.ASN1Subject</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CsrExtensions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains configuration information for your private certificate</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- authority (CA). This includes information about the class of public key</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- algorithm and the key pair that your private CA creates when it issues a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- certificate. It also includes the signature algorithm that it uses when</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- issuing certificates, and its X.500 distinguished name. You must specify</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- this information when you call the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newCertificateAuthorityConfiguration' smart constructor.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679212476"><span id="local-6989586621679212477"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateAuthorityConfiguration"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-var">CertificateAuthorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateAuthorityConfiguration%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">CertificateAuthorityConfiguration'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies information to be added to the extension section of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- certificate signing request (CSR).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcsrExtensions%3ACertificateAuthorityConfiguration%27"><span class="annot"><span class="annottext">CertificateAuthorityConfiguration -&gt; Maybe CsrExtensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AcsrExtensions%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var hs-var">csrExtensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Type of the public key algorithm and size, in bits, of the key pair that</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- your CA creates when it issues a certificate. When you create a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- subordinate CA, you must use a key algorithm supported by the parent CA.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AkeyAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="annot"><span class="annottext">CertificateAuthorityConfiguration -&gt; KeyAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AkeyAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var hs-var">keyAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm.html#KeyAlgorithm"><span class="hs-identifier hs-type">KeyAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Name of the algorithm your private CA uses to sign certificate requests.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- This parameter should not be confused with the @SigningAlgorithm@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- parameter used to sign certificates when they are issued.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsigningAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="annot"><span class="annottext">CertificateAuthorityConfiguration -&gt; SigningAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AsigningAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm"><span class="hs-identifier hs-type">SigningAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Structure that contains X.500 distinguished name information for your</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- private CA.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Asubject%3ACertificateAuthorityConfiguration%27"><span class="annot"><span class="annottext">CertificateAuthorityConfiguration -&gt; ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3Asubject%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212467"><span id="local-6989586621679212469"><span class="annot"><span class="annottext">CertificateAuthorityConfiguration
+-&gt; CertificateAuthorityConfiguration -&gt; Bool
+(CertificateAuthorityConfiguration
+ -&gt; CertificateAuthorityConfiguration -&gt; Bool)
+-&gt; (CertificateAuthorityConfiguration
+    -&gt; CertificateAuthorityConfiguration -&gt; Bool)
+-&gt; Eq CertificateAuthorityConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CertificateAuthorityConfiguration
+-&gt; CertificateAuthorityConfiguration -&gt; Bool
+$c/= :: CertificateAuthorityConfiguration
+-&gt; CertificateAuthorityConfiguration -&gt; Bool
+== :: CertificateAuthorityConfiguration
+-&gt; CertificateAuthorityConfiguration -&gt; Bool
+$c== :: CertificateAuthorityConfiguration
+-&gt; CertificateAuthorityConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212458"><span id="local-6989586621679212460"><span id="local-6989586621679212462"><span id="local-6989586621679212464"><span class="annot"><span class="annottext">ReadPrec [CertificateAuthorityConfiguration]
+ReadPrec CertificateAuthorityConfiguration
+Int -&gt; ReadS CertificateAuthorityConfiguration
+ReadS [CertificateAuthorityConfiguration]
+(Int -&gt; ReadS CertificateAuthorityConfiguration)
+-&gt; ReadS [CertificateAuthorityConfiguration]
+-&gt; ReadPrec CertificateAuthorityConfiguration
+-&gt; ReadPrec [CertificateAuthorityConfiguration]
+-&gt; Read CertificateAuthorityConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CertificateAuthorityConfiguration]
+$creadListPrec :: ReadPrec [CertificateAuthorityConfiguration]
+readPrec :: ReadPrec CertificateAuthorityConfiguration
+$creadPrec :: ReadPrec CertificateAuthorityConfiguration
+readList :: ReadS [CertificateAuthorityConfiguration]
+$creadList :: ReadS [CertificateAuthorityConfiguration]
+readsPrec :: Int -&gt; ReadS CertificateAuthorityConfiguration
+$creadsPrec :: Int -&gt; ReadS CertificateAuthorityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212451"><span id="local-6989586621679212453"><span id="local-6989586621679212455"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthorityConfiguration -&gt; ShowS
+[CertificateAuthorityConfiguration] -&gt; ShowS
+CertificateAuthorityConfiguration -&gt; String
+(Int -&gt; CertificateAuthorityConfiguration -&gt; ShowS)
+-&gt; (CertificateAuthorityConfiguration -&gt; String)
+-&gt; ([CertificateAuthorityConfiguration] -&gt; ShowS)
+-&gt; Show CertificateAuthorityConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CertificateAuthorityConfiguration] -&gt; ShowS
+$cshowList :: [CertificateAuthorityConfiguration] -&gt; ShowS
+show :: CertificateAuthorityConfiguration -&gt; String
+$cshow :: CertificateAuthorityConfiguration -&gt; String
+showsPrec :: Int -&gt; CertificateAuthorityConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CertificateAuthorityConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CertificateAuthorityConfiguration
+ -&gt; Rep CertificateAuthorityConfiguration x)
+-&gt; (forall x.
+    Rep CertificateAuthorityConfiguration x
+    -&gt; CertificateAuthorityConfiguration)
+-&gt; Generic CertificateAuthorityConfiguration
+forall x.
+Rep CertificateAuthorityConfiguration x
+-&gt; CertificateAuthorityConfiguration
+forall x.
+CertificateAuthorityConfiguration
+-&gt; Rep CertificateAuthorityConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CertificateAuthorityConfiguration x
+-&gt; CertificateAuthorityConfiguration
+$cfrom :: forall x.
+CertificateAuthorityConfiguration
+-&gt; Rep CertificateAuthorityConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'CertificateAuthorityConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'csrExtensions', 'certificateAuthorityConfiguration_csrExtensions' - Specifies information to be added to the extension section of the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- certificate signing request (CSR).</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'keyAlgorithm', 'certificateAuthorityConfiguration_keyAlgorithm' - Type of the public key algorithm and size, in bits, of the key pair that</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- your CA creates when it issues a certificate. When you create a</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- subordinate CA, you must use a key algorithm supported by the parent CA.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'signingAlgorithm', 'certificateAuthorityConfiguration_signingAlgorithm' - Name of the algorithm your private CA uses to sign certificate requests.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- This parameter should not be confused with the @SigningAlgorithm@</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- parameter used to sign certificates when they are issued.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'subject', 'certificateAuthorityConfiguration_subject' - Structure that contains X.500 distinguished name information for your</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- private CA.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#newCertificateAuthorityConfiguration"><span class="hs-identifier hs-type">newCertificateAuthorityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'keyAlgorithm'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm.html#KeyAlgorithm"><span class="hs-identifier hs-type">KeyAlgorithm</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'signingAlgorithm'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm"><span class="hs-identifier hs-type">SigningAlgorithm</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'subject'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span>
+</span><span id="line-89"></span><span id="newCertificateAuthorityConfiguration"><span class="annot"><span class="annottext">newCertificateAuthorityConfiguration :: KeyAlgorithm
+-&gt; SigningAlgorithm
+-&gt; ASN1Subject
+-&gt; CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#newCertificateAuthorityConfiguration"><span class="hs-identifier hs-var hs-var">newCertificateAuthorityConfiguration</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679212445"><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">pKeyAlgorithm_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679212444"><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212444"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679212443"><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">CertificateAuthorityConfiguration' :: Maybe CsrExtensions
+-&gt; KeyAlgorithm
+-&gt; SigningAlgorithm
+-&gt; ASN1Subject
+-&gt; CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:csrExtensions:CertificateAuthorityConfiguration' :: Maybe CsrExtensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AcsrExtensions%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">csrExtensions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe CsrExtensions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyAlgorithm:CertificateAuthorityConfiguration' :: KeyAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AkeyAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">keyAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">pKeyAlgorithm_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:signingAlgorithm:CertificateAuthorityConfiguration' :: SigningAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AsigningAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212444"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:subject:CertificateAuthorityConfiguration' :: ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3Asubject%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">pSubject_</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Specifies information to be added to the extension section of the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- certificate signing request (CSR).</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_csrExtensions"><span class="hs-identifier hs-type">certificateAuthorityConfiguration_csrExtensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="certificateAuthorityConfiguration_csrExtensions"><span class="annot"><span class="annottext">certificateAuthorityConfiguration_csrExtensions :: (Maybe CsrExtensions -&gt; f (Maybe CsrExtensions))
+-&gt; CertificateAuthorityConfiguration
+-&gt; f CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_csrExtensions"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration_csrExtensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthorityConfiguration -&gt; Maybe CsrExtensions)
+-&gt; (CertificateAuthorityConfiguration
+    -&gt; Maybe CsrExtensions -&gt; CertificateAuthorityConfiguration)
+-&gt; Lens
+     CertificateAuthorityConfiguration
+     CertificateAuthorityConfiguration
+     (Maybe CsrExtensions)
+     (Maybe CsrExtensions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212439"><span class="annot"><span class="annottext">Maybe CsrExtensions
+csrExtensions :: Maybe CsrExtensions
+$sel:csrExtensions:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; Maybe CsrExtensions
+</span><a href="#local-6989586621679212439"><span class="hs-identifier hs-var hs-var">csrExtensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CsrExtensions
+</span><a href="#local-6989586621679212439"><span class="hs-identifier hs-var">csrExtensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212438"><span class="annot"><span class="annottext">s :: CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212437"><span class="annot"><span class="annottext">Maybe CsrExtensions
+</span><a href="#local-6989586621679212437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csrExtensions:CertificateAuthorityConfiguration' :: Maybe CsrExtensions
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AcsrExtensions%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">csrExtensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CsrExtensions
+</span><a href="#local-6989586621679212437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Type of the public key algorithm and size, in bits, of the key pair that</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- your CA creates when it issues a certificate. When you create a</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- subordinate CA, you must use a key algorithm supported by the parent CA.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_keyAlgorithm"><span class="hs-identifier hs-type">certificateAuthorityConfiguration_keyAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm.html#KeyAlgorithm"><span class="hs-identifier hs-type">KeyAlgorithm</span></a></span><span>
+</span><span id="line-110"></span><span id="certificateAuthorityConfiguration_keyAlgorithm"><span class="annot"><span class="annottext">certificateAuthorityConfiguration_keyAlgorithm :: (KeyAlgorithm -&gt; f KeyAlgorithm)
+-&gt; CertificateAuthorityConfiguration
+-&gt; f CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_keyAlgorithm"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration_keyAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthorityConfiguration -&gt; KeyAlgorithm)
+-&gt; (CertificateAuthorityConfiguration
+    -&gt; KeyAlgorithm -&gt; CertificateAuthorityConfiguration)
+-&gt; Lens
+     CertificateAuthorityConfiguration
+     CertificateAuthorityConfiguration
+     KeyAlgorithm
+     KeyAlgorithm
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212435"><span class="annot"><span class="annottext">KeyAlgorithm
+keyAlgorithm :: KeyAlgorithm
+$sel:keyAlgorithm:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; KeyAlgorithm
+</span><a href="#local-6989586621679212435"><span class="hs-identifier hs-var hs-var">keyAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212435"><span class="hs-identifier hs-var">keyAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212434"><span class="annot"><span class="annottext">s :: CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212433"><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyAlgorithm:CertificateAuthorityConfiguration' :: KeyAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AkeyAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">keyAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Name of the algorithm your private CA uses to sign certificate requests.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- This parameter should not be confused with the @SigningAlgorithm@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- parameter used to sign certificates when they are issued.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_signingAlgorithm"><span class="hs-identifier hs-type">certificateAuthorityConfiguration_signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm.html#SigningAlgorithm"><span class="hs-identifier hs-type">SigningAlgorithm</span></a></span><span>
+</span><span id="line-117"></span><span id="certificateAuthorityConfiguration_signingAlgorithm"><span class="annot"><span class="annottext">certificateAuthorityConfiguration_signingAlgorithm :: (SigningAlgorithm -&gt; f SigningAlgorithm)
+-&gt; CertificateAuthorityConfiguration
+-&gt; f CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_signingAlgorithm"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration_signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthorityConfiguration -&gt; SigningAlgorithm)
+-&gt; (CertificateAuthorityConfiguration
+    -&gt; SigningAlgorithm -&gt; CertificateAuthorityConfiguration)
+-&gt; Lens
+     CertificateAuthorityConfiguration
+     CertificateAuthorityConfiguration
+     SigningAlgorithm
+     SigningAlgorithm
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212431"><span class="annot"><span class="annottext">SigningAlgorithm
+signingAlgorithm :: SigningAlgorithm
+$sel:signingAlgorithm:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; SigningAlgorithm
+</span><a href="#local-6989586621679212431"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212431"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212430"><span class="annot"><span class="annottext">s :: CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212429"><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:CertificateAuthorityConfiguration' :: SigningAlgorithm
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3AsigningAlgorithm%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Structure that contains X.500 distinguished name information for your</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- private CA.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_subject"><span class="hs-identifier hs-type">certificateAuthorityConfiguration_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span>
+</span><span id="line-122"></span><span id="certificateAuthorityConfiguration_subject"><span class="annot"><span class="annottext">certificateAuthorityConfiguration_subject :: (ASN1Subject -&gt; f ASN1Subject)
+-&gt; CertificateAuthorityConfiguration
+-&gt; f CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#certificateAuthorityConfiguration_subject"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthorityConfiguration -&gt; ASN1Subject)
+-&gt; (CertificateAuthorityConfiguration
+    -&gt; ASN1Subject -&gt; CertificateAuthorityConfiguration)
+-&gt; Lens
+     CertificateAuthorityConfiguration
+     CertificateAuthorityConfiguration
+     ASN1Subject
+     ASN1Subject
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212427"><span class="annot"><span class="annottext">ASN1Subject
+subject :: ASN1Subject
+$sel:subject:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; ASN1Subject
+</span><a href="#local-6989586621679212427"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212427"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212426"><span class="annot"><span class="annottext">s :: CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212425"><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:CertificateAuthorityConfiguration' :: ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#%24sel%3Asubject%3ACertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679212422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679212420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateAuthorityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CertificateAuthorityConfiguration)
+-&gt; Value
+-&gt; Parser CertificateAuthorityConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CertificateAuthorityConfiguration&quot;</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe CsrExtensions
+-&gt; KeyAlgorithm
+-&gt; SigningAlgorithm
+-&gt; ASN1Subject
+-&gt; CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-var">CertificateAuthorityConfiguration'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CsrExtensions
+ -&gt; KeyAlgorithm
+ -&gt; SigningAlgorithm
+ -&gt; ASN1Subject
+ -&gt; CertificateAuthorityConfiguration)
+-&gt; Parser (Maybe CsrExtensions)
+-&gt; Parser
+     (KeyAlgorithm
+      -&gt; SigningAlgorithm
+      -&gt; ASN1Subject
+      -&gt; CertificateAuthorityConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CsrExtensions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CsrExtensions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (KeyAlgorithm
+   -&gt; SigningAlgorithm
+   -&gt; ASN1Subject
+   -&gt; CertificateAuthorityConfiguration)
+-&gt; Parser KeyAlgorithm
+-&gt; Parser
+     (SigningAlgorithm
+      -&gt; ASN1Subject -&gt; CertificateAuthorityConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser KeyAlgorithm
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (SigningAlgorithm
+   -&gt; ASN1Subject -&gt; CertificateAuthorityConfiguration)
+-&gt; Parser SigningAlgorithm
+-&gt; Parser (ASN1Subject -&gt; CertificateAuthorityConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SigningAlgorithm
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (ASN1Subject -&gt; CertificateAuthorityConfiguration)
+-&gt; Parser ASN1Subject -&gt; Parser CertificateAuthorityConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ASN1Subject
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679212410"><span id="local-6989586621679212412"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679212407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679212399"><span id="local-6989586621679212401"><span id="local-6989586621679212403"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679212397"><span class="annot"><span class="annottext">toJSON :: CertificateAuthorityConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration%27"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212392"><span id="local-6989586621679212393"><span id="local-6989586621679212394"><span id="local-6989586621679212395"><span class="annot"><span class="annottext">Maybe CsrExtensions
+ASN1Subject
+KeyAlgorithm
+SigningAlgorithm
+subject :: ASN1Subject
+signingAlgorithm :: SigningAlgorithm
+keyAlgorithm :: KeyAlgorithm
+csrExtensions :: Maybe CsrExtensions
+$sel:subject:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; ASN1Subject
+$sel:signingAlgorithm:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; SigningAlgorithm
+$sel:keyAlgorithm:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; KeyAlgorithm
+$sel:csrExtensions:CertificateAuthorityConfiguration' :: CertificateAuthorityConfiguration -&gt; Maybe CsrExtensions
+</span><a href="#local-6989586621679212392"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CsrExtensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CsrExtensions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CsrExtensions -&gt; Pair) -&gt; Maybe CsrExtensions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CsrExtensions
+</span><a href="#local-6989586621679212395"><span class="hs-identifier hs-var">csrExtensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KeyAlgorithm
+</span><a href="#local-6989586621679212394"><span class="hs-identifier hs-var">keyAlgorithm</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SigningAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679212393"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ASN1Subject -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ASN1Subject
+</span><a href="#local-6989586621679212392"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span></pre></body></html>

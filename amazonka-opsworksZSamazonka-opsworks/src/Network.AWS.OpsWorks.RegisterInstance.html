@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.OpsWorks.RegisterInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers instances that were created outside of AWS OpsWorks Stacks</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- with a specified stack.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- We do not recommend using this action to register instances. The</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- complete registration operation includes two tasks: installing the AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- OpsWorks Stacks agent on the instance, and registering the instance with</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the stack. @RegisterInstance@ handles only the second step. You should</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- instead use the AWS CLI @register@ command, which performs the entire</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- registration operation. For more information, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stacks Stack&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Registered instances have the same requirements as instances that are</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- created by using the CreateInstance API. For example, registered</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- instances must be running a supported Linux-based operating system, and</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- they must have a supported instance type. For more information about</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- requirements for instances that you want to register, see</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html Preparing the Instance&gt;.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Manage permissions level for the stack or an attached policy that</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- explicitly grants permissions. For more information on user permissions,</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpsWorks.RegisterInstance</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstance"><span class="hs-identifier">newRegisterInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_privateIp"><span class="hs-identifier">registerInstance_privateIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_hostname"><span class="hs-identifier">registerInstance_hostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_instanceIdentity"><span class="hs-identifier">registerInstance_instanceIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_publicIp"><span class="hs-identifier">registerInstance_publicIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKeyFingerprint"><span class="hs-identifier">registerInstance_rsaPublicKeyFingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKey"><span class="hs-identifier">registerInstance_rsaPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_stackId"><span class="hs-identifier">registerInstance_stackId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier">RegisterInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstanceResponse"><span class="hs-identifier">newRegisterInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_instanceId"><span class="hs-identifier">registerInstanceResponse_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_httpStatus"><span class="hs-identifier">registerInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.html"><span class="hs-identifier">Network.AWS.OpsWorks.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newRegisterInstance' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679383584"><span id="local-6989586621679383585"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterInstance"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-var">RegisterInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-var">RegisterInstance'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance\'s private IP address.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AprivateIp%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AprivateIp%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">privateIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The instance\'s hostname.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Ahostname%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3Ahostname%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | An InstanceIdentity object that contains the instance\'s identity.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AinstanceIdentity%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe InstanceIdentity
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceIdentity%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">instanceIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.InstanceIdentity.html#InstanceIdentity"><span class="hs-identifier hs-type">InstanceIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The instance\'s public IP address.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3ApublicIp%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ApublicIp%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The instances public RSA key fingerprint.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3ArsaPublicKeyFingerprint%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKeyFingerprint%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">rsaPublicKeyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The instances public RSA key. This key is used to encrypt communication</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- between the instance and the service.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3ArsaPublicKey%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKey%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">rsaPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The ID of the stack that the instance is to be registered with.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AstackId%3ARegisterInstance%27"><span class="annot"><span class="annottext">RegisterInstance -&gt; Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AstackId%3ARegisterInstance%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383572"><span id="local-6989586621679383574"><span class="annot"><span class="annottext">RegisterInstance -&gt; RegisterInstance -&gt; Bool
+(RegisterInstance -&gt; RegisterInstance -&gt; Bool)
+-&gt; (RegisterInstance -&gt; RegisterInstance -&gt; Bool)
+-&gt; Eq RegisterInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterInstance -&gt; RegisterInstance -&gt; Bool
+$c/= :: RegisterInstance -&gt; RegisterInstance -&gt; Bool
+== :: RegisterInstance -&gt; RegisterInstance -&gt; Bool
+$c== :: RegisterInstance -&gt; RegisterInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383563"><span id="local-6989586621679383565"><span id="local-6989586621679383567"><span id="local-6989586621679383569"><span class="annot"><span class="annottext">ReadPrec [RegisterInstance]
+ReadPrec RegisterInstance
+Int -&gt; ReadS RegisterInstance
+ReadS [RegisterInstance]
+(Int -&gt; ReadS RegisterInstance)
+-&gt; ReadS [RegisterInstance]
+-&gt; ReadPrec RegisterInstance
+-&gt; ReadPrec [RegisterInstance]
+-&gt; Read RegisterInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterInstance]
+$creadListPrec :: ReadPrec [RegisterInstance]
+readPrec :: ReadPrec RegisterInstance
+$creadPrec :: ReadPrec RegisterInstance
+readList :: ReadS [RegisterInstance]
+$creadList :: ReadS [RegisterInstance]
+readsPrec :: Int -&gt; ReadS RegisterInstance
+$creadsPrec :: Int -&gt; ReadS RegisterInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383556"><span id="local-6989586621679383558"><span id="local-6989586621679383560"><span class="annot"><span class="annottext">Int -&gt; RegisterInstance -&gt; ShowS
+[RegisterInstance] -&gt; ShowS
+RegisterInstance -&gt; String
+(Int -&gt; RegisterInstance -&gt; ShowS)
+-&gt; (RegisterInstance -&gt; String)
+-&gt; ([RegisterInstance] -&gt; ShowS)
+-&gt; Show RegisterInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterInstance] -&gt; ShowS
+$cshowList :: [RegisterInstance] -&gt; ShowS
+show :: RegisterInstance -&gt; String
+$cshow :: RegisterInstance -&gt; String
+showsPrec :: Int -&gt; RegisterInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterInstance -&gt; Rep RegisterInstance x)
+-&gt; (forall x. Rep RegisterInstance x -&gt; RegisterInstance)
+-&gt; Generic RegisterInstance
+forall x. Rep RegisterInstance x -&gt; RegisterInstance
+forall x. RegisterInstance -&gt; Rep RegisterInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterInstance x -&gt; RegisterInstance
+$cfrom :: forall x. RegisterInstance -&gt; Rep RegisterInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'RegisterInstance' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'privateIp', 'registerInstance_privateIp' - The instance\'s private IP address.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'hostname', 'registerInstance_hostname' - The instance\'s hostname.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'instanceIdentity', 'registerInstance_instanceIdentity' - An InstanceIdentity object that contains the instance\'s identity.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'publicIp', 'registerInstance_publicIp' - The instance\'s public IP address.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'rsaPublicKeyFingerprint', 'registerInstance_rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'rsaPublicKey', 'registerInstance_rsaPublicKey' - The instances public RSA key. This key is used to encrypt communication</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- between the instance and the service.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'stackId', 'registerInstance_stackId' - The ID of the stack that the instance is to be registered with.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstance"><span class="hs-identifier hs-type">newRegisterInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'stackId'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span>
+</span><span id="line-123"></span><span id="newRegisterInstance"><span class="annot"><span class="annottext">newRegisterInstance :: Text -&gt; RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstance"><span class="hs-identifier hs-var hs-var">newRegisterInstance</span></a></span></span><span> </span><span id="local-6989586621679383551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">RegisterInstance' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InstanceIdentity
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:privateIp:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AprivateIp%3ARegisterInstance%27"><span class="hs-identifier hs-var">privateIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostname:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3Ahostname%3ARegisterInstance%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceIdentity:RegisterInstance' :: Maybe InstanceIdentity
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceIdentity%3ARegisterInstance%27"><span class="hs-identifier hs-var">instanceIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceIdentity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicIp:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ApublicIp%3ARegisterInstance%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:rsaPublicKeyFingerprint:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKeyFingerprint%3ARegisterInstance%27"><span class="hs-identifier hs-var">rsaPublicKeyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:rsaPublicKey:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKey%3ARegisterInstance%27"><span class="hs-identifier hs-var">rsaPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:RegisterInstance' :: Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AstackId%3ARegisterInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">pStackId_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The instance\'s private IP address.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_privateIp"><span class="hs-identifier hs-type">registerInstance_privateIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="registerInstance_privateIp"><span class="annot"><span class="annottext">registerInstance_privateIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_privateIp"><span class="hs-identifier hs-var hs-var">registerInstance_privateIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe Text)
+-&gt; (RegisterInstance -&gt; Maybe Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383548"><span class="annot"><span class="annottext">Maybe Text
+privateIp :: Maybe Text
+$sel:privateIp:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383548"><span class="hs-identifier hs-var hs-var">privateIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383548"><span class="hs-identifier hs-var">privateIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383547"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIp:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AprivateIp%3ARegisterInstance%27"><span class="hs-identifier hs-var">privateIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The instance\'s hostname.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_hostname"><span class="hs-identifier hs-type">registerInstance_hostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="registerInstance_hostname"><span class="annot"><span class="annottext">registerInstance_hostname :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_hostname"><span class="hs-identifier hs-var hs-var">registerInstance_hostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe Text)
+-&gt; (RegisterInstance -&gt; Maybe Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383545"><span class="annot"><span class="annottext">Maybe Text
+hostname :: Maybe Text
+$sel:hostname:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383545"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383545"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383544"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3Ahostname%3ARegisterInstance%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | An InstanceIdentity object that contains the instance\'s identity.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_instanceIdentity"><span class="hs-identifier hs-type">registerInstance_instanceIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.InstanceIdentity.html#InstanceIdentity"><span class="hs-identifier hs-type">InstanceIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="registerInstance_instanceIdentity"><span class="annot"><span class="annottext">registerInstance_instanceIdentity :: (Maybe InstanceIdentity -&gt; f (Maybe InstanceIdentity))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_instanceIdentity"><span class="hs-identifier hs-var hs-var">registerInstance_instanceIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe InstanceIdentity)
+-&gt; (RegisterInstance -&gt; Maybe InstanceIdentity -&gt; RegisterInstance)
+-&gt; Lens
+     RegisterInstance
+     RegisterInstance
+     (Maybe InstanceIdentity)
+     (Maybe InstanceIdentity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383542"><span class="annot"><span class="annottext">Maybe InstanceIdentity
+instanceIdentity :: Maybe InstanceIdentity
+$sel:instanceIdentity:RegisterInstance' :: RegisterInstance -&gt; Maybe InstanceIdentity
+</span><a href="#local-6989586621679383542"><span class="hs-identifier hs-var hs-var">instanceIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceIdentity
+</span><a href="#local-6989586621679383542"><span class="hs-identifier hs-var">instanceIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383541"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383540"><span class="annot"><span class="annottext">Maybe InstanceIdentity
+</span><a href="#local-6989586621679383540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIdentity:RegisterInstance' :: Maybe InstanceIdentity
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceIdentity%3ARegisterInstance%27"><span class="hs-identifier hs-var">instanceIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceIdentity
+</span><a href="#local-6989586621679383540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The instance\'s public IP address.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_publicIp"><span class="hs-identifier hs-type">registerInstance_publicIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="registerInstance_publicIp"><span class="annot"><span class="annottext">registerInstance_publicIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_publicIp"><span class="hs-identifier hs-var hs-var">registerInstance_publicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe Text)
+-&gt; (RegisterInstance -&gt; Maybe Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383539"><span class="annot"><span class="annottext">Maybe Text
+publicIp :: Maybe Text
+$sel:publicIp:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383539"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383539"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383538"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ApublicIp%3ARegisterInstance%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The instances public RSA key fingerprint.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKeyFingerprint"><span class="hs-identifier hs-type">registerInstance_rsaPublicKeyFingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="registerInstance_rsaPublicKeyFingerprint"><span class="annot"><span class="annottext">registerInstance_rsaPublicKeyFingerprint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKeyFingerprint"><span class="hs-identifier hs-var hs-var">registerInstance_rsaPublicKeyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe Text)
+-&gt; (RegisterInstance -&gt; Maybe Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383536"><span class="annot"><span class="annottext">Maybe Text
+rsaPublicKeyFingerprint :: Maybe Text
+$sel:rsaPublicKeyFingerprint:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383536"><span class="hs-identifier hs-var hs-var">rsaPublicKeyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383536"><span class="hs-identifier hs-var">rsaPublicKeyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383535"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rsaPublicKeyFingerprint:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKeyFingerprint%3ARegisterInstance%27"><span class="hs-identifier hs-var">rsaPublicKeyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The instances public RSA key. This key is used to encrypt communication</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- between the instance and the service.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKey"><span class="hs-identifier hs-type">registerInstance_rsaPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="registerInstance_rsaPublicKey"><span class="annot"><span class="annottext">registerInstance_rsaPublicKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_rsaPublicKey"><span class="hs-identifier hs-var hs-var">registerInstance_rsaPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Maybe Text)
+-&gt; (RegisterInstance -&gt; Maybe Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383533"><span class="annot"><span class="annottext">Maybe Text
+rsaPublicKey :: Maybe Text
+$sel:rsaPublicKey:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383533"><span class="hs-identifier hs-var hs-var">rsaPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383533"><span class="hs-identifier hs-var">rsaPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383532"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383531"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rsaPublicKey:RegisterInstance' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3ArsaPublicKey%3ARegisterInstance%27"><span class="hs-identifier hs-var">rsaPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The ID of the stack that the instance is to be registered with.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_stackId"><span class="hs-identifier hs-type">registerInstance_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="registerInstance_stackId"><span class="annot"><span class="annottext">registerInstance_stackId :: (Text -&gt; f Text) -&gt; RegisterInstance -&gt; f RegisterInstance
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstance_stackId"><span class="hs-identifier hs-var hs-var">registerInstance_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstance -&gt; Text)
+-&gt; (RegisterInstance -&gt; Text -&gt; RegisterInstance)
+-&gt; Lens RegisterInstance RegisterInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383530"><span class="annot"><span class="annottext">Text
+stackId :: Text
+$sel:stackId:RegisterInstance' :: RegisterInstance -&gt; Text
+</span><a href="#local-6989586621679383530"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383530"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383529"><span class="annot"><span class="annottext">s :: RegisterInstance
+</span><a href="#local-6989586621679383529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstance
+</span><a href="#local-6989586621679383529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RegisterInstance' :: Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AstackId%3ARegisterInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679383524"><span class="annot"><span class="annottext">request :: RegisterInstance -&gt; Request RegisterInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterInstance -&gt; Request RegisterInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679383520"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RegisterInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse RegisterInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383517"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383516"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383515"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterInstanceResponse
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-var">RegisterInstanceResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RegisterInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RegisterInstanceResponse)
+-&gt; Either String Int -&gt; Either String RegisterInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383507"><span id="local-6989586621679383509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679383500"><span class="annot"><span class="annottext">toHeaders :: RegisterInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.RegisterInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-187"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383490"><span id="local-6989586621679383492"><span id="local-6989586621679383494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679383488"><span class="annot"><span class="annottext">toJSON :: RegisterInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance%27"><span class="hs-identifier hs-type">RegisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383480"><span id="local-6989586621679383481"><span id="local-6989586621679383482"><span id="local-6989586621679383483"><span id="local-6989586621679383484"><span id="local-6989586621679383485"><span id="local-6989586621679383486"><span class="annot"><span class="annottext">Maybe Text
+Maybe InstanceIdentity
+Text
+stackId :: Text
+rsaPublicKey :: Maybe Text
+rsaPublicKeyFingerprint :: Maybe Text
+publicIp :: Maybe Text
+instanceIdentity :: Maybe InstanceIdentity
+hostname :: Maybe Text
+privateIp :: Maybe Text
+$sel:stackId:RegisterInstance' :: RegisterInstance -&gt; Text
+$sel:rsaPublicKey:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+$sel:rsaPublicKeyFingerprint:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+$sel:publicIp:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+$sel:instanceIdentity:RegisterInstance' :: RegisterInstance -&gt; Maybe InstanceIdentity
+$sel:hostname:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+$sel:privateIp:RegisterInstance' :: RegisterInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679383480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrivateIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383486"><span class="hs-identifier hs-var">privateIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Hostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383485"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceIdentity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InstanceIdentity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(InstanceIdentity -&gt; Pair) -&gt; Maybe InstanceIdentity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceIdentity
+</span><a href="#local-6989586621679383484"><span class="hs-identifier hs-var">instanceIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PublicIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383483"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RsaPublicKeyFingerprint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383482"><span class="hs-identifier hs-var">rsaPublicKeyFingerprint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RsaPublicKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383481"><span class="hs-identifier hs-var">rsaPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383480"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679383474"><span class="annot"><span class="annottext">toPath :: RegisterInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstance"><span class="hs-identifier hs-type">RegisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679383470"><span class="annot"><span class="annottext">toQuery :: RegisterInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Contains the response to a @RegisterInstanceResult@ request.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- /See:/ 'newRegisterInstanceResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679383467"><span id="local-6989586621679383468"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-var">RegisterInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-var">RegisterInstanceResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registered instance\'s AWS OpsWorks Stacks ID.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AinstanceId%3ARegisterInstanceResponse%27"><span class="annot"><span class="annottext">RegisterInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceId%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterInstanceResponse%27"><span class="annot"><span class="annottext">RegisterInstanceResponse -&gt; Int
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AhttpStatus%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383461"><span id="local-6989586621679383463"><span class="annot"><span class="annottext">RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool
+(RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool)
+-&gt; (RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool)
+-&gt; Eq RegisterInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool
+$c/= :: RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool
+== :: RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool
+$c== :: RegisterInstanceResponse -&gt; RegisterInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383453"><span id="local-6989586621679383455"><span id="local-6989586621679383457"><span id="local-6989586621679383459"><span class="annot"><span class="annottext">ReadPrec [RegisterInstanceResponse]
+ReadPrec RegisterInstanceResponse
+Int -&gt; ReadS RegisterInstanceResponse
+ReadS [RegisterInstanceResponse]
+(Int -&gt; ReadS RegisterInstanceResponse)
+-&gt; ReadS [RegisterInstanceResponse]
+-&gt; ReadPrec RegisterInstanceResponse
+-&gt; ReadPrec [RegisterInstanceResponse]
+-&gt; Read RegisterInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterInstanceResponse]
+$creadListPrec :: ReadPrec [RegisterInstanceResponse]
+readPrec :: ReadPrec RegisterInstanceResponse
+$creadPrec :: ReadPrec RegisterInstanceResponse
+readList :: ReadS [RegisterInstanceResponse]
+$creadList :: ReadS [RegisterInstanceResponse]
+readsPrec :: Int -&gt; ReadS RegisterInstanceResponse
+$creadsPrec :: Int -&gt; ReadS RegisterInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383447"><span id="local-6989586621679383449"><span id="local-6989586621679383451"><span class="annot"><span class="annottext">Int -&gt; RegisterInstanceResponse -&gt; ShowS
+[RegisterInstanceResponse] -&gt; ShowS
+RegisterInstanceResponse -&gt; String
+(Int -&gt; RegisterInstanceResponse -&gt; ShowS)
+-&gt; (RegisterInstanceResponse -&gt; String)
+-&gt; ([RegisterInstanceResponse] -&gt; ShowS)
+-&gt; Show RegisterInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterInstanceResponse] -&gt; ShowS
+$cshowList :: [RegisterInstanceResponse] -&gt; ShowS
+show :: RegisterInstanceResponse -&gt; String
+$cshow :: RegisterInstanceResponse -&gt; String
+showsPrec :: Int -&gt; RegisterInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterInstanceResponse -&gt; Rep RegisterInstanceResponse x)
+-&gt; (forall x.
+    Rep RegisterInstanceResponse x -&gt; RegisterInstanceResponse)
+-&gt; Generic RegisterInstanceResponse
+forall x.
+Rep RegisterInstanceResponse x -&gt; RegisterInstanceResponse
+forall x.
+RegisterInstanceResponse -&gt; Rep RegisterInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterInstanceResponse x -&gt; RegisterInstanceResponse
+$cfrom :: forall x.
+RegisterInstanceResponse -&gt; Rep RegisterInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'RegisterInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'instanceId', 'registerInstanceResponse_instanceId' - The registered instance\'s AWS OpsWorks Stacks ID.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'registerInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstanceResponse"><span class="hs-identifier hs-type">newRegisterInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span>
+</span><span id="line-243"></span><span id="newRegisterInstanceResponse"><span class="annot"><span class="annottext">newRegisterInstanceResponse :: Int -&gt; RegisterInstanceResponse
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#newRegisterInstanceResponse"><span class="hs-identifier hs-var hs-var">newRegisterInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679383444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">RegisterInstanceResponse' :: Maybe Text -&gt; Int -&gt; RegisterInstanceResponse
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-type">RegisterInstanceResponse'</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:RegisterInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceId%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterInstanceResponse' :: Int
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AhttpStatus%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The registered instance\'s AWS OpsWorks Stacks ID.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_instanceId"><span class="hs-identifier hs-type">registerInstanceResponse_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="registerInstanceResponse_instanceId"><span class="annot"><span class="annottext">registerInstanceResponse_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterInstanceResponse -&gt; f RegisterInstanceResponse
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_instanceId"><span class="hs-identifier hs-var hs-var">registerInstanceResponse_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstanceResponse -&gt; Maybe Text)
+-&gt; (RegisterInstanceResponse
+    -&gt; Maybe Text -&gt; RegisterInstanceResponse)
+-&gt; Lens
+     RegisterInstanceResponse
+     RegisterInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-type">RegisterInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383443"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:RegisterInstanceResponse' :: RegisterInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679383443"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383443"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383442"><span class="annot"><span class="annottext">s :: RegisterInstanceResponse
+</span><a href="#local-6989586621679383442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-type">RegisterInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstanceResponse
+</span><a href="#local-6989586621679383442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:RegisterInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AinstanceId%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_httpStatus"><span class="hs-identifier hs-type">registerInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span id="registerInstanceResponse_httpStatus"><span class="annot"><span class="annottext">registerInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RegisterInstanceResponse -&gt; f RegisterInstanceResponse
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#registerInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterInstanceResponse -&gt; Int)
+-&gt; (RegisterInstanceResponse -&gt; Int -&gt; RegisterInstanceResponse)
+-&gt; Lens RegisterInstanceResponse RegisterInstanceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-type">RegisterInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383440"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterInstanceResponse' :: RegisterInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679383440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383439"><span class="annot"><span class="annottext">s :: RegisterInstanceResponse
+</span><a href="#local-6989586621679383439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse%27"><span class="hs-identifier hs-type">RegisterInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterInstanceResponse
+</span><a href="#local-6989586621679383439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterInstanceResponse' :: Int
+</span><a href="Network.AWS.OpsWorks.RegisterInstance.html#%24sel%3AhttpStatus%3ARegisterInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterInstance.html#RegisterInstanceResponse"><span class="hs-identifier hs-type">RegisterInstanceResponse</span></a></span></span><span>
+</span><span id="line-259"></span></pre></body></html>

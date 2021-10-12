@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.M3u8PcrControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.M3u8PcrControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier">M3u8PcrControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_CONFIGURED_PCR_PERIOD"><span class="hs-identifier">M3u8PcrControl_CONFIGURED_PCR_PERIOD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_PCR_EVERY_PES_PACKET"><span class="hs-identifier">M3u8PcrControl_PCR_EVERY_PES_PACKET</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- inserted for every Packetized Elementary Stream (PES) header. This</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- parameter is effective only when the PCR PID is the same as the video or</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- audio elementary stream.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679981977"><span id="local-6989586621679981978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8PcrControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-var">M3u8PcrControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8PcrControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-identifier hs-var">M3u8PcrControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM3u8PcrControl"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#fromM3u8PcrControl"><span class="hs-identifier hs-var hs-var">fromM3u8PcrControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981969"><span id="local-6989586621679981971"><span id="local-6989586621679981973"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; ShowS
+[M3u8PcrControl] -&gt; ShowS
+M3u8PcrControl -&gt; String
+(Int -&gt; M3u8PcrControl -&gt; ShowS)
+-&gt; (M3u8PcrControl -&gt; String)
+-&gt; ([M3u8PcrControl] -&gt; ShowS)
+-&gt; Show M3u8PcrControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [M3u8PcrControl] -&gt; ShowS
+$cshowList :: [M3u8PcrControl] -&gt; ShowS
+show :: M3u8PcrControl -&gt; String
+$cshow :: M3u8PcrControl -&gt; String
+showsPrec :: Int -&gt; M3u8PcrControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; M3u8PcrControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679981960"><span id="local-6989586621679981962"><span id="local-6989586621679981964"><span id="local-6989586621679981966"><span class="annot"><span class="annottext">ReadPrec [M3u8PcrControl]
+ReadPrec M3u8PcrControl
+Int -&gt; ReadS M3u8PcrControl
+ReadS [M3u8PcrControl]
+(Int -&gt; ReadS M3u8PcrControl)
+-&gt; ReadS [M3u8PcrControl]
+-&gt; ReadPrec M3u8PcrControl
+-&gt; ReadPrec [M3u8PcrControl]
+-&gt; Read M3u8PcrControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [M3u8PcrControl]
+$creadListPrec :: ReadPrec [M3u8PcrControl]
+readPrec :: ReadPrec M3u8PcrControl
+$creadPrec :: ReadPrec M3u8PcrControl
+readList :: ReadS [M3u8PcrControl]
+$creadList :: ReadS [M3u8PcrControl]
+readsPrec :: Int -&gt; ReadS M3u8PcrControl
+$creadsPrec :: Int -&gt; ReadS M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679981955"><span id="local-6989586621679981957"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+(M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool) -&gt; Eq M3u8PcrControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c/= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+== :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c== :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679981939"><span id="local-6989586621679981941"><span id="local-6989586621679981943"><span id="local-6989586621679981945"><span id="local-6989586621679981947"><span id="local-6989586621679981949"><span id="local-6989586621679981951"><span class="annot"><span class="annottext">Eq M3u8PcrControl
+Eq M3u8PcrControl
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Ordering)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl)
+-&gt; (M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl)
+-&gt; Ord M3u8PcrControl
+M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+M3u8PcrControl -&gt; M3u8PcrControl -&gt; Ordering
+M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl
+$cmin :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl
+max :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl
+$cmax :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; M3u8PcrControl
+&gt;= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c&gt;= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+&gt; :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c&gt; :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+&lt;= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c&lt;= :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+&lt; :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+$c&lt; :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Bool
+compare :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Ordering
+$ccompare :: M3u8PcrControl -&gt; M3u8PcrControl -&gt; Ordering
+$cp1Ord :: Eq M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. M3u8PcrControl -&gt; Rep M3u8PcrControl x)
+-&gt; (forall x. Rep M3u8PcrControl x -&gt; M3u8PcrControl)
+-&gt; Generic M3u8PcrControl
+forall x. Rep M3u8PcrControl x -&gt; M3u8PcrControl
+forall x. M3u8PcrControl -&gt; Rep M3u8PcrControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep M3u8PcrControl x -&gt; M3u8PcrControl
+$cfrom :: forall x. M3u8PcrControl -&gt; Rep M3u8PcrControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981931"><span id="local-6989586621679981933"><span class="annot"><span class="annottext">Int -&gt; M3u8PcrControl -&gt; Int
+M3u8PcrControl -&gt; Int
+(Int -&gt; M3u8PcrControl -&gt; Int)
+-&gt; (M3u8PcrControl -&gt; Int) -&gt; Hashable M3u8PcrControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: M3u8PcrControl -&gt; Int
+$chash :: M3u8PcrControl -&gt; Int
+hashWithSalt :: Int -&gt; M3u8PcrControl -&gt; Int
+$chashWithSalt :: Int -&gt; M3u8PcrControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981928"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ()
+(M3u8PcrControl -&gt; ()) -&gt; NFData M3u8PcrControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: M3u8PcrControl -&gt; ()
+$crnf :: M3u8PcrControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981925"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8PcrControl
+(Text -&gt; Either String M3u8PcrControl) -&gt; FromText M3u8PcrControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String M3u8PcrControl
+$cfromText :: Text -&gt; Either String M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981922"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; Text
+(M3u8PcrControl -&gt; Text) -&gt; ToText M3u8PcrControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: M3u8PcrControl -&gt; Text
+$ctoText :: M3u8PcrControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981919"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteString
+(M3u8PcrControl -&gt; ByteString) -&gt; ToByteString M3u8PcrControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: M3u8PcrControl -&gt; ByteString
+$ctoBS :: M3u8PcrControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981916"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; ByteStringBuilder
+(M3u8PcrControl -&gt; ByteStringBuilder) -&gt; ToLog M3u8PcrControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: M3u8PcrControl -&gt; ByteStringBuilder
+$cbuild :: M3u8PcrControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981913"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8PcrControl -&gt; [Header]
+(HeaderName -&gt; M3u8PcrControl -&gt; [Header])
+-&gt; ToHeader M3u8PcrControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; M3u8PcrControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; M3u8PcrControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981910"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; QueryString
+(M3u8PcrControl -&gt; QueryString) -&gt; ToQuery M3u8PcrControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: M3u8PcrControl -&gt; QueryString
+$ctoQuery :: M3u8PcrControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981905"><span id="local-6989586621679981907"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8PcrControl]
+Value -&gt; Parser M3u8PcrControl
+(Value -&gt; Parser M3u8PcrControl)
+-&gt; (Value -&gt; Parser [M3u8PcrControl]) -&gt; FromJSON M3u8PcrControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [M3u8PcrControl]
+$cparseJSONList :: Value -&gt; Parser [M3u8PcrControl]
+parseJSON :: Value -&gt; Parser M3u8PcrControl
+$cparseJSON :: Value -&gt; Parser M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981900"><span id="local-6989586621679981902"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8PcrControl]
+FromJSONKeyFunction M3u8PcrControl
+FromJSONKeyFunction M3u8PcrControl
+-&gt; FromJSONKeyFunction [M3u8PcrControl]
+-&gt; FromJSONKey M3u8PcrControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [M3u8PcrControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [M3u8PcrControl]
+fromJSONKey :: FromJSONKeyFunction M3u8PcrControl
+$cfromJSONKey :: FromJSONKeyFunction M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981891"><span id="local-6989586621679981893"><span id="local-6989586621679981895"><span id="local-6989586621679981897"><span class="annot"><span class="annottext">[M3u8PcrControl] -&gt; Encoding
+[M3u8PcrControl] -&gt; Value
+M3u8PcrControl -&gt; Encoding
+M3u8PcrControl -&gt; Value
+(M3u8PcrControl -&gt; Value)
+-&gt; (M3u8PcrControl -&gt; Encoding)
+-&gt; ([M3u8PcrControl] -&gt; Value)
+-&gt; ([M3u8PcrControl] -&gt; Encoding)
+-&gt; ToJSON M3u8PcrControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [M3u8PcrControl] -&gt; Encoding
+$ctoEncodingList :: [M3u8PcrControl] -&gt; Encoding
+toJSONList :: [M3u8PcrControl] -&gt; Value
+$ctoJSONList :: [M3u8PcrControl] -&gt; Value
+toEncoding :: M3u8PcrControl -&gt; Encoding
+$ctoEncoding :: M3u8PcrControl -&gt; Encoding
+toJSON :: M3u8PcrControl -&gt; Value
+$ctoJSON :: M3u8PcrControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981886"><span id="local-6989586621679981888"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8PcrControl]
+ToJSONKeyFunction M3u8PcrControl
+ToJSONKeyFunction M3u8PcrControl
+-&gt; ToJSONKeyFunction [M3u8PcrControl] -&gt; ToJSONKey M3u8PcrControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [M3u8PcrControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [M3u8PcrControl]
+toJSONKey :: ToJSONKeyFunction M3u8PcrControl
+$ctoJSONKey :: ToJSONKeyFunction M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981883"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8PcrControl
+([Node] -&gt; Either String M3u8PcrControl) -&gt; FromXML M3u8PcrControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String M3u8PcrControl
+$cparseXML :: [Node] -&gt; Either String M3u8PcrControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679981880"><span class="annot"><span class="annottext">M3u8PcrControl -&gt; XML
+(M3u8PcrControl -&gt; XML) -&gt; ToXML M3u8PcrControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: M3u8PcrControl -&gt; XML
+$ctoXML :: M3u8PcrControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_CONFIGURED_PCR_PERIOD"><span class="hs-identifier hs-type">M3u8PcrControl_CONFIGURED_PCR_PERIOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-type">M3u8PcrControl</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM3u8PcrControl_CONFIGURED_PCR_PERIOD"><span id="%24mM3u8PcrControl_CONFIGURED_PCR_PERIOD"><span id="M3u8PcrControl_CONFIGURED_PCR_PERIOD"><span class="annot"><span class="annottext">$bM3u8PcrControl_CONFIGURED_PCR_PERIOD :: M3u8PcrControl
+$mM3u8PcrControl_CONFIGURED_PCR_PERIOD :: forall r. M3u8PcrControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#%24bM3u8PcrControl_CONFIGURED_PCR_PERIOD"><span class="hs-identifier hs-var hs-var hs-var">M3u8PcrControl_CONFIGURED_PCR_PERIOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-identifier hs-type">M3u8PcrControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONFIGURED_PCR_PERIOD&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_PCR_EVERY_PES_PACKET"><span class="hs-identifier hs-type">M3u8PcrControl_PCR_EVERY_PES_PACKET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl"><span class="hs-identifier hs-type">M3u8PcrControl</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bM3u8PcrControl_PCR_EVERY_PES_PACKET"><span id="%24mM3u8PcrControl_PCR_EVERY_PES_PACKET"><span id="M3u8PcrControl_PCR_EVERY_PES_PACKET"><span class="annot"><span class="annottext">$bM3u8PcrControl_PCR_EVERY_PES_PACKET :: M3u8PcrControl
+$mM3u8PcrControl_PCR_EVERY_PES_PACKET :: forall r. M3u8PcrControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#%24bM3u8PcrControl_PCR_EVERY_PES_PACKET"><span class="hs-identifier hs-var hs-var hs-var">M3u8PcrControl_PCR_EVERY_PES_PACKET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-identifier hs-type">M3u8PcrControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PCR_EVERY_PES_PACKET&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_CONFIGURED_PCR_PERIOD"><span class="hs-pragma hs-type">M3u8PcrControl_CONFIGURED_PCR_PERIOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl_PCR_EVERY_PES_PACKET"><span class="hs-pragma hs-type">M3u8PcrControl_PCR_EVERY_PES_PACKET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8PcrControl.html#M3u8PcrControl%27"><span class="hs-pragma hs-type">M3u8PcrControl'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

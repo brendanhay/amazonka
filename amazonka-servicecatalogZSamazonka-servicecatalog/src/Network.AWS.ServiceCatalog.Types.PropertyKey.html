@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalog.Types.PropertyKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalog.Types.PropertyKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey"><span class="hs-identifier">PropertyKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_LAUNCH_ROLE"><span class="hs-identifier">PropertyKey_LAUNCH_ROLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_OWNER"><span class="hs-identifier">PropertyKey_OWNER</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679401223"><span id="local-6989586621679401224"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PropertyKey"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey"><span class="hs-identifier hs-var">PropertyKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyKey%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey%27"><span class="hs-identifier hs-var">PropertyKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPropertyKey"><span class="annot"><span class="annottext">PropertyKey -&gt; Text
+</span><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#fromPropertyKey"><span class="hs-identifier hs-var hs-var">fromPropertyKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401215"><span id="local-6989586621679401217"><span id="local-6989586621679401219"><span class="annot"><span class="annottext">Int -&gt; PropertyKey -&gt; ShowS
+[PropertyKey] -&gt; ShowS
+PropertyKey -&gt; String
+(Int -&gt; PropertyKey -&gt; ShowS)
+-&gt; (PropertyKey -&gt; String)
+-&gt; ([PropertyKey] -&gt; ShowS)
+-&gt; Show PropertyKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PropertyKey] -&gt; ShowS
+$cshowList :: [PropertyKey] -&gt; ShowS
+show :: PropertyKey -&gt; String
+$cshow :: PropertyKey -&gt; String
+showsPrec :: Int -&gt; PropertyKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; PropertyKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679401206"><span id="local-6989586621679401208"><span id="local-6989586621679401210"><span id="local-6989586621679401212"><span class="annot"><span class="annottext">ReadPrec [PropertyKey]
+ReadPrec PropertyKey
+Int -&gt; ReadS PropertyKey
+ReadS [PropertyKey]
+(Int -&gt; ReadS PropertyKey)
+-&gt; ReadS [PropertyKey]
+-&gt; ReadPrec PropertyKey
+-&gt; ReadPrec [PropertyKey]
+-&gt; Read PropertyKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PropertyKey]
+$creadListPrec :: ReadPrec [PropertyKey]
+readPrec :: ReadPrec PropertyKey
+$creadPrec :: ReadPrec PropertyKey
+readList :: ReadS [PropertyKey]
+$creadList :: ReadS [PropertyKey]
+readsPrec :: Int -&gt; ReadS PropertyKey
+$creadsPrec :: Int -&gt; ReadS PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401201"><span id="local-6989586621679401203"><span class="annot"><span class="annottext">PropertyKey -&gt; PropertyKey -&gt; Bool
+(PropertyKey -&gt; PropertyKey -&gt; Bool)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Bool) -&gt; Eq PropertyKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c/= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+== :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c== :: PropertyKey -&gt; PropertyKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401185"><span id="local-6989586621679401187"><span id="local-6989586621679401189"><span id="local-6989586621679401191"><span id="local-6989586621679401193"><span id="local-6989586621679401195"><span id="local-6989586621679401197"><span class="annot"><span class="annottext">Eq PropertyKey
+Eq PropertyKey
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Ordering)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Bool)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Bool)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Bool)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; Bool)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; PropertyKey)
+-&gt; (PropertyKey -&gt; PropertyKey -&gt; PropertyKey)
+-&gt; Ord PropertyKey
+PropertyKey -&gt; PropertyKey -&gt; Bool
+PropertyKey -&gt; PropertyKey -&gt; Ordering
+PropertyKey -&gt; PropertyKey -&gt; PropertyKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PropertyKey -&gt; PropertyKey -&gt; PropertyKey
+$cmin :: PropertyKey -&gt; PropertyKey -&gt; PropertyKey
+max :: PropertyKey -&gt; PropertyKey -&gt; PropertyKey
+$cmax :: PropertyKey -&gt; PropertyKey -&gt; PropertyKey
+&gt;= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c&gt;= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+&gt; :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c&gt; :: PropertyKey -&gt; PropertyKey -&gt; Bool
+&lt;= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c&lt;= :: PropertyKey -&gt; PropertyKey -&gt; Bool
+&lt; :: PropertyKey -&gt; PropertyKey -&gt; Bool
+$c&lt; :: PropertyKey -&gt; PropertyKey -&gt; Bool
+compare :: PropertyKey -&gt; PropertyKey -&gt; Ordering
+$ccompare :: PropertyKey -&gt; PropertyKey -&gt; Ordering
+$cp1Ord :: Eq PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PropertyKey -&gt; Rep PropertyKey x)
+-&gt; (forall x. Rep PropertyKey x -&gt; PropertyKey)
+-&gt; Generic PropertyKey
+forall x. Rep PropertyKey x -&gt; PropertyKey
+forall x. PropertyKey -&gt; Rep PropertyKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PropertyKey x -&gt; PropertyKey
+$cfrom :: forall x. PropertyKey -&gt; Rep PropertyKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401177"><span id="local-6989586621679401179"><span class="annot"><span class="annottext">Int -&gt; PropertyKey -&gt; Int
+PropertyKey -&gt; Int
+(Int -&gt; PropertyKey -&gt; Int)
+-&gt; (PropertyKey -&gt; Int) -&gt; Hashable PropertyKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PropertyKey -&gt; Int
+$chash :: PropertyKey -&gt; Int
+hashWithSalt :: Int -&gt; PropertyKey -&gt; Int
+$chashWithSalt :: Int -&gt; PropertyKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401174"><span class="annot"><span class="annottext">PropertyKey -&gt; ()
+(PropertyKey -&gt; ()) -&gt; NFData PropertyKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PropertyKey -&gt; ()
+$crnf :: PropertyKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401171"><span class="annot"><span class="annottext">Text -&gt; Either String PropertyKey
+(Text -&gt; Either String PropertyKey) -&gt; FromText PropertyKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PropertyKey
+$cfromText :: Text -&gt; Either String PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401168"><span class="annot"><span class="annottext">PropertyKey -&gt; Text
+(PropertyKey -&gt; Text) -&gt; ToText PropertyKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PropertyKey -&gt; Text
+$ctoText :: PropertyKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401165"><span class="annot"><span class="annottext">PropertyKey -&gt; ByteString
+(PropertyKey -&gt; ByteString) -&gt; ToByteString PropertyKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PropertyKey -&gt; ByteString
+$ctoBS :: PropertyKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401162"><span class="annot"><span class="annottext">PropertyKey -&gt; ByteStringBuilder
+(PropertyKey -&gt; ByteStringBuilder) -&gt; ToLog PropertyKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PropertyKey -&gt; ByteStringBuilder
+$cbuild :: PropertyKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401159"><span class="annot"><span class="annottext">HeaderName -&gt; PropertyKey -&gt; [Header]
+(HeaderName -&gt; PropertyKey -&gt; [Header]) -&gt; ToHeader PropertyKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PropertyKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PropertyKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401156"><span class="annot"><span class="annottext">PropertyKey -&gt; QueryString
+(PropertyKey -&gt; QueryString) -&gt; ToQuery PropertyKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PropertyKey -&gt; QueryString
+$ctoQuery :: PropertyKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401151"><span id="local-6989586621679401153"><span class="annot"><span class="annottext">Value -&gt; Parser [PropertyKey]
+Value -&gt; Parser PropertyKey
+(Value -&gt; Parser PropertyKey)
+-&gt; (Value -&gt; Parser [PropertyKey]) -&gt; FromJSON PropertyKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PropertyKey]
+$cparseJSONList :: Value -&gt; Parser [PropertyKey]
+parseJSON :: Value -&gt; Parser PropertyKey
+$cparseJSON :: Value -&gt; Parser PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401146"><span id="local-6989586621679401148"><span class="annot"><span class="annottext">FromJSONKeyFunction [PropertyKey]
+FromJSONKeyFunction PropertyKey
+FromJSONKeyFunction PropertyKey
+-&gt; FromJSONKeyFunction [PropertyKey] -&gt; FromJSONKey PropertyKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PropertyKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [PropertyKey]
+fromJSONKey :: FromJSONKeyFunction PropertyKey
+$cfromJSONKey :: FromJSONKeyFunction PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401137"><span id="local-6989586621679401139"><span id="local-6989586621679401141"><span id="local-6989586621679401143"><span class="annot"><span class="annottext">[PropertyKey] -&gt; Encoding
+[PropertyKey] -&gt; Value
+PropertyKey -&gt; Encoding
+PropertyKey -&gt; Value
+(PropertyKey -&gt; Value)
+-&gt; (PropertyKey -&gt; Encoding)
+-&gt; ([PropertyKey] -&gt; Value)
+-&gt; ([PropertyKey] -&gt; Encoding)
+-&gt; ToJSON PropertyKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PropertyKey] -&gt; Encoding
+$ctoEncodingList :: [PropertyKey] -&gt; Encoding
+toJSONList :: [PropertyKey] -&gt; Value
+$ctoJSONList :: [PropertyKey] -&gt; Value
+toEncoding :: PropertyKey -&gt; Encoding
+$ctoEncoding :: PropertyKey -&gt; Encoding
+toJSON :: PropertyKey -&gt; Value
+$ctoJSON :: PropertyKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401132"><span id="local-6989586621679401134"><span class="annot"><span class="annottext">ToJSONKeyFunction [PropertyKey]
+ToJSONKeyFunction PropertyKey
+ToJSONKeyFunction PropertyKey
+-&gt; ToJSONKeyFunction [PropertyKey] -&gt; ToJSONKey PropertyKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PropertyKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [PropertyKey]
+toJSONKey :: ToJSONKeyFunction PropertyKey
+$ctoJSONKey :: ToJSONKeyFunction PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401129"><span class="annot"><span class="annottext">[Node] -&gt; Either String PropertyKey
+([Node] -&gt; Either String PropertyKey) -&gt; FromXML PropertyKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PropertyKey
+$cparseXML :: [Node] -&gt; Either String PropertyKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401126"><span class="annot"><span class="annottext">PropertyKey -&gt; XML
+(PropertyKey -&gt; XML) -&gt; ToXML PropertyKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PropertyKey -&gt; XML
+$ctoXML :: PropertyKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_LAUNCH_ROLE"><span class="hs-identifier hs-type">PropertyKey_LAUNCH_ROLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey"><span class="hs-identifier hs-type">PropertyKey</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPropertyKey_LAUNCH_ROLE"><span id="%24mPropertyKey_LAUNCH_ROLE"><span id="PropertyKey_LAUNCH_ROLE"><span class="annot"><span class="annottext">$bPropertyKey_LAUNCH_ROLE :: PropertyKey
+$mPropertyKey_LAUNCH_ROLE :: forall r. PropertyKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#%24bPropertyKey_LAUNCH_ROLE"><span class="hs-identifier hs-var hs-var hs-var">PropertyKey_LAUNCH_ROLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey%27"><span class="hs-identifier hs-type">PropertyKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH_ROLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_OWNER"><span class="hs-identifier hs-type">PropertyKey_OWNER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey"><span class="hs-identifier hs-type">PropertyKey</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPropertyKey_OWNER"><span id="%24mPropertyKey_OWNER"><span id="PropertyKey_OWNER"><span class="annot"><span class="annottext">$bPropertyKey_OWNER :: PropertyKey
+$mPropertyKey_OWNER :: forall r. PropertyKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#%24bPropertyKey_OWNER"><span class="hs-identifier hs-var hs-var hs-var">PropertyKey_OWNER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey%27"><span class="hs-identifier hs-type">PropertyKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OWNER&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_LAUNCH_ROLE"><span class="hs-pragma hs-type">PropertyKey_LAUNCH_ROLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey_OWNER"><span class="hs-pragma hs-type">PropertyKey_OWNER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.PropertyKey.html#PropertyKey%27"><span class="hs-pragma hs-type">PropertyKey'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

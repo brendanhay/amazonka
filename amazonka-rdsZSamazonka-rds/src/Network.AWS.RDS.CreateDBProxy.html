@@ -1,0 +1,882 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RDS.CreateDBProxy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new DB proxy.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDS.CreateDBProxy</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxy"><span class="hs-identifier">newCreateDBProxy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_idleClientTimeout"><span class="hs-identifier">createDBProxy_idleClientTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_debugLogging"><span class="hs-identifier">createDBProxy_debugLogging</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSecurityGroupIds"><span class="hs-identifier">createDBProxy_vpcSecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_tags"><span class="hs-identifier">createDBProxy_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_requireTLS"><span class="hs-identifier">createDBProxy_requireTLS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_dbProxyName"><span class="hs-identifier">createDBProxy_dbProxyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_engineFamily"><span class="hs-identifier">createDBProxy_engineFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_auth"><span class="hs-identifier">createDBProxy_auth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_roleArn"><span class="hs-identifier">createDBProxy_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSubnetIds"><span class="hs-identifier">createDBProxy_vpcSubnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier">CreateDBProxyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxyResponse"><span class="hs-identifier">newCreateDBProxyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_dbProxy"><span class="hs-identifier">createDBProxyResponse_dbProxy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_httpStatus"><span class="hs-identifier">createDBProxyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.html"><span class="hs-identifier">Network.AWS.RDS.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateDBProxy' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679800631"><span id="local-6989586621679800632"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxy"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-var">CreateDBProxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxy%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-var">CreateDBProxy'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds that a connection to the proxy can be inactive</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- before the proxy disconnects it. You can set this value higher or lower</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- than the connection timeout limit for the associated database.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AidleClientTimeout%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Maybe Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AidleClientTimeout%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">idleClientTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Whether the proxy includes detailed information about SQL statements in</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- its logs. This information helps you to debug issues involving SQL</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- behavior or the performance and scalability of the proxy connections.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The debug information includes the text of SQL statements that you</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- submit through the proxy. Thus, only enable this setting when needed for</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- debugging, and only when you have security measures in place to</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- safeguard any sensitive information that appears in the logs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdebugLogging%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdebugLogging%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">debugLogging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | One or more VPC security group IDs to associate with the new proxy.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AvpcSecurityGroupIds%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Maybe [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSecurityGroupIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | An optional set of key-value pairs to associate arbitrary data of your</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- choosing with the proxy.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atags%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Maybe [Tag]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Atags%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A Boolean parameter that specifies whether Transport Layer Security</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- (TLS) encryption is required for connections to the proxy. By enabling</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- this setting, you can enforce encrypted TLS connections to the proxy.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3ArequireTLS%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3ArequireTLS%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">requireTLS</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The identifier for the proxy. This name must be unique for all proxies</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- owned by your Amazon Web Services account in the specified Amazon Web</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Services Region. An identifier must begin with a letter and must contain</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- only ASCII letters, digits, and hyphens; it can\'t end with a hyphen or</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- contain two consecutive hyphens.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdbProxyName%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxyName%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The kinds of databases that the proxy can connect to. This value</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- determines which database network protocol the proxy recognizes when it</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- interprets network traffic to and from the database. The engine family</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- applies to MySQL and PostgreSQL for both RDS and Aurora.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AengineFamily%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; EngineFamily
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AengineFamily%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">engineFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-type">EngineFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The authorization mechanism that the proxy uses.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aauth%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; [UserAuthConfig]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Aauth%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfig.html#UserAuthConfig"><span class="hs-identifier hs-type">UserAuthConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- access secrets in Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AroleArn%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | One or more VPC subnet IDs to associate with the new proxy.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AvpcSubnetIds%3ACreateDBProxy%27"><span class="annot"><span class="annottext">CreateDBProxy -&gt; [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSubnetIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var hs-var">vpcSubnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800616"><span id="local-6989586621679800618"><span class="annot"><span class="annottext">CreateDBProxy -&gt; CreateDBProxy -&gt; Bool
+(CreateDBProxy -&gt; CreateDBProxy -&gt; Bool)
+-&gt; (CreateDBProxy -&gt; CreateDBProxy -&gt; Bool) -&gt; Eq CreateDBProxy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDBProxy -&gt; CreateDBProxy -&gt; Bool
+$c/= :: CreateDBProxy -&gt; CreateDBProxy -&gt; Bool
+== :: CreateDBProxy -&gt; CreateDBProxy -&gt; Bool
+$c== :: CreateDBProxy -&gt; CreateDBProxy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800607"><span id="local-6989586621679800609"><span id="local-6989586621679800611"><span id="local-6989586621679800613"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxy]
+ReadPrec CreateDBProxy
+Int -&gt; ReadS CreateDBProxy
+ReadS [CreateDBProxy]
+(Int -&gt; ReadS CreateDBProxy)
+-&gt; ReadS [CreateDBProxy]
+-&gt; ReadPrec CreateDBProxy
+-&gt; ReadPrec [CreateDBProxy]
+-&gt; Read CreateDBProxy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDBProxy]
+$creadListPrec :: ReadPrec [CreateDBProxy]
+readPrec :: ReadPrec CreateDBProxy
+$creadPrec :: ReadPrec CreateDBProxy
+readList :: ReadS [CreateDBProxy]
+$creadList :: ReadS [CreateDBProxy]
+readsPrec :: Int -&gt; ReadS CreateDBProxy
+$creadsPrec :: Int -&gt; ReadS CreateDBProxy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800600"><span id="local-6989586621679800602"><span id="local-6989586621679800604"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxy -&gt; ShowS
+[CreateDBProxy] -&gt; ShowS
+CreateDBProxy -&gt; String
+(Int -&gt; CreateDBProxy -&gt; ShowS)
+-&gt; (CreateDBProxy -&gt; String)
+-&gt; ([CreateDBProxy] -&gt; ShowS)
+-&gt; Show CreateDBProxy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDBProxy] -&gt; ShowS
+$cshowList :: [CreateDBProxy] -&gt; ShowS
+show :: CreateDBProxy -&gt; String
+$cshow :: CreateDBProxy -&gt; String
+showsPrec :: Int -&gt; CreateDBProxy -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDBProxy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDBProxy -&gt; Rep CreateDBProxy x)
+-&gt; (forall x. Rep CreateDBProxy x -&gt; CreateDBProxy)
+-&gt; Generic CreateDBProxy
+forall x. Rep CreateDBProxy x -&gt; CreateDBProxy
+forall x. CreateDBProxy -&gt; Rep CreateDBProxy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDBProxy x -&gt; CreateDBProxy
+$cfrom :: forall x. CreateDBProxy -&gt; Rep CreateDBProxy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'CreateDBProxy' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'idleClientTimeout', 'createDBProxy_idleClientTimeout' - The number of seconds that a connection to the proxy can be inactive</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- before the proxy disconnects it. You can set this value higher or lower</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- than the connection timeout limit for the associated database.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'debugLogging', 'createDBProxy_debugLogging' - Whether the proxy includes detailed information about SQL statements in</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- its logs. This information helps you to debug issues involving SQL</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- behavior or the performance and scalability of the proxy connections.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The debug information includes the text of SQL statements that you</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- submit through the proxy. Thus, only enable this setting when needed for</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- debugging, and only when you have security measures in place to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- safeguard any sensitive information that appears in the logs.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'vpcSecurityGroupIds', 'createDBProxy_vpcSecurityGroupIds' - One or more VPC security group IDs to associate with the new proxy.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'tags', 'createDBProxy_tags' - An optional set of key-value pairs to associate arbitrary data of your</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- choosing with the proxy.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'requireTLS', 'createDBProxy_requireTLS' - A Boolean parameter that specifies whether Transport Layer Security</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- (TLS) encryption is required for connections to the proxy. By enabling</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- this setting, you can enforce encrypted TLS connections to the proxy.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'dbProxyName', 'createDBProxy_dbProxyName' - The identifier for the proxy. This name must be unique for all proxies</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- owned by your Amazon Web Services account in the specified Amazon Web</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Services Region. An identifier must begin with a letter and must contain</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- only ASCII letters, digits, and hyphens; it can\'t end with a hyphen or</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- contain two consecutive hyphens.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'engineFamily', 'createDBProxy_engineFamily' - The kinds of databases that the proxy can connect to. This value</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- determines which database network protocol the proxy recognizes when it</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- interprets network traffic to and from the database. The engine family</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- applies to MySQL and PostgreSQL for both RDS and Aurora.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'auth', 'createDBProxy_auth' - The authorization mechanism that the proxy uses.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'roleArn', 'createDBProxy_roleArn' - The Amazon Resource Name (ARN) of the IAM role that the proxy uses to</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- access secrets in Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'vpcSubnetIds', 'createDBProxy_vpcSubnetIds' - One or more VPC subnet IDs to associate with the new proxy.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxy"><span class="hs-identifier hs-type">newCreateDBProxy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'dbProxyName'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'engineFamily'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-type">EngineFamily</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span>
+</span><span id="line-156"></span><span id="newCreateDBProxy"><span class="annot"><span class="annottext">newCreateDBProxy :: Text -&gt; EngineFamily -&gt; Text -&gt; CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxy"><span class="hs-identifier hs-var hs-var">newCreateDBProxy</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679800595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800595"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679800594"><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800594"><span class="hs-identifier hs-var">pEngineFamily_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679800593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800593"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">CreateDBProxy' :: Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; EngineFamily
+-&gt; [UserAuthConfig]
+-&gt; Text
+-&gt; [Text]
+-&gt; CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idleClientTimeout:CreateDBProxy' :: Maybe Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AidleClientTimeout%3ACreateDBProxy%27"><span class="hs-identifier hs-var">idleClientTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:debugLogging:CreateDBProxy' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdebugLogging%3ACreateDBProxy%27"><span class="hs-identifier hs-var">debugLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:CreateDBProxy' :: Maybe [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSecurityGroupIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDBProxy' :: Maybe [Tag]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Atags%3ACreateDBProxy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:requireTLS:CreateDBProxy' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3ArequireTLS%3ACreateDBProxy%27"><span class="hs-identifier hs-var">requireTLS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbProxyName:CreateDBProxy' :: Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxyName%3ACreateDBProxy%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800595"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineFamily:CreateDBProxy' :: EngineFamily
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AengineFamily%3ACreateDBProxy%27"><span class="hs-identifier hs-var">engineFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800594"><span class="hs-identifier hs-var">pEngineFamily_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:auth:CreateDBProxy' :: [UserAuthConfig]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Aauth%3ACreateDBProxy%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UserAuthConfig]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateDBProxy' :: Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AroleArn%3ACreateDBProxy%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800593"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcSubnetIds:CreateDBProxy' :: [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSubnetIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The number of seconds that a connection to the proxy can be inactive</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- before the proxy disconnects it. You can set this value higher or lower</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- than the connection timeout limit for the associated database.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_idleClientTimeout"><span class="hs-identifier hs-type">createDBProxy_idleClientTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="createDBProxy_idleClientTimeout"><span class="annot"><span class="annottext">createDBProxy_idleClientTimeout :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_idleClientTimeout"><span class="hs-identifier hs-var hs-var">createDBProxy_idleClientTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Maybe Int)
+-&gt; (CreateDBProxy -&gt; Maybe Int -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800590"><span class="annot"><span class="annottext">Maybe Int
+idleClientTimeout :: Maybe Int
+$sel:idleClientTimeout:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Int
+</span><a href="#local-6989586621679800590"><span class="hs-identifier hs-var hs-var">idleClientTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679800590"><span class="hs-identifier hs-var">idleClientTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800589"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800588"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679800588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idleClientTimeout:CreateDBProxy' :: Maybe Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AidleClientTimeout%3ACreateDBProxy%27"><span class="hs-identifier hs-var">idleClientTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679800588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Whether the proxy includes detailed information about SQL statements in</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- its logs. This information helps you to debug issues involving SQL</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- behavior or the performance and scalability of the proxy connections.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The debug information includes the text of SQL statements that you</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- submit through the proxy. Thus, only enable this setting when needed for</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- debugging, and only when you have security measures in place to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- safeguard any sensitive information that appears in the logs.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_debugLogging"><span class="hs-identifier hs-type">createDBProxy_debugLogging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="createDBProxy_debugLogging"><span class="annot"><span class="annottext">createDBProxy_debugLogging :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_debugLogging"><span class="hs-identifier hs-var hs-var">createDBProxy_debugLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Maybe Bool)
+-&gt; (CreateDBProxy -&gt; Maybe Bool -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800587"><span class="annot"><span class="annottext">Maybe Bool
+debugLogging :: Maybe Bool
+$sel:debugLogging:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Bool
+</span><a href="#local-6989586621679800587"><span class="hs-identifier hs-var hs-var">debugLogging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800587"><span class="hs-identifier hs-var">debugLogging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800586"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800585"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:debugLogging:CreateDBProxy' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdebugLogging%3ACreateDBProxy%27"><span class="hs-identifier hs-var">debugLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | One or more VPC security group IDs to associate with the new proxy.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSecurityGroupIds"><span class="hs-identifier hs-type">createDBProxy_vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="createDBProxy_vpcSecurityGroupIds"><span class="annot"><span class="annottext">createDBProxy_vpcSecurityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSecurityGroupIds"><span class="hs-identifier hs-var hs-var">createDBProxy_vpcSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Maybe [Text])
+-&gt; (CreateDBProxy -&gt; Maybe [Text] -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800584"><span class="annot"><span class="annottext">Maybe [Text]
+vpcSecurityGroupIds :: Maybe [Text]
+$sel:vpcSecurityGroupIds:CreateDBProxy' :: CreateDBProxy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679800584"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679800584"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800583"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800582"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679800582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:CreateDBProxy' :: Maybe [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSecurityGroupIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679800582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateDBProxy -&gt; f CreateDBProxy)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateDBProxy
+-&gt; f CreateDBProxy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | An optional set of key-value pairs to associate arbitrary data of your</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- choosing with the proxy.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_tags"><span class="hs-identifier hs-type">createDBProxy_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="createDBProxy_tags"><span class="annot"><span class="annottext">createDBProxy_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_tags"><span class="hs-identifier hs-var hs-var">createDBProxy_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Maybe [Tag])
+-&gt; (CreateDBProxy -&gt; Maybe [Tag] -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800578"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDBProxy' :: CreateDBProxy -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679800578"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800578"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800577"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800576"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBProxy' :: Maybe [Tag]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Atags%3ACreateDBProxy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDBProxy -&gt; f CreateDBProxy)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDBProxy
+-&gt; f CreateDBProxy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A Boolean parameter that specifies whether Transport Layer Security</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- (TLS) encryption is required for connections to the proxy. By enabling</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- this setting, you can enforce encrypted TLS connections to the proxy.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_requireTLS"><span class="hs-identifier hs-type">createDBProxy_requireTLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="createDBProxy_requireTLS"><span class="annot"><span class="annottext">createDBProxy_requireTLS :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_requireTLS"><span class="hs-identifier hs-var hs-var">createDBProxy_requireTLS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Maybe Bool)
+-&gt; (CreateDBProxy -&gt; Maybe Bool -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800575"><span class="annot"><span class="annottext">Maybe Bool
+requireTLS :: Maybe Bool
+$sel:requireTLS:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Bool
+</span><a href="#local-6989586621679800575"><span class="hs-identifier hs-var hs-var">requireTLS</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800575"><span class="hs-identifier hs-var">requireTLS</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800574"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800573"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requireTLS:CreateDBProxy' :: Maybe Bool
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3ArequireTLS%3ACreateDBProxy%27"><span class="hs-identifier hs-var">requireTLS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The identifier for the proxy. This name must be unique for all proxies</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- owned by your Amazon Web Services account in the specified Amazon Web</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Services Region. An identifier must begin with a letter and must contain</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- only ASCII letters, digits, and hyphens; it can\'t end with a hyphen or</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- contain two consecutive hyphens.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_dbProxyName"><span class="hs-identifier hs-type">createDBProxy_dbProxyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-210"></span><span id="createDBProxy_dbProxyName"><span class="annot"><span class="annottext">createDBProxy_dbProxyName :: (Text -&gt; f Text) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_dbProxyName"><span class="hs-identifier hs-var hs-var">createDBProxy_dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Text)
+-&gt; (CreateDBProxy -&gt; Text -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800572"><span class="annot"><span class="annottext">Text
+dbProxyName :: Text
+$sel:dbProxyName:CreateDBProxy' :: CreateDBProxy -&gt; Text
+</span><a href="#local-6989586621679800572"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800572"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800571"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800570"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:CreateDBProxy' :: Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxyName%3ACreateDBProxy%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The kinds of databases that the proxy can connect to. This value</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- determines which database network protocol the proxy recognizes when it</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- interprets network traffic to and from the database. The engine family</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- applies to MySQL and PostgreSQL for both RDS and Aurora.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_engineFamily"><span class="hs-identifier hs-type">createDBProxy_engineFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EngineFamily.html#EngineFamily"><span class="hs-identifier hs-type">EngineFamily</span></a></span><span>
+</span><span id="line-217"></span><span id="createDBProxy_engineFamily"><span class="annot"><span class="annottext">createDBProxy_engineFamily :: (EngineFamily -&gt; f EngineFamily)
+-&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_engineFamily"><span class="hs-identifier hs-var hs-var">createDBProxy_engineFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; EngineFamily)
+-&gt; (CreateDBProxy -&gt; EngineFamily -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy EngineFamily EngineFamily
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800569"><span class="annot"><span class="annottext">EngineFamily
+engineFamily :: EngineFamily
+$sel:engineFamily:CreateDBProxy' :: CreateDBProxy -&gt; EngineFamily
+</span><a href="#local-6989586621679800569"><span class="hs-identifier hs-var hs-var">engineFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800569"><span class="hs-identifier hs-var">engineFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800568"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800567"><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineFamily:CreateDBProxy' :: EngineFamily
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AengineFamily%3ACreateDBProxy%27"><span class="hs-identifier hs-var">engineFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The authorization mechanism that the proxy uses.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_auth"><span class="hs-identifier hs-type">createDBProxy_auth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfig.html#UserAuthConfig"><span class="hs-identifier hs-type">UserAuthConfig</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span id="createDBProxy_auth"><span class="annot"><span class="annottext">createDBProxy_auth :: ([UserAuthConfig] -&gt; f [UserAuthConfig])
+-&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_auth"><span class="hs-identifier hs-var hs-var">createDBProxy_auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; [UserAuthConfig])
+-&gt; (CreateDBProxy -&gt; [UserAuthConfig] -&gt; CreateDBProxy)
+-&gt; Lens
+     CreateDBProxy CreateDBProxy [UserAuthConfig] [UserAuthConfig]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800566"><span class="annot"><span class="annottext">[UserAuthConfig]
+auth :: [UserAuthConfig]
+$sel:auth:CreateDBProxy' :: CreateDBProxy -&gt; [UserAuthConfig]
+</span><a href="#local-6989586621679800566"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UserAuthConfig]
+</span><a href="#local-6989586621679800566"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800565"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800564"><span class="annot"><span class="annottext">[UserAuthConfig]
+</span><a href="#local-6989586621679800564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:CreateDBProxy' :: [UserAuthConfig]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3Aauth%3ACreateDBProxy%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UserAuthConfig]
+</span><a href="#local-6989586621679800564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UserAuthConfig] -&gt; f [UserAuthConfig])
+ -&gt; CreateDBProxy -&gt; f CreateDBProxy)
+-&gt; (([UserAuthConfig] -&gt; f [UserAuthConfig])
+    -&gt; [UserAuthConfig] -&gt; f [UserAuthConfig])
+-&gt; ([UserAuthConfig] -&gt; f [UserAuthConfig])
+-&gt; CreateDBProxy
+-&gt; f CreateDBProxy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UserAuthConfig] -&gt; f [UserAuthConfig])
+-&gt; [UserAuthConfig] -&gt; f [UserAuthConfig]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- access secrets in Amazon Web Services Secrets Manager.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_roleArn"><span class="hs-identifier hs-type">createDBProxy_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="createDBProxy_roleArn"><span class="annot"><span class="annottext">createDBProxy_roleArn :: (Text -&gt; f Text) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_roleArn"><span class="hs-identifier hs-var hs-var">createDBProxy_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; Text)
+-&gt; (CreateDBProxy -&gt; Text -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800563"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateDBProxy' :: CreateDBProxy -&gt; Text
+</span><a href="#local-6989586621679800563"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800563"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800562"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateDBProxy' :: Text
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AroleArn%3ACreateDBProxy%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | One or more VPC subnet IDs to associate with the new proxy.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSubnetIds"><span class="hs-identifier hs-type">createDBProxy_vpcSubnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span id="createDBProxy_vpcSubnetIds"><span class="annot"><span class="annottext">createDBProxy_vpcSubnetIds :: ([Text] -&gt; f [Text]) -&gt; CreateDBProxy -&gt; f CreateDBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxy_vpcSubnetIds"><span class="hs-identifier hs-var hs-var">createDBProxy_vpcSubnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxy -&gt; [Text])
+-&gt; (CreateDBProxy -&gt; [Text] -&gt; CreateDBProxy)
+-&gt; Lens CreateDBProxy CreateDBProxy [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800560"><span class="annot"><span class="annottext">[Text]
+vpcSubnetIds :: [Text]
+$sel:vpcSubnetIds:CreateDBProxy' :: CreateDBProxy -&gt; [Text]
+</span><a href="#local-6989586621679800560"><span class="hs-identifier hs-var hs-var">vpcSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800560"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800559"><span class="annot"><span class="annottext">s :: CreateDBProxy
+</span><a href="#local-6989586621679800559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800558"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxy
+</span><a href="#local-6989586621679800559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSubnetIds:CreateDBProxy' :: [Text]
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AvpcSubnetIds%3ACreateDBProxy%27"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateDBProxy -&gt; f CreateDBProxy)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateDBProxy
+-&gt; f CreateDBProxy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-234"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679800554"><span class="annot"><span class="annottext">request :: CreateDBProxy -&gt; Request CreateDBProxy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDBProxy -&gt; Request CreateDBProxy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679800550"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDBProxy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDBProxy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateDBProxy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDBProxy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateDBProxy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDBProxyResult&quot;</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800547"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679800546"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679800546"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679800545"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679800545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBProxy -&gt; Int -&gt; CreateDBProxyResponse
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-var">CreateDBProxyResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBProxy -&gt; Int -&gt; CreateDBProxyResponse)
+-&gt; Either String (Maybe DBProxy)
+-&gt; Either String (Int -&gt; CreateDBProxyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679800545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxy)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBProxy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDBProxyResponse)
+-&gt; Either String Int -&gt; Either String CreateDBProxyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800547"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800537"><span id="local-6989586621679800539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span></span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679800530"><span class="annot"><span class="annottext">toHeaders :: CreateDBProxy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDBProxy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679800525"><span class="annot"><span class="annottext">toPath :: CreateDBProxy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDBProxy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy"><span class="hs-identifier hs-type">CreateDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679800521"><span class="annot"><span class="annottext">toQuery :: CreateDBProxy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxy%27"><span class="hs-identifier hs-type">CreateDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800510"><span id="local-6989586621679800511"><span id="local-6989586621679800512"><span id="local-6989586621679800513"><span id="local-6989586621679800514"><span id="local-6989586621679800515"><span id="local-6989586621679800516"><span id="local-6989586621679800517"><span id="local-6989586621679800518"><span id="local-6989586621679800519"><span class="annot"><span class="annottext">[Text]
+[UserAuthConfig]
+Maybe Bool
+Maybe Int
+Maybe [Text]
+Maybe [Tag]
+Text
+EngineFamily
+vpcSubnetIds :: [Text]
+roleArn :: Text
+auth :: [UserAuthConfig]
+engineFamily :: EngineFamily
+dbProxyName :: Text
+requireTLS :: Maybe Bool
+tags :: Maybe [Tag]
+vpcSecurityGroupIds :: Maybe [Text]
+debugLogging :: Maybe Bool
+idleClientTimeout :: Maybe Int
+$sel:vpcSubnetIds:CreateDBProxy' :: CreateDBProxy -&gt; [Text]
+$sel:roleArn:CreateDBProxy' :: CreateDBProxy -&gt; Text
+$sel:auth:CreateDBProxy' :: CreateDBProxy -&gt; [UserAuthConfig]
+$sel:engineFamily:CreateDBProxy' :: CreateDBProxy -&gt; EngineFamily
+$sel:dbProxyName:CreateDBProxy' :: CreateDBProxy -&gt; Text
+$sel:requireTLS:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Bool
+$sel:tags:CreateDBProxy' :: CreateDBProxy -&gt; Maybe [Tag]
+$sel:vpcSecurityGroupIds:CreateDBProxy' :: CreateDBProxy -&gt; Maybe [Text]
+$sel:debugLogging:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Bool
+$sel:idleClientTimeout:CreateDBProxy' :: CreateDBProxy -&gt; Maybe Int
+</span><a href="#local-6989586621679800510"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateDBProxy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IdleClientTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679800519"><span class="hs-identifier hs-var">idleClientTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DebugLogging&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800518"><span class="hs-identifier hs-var">debugLogging</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSecurityGroupIds&quot;</span></span><span>
+</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-268"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679800517"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800516"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RequireTLS&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679800515"><span class="hs-identifier hs-var">requireTLS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800514"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EngineFamily -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">EngineFamily
+</span><a href="#local-6989586621679800513"><span class="hs-identifier hs-var">engineFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Auth&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [UserAuthConfig] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[UserAuthConfig]
+</span><a href="#local-6989586621679800512"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800511"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcSubnetIds&quot;</span></span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800510"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | /See:/ 'newCreateDBProxyResponse' smart constructor.</span><span>
+</span><span id="line-283"></span><span id="local-6989586621679800506"><span id="local-6989586621679800507"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxyResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-var">CreateDBProxyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxyResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-var">CreateDBProxyResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @DBProxy@ structure corresponding to the new proxy.</span><span>
+</span><span id="line-285"></span><span>    </span><span id="%24sel%3AdbProxy%3ACreateDBProxyResponse%27"><span class="annot"><span class="annottext">CreateDBProxyResponse -&gt; Maybe DBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxy%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var hs-var">dbProxy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxy.html#DBProxy"><span class="hs-identifier hs-type">DBProxy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDBProxyResponse%27"><span class="annot"><span class="annottext">CreateDBProxyResponse -&gt; Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AhttpStatus%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800500"><span id="local-6989586621679800502"><span class="annot"><span class="annottext">CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool
+(CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool)
+-&gt; (CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool)
+-&gt; Eq CreateDBProxyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool
+$c/= :: CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool
+== :: CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool
+$c== :: CreateDBProxyResponse -&gt; CreateDBProxyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800492"><span id="local-6989586621679800494"><span id="local-6989586621679800496"><span id="local-6989586621679800498"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxyResponse]
+ReadPrec CreateDBProxyResponse
+Int -&gt; ReadS CreateDBProxyResponse
+ReadS [CreateDBProxyResponse]
+(Int -&gt; ReadS CreateDBProxyResponse)
+-&gt; ReadS [CreateDBProxyResponse]
+-&gt; ReadPrec CreateDBProxyResponse
+-&gt; ReadPrec [CreateDBProxyResponse]
+-&gt; Read CreateDBProxyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDBProxyResponse]
+$creadListPrec :: ReadPrec [CreateDBProxyResponse]
+readPrec :: ReadPrec CreateDBProxyResponse
+$creadPrec :: ReadPrec CreateDBProxyResponse
+readList :: ReadS [CreateDBProxyResponse]
+$creadList :: ReadS [CreateDBProxyResponse]
+readsPrec :: Int -&gt; ReadS CreateDBProxyResponse
+$creadsPrec :: Int -&gt; ReadS CreateDBProxyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800486"><span id="local-6989586621679800488"><span id="local-6989586621679800490"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxyResponse -&gt; ShowS
+[CreateDBProxyResponse] -&gt; ShowS
+CreateDBProxyResponse -&gt; String
+(Int -&gt; CreateDBProxyResponse -&gt; ShowS)
+-&gt; (CreateDBProxyResponse -&gt; String)
+-&gt; ([CreateDBProxyResponse] -&gt; ShowS)
+-&gt; Show CreateDBProxyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDBProxyResponse] -&gt; ShowS
+$cshowList :: [CreateDBProxyResponse] -&gt; ShowS
+show :: CreateDBProxyResponse -&gt; String
+$cshow :: CreateDBProxyResponse -&gt; String
+showsPrec :: Int -&gt; CreateDBProxyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDBProxyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDBProxyResponse -&gt; Rep CreateDBProxyResponse x)
+-&gt; (forall x. Rep CreateDBProxyResponse x -&gt; CreateDBProxyResponse)
+-&gt; Generic CreateDBProxyResponse
+forall x. Rep CreateDBProxyResponse x -&gt; CreateDBProxyResponse
+forall x. CreateDBProxyResponse -&gt; Rep CreateDBProxyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDBProxyResponse x -&gt; CreateDBProxyResponse
+$cfrom :: forall x. CreateDBProxyResponse -&gt; Rep CreateDBProxyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- Create a value of 'CreateDBProxyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- 'dbProxy', 'createDBProxyResponse_dbProxy' - The @DBProxy@ structure corresponding to the new proxy.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'httpStatus', 'createDBProxyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxyResponse"><span class="hs-identifier hs-type">newCreateDBProxyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-303"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-304"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span>
+</span><span id="line-306"></span><span id="newCreateDBProxyResponse"><span class="annot"><span class="annottext">newCreateDBProxyResponse :: Int -&gt; CreateDBProxyResponse
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#newCreateDBProxyResponse"><span class="hs-identifier hs-var hs-var">newCreateDBProxyResponse</span></a></span></span><span> </span><span id="local-6989586621679800483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><span class="annottext">CreateDBProxyResponse' :: Maybe DBProxy -&gt; Int -&gt; CreateDBProxyResponse
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-type">CreateDBProxyResponse'</span></a></span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbProxy:CreateDBProxyResponse' :: Maybe DBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxy%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var">dbProxy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBProxyResponse' :: Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AhttpStatus%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The @DBProxy@ structure corresponding to the new proxy.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_dbProxy"><span class="hs-identifier hs-type">createDBProxyResponse_dbProxy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxy.html#DBProxy"><span class="hs-identifier hs-type">DBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="createDBProxyResponse_dbProxy"><span class="annot"><span class="annottext">createDBProxyResponse_dbProxy :: (Maybe DBProxy -&gt; f (Maybe DBProxy))
+-&gt; CreateDBProxyResponse -&gt; f CreateDBProxyResponse
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_dbProxy"><span class="hs-identifier hs-var hs-var">createDBProxyResponse_dbProxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxyResponse -&gt; Maybe DBProxy)
+-&gt; (CreateDBProxyResponse
+    -&gt; Maybe DBProxy -&gt; CreateDBProxyResponse)
+-&gt; Lens
+     CreateDBProxyResponse
+     CreateDBProxyResponse
+     (Maybe DBProxy)
+     (Maybe DBProxy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-type">CreateDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800482"><span class="annot"><span class="annottext">Maybe DBProxy
+dbProxy :: Maybe DBProxy
+$sel:dbProxy:CreateDBProxyResponse' :: CreateDBProxyResponse -&gt; Maybe DBProxy
+</span><a href="#local-6989586621679800482"><span class="hs-identifier hs-var hs-var">dbProxy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
+</span><a href="#local-6989586621679800482"><span class="hs-identifier hs-var">dbProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800481"><span class="annot"><span class="annottext">s :: CreateDBProxyResponse
+</span><a href="#local-6989586621679800481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-type">CreateDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800480"><span class="annot"><span class="annottext">Maybe DBProxy
+</span><a href="#local-6989586621679800480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyResponse
+</span><a href="#local-6989586621679800481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxy:CreateDBProxyResponse' :: Maybe DBProxy
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AdbProxy%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var">dbProxy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
+</span><a href="#local-6989586621679800480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_httpStatus"><span class="hs-identifier hs-type">createDBProxyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-318"></span><span id="createDBProxyResponse_httpStatus"><span class="annot"><span class="annottext">createDBProxyResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateDBProxyResponse -&gt; f CreateDBProxyResponse
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#createDBProxyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDBProxyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDBProxyResponse -&gt; Int)
+-&gt; (CreateDBProxyResponse -&gt; Int -&gt; CreateDBProxyResponse)
+-&gt; Lens CreateDBProxyResponse CreateDBProxyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-type">CreateDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800479"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDBProxyResponse' :: CreateDBProxyResponse -&gt; Int
+</span><a href="#local-6989586621679800479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800478"><span class="annot"><span class="annottext">s :: CreateDBProxyResponse
+</span><a href="#local-6989586621679800478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse%27"><span class="hs-identifier hs-type">CreateDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyResponse
+</span><a href="#local-6989586621679800478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBProxyResponse' :: Int
+</span><a href="Network.AWS.RDS.CreateDBProxy.html#%24sel%3AhttpStatus%3ACreateDBProxyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxy.html#CreateDBProxyResponse"><span class="hs-identifier hs-type">CreateDBProxyResponse</span></a></span></span><span>
+</span><span id="line-321"></span></pre></body></html>

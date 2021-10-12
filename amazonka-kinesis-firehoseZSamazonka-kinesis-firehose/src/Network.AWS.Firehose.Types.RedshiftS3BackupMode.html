@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Firehose.Types.RedshiftS3BackupMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Firehose.Types.RedshiftS3BackupMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier">RedshiftS3BackupMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Disabled"><span class="hs-identifier">RedshiftS3BackupMode_Disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Enabled"><span class="hs-identifier">RedshiftS3BackupMode_Enabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679261408"><span id="local-6989586621679261409"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedshiftS3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier hs-var">RedshiftS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftS3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode%27"><span class="hs-identifier hs-var">RedshiftS3BackupMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedshiftS3BackupMode"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; Text
+</span><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#fromRedshiftS3BackupMode"><span class="hs-identifier hs-var hs-var">fromRedshiftS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261400"><span id="local-6989586621679261402"><span id="local-6989586621679261404"><span class="annot"><span class="annottext">Int -&gt; RedshiftS3BackupMode -&gt; ShowS
+[RedshiftS3BackupMode] -&gt; ShowS
+RedshiftS3BackupMode -&gt; String
+(Int -&gt; RedshiftS3BackupMode -&gt; ShowS)
+-&gt; (RedshiftS3BackupMode -&gt; String)
+-&gt; ([RedshiftS3BackupMode] -&gt; ShowS)
+-&gt; Show RedshiftS3BackupMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedshiftS3BackupMode] -&gt; ShowS
+$cshowList :: [RedshiftS3BackupMode] -&gt; ShowS
+show :: RedshiftS3BackupMode -&gt; String
+$cshow :: RedshiftS3BackupMode -&gt; String
+showsPrec :: Int -&gt; RedshiftS3BackupMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedshiftS3BackupMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679261391"><span id="local-6989586621679261393"><span id="local-6989586621679261395"><span id="local-6989586621679261397"><span class="annot"><span class="annottext">ReadPrec [RedshiftS3BackupMode]
+ReadPrec RedshiftS3BackupMode
+Int -&gt; ReadS RedshiftS3BackupMode
+ReadS [RedshiftS3BackupMode]
+(Int -&gt; ReadS RedshiftS3BackupMode)
+-&gt; ReadS [RedshiftS3BackupMode]
+-&gt; ReadPrec RedshiftS3BackupMode
+-&gt; ReadPrec [RedshiftS3BackupMode]
+-&gt; Read RedshiftS3BackupMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RedshiftS3BackupMode]
+$creadListPrec :: ReadPrec [RedshiftS3BackupMode]
+readPrec :: ReadPrec RedshiftS3BackupMode
+$creadPrec :: ReadPrec RedshiftS3BackupMode
+readList :: ReadS [RedshiftS3BackupMode]
+$creadList :: ReadS [RedshiftS3BackupMode]
+readsPrec :: Int -&gt; ReadS RedshiftS3BackupMode
+$creadsPrec :: Int -&gt; ReadS RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679261386"><span id="local-6989586621679261388"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+(RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; Eq RedshiftS3BackupMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c/= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+== :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c== :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679261370"><span id="local-6989586621679261372"><span id="local-6989586621679261374"><span id="local-6989586621679261376"><span id="local-6989586621679261378"><span id="local-6989586621679261380"><span id="local-6989586621679261382"><span class="annot"><span class="annottext">Eq RedshiftS3BackupMode
+Eq RedshiftS3BackupMode
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Ordering)
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; (RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool)
+-&gt; (RedshiftS3BackupMode
+    -&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode)
+-&gt; (RedshiftS3BackupMode
+    -&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode)
+-&gt; Ord RedshiftS3BackupMode
+RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Ordering
+RedshiftS3BackupMode
+-&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RedshiftS3BackupMode
+-&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode
+$cmin :: RedshiftS3BackupMode
+-&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode
+max :: RedshiftS3BackupMode
+-&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode
+$cmax :: RedshiftS3BackupMode
+-&gt; RedshiftS3BackupMode -&gt; RedshiftS3BackupMode
+&gt;= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c&gt;= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+&gt; :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c&gt; :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+&lt;= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c&lt;= :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+&lt; :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+$c&lt; :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Bool
+compare :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Ordering
+$ccompare :: RedshiftS3BackupMode -&gt; RedshiftS3BackupMode -&gt; Ordering
+$cp1Ord :: Eq RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RedshiftS3BackupMode -&gt; Rep RedshiftS3BackupMode x)
+-&gt; (forall x. Rep RedshiftS3BackupMode x -&gt; RedshiftS3BackupMode)
+-&gt; Generic RedshiftS3BackupMode
+forall x. Rep RedshiftS3BackupMode x -&gt; RedshiftS3BackupMode
+forall x. RedshiftS3BackupMode -&gt; Rep RedshiftS3BackupMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RedshiftS3BackupMode x -&gt; RedshiftS3BackupMode
+$cfrom :: forall x. RedshiftS3BackupMode -&gt; Rep RedshiftS3BackupMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261362"><span id="local-6989586621679261364"><span class="annot"><span class="annottext">Int -&gt; RedshiftS3BackupMode -&gt; Int
+RedshiftS3BackupMode -&gt; Int
+(Int -&gt; RedshiftS3BackupMode -&gt; Int)
+-&gt; (RedshiftS3BackupMode -&gt; Int) -&gt; Hashable RedshiftS3BackupMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RedshiftS3BackupMode -&gt; Int
+$chash :: RedshiftS3BackupMode -&gt; Int
+hashWithSalt :: Int -&gt; RedshiftS3BackupMode -&gt; Int
+$chashWithSalt :: Int -&gt; RedshiftS3BackupMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679261359"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; ()
+(RedshiftS3BackupMode -&gt; ()) -&gt; NFData RedshiftS3BackupMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RedshiftS3BackupMode -&gt; ()
+$crnf :: RedshiftS3BackupMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679261356"><span class="annot"><span class="annottext">Text -&gt; Either String RedshiftS3BackupMode
+(Text -&gt; Either String RedshiftS3BackupMode)
+-&gt; FromText RedshiftS3BackupMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RedshiftS3BackupMode
+$cfromText :: Text -&gt; Either String RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679261353"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; Text
+(RedshiftS3BackupMode -&gt; Text) -&gt; ToText RedshiftS3BackupMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RedshiftS3BackupMode -&gt; Text
+$ctoText :: RedshiftS3BackupMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679261350"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; ByteString
+(RedshiftS3BackupMode -&gt; ByteString)
+-&gt; ToByteString RedshiftS3BackupMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RedshiftS3BackupMode -&gt; ByteString
+$ctoBS :: RedshiftS3BackupMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679261347"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; ByteStringBuilder
+(RedshiftS3BackupMode -&gt; ByteStringBuilder)
+-&gt; ToLog RedshiftS3BackupMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RedshiftS3BackupMode -&gt; ByteStringBuilder
+$cbuild :: RedshiftS3BackupMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679261344"><span class="annot"><span class="annottext">HeaderName -&gt; RedshiftS3BackupMode -&gt; [Header]
+(HeaderName -&gt; RedshiftS3BackupMode -&gt; [Header])
+-&gt; ToHeader RedshiftS3BackupMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RedshiftS3BackupMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RedshiftS3BackupMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679261341"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; QueryString
+(RedshiftS3BackupMode -&gt; QueryString)
+-&gt; ToQuery RedshiftS3BackupMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RedshiftS3BackupMode -&gt; QueryString
+$ctoQuery :: RedshiftS3BackupMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679261336"><span id="local-6989586621679261338"><span class="annot"><span class="annottext">Value -&gt; Parser [RedshiftS3BackupMode]
+Value -&gt; Parser RedshiftS3BackupMode
+(Value -&gt; Parser RedshiftS3BackupMode)
+-&gt; (Value -&gt; Parser [RedshiftS3BackupMode])
+-&gt; FromJSON RedshiftS3BackupMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RedshiftS3BackupMode]
+$cparseJSONList :: Value -&gt; Parser [RedshiftS3BackupMode]
+parseJSON :: Value -&gt; Parser RedshiftS3BackupMode
+$cparseJSON :: Value -&gt; Parser RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679261331"><span id="local-6989586621679261333"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedshiftS3BackupMode]
+FromJSONKeyFunction RedshiftS3BackupMode
+FromJSONKeyFunction RedshiftS3BackupMode
+-&gt; FromJSONKeyFunction [RedshiftS3BackupMode]
+-&gt; FromJSONKey RedshiftS3BackupMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RedshiftS3BackupMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [RedshiftS3BackupMode]
+fromJSONKey :: FromJSONKeyFunction RedshiftS3BackupMode
+$cfromJSONKey :: FromJSONKeyFunction RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679261322"><span id="local-6989586621679261324"><span id="local-6989586621679261326"><span id="local-6989586621679261328"><span class="annot"><span class="annottext">[RedshiftS3BackupMode] -&gt; Encoding
+[RedshiftS3BackupMode] -&gt; Value
+RedshiftS3BackupMode -&gt; Encoding
+RedshiftS3BackupMode -&gt; Value
+(RedshiftS3BackupMode -&gt; Value)
+-&gt; (RedshiftS3BackupMode -&gt; Encoding)
+-&gt; ([RedshiftS3BackupMode] -&gt; Value)
+-&gt; ([RedshiftS3BackupMode] -&gt; Encoding)
+-&gt; ToJSON RedshiftS3BackupMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RedshiftS3BackupMode] -&gt; Encoding
+$ctoEncodingList :: [RedshiftS3BackupMode] -&gt; Encoding
+toJSONList :: [RedshiftS3BackupMode] -&gt; Value
+$ctoJSONList :: [RedshiftS3BackupMode] -&gt; Value
+toEncoding :: RedshiftS3BackupMode -&gt; Encoding
+$ctoEncoding :: RedshiftS3BackupMode -&gt; Encoding
+toJSON :: RedshiftS3BackupMode -&gt; Value
+$ctoJSON :: RedshiftS3BackupMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679261317"><span id="local-6989586621679261319"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedshiftS3BackupMode]
+ToJSONKeyFunction RedshiftS3BackupMode
+ToJSONKeyFunction RedshiftS3BackupMode
+-&gt; ToJSONKeyFunction [RedshiftS3BackupMode]
+-&gt; ToJSONKey RedshiftS3BackupMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RedshiftS3BackupMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [RedshiftS3BackupMode]
+toJSONKey :: ToJSONKeyFunction RedshiftS3BackupMode
+$ctoJSONKey :: ToJSONKeyFunction RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679261314"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedshiftS3BackupMode
+([Node] -&gt; Either String RedshiftS3BackupMode)
+-&gt; FromXML RedshiftS3BackupMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RedshiftS3BackupMode
+$cparseXML :: [Node] -&gt; Either String RedshiftS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679261311"><span class="annot"><span class="annottext">RedshiftS3BackupMode -&gt; XML
+(RedshiftS3BackupMode -&gt; XML) -&gt; ToXML RedshiftS3BackupMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RedshiftS3BackupMode -&gt; XML
+$ctoXML :: RedshiftS3BackupMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Disabled"><span class="hs-identifier hs-type">RedshiftS3BackupMode_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier hs-type">RedshiftS3BackupMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRedshiftS3BackupMode_Disabled"><span id="%24mRedshiftS3BackupMode_Disabled"><span id="RedshiftS3BackupMode_Disabled"><span class="annot"><span class="annottext">$bRedshiftS3BackupMode_Disabled :: RedshiftS3BackupMode
+$mRedshiftS3BackupMode_Disabled :: forall r. RedshiftS3BackupMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#%24bRedshiftS3BackupMode_Disabled"><span class="hs-identifier hs-var hs-var hs-var">RedshiftS3BackupMode_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode%27"><span class="hs-identifier hs-type">RedshiftS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disabled&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Enabled"><span class="hs-identifier hs-type">RedshiftS3BackupMode_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode"><span class="hs-identifier hs-type">RedshiftS3BackupMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRedshiftS3BackupMode_Enabled"><span id="%24mRedshiftS3BackupMode_Enabled"><span id="RedshiftS3BackupMode_Enabled"><span class="annot"><span class="annottext">$bRedshiftS3BackupMode_Enabled :: RedshiftS3BackupMode
+$mRedshiftS3BackupMode_Enabled :: forall r. RedshiftS3BackupMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#%24bRedshiftS3BackupMode_Enabled"><span class="hs-identifier hs-var hs-var hs-var">RedshiftS3BackupMode_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode%27"><span class="hs-identifier hs-type">RedshiftS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Disabled"><span class="hs-pragma hs-type">RedshiftS3BackupMode_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode_Enabled"><span class="hs-pragma hs-type">RedshiftS3BackupMode_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.RedshiftS3BackupMode.html#RedshiftS3BackupMode%27"><span class="hs-pragma hs-type">RedshiftS3BackupMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

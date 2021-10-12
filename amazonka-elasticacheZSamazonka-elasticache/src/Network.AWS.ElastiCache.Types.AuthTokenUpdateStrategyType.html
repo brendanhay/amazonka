@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType"><span class="hs-identifier">AuthTokenUpdateStrategyType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_DELETE"><span class="hs-identifier">AuthTokenUpdateStrategyType_DELETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_ROTATE"><span class="hs-identifier">AuthTokenUpdateStrategyType_ROTATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_SET"><span class="hs-identifier">AuthTokenUpdateStrategyType_SET</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679396957"><span id="local-6989586621679396958"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthTokenUpdateStrategyType"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType"><span class="hs-identifier hs-var">AuthTokenUpdateStrategyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthTokenUpdateStrategyType%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType%27"><span class="hs-identifier hs-var">AuthTokenUpdateStrategyType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthTokenUpdateStrategyType"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; Text
+</span><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#fromAuthTokenUpdateStrategyType"><span class="hs-identifier hs-var hs-var">fromAuthTokenUpdateStrategyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396949"><span id="local-6989586621679396951"><span id="local-6989586621679396953"><span class="annot"><span class="annottext">Int -&gt; AuthTokenUpdateStrategyType -&gt; ShowS
+[AuthTokenUpdateStrategyType] -&gt; ShowS
+AuthTokenUpdateStrategyType -&gt; String
+(Int -&gt; AuthTokenUpdateStrategyType -&gt; ShowS)
+-&gt; (AuthTokenUpdateStrategyType -&gt; String)
+-&gt; ([AuthTokenUpdateStrategyType] -&gt; ShowS)
+-&gt; Show AuthTokenUpdateStrategyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthTokenUpdateStrategyType] -&gt; ShowS
+$cshowList :: [AuthTokenUpdateStrategyType] -&gt; ShowS
+show :: AuthTokenUpdateStrategyType -&gt; String
+$cshow :: AuthTokenUpdateStrategyType -&gt; String
+showsPrec :: Int -&gt; AuthTokenUpdateStrategyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthTokenUpdateStrategyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396940"><span id="local-6989586621679396942"><span id="local-6989586621679396944"><span id="local-6989586621679396946"><span class="annot"><span class="annottext">ReadPrec [AuthTokenUpdateStrategyType]
+ReadPrec AuthTokenUpdateStrategyType
+Int -&gt; ReadS AuthTokenUpdateStrategyType
+ReadS [AuthTokenUpdateStrategyType]
+(Int -&gt; ReadS AuthTokenUpdateStrategyType)
+-&gt; ReadS [AuthTokenUpdateStrategyType]
+-&gt; ReadPrec AuthTokenUpdateStrategyType
+-&gt; ReadPrec [AuthTokenUpdateStrategyType]
+-&gt; Read AuthTokenUpdateStrategyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthTokenUpdateStrategyType]
+$creadListPrec :: ReadPrec [AuthTokenUpdateStrategyType]
+readPrec :: ReadPrec AuthTokenUpdateStrategyType
+$creadPrec :: ReadPrec AuthTokenUpdateStrategyType
+readList :: ReadS [AuthTokenUpdateStrategyType]
+$creadList :: ReadS [AuthTokenUpdateStrategyType]
+readsPrec :: Int -&gt; ReadS AuthTokenUpdateStrategyType
+$creadsPrec :: Int -&gt; ReadS AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396935"><span id="local-6989586621679396937"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+(AuthTokenUpdateStrategyType
+ -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; Eq AuthTokenUpdateStrategyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c/= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+== :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c== :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679396919"><span id="local-6989586621679396921"><span id="local-6989586621679396923"><span id="local-6989586621679396925"><span id="local-6989586621679396927"><span id="local-6989586621679396929"><span id="local-6989586621679396931"><span class="annot"><span class="annottext">Eq AuthTokenUpdateStrategyType
+Eq AuthTokenUpdateStrategyType
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Ordering)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; Bool)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType)
+-&gt; (AuthTokenUpdateStrategyType
+    -&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType)
+-&gt; Ord AuthTokenUpdateStrategyType
+AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; Ordering
+AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType
+$cmin :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType
+max :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType
+$cmax :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType
+&gt;= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c&gt;= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+&gt; :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c&gt; :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+&lt;= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c&lt;= :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+&lt; :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+$c&lt; :: AuthTokenUpdateStrategyType -&gt; AuthTokenUpdateStrategyType -&gt; Bool
+compare :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; Ordering
+$ccompare :: AuthTokenUpdateStrategyType
+-&gt; AuthTokenUpdateStrategyType -&gt; Ordering
+$cp1Ord :: Eq AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AuthTokenUpdateStrategyType -&gt; Rep AuthTokenUpdateStrategyType x)
+-&gt; (forall x.
+    Rep AuthTokenUpdateStrategyType x -&gt; AuthTokenUpdateStrategyType)
+-&gt; Generic AuthTokenUpdateStrategyType
+forall x.
+Rep AuthTokenUpdateStrategyType x -&gt; AuthTokenUpdateStrategyType
+forall x.
+AuthTokenUpdateStrategyType -&gt; Rep AuthTokenUpdateStrategyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AuthTokenUpdateStrategyType x -&gt; AuthTokenUpdateStrategyType
+$cfrom :: forall x.
+AuthTokenUpdateStrategyType -&gt; Rep AuthTokenUpdateStrategyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396911"><span id="local-6989586621679396913"><span class="annot"><span class="annottext">Int -&gt; AuthTokenUpdateStrategyType -&gt; Int
+AuthTokenUpdateStrategyType -&gt; Int
+(Int -&gt; AuthTokenUpdateStrategyType -&gt; Int)
+-&gt; (AuthTokenUpdateStrategyType -&gt; Int)
+-&gt; Hashable AuthTokenUpdateStrategyType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthTokenUpdateStrategyType -&gt; Int
+$chash :: AuthTokenUpdateStrategyType -&gt; Int
+hashWithSalt :: Int -&gt; AuthTokenUpdateStrategyType -&gt; Int
+$chashWithSalt :: Int -&gt; AuthTokenUpdateStrategyType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396908"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; ()
+(AuthTokenUpdateStrategyType -&gt; ())
+-&gt; NFData AuthTokenUpdateStrategyType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthTokenUpdateStrategyType -&gt; ()
+$crnf :: AuthTokenUpdateStrategyType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396905"><span class="annot"><span class="annottext">Text -&gt; Either String AuthTokenUpdateStrategyType
+(Text -&gt; Either String AuthTokenUpdateStrategyType)
+-&gt; FromText AuthTokenUpdateStrategyType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthTokenUpdateStrategyType
+$cfromText :: Text -&gt; Either String AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396902"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; Text
+(AuthTokenUpdateStrategyType -&gt; Text)
+-&gt; ToText AuthTokenUpdateStrategyType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthTokenUpdateStrategyType -&gt; Text
+$ctoText :: AuthTokenUpdateStrategyType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396899"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; ByteString
+(AuthTokenUpdateStrategyType -&gt; ByteString)
+-&gt; ToByteString AuthTokenUpdateStrategyType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthTokenUpdateStrategyType -&gt; ByteString
+$ctoBS :: AuthTokenUpdateStrategyType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396896"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; ByteStringBuilder
+(AuthTokenUpdateStrategyType -&gt; ByteStringBuilder)
+-&gt; ToLog AuthTokenUpdateStrategyType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthTokenUpdateStrategyType -&gt; ByteStringBuilder
+$cbuild :: AuthTokenUpdateStrategyType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396893"><span class="annot"><span class="annottext">HeaderName -&gt; AuthTokenUpdateStrategyType -&gt; [Header]
+(HeaderName -&gt; AuthTokenUpdateStrategyType -&gt; [Header])
+-&gt; ToHeader AuthTokenUpdateStrategyType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthTokenUpdateStrategyType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthTokenUpdateStrategyType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396890"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; QueryString
+(AuthTokenUpdateStrategyType -&gt; QueryString)
+-&gt; ToQuery AuthTokenUpdateStrategyType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthTokenUpdateStrategyType -&gt; QueryString
+$ctoQuery :: AuthTokenUpdateStrategyType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396885"><span id="local-6989586621679396887"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthTokenUpdateStrategyType]
+Value -&gt; Parser AuthTokenUpdateStrategyType
+(Value -&gt; Parser AuthTokenUpdateStrategyType)
+-&gt; (Value -&gt; Parser [AuthTokenUpdateStrategyType])
+-&gt; FromJSON AuthTokenUpdateStrategyType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthTokenUpdateStrategyType]
+$cparseJSONList :: Value -&gt; Parser [AuthTokenUpdateStrategyType]
+parseJSON :: Value -&gt; Parser AuthTokenUpdateStrategyType
+$cparseJSON :: Value -&gt; Parser AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396880"><span id="local-6989586621679396882"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthTokenUpdateStrategyType]
+FromJSONKeyFunction AuthTokenUpdateStrategyType
+FromJSONKeyFunction AuthTokenUpdateStrategyType
+-&gt; FromJSONKeyFunction [AuthTokenUpdateStrategyType]
+-&gt; FromJSONKey AuthTokenUpdateStrategyType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthTokenUpdateStrategyType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthTokenUpdateStrategyType]
+fromJSONKey :: FromJSONKeyFunction AuthTokenUpdateStrategyType
+$cfromJSONKey :: FromJSONKeyFunction AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396871"><span id="local-6989586621679396873"><span id="local-6989586621679396875"><span id="local-6989586621679396877"><span class="annot"><span class="annottext">[AuthTokenUpdateStrategyType] -&gt; Encoding
+[AuthTokenUpdateStrategyType] -&gt; Value
+AuthTokenUpdateStrategyType -&gt; Encoding
+AuthTokenUpdateStrategyType -&gt; Value
+(AuthTokenUpdateStrategyType -&gt; Value)
+-&gt; (AuthTokenUpdateStrategyType -&gt; Encoding)
+-&gt; ([AuthTokenUpdateStrategyType] -&gt; Value)
+-&gt; ([AuthTokenUpdateStrategyType] -&gt; Encoding)
+-&gt; ToJSON AuthTokenUpdateStrategyType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthTokenUpdateStrategyType] -&gt; Encoding
+$ctoEncodingList :: [AuthTokenUpdateStrategyType] -&gt; Encoding
+toJSONList :: [AuthTokenUpdateStrategyType] -&gt; Value
+$ctoJSONList :: [AuthTokenUpdateStrategyType] -&gt; Value
+toEncoding :: AuthTokenUpdateStrategyType -&gt; Encoding
+$ctoEncoding :: AuthTokenUpdateStrategyType -&gt; Encoding
+toJSON :: AuthTokenUpdateStrategyType -&gt; Value
+$ctoJSON :: AuthTokenUpdateStrategyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396866"><span id="local-6989586621679396868"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthTokenUpdateStrategyType]
+ToJSONKeyFunction AuthTokenUpdateStrategyType
+ToJSONKeyFunction AuthTokenUpdateStrategyType
+-&gt; ToJSONKeyFunction [AuthTokenUpdateStrategyType]
+-&gt; ToJSONKey AuthTokenUpdateStrategyType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthTokenUpdateStrategyType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthTokenUpdateStrategyType]
+toJSONKey :: ToJSONKeyFunction AuthTokenUpdateStrategyType
+$ctoJSONKey :: ToJSONKeyFunction AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396863"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthTokenUpdateStrategyType
+([Node] -&gt; Either String AuthTokenUpdateStrategyType)
+-&gt; FromXML AuthTokenUpdateStrategyType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthTokenUpdateStrategyType
+$cparseXML :: [Node] -&gt; Either String AuthTokenUpdateStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679396860"><span class="annot"><span class="annottext">AuthTokenUpdateStrategyType -&gt; XML
+(AuthTokenUpdateStrategyType -&gt; XML)
+-&gt; ToXML AuthTokenUpdateStrategyType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthTokenUpdateStrategyType -&gt; XML
+$ctoXML :: AuthTokenUpdateStrategyType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_DELETE"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthTokenUpdateStrategyType_DELETE"><span id="%24mAuthTokenUpdateStrategyType_DELETE"><span id="AuthTokenUpdateStrategyType_DELETE"><span class="annot"><span class="annottext">$bAuthTokenUpdateStrategyType_DELETE :: AuthTokenUpdateStrategyType
+$mAuthTokenUpdateStrategyType_DELETE :: forall r.
+AuthTokenUpdateStrategyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#%24bAuthTokenUpdateStrategyType_DELETE"><span class="hs-identifier hs-var hs-var hs-var">AuthTokenUpdateStrategyType_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType%27"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_ROTATE"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType_ROTATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthTokenUpdateStrategyType_ROTATE"><span id="%24mAuthTokenUpdateStrategyType_ROTATE"><span id="AuthTokenUpdateStrategyType_ROTATE"><span class="annot"><span class="annottext">$bAuthTokenUpdateStrategyType_ROTATE :: AuthTokenUpdateStrategyType
+$mAuthTokenUpdateStrategyType_ROTATE :: forall r.
+AuthTokenUpdateStrategyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#%24bAuthTokenUpdateStrategyType_ROTATE"><span class="hs-identifier hs-var hs-var hs-var">AuthTokenUpdateStrategyType_ROTATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType%27"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ROTATE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_SET"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType_SET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthTokenUpdateStrategyType_SET"><span id="%24mAuthTokenUpdateStrategyType_SET"><span id="AuthTokenUpdateStrategyType_SET"><span class="annot"><span class="annottext">$bAuthTokenUpdateStrategyType_SET :: AuthTokenUpdateStrategyType
+$mAuthTokenUpdateStrategyType_SET :: forall r.
+AuthTokenUpdateStrategyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#%24bAuthTokenUpdateStrategyType_SET"><span class="hs-identifier hs-var hs-var hs-var">AuthTokenUpdateStrategyType_SET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType%27"><span class="hs-identifier hs-type">AuthTokenUpdateStrategyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SET&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_DELETE"><span class="hs-pragma hs-type">AuthTokenUpdateStrategyType_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_ROTATE"><span class="hs-pragma hs-type">AuthTokenUpdateStrategyType_ROTATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType_SET"><span class="hs-pragma hs-type">AuthTokenUpdateStrategyType_SET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType.html#AuthTokenUpdateStrategyType%27"><span class="hs-pragma hs-type">AuthTokenUpdateStrategyType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

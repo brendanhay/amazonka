@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.HttpUrlDestinationConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.HttpUrlDestinationConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | HTTP URL destination configuration used by the topic rule\'s HTTP</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHttpUrlDestinationConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679785368"><span id="local-6989586621679785369"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpUrlDestinationConfiguration"><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-var">HttpUrlDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpUrlDestinationConfiguration%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-var">HttpUrlDestinationConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL IoT uses to confirm ownership of or access to the topic rule</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- destination URL.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconfirmationUrl%3AHttpUrlDestinationConfiguration%27"><span class="annot"><span class="annottext">HttpUrlDestinationConfiguration -&gt; Text
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#%24sel%3AconfirmationUrl%3AHttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">confirmationUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785362"><span id="local-6989586621679785364"><span class="annot"><span class="annottext">HttpUrlDestinationConfiguration
+-&gt; HttpUrlDestinationConfiguration -&gt; Bool
+(HttpUrlDestinationConfiguration
+ -&gt; HttpUrlDestinationConfiguration -&gt; Bool)
+-&gt; (HttpUrlDestinationConfiguration
+    -&gt; HttpUrlDestinationConfiguration -&gt; Bool)
+-&gt; Eq HttpUrlDestinationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HttpUrlDestinationConfiguration
+-&gt; HttpUrlDestinationConfiguration -&gt; Bool
+$c/= :: HttpUrlDestinationConfiguration
+-&gt; HttpUrlDestinationConfiguration -&gt; Bool
+== :: HttpUrlDestinationConfiguration
+-&gt; HttpUrlDestinationConfiguration -&gt; Bool
+$c== :: HttpUrlDestinationConfiguration
+-&gt; HttpUrlDestinationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785353"><span id="local-6989586621679785355"><span id="local-6989586621679785357"><span id="local-6989586621679785359"><span class="annot"><span class="annottext">ReadPrec [HttpUrlDestinationConfiguration]
+ReadPrec HttpUrlDestinationConfiguration
+Int -&gt; ReadS HttpUrlDestinationConfiguration
+ReadS [HttpUrlDestinationConfiguration]
+(Int -&gt; ReadS HttpUrlDestinationConfiguration)
+-&gt; ReadS [HttpUrlDestinationConfiguration]
+-&gt; ReadPrec HttpUrlDestinationConfiguration
+-&gt; ReadPrec [HttpUrlDestinationConfiguration]
+-&gt; Read HttpUrlDestinationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HttpUrlDestinationConfiguration]
+$creadListPrec :: ReadPrec [HttpUrlDestinationConfiguration]
+readPrec :: ReadPrec HttpUrlDestinationConfiguration
+$creadPrec :: ReadPrec HttpUrlDestinationConfiguration
+readList :: ReadS [HttpUrlDestinationConfiguration]
+$creadList :: ReadS [HttpUrlDestinationConfiguration]
+readsPrec :: Int -&gt; ReadS HttpUrlDestinationConfiguration
+$creadsPrec :: Int -&gt; ReadS HttpUrlDestinationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785346"><span id="local-6989586621679785348"><span id="local-6989586621679785350"><span class="annot"><span class="annottext">Int -&gt; HttpUrlDestinationConfiguration -&gt; ShowS
+[HttpUrlDestinationConfiguration] -&gt; ShowS
+HttpUrlDestinationConfiguration -&gt; String
+(Int -&gt; HttpUrlDestinationConfiguration -&gt; ShowS)
+-&gt; (HttpUrlDestinationConfiguration -&gt; String)
+-&gt; ([HttpUrlDestinationConfiguration] -&gt; ShowS)
+-&gt; Show HttpUrlDestinationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HttpUrlDestinationConfiguration] -&gt; ShowS
+$cshowList :: [HttpUrlDestinationConfiguration] -&gt; ShowS
+show :: HttpUrlDestinationConfiguration -&gt; String
+$cshow :: HttpUrlDestinationConfiguration -&gt; String
+showsPrec :: Int -&gt; HttpUrlDestinationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; HttpUrlDestinationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ HttpUrlDestinationConfiguration
+ -&gt; Rep HttpUrlDestinationConfiguration x)
+-&gt; (forall x.
+    Rep HttpUrlDestinationConfiguration x
+    -&gt; HttpUrlDestinationConfiguration)
+-&gt; Generic HttpUrlDestinationConfiguration
+forall x.
+Rep HttpUrlDestinationConfiguration x
+-&gt; HttpUrlDestinationConfiguration
+forall x.
+HttpUrlDestinationConfiguration
+-&gt; Rep HttpUrlDestinationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HttpUrlDestinationConfiguration x
+-&gt; HttpUrlDestinationConfiguration
+$cfrom :: forall x.
+HttpUrlDestinationConfiguration
+-&gt; Rep HttpUrlDestinationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'HttpUrlDestinationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'confirmationUrl', 'httpUrlDestinationConfiguration_confirmationUrl' - The URL IoT uses to confirm ownership of or access to the topic rule</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- destination URL.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#newHttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">newHttpUrlDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-comment">-- | 'confirmationUrl'</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span><span>
+</span><span id="line-51"></span><span id="newHttpUrlDestinationConfiguration"><span class="annot"><span class="annottext">newHttpUrlDestinationConfiguration :: Text -&gt; HttpUrlDestinationConfiguration
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#newHttpUrlDestinationConfiguration"><span class="hs-identifier hs-var hs-var">newHttpUrlDestinationConfiguration</span></a></span></span><span> </span><span id="local-6989586621679785340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785340"><span class="hs-identifier hs-var">pConfirmationUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">HttpUrlDestinationConfiguration' :: Text -&gt; HttpUrlDestinationConfiguration
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpUrlDestinationConfiguration' :: Text
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#%24sel%3AconfirmationUrl%3AHttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785340"><span class="hs-identifier hs-var">pConfirmationUrl_</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The URL IoT uses to confirm ownership of or access to the topic rule</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- destination URL.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#httpUrlDestinationConfiguration_confirmationUrl"><span class="hs-identifier hs-type">httpUrlDestinationConfiguration_confirmationUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span id="httpUrlDestinationConfiguration_confirmationUrl"><span class="annot"><span class="annottext">httpUrlDestinationConfiguration_confirmationUrl :: (Text -&gt; f Text)
+-&gt; HttpUrlDestinationConfiguration
+-&gt; f HttpUrlDestinationConfiguration
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#httpUrlDestinationConfiguration_confirmationUrl"><span class="hs-identifier hs-var hs-var">httpUrlDestinationConfiguration_confirmationUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpUrlDestinationConfiguration -&gt; Text)
+-&gt; (HttpUrlDestinationConfiguration
+    -&gt; Text -&gt; HttpUrlDestinationConfiguration)
+-&gt; Lens
+     HttpUrlDestinationConfiguration
+     HttpUrlDestinationConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785336"><span class="annot"><span class="annottext">Text
+confirmationUrl :: Text
+$sel:confirmationUrl:HttpUrlDestinationConfiguration' :: HttpUrlDestinationConfiguration -&gt; Text
+</span><a href="#local-6989586621679785336"><span class="hs-identifier hs-var hs-var">confirmationUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785336"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785335"><span class="annot"><span class="annottext">s :: HttpUrlDestinationConfiguration
+</span><a href="#local-6989586621679785335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpUrlDestinationConfiguration
+</span><a href="#local-6989586621679785335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpUrlDestinationConfiguration' :: Text
+</span><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#%24sel%3AconfirmationUrl%3AHttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679785330"><span id="local-6989586621679785332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679785327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785319"><span id="local-6989586621679785321"><span id="local-6989586621679785323"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679785317"><span class="annot"><span class="annottext">toJSON :: HttpUrlDestinationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpUrlDestinationConfiguration.html#HttpUrlDestinationConfiguration%27"><span class="hs-identifier hs-type">HttpUrlDestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785315"><span class="annot"><span class="annottext">Text
+confirmationUrl :: Text
+$sel:confirmationUrl:HttpUrlDestinationConfiguration' :: HttpUrlDestinationConfiguration -&gt; Text
+</span><a href="#local-6989586621679785315"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-75"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;confirmationUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785315"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span></pre></body></html>

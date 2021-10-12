@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.ImportKeyPair</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Imports a public SSH key from a specific key pair.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.ImportKeyPair</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier">ImportKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPair"><span class="hs-identifier">newImportKeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_keyPairName"><span class="hs-identifier">importKeyPair_keyPairName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_publicKeyBase64"><span class="hs-identifier">importKeyPair_publicKeyBase64</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier">newImportKeyPairResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_operation"><span class="hs-identifier">importKeyPairResponse_operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_httpStatus"><span class="hs-identifier">importKeyPairResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.html"><span class="hs-identifier">Network.AWS.Lightsail.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newImportKeyPair' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679633349"><span id="local-6989586621679633350"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPair"><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-var">ImportKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPair%27"><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-var">ImportKeyPair'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the key pair for which you want to import the public key.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AkeyPairName%3AImportKeyPair%27"><span class="annot"><span class="annottext">ImportKeyPair -&gt; Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AkeyPairName%3AImportKeyPair%27"><span class="hs-identifier hs-var hs-var">keyPairName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A base64-encoded public key of the @ssh-rsa@ type.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApublicKeyBase64%3AImportKeyPair%27"><span class="annot"><span class="annottext">ImportKeyPair -&gt; Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3ApublicKeyBase64%3AImportKeyPair%27"><span class="hs-identifier hs-var hs-var">publicKeyBase64</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633342"><span id="local-6989586621679633344"><span class="annot"><span class="annottext">ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+(ImportKeyPair -&gt; ImportKeyPair -&gt; Bool)
+-&gt; (ImportKeyPair -&gt; ImportKeyPair -&gt; Bool) -&gt; Eq ImportKeyPair
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+$c/= :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+== :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+$c== :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633333"><span id="local-6989586621679633335"><span id="local-6989586621679633337"><span id="local-6989586621679633339"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPair]
+ReadPrec ImportKeyPair
+Int -&gt; ReadS ImportKeyPair
+ReadS [ImportKeyPair]
+(Int -&gt; ReadS ImportKeyPair)
+-&gt; ReadS [ImportKeyPair]
+-&gt; ReadPrec ImportKeyPair
+-&gt; ReadPrec [ImportKeyPair]
+-&gt; Read ImportKeyPair
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportKeyPair]
+$creadListPrec :: ReadPrec [ImportKeyPair]
+readPrec :: ReadPrec ImportKeyPair
+$creadPrec :: ReadPrec ImportKeyPair
+readList :: ReadS [ImportKeyPair]
+$creadList :: ReadS [ImportKeyPair]
+readsPrec :: Int -&gt; ReadS ImportKeyPair
+$creadsPrec :: Int -&gt; ReadS ImportKeyPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633326"><span id="local-6989586621679633328"><span id="local-6989586621679633330"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPair -&gt; ShowS
+[ImportKeyPair] -&gt; ShowS
+ImportKeyPair -&gt; String
+(Int -&gt; ImportKeyPair -&gt; ShowS)
+-&gt; (ImportKeyPair -&gt; String)
+-&gt; ([ImportKeyPair] -&gt; ShowS)
+-&gt; Show ImportKeyPair
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportKeyPair] -&gt; ShowS
+$cshowList :: [ImportKeyPair] -&gt; ShowS
+show :: ImportKeyPair -&gt; String
+$cshow :: ImportKeyPair -&gt; String
+showsPrec :: Int -&gt; ImportKeyPair -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportKeyPair -&gt; Rep ImportKeyPair x)
+-&gt; (forall x. Rep ImportKeyPair x -&gt; ImportKeyPair)
+-&gt; Generic ImportKeyPair
+forall x. Rep ImportKeyPair x -&gt; ImportKeyPair
+forall x. ImportKeyPair -&gt; Rep ImportKeyPair x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportKeyPair x -&gt; ImportKeyPair
+$cfrom :: forall x. ImportKeyPair -&gt; Rep ImportKeyPair x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'ImportKeyPair' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'keyPairName', 'importKeyPair_keyPairName' - The name of the key pair for which you want to import the public key.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'publicKeyBase64', 'importKeyPair_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPair"><span class="hs-identifier hs-type">newImportKeyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'keyPairName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'publicKeyBase64'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span>
+</span><span id="line-76"></span><span id="newImportKeyPair"><span class="annot"><span class="annottext">newImportKeyPair :: Text -&gt; Text -&gt; ImportKeyPair
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPair"><span class="hs-identifier hs-var hs-var">newImportKeyPair</span></a></span></span><span> </span><span id="local-6989586621679633321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633321"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span></span><span> </span><span id="local-6989586621679633320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633320"><span class="hs-identifier hs-var">pPublicKeyBase64_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ImportKeyPair' :: Text -&gt; Text -&gt; ImportKeyPair
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyPairName:ImportKeyPair' :: Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AkeyPairName%3AImportKeyPair%27"><span class="hs-identifier hs-var">keyPairName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633321"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicKeyBase64:ImportKeyPair' :: Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3ApublicKeyBase64%3AImportKeyPair%27"><span class="hs-identifier hs-var">publicKeyBase64</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633320"><span class="hs-identifier hs-var">pPublicKeyBase64_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the key pair for which you want to import the public key.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_keyPairName"><span class="hs-identifier hs-type">importKeyPair_keyPairName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="importKeyPair_keyPairName"><span class="annot"><span class="annottext">importKeyPair_keyPairName :: (Text -&gt; f Text) -&gt; ImportKeyPair -&gt; f ImportKeyPair
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_keyPairName"><span class="hs-identifier hs-var hs-var">importKeyPair_keyPairName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPair -&gt; Text)
+-&gt; (ImportKeyPair -&gt; Text -&gt; ImportKeyPair)
+-&gt; Lens ImportKeyPair ImportKeyPair Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633317"><span class="annot"><span class="annottext">Text
+keyPairName :: Text
+$sel:keyPairName:ImportKeyPair' :: ImportKeyPair -&gt; Text
+</span><a href="#local-6989586621679633317"><span class="hs-identifier hs-var hs-var">keyPairName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633317"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633316"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621679633316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621679633316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairName:ImportKeyPair' :: Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AkeyPairName%3AImportKeyPair%27"><span class="hs-identifier hs-var">keyPairName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A base64-encoded public key of the @ssh-rsa@ type.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_publicKeyBase64"><span class="hs-identifier hs-type">importKeyPair_publicKeyBase64</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="importKeyPair_publicKeyBase64"><span class="annot"><span class="annottext">importKeyPair_publicKeyBase64 :: (Text -&gt; f Text) -&gt; ImportKeyPair -&gt; f ImportKeyPair
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPair_publicKeyBase64"><span class="hs-identifier hs-var hs-var">importKeyPair_publicKeyBase64</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPair -&gt; Text)
+-&gt; (ImportKeyPair -&gt; Text -&gt; ImportKeyPair)
+-&gt; Lens ImportKeyPair ImportKeyPair Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633314"><span class="annot"><span class="annottext">Text
+publicKeyBase64 :: Text
+$sel:publicKeyBase64:ImportKeyPair' :: ImportKeyPair -&gt; Text
+</span><a href="#local-6989586621679633314"><span class="hs-identifier hs-var hs-var">publicKeyBase64</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633314"><span class="hs-identifier hs-var">publicKeyBase64</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633313"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621679633313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621679633313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyBase64:ImportKeyPair' :: Text
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3ApublicKeyBase64%3AImportKeyPair%27"><span class="hs-identifier hs-var">publicKeyBase64</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679633308"><span class="annot"><span class="annottext">request :: ImportKeyPair -&gt; Request ImportKeyPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportKeyPair -&gt; Request ImportKeyPair
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679633304"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ImportKeyPair
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportKeyPair)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ImportKeyPair))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ImportKeyPair
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ImportKeyPair)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633301"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633300"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679633300"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679633299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; ImportKeyPairResponse
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-var">ImportKeyPairResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; ImportKeyPairResponse)
+-&gt; Either String (Maybe Operation)
+-&gt; Either String (Int -&gt; ImportKeyPairResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679633299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ImportKeyPairResponse)
+-&gt; Either String Int -&gt; Either String ImportKeyPairResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633301"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633291"><span id="local-6989586621679633293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679633284"><span class="annot"><span class="annottext">toHeaders :: ImportKeyPair -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportKeyPair -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.ImportKeyPair&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633274"><span id="local-6989586621679633276"><span id="local-6989586621679633278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679633272"><span class="annot"><span class="annottext">toJSON :: ImportKeyPair -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633269"><span id="local-6989586621679633270"><span class="annot"><span class="annottext">Text
+publicKeyBase64 :: Text
+keyPairName :: Text
+$sel:publicKeyBase64:ImportKeyPair' :: ImportKeyPair -&gt; Text
+$sel:keyPairName:ImportKeyPair' :: ImportKeyPair -&gt; Text
+</span><a href="#local-6989586621679633269"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyPairName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633270"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicKeyBase64&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633269"><span class="hs-identifier hs-var">publicKeyBase64</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679633263"><span class="annot"><span class="annottext">toPath :: ImportKeyPair -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportKeyPair -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679633259"><span class="annot"><span class="annottext">toQuery :: ImportKeyPair -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportKeyPair -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newImportKeyPairResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679633256"><span id="local-6989586621679633257"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPairResponse"><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-var">ImportKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPairResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-var">ImportKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Aoperation%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Operation
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3Aoperation%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Int
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633250"><span id="local-6989586621679633252"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+(ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool)
+-&gt; (ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool)
+-&gt; Eq ImportKeyPairResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+$c/= :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+== :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+$c== :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633242"><span id="local-6989586621679633244"><span id="local-6989586621679633246"><span id="local-6989586621679633248"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPairResponse]
+ReadPrec ImportKeyPairResponse
+Int -&gt; ReadS ImportKeyPairResponse
+ReadS [ImportKeyPairResponse]
+(Int -&gt; ReadS ImportKeyPairResponse)
+-&gt; ReadS [ImportKeyPairResponse]
+-&gt; ReadPrec ImportKeyPairResponse
+-&gt; ReadPrec [ImportKeyPairResponse]
+-&gt; Read ImportKeyPairResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportKeyPairResponse]
+$creadListPrec :: ReadPrec [ImportKeyPairResponse]
+readPrec :: ReadPrec ImportKeyPairResponse
+$creadPrec :: ReadPrec ImportKeyPairResponse
+readList :: ReadS [ImportKeyPairResponse]
+$creadList :: ReadS [ImportKeyPairResponse]
+readsPrec :: Int -&gt; ReadS ImportKeyPairResponse
+$creadsPrec :: Int -&gt; ReadS ImportKeyPairResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633236"><span id="local-6989586621679633238"><span id="local-6989586621679633240"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPairResponse -&gt; ShowS
+[ImportKeyPairResponse] -&gt; ShowS
+ImportKeyPairResponse -&gt; String
+(Int -&gt; ImportKeyPairResponse -&gt; ShowS)
+-&gt; (ImportKeyPairResponse -&gt; String)
+-&gt; ([ImportKeyPairResponse] -&gt; ShowS)
+-&gt; Show ImportKeyPairResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportKeyPairResponse] -&gt; ShowS
+$cshowList :: [ImportKeyPairResponse] -&gt; ShowS
+show :: ImportKeyPairResponse -&gt; String
+$cshow :: ImportKeyPairResponse -&gt; String
+showsPrec :: Int -&gt; ImportKeyPairResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x)
+-&gt; (forall x. Rep ImportKeyPairResponse x -&gt; ImportKeyPairResponse)
+-&gt; Generic ImportKeyPairResponse
+forall x. Rep ImportKeyPairResponse x -&gt; ImportKeyPairResponse
+forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImportKeyPairResponse x -&gt; ImportKeyPairResponse
+$cfrom :: forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'ImportKeyPairResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'operation', 'importKeyPairResponse_operation' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier hs-type">newImportKeyPairResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newImportKeyPairResponse"><span class="annot"><span class="annottext">newImportKeyPairResponse :: Int -&gt; ImportKeyPairResponse
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier hs-var hs-var">newImportKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621679633233"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">ImportKeyPairResponse' :: Maybe Operation -&gt; Int -&gt; ImportKeyPairResponse
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:ImportKeyPairResponse' :: Maybe Operation
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3Aoperation%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyPairResponse' :: Int
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_operation"><span class="hs-identifier hs-type">importKeyPairResponse_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="importKeyPairResponse_operation"><span class="annot"><span class="annottext">importKeyPairResponse_operation :: (Maybe Operation -&gt; f (Maybe Operation))
+-&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_operation"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Maybe Operation)
+-&gt; (ImportKeyPairResponse
+    -&gt; Maybe Operation -&gt; ImportKeyPairResponse)
+-&gt; Lens
+     ImportKeyPairResponse
+     ImportKeyPairResponse
+     (Maybe Operation)
+     (Maybe Operation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633232"><span class="annot"><span class="annottext">Maybe Operation
+operation :: Maybe Operation
+$sel:operation:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Operation
+</span><a href="#local-6989586621679633232"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679633232"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633231"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621679633231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633230"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679633230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621679633231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ImportKeyPairResponse' :: Maybe Operation
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3Aoperation%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679633230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_httpStatus"><span class="hs-identifier hs-type">importKeyPairResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="importKeyPairResponse_httpStatus"><span class="annot"><span class="annottext">importKeyPairResponse_httpStatus :: (Int -&gt; f Int) -&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#importKeyPairResponse_httpStatus"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Int)
+-&gt; (ImportKeyPairResponse -&gt; Int -&gt; ImportKeyPairResponse)
+-&gt; Lens ImportKeyPairResponse ImportKeyPairResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633229"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Int
+</span><a href="#local-6989586621679633229"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633229"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633228"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621679633228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621679633228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyPairResponse' :: Int
+</span><a href="Network.AWS.Lightsail.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

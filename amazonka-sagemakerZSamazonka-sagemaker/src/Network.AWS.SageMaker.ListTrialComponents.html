@@ -1,0 +1,1056 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.ListTrialComponents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the trial components in your account. You can sort the list by</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- trial component name or creation time. You can filter the list to show</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- only components that were created in a specific time range. You can also</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- filter on one of the following:</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   @ExperimentName@</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   @SourceArn@</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   @TrialName@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.ListTrialComponents</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponents"><span class="hs-identifier">newListTrialComponents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_nextToken"><span class="hs-identifier">listTrialComponents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortOrder"><span class="hs-identifier">listTrialComponents_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdAfter"><span class="hs-identifier">listTrialComponents_createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdBefore"><span class="hs-identifier">listTrialComponents_createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_maxResults"><span class="hs-identifier">listTrialComponents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortBy"><span class="hs-identifier">listTrialComponents_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_experimentName"><span class="hs-identifier">listTrialComponents_experimentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sourceArn"><span class="hs-identifier">listTrialComponents_sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_trialName"><span class="hs-identifier">listTrialComponents_trialName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier">ListTrialComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponentsResponse"><span class="hs-identifier">newListTrialComponentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_nextToken"><span class="hs-identifier">listTrialComponentsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_trialComponentSummaries"><span class="hs-identifier">listTrialComponentsResponse_trialComponentSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_httpStatus"><span class="hs-identifier">listTrialComponentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newListTrialComponents' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621680371253"><span id="local-6989586621680371254"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrialComponents"><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-var">ListTrialComponents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrialComponents%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-var">ListTrialComponents'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous call to @ListTrialComponents@ didn\'t return the full</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- set of components, the call returns a token for getting the next set of</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- components.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AnextToken%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsortOrder%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortOrder%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A filter that returns only components created after the specified time.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedAfter%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A filter that returns only components created before the specified time.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedBefore%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of components to return in the response. The default</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AmaxResults%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AsortBy%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe SortTrialComponentsBy
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortBy%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy"><span class="hs-identifier hs-type">SortTrialComponentsBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- experiment. If you specify @ExperimentName@, you can\'t filter by</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @SourceArn@ or @TrialName@.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AexperimentName%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AexperimentName%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | A filter that returns only components that have the specified source</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Amazon Resource Name (ARN). If you specify @SourceArn@, you can\'t</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- filter by @ExperimentName@ or @TrialName@.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AsourceArn%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsourceArn%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- trial. If you specify @TrialName@, you can\'t filter by @ExperimentName@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- or @SourceArn@.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AtrialName%3AListTrialComponents%27"><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialName%3AListTrialComponents%27"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680371239"><span id="local-6989586621680371241"><span class="annot"><span class="annottext">ListTrialComponents -&gt; ListTrialComponents -&gt; Bool
+(ListTrialComponents -&gt; ListTrialComponents -&gt; Bool)
+-&gt; (ListTrialComponents -&gt; ListTrialComponents -&gt; Bool)
+-&gt; Eq ListTrialComponents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTrialComponents -&gt; ListTrialComponents -&gt; Bool
+$c/= :: ListTrialComponents -&gt; ListTrialComponents -&gt; Bool
+== :: ListTrialComponents -&gt; ListTrialComponents -&gt; Bool
+$c== :: ListTrialComponents -&gt; ListTrialComponents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371230"><span id="local-6989586621680371232"><span id="local-6989586621680371234"><span id="local-6989586621680371236"><span class="annot"><span class="annottext">ReadPrec [ListTrialComponents]
+ReadPrec ListTrialComponents
+Int -&gt; ReadS ListTrialComponents
+ReadS [ListTrialComponents]
+(Int -&gt; ReadS ListTrialComponents)
+-&gt; ReadS [ListTrialComponents]
+-&gt; ReadPrec ListTrialComponents
+-&gt; ReadPrec [ListTrialComponents]
+-&gt; Read ListTrialComponents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTrialComponents]
+$creadListPrec :: ReadPrec [ListTrialComponents]
+readPrec :: ReadPrec ListTrialComponents
+$creadPrec :: ReadPrec ListTrialComponents
+readList :: ReadS [ListTrialComponents]
+$creadList :: ReadS [ListTrialComponents]
+readsPrec :: Int -&gt; ReadS ListTrialComponents
+$creadsPrec :: Int -&gt; ReadS ListTrialComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371223"><span id="local-6989586621680371225"><span id="local-6989586621680371227"><span class="annot"><span class="annottext">Int -&gt; ListTrialComponents -&gt; ShowS
+[ListTrialComponents] -&gt; ShowS
+ListTrialComponents -&gt; String
+(Int -&gt; ListTrialComponents -&gt; ShowS)
+-&gt; (ListTrialComponents -&gt; String)
+-&gt; ([ListTrialComponents] -&gt; ShowS)
+-&gt; Show ListTrialComponents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTrialComponents] -&gt; ShowS
+$cshowList :: [ListTrialComponents] -&gt; ShowS
+show :: ListTrialComponents -&gt; String
+$cshow :: ListTrialComponents -&gt; String
+showsPrec :: Int -&gt; ListTrialComponents -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTrialComponents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTrialComponents -&gt; Rep ListTrialComponents x)
+-&gt; (forall x. Rep ListTrialComponents x -&gt; ListTrialComponents)
+-&gt; Generic ListTrialComponents
+forall x. Rep ListTrialComponents x -&gt; ListTrialComponents
+forall x. ListTrialComponents -&gt; Rep ListTrialComponents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTrialComponents x -&gt; ListTrialComponents
+$cfrom :: forall x. ListTrialComponents -&gt; Rep ListTrialComponents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'ListTrialComponents' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'nextToken', 'listTrialComponents_nextToken' - If the previous call to @ListTrialComponents@ didn\'t return the full</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- set of components, the call returns a token for getting the next set of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- components.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'sortOrder', 'listTrialComponents_sortOrder' - The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'createdAfter', 'listTrialComponents_createdAfter' - A filter that returns only components created after the specified time.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'createdBefore', 'listTrialComponents_createdBefore' - A filter that returns only components created before the specified time.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'maxResults', 'listTrialComponents_maxResults' - The maximum number of components to return in the response. The default</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'sortBy', 'listTrialComponents_sortBy' - The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'experimentName', 'listTrialComponents_experimentName' - A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- experiment. If you specify @ExperimentName@, you can\'t filter by</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @SourceArn@ or @TrialName@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'sourceArn', 'listTrialComponents_sourceArn' - A filter that returns only components that have the specified source</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Amazon Resource Name (ARN). If you specify @SourceArn@, you can\'t</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- filter by @ExperimentName@ or @TrialName@.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'trialName', 'listTrialComponents_trialName' - A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- trial. If you specify @TrialName@, you can\'t filter by @ExperimentName@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- or @SourceArn@.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponents"><span class="hs-identifier hs-type">newListTrialComponents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span>
+</span><span id="line-137"></span><span id="newListTrialComponents"><span class="annot"><span class="annottext">newListTrialComponents :: ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponents"><span class="hs-identifier hs-var hs-var">newListTrialComponents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">ListTrialComponents' :: Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe SortTrialComponentsBy
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListTrialComponents' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortOrder%3AListTrialComponents%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAfter:ListTrialComponents' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedAfter%3AListTrialComponents%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListTrialComponents' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedBefore%3AListTrialComponents%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTrialComponents' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AmaxResults%3AListTrialComponents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListTrialComponents' :: Maybe SortTrialComponentsBy
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortBy%3AListTrialComponents%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:experimentName:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AexperimentName%3AListTrialComponents%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsourceArn%3AListTrialComponents%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialName:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialName%3AListTrialComponents%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | If the previous call to @ListTrialComponents@ didn\'t return the full</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- set of components, the call returns a token for getting the next set of</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- components.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_nextToken"><span class="hs-identifier hs-type">listTrialComponents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="listTrialComponents_nextToken"><span class="annot"><span class="annottext">listTrialComponents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_nextToken"><span class="hs-identifier hs-var hs-var">listTrialComponents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe Text)
+-&gt; (ListTrialComponents -&gt; Maybe Text -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371217"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+</span><a href="#local-6989586621680371217"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371217"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371216"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortOrder"><span class="hs-identifier hs-type">listTrialComponents_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="listTrialComponents_sortOrder"><span class="annot"><span class="annottext">listTrialComponents_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortOrder"><span class="hs-identifier hs-var hs-var">listTrialComponents_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe SortOrder)
+-&gt; (ListTrialComponents -&gt; Maybe SortOrder -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents
+     ListTrialComponents
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371214"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListTrialComponents' :: ListTrialComponents -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680371214"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371214"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371213"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371212"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListTrialComponents' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortOrder%3AListTrialComponents%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A filter that returns only components created after the specified time.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdAfter"><span class="hs-identifier hs-type">listTrialComponents_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="listTrialComponents_createdAfter"><span class="annot"><span class="annottext">listTrialComponents_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdAfter"><span class="hs-identifier hs-var hs-var">listTrialComponents_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe POSIX)
+-&gt; (ListTrialComponents -&gt; Maybe POSIX -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371211"><span class="annot"><span class="annottext">Maybe POSIX
+createdAfter :: Maybe POSIX
+$sel:createdAfter:ListTrialComponents' :: ListTrialComponents -&gt; Maybe POSIX
+</span><a href="#local-6989586621680371211"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371211"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371210"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371209"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListTrialComponents' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedAfter%3AListTrialComponents%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListTrialComponents -&gt; f ListTrialComponents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListTrialComponents
+-&gt; f ListTrialComponents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | A filter that returns only components created before the specified time.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdBefore"><span class="hs-identifier hs-type">listTrialComponents_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="listTrialComponents_createdBefore"><span class="annot"><span class="annottext">listTrialComponents_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_createdBefore"><span class="hs-identifier hs-var hs-var">listTrialComponents_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe POSIX)
+-&gt; (ListTrialComponents -&gt; Maybe POSIX -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371205"><span class="annot"><span class="annottext">Maybe POSIX
+createdBefore :: Maybe POSIX
+$sel:createdBefore:ListTrialComponents' :: ListTrialComponents -&gt; Maybe POSIX
+</span><a href="#local-6989586621680371205"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371205"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371204"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371203"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListTrialComponents' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AcreatedBefore%3AListTrialComponents%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListTrialComponents -&gt; f ListTrialComponents)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListTrialComponents
+-&gt; f ListTrialComponents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The maximum number of components to return in the response. The default</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- value is 10.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_maxResults"><span class="hs-identifier hs-type">listTrialComponents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="listTrialComponents_maxResults"><span class="annot"><span class="annottext">listTrialComponents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_maxResults"><span class="hs-identifier hs-var hs-var">listTrialComponents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe Natural)
+-&gt; (ListTrialComponents -&gt; Maybe Natural -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents
+     ListTrialComponents
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371202"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Natural
+</span><a href="#local-6989586621680371202"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371202"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371201"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371200"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTrialComponents' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AmaxResults%3AListTrialComponents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortBy"><span class="hs-identifier hs-type">listTrialComponents_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortTrialComponentsBy.html#SortTrialComponentsBy"><span class="hs-identifier hs-type">SortTrialComponentsBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="listTrialComponents_sortBy"><span class="annot"><span class="annottext">listTrialComponents_sortBy :: (Maybe SortTrialComponentsBy -&gt; f (Maybe SortTrialComponentsBy))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sortBy"><span class="hs-identifier hs-var hs-var">listTrialComponents_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe SortTrialComponentsBy)
+-&gt; (ListTrialComponents
+    -&gt; Maybe SortTrialComponentsBy -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents
+     ListTrialComponents
+     (Maybe SortTrialComponentsBy)
+     (Maybe SortTrialComponentsBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371199"><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+sortBy :: Maybe SortTrialComponentsBy
+$sel:sortBy:ListTrialComponents' :: ListTrialComponents -&gt; Maybe SortTrialComponentsBy
+</span><a href="#local-6989586621680371199"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+</span><a href="#local-6989586621680371199"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371198"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371197"><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+</span><a href="#local-6989586621680371197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListTrialComponents' :: Maybe SortTrialComponentsBy
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsortBy%3AListTrialComponents%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+</span><a href="#local-6989586621680371197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- experiment. If you specify @ExperimentName@, you can\'t filter by</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @SourceArn@ or @TrialName@.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_experimentName"><span class="hs-identifier hs-type">listTrialComponents_experimentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="listTrialComponents_experimentName"><span class="annot"><span class="annottext">listTrialComponents_experimentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_experimentName"><span class="hs-identifier hs-var hs-var">listTrialComponents_experimentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe Text)
+-&gt; (ListTrialComponents -&gt; Maybe Text -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371196"><span class="annot"><span class="annottext">Maybe Text
+experimentName :: Maybe Text
+$sel:experimentName:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+</span><a href="#local-6989586621680371196"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371196"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371195"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371194"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AexperimentName%3AListTrialComponents%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | A filter that returns only components that have the specified source</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Amazon Resource Name (ARN). If you specify @SourceArn@, you can\'t</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- filter by @ExperimentName@ or @TrialName@.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sourceArn"><span class="hs-identifier hs-type">listTrialComponents_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="listTrialComponents_sourceArn"><span class="annot"><span class="annottext">listTrialComponents_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_sourceArn"><span class="hs-identifier hs-var hs-var">listTrialComponents_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe Text)
+-&gt; (ListTrialComponents -&gt; Maybe Text -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371193"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+</span><a href="#local-6989586621680371193"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371193"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371192"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AsourceArn%3AListTrialComponents%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | A filter that returns only components that are part of the specified</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- trial. If you specify @TrialName@, you can\'t filter by @ExperimentName@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- or @SourceArn@.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_trialName"><span class="hs-identifier hs-type">listTrialComponents_trialName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="listTrialComponents_trialName"><span class="annot"><span class="annottext">listTrialComponents_trialName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrialComponents -&gt; f ListTrialComponents
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_trialName"><span class="hs-identifier hs-var hs-var">listTrialComponents_trialName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe Text)
+-&gt; (ListTrialComponents -&gt; Maybe Text -&gt; ListTrialComponents)
+-&gt; Lens
+     ListTrialComponents ListTrialComponents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371190"><span class="annot"><span class="annottext">Maybe Text
+trialName :: Maybe Text
+$sel:trialName:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+</span><a href="#local-6989586621680371190"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371190"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371189"><span class="annot"><span class="annottext">s :: ListTrialComponents
+</span><a href="#local-6989586621680371189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialName:ListTrialComponents' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialName%3AListTrialComponents%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621680371184"><span class="annot"><span class="annottext">page :: ListTrialComponents
+-&gt; AWSResponse ListTrialComponents -&gt; Maybe ListTrialComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680371182"><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371182"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680371181"><span class="annot"><span class="annottext">AWSResponse ListTrialComponents
+</span><a href="#local-6989586621680371181"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrialComponents
+ListTrialComponentsResponse
+</span><a href="#local-6989586621680371181"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+-&gt; Getting (First Text) ListTrialComponentsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTrialComponentsResponse
+-&gt; Const (First Text) ListTrialComponentsResponse
+Lens' ListTrialComponentsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_nextToken"><span class="hs-identifier hs-var">listTrialComponentsResponse_nextToken</span></a></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTrialComponentsResponse
+ -&gt; Const (First Text) ListTrialComponentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTrialComponentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-201"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTrialComponents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [TrialComponentSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-204"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrialComponents
+ListTrialComponentsResponse
+</span><a href="#local-6989586621680371181"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+-&gt; Getting
+     (First [TrialComponentSummary])
+     ListTrialComponentsResponse
+     [TrialComponentSummary]
+-&gt; Maybe [TrialComponentSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [TrialComponentSummary]
+ -&gt; Const
+      (First [TrialComponentSummary]) (Maybe [TrialComponentSummary]))
+-&gt; ListTrialComponentsResponse
+-&gt; Const
+     (First [TrialComponentSummary]) ListTrialComponentsResponse
+Lens' ListTrialComponentsResponse (Maybe [TrialComponentSummary])
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_trialComponentSummaries"><span class="hs-identifier hs-var">listTrialComponentsResponse_trialComponentSummaries</span></a></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [TrialComponentSummary]
+  -&gt; Const
+       (First [TrialComponentSummary]) (Maybe [TrialComponentSummary]))
+ -&gt; ListTrialComponentsResponse
+ -&gt; Const
+      (First [TrialComponentSummary]) ListTrialComponentsResponse)
+-&gt; (([TrialComponentSummary]
+     -&gt; Const (First [TrialComponentSummary]) [TrialComponentSummary])
+    -&gt; Maybe [TrialComponentSummary]
+    -&gt; Const
+         (First [TrialComponentSummary]) (Maybe [TrialComponentSummary]))
+-&gt; Getting
+     (First [TrialComponentSummary])
+     ListTrialComponentsResponse
+     [TrialComponentSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TrialComponentSummary]
+ -&gt; Const (First [TrialComponentSummary]) [TrialComponentSummary])
+-&gt; Maybe [TrialComponentSummary]
+-&gt; Const
+     (First [TrialComponentSummary]) (Maybe [TrialComponentSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-207"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTrialComponents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">ListTrialComponents -&gt; Maybe ListTrialComponents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListTrialComponents -&gt; Maybe ListTrialComponents)
+-&gt; ListTrialComponents -&gt; Maybe ListTrialComponents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ListTrialComponents
+</span><a href="#local-6989586621680371182"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ListTrialComponents
+-&gt; (ListTrialComponents -&gt; ListTrialComponents)
+-&gt; ListTrialComponents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListTrialComponents -&gt; Identity ListTrialComponents
+Lens
+  ListTrialComponents ListTrialComponents (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponents_nextToken"><span class="hs-identifier hs-var">listTrialComponents_nextToken</span></a></span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListTrialComponents -&gt; Identity ListTrialComponents)
+-&gt; Maybe Text -&gt; ListTrialComponents -&gt; ListTrialComponents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTrialComponents
+ListTrialComponentsResponse
+</span><a href="#local-6989586621680371181"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+-&gt; Getting (First Text) ListTrialComponentsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTrialComponentsResponse
+-&gt; Const (First Text) ListTrialComponentsResponse
+Lens' ListTrialComponentsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_nextToken"><span class="hs-identifier hs-var">listTrialComponentsResponse_nextToken</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTrialComponentsResponse
+ -&gt; Const (First Text) ListTrialComponentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTrialComponentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621680371172"><span class="annot"><span class="annottext">request :: ListTrialComponents -&gt; Request ListTrialComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTrialComponents -&gt; Request ListTrialComponents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621680371168"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTrialComponents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTrialComponents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTrialComponents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTrialComponents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTrialComponents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680371165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371165"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680371164"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680371164"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680371163"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680371163"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [TrialComponentSummary]
+-&gt; Int
+-&gt; ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-var">ListTrialComponentsResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [TrialComponentSummary]
+ -&gt; Int
+ -&gt; ListTrialComponentsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [TrialComponentSummary]
+      -&gt; Int -&gt; ListTrialComponentsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680371163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [TrialComponentSummary]
+   -&gt; Int -&gt; ListTrialComponentsResponse)
+-&gt; Either String (Maybe [TrialComponentSummary])
+-&gt; Either String (Int -&gt; ListTrialComponentsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680371163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [TrialComponentSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialComponentSummaries&quot;</span></span><span>
+</span><span id="line-228"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TrialComponentSummary]))
+-&gt; Maybe [TrialComponentSummary]
+-&gt; Either String (Maybe [TrialComponentSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-229"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTrialComponentsResponse)
+-&gt; Either String Int -&gt; Either String ListTrialComponentsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371165"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371154"><span id="local-6989586621680371156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span></span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621680371147"><span class="annot"><span class="annottext">toHeaders :: ListTrialComponents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTrialComponents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-241"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListTrialComponents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-244"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371137"><span id="local-6989586621680371139"><span id="local-6989586621680371141"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621680371135"><span class="annot"><span class="annottext">toJSON :: ListTrialComponents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents%27"><span class="hs-identifier hs-type">ListTrialComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371125"><span id="local-6989586621680371126"><span id="local-6989586621680371127"><span id="local-6989586621680371128"><span id="local-6989586621680371129"><span id="local-6989586621680371130"><span id="local-6989586621680371131"><span id="local-6989586621680371132"><span id="local-6989586621680371133"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe SortOrder
+Maybe SortTrialComponentsBy
+trialName :: Maybe Text
+sourceArn :: Maybe Text
+experimentName :: Maybe Text
+sortBy :: Maybe SortTrialComponentsBy
+maxResults :: Maybe Natural
+createdBefore :: Maybe POSIX
+createdAfter :: Maybe POSIX
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+$sel:trialName:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+$sel:sourceArn:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+$sel:experimentName:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+$sel:sortBy:ListTrialComponents' :: ListTrialComponents -&gt; Maybe SortTrialComponentsBy
+$sel:maxResults:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Natural
+$sel:createdBefore:ListTrialComponents' :: ListTrialComponents -&gt; Maybe POSIX
+$sel:createdAfter:ListTrialComponents' :: ListTrialComponents -&gt; Maybe POSIX
+$sel:sortOrder:ListTrialComponents' :: ListTrialComponents -&gt; Maybe SortOrder
+$sel:nextToken:ListTrialComponents' :: ListTrialComponents -&gt; Maybe Text
+</span><a href="#local-6989586621680371125"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371133"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371132"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371131"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680371130"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371129"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortTrialComponentsBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortTrialComponentsBy -&gt; Pair)
+-&gt; Maybe SortTrialComponentsBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortTrialComponentsBy
+</span><a href="#local-6989586621680371128"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExperimentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371127"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371126"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrialName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371125"><span class="hs-identifier hs-var">trialName</span></a></span><span>
+</span><span id="line-266"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621680371119"><span class="annot"><span class="annottext">toPath :: ListTrialComponents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTrialComponents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponents"><span class="hs-identifier hs-type">ListTrialComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621680371115"><span class="annot"><span class="annottext">toQuery :: ListTrialComponents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTrialComponents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | /See:/ 'newListTrialComponentsResponse' smart constructor.</span><span>
+</span><span id="line-276"></span><span id="local-6989586621680371112"><span id="local-6989586621680371113"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrialComponentsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-var">ListTrialComponentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrialComponentsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-var">ListTrialComponentsResponse'</span></a></span></span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token for getting the next set of components, if there are any.</span><span>
+</span><span id="line-278"></span><span>    </span><span id="%24sel%3AnextToken%3AListTrialComponentsResponse%27"><span class="annot"><span class="annottext">ListTrialComponentsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- | A list of the summaries of your trial components.</span><span>
+</span><span id="line-280"></span><span>    </span><span id="%24sel%3AtrialComponentSummaries%3AListTrialComponentsResponse%27"><span class="annot"><span class="annottext">ListTrialComponentsResponse -&gt; Maybe [TrialComponentSummary]
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialComponentSummaries%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var hs-var">trialComponentSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSummary.html#TrialComponentSummary"><span class="hs-identifier hs-type">TrialComponentSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-282"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTrialComponentsResponse%27"><span class="annot"><span class="annottext">ListTrialComponentsResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AhttpStatus%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680371105"><span id="local-6989586621680371107"><span class="annot"><span class="annottext">ListTrialComponentsResponse -&gt; ListTrialComponentsResponse -&gt; Bool
+(ListTrialComponentsResponse
+ -&gt; ListTrialComponentsResponse -&gt; Bool)
+-&gt; (ListTrialComponentsResponse
+    -&gt; ListTrialComponentsResponse -&gt; Bool)
+-&gt; Eq ListTrialComponentsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTrialComponentsResponse -&gt; ListTrialComponentsResponse -&gt; Bool
+$c/= :: ListTrialComponentsResponse -&gt; ListTrialComponentsResponse -&gt; Bool
+== :: ListTrialComponentsResponse -&gt; ListTrialComponentsResponse -&gt; Bool
+$c== :: ListTrialComponentsResponse -&gt; ListTrialComponentsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371097"><span id="local-6989586621680371099"><span id="local-6989586621680371101"><span id="local-6989586621680371103"><span class="annot"><span class="annottext">ReadPrec [ListTrialComponentsResponse]
+ReadPrec ListTrialComponentsResponse
+Int -&gt; ReadS ListTrialComponentsResponse
+ReadS [ListTrialComponentsResponse]
+(Int -&gt; ReadS ListTrialComponentsResponse)
+-&gt; ReadS [ListTrialComponentsResponse]
+-&gt; ReadPrec ListTrialComponentsResponse
+-&gt; ReadPrec [ListTrialComponentsResponse]
+-&gt; Read ListTrialComponentsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTrialComponentsResponse]
+$creadListPrec :: ReadPrec [ListTrialComponentsResponse]
+readPrec :: ReadPrec ListTrialComponentsResponse
+$creadPrec :: ReadPrec ListTrialComponentsResponse
+readList :: ReadS [ListTrialComponentsResponse]
+$creadList :: ReadS [ListTrialComponentsResponse]
+readsPrec :: Int -&gt; ReadS ListTrialComponentsResponse
+$creadsPrec :: Int -&gt; ReadS ListTrialComponentsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371091"><span id="local-6989586621680371093"><span id="local-6989586621680371095"><span class="annot"><span class="annottext">Int -&gt; ListTrialComponentsResponse -&gt; ShowS
+[ListTrialComponentsResponse] -&gt; ShowS
+ListTrialComponentsResponse -&gt; String
+(Int -&gt; ListTrialComponentsResponse -&gt; ShowS)
+-&gt; (ListTrialComponentsResponse -&gt; String)
+-&gt; ([ListTrialComponentsResponse] -&gt; ShowS)
+-&gt; Show ListTrialComponentsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTrialComponentsResponse] -&gt; ShowS
+$cshowList :: [ListTrialComponentsResponse] -&gt; ShowS
+show :: ListTrialComponentsResponse -&gt; String
+$cshow :: ListTrialComponentsResponse -&gt; String
+showsPrec :: Int -&gt; ListTrialComponentsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTrialComponentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListTrialComponentsResponse -&gt; Rep ListTrialComponentsResponse x)
+-&gt; (forall x.
+    Rep ListTrialComponentsResponse x -&gt; ListTrialComponentsResponse)
+-&gt; Generic ListTrialComponentsResponse
+forall x.
+Rep ListTrialComponentsResponse x -&gt; ListTrialComponentsResponse
+forall x.
+ListTrialComponentsResponse -&gt; Rep ListTrialComponentsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListTrialComponentsResponse x -&gt; ListTrialComponentsResponse
+$cfrom :: forall x.
+ListTrialComponentsResponse -&gt; Rep ListTrialComponentsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Create a value of 'ListTrialComponentsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'nextToken', 'listTrialComponentsResponse_nextToken' - A token for getting the next set of components, if there are any.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'trialComponentSummaries', 'listTrialComponentsResponse_trialComponentSummaries' - A list of the summaries of your trial components.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- 'httpStatus', 'listTrialComponentsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponentsResponse"><span class="hs-identifier hs-type">newListTrialComponentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-301"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-302"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span>
+</span><span id="line-303"></span><span id="newListTrialComponentsResponse"><span class="annot"><span class="annottext">newListTrialComponentsResponse :: Int -&gt; ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#newListTrialComponentsResponse"><span class="hs-identifier hs-var hs-var">newListTrialComponentsResponse</span></a></span></span><span> </span><span id="local-6989586621680371088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371088"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>  </span><span class="annot"><span class="annottext">ListTrialComponentsResponse' :: Maybe Text
+-&gt; Maybe [TrialComponentSummary]
+-&gt; Int
+-&gt; ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTrialComponentsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialComponentSummaries:ListTrialComponentsResponse' :: Maybe [TrialComponentSummary]
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialComponentSummaries%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">trialComponentSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrialComponentsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AhttpStatus%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371088"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | A token for getting the next set of components, if there are any.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_nextToken"><span class="hs-identifier hs-type">listTrialComponentsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="listTrialComponentsResponse_nextToken"><span class="annot"><span class="annottext">listTrialComponentsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrialComponentsResponse -&gt; f ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTrialComponentsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponentsResponse -&gt; Maybe Text)
+-&gt; (ListTrialComponentsResponse
+    -&gt; Maybe Text -&gt; ListTrialComponentsResponse)
+-&gt; Lens' ListTrialComponentsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371087"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTrialComponentsResponse' :: ListTrialComponentsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680371087"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371087"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371086"><span class="annot"><span class="annottext">s :: ListTrialComponentsResponse
+</span><a href="#local-6989586621680371086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+</span><a href="#local-6989586621680371086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTrialComponentsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AnextToken%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | A list of the summaries of your trial components.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_trialComponentSummaries"><span class="hs-identifier hs-type">listTrialComponentsResponse_trialComponentSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSummary.html#TrialComponentSummary"><span class="hs-identifier hs-type">TrialComponentSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="listTrialComponentsResponse_trialComponentSummaries"><span class="annot"><span class="annottext">listTrialComponentsResponse_trialComponentSummaries :: (Maybe [TrialComponentSummary]
+ -&gt; f (Maybe [TrialComponentSummary]))
+-&gt; ListTrialComponentsResponse -&gt; f ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_trialComponentSummaries"><span class="hs-identifier hs-var hs-var">listTrialComponentsResponse_trialComponentSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponentsResponse -&gt; Maybe [TrialComponentSummary])
+-&gt; (ListTrialComponentsResponse
+    -&gt; Maybe [TrialComponentSummary] -&gt; ListTrialComponentsResponse)
+-&gt; Lens'
+     ListTrialComponentsResponse (Maybe [TrialComponentSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371084"><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+trialComponentSummaries :: Maybe [TrialComponentSummary]
+$sel:trialComponentSummaries:ListTrialComponentsResponse' :: ListTrialComponentsResponse -&gt; Maybe [TrialComponentSummary]
+</span><a href="#local-6989586621680371084"><span class="hs-identifier hs-var hs-var">trialComponentSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+</span><a href="#local-6989586621680371084"><span class="hs-identifier hs-var">trialComponentSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371083"><span class="annot"><span class="annottext">s :: ListTrialComponentsResponse
+</span><a href="#local-6989586621680371083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371082"><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+</span><a href="#local-6989586621680371082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+</span><a href="#local-6989586621680371083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialComponentSummaries:ListTrialComponentsResponse' :: Maybe [TrialComponentSummary]
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AtrialComponentSummaries%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">trialComponentSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrialComponentSummary]
+</span><a href="#local-6989586621680371082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrialComponentSummary]
+  -&gt; f (Maybe [TrialComponentSummary]))
+ -&gt; ListTrialComponentsResponse -&gt; f ListTrialComponentsResponse)
+-&gt; ((Maybe [TrialComponentSummary]
+     -&gt; f (Maybe [TrialComponentSummary]))
+    -&gt; Maybe [TrialComponentSummary]
+    -&gt; f (Maybe [TrialComponentSummary]))
+-&gt; (Maybe [TrialComponentSummary]
+    -&gt; f (Maybe [TrialComponentSummary]))
+-&gt; ListTrialComponentsResponse
+-&gt; f ListTrialComponentsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+-&gt; Iso
+     (Maybe [TrialComponentSummary])
+     (Maybe [TrialComponentSummary])
+     (Maybe [TrialComponentSummary])
+     (Maybe [TrialComponentSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+  [TrialComponentSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_httpStatus"><span class="hs-identifier hs-type">listTrialComponentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-321"></span><span id="listTrialComponentsResponse_httpStatus"><span class="annot"><span class="annottext">listTrialComponentsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListTrialComponentsResponse -&gt; f ListTrialComponentsResponse
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#listTrialComponentsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTrialComponentsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrialComponentsResponse -&gt; Int)
+-&gt; (ListTrialComponentsResponse
+    -&gt; Int -&gt; ListTrialComponentsResponse)
+-&gt; Lens
+     ListTrialComponentsResponse ListTrialComponentsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371080"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTrialComponentsResponse' :: ListTrialComponentsResponse -&gt; Int
+</span><a href="#local-6989586621680371080"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371080"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371079"><span class="annot"><span class="annottext">s :: ListTrialComponentsResponse
+</span><a href="#local-6989586621680371079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse%27"><span class="hs-identifier hs-type">ListTrialComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrialComponentsResponse
+</span><a href="#local-6989586621680371079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrialComponentsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListTrialComponents.html#%24sel%3AhttpStatus%3AListTrialComponentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListTrialComponents.html#ListTrialComponentsResponse"><span class="hs-identifier hs-type">ListTrialComponentsResponse</span></a></span></span><span>
+</span><span id="line-324"></span></pre></body></html>

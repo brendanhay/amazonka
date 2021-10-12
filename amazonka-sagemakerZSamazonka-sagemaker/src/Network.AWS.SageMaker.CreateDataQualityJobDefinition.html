@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.CreateDataQualityJobDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a definition for a job that monitors data quality and drift. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information about model monitor, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html Amazon SageMaker Model Monitor&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.CreateDataQualityJobDefinition</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinition"><span class="hs-identifier">newCreateDataQualityJobDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_networkConfig"><span class="hs-identifier">createDataQualityJobDefinition_networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityBaselineConfig"><span class="hs-identifier">createDataQualityJobDefinition_dataQualityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_tags"><span class="hs-identifier">createDataQualityJobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_stoppingCondition"><span class="hs-identifier">createDataQualityJobDefinition_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobDefinitionName"><span class="hs-identifier">createDataQualityJobDefinition_jobDefinitionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityAppSpecification"><span class="hs-identifier">createDataQualityJobDefinition_dataQualityAppSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobInput"><span class="hs-identifier">createDataQualityJobDefinition_dataQualityJobInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobOutputConfig"><span class="hs-identifier">createDataQualityJobDefinition_dataQualityJobOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobResources"><span class="hs-identifier">createDataQualityJobDefinition_jobResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_roleArn"><span class="hs-identifier">createDataQualityJobDefinition_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier">CreateDataQualityJobDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinitionResponse"><span class="hs-identifier">newCreateDataQualityJobDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_httpStatus"><span class="hs-identifier">createDataQualityJobDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_jobDefinitionArn"><span class="hs-identifier">createDataQualityJobDefinitionResponse_jobDefinitionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateDataQualityJobDefinition' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621680420080"><span id="local-6989586621680420081"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataQualityJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-var">CreateDataQualityJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataQualityJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">CreateDataQualityJobDefinition'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies networking configuration for the monitoring job.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnetworkConfig%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Configures the constraints and baselines for the monitoring job.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdataQualityBaselineConfig%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Maybe DataQualityBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityBaselineConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">dataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atags%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3Atags%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Maybe MonitoringStoppingCondition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The name for the monitoring job definition.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AjobDefinitionName%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specifies the container that runs the monitoring job.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdataQualityAppSpecification%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; DataQualityAppSpecification
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityAppSpecification%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">dataQualityAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityAppSpecification.html#DataQualityAppSpecification"><span class="hs-identifier hs-type">DataQualityAppSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A list of inputs for the monitoring job. Currently endpoints are</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- supported as monitoring inputs.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AdataQualityJobInput%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; DataQualityJobInput
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobInput%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">dataQualityJobInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityJobInput.html#DataQualityJobInput"><span class="hs-identifier hs-type">DataQualityJobInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdataQualityJobOutputConfig%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; MonitoringOutputConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobOutputConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">dataQualityJobOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringOutputConfig.html#MonitoringOutputConfig"><span class="hs-identifier hs-type">MonitoringOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AjobResources%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; MonitoringResources
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobResources%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- assume to perform tasks on your behalf.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateDataQualityJobDefinition%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition -&gt; Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AroleArn%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680420065"><span id="local-6989586621680420067"><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+-&gt; CreateDataQualityJobDefinition -&gt; Bool
+(CreateDataQualityJobDefinition
+ -&gt; CreateDataQualityJobDefinition -&gt; Bool)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; CreateDataQualityJobDefinition -&gt; Bool)
+-&gt; Eq CreateDataQualityJobDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDataQualityJobDefinition
+-&gt; CreateDataQualityJobDefinition -&gt; Bool
+$c/= :: CreateDataQualityJobDefinition
+-&gt; CreateDataQualityJobDefinition -&gt; Bool
+== :: CreateDataQualityJobDefinition
+-&gt; CreateDataQualityJobDefinition -&gt; Bool
+$c== :: CreateDataQualityJobDefinition
+-&gt; CreateDataQualityJobDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680420056"><span id="local-6989586621680420058"><span id="local-6989586621680420060"><span id="local-6989586621680420062"><span class="annot"><span class="annottext">ReadPrec [CreateDataQualityJobDefinition]
+ReadPrec CreateDataQualityJobDefinition
+Int -&gt; ReadS CreateDataQualityJobDefinition
+ReadS [CreateDataQualityJobDefinition]
+(Int -&gt; ReadS CreateDataQualityJobDefinition)
+-&gt; ReadS [CreateDataQualityJobDefinition]
+-&gt; ReadPrec CreateDataQualityJobDefinition
+-&gt; ReadPrec [CreateDataQualityJobDefinition]
+-&gt; Read CreateDataQualityJobDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDataQualityJobDefinition]
+$creadListPrec :: ReadPrec [CreateDataQualityJobDefinition]
+readPrec :: ReadPrec CreateDataQualityJobDefinition
+$creadPrec :: ReadPrec CreateDataQualityJobDefinition
+readList :: ReadS [CreateDataQualityJobDefinition]
+$creadList :: ReadS [CreateDataQualityJobDefinition]
+readsPrec :: Int -&gt; ReadS CreateDataQualityJobDefinition
+$creadsPrec :: Int -&gt; ReadS CreateDataQualityJobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680420049"><span id="local-6989586621680420051"><span id="local-6989586621680420053"><span class="annot"><span class="annottext">Int -&gt; CreateDataQualityJobDefinition -&gt; ShowS
+[CreateDataQualityJobDefinition] -&gt; ShowS
+CreateDataQualityJobDefinition -&gt; String
+(Int -&gt; CreateDataQualityJobDefinition -&gt; ShowS)
+-&gt; (CreateDataQualityJobDefinition -&gt; String)
+-&gt; ([CreateDataQualityJobDefinition] -&gt; ShowS)
+-&gt; Show CreateDataQualityJobDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDataQualityJobDefinition] -&gt; ShowS
+$cshowList :: [CreateDataQualityJobDefinition] -&gt; ShowS
+show :: CreateDataQualityJobDefinition -&gt; String
+$cshow :: CreateDataQualityJobDefinition -&gt; String
+showsPrec :: Int -&gt; CreateDataQualityJobDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDataQualityJobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDataQualityJobDefinition
+ -&gt; Rep CreateDataQualityJobDefinition x)
+-&gt; (forall x.
+    Rep CreateDataQualityJobDefinition x
+    -&gt; CreateDataQualityJobDefinition)
+-&gt; Generic CreateDataQualityJobDefinition
+forall x.
+Rep CreateDataQualityJobDefinition x
+-&gt; CreateDataQualityJobDefinition
+forall x.
+CreateDataQualityJobDefinition
+-&gt; Rep CreateDataQualityJobDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDataQualityJobDefinition x
+-&gt; CreateDataQualityJobDefinition
+$cfrom :: forall x.
+CreateDataQualityJobDefinition
+-&gt; Rep CreateDataQualityJobDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'CreateDataQualityJobDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'networkConfig', 'createDataQualityJobDefinition_networkConfig' - Specifies networking configuration for the monitoring job.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'dataQualityBaselineConfig', 'createDataQualityJobDefinition_dataQualityBaselineConfig' - Configures the constraints and baselines for the monitoring job.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'createDataQualityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'stoppingCondition', 'createDataQualityJobDefinition_stoppingCondition' - Undocumented member.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'jobDefinitionName', 'createDataQualityJobDefinition_jobDefinitionName' - The name for the monitoring job definition.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dataQualityAppSpecification', 'createDataQualityJobDefinition_dataQualityAppSpecification' - Specifies the container that runs the monitoring job.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'dataQualityJobInput', 'createDataQualityJobDefinition_dataQualityJobInput' - A list of inputs for the monitoring job. Currently endpoints are</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- supported as monitoring inputs.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'dataQualityJobOutputConfig', 'createDataQualityJobDefinition_dataQualityJobOutputConfig' - Undocumented member.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'jobResources', 'createDataQualityJobDefinition_jobResources' - Undocumented member.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'roleArn', 'createDataQualityJobDefinition_roleArn' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- assume to perform tasks on your behalf.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinition"><span class="hs-identifier hs-type">newCreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'jobDefinitionName'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'dataQualityAppSpecification'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityAppSpecification.html#DataQualityAppSpecification"><span class="hs-identifier hs-type">DataQualityAppSpecification</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'dataQualityJobInput'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityJobInput.html#DataQualityJobInput"><span class="hs-identifier hs-type">DataQualityJobInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'dataQualityJobOutputConfig'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringOutputConfig.html#MonitoringOutputConfig"><span class="hs-identifier hs-type">MonitoringOutputConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'jobResources'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span>
+</span><span id="line-131"></span><span id="newCreateDataQualityJobDefinition"><span class="annot"><span class="annottext">newCreateDataQualityJobDefinition :: Text
+-&gt; DataQualityAppSpecification
+-&gt; DataQualityJobInput
+-&gt; MonitoringOutputConfig
+-&gt; MonitoringResources
+-&gt; Text
+-&gt; CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinition"><span class="hs-identifier hs-var hs-var">newCreateDataQualityJobDefinition</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680420044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420044"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680420043"><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680420043"><span class="hs-identifier hs-var">pDataQualityAppSpecification_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680420042"><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680420042"><span class="hs-identifier hs-var">pDataQualityJobInput_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621680420041"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680420041"><span class="hs-identifier hs-var">pDataQualityJobOutputConfig_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680420040"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680420040"><span class="hs-identifier hs-var">pJobResources_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621680420039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420039"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition' :: Maybe MonitoringNetworkConfig
+-&gt; Maybe DataQualityBaselineConfig
+-&gt; Maybe [Tag]
+-&gt; Maybe MonitoringStoppingCondition
+-&gt; Text
+-&gt; DataQualityAppSpecification
+-&gt; DataQualityJobInput
+-&gt; MonitoringOutputConfig
+-&gt; MonitoringResources
+-&gt; Text
+-&gt; CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkConfig:CreateDataQualityJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataQualityBaselineConfig:CreateDataQualityJobDefinition' :: Maybe DataQualityBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityBaselineConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDataQualityJobDefinition' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3Atags%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateDataQualityJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateDataQualityJobDefinition' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420044"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataQualityAppSpecification:CreateDataQualityJobDefinition' :: DataQualityAppSpecification
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityAppSpecification%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680420043"><span class="hs-identifier hs-var">pDataQualityAppSpecification_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataQualityJobInput:CreateDataQualityJobDefinition' :: DataQualityJobInput
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobInput%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680420042"><span class="hs-identifier hs-var">pDataQualityJobInput_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataQualityJobOutputConfig:CreateDataQualityJobDefinition' :: MonitoringOutputConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobOutputConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680420041"><span class="hs-identifier hs-var">pDataQualityJobOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobResources:CreateDataQualityJobDefinition' :: MonitoringResources
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobResources%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680420040"><span class="hs-identifier hs-var">pJobResources_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateDataQualityJobDefinition' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AroleArn%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420039"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Specifies networking configuration for the monitoring job.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_networkConfig"><span class="hs-identifier hs-type">createDataQualityJobDefinition_networkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="createDataQualityJobDefinition_networkConfig"><span class="annot"><span class="annottext">createDataQualityJobDefinition_networkConfig :: (Maybe MonitoringNetworkConfig
+ -&gt; f (Maybe MonitoringNetworkConfig))
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_networkConfig"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_networkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; Maybe MonitoringNetworkConfig)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Maybe MonitoringNetworkConfig -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     (Maybe MonitoringNetworkConfig)
+     (Maybe MonitoringNetworkConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420036"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+networkConfig :: Maybe MonitoringNetworkConfig
+$sel:networkConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680420036"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680420036"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420035"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420034"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680420034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfig:CreateDataQualityJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680420034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Configures the constraints and baselines for the monitoring job.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityBaselineConfig"><span class="hs-identifier hs-type">createDataQualityJobDefinition_dataQualityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="createDataQualityJobDefinition_dataQualityBaselineConfig"><span class="annot"><span class="annottext">createDataQualityJobDefinition_dataQualityBaselineConfig :: (Maybe DataQualityBaselineConfig
+ -&gt; f (Maybe DataQualityBaselineConfig))
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityBaselineConfig"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_dataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; Maybe DataQualityBaselineConfig)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Maybe DataQualityBaselineConfig
+    -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     (Maybe DataQualityBaselineConfig)
+     (Maybe DataQualityBaselineConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420033"><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+dataQualityBaselineConfig :: Maybe DataQualityBaselineConfig
+$sel:dataQualityBaselineConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe DataQualityBaselineConfig
+</span><a href="#local-6989586621680420033"><span class="hs-identifier hs-var hs-var">dataQualityBaselineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+</span><a href="#local-6989586621680420033"><span class="hs-identifier hs-var">dataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420032"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420031"><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+</span><a href="#local-6989586621680420031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataQualityBaselineConfig:CreateDataQualityJobDefinition' :: Maybe DataQualityBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityBaselineConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+</span><a href="#local-6989586621680420031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_tags"><span class="hs-identifier hs-type">createDataQualityJobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="createDataQualityJobDefinition_tags"><span class="annot"><span class="annottext">createDataQualityJobDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_tags"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; Maybe [Tag])
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Maybe [Tag] -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420030"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680420030"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680420030"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420029"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420028"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680420028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDataQualityJobDefinition' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3Atags%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680420028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDataQualityJobDefinition
+ -&gt; f CreateDataQualityJobDefinition)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_stoppingCondition"><span class="hs-identifier hs-type">createDataQualityJobDefinition_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="createDataQualityJobDefinition_stoppingCondition"><span class="annot"><span class="annottext">createDataQualityJobDefinition_stoppingCondition :: (Maybe MonitoringStoppingCondition
+ -&gt; f (Maybe MonitoringStoppingCondition))
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_stoppingCondition"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition
+ -&gt; Maybe MonitoringStoppingCondition)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Maybe MonitoringStoppingCondition
+    -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     (Maybe MonitoringStoppingCondition)
+     (Maybe MonitoringStoppingCondition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420024"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+stoppingCondition :: Maybe MonitoringStoppingCondition
+$sel:stoppingCondition:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680420024"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680420024"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420023"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420022"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680420022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateDataQualityJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680420022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The name for the monitoring job definition.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobDefinitionName"><span class="hs-identifier hs-type">createDataQualityJobDefinition_jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="createDataQualityJobDefinition_jobDefinitionName"><span class="annot"><span class="annottext">createDataQualityJobDefinition_jobDefinitionName :: (Text -&gt; f Text)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobDefinitionName"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_jobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; Text)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Text -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420021"><span class="annot"><span class="annottext">Text
+jobDefinitionName :: Text
+$sel:jobDefinitionName:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Text
+</span><a href="#local-6989586621680420021"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420021"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420020"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateDataQualityJobDefinition' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Specifies the container that runs the monitoring job.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityAppSpecification"><span class="hs-identifier hs-type">createDataQualityJobDefinition_dataQualityAppSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityAppSpecification.html#DataQualityAppSpecification"><span class="hs-identifier hs-type">DataQualityAppSpecification</span></a></span><span>
+</span><span id="line-178"></span><span id="createDataQualityJobDefinition_dataQualityAppSpecification"><span class="annot"><span class="annottext">createDataQualityJobDefinition_dataQualityAppSpecification :: (DataQualityAppSpecification -&gt; f DataQualityAppSpecification)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityAppSpecification"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_dataQualityAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; DataQualityAppSpecification)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; DataQualityAppSpecification -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     DataQualityAppSpecification
+     DataQualityAppSpecification
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420018"><span class="annot"><span class="annottext">DataQualityAppSpecification
+dataQualityAppSpecification :: DataQualityAppSpecification
+$sel:dataQualityAppSpecification:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; DataQualityAppSpecification
+</span><a href="#local-6989586621680420018"><span class="hs-identifier hs-var hs-var">dataQualityAppSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680420018"><span class="hs-identifier hs-var">dataQualityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420017"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420016"><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680420016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataQualityAppSpecification:CreateDataQualityJobDefinition' :: DataQualityAppSpecification
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityAppSpecification%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680420016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | A list of inputs for the monitoring job. Currently endpoints are</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- supported as monitoring inputs.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobInput"><span class="hs-identifier hs-type">createDataQualityJobDefinition_dataQualityJobInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityJobInput.html#DataQualityJobInput"><span class="hs-identifier hs-type">DataQualityJobInput</span></a></span><span>
+</span><span id="line-183"></span><span id="createDataQualityJobDefinition_dataQualityJobInput"><span class="annot"><span class="annottext">createDataQualityJobDefinition_dataQualityJobInput :: (DataQualityJobInput -&gt; f DataQualityJobInput)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobInput"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_dataQualityJobInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; DataQualityJobInput)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; DataQualityJobInput -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     DataQualityJobInput
+     DataQualityJobInput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420015"><span class="annot"><span class="annottext">DataQualityJobInput
+dataQualityJobInput :: DataQualityJobInput
+$sel:dataQualityJobInput:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; DataQualityJobInput
+</span><a href="#local-6989586621680420015"><span class="hs-identifier hs-var hs-var">dataQualityJobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680420015"><span class="hs-identifier hs-var">dataQualityJobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420014"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420013"><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680420013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataQualityJobInput:CreateDataQualityJobDefinition' :: DataQualityJobInput
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobInput%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680420013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobOutputConfig"><span class="hs-identifier hs-type">createDataQualityJobDefinition_dataQualityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringOutputConfig.html#MonitoringOutputConfig"><span class="hs-identifier hs-type">MonitoringOutputConfig</span></a></span><span>
+</span><span id="line-187"></span><span id="createDataQualityJobDefinition_dataQualityJobOutputConfig"><span class="annot"><span class="annottext">createDataQualityJobDefinition_dataQualityJobOutputConfig :: (MonitoringOutputConfig -&gt; f MonitoringOutputConfig)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_dataQualityJobOutputConfig"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_dataQualityJobOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; MonitoringOutputConfig)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; MonitoringOutputConfig -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     MonitoringOutputConfig
+     MonitoringOutputConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420012"><span class="annot"><span class="annottext">MonitoringOutputConfig
+dataQualityJobOutputConfig :: MonitoringOutputConfig
+$sel:dataQualityJobOutputConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; MonitoringOutputConfig
+</span><a href="#local-6989586621680420012"><span class="hs-identifier hs-var hs-var">dataQualityJobOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680420012"><span class="hs-identifier hs-var">dataQualityJobOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420011"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420010"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680420010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataQualityJobOutputConfig:CreateDataQualityJobDefinition' :: MonitoringOutputConfig
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AdataQualityJobOutputConfig%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">dataQualityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680420010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobResources"><span class="hs-identifier hs-type">createDataQualityJobDefinition_jobResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span>
+</span><span id="line-191"></span><span id="createDataQualityJobDefinition_jobResources"><span class="annot"><span class="annottext">createDataQualityJobDefinition_jobResources :: (MonitoringResources -&gt; f MonitoringResources)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_jobResources"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_jobResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; MonitoringResources)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; MonitoringResources -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     MonitoringResources
+     MonitoringResources
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420009"><span class="annot"><span class="annottext">MonitoringResources
+jobResources :: MonitoringResources
+$sel:jobResources:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; MonitoringResources
+</span><a href="#local-6989586621680420009"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680420009"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420008"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420007"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680420007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobResources:CreateDataQualityJobDefinition' :: MonitoringResources
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobResources%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680420007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- assume to perform tasks on your behalf.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_roleArn"><span class="hs-identifier hs-type">createDataQualityJobDefinition_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-196"></span><span id="createDataQualityJobDefinition_roleArn"><span class="annot"><span class="annottext">createDataQualityJobDefinition_roleArn :: (Text -&gt; f Text)
+-&gt; CreateDataQualityJobDefinition
+-&gt; f CreateDataQualityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinition_roleArn"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinition_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinition -&gt; Text)
+-&gt; (CreateDataQualityJobDefinition
+    -&gt; Text -&gt; CreateDataQualityJobDefinition)
+-&gt; Lens
+     CreateDataQualityJobDefinition
+     CreateDataQualityJobDefinition
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680420006"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Text
+</span><a href="#local-6989586621680420006"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420006"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680420005"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680420004"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinition
+</span><a href="#local-6989586621680420005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateDataQualityJobDefinition' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AroleArn%3ACreateDataQualityJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680420004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-203"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621680420000"><span class="annot"><span class="annottext">request :: CreateDataQualityJobDefinition
+-&gt; Request CreateDataQualityJobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateDataQualityJobDefinition
+-&gt; Request CreateDataQualityJobDefinition
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621680419996"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDataQualityJobDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateDataQualityJobDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDataQualityJobDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDataQualityJobDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateDataQualityJobDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680419993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419993"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680419992"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680419992"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680419991"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680419991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateDataQualityJobDefinitionResponse
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateDataQualityJobDefinitionResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateDataQualityJobDefinitionResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateDataQualityJobDefinitionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419993"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateDataQualityJobDefinitionResponse)
+-&gt; Either String Text
+-&gt; Either String CreateDataQualityJobDefinitionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680419991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621680419983"><span id="local-6989586621680419985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621680419980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680419976"><span class="annot"><span class="annottext">toHeaders :: CreateDataQualityJobDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateDataQualityJobDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateDataQualityJobDefinition&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-231"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-232"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-234"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-236"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419966"><span id="local-6989586621680419968"><span id="local-6989586621680419970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621680419964"><span class="annot"><span class="annottext">toJSON :: CreateDataQualityJobDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419953"><span id="local-6989586621680419954"><span id="local-6989586621680419955"><span id="local-6989586621680419956"><span id="local-6989586621680419957"><span id="local-6989586621680419958"><span id="local-6989586621680419959"><span id="local-6989586621680419960"><span id="local-6989586621680419961"><span id="local-6989586621680419962"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe DataQualityBaselineConfig
+Maybe MonitoringStoppingCondition
+Maybe MonitoringNetworkConfig
+Text
+DataQualityAppSpecification
+MonitoringResources
+DataQualityJobInput
+MonitoringOutputConfig
+roleArn :: Text
+jobResources :: MonitoringResources
+dataQualityJobOutputConfig :: MonitoringOutputConfig
+dataQualityJobInput :: DataQualityJobInput
+dataQualityAppSpecification :: DataQualityAppSpecification
+jobDefinitionName :: Text
+stoppingCondition :: Maybe MonitoringStoppingCondition
+tags :: Maybe [Tag]
+dataQualityBaselineConfig :: Maybe DataQualityBaselineConfig
+networkConfig :: Maybe MonitoringNetworkConfig
+$sel:roleArn:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Text
+$sel:jobResources:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; MonitoringResources
+$sel:dataQualityJobOutputConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; MonitoringOutputConfig
+$sel:dataQualityJobInput:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; DataQualityJobInput
+$sel:dataQualityAppSpecification:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; DataQualityAppSpecification
+$sel:jobDefinitionName:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Text
+$sel:stoppingCondition:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe MonitoringStoppingCondition
+$sel:tags:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe [Tag]
+$sel:dataQualityBaselineConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe DataQualityBaselineConfig
+$sel:networkConfig:CreateDataQualityJobDefinition' :: CreateDataQualityJobDefinition -&gt; Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680419953"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-244"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringNetworkConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MonitoringNetworkConfig -&gt; Pair)
+-&gt; Maybe MonitoringNetworkConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680419962"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataQualityBaselineConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataQualityBaselineConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(DataQualityBaselineConfig -&gt; Pair)
+-&gt; Maybe DataQualityBaselineConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataQualityBaselineConfig
+</span><a href="#local-6989586621680419961"><span class="hs-identifier hs-var">dataQualityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680419960"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStoppingCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStoppingCondition -&gt; Pair)
+-&gt; Maybe MonitoringStoppingCondition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680419959"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-251"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419958"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-253"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataQualityAppSpecification&quot;</span></span><span>
+</span><span id="line-254"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; DataQualityAppSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataQualityAppSpecification
+</span><a href="#local-6989586621680419957"><span class="hs-identifier hs-var">dataQualityAppSpecification</span></a></span><span>
+</span><span id="line-255"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-257"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataQualityJobInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataQualityJobInput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataQualityJobInput
+</span><a href="#local-6989586621680419956"><span class="hs-identifier hs-var">dataQualityJobInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-259"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataQualityJobOutputConfig&quot;</span></span><span>
+</span><span id="line-260"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; MonitoringOutputConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680419955"><span class="hs-identifier hs-var">dataQualityJobOutputConfig</span></a></span><span>
+</span><span id="line-261"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringResources -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680419954"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419953"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621680419947"><span class="annot"><span class="annottext">toPath :: CreateDataQualityJobDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataQualityJobDefinition -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinition"><span class="hs-identifier hs-type">CreateDataQualityJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621680419943"><span class="annot"><span class="annottext">toQuery :: CreateDataQualityJobDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataQualityJobDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | /See:/ 'newCreateDataQualityJobDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-274"></span><span id="local-6989586621680419940"><span id="local-6989586621680419941"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataQualityJobDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-var">CreateDataQualityJobDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataQualityJobDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateDataQualityJobDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDataQualityJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AhttpStatus%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-278"></span><span>    </span><span id="%24sel%3AjobDefinitionArn%3ACreateDataQualityJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse -&gt; Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680419934"><span id="local-6989586621680419936"><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse
+-&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool
+(CreateDataQualityJobDefinitionResponse
+ -&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool)
+-&gt; (CreateDataQualityJobDefinitionResponse
+    -&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool)
+-&gt; Eq CreateDataQualityJobDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDataQualityJobDefinitionResponse
+-&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool
+$c/= :: CreateDataQualityJobDefinitionResponse
+-&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool
+== :: CreateDataQualityJobDefinitionResponse
+-&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool
+$c== :: CreateDataQualityJobDefinitionResponse
+-&gt; CreateDataQualityJobDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419926"><span id="local-6989586621680419928"><span id="local-6989586621680419930"><span id="local-6989586621680419932"><span class="annot"><span class="annottext">ReadPrec [CreateDataQualityJobDefinitionResponse]
+ReadPrec CreateDataQualityJobDefinitionResponse
+Int -&gt; ReadS CreateDataQualityJobDefinitionResponse
+ReadS [CreateDataQualityJobDefinitionResponse]
+(Int -&gt; ReadS CreateDataQualityJobDefinitionResponse)
+-&gt; ReadS [CreateDataQualityJobDefinitionResponse]
+-&gt; ReadPrec CreateDataQualityJobDefinitionResponse
+-&gt; ReadPrec [CreateDataQualityJobDefinitionResponse]
+-&gt; Read CreateDataQualityJobDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDataQualityJobDefinitionResponse]
+$creadListPrec :: ReadPrec [CreateDataQualityJobDefinitionResponse]
+readPrec :: ReadPrec CreateDataQualityJobDefinitionResponse
+$creadPrec :: ReadPrec CreateDataQualityJobDefinitionResponse
+readList :: ReadS [CreateDataQualityJobDefinitionResponse]
+$creadList :: ReadS [CreateDataQualityJobDefinitionResponse]
+readsPrec :: Int -&gt; ReadS CreateDataQualityJobDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS CreateDataQualityJobDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419920"><span id="local-6989586621680419922"><span id="local-6989586621680419924"><span class="annot"><span class="annottext">Int -&gt; CreateDataQualityJobDefinitionResponse -&gt; ShowS
+[CreateDataQualityJobDefinitionResponse] -&gt; ShowS
+CreateDataQualityJobDefinitionResponse -&gt; String
+(Int -&gt; CreateDataQualityJobDefinitionResponse -&gt; ShowS)
+-&gt; (CreateDataQualityJobDefinitionResponse -&gt; String)
+-&gt; ([CreateDataQualityJobDefinitionResponse] -&gt; ShowS)
+-&gt; Show CreateDataQualityJobDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDataQualityJobDefinitionResponse] -&gt; ShowS
+$cshowList :: [CreateDataQualityJobDefinitionResponse] -&gt; ShowS
+show :: CreateDataQualityJobDefinitionResponse -&gt; String
+$cshow :: CreateDataQualityJobDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; CreateDataQualityJobDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDataQualityJobDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDataQualityJobDefinitionResponse
+ -&gt; Rep CreateDataQualityJobDefinitionResponse x)
+-&gt; (forall x.
+    Rep CreateDataQualityJobDefinitionResponse x
+    -&gt; CreateDataQualityJobDefinitionResponse)
+-&gt; Generic CreateDataQualityJobDefinitionResponse
+forall x.
+Rep CreateDataQualityJobDefinitionResponse x
+-&gt; CreateDataQualityJobDefinitionResponse
+forall x.
+CreateDataQualityJobDefinitionResponse
+-&gt; Rep CreateDataQualityJobDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDataQualityJobDefinitionResponse x
+-&gt; CreateDataQualityJobDefinitionResponse
+$cfrom :: forall x.
+CreateDataQualityJobDefinitionResponse
+-&gt; Rep CreateDataQualityJobDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Create a value of 'CreateDataQualityJobDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- 'httpStatus', 'createDataQualityJobDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'jobDefinitionArn', 'createDataQualityJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">newCreateDataQualityJobDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-294"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-comment">-- | 'jobDefinitionArn'</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span>
+</span><span id="line-299"></span><span id="newCreateDataQualityJobDefinitionResponse"><span class="annot"><span class="annottext">newCreateDataQualityJobDefinitionResponse :: Int -&gt; Text -&gt; CreateDataQualityJobDefinitionResponse
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#newCreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-var hs-var">newCreateDataQualityJobDefinitionResponse</span></a></span></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621680419917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419917"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621680419916"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419916"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse' :: Int -&gt; Text -&gt; CreateDataQualityJobDefinitionResponse
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse'</span></a></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataQualityJobDefinitionResponse' :: Int
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AhttpStatus%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419917"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateDataQualityJobDefinitionResponse' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-306"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419916"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span>
+</span><span id="line-307"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">createDataQualityJobDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-311"></span><span id="createDataQualityJobDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">createDataQualityJobDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDataQualityJobDefinitionResponse
+-&gt; f CreateDataQualityJobDefinitionResponse
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinitionResponse -&gt; Int)
+-&gt; (CreateDataQualityJobDefinitionResponse
+    -&gt; Int -&gt; CreateDataQualityJobDefinitionResponse)
+-&gt; Lens
+     CreateDataQualityJobDefinitionResponse
+     CreateDataQualityJobDefinitionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419915"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDataQualityJobDefinitionResponse' :: CreateDataQualityJobDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621680419915"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419915"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419914"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinitionResponse
+</span><a href="#local-6989586621680419914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse
+</span><a href="#local-6989586621680419914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataQualityJobDefinitionResponse' :: Int
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AhttpStatus%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_jobDefinitionArn"><span class="hs-identifier hs-type">createDataQualityJobDefinitionResponse_jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-315"></span><span id="createDataQualityJobDefinitionResponse_jobDefinitionArn"><span class="annot"><span class="annottext">createDataQualityJobDefinitionResponse_jobDefinitionArn :: (Text -&gt; f Text)
+-&gt; CreateDataQualityJobDefinitionResponse
+-&gt; f CreateDataQualityJobDefinitionResponse
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#createDataQualityJobDefinitionResponse_jobDefinitionArn"><span class="hs-identifier hs-var hs-var">createDataQualityJobDefinitionResponse_jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataQualityJobDefinitionResponse -&gt; Text)
+-&gt; (CreateDataQualityJobDefinitionResponse
+    -&gt; Text -&gt; CreateDataQualityJobDefinitionResponse)
+-&gt; Lens
+     CreateDataQualityJobDefinitionResponse
+     CreateDataQualityJobDefinitionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419912"><span class="annot"><span class="annottext">Text
+jobDefinitionArn :: Text
+$sel:jobDefinitionArn:CreateDataQualityJobDefinitionResponse' :: CreateDataQualityJobDefinitionResponse -&gt; Text
+</span><a href="#local-6989586621680419912"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419912"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419911"><span class="annot"><span class="annottext">s :: CreateDataQualityJobDefinitionResponse
+</span><a href="#local-6989586621680419911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataQualityJobDefinitionResponse
+</span><a href="#local-6989586621680419911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateDataQualityJobDefinitionResponse' :: Text
+</span><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateDataQualityJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621680419908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateDataQualityJobDefinition.html#CreateDataQualityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateDataQualityJobDefinitionResponse</span></a></span></span><span>
+</span><span id="line-320"></span></pre></body></html>

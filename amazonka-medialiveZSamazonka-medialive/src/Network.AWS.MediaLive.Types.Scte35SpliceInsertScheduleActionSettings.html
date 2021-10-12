@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Settings for a SCTE-35 splice_insert message.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newScte35SpliceInsertScheduleActionSettings' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679911265"><span id="local-6989586621679911266"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scte35SpliceInsertScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-var">Scte35SpliceInsertScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SpliceInsertScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">Scte35SpliceInsertScheduleActionSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional, the duration for the splice_insert, in 90 KHz ticks. To</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- convert seconds to ticks, multiple the seconds by 90,000. If you enter a</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- duration, there is an expectation that the downstream system can read</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the duration and cue in at that time. If you do not enter a duration,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the splice_insert will continue indefinitely and there is an expectation</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- that you will enter a return_to_network to end the splice_insert at the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- appropriate time.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aduration%3AScte35SpliceInsertScheduleActionSettings%27"><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3Aduration%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The splice_event_id for the SCTE-35 splice_insert, as defined in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- SCTE-35.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AspliceEventId%3AScte35SpliceInsertScheduleActionSettings%27"><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings -&gt; Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3AspliceEventId%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">spliceEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911258"><span id="local-6989586621679911260"><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings
+-&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool
+(Scte35SpliceInsertScheduleActionSettings
+ -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool)
+-&gt; (Scte35SpliceInsertScheduleActionSettings
+    -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool)
+-&gt; Eq Scte35SpliceInsertScheduleActionSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Scte35SpliceInsertScheduleActionSettings
+-&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool
+$c/= :: Scte35SpliceInsertScheduleActionSettings
+-&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool
+== :: Scte35SpliceInsertScheduleActionSettings
+-&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool
+$c== :: Scte35SpliceInsertScheduleActionSettings
+-&gt; Scte35SpliceInsertScheduleActionSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911249"><span id="local-6989586621679911251"><span id="local-6989586621679911253"><span id="local-6989586621679911255"><span class="annot"><span class="annottext">ReadPrec [Scte35SpliceInsertScheduleActionSettings]
+ReadPrec Scte35SpliceInsertScheduleActionSettings
+Int -&gt; ReadS Scte35SpliceInsertScheduleActionSettings
+ReadS [Scte35SpliceInsertScheduleActionSettings]
+(Int -&gt; ReadS Scte35SpliceInsertScheduleActionSettings)
+-&gt; ReadS [Scte35SpliceInsertScheduleActionSettings]
+-&gt; ReadPrec Scte35SpliceInsertScheduleActionSettings
+-&gt; ReadPrec [Scte35SpliceInsertScheduleActionSettings]
+-&gt; Read Scte35SpliceInsertScheduleActionSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Scte35SpliceInsertScheduleActionSettings]
+$creadListPrec :: ReadPrec [Scte35SpliceInsertScheduleActionSettings]
+readPrec :: ReadPrec Scte35SpliceInsertScheduleActionSettings
+$creadPrec :: ReadPrec Scte35SpliceInsertScheduleActionSettings
+readList :: ReadS [Scte35SpliceInsertScheduleActionSettings]
+$creadList :: ReadS [Scte35SpliceInsertScheduleActionSettings]
+readsPrec :: Int -&gt; ReadS Scte35SpliceInsertScheduleActionSettings
+$creadsPrec :: Int -&gt; ReadS Scte35SpliceInsertScheduleActionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911242"><span id="local-6989586621679911244"><span id="local-6989586621679911246"><span class="annot"><span class="annottext">Int -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; ShowS
+[Scte35SpliceInsertScheduleActionSettings] -&gt; ShowS
+Scte35SpliceInsertScheduleActionSettings -&gt; String
+(Int -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; ShowS)
+-&gt; (Scte35SpliceInsertScheduleActionSettings -&gt; String)
+-&gt; ([Scte35SpliceInsertScheduleActionSettings] -&gt; ShowS)
+-&gt; Show Scte35SpliceInsertScheduleActionSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Scte35SpliceInsertScheduleActionSettings] -&gt; ShowS
+$cshowList :: [Scte35SpliceInsertScheduleActionSettings] -&gt; ShowS
+show :: Scte35SpliceInsertScheduleActionSettings -&gt; String
+$cshow :: Scte35SpliceInsertScheduleActionSettings -&gt; String
+showsPrec :: Int -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Scte35SpliceInsertScheduleActionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ Scte35SpliceInsertScheduleActionSettings
+ -&gt; Rep Scte35SpliceInsertScheduleActionSettings x)
+-&gt; (forall x.
+    Rep Scte35SpliceInsertScheduleActionSettings x
+    -&gt; Scte35SpliceInsertScheduleActionSettings)
+-&gt; Generic Scte35SpliceInsertScheduleActionSettings
+forall x.
+Rep Scte35SpliceInsertScheduleActionSettings x
+-&gt; Scte35SpliceInsertScheduleActionSettings
+forall x.
+Scte35SpliceInsertScheduleActionSettings
+-&gt; Rep Scte35SpliceInsertScheduleActionSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Scte35SpliceInsertScheduleActionSettings x
+-&gt; Scte35SpliceInsertScheduleActionSettings
+$cfrom :: forall x.
+Scte35SpliceInsertScheduleActionSettings
+-&gt; Rep Scte35SpliceInsertScheduleActionSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Scte35SpliceInsertScheduleActionSettings' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'duration', 'scte35SpliceInsertScheduleActionSettings_duration' - Optional, the duration for the splice_insert, in 90 KHz ticks. To</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- convert seconds to ticks, multiple the seconds by 90,000. If you enter a</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- duration, there is an expectation that the downstream system can read</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- the duration and cue in at that time. If you do not enter a duration,</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- the splice_insert will continue indefinitely and there is an expectation</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- that you will enter a return_to_network to end the splice_insert at the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- appropriate time.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'spliceEventId', 'scte35SpliceInsertScheduleActionSettings_spliceEventId' - The splice_event_id for the SCTE-35 splice_insert, as defined in</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- SCTE-35.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#newScte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">newScte35SpliceInsertScheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'spliceEventId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span>
+</span><span id="line-66"></span><span id="newScte35SpliceInsertScheduleActionSettings"><span class="annot"><span class="annottext">newScte35SpliceInsertScheduleActionSettings :: Natural -&gt; Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#newScte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-var hs-var">newScte35SpliceInsertScheduleActionSettings</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679911236"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911236"><span class="hs-identifier hs-var">pSpliceEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings' :: Maybe Natural
+-&gt; Natural -&gt; Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:duration:Scte35SpliceInsertScheduleActionSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3Aduration%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:spliceEventId:Scte35SpliceInsertScheduleActionSettings' :: Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3AspliceEventId%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">spliceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911236"><span class="hs-identifier hs-var">pSpliceEventId_</span></a></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Optional, the duration for the splice_insert, in 90 KHz ticks. To</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- convert seconds to ticks, multiple the seconds by 90,000. If you enter a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- duration, there is an expectation that the downstream system can read</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the duration and cue in at that time. If you do not enter a duration,</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the splice_insert will continue indefinitely and there is an expectation</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- that you will enter a return_to_network to end the splice_insert at the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- appropriate time.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#scte35SpliceInsertScheduleActionSettings_duration"><span class="hs-identifier hs-type">scte35SpliceInsertScheduleActionSettings_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="scte35SpliceInsertScheduleActionSettings_duration"><span class="annot"><span class="annottext">scte35SpliceInsertScheduleActionSettings_duration :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Scte35SpliceInsertScheduleActionSettings
+-&gt; f Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#scte35SpliceInsertScheduleActionSettings_duration"><span class="hs-identifier hs-var hs-var">scte35SpliceInsertScheduleActionSettings_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scte35SpliceInsertScheduleActionSettings -&gt; Maybe Natural)
+-&gt; (Scte35SpliceInsertScheduleActionSettings
+    -&gt; Maybe Natural -&gt; Scte35SpliceInsertScheduleActionSettings)
+-&gt; Lens
+     Scte35SpliceInsertScheduleActionSettings
+     Scte35SpliceInsertScheduleActionSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911232"><span class="annot"><span class="annottext">Maybe Natural
+duration :: Maybe Natural
+$sel:duration:Scte35SpliceInsertScheduleActionSettings' :: Scte35SpliceInsertScheduleActionSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679911232"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679911232"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911231"><span class="annot"><span class="annottext">s :: Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679911231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911230"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679911230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679911231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:Scte35SpliceInsertScheduleActionSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3Aduration%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679911230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The splice_event_id for the SCTE-35 splice_insert, as defined in</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- SCTE-35.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#scte35SpliceInsertScheduleActionSettings_spliceEventId"><span class="hs-identifier hs-type">scte35SpliceInsertScheduleActionSettings_spliceEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-87"></span><span id="scte35SpliceInsertScheduleActionSettings_spliceEventId"><span class="annot"><span class="annottext">scte35SpliceInsertScheduleActionSettings_spliceEventId :: (Natural -&gt; f Natural)
+-&gt; Scte35SpliceInsertScheduleActionSettings
+-&gt; f Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#scte35SpliceInsertScheduleActionSettings_spliceEventId"><span class="hs-identifier hs-var hs-var">scte35SpliceInsertScheduleActionSettings_spliceEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scte35SpliceInsertScheduleActionSettings -&gt; Natural)
+-&gt; (Scte35SpliceInsertScheduleActionSettings
+    -&gt; Natural -&gt; Scte35SpliceInsertScheduleActionSettings)
+-&gt; Lens
+     Scte35SpliceInsertScheduleActionSettings
+     Scte35SpliceInsertScheduleActionSettings
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911228"><span class="annot"><span class="annottext">Natural
+spliceEventId :: Natural
+$sel:spliceEventId:Scte35SpliceInsertScheduleActionSettings' :: Scte35SpliceInsertScheduleActionSettings -&gt; Natural
+</span><a href="#local-6989586621679911228"><span class="hs-identifier hs-var hs-var">spliceEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911228"><span class="hs-identifier hs-var">spliceEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911227"><span class="annot"><span class="annottext">s :: Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679911227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911226"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsertScheduleActionSettings
+</span><a href="#local-6989586621679911227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spliceEventId:Scte35SpliceInsertScheduleActionSettings' :: Natural
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#%24sel%3AspliceEventId%3AScte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">spliceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679911223"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679911221"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scte35SpliceInsertScheduleActionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Scte35SpliceInsertScheduleActionSettings)
+-&gt; Value
+-&gt; Parser Scte35SpliceInsertScheduleActionSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Scte35SpliceInsertScheduleActionSettings&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911218"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Natural -&gt; Scte35SpliceInsertScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-var">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Natural -&gt; Scte35SpliceInsertScheduleActionSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Natural -&gt; Scte35SpliceInsertScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Scte35SpliceInsertScheduleActionSettings)
+-&gt; Parser Natural
+-&gt; Parser Scte35SpliceInsertScheduleActionSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spliceEventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679911211"><span id="local-6989586621679911213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679911208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679911200"><span id="local-6989586621679911202"><span id="local-6989586621679911204"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings</span></a></span></span></span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679911198"><span class="annot"><span class="annottext">toJSON :: Scte35SpliceInsertScheduleActionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings.html#Scte35SpliceInsertScheduleActionSettings%27"><span class="hs-identifier hs-type">Scte35SpliceInsertScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911195"><span id="local-6989586621679911196"><span class="annot"><span class="annottext">Natural
+Maybe Natural
+spliceEventId :: Natural
+duration :: Maybe Natural
+$sel:spliceEventId:Scte35SpliceInsertScheduleActionSettings' :: Scte35SpliceInsertScheduleActionSettings -&gt; Natural
+$sel:duration:Scte35SpliceInsertScheduleActionSettings' :: Scte35SpliceInsertScheduleActionSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679911195"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679911196"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-119"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spliceEventId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911195"><span class="hs-identifier hs-var">spliceEventId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

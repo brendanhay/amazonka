@@ -1,0 +1,1143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateNotebookInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a notebook instance. NotebookInstance updates include upgrading</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- or downgrading the ML compute instance used for your notebook instance</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to accommodate changes in your workload requirements.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateNotebookInstance</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstance"><span class="hs-identifier">newUpdateNotebookInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_defaultCodeRepository"><span class="hs-identifier">updateNotebookInstance_defaultCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_acceleratorTypes"><span class="hs-identifier">updateNotebookInstance_acceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_roleArn"><span class="hs-identifier">updateNotebookInstance_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_instanceType"><span class="hs-identifier">updateNotebookInstance_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAcceleratorTypes"><span class="hs-identifier">updateNotebookInstance_disassociateAcceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateDefaultCodeRepository"><span class="hs-identifier">updateNotebookInstance_disassociateDefaultCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateLifecycleConfig"><span class="hs-identifier">updateNotebookInstance_disassociateLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_additionalCodeRepositories"><span class="hs-identifier">updateNotebookInstance_additionalCodeRepositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAdditionalCodeRepositories"><span class="hs-identifier">updateNotebookInstance_disassociateAdditionalCodeRepositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_volumeSizeInGB"><span class="hs-identifier">updateNotebookInstance_volumeSizeInGB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_lifecycleConfigName"><span class="hs-identifier">updateNotebookInstance_lifecycleConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_rootAccess"><span class="hs-identifier">updateNotebookInstance_rootAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_notebookInstanceName"><span class="hs-identifier">updateNotebookInstance_notebookInstanceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier">UpdateNotebookInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstanceResponse"><span class="hs-identifier">newUpdateNotebookInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstanceResponse_httpStatus"><span class="hs-identifier">updateNotebookInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotebookInstance' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621680426676"><span id="local-6989586621680426677"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotebookInstance"><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-var">UpdateNotebookInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotebookInstance%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-var">UpdateNotebookInstance'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Git repository to associate with the notebook instance as its</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- default code repository. This can be either the name of a Git repository</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- stored as a resource in your account, or the URL of a Git repository in</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- or in any other Git repository. When you open a notebook instance, it</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- opens in the directory that contains this repository. For more</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">defaultCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A list of the Elastic Inference (EI) instance types to associate with</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- this notebook instance. Currently only one EI instance type can be</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- associated with a notebook instance. For more information, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker&gt;.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AacceleratorTypes%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe [NotebookInstanceAcceleratorType]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AacceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">acceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceAcceleratorType.html#NotebookInstanceAcceleratorType"><span class="hs-identifier hs-type">NotebookInstanceAcceleratorType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- assume to access the notebook instance. For more information, see</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles&gt;.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- To be able to pass this role to Amazon SageMaker, the caller of this API</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- must have the @iam:PassRole@ permission.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AroleArn%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The Amazon ML compute instance type.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AinstanceType%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe InstanceType
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AinstanceType%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A list of the Elastic Inference (EI) instance types to remove from this</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify an</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- accelerator type that is not associated with the notebook instance when</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdisassociateAcceleratorTypes%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAcceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">disassociateAcceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The name or URL of the default Git repository to remove from this</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify a Git</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- repository that is not associated with the notebook instance when you</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- call this method, it does not throw an error.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AdisassociateDefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateDefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">disassociateDefaultCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | Set to @true@ to remove the notebook instance lifecycle configuration</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- currently associated with the notebook instance. This operation is</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- idempotent. If you specify a lifecycle configuration that is not</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- associated with the notebook instance when you call this method, it does</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- not throw an error.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AdisassociateLifecycleConfig%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateLifecycleConfig%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">disassociateLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | An array of up to three Git repositories to associate with the notebook</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- instance. These can be either the names of Git repositories stored as</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- resources in your account, or the URL of Git repositories in</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- or in any other Git repository. These repositories are cloned at the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- same level as the default repository of your notebook instance. For more</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AadditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe [Text]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AadditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">additionalCodeRepositories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | A list of names or URLs of the default Git repositories to remove from</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- this notebook instance. This operation is idempotent. If you specify a</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Git repository that is not associated with the notebook instance when</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AdisassociateAdditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAdditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">disassociateAdditionalCodeRepositories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The size, in GB, of the ML storage volume to attach to the notebook</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- instance. The default value is 5 GB. ML storage volumes are encrypted,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- so Amazon SageMaker can\'t determine the amount of available free space</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- on the volume. Because of this, you can increase the volume size when</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- you update a notebook instance, but you can\'t decrease the volume size.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- If you want to decrease the size of the ML storage volume in use, create</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- a new notebook instance with the desired size.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AvolumeSizeInGB%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The name of a lifecycle configuration to associate with the notebook</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- instance. For information about lifestyle configurations, see</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance&gt;.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AlifecycleConfigName%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AlifecycleConfigName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">lifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | Whether root access is enabled or disabled for users of the notebook</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- instance. The default value is @Enabled@.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- If you set this to @Disabled@, users don\'t have root access on the</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- notebook instance, but lifecycle configuration scripts still run with</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- root permissions.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3ArootAccess%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Maybe RootAccess
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3ArootAccess%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">rootAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-type">RootAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The name of the notebook instance to update.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AnotebookInstanceName%3AUpdateNotebookInstance%27"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AnotebookInstanceName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var hs-var">notebookInstanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680426658"><span id="local-6989586621680426660"><span class="annot"><span class="annottext">UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool
+(UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool)
+-&gt; (UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool)
+-&gt; Eq UpdateNotebookInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool
+$c/= :: UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool
+== :: UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool
+$c== :: UpdateNotebookInstance -&gt; UpdateNotebookInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426649"><span id="local-6989586621680426651"><span id="local-6989586621680426653"><span id="local-6989586621680426655"><span class="annot"><span class="annottext">ReadPrec [UpdateNotebookInstance]
+ReadPrec UpdateNotebookInstance
+Int -&gt; ReadS UpdateNotebookInstance
+ReadS [UpdateNotebookInstance]
+(Int -&gt; ReadS UpdateNotebookInstance)
+-&gt; ReadS [UpdateNotebookInstance]
+-&gt; ReadPrec UpdateNotebookInstance
+-&gt; ReadPrec [UpdateNotebookInstance]
+-&gt; Read UpdateNotebookInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateNotebookInstance]
+$creadListPrec :: ReadPrec [UpdateNotebookInstance]
+readPrec :: ReadPrec UpdateNotebookInstance
+$creadPrec :: ReadPrec UpdateNotebookInstance
+readList :: ReadS [UpdateNotebookInstance]
+$creadList :: ReadS [UpdateNotebookInstance]
+readsPrec :: Int -&gt; ReadS UpdateNotebookInstance
+$creadsPrec :: Int -&gt; ReadS UpdateNotebookInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426642"><span id="local-6989586621680426644"><span id="local-6989586621680426646"><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstance -&gt; ShowS
+[UpdateNotebookInstance] -&gt; ShowS
+UpdateNotebookInstance -&gt; String
+(Int -&gt; UpdateNotebookInstance -&gt; ShowS)
+-&gt; (UpdateNotebookInstance -&gt; String)
+-&gt; ([UpdateNotebookInstance] -&gt; ShowS)
+-&gt; Show UpdateNotebookInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateNotebookInstance] -&gt; ShowS
+$cshowList :: [UpdateNotebookInstance] -&gt; ShowS
+show :: UpdateNotebookInstance -&gt; String
+$cshow :: UpdateNotebookInstance -&gt; String
+showsPrec :: Int -&gt; UpdateNotebookInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateNotebookInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateNotebookInstance -&gt; Rep UpdateNotebookInstance x)
+-&gt; (forall x.
+    Rep UpdateNotebookInstance x -&gt; UpdateNotebookInstance)
+-&gt; Generic UpdateNotebookInstance
+forall x. Rep UpdateNotebookInstance x -&gt; UpdateNotebookInstance
+forall x. UpdateNotebookInstance -&gt; Rep UpdateNotebookInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateNotebookInstance x -&gt; UpdateNotebookInstance
+$cfrom :: forall x. UpdateNotebookInstance -&gt; Rep UpdateNotebookInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'UpdateNotebookInstance' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'defaultCodeRepository', 'updateNotebookInstance_defaultCodeRepository' - The Git repository to associate with the notebook instance as its</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- default code repository. This can be either the name of a Git repository</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- stored as a resource in your account, or the URL of a Git repository in</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- or in any other Git repository. When you open a notebook instance, it</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- opens in the directory that contains this repository. For more</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'acceleratorTypes', 'updateNotebookInstance_acceleratorTypes' - A list of the Elastic Inference (EI) instance types to associate with</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- this notebook instance. Currently only one EI instance type can be</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- associated with a notebook instance. For more information, see</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker&gt;.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'roleArn', 'updateNotebookInstance_roleArn' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- assume to access the notebook instance. For more information, see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles&gt;.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- To be able to pass this role to Amazon SageMaker, the caller of this API</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- must have the @iam:PassRole@ permission.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'instanceType', 'updateNotebookInstance_instanceType' - The Amazon ML compute instance type.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'disassociateAcceleratorTypes', 'updateNotebookInstance_disassociateAcceleratorTypes' - A list of the Elastic Inference (EI) instance types to remove from this</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify an</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- accelerator type that is not associated with the notebook instance when</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'disassociateDefaultCodeRepository', 'updateNotebookInstance_disassociateDefaultCodeRepository' - The name or URL of the default Git repository to remove from this</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify a Git</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- repository that is not associated with the notebook instance when you</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- call this method, it does not throw an error.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'disassociateLifecycleConfig', 'updateNotebookInstance_disassociateLifecycleConfig' - Set to @true@ to remove the notebook instance lifecycle configuration</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- currently associated with the notebook instance. This operation is</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- idempotent. If you specify a lifecycle configuration that is not</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- associated with the notebook instance when you call this method, it does</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- not throw an error.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'additionalCodeRepositories', 'updateNotebookInstance_additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- instance. These can be either the names of Git repositories stored as</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- resources in your account, or the URL of Git repositories in</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- or in any other Git repository. These repositories are cloned at the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- same level as the default repository of your notebook instance. For more</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'disassociateAdditionalCodeRepositories', 'updateNotebookInstance_disassociateAdditionalCodeRepositories' - A list of names or URLs of the default Git repositories to remove from</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- this notebook instance. This operation is idempotent. If you specify a</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Git repository that is not associated with the notebook instance when</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'volumeSizeInGB', 'updateNotebookInstance_volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- instance. The default value is 5 GB. ML storage volumes are encrypted,</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- so Amazon SageMaker can\'t determine the amount of available free space</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- on the volume. Because of this, you can increase the volume size when</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- you update a notebook instance, but you can\'t decrease the volume size.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- If you want to decrease the size of the ML storage volume in use, create</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- a new notebook instance with the desired size.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'lifecycleConfigName', 'updateNotebookInstance_lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- instance. For information about lifestyle configurations, see</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance&gt;.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'rootAccess', 'updateNotebookInstance_rootAccess' - Whether root access is enabled or disabled for users of the notebook</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- instance. The default value is @Enabled@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- If you set this to @Disabled@, users don\'t have root access on the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- notebook instance, but lifecycle configuration scripts still run with</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- root permissions.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'notebookInstanceName', 'updateNotebookInstance_notebookInstanceName' - The name of the notebook instance to update.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstance"><span class="hs-identifier hs-type">newUpdateNotebookInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'notebookInstanceName'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span>
+</span><span id="line-226"></span><span id="newUpdateNotebookInstance"><span class="annot"><span class="annottext">newUpdateNotebookInstance :: Text -&gt; UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstance"><span class="hs-identifier hs-var hs-var">newUpdateNotebookInstance</span></a></span></span><span> </span><span id="local-6989586621680426637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426637"><span class="hs-identifier hs-var">pNotebookInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">UpdateNotebookInstance' :: Maybe Text
+-&gt; Maybe [NotebookInstanceAcceleratorType]
+-&gt; Maybe Text
+-&gt; Maybe InstanceType
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe RootAccess
+-&gt; Text
+-&gt; UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultCodeRepository:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">defaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceleratorTypes:UpdateNotebookInstance' :: Maybe [NotebookInstanceAcceleratorType]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AacceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AroleArn%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:UpdateNotebookInstance' :: Maybe InstanceType
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AinstanceType%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:disassociateAcceleratorTypes:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAcceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateAcceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:disassociateDefaultCodeRepository:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateDefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateDefaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:disassociateLifecycleConfig:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateLifecycleConfig%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalCodeRepositories:UpdateNotebookInstance' :: Maybe [Text]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AadditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">additionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:disassociateAdditionalCodeRepositories:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAdditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateAdditionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:UpdateNotebookInstance' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AvolumeSizeInGB%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleConfigName:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AlifecycleConfigName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">lifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootAccess:UpdateNotebookInstance' :: Maybe RootAccess
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3ArootAccess%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">rootAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RootAccess
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:notebookInstanceName:UpdateNotebookInstance' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AnotebookInstanceName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426637"><span class="hs-identifier hs-var">pNotebookInstanceName_</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The Git repository to associate with the notebook instance as its</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- default code repository. This can be either the name of a Git repository</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- stored as a resource in your account, or the URL of a Git repository in</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- or in any other Git repository. When you open a notebook instance, it</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- opens in the directory that contains this repository. For more</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_defaultCodeRepository"><span class="hs-identifier hs-type">updateNotebookInstance_defaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="updateNotebookInstance_defaultCodeRepository"><span class="annot"><span class="annottext">updateNotebookInstance_defaultCodeRepository :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_defaultCodeRepository"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_defaultCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Text)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Text -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426634"><span class="annot"><span class="annottext">Maybe Text
+defaultCodeRepository :: Maybe Text
+$sel:defaultCodeRepository:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="#local-6989586621680426634"><span class="hs-identifier hs-var hs-var">defaultCodeRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426634"><span class="hs-identifier hs-var">defaultCodeRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426633"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCodeRepository:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">defaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | A list of the Elastic Inference (EI) instance types to associate with</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- this notebook instance. Currently only one EI instance type can be</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- associated with a notebook instance. For more information, see</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker&gt;.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_acceleratorTypes"><span class="hs-identifier hs-type">updateNotebookInstance_acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceAcceleratorType.html#NotebookInstanceAcceleratorType"><span class="hs-identifier hs-type">NotebookInstanceAcceleratorType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="updateNotebookInstance_acceleratorTypes"><span class="annot"><span class="annottext">updateNotebookInstance_acceleratorTypes :: (Maybe [NotebookInstanceAcceleratorType]
+ -&gt; f (Maybe [NotebookInstanceAcceleratorType]))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_acceleratorTypes"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_acceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe [NotebookInstanceAcceleratorType])
+-&gt; (UpdateNotebookInstance
+    -&gt; Maybe [NotebookInstanceAcceleratorType]
+    -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe [NotebookInstanceAcceleratorType])
+     (Maybe [NotebookInstanceAcceleratorType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426631"><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+acceleratorTypes :: Maybe [NotebookInstanceAcceleratorType]
+$sel:acceleratorTypes:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe [NotebookInstanceAcceleratorType]
+</span><a href="#local-6989586621680426631"><span class="hs-identifier hs-var hs-var">acceleratorTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+</span><a href="#local-6989586621680426631"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426630"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426629"><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+</span><a href="#local-6989586621680426629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorTypes:UpdateNotebookInstance' :: Maybe [NotebookInstanceAcceleratorType]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AacceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+</span><a href="#local-6989586621680426629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotebookInstanceAcceleratorType]
+  -&gt; f (Maybe [NotebookInstanceAcceleratorType]))
+ -&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance)
+-&gt; ((Maybe [NotebookInstanceAcceleratorType]
+     -&gt; f (Maybe [NotebookInstanceAcceleratorType]))
+    -&gt; Maybe [NotebookInstanceAcceleratorType]
+    -&gt; f (Maybe [NotebookInstanceAcceleratorType]))
+-&gt; (Maybe [NotebookInstanceAcceleratorType]
+    -&gt; f (Maybe [NotebookInstanceAcceleratorType]))
+-&gt; UpdateNotebookInstance
+-&gt; f UpdateNotebookInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+-&gt; Iso
+     (Maybe [NotebookInstanceAcceleratorType])
+     (Maybe [NotebookInstanceAcceleratorType])
+     (Maybe [NotebookInstanceAcceleratorType])
+     (Maybe [NotebookInstanceAcceleratorType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+  [NotebookInstanceAcceleratorType]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- assume to access the notebook instance. For more information, see</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles&gt;.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- To be able to pass this role to Amazon SageMaker, the caller of this API</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- must have the @iam:PassRole@ permission.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_roleArn"><span class="hs-identifier hs-type">updateNotebookInstance_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="updateNotebookInstance_roleArn"><span class="annot"><span class="annottext">updateNotebookInstance_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_roleArn"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Text)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Text -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426625"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="#local-6989586621680426625"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426625"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426624"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AroleArn%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The Amazon ML compute instance type.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_instanceType"><span class="hs-identifier hs-type">updateNotebookInstance_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="updateNotebookInstance_instanceType"><span class="annot"><span class="annottext">updateNotebookInstance_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_instanceType"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe InstanceType)
+-&gt; (UpdateNotebookInstance
+    -&gt; Maybe InstanceType -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe InstanceType)
+     (Maybe InstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426622"><span class="annot"><span class="annottext">Maybe InstanceType
+instanceType :: Maybe InstanceType
+$sel:instanceType:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe InstanceType
+</span><a href="#local-6989586621680426622"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621680426622"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426621"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426620"><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621680426620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:UpdateNotebookInstance' :: Maybe InstanceType
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AinstanceType%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621680426620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | A list of the Elastic Inference (EI) instance types to remove from this</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify an</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- accelerator type that is not associated with the notebook instance when</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAcceleratorTypes"><span class="hs-identifier hs-type">updateNotebookInstance_disassociateAcceleratorTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="updateNotebookInstance_disassociateAcceleratorTypes"><span class="annot"><span class="annottext">updateNotebookInstance_disassociateAcceleratorTypes :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAcceleratorTypes"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_disassociateAcceleratorTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Bool)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Bool -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426619"><span class="annot"><span class="annottext">Maybe Bool
+disassociateAcceleratorTypes :: Maybe Bool
+$sel:disassociateAcceleratorTypes:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621680426619"><span class="hs-identifier hs-var hs-var">disassociateAcceleratorTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426619"><span class="hs-identifier hs-var">disassociateAcceleratorTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426618"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426617"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disassociateAcceleratorTypes:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAcceleratorTypes%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateAcceleratorTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The name or URL of the default Git repository to remove from this</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- notebook instance. This operation is idempotent. If you specify a Git</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- repository that is not associated with the notebook instance when you</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- call this method, it does not throw an error.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateDefaultCodeRepository"><span class="hs-identifier hs-type">updateNotebookInstance_disassociateDefaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="updateNotebookInstance_disassociateDefaultCodeRepository"><span class="annot"><span class="annottext">updateNotebookInstance_disassociateDefaultCodeRepository :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateDefaultCodeRepository"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_disassociateDefaultCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Bool)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Bool -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426616"><span class="annot"><span class="annottext">Maybe Bool
+disassociateDefaultCodeRepository :: Maybe Bool
+$sel:disassociateDefaultCodeRepository:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621680426616"><span class="hs-identifier hs-var hs-var">disassociateDefaultCodeRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426616"><span class="hs-identifier hs-var">disassociateDefaultCodeRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426615"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426614"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disassociateDefaultCodeRepository:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateDefaultCodeRepository%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateDefaultCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Set to @true@ to remove the notebook instance lifecycle configuration</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- currently associated with the notebook instance. This operation is</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- idempotent. If you specify a lifecycle configuration that is not</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- associated with the notebook instance when you call this method, it does</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- not throw an error.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateLifecycleConfig"><span class="hs-identifier hs-type">updateNotebookInstance_disassociateLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="updateNotebookInstance_disassociateLifecycleConfig"><span class="annot"><span class="annottext">updateNotebookInstance_disassociateLifecycleConfig :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateLifecycleConfig"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_disassociateLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Bool)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Bool -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426613"><span class="annot"><span class="annottext">Maybe Bool
+disassociateLifecycleConfig :: Maybe Bool
+$sel:disassociateLifecycleConfig:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621680426613"><span class="hs-identifier hs-var hs-var">disassociateLifecycleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426613"><span class="hs-identifier hs-var">disassociateLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426612"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426611"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disassociateLifecycleConfig:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateLifecycleConfig%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | An array of up to three Git repositories to associate with the notebook</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- instance. These can be either the names of Git repositories stored as</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- resources in your account, or the URL of Git repositories in</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit&gt;</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- or in any other Git repository. These repositories are cloned at the</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- same level as the default repository of your notebook instance. For more</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances&gt;.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_additionalCodeRepositories"><span class="hs-identifier hs-type">updateNotebookInstance_additionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="updateNotebookInstance_additionalCodeRepositories"><span class="annot"><span class="annottext">updateNotebookInstance_additionalCodeRepositories :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_additionalCodeRepositories"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_additionalCodeRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe [Text])
+-&gt; (UpdateNotebookInstance
+    -&gt; Maybe [Text] -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426610"><span class="annot"><span class="annottext">Maybe [Text]
+additionalCodeRepositories :: Maybe [Text]
+$sel:additionalCodeRepositories:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe [Text]
+</span><a href="#local-6989586621680426610"><span class="hs-identifier hs-var hs-var">additionalCodeRepositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680426610"><span class="hs-identifier hs-var">additionalCodeRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426609"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426608"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680426608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalCodeRepositories:UpdateNotebookInstance' :: Maybe [Text]
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AadditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">additionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680426608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateNotebookInstance
+-&gt; f UpdateNotebookInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | A list of names or URLs of the default Git repositories to remove from</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- this notebook instance. This operation is idempotent. If you specify a</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- Git repository that is not associated with the notebook instance when</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- you call this method, it does not throw an error.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAdditionalCodeRepositories"><span class="hs-identifier hs-type">updateNotebookInstance_disassociateAdditionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span id="updateNotebookInstance_disassociateAdditionalCodeRepositories"><span class="annot"><span class="annottext">updateNotebookInstance_disassociateAdditionalCodeRepositories :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_disassociateAdditionalCodeRepositories"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_disassociateAdditionalCodeRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Bool)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Bool -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426607"><span class="annot"><span class="annottext">Maybe Bool
+disassociateAdditionalCodeRepositories :: Maybe Bool
+$sel:disassociateAdditionalCodeRepositories:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+</span><a href="#local-6989586621680426607"><span class="hs-identifier hs-var hs-var">disassociateAdditionalCodeRepositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426607"><span class="hs-identifier hs-var">disassociateAdditionalCodeRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426606"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426605"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disassociateAdditionalCodeRepositories:UpdateNotebookInstance' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AdisassociateAdditionalCodeRepositories%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">disassociateAdditionalCodeRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- | The size, in GB, of the ML storage volume to attach to the notebook</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- instance. The default value is 5 GB. ML storage volumes are encrypted,</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- so Amazon SageMaker can\'t determine the amount of available free space</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- on the volume. Because of this, you can increase the volume size when</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- you update a notebook instance, but you can\'t decrease the volume size.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- If you want to decrease the size of the ML storage volume in use, create</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- a new notebook instance with the desired size.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_volumeSizeInGB"><span class="hs-identifier hs-type">updateNotebookInstance_volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="updateNotebookInstance_volumeSizeInGB"><span class="annot"><span class="annottext">updateNotebookInstance_volumeSizeInGB :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_volumeSizeInGB"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Natural)
+-&gt; (UpdateNotebookInstance
+    -&gt; Maybe Natural -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426604"><span class="annot"><span class="annottext">Maybe Natural
+volumeSizeInGB :: Maybe Natural
+$sel:volumeSizeInGB:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Natural
+</span><a href="#local-6989586621680426604"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680426604"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426603"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426602"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680426602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:UpdateNotebookInstance' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AvolumeSizeInGB%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680426602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The name of a lifecycle configuration to associate with the notebook</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- instance. For information about lifestyle configurations, see</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance&gt;.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_lifecycleConfigName"><span class="hs-identifier hs-type">updateNotebookInstance_lifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="updateNotebookInstance_lifecycleConfigName"><span class="annot"><span class="annottext">updateNotebookInstance_lifecycleConfigName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_lifecycleConfigName"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_lifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe Text)
+-&gt; (UpdateNotebookInstance -&gt; Maybe Text -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426601"><span class="annot"><span class="annottext">Maybe Text
+lifecycleConfigName :: Maybe Text
+$sel:lifecycleConfigName:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="#local-6989586621680426601"><span class="hs-identifier hs-var hs-var">lifecycleConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426601"><span class="hs-identifier hs-var">lifecycleConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426600"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleConfigName:UpdateNotebookInstance' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AlifecycleConfigName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">lifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | Whether root access is enabled or disabled for users of the notebook</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- instance. The default value is @Enabled@.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- If you set this to @Disabled@, users don\'t have root access on the</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- notebook instance, but lifecycle configuration scripts still run with</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- root permissions.</span><span>
+</span><span id="line-338"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_rootAccess"><span class="hs-identifier hs-type">updateNotebookInstance_rootAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-type">RootAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span id="updateNotebookInstance_rootAccess"><span class="annot"><span class="annottext">updateNotebookInstance_rootAccess :: (Maybe RootAccess -&gt; f (Maybe RootAccess))
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_rootAccess"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_rootAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Maybe RootAccess)
+-&gt; (UpdateNotebookInstance
+    -&gt; Maybe RootAccess -&gt; UpdateNotebookInstance)
+-&gt; Lens
+     UpdateNotebookInstance
+     UpdateNotebookInstance
+     (Maybe RootAccess)
+     (Maybe RootAccess)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426598"><span class="annot"><span class="annottext">Maybe RootAccess
+rootAccess :: Maybe RootAccess
+$sel:rootAccess:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe RootAccess
+</span><a href="#local-6989586621680426598"><span class="hs-identifier hs-var hs-var">rootAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RootAccess
+</span><a href="#local-6989586621680426598"><span class="hs-identifier hs-var">rootAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426597"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426596"><span class="annot"><span class="annottext">Maybe RootAccess
+</span><a href="#local-6989586621680426596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootAccess:UpdateNotebookInstance' :: Maybe RootAccess
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3ArootAccess%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">rootAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RootAccess
+</span><a href="#local-6989586621680426596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- | The name of the notebook instance to update.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_notebookInstanceName"><span class="hs-identifier hs-type">updateNotebookInstance_notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-343"></span><span id="updateNotebookInstance_notebookInstanceName"><span class="annot"><span class="annottext">updateNotebookInstance_notebookInstanceName :: (Text -&gt; f Text)
+-&gt; UpdateNotebookInstance -&gt; f UpdateNotebookInstance
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstance_notebookInstanceName"><span class="hs-identifier hs-var hs-var">updateNotebookInstance_notebookInstanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstance -&gt; Text)
+-&gt; (UpdateNotebookInstance -&gt; Text -&gt; UpdateNotebookInstance)
+-&gt; Lens UpdateNotebookInstance UpdateNotebookInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426595"><span class="annot"><span class="annottext">Text
+notebookInstanceName :: Text
+$sel:notebookInstanceName:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Text
+</span><a href="#local-6989586621680426595"><span class="hs-identifier hs-var hs-var">notebookInstanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426595"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426594"><span class="annot"><span class="annottext">s :: UpdateNotebookInstance
+</span><a href="#local-6989586621680426594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstance
+</span><a href="#local-6989586621680426594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookInstanceName:UpdateNotebookInstance' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AnotebookInstanceName%3AUpdateNotebookInstance%27"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-346"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-347"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-348"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse</span></a></span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621680426589"><span class="annot"><span class="annottext">request :: UpdateNotebookInstance -&gt; Request UpdateNotebookInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateNotebookInstance -&gt; Request UpdateNotebookInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-350"></span><span>  </span><span id="local-6989586621680426585"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateNotebookInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateNotebookInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateNotebookInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateNotebookInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateNotebookInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680426582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426582"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680426581"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680426581"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680426580"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680426580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-353"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstanceResponse
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-var">UpdateNotebookInstanceResponse'</span></a></span><span>
+</span><span id="line-354"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateNotebookInstanceResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateNotebookInstanceResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426582"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426573"><span id="local-6989586621680426575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span></span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span></span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-362"></span><span>  </span><span id="local-6989586621680426566"><span class="annot"><span class="annottext">toHeaders :: UpdateNotebookInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateNotebookInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-365"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-366"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateNotebookInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-367"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-368"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-371"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-372"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-374"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426556"><span id="local-6989586621680426558"><span id="local-6989586621680426560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621680426554"><span class="annot"><span class="annottext">toJSON :: UpdateNotebookInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance%27"><span class="hs-identifier hs-type">UpdateNotebookInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426540"><span id="local-6989586621680426541"><span id="local-6989586621680426542"><span id="local-6989586621680426543"><span id="local-6989586621680426544"><span id="local-6989586621680426545"><span id="local-6989586621680426546"><span id="local-6989586621680426547"><span id="local-6989586621680426548"><span id="local-6989586621680426549"><span id="local-6989586621680426550"><span id="local-6989586621680426551"><span id="local-6989586621680426552"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Text]
+Maybe [NotebookInstanceAcceleratorType]
+Maybe Text
+Maybe InstanceType
+Maybe RootAccess
+Text
+notebookInstanceName :: Text
+rootAccess :: Maybe RootAccess
+lifecycleConfigName :: Maybe Text
+volumeSizeInGB :: Maybe Natural
+disassociateAdditionalCodeRepositories :: Maybe Bool
+additionalCodeRepositories :: Maybe [Text]
+disassociateLifecycleConfig :: Maybe Bool
+disassociateDefaultCodeRepository :: Maybe Bool
+disassociateAcceleratorTypes :: Maybe Bool
+instanceType :: Maybe InstanceType
+roleArn :: Maybe Text
+acceleratorTypes :: Maybe [NotebookInstanceAcceleratorType]
+defaultCodeRepository :: Maybe Text
+$sel:notebookInstanceName:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Text
+$sel:rootAccess:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe RootAccess
+$sel:lifecycleConfigName:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+$sel:volumeSizeInGB:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Natural
+$sel:disassociateAdditionalCodeRepositories:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+$sel:additionalCodeRepositories:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe [Text]
+$sel:disassociateLifecycleConfig:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+$sel:disassociateDefaultCodeRepository:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+$sel:disassociateAcceleratorTypes:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Bool
+$sel:instanceType:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe InstanceType
+$sel:roleArn:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+$sel:acceleratorTypes:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe [NotebookInstanceAcceleratorType]
+$sel:defaultCodeRepository:UpdateNotebookInstance' :: UpdateNotebookInstance -&gt; Maybe Text
+</span><a href="#local-6989586621680426540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-379"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-380"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultCodeRepository&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426552"><span class="hs-identifier hs-var">defaultCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceleratorTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NotebookInstanceAcceleratorType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>              </span><span class="annot"><span class="annottext">([NotebookInstanceAcceleratorType] -&gt; Pair)
+-&gt; Maybe [NotebookInstanceAcceleratorType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotebookInstanceAcceleratorType]
+</span><a href="#local-6989586621680426551"><span class="hs-identifier hs-var">acceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426550"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InstanceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InstanceType -&gt; Pair) -&gt; Maybe InstanceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621680426549"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisassociateAcceleratorTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426548"><span class="hs-identifier hs-var">disassociateAcceleratorTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisassociateDefaultCodeRepository&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426547"><span class="hs-identifier hs-var">disassociateDefaultCodeRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisassociateLifecycleConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426546"><span class="hs-identifier hs-var">disassociateLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdditionalCodeRepositories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680426545"><span class="hs-identifier hs-var">additionalCodeRepositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisassociateAdditionalCodeRepositories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680426544"><span class="hs-identifier hs-var">disassociateAdditionalCodeRepositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680426543"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LifecycleConfigName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680426542"><span class="hs-identifier hs-var">lifecycleConfigName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RootAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RootAccess -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RootAccess -&gt; Pair) -&gt; Maybe RootAccess -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RootAccess
+</span><a href="#local-6989586621680426541"><span class="hs-identifier hs-var">rootAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-402"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookInstanceName&quot;</span></span><span>
+</span><span id="line-403"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426540"><span class="hs-identifier hs-var">notebookInstanceName</span></a></span><span>
+</span><span id="line-404"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-406"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621680426534"><span class="annot"><span class="annottext">toPath :: UpdateNotebookInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateNotebookInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstance"><span class="hs-identifier hs-type">UpdateNotebookInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-412"></span><span>  </span><span id="local-6989586621680426530"><span class="annot"><span class="annottext">toQuery :: UpdateNotebookInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateNotebookInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotebookInstanceResponse' smart constructor.</span><span>
+</span><span id="line-415"></span><span id="local-6989586621680426527"><span id="local-6989586621680426528"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotebookInstanceResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-var">UpdateNotebookInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotebookInstanceResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-var">UpdateNotebookInstanceResponse'</span></a></span></span><span>
+</span><span id="line-416"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-417"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateNotebookInstanceResponse%27"><span class="annot"><span class="annottext">UpdateNotebookInstanceResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-418"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-419"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680426522"><span id="local-6989586621680426524"><span class="annot"><span class="annottext">UpdateNotebookInstanceResponse
+-&gt; UpdateNotebookInstanceResponse -&gt; Bool
+(UpdateNotebookInstanceResponse
+ -&gt; UpdateNotebookInstanceResponse -&gt; Bool)
+-&gt; (UpdateNotebookInstanceResponse
+    -&gt; UpdateNotebookInstanceResponse -&gt; Bool)
+-&gt; Eq UpdateNotebookInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateNotebookInstanceResponse
+-&gt; UpdateNotebookInstanceResponse -&gt; Bool
+$c/= :: UpdateNotebookInstanceResponse
+-&gt; UpdateNotebookInstanceResponse -&gt; Bool
+== :: UpdateNotebookInstanceResponse
+-&gt; UpdateNotebookInstanceResponse -&gt; Bool
+$c== :: UpdateNotebookInstanceResponse
+-&gt; UpdateNotebookInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426514"><span id="local-6989586621680426516"><span id="local-6989586621680426518"><span id="local-6989586621680426520"><span class="annot"><span class="annottext">ReadPrec [UpdateNotebookInstanceResponse]
+ReadPrec UpdateNotebookInstanceResponse
+Int -&gt; ReadS UpdateNotebookInstanceResponse
+ReadS [UpdateNotebookInstanceResponse]
+(Int -&gt; ReadS UpdateNotebookInstanceResponse)
+-&gt; ReadS [UpdateNotebookInstanceResponse]
+-&gt; ReadPrec UpdateNotebookInstanceResponse
+-&gt; ReadPrec [UpdateNotebookInstanceResponse]
+-&gt; Read UpdateNotebookInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateNotebookInstanceResponse]
+$creadListPrec :: ReadPrec [UpdateNotebookInstanceResponse]
+readPrec :: ReadPrec UpdateNotebookInstanceResponse
+$creadPrec :: ReadPrec UpdateNotebookInstanceResponse
+readList :: ReadS [UpdateNotebookInstanceResponse]
+$creadList :: ReadS [UpdateNotebookInstanceResponse]
+readsPrec :: Int -&gt; ReadS UpdateNotebookInstanceResponse
+$creadsPrec :: Int -&gt; ReadS UpdateNotebookInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426508"><span id="local-6989586621680426510"><span id="local-6989586621680426512"><span class="annot"><span class="annottext">Int -&gt; UpdateNotebookInstanceResponse -&gt; ShowS
+[UpdateNotebookInstanceResponse] -&gt; ShowS
+UpdateNotebookInstanceResponse -&gt; String
+(Int -&gt; UpdateNotebookInstanceResponse -&gt; ShowS)
+-&gt; (UpdateNotebookInstanceResponse -&gt; String)
+-&gt; ([UpdateNotebookInstanceResponse] -&gt; ShowS)
+-&gt; Show UpdateNotebookInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateNotebookInstanceResponse] -&gt; ShowS
+$cshowList :: [UpdateNotebookInstanceResponse] -&gt; ShowS
+show :: UpdateNotebookInstanceResponse -&gt; String
+$cshow :: UpdateNotebookInstanceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateNotebookInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateNotebookInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateNotebookInstanceResponse
+ -&gt; Rep UpdateNotebookInstanceResponse x)
+-&gt; (forall x.
+    Rep UpdateNotebookInstanceResponse x
+    -&gt; UpdateNotebookInstanceResponse)
+-&gt; Generic UpdateNotebookInstanceResponse
+forall x.
+Rep UpdateNotebookInstanceResponse x
+-&gt; UpdateNotebookInstanceResponse
+forall x.
+UpdateNotebookInstanceResponse
+-&gt; Rep UpdateNotebookInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateNotebookInstanceResponse x
+-&gt; UpdateNotebookInstanceResponse
+$cfrom :: forall x.
+UpdateNotebookInstanceResponse
+-&gt; Rep UpdateNotebookInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- Create a value of 'UpdateNotebookInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- 'httpStatus', 'updateNotebookInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">newUpdateNotebookInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-431"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-432"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-433"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse</span></a></span><span>
+</span><span id="line-434"></span><span id="newUpdateNotebookInstanceResponse"><span class="annot"><span class="annottext">newUpdateNotebookInstanceResponse :: Int -&gt; UpdateNotebookInstanceResponse
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#newUpdateNotebookInstanceResponse"><span class="hs-identifier hs-var hs-var">newUpdateNotebookInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621680426505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-435"></span><span>  </span><span class="annot"><span class="annottext">UpdateNotebookInstanceResponse' :: Int -&gt; UpdateNotebookInstanceResponse
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse'</span></a></span><span>
+</span><span id="line-436"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotebookInstanceResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426505"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-439"></span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-441"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstanceResponse_httpStatus"><span class="hs-identifier hs-type">updateNotebookInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-442"></span><span id="updateNotebookInstanceResponse_httpStatus"><span class="annot"><span class="annottext">updateNotebookInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateNotebookInstanceResponse
+-&gt; f UpdateNotebookInstanceResponse
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#updateNotebookInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateNotebookInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateNotebookInstanceResponse -&gt; Int)
+-&gt; (UpdateNotebookInstanceResponse
+    -&gt; Int -&gt; UpdateNotebookInstanceResponse)
+-&gt; Lens
+     UpdateNotebookInstanceResponse
+     UpdateNotebookInstanceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426504"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateNotebookInstanceResponse' :: UpdateNotebookInstanceResponse -&gt; Int
+</span><a href="#local-6989586621680426504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426503"><span class="annot"><span class="annottext">s :: UpdateNotebookInstanceResponse
+</span><a href="#local-6989586621680426503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotebookInstanceResponse
+</span><a href="#local-6989586621680426503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotebookInstanceResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#%24sel%3AhttpStatus%3AUpdateNotebookInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-445"></span><span>  </span><span id="local-6989586621680426500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateNotebookInstance.html#UpdateNotebookInstanceResponse"><span class="hs-identifier hs-type">UpdateNotebookInstanceResponse</span></a></span></span><span>
+</span><span id="line-447"></span></pre></body></html>

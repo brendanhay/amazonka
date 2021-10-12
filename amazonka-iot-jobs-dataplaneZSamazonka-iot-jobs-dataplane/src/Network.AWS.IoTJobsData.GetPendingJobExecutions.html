@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTJobsData.GetPendingJobExecutions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the list of all jobs for a thing that are not in a terminal status.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTJobsData.GetPendingJobExecutions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutions"><span class="hs-identifier">newGetPendingJobExecutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutions_thingName"><span class="hs-identifier">getPendingJobExecutions_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier">GetPendingJobExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutionsResponse"><span class="hs-identifier">newGetPendingJobExecutionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_inProgressJobs"><span class="hs-identifier">getPendingJobExecutionsResponse_inProgressJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_queuedJobs"><span class="hs-identifier">getPendingJobExecutionsResponse_queuedJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_httpStatus"><span class="hs-identifier">getPendingJobExecutionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.Types.html"><span class="hs-identifier">Network.AWS.IoTJobsData.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetPendingJobExecutions' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679148491"><span id="local-6989586621679148492"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPendingJobExecutions"><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-var">GetPendingJobExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPendingJobExecutions%27"><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions%27"><span class="hs-identifier hs-var">GetPendingJobExecutions'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the thing that is executing the job.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AthingName%3AGetPendingJobExecutions%27"><span class="annot"><span class="annottext">GetPendingJobExecutions -&gt; Text
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AthingName%3AGetPendingJobExecutions%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148485"><span id="local-6989586621679148487"><span class="annot"><span class="annottext">GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool
+(GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool)
+-&gt; (GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool)
+-&gt; Eq GetPendingJobExecutions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool
+$c/= :: GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool
+== :: GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool
+$c== :: GetPendingJobExecutions -&gt; GetPendingJobExecutions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148476"><span id="local-6989586621679148478"><span id="local-6989586621679148480"><span id="local-6989586621679148482"><span class="annot"><span class="annottext">ReadPrec [GetPendingJobExecutions]
+ReadPrec GetPendingJobExecutions
+Int -&gt; ReadS GetPendingJobExecutions
+ReadS [GetPendingJobExecutions]
+(Int -&gt; ReadS GetPendingJobExecutions)
+-&gt; ReadS [GetPendingJobExecutions]
+-&gt; ReadPrec GetPendingJobExecutions
+-&gt; ReadPrec [GetPendingJobExecutions]
+-&gt; Read GetPendingJobExecutions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPendingJobExecutions]
+$creadListPrec :: ReadPrec [GetPendingJobExecutions]
+readPrec :: ReadPrec GetPendingJobExecutions
+$creadPrec :: ReadPrec GetPendingJobExecutions
+readList :: ReadS [GetPendingJobExecutions]
+$creadList :: ReadS [GetPendingJobExecutions]
+readsPrec :: Int -&gt; ReadS GetPendingJobExecutions
+$creadsPrec :: Int -&gt; ReadS GetPendingJobExecutions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148469"><span id="local-6989586621679148471"><span id="local-6989586621679148473"><span class="annot"><span class="annottext">Int -&gt; GetPendingJobExecutions -&gt; ShowS
+[GetPendingJobExecutions] -&gt; ShowS
+GetPendingJobExecutions -&gt; String
+(Int -&gt; GetPendingJobExecutions -&gt; ShowS)
+-&gt; (GetPendingJobExecutions -&gt; String)
+-&gt; ([GetPendingJobExecutions] -&gt; ShowS)
+-&gt; Show GetPendingJobExecutions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPendingJobExecutions] -&gt; ShowS
+$cshowList :: [GetPendingJobExecutions] -&gt; ShowS
+show :: GetPendingJobExecutions -&gt; String
+$cshow :: GetPendingJobExecutions -&gt; String
+showsPrec :: Int -&gt; GetPendingJobExecutions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPendingJobExecutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPendingJobExecutions -&gt; Rep GetPendingJobExecutions x)
+-&gt; (forall x.
+    Rep GetPendingJobExecutions x -&gt; GetPendingJobExecutions)
+-&gt; Generic GetPendingJobExecutions
+forall x. Rep GetPendingJobExecutions x -&gt; GetPendingJobExecutions
+forall x. GetPendingJobExecutions -&gt; Rep GetPendingJobExecutions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPendingJobExecutions x -&gt; GetPendingJobExecutions
+$cfrom :: forall x. GetPendingJobExecutions -&gt; Rep GetPendingJobExecutions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetPendingJobExecutions' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'thingName', 'getPendingJobExecutions_thingName' - The name of the thing that is executing the job.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutions"><span class="hs-identifier hs-type">newGetPendingJobExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'thingName'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span>
+</span><span id="line-70"></span><span id="newGetPendingJobExecutions"><span class="annot"><span class="annottext">newGetPendingJobExecutions :: Text -&gt; GetPendingJobExecutions
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutions"><span class="hs-identifier hs-var hs-var">newGetPendingJobExecutions</span></a></span></span><span> </span><span id="local-6989586621679148464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148464"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetPendingJobExecutions' :: Text -&gt; GetPendingJobExecutions
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions%27"><span class="hs-identifier hs-type">GetPendingJobExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:GetPendingJobExecutions' :: Text
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AthingName%3AGetPendingJobExecutions%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148464"><span class="hs-identifier hs-var">pThingName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The name of the thing that is executing the job.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutions_thingName"><span class="hs-identifier hs-type">getPendingJobExecutions_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="getPendingJobExecutions_thingName"><span class="annot"><span class="annottext">getPendingJobExecutions_thingName :: (Text -&gt; f Text)
+-&gt; GetPendingJobExecutions -&gt; f GetPendingJobExecutions
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutions_thingName"><span class="hs-identifier hs-var hs-var">getPendingJobExecutions_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPendingJobExecutions -&gt; Text)
+-&gt; (GetPendingJobExecutions -&gt; Text -&gt; GetPendingJobExecutions)
+-&gt; Lens GetPendingJobExecutions GetPendingJobExecutions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions%27"><span class="hs-identifier hs-type">GetPendingJobExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148461"><span class="annot"><span class="annottext">Text
+thingName :: Text
+$sel:thingName:GetPendingJobExecutions' :: GetPendingJobExecutions -&gt; Text
+</span><a href="#local-6989586621679148461"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148461"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148460"><span class="annot"><span class="annottext">s :: GetPendingJobExecutions
+</span><a href="#local-6989586621679148460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions%27"><span class="hs-identifier hs-type">GetPendingJobExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPendingJobExecutions
+</span><a href="#local-6989586621679148460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:GetPendingJobExecutions' :: Text
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AthingName%3AGetPendingJobExecutions%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679148455"><span class="annot"><span class="annottext">request :: GetPendingJobExecutions -&gt; Request GetPendingJobExecutions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetPendingJobExecutions -&gt; Request GetPendingJobExecutions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTJobsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679148451"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPendingJobExecutions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPendingJobExecutions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPendingJobExecutions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPendingJobExecutions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPendingJobExecutions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148448"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148447"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679148447"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148446"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+-&gt; Maybe [JobExecutionSummary]
+-&gt; Int
+-&gt; GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">GetPendingJobExecutionsResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobExecutionSummary]
+ -&gt; Maybe [JobExecutionSummary]
+ -&gt; Int
+ -&gt; GetPendingJobExecutionsResponse)
+-&gt; Either String (Maybe [JobExecutionSummary])
+-&gt; Either
+     String
+     (Maybe [JobExecutionSummary]
+      -&gt; Int -&gt; GetPendingJobExecutionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [JobExecutionSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inProgressJobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobExecutionSummary]))
+-&gt; Maybe [JobExecutionSummary]
+-&gt; Either String (Maybe [JobExecutionSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [JobExecutionSummary]
+   -&gt; Int -&gt; GetPendingJobExecutionsResponse)
+-&gt; Either String (Maybe [JobExecutionSummary])
+-&gt; Either String (Int -&gt; GetPendingJobExecutionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [JobExecutionSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queuedJobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobExecutionSummary]))
+-&gt; Maybe [JobExecutionSummary]
+-&gt; Either String (Maybe [JobExecutionSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPendingJobExecutionsResponse)
+-&gt; Either String Int
+-&gt; Either String GetPendingJobExecutionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148448"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148437"><span id="local-6989586621679148439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679148430"><span class="annot"><span class="annottext">toHeaders :: GetPendingJobExecutions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPendingJobExecutions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679148425"><span class="annot"><span class="annottext">toPath :: GetPendingJobExecutions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions%27"><span class="hs-identifier hs-type">GetPendingJobExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148423"><span class="annot"><span class="annottext">Text
+thingName :: Text
+$sel:thingName:GetPendingJobExecutions' :: GetPendingJobExecutions -&gt; Text
+</span><a href="#local-6989586621679148423"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/things/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679148423"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutions"><span class="hs-identifier hs-type">GetPendingJobExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679148419"><span class="annot"><span class="annottext">toQuery :: GetPendingJobExecutions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPendingJobExecutions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newGetPendingJobExecutionsResponse' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621679148416"><span id="local-6989586621679148417"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPendingJobExecutionsResponse"><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-var">GetPendingJobExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPendingJobExecutionsResponse%27"><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">GetPendingJobExecutionsResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of JobExecutionSummary objects with status IN_PROGRESS.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AinProgressJobs%3AGetPendingJobExecutionsResponse%27"><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AinProgressJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">inProgressJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTJobsData.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A list of JobExecutionSummary objects with status QUEUED.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AqueuedJobs%3AGetPendingJobExecutionsResponse%27"><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AqueuedJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">queuedJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTJobsData.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPendingJobExecutionsResponse%27"><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse -&gt; Int
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AhttpStatus%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148409"><span id="local-6989586621679148411"><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse
+-&gt; GetPendingJobExecutionsResponse -&gt; Bool
+(GetPendingJobExecutionsResponse
+ -&gt; GetPendingJobExecutionsResponse -&gt; Bool)
+-&gt; (GetPendingJobExecutionsResponse
+    -&gt; GetPendingJobExecutionsResponse -&gt; Bool)
+-&gt; Eq GetPendingJobExecutionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPendingJobExecutionsResponse
+-&gt; GetPendingJobExecutionsResponse -&gt; Bool
+$c/= :: GetPendingJobExecutionsResponse
+-&gt; GetPendingJobExecutionsResponse -&gt; Bool
+== :: GetPendingJobExecutionsResponse
+-&gt; GetPendingJobExecutionsResponse -&gt; Bool
+$c== :: GetPendingJobExecutionsResponse
+-&gt; GetPendingJobExecutionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148401"><span id="local-6989586621679148403"><span id="local-6989586621679148405"><span id="local-6989586621679148407"><span class="annot"><span class="annottext">ReadPrec [GetPendingJobExecutionsResponse]
+ReadPrec GetPendingJobExecutionsResponse
+Int -&gt; ReadS GetPendingJobExecutionsResponse
+ReadS [GetPendingJobExecutionsResponse]
+(Int -&gt; ReadS GetPendingJobExecutionsResponse)
+-&gt; ReadS [GetPendingJobExecutionsResponse]
+-&gt; ReadPrec GetPendingJobExecutionsResponse
+-&gt; ReadPrec [GetPendingJobExecutionsResponse]
+-&gt; Read GetPendingJobExecutionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPendingJobExecutionsResponse]
+$creadListPrec :: ReadPrec [GetPendingJobExecutionsResponse]
+readPrec :: ReadPrec GetPendingJobExecutionsResponse
+$creadPrec :: ReadPrec GetPendingJobExecutionsResponse
+readList :: ReadS [GetPendingJobExecutionsResponse]
+$creadList :: ReadS [GetPendingJobExecutionsResponse]
+readsPrec :: Int -&gt; ReadS GetPendingJobExecutionsResponse
+$creadsPrec :: Int -&gt; ReadS GetPendingJobExecutionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148395"><span id="local-6989586621679148397"><span id="local-6989586621679148399"><span class="annot"><span class="annottext">Int -&gt; GetPendingJobExecutionsResponse -&gt; ShowS
+[GetPendingJobExecutionsResponse] -&gt; ShowS
+GetPendingJobExecutionsResponse -&gt; String
+(Int -&gt; GetPendingJobExecutionsResponse -&gt; ShowS)
+-&gt; (GetPendingJobExecutionsResponse -&gt; String)
+-&gt; ([GetPendingJobExecutionsResponse] -&gt; ShowS)
+-&gt; Show GetPendingJobExecutionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPendingJobExecutionsResponse] -&gt; ShowS
+$cshowList :: [GetPendingJobExecutionsResponse] -&gt; ShowS
+show :: GetPendingJobExecutionsResponse -&gt; String
+$cshow :: GetPendingJobExecutionsResponse -&gt; String
+showsPrec :: Int -&gt; GetPendingJobExecutionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPendingJobExecutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPendingJobExecutionsResponse
+ -&gt; Rep GetPendingJobExecutionsResponse x)
+-&gt; (forall x.
+    Rep GetPendingJobExecutionsResponse x
+    -&gt; GetPendingJobExecutionsResponse)
+-&gt; Generic GetPendingJobExecutionsResponse
+forall x.
+Rep GetPendingJobExecutionsResponse x
+-&gt; GetPendingJobExecutionsResponse
+forall x.
+GetPendingJobExecutionsResponse
+-&gt; Rep GetPendingJobExecutionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetPendingJobExecutionsResponse x
+-&gt; GetPendingJobExecutionsResponse
+$cfrom :: forall x.
+GetPendingJobExecutionsResponse
+-&gt; Rep GetPendingJobExecutionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'GetPendingJobExecutionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'inProgressJobs', 'getPendingJobExecutionsResponse_inProgressJobs' - A list of JobExecutionSummary objects with status IN_PROGRESS.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'queuedJobs', 'getPendingJobExecutionsResponse_queuedJobs' - A list of JobExecutionSummary objects with status QUEUED.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'httpStatus', 'getPendingJobExecutionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">newGetPendingJobExecutionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span>
+</span><span id="line-134"></span><span id="newGetPendingJobExecutionsResponse"><span class="annot"><span class="annottext">newGetPendingJobExecutionsResponse :: Int -&gt; GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#newGetPendingJobExecutionsResponse"><span class="hs-identifier hs-var hs-var">newGetPendingJobExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679148392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary]
+-&gt; Maybe [JobExecutionSummary]
+-&gt; Int
+-&gt; GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inProgressJobs:GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AinProgressJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">inProgressJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:queuedJobs:GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AqueuedJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">queuedJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPendingJobExecutionsResponse' :: Int
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AhttpStatus%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A list of JobExecutionSummary objects with status IN_PROGRESS.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_inProgressJobs"><span class="hs-identifier hs-type">getPendingJobExecutionsResponse_inProgressJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTJobsData.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="getPendingJobExecutionsResponse_inProgressJobs"><span class="annot"><span class="annottext">getPendingJobExecutionsResponse_inProgressJobs :: (Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; GetPendingJobExecutionsResponse
+-&gt; f GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_inProgressJobs"><span class="hs-identifier hs-var hs-var">getPendingJobExecutionsResponse_inProgressJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary])
+-&gt; (GetPendingJobExecutionsResponse
+    -&gt; Maybe [JobExecutionSummary] -&gt; GetPendingJobExecutionsResponse)
+-&gt; Lens
+     GetPendingJobExecutionsResponse
+     GetPendingJobExecutionsResponse
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148391"><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+inProgressJobs :: Maybe [JobExecutionSummary]
+$sel:inProgressJobs:GetPendingJobExecutionsResponse' :: GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148391"><span class="hs-identifier hs-var hs-var">inProgressJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148391"><span class="hs-identifier hs-var">inProgressJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148390"><span class="annot"><span class="annottext">s :: GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148389"><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressJobs:GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AinProgressJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">inProgressJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+ -&gt; GetPendingJobExecutionsResponse
+ -&gt; f GetPendingJobExecutionsResponse)
+-&gt; ((Maybe [JobExecutionSummary]
+     -&gt; f (Maybe [JobExecutionSummary]))
+    -&gt; Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; (Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; GetPendingJobExecutionsResponse
+-&gt; f GetPendingJobExecutionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+-&gt; Iso
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A list of JobExecutionSummary objects with status QUEUED.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_queuedJobs"><span class="hs-identifier hs-type">getPendingJobExecutionsResponse_queuedJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTJobsData.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="getPendingJobExecutionsResponse_queuedJobs"><span class="annot"><span class="annottext">getPendingJobExecutionsResponse_queuedJobs :: (Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; GetPendingJobExecutionsResponse
+-&gt; f GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_queuedJobs"><span class="hs-identifier hs-var hs-var">getPendingJobExecutionsResponse_queuedJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary])
+-&gt; (GetPendingJobExecutionsResponse
+    -&gt; Maybe [JobExecutionSummary] -&gt; GetPendingJobExecutionsResponse)
+-&gt; Lens
+     GetPendingJobExecutionsResponse
+     GetPendingJobExecutionsResponse
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148385"><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+queuedJobs :: Maybe [JobExecutionSummary]
+$sel:queuedJobs:GetPendingJobExecutionsResponse' :: GetPendingJobExecutionsResponse -&gt; Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148385"><span class="hs-identifier hs-var hs-var">queuedJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148385"><span class="hs-identifier hs-var">queuedJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148384"><span class="annot"><span class="annottext">s :: GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148383"><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queuedJobs:GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary]
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AqueuedJobs%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">queuedJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummary]
+</span><a href="#local-6989586621679148383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+ -&gt; GetPendingJobExecutionsResponse
+ -&gt; f GetPendingJobExecutionsResponse)
+-&gt; ((Maybe [JobExecutionSummary]
+     -&gt; f (Maybe [JobExecutionSummary]))
+    -&gt; Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; (Maybe [JobExecutionSummary] -&gt; f (Maybe [JobExecutionSummary]))
+-&gt; GetPendingJobExecutionsResponse
+-&gt; f GetPendingJobExecutionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+-&gt; Iso
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+     (Maybe [JobExecutionSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+  [JobExecutionSummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_httpStatus"><span class="hs-identifier hs-type">getPendingJobExecutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="getPendingJobExecutionsResponse_httpStatus"><span class="annot"><span class="annottext">getPendingJobExecutionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetPendingJobExecutionsResponse
+-&gt; f GetPendingJobExecutionsResponse
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#getPendingJobExecutionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPendingJobExecutionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPendingJobExecutionsResponse -&gt; Int)
+-&gt; (GetPendingJobExecutionsResponse
+    -&gt; Int -&gt; GetPendingJobExecutionsResponse)
+-&gt; Lens
+     GetPendingJobExecutionsResponse
+     GetPendingJobExecutionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148382"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPendingJobExecutionsResponse' :: GetPendingJobExecutionsResponse -&gt; Int
+</span><a href="#local-6989586621679148382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148381"><span class="annot"><span class="annottext">s :: GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPendingJobExecutionsResponse
+</span><a href="#local-6989586621679148381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPendingJobExecutionsResponse' :: Int
+</span><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#%24sel%3AhttpStatus%3AGetPendingJobExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679148378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTJobsData.GetPendingJobExecutions.html#GetPendingJobExecutionsResponse"><span class="hs-identifier hs-type">GetPendingJobExecutionsResponse</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

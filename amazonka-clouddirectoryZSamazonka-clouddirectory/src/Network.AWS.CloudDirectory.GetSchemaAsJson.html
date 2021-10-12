@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudDirectory.GetSchemaAsJson</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a JSON representation of the schema. See</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for more information.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudDirectory.GetSchemaAsJson</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier">GetSchemaAsJson</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJson"><span class="hs-identifier">newGetSchemaAsJson</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJson_schemaArn"><span class="hs-identifier">getSchemaAsJson_schemaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier">GetSchemaAsJsonResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJsonResponse"><span class="hs-identifier">newGetSchemaAsJsonResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_name"><span class="hs-identifier">getSchemaAsJsonResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_document"><span class="hs-identifier">getSchemaAsJsonResponse_document</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_httpStatus"><span class="hs-identifier">getSchemaAsJsonResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.html"><span class="hs-identifier">Network.AWS.CloudDirectory.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetSchemaAsJson' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679342440"><span id="local-6989586621679342441"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaAsJson"><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-var">GetSchemaAsJson</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaAsJson%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson%27"><span class="hs-identifier hs-var">GetSchemaAsJson'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the schema to retrieve.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AschemaArn%3AGetSchemaAsJson%27"><span class="annot"><span class="annottext">GetSchemaAsJson -&gt; Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AschemaArn%3AGetSchemaAsJson%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342434"><span id="local-6989586621679342436"><span class="annot"><span class="annottext">GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool
+(GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool)
+-&gt; (GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool)
+-&gt; Eq GetSchemaAsJson
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool
+$c/= :: GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool
+== :: GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool
+$c== :: GetSchemaAsJson -&gt; GetSchemaAsJson -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342425"><span id="local-6989586621679342427"><span id="local-6989586621679342429"><span id="local-6989586621679342431"><span class="annot"><span class="annottext">ReadPrec [GetSchemaAsJson]
+ReadPrec GetSchemaAsJson
+Int -&gt; ReadS GetSchemaAsJson
+ReadS [GetSchemaAsJson]
+(Int -&gt; ReadS GetSchemaAsJson)
+-&gt; ReadS [GetSchemaAsJson]
+-&gt; ReadPrec GetSchemaAsJson
+-&gt; ReadPrec [GetSchemaAsJson]
+-&gt; Read GetSchemaAsJson
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSchemaAsJson]
+$creadListPrec :: ReadPrec [GetSchemaAsJson]
+readPrec :: ReadPrec GetSchemaAsJson
+$creadPrec :: ReadPrec GetSchemaAsJson
+readList :: ReadS [GetSchemaAsJson]
+$creadList :: ReadS [GetSchemaAsJson]
+readsPrec :: Int -&gt; ReadS GetSchemaAsJson
+$creadsPrec :: Int -&gt; ReadS GetSchemaAsJson
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342418"><span id="local-6989586621679342420"><span id="local-6989586621679342422"><span class="annot"><span class="annottext">Int -&gt; GetSchemaAsJson -&gt; ShowS
+[GetSchemaAsJson] -&gt; ShowS
+GetSchemaAsJson -&gt; String
+(Int -&gt; GetSchemaAsJson -&gt; ShowS)
+-&gt; (GetSchemaAsJson -&gt; String)
+-&gt; ([GetSchemaAsJson] -&gt; ShowS)
+-&gt; Show GetSchemaAsJson
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSchemaAsJson] -&gt; ShowS
+$cshowList :: [GetSchemaAsJson] -&gt; ShowS
+show :: GetSchemaAsJson -&gt; String
+$cshow :: GetSchemaAsJson -&gt; String
+showsPrec :: Int -&gt; GetSchemaAsJson -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSchemaAsJson -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSchemaAsJson -&gt; Rep GetSchemaAsJson x)
+-&gt; (forall x. Rep GetSchemaAsJson x -&gt; GetSchemaAsJson)
+-&gt; Generic GetSchemaAsJson
+forall x. Rep GetSchemaAsJson x -&gt; GetSchemaAsJson
+forall x. GetSchemaAsJson -&gt; Rep GetSchemaAsJson x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSchemaAsJson x -&gt; GetSchemaAsJson
+$cfrom :: forall x. GetSchemaAsJson -&gt; Rep GetSchemaAsJson x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetSchemaAsJson' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'schemaArn', 'getSchemaAsJson_schemaArn' - The ARN of the schema to retrieve.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJson"><span class="hs-identifier hs-type">newGetSchemaAsJson</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'schemaArn'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetSchemaAsJson"><span class="annot"><span class="annottext">newGetSchemaAsJson :: Text -&gt; GetSchemaAsJson
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJson"><span class="hs-identifier hs-var hs-var">newGetSchemaAsJson</span></a></span></span><span> </span><span id="local-6989586621679342413"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342413"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetSchemaAsJson' :: Text -&gt; GetSchemaAsJson
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson%27"><span class="hs-identifier hs-type">GetSchemaAsJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaAsJson' :: Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AschemaArn%3AGetSchemaAsJson%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342413"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the schema to retrieve.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJson_schemaArn"><span class="hs-identifier hs-type">getSchemaAsJson_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getSchemaAsJson_schemaArn"><span class="annot"><span class="annottext">getSchemaAsJson_schemaArn :: (Text -&gt; f Text) -&gt; GetSchemaAsJson -&gt; f GetSchemaAsJson
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJson_schemaArn"><span class="hs-identifier hs-var hs-var">getSchemaAsJson_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaAsJson -&gt; Text)
+-&gt; (GetSchemaAsJson -&gt; Text -&gt; GetSchemaAsJson)
+-&gt; Lens GetSchemaAsJson GetSchemaAsJson Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson%27"><span class="hs-identifier hs-type">GetSchemaAsJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342410"><span class="annot"><span class="annottext">Text
+schemaArn :: Text
+$sel:schemaArn:GetSchemaAsJson' :: GetSchemaAsJson -&gt; Text
+</span><a href="#local-6989586621679342410"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342410"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342409"><span class="annot"><span class="annottext">s :: GetSchemaAsJson
+</span><a href="#local-6989586621679342409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson%27"><span class="hs-identifier hs-type">GetSchemaAsJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaAsJson
+</span><a href="#local-6989586621679342409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaAsJson' :: Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AschemaArn%3AGetSchemaAsJson%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679342404"><span class="annot"><span class="annottext">request :: GetSchemaAsJson -&gt; Request GetSchemaAsJson
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSchemaAsJson -&gt; Request GetSchemaAsJson
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679342400"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSchemaAsJson
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSchemaAsJson)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSchemaAsJson))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSchemaAsJson
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSchemaAsJson)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342397"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342397"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342396"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679342396"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342395"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">GetSchemaAsJsonResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSchemaAsJsonResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetSchemaAsJsonResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetSchemaAsJsonResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetSchemaAsJsonResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Document&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSchemaAsJsonResponse)
+-&gt; Either String Int -&gt; Either String GetSchemaAsJsonResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342387"><span id="local-6989586621679342389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679342380"><span class="annot"><span class="annottext">toHeaders :: GetSchemaAsJson -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson%27"><span class="hs-identifier hs-type">GetSchemaAsJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342378"><span class="annot"><span class="annottext">Text
+schemaArn :: Text
+$sel:schemaArn:GetSchemaAsJson' :: GetSchemaAsJson -&gt; Text
+</span><a href="#local-6989586621679342378"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342378"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342370"><span id="local-6989586621679342372"><span id="local-6989586621679342374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679342368"><span class="annot"><span class="annottext">toJSON :: GetSchemaAsJson -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetSchemaAsJson -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679342362"><span class="annot"><span class="annottext">toPath :: GetSchemaAsJson -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetSchemaAsJson -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/schema/json&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJson"><span class="hs-identifier hs-type">GetSchemaAsJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679342358"><span class="annot"><span class="annottext">toQuery :: GetSchemaAsJson -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSchemaAsJson -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newGetSchemaAsJsonResponse' smart constructor.</span><span>
+</span><span id="line-114"></span><span id="local-6989586621679342355"><span id="local-6989586621679342356"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaAsJsonResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-var">GetSchemaAsJsonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaAsJsonResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">GetSchemaAsJsonResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the retrieved schema.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Aname%3AGetSchemaAsJsonResponse%27"><span class="annot"><span class="annottext">GetSchemaAsJsonResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Aname%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The JSON representation of the schema document.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Adocument%3AGetSchemaAsJsonResponse%27"><span class="annot"><span class="annottext">GetSchemaAsJsonResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Adocument%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSchemaAsJsonResponse%27"><span class="annot"><span class="annottext">GetSchemaAsJsonResponse -&gt; Int
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AhttpStatus%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342348"><span id="local-6989586621679342350"><span class="annot"><span class="annottext">GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool
+(GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool)
+-&gt; (GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool)
+-&gt; Eq GetSchemaAsJsonResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool
+$c/= :: GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool
+== :: GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool
+$c== :: GetSchemaAsJsonResponse -&gt; GetSchemaAsJsonResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342340"><span id="local-6989586621679342342"><span id="local-6989586621679342344"><span id="local-6989586621679342346"><span class="annot"><span class="annottext">ReadPrec [GetSchemaAsJsonResponse]
+ReadPrec GetSchemaAsJsonResponse
+Int -&gt; ReadS GetSchemaAsJsonResponse
+ReadS [GetSchemaAsJsonResponse]
+(Int -&gt; ReadS GetSchemaAsJsonResponse)
+-&gt; ReadS [GetSchemaAsJsonResponse]
+-&gt; ReadPrec GetSchemaAsJsonResponse
+-&gt; ReadPrec [GetSchemaAsJsonResponse]
+-&gt; Read GetSchemaAsJsonResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSchemaAsJsonResponse]
+$creadListPrec :: ReadPrec [GetSchemaAsJsonResponse]
+readPrec :: ReadPrec GetSchemaAsJsonResponse
+$creadPrec :: ReadPrec GetSchemaAsJsonResponse
+readList :: ReadS [GetSchemaAsJsonResponse]
+$creadList :: ReadS [GetSchemaAsJsonResponse]
+readsPrec :: Int -&gt; ReadS GetSchemaAsJsonResponse
+$creadsPrec :: Int -&gt; ReadS GetSchemaAsJsonResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342334"><span id="local-6989586621679342336"><span id="local-6989586621679342338"><span class="annot"><span class="annottext">Int -&gt; GetSchemaAsJsonResponse -&gt; ShowS
+[GetSchemaAsJsonResponse] -&gt; ShowS
+GetSchemaAsJsonResponse -&gt; String
+(Int -&gt; GetSchemaAsJsonResponse -&gt; ShowS)
+-&gt; (GetSchemaAsJsonResponse -&gt; String)
+-&gt; ([GetSchemaAsJsonResponse] -&gt; ShowS)
+-&gt; Show GetSchemaAsJsonResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSchemaAsJsonResponse] -&gt; ShowS
+$cshowList :: [GetSchemaAsJsonResponse] -&gt; ShowS
+show :: GetSchemaAsJsonResponse -&gt; String
+$cshow :: GetSchemaAsJsonResponse -&gt; String
+showsPrec :: Int -&gt; GetSchemaAsJsonResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSchemaAsJsonResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSchemaAsJsonResponse -&gt; Rep GetSchemaAsJsonResponse x)
+-&gt; (forall x.
+    Rep GetSchemaAsJsonResponse x -&gt; GetSchemaAsJsonResponse)
+-&gt; Generic GetSchemaAsJsonResponse
+forall x. Rep GetSchemaAsJsonResponse x -&gt; GetSchemaAsJsonResponse
+forall x. GetSchemaAsJsonResponse -&gt; Rep GetSchemaAsJsonResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSchemaAsJsonResponse x -&gt; GetSchemaAsJsonResponse
+$cfrom :: forall x. GetSchemaAsJsonResponse -&gt; Rep GetSchemaAsJsonResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GetSchemaAsJsonResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'name', 'getSchemaAsJsonResponse_name' - The name of the retrieved schema.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'document', 'getSchemaAsJsonResponse_document' - The JSON representation of the schema document.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'httpStatus', 'getSchemaAsJsonResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJsonResponse"><span class="hs-identifier hs-type">newGetSchemaAsJsonResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span>
+</span><span id="line-141"></span><span id="newGetSchemaAsJsonResponse"><span class="annot"><span class="annottext">newGetSchemaAsJsonResponse :: Int -&gt; GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#newGetSchemaAsJsonResponse"><span class="hs-identifier hs-var hs-var">newGetSchemaAsJsonResponse</span></a></span></span><span> </span><span id="local-6989586621679342331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">GetSchemaAsJsonResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:GetSchemaAsJsonResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Aname%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:document:GetSchemaAsJsonResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Adocument%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSchemaAsJsonResponse' :: Int
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AhttpStatus%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The name of the retrieved schema.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_name"><span class="hs-identifier hs-type">getSchemaAsJsonResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="getSchemaAsJsonResponse_name"><span class="annot"><span class="annottext">getSchemaAsJsonResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSchemaAsJsonResponse -&gt; f GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_name"><span class="hs-identifier hs-var hs-var">getSchemaAsJsonResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaAsJsonResponse -&gt; Maybe Text)
+-&gt; (GetSchemaAsJsonResponse
+    -&gt; Maybe Text -&gt; GetSchemaAsJsonResponse)
+-&gt; Lens
+     GetSchemaAsJsonResponse
+     GetSchemaAsJsonResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342330"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetSchemaAsJsonResponse' :: GetSchemaAsJsonResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342330"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342330"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342329"><span class="annot"><span class="annottext">s :: GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSchemaAsJsonResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Aname%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The JSON representation of the schema document.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_document"><span class="hs-identifier hs-type">getSchemaAsJsonResponse_document</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="getSchemaAsJsonResponse_document"><span class="annot"><span class="annottext">getSchemaAsJsonResponse_document :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSchemaAsJsonResponse -&gt; f GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_document"><span class="hs-identifier hs-var hs-var">getSchemaAsJsonResponse_document</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaAsJsonResponse -&gt; Maybe Text)
+-&gt; (GetSchemaAsJsonResponse
+    -&gt; Maybe Text -&gt; GetSchemaAsJsonResponse)
+-&gt; Lens
+     GetSchemaAsJsonResponse
+     GetSchemaAsJsonResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342327"><span class="annot"><span class="annottext">Maybe Text
+document :: Maybe Text
+$sel:document:GetSchemaAsJsonResponse' :: GetSchemaAsJsonResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342327"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342327"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342326"><span class="annot"><span class="annottext">s :: GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:GetSchemaAsJsonResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3Adocument%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_httpStatus"><span class="hs-identifier hs-type">getSchemaAsJsonResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="getSchemaAsJsonResponse_httpStatus"><span class="annot"><span class="annottext">getSchemaAsJsonResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSchemaAsJsonResponse -&gt; f GetSchemaAsJsonResponse
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#getSchemaAsJsonResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSchemaAsJsonResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaAsJsonResponse -&gt; Int)
+-&gt; (GetSchemaAsJsonResponse -&gt; Int -&gt; GetSchemaAsJsonResponse)
+-&gt; Lens GetSchemaAsJsonResponse GetSchemaAsJsonResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342324"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSchemaAsJsonResponse' :: GetSchemaAsJsonResponse -&gt; Int
+</span><a href="#local-6989586621679342324"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342324"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342323"><span class="annot"><span class="annottext">s :: GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse%27"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaAsJsonResponse
+</span><a href="#local-6989586621679342323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSchemaAsJsonResponse' :: Int
+</span><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#%24sel%3AhttpStatus%3AGetSchemaAsJsonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.GetSchemaAsJson.html#GetSchemaAsJsonResponse"><span class="hs-identifier hs-type">GetSchemaAsJsonResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

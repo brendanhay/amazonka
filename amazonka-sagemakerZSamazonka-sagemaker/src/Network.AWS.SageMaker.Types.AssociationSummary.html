@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.AssociationSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.AssociationSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.AssociationEdgeType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.UserContext</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Lists a summary of the properties of an association. An association is</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- an entity that links other lineage or experiment entities. An example</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- would be an association between a training job and a model.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAssociationSummary' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680356380"><span id="local-6989586621680356381"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-var">AssociationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-var">AssociationSummary'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the association was created.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreationTime%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The destination type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdestinationType%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationType%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the destination.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdestinationArn%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationArn%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the destination.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdestinationName%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationName%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the source.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsourceName%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceName%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The type of the association.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AassociationType%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe AssociationEdgeType
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AassociationType%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">associationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreatedBy%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe UserContext
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreatedBy%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ARN of the source.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsourceArn%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceArn%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The source type.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsourceType%3AAssociationSummary%27"><span class="annot"><span class="annottext">AssociationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceType%3AAssociationSummary%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680356366"><span id="local-6989586621680356368"><span class="annot"><span class="annottext">AssociationSummary -&gt; AssociationSummary -&gt; Bool
+(AssociationSummary -&gt; AssociationSummary -&gt; Bool)
+-&gt; (AssociationSummary -&gt; AssociationSummary -&gt; Bool)
+-&gt; Eq AssociationSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociationSummary -&gt; AssociationSummary -&gt; Bool
+$c/= :: AssociationSummary -&gt; AssociationSummary -&gt; Bool
+== :: AssociationSummary -&gt; AssociationSummary -&gt; Bool
+$c== :: AssociationSummary -&gt; AssociationSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680356357"><span id="local-6989586621680356359"><span id="local-6989586621680356361"><span id="local-6989586621680356363"><span class="annot"><span class="annottext">ReadPrec [AssociationSummary]
+ReadPrec AssociationSummary
+Int -&gt; ReadS AssociationSummary
+ReadS [AssociationSummary]
+(Int -&gt; ReadS AssociationSummary)
+-&gt; ReadS [AssociationSummary]
+-&gt; ReadPrec AssociationSummary
+-&gt; ReadPrec [AssociationSummary]
+-&gt; Read AssociationSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociationSummary]
+$creadListPrec :: ReadPrec [AssociationSummary]
+readPrec :: ReadPrec AssociationSummary
+$creadPrec :: ReadPrec AssociationSummary
+readList :: ReadS [AssociationSummary]
+$creadList :: ReadS [AssociationSummary]
+readsPrec :: Int -&gt; ReadS AssociationSummary
+$creadsPrec :: Int -&gt; ReadS AssociationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680356350"><span id="local-6989586621680356352"><span id="local-6989586621680356354"><span class="annot"><span class="annottext">Int -&gt; AssociationSummary -&gt; ShowS
+[AssociationSummary] -&gt; ShowS
+AssociationSummary -&gt; String
+(Int -&gt; AssociationSummary -&gt; ShowS)
+-&gt; (AssociationSummary -&gt; String)
+-&gt; ([AssociationSummary] -&gt; ShowS)
+-&gt; Show AssociationSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociationSummary] -&gt; ShowS
+$cshowList :: [AssociationSummary] -&gt; ShowS
+show :: AssociationSummary -&gt; String
+$cshow :: AssociationSummary -&gt; String
+showsPrec :: Int -&gt; AssociationSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociationSummary -&gt; Rep AssociationSummary x)
+-&gt; (forall x. Rep AssociationSummary x -&gt; AssociationSummary)
+-&gt; Generic AssociationSummary
+forall x. Rep AssociationSummary x -&gt; AssociationSummary
+forall x. AssociationSummary -&gt; Rep AssociationSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociationSummary x -&gt; AssociationSummary
+$cfrom :: forall x. AssociationSummary -&gt; Rep AssociationSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'AssociationSummary' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'creationTime', 'associationSummary_creationTime' - When the association was created.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'destinationType', 'associationSummary_destinationType' - The destination type.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'destinationArn', 'associationSummary_destinationArn' - The Amazon Resource Name (ARN) of the destination.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'destinationName', 'associationSummary_destinationName' - The name of the destination.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'sourceName', 'associationSummary_sourceName' - The name of the source.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'associationType', 'associationSummary_associationType' - The type of the association.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdBy', 'associationSummary_createdBy' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceArn', 'associationSummary_sourceArn' - The ARN of the source.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'sourceType', 'associationSummary_sourceType' - The source type.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#newAssociationSummary"><span class="hs-identifier hs-type">newAssociationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span>
+</span><span id="line-81"></span><span id="newAssociationSummary"><span class="annot"><span class="annottext">newAssociationSummary :: AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#newAssociationSummary"><span class="hs-identifier hs-var hs-var">newAssociationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">AssociationSummary' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociationEdgeType
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:AssociationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreationTime%3AAssociationSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationType:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationType%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationArn:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationArn%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationName:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationName%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceName:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceName%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationType:AssociationSummary' :: Maybe AssociationEdgeType
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AassociationType%3AAssociationSummary%27"><span class="hs-identifier hs-var">associationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationEdgeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:AssociationSummary' :: Maybe UserContext
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreatedBy%3AAssociationSummary%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceArn%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceType%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | When the association was created.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_creationTime"><span class="hs-identifier hs-type">associationSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="associationSummary_creationTime"><span class="annot"><span class="annottext">associationSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_creationTime"><span class="hs-identifier hs-var hs-var">associationSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe POSIX)
+-&gt; (AssociationSummary -&gt; Maybe POSIX -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356341"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:AssociationSummary' :: AssociationSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680356341"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680356341"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356340"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356339"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680356339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AssociationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreationTime%3AAssociationSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680356339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssociationSummary -&gt; f AssociationSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssociationSummary
+-&gt; f AssociationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The destination type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationType"><span class="hs-identifier hs-type">associationSummary_destinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="associationSummary_destinationType"><span class="annot"><span class="annottext">associationSummary_destinationType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationType"><span class="hs-identifier hs-var hs-var">associationSummary_destinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356334"><span class="annot"><span class="annottext">Maybe Text
+destinationType :: Maybe Text
+$sel:destinationType:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356334"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356334"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356333"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationType%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the destination.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationArn"><span class="hs-identifier hs-type">associationSummary_destinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="associationSummary_destinationArn"><span class="annot"><span class="annottext">associationSummary_destinationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationArn"><span class="hs-identifier hs-var hs-var">associationSummary_destinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356330"><span class="annot"><span class="annottext">Maybe Text
+destinationArn :: Maybe Text
+$sel:destinationArn:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356330"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356330"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356329"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationArn%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the destination.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationName"><span class="hs-identifier hs-type">associationSummary_destinationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="associationSummary_destinationName"><span class="annot"><span class="annottext">associationSummary_destinationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_destinationName"><span class="hs-identifier hs-var hs-var">associationSummary_destinationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356326"><span class="annot"><span class="annottext">Maybe Text
+destinationName :: Maybe Text
+$sel:destinationName:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356326"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356326"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356325"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationName:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AdestinationName%3AAssociationSummary%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the source.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceName"><span class="hs-identifier hs-type">associationSummary_sourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="associationSummary_sourceName"><span class="annot"><span class="annottext">associationSummary_sourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceName"><span class="hs-identifier hs-var hs-var">associationSummary_sourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356322"><span class="annot"><span class="annottext">Maybe Text
+sourceName :: Maybe Text
+$sel:sourceName:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356322"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356322"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356321"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceName:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceName%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The type of the association.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_associationType"><span class="hs-identifier hs-type">associationSummary_associationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-type">AssociationEdgeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="associationSummary_associationType"><span class="annot"><span class="annottext">associationSummary_associationType :: (Maybe AssociationEdgeType -&gt; f (Maybe AssociationEdgeType))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_associationType"><span class="hs-identifier hs-var hs-var">associationSummary_associationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe AssociationEdgeType)
+-&gt; (AssociationSummary
+    -&gt; Maybe AssociationEdgeType -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary
+     AssociationSummary
+     (Maybe AssociationEdgeType)
+     (Maybe AssociationEdgeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356318"><span class="annot"><span class="annottext">Maybe AssociationEdgeType
+associationType :: Maybe AssociationEdgeType
+$sel:associationType:AssociationSummary' :: AssociationSummary -&gt; Maybe AssociationEdgeType
+</span><a href="#local-6989586621680356318"><span class="hs-identifier hs-var hs-var">associationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationEdgeType
+</span><a href="#local-6989586621680356318"><span class="hs-identifier hs-var">associationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356317"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356316"><span class="annot"><span class="annottext">Maybe AssociationEdgeType
+</span><a href="#local-6989586621680356316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationType:AssociationSummary' :: Maybe AssociationEdgeType
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AassociationType%3AAssociationSummary%27"><span class="hs-identifier hs-var">associationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationEdgeType
+</span><a href="#local-6989586621680356316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_createdBy"><span class="hs-identifier hs-type">associationSummary_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="associationSummary_createdBy"><span class="annot"><span class="annottext">associationSummary_createdBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_createdBy"><span class="hs-identifier hs-var hs-var">associationSummary_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe UserContext)
+-&gt; (AssociationSummary -&gt; Maybe UserContext -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary
+     AssociationSummary
+     (Maybe UserContext)
+     (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356314"><span class="annot"><span class="annottext">Maybe UserContext
+createdBy :: Maybe UserContext
+$sel:createdBy:AssociationSummary' :: AssociationSummary -&gt; Maybe UserContext
+</span><a href="#local-6989586621680356314"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356314"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356313"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356312"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:AssociationSummary' :: Maybe UserContext
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AcreatedBy%3AAssociationSummary%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The ARN of the source.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceArn"><span class="hs-identifier hs-type">associationSummary_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="associationSummary_sourceArn"><span class="annot"><span class="annottext">associationSummary_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceArn"><span class="hs-identifier hs-var hs-var">associationSummary_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356310"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356310"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356310"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356309"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceArn%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The source type.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceType"><span class="hs-identifier hs-type">associationSummary_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="associationSummary_sourceType"><span class="annot"><span class="annottext">associationSummary_sourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationSummary -&gt; f AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#associationSummary_sourceType"><span class="hs-identifier hs-var hs-var">associationSummary_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationSummary -&gt; Maybe Text)
+-&gt; (AssociationSummary -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Lens
+     AssociationSummary AssociationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356306"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:AssociationSummary' :: AssociationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680356306"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356306"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356305"><span class="annot"><span class="annottext">s :: AssociationSummary
+</span><a href="#local-6989586621680356305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-type">AssociationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationSummary
+</span><a href="#local-6989586621680356305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:AssociationSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#%24sel%3AsourceType%3AAssociationSummary%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356301"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680356299"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssociationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssociationSummary)
+-&gt; Value
+-&gt; Parser AssociationSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssociationSummary&quot;</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680356296"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssociationEdgeType
+-&gt; Maybe UserContext
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AssociationSummary
+</span><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary%27"><span class="hs-identifier hs-var">AssociationSummary'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AssociationEdgeType
+ -&gt; Maybe UserContext
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AssociationSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociationEdgeType
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociationEdgeType
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociationEdgeType
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociationEdgeType
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AssociationEdgeType
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AssociationEdgeType
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AssociationEdgeType
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AssociationEdgeType
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AssociationEdgeType
+      -&gt; Maybe UserContext
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssociationEdgeType
+   -&gt; Maybe UserContext
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AssociationSummary)
+-&gt; Parser (Maybe AssociationEdgeType)
+-&gt; Parser
+     (Maybe UserContext
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssociationEdgeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssociationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserContext
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Parser (Maybe UserContext)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AssociationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssociationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser AssociationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356290"><span id="local-6989586621680356292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationSummary.html#AssociationSummary"><span class="hs-identifier hs-type">AssociationSummary</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

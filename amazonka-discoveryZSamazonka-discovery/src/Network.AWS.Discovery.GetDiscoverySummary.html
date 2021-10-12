@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Discovery.GetDiscoverySummary</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a short summary of discovered assets.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This API operation takes no request parameters and is called as is at</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the command prompt as shown in the example.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Discovery.GetDiscoverySummary</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier">GetDiscoverySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummary"><span class="hs-identifier">newGetDiscoverySummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummaryResponse"><span class="hs-identifier">newGetDiscoverySummaryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_servers"><span class="hs-identifier">getDiscoverySummaryResponse_servers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_agentSummary"><span class="hs-identifier">getDiscoverySummaryResponse_agentSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_connectorSummary"><span class="hs-identifier">getDiscoverySummaryResponse_connectorSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_applications"><span class="hs-identifier">getDiscoverySummaryResponse_applications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedToApplications"><span class="hs-identifier">getDiscoverySummaryResponse_serversMappedToApplications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedtoTags"><span class="hs-identifier">getDiscoverySummaryResponse_serversMappedtoTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_httpStatus"><span class="hs-identifier">getDiscoverySummaryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.html"><span class="hs-identifier">Network.AWS.Discovery.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetDiscoverySummary' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679207410"><span id="local-6989586621679207411"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiscoverySummary"><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-var">GetDiscoverySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiscoverySummary%27"><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary%27"><span class="hs-identifier hs-var">GetDiscoverySummary'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207405"><span id="local-6989586621679207407"><span class="annot"><span class="annottext">GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool
+(GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool)
+-&gt; (GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool)
+-&gt; Eq GetDiscoverySummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool
+$c/= :: GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool
+== :: GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool
+$c== :: GetDiscoverySummary -&gt; GetDiscoverySummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207396"><span id="local-6989586621679207398"><span id="local-6989586621679207400"><span id="local-6989586621679207402"><span class="annot"><span class="annottext">ReadPrec [GetDiscoverySummary]
+ReadPrec GetDiscoverySummary
+Int -&gt; ReadS GetDiscoverySummary
+ReadS [GetDiscoverySummary]
+(Int -&gt; ReadS GetDiscoverySummary)
+-&gt; ReadS [GetDiscoverySummary]
+-&gt; ReadPrec GetDiscoverySummary
+-&gt; ReadPrec [GetDiscoverySummary]
+-&gt; Read GetDiscoverySummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiscoverySummary]
+$creadListPrec :: ReadPrec [GetDiscoverySummary]
+readPrec :: ReadPrec GetDiscoverySummary
+$creadPrec :: ReadPrec GetDiscoverySummary
+readList :: ReadS [GetDiscoverySummary]
+$creadList :: ReadS [GetDiscoverySummary]
+readsPrec :: Int -&gt; ReadS GetDiscoverySummary
+$creadsPrec :: Int -&gt; ReadS GetDiscoverySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207389"><span id="local-6989586621679207391"><span id="local-6989586621679207393"><span class="annot"><span class="annottext">Int -&gt; GetDiscoverySummary -&gt; ShowS
+[GetDiscoverySummary] -&gt; ShowS
+GetDiscoverySummary -&gt; String
+(Int -&gt; GetDiscoverySummary -&gt; ShowS)
+-&gt; (GetDiscoverySummary -&gt; String)
+-&gt; ([GetDiscoverySummary] -&gt; ShowS)
+-&gt; Show GetDiscoverySummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiscoverySummary] -&gt; ShowS
+$cshowList :: [GetDiscoverySummary] -&gt; ShowS
+show :: GetDiscoverySummary -&gt; String
+$cshow :: GetDiscoverySummary -&gt; String
+showsPrec :: Int -&gt; GetDiscoverySummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiscoverySummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDiscoverySummary -&gt; Rep GetDiscoverySummary x)
+-&gt; (forall x. Rep GetDiscoverySummary x -&gt; GetDiscoverySummary)
+-&gt; Generic GetDiscoverySummary
+forall x. Rep GetDiscoverySummary x -&gt; GetDiscoverySummary
+forall x. GetDiscoverySummary -&gt; Rep GetDiscoverySummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDiscoverySummary x -&gt; GetDiscoverySummary
+$cfrom :: forall x. GetDiscoverySummary -&gt; Rep GetDiscoverySummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetDiscoverySummary' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummary"><span class="hs-identifier hs-type">newGetDiscoverySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span>
+</span><span id="line-66"></span><span id="newGetDiscoverySummary"><span class="annot"><span class="annottext">newGetDiscoverySummary :: GetDiscoverySummary
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummary"><span class="hs-identifier hs-var hs-var">newGetDiscoverySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummary
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary%27"><span class="hs-identifier hs-var">GetDiscoverySummary'</span></a></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-70"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679207381"><span class="annot"><span class="annottext">request :: GetDiscoverySummary -&gt; Request GetDiscoverySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDiscoverySummary -&gt; Request GetDiscoverySummary
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679207377"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDiscoverySummary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDiscoverySummary)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDiscoverySummary))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDiscoverySummary
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDiscoverySummary)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679207373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679207373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679207372"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe CustomerAgentInfo
+-&gt; Maybe CustomerConnectorInfo
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Int
+-&gt; GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">GetDiscoverySummaryResponse'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe CustomerAgentInfo
+ -&gt; Maybe CustomerConnectorInfo
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Int
+ -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe CustomerAgentInfo
+      -&gt; Maybe CustomerConnectorInfo
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Int
+      -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;servers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CustomerAgentInfo
+   -&gt; Maybe CustomerConnectorInfo
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Int
+   -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe CustomerAgentInfo)
+-&gt; Either
+     String
+     (Maybe CustomerConnectorInfo
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Int
+      -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomerAgentInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;agentSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CustomerConnectorInfo
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Int
+   -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe CustomerConnectorInfo)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Int
+      -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomerConnectorInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Int
+   -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Integer
+      -&gt; Maybe Integer -&gt; Int -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applications&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe Integer -&gt; Int -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String (Maybe Integer -&gt; Int -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serversMappedToApplications&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Int -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Int -&gt; GetDiscoverySummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serversMappedtoTags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDiscoverySummaryResponse)
+-&gt; Either String Int -&gt; Either String GetDiscoverySummaryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207364"><span id="local-6989586621679207366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679207357"><span class="annot"><span class="annottext">toHeaders :: GetDiscoverySummary -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDiscoverySummary -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSPoseidonService_V2015_11_01.GetDiscoverySummary&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-97"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207347"><span id="local-6989586621679207349"><span id="local-6989586621679207351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679207345"><span class="annot"><span class="annottext">toJSON :: GetDiscoverySummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetDiscoverySummary -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679207340"><span class="annot"><span class="annottext">toPath :: GetDiscoverySummary -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDiscoverySummary -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummary"><span class="hs-identifier hs-type">GetDiscoverySummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679207336"><span class="annot"><span class="annottext">toQuery :: GetDiscoverySummary -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDiscoverySummary -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newGetDiscoverySummaryResponse' smart constructor.</span><span>
+</span><span id="line-115"></span><span id="local-6989586621679207333"><span id="local-6989586621679207334"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiscoverySummaryResponse"><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-var">GetDiscoverySummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiscoverySummaryResponse%27"><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">GetDiscoverySummaryResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of servers discovered.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Aservers%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aservers%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">servers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | Details about discovered agents, including agent status and health.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AagentSummary%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe CustomerAgentInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AagentSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">agentSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.CustomerAgentInfo.html#CustomerAgentInfo"><span class="hs-identifier hs-type">CustomerAgentInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | Details about discovered connectors, including connector status and</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- health.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AconnectorSummary%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe CustomerConnectorInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AconnectorSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">connectorSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.CustomerConnectorInfo.html#CustomerConnectorInfo"><span class="hs-identifier hs-type">CustomerConnectorInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The number of applications discovered.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Aapplications%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aapplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The number of servers mapped to applications.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AserversMappedToApplications%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedToApplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">serversMappedToApplications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The number of servers mapped to tags.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AserversMappedtoTags%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedtoTags%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">serversMappedtoTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDiscoverySummaryResponse%27"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; Int
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AhttpStatus%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207322"><span id="local-6989586621679207324"><span class="annot"><span class="annottext">GetDiscoverySummaryResponse -&gt; GetDiscoverySummaryResponse -&gt; Bool
+(GetDiscoverySummaryResponse
+ -&gt; GetDiscoverySummaryResponse -&gt; Bool)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; GetDiscoverySummaryResponse -&gt; Bool)
+-&gt; Eq GetDiscoverySummaryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDiscoverySummaryResponse -&gt; GetDiscoverySummaryResponse -&gt; Bool
+$c/= :: GetDiscoverySummaryResponse -&gt; GetDiscoverySummaryResponse -&gt; Bool
+== :: GetDiscoverySummaryResponse -&gt; GetDiscoverySummaryResponse -&gt; Bool
+$c== :: GetDiscoverySummaryResponse -&gt; GetDiscoverySummaryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207314"><span id="local-6989586621679207316"><span id="local-6989586621679207318"><span id="local-6989586621679207320"><span class="annot"><span class="annottext">ReadPrec [GetDiscoverySummaryResponse]
+ReadPrec GetDiscoverySummaryResponse
+Int -&gt; ReadS GetDiscoverySummaryResponse
+ReadS [GetDiscoverySummaryResponse]
+(Int -&gt; ReadS GetDiscoverySummaryResponse)
+-&gt; ReadS [GetDiscoverySummaryResponse]
+-&gt; ReadPrec GetDiscoverySummaryResponse
+-&gt; ReadPrec [GetDiscoverySummaryResponse]
+-&gt; Read GetDiscoverySummaryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDiscoverySummaryResponse]
+$creadListPrec :: ReadPrec [GetDiscoverySummaryResponse]
+readPrec :: ReadPrec GetDiscoverySummaryResponse
+$creadPrec :: ReadPrec GetDiscoverySummaryResponse
+readList :: ReadS [GetDiscoverySummaryResponse]
+$creadList :: ReadS [GetDiscoverySummaryResponse]
+readsPrec :: Int -&gt; ReadS GetDiscoverySummaryResponse
+$creadsPrec :: Int -&gt; ReadS GetDiscoverySummaryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207308"><span id="local-6989586621679207310"><span id="local-6989586621679207312"><span class="annot"><span class="annottext">Int -&gt; GetDiscoverySummaryResponse -&gt; ShowS
+[GetDiscoverySummaryResponse] -&gt; ShowS
+GetDiscoverySummaryResponse -&gt; String
+(Int -&gt; GetDiscoverySummaryResponse -&gt; ShowS)
+-&gt; (GetDiscoverySummaryResponse -&gt; String)
+-&gt; ([GetDiscoverySummaryResponse] -&gt; ShowS)
+-&gt; Show GetDiscoverySummaryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDiscoverySummaryResponse] -&gt; ShowS
+$cshowList :: [GetDiscoverySummaryResponse] -&gt; ShowS
+show :: GetDiscoverySummaryResponse -&gt; String
+$cshow :: GetDiscoverySummaryResponse -&gt; String
+showsPrec :: Int -&gt; GetDiscoverySummaryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDiscoverySummaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDiscoverySummaryResponse -&gt; Rep GetDiscoverySummaryResponse x)
+-&gt; (forall x.
+    Rep GetDiscoverySummaryResponse x -&gt; GetDiscoverySummaryResponse)
+-&gt; Generic GetDiscoverySummaryResponse
+forall x.
+Rep GetDiscoverySummaryResponse x -&gt; GetDiscoverySummaryResponse
+forall x.
+GetDiscoverySummaryResponse -&gt; Rep GetDiscoverySummaryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDiscoverySummaryResponse x -&gt; GetDiscoverySummaryResponse
+$cfrom :: forall x.
+GetDiscoverySummaryResponse -&gt; Rep GetDiscoverySummaryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'GetDiscoverySummaryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'servers', 'getDiscoverySummaryResponse_servers' - The number of servers discovered.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'agentSummary', 'getDiscoverySummaryResponse_agentSummary' - Details about discovered agents, including agent status and health.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'connectorSummary', 'getDiscoverySummaryResponse_connectorSummary' - Details about discovered connectors, including connector status and</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- health.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'applications', 'getDiscoverySummaryResponse_applications' - The number of applications discovered.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'serversMappedToApplications', 'getDiscoverySummaryResponse_serversMappedToApplications' - The number of servers mapped to applications.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'serversMappedtoTags', 'getDiscoverySummaryResponse_serversMappedtoTags' - The number of servers mapped to tags.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'httpStatus', 'getDiscoverySummaryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummaryResponse"><span class="hs-identifier hs-type">newGetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span>
+</span><span id="line-160"></span><span id="newGetDiscoverySummaryResponse"><span class="annot"><span class="annottext">newGetDiscoverySummaryResponse :: Int -&gt; GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#newGetDiscoverySummaryResponse"><span class="hs-identifier hs-var hs-var">newGetDiscoverySummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679207305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse' :: Maybe Integer
+-&gt; Maybe CustomerAgentInfo
+-&gt; Maybe CustomerConnectorInfo
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Int
+-&gt; GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:servers:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aservers%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">servers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentSummary:GetDiscoverySummaryResponse' :: Maybe CustomerAgentInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AagentSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">agentSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAgentInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorSummary:GetDiscoverySummaryResponse' :: Maybe CustomerConnectorInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AconnectorSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">connectorSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerConnectorInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:applications:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aapplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">applications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:serversMappedToApplications:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedToApplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">serversMappedToApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:serversMappedtoTags:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedtoTags%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">serversMappedtoTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiscoverySummaryResponse' :: Int
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AhttpStatus%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The number of servers discovered.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_servers"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_servers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="getDiscoverySummaryResponse_servers"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_servers :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_servers"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_servers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe Integer)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe Integer -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207302"><span class="annot"><span class="annottext">Maybe Integer
+servers :: Maybe Integer
+$sel:servers:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679207302"><span class="hs-identifier hs-var hs-var">servers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207302"><span class="hs-identifier hs-var">servers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207301"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207300"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servers:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aservers%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">servers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Details about discovered agents, including agent status and health.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_agentSummary"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_agentSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.CustomerAgentInfo.html#CustomerAgentInfo"><span class="hs-identifier hs-type">CustomerAgentInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="getDiscoverySummaryResponse_agentSummary"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_agentSummary :: (Maybe CustomerAgentInfo -&gt; f (Maybe CustomerAgentInfo))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_agentSummary"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_agentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe CustomerAgentInfo)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe CustomerAgentInfo -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe CustomerAgentInfo)
+     (Maybe CustomerAgentInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207299"><span class="annot"><span class="annottext">Maybe CustomerAgentInfo
+agentSummary :: Maybe CustomerAgentInfo
+$sel:agentSummary:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe CustomerAgentInfo
+</span><a href="#local-6989586621679207299"><span class="hs-identifier hs-var hs-var">agentSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAgentInfo
+</span><a href="#local-6989586621679207299"><span class="hs-identifier hs-var">agentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207298"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207297"><span class="annot"><span class="annottext">Maybe CustomerAgentInfo
+</span><a href="#local-6989586621679207297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentSummary:GetDiscoverySummaryResponse' :: Maybe CustomerAgentInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AagentSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">agentSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAgentInfo
+</span><a href="#local-6989586621679207297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Details about discovered connectors, including connector status and</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- health.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_connectorSummary"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_connectorSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.CustomerConnectorInfo.html#CustomerConnectorInfo"><span class="hs-identifier hs-type">CustomerConnectorInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getDiscoverySummaryResponse_connectorSummary"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_connectorSummary :: (Maybe CustomerConnectorInfo -&gt; f (Maybe CustomerConnectorInfo))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_connectorSummary"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_connectorSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe CustomerConnectorInfo)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe CustomerConnectorInfo -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe CustomerConnectorInfo)
+     (Maybe CustomerConnectorInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207296"><span class="annot"><span class="annottext">Maybe CustomerConnectorInfo
+connectorSummary :: Maybe CustomerConnectorInfo
+$sel:connectorSummary:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe CustomerConnectorInfo
+</span><a href="#local-6989586621679207296"><span class="hs-identifier hs-var hs-var">connectorSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerConnectorInfo
+</span><a href="#local-6989586621679207296"><span class="hs-identifier hs-var">connectorSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207295"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207294"><span class="annot"><span class="annottext">Maybe CustomerConnectorInfo
+</span><a href="#local-6989586621679207294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorSummary:GetDiscoverySummaryResponse' :: Maybe CustomerConnectorInfo
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AconnectorSummary%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">connectorSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerConnectorInfo
+</span><a href="#local-6989586621679207294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The number of applications discovered.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_applications"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_applications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="getDiscoverySummaryResponse_applications"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_applications :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_applications"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_applications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe Integer)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe Integer -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207293"><span class="annot"><span class="annottext">Maybe Integer
+applications :: Maybe Integer
+$sel:applications:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679207293"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207293"><span class="hs-identifier hs-var">applications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207292"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207291"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applications:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3Aapplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">applications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The number of servers mapped to applications.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedToApplications"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_serversMappedToApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="getDiscoverySummaryResponse_serversMappedToApplications"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_serversMappedToApplications :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedToApplications"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_serversMappedToApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe Integer)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe Integer -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207290"><span class="annot"><span class="annottext">Maybe Integer
+serversMappedToApplications :: Maybe Integer
+$sel:serversMappedToApplications:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679207290"><span class="hs-identifier hs-var hs-var">serversMappedToApplications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207290"><span class="hs-identifier hs-var">serversMappedToApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207289"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207288"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serversMappedToApplications:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedToApplications%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">serversMappedToApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The number of servers mapped to tags.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedtoTags"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_serversMappedtoTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="getDiscoverySummaryResponse_serversMappedtoTags"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_serversMappedtoTags :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_serversMappedtoTags"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_serversMappedtoTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Maybe Integer)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Maybe Integer -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse
+     GetDiscoverySummaryResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207287"><span class="annot"><span class="annottext">Maybe Integer
+serversMappedtoTags :: Maybe Integer
+$sel:serversMappedtoTags:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679207287"><span class="hs-identifier hs-var hs-var">serversMappedtoTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207287"><span class="hs-identifier hs-var">serversMappedtoTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207286"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207285"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serversMappedtoTags:GetDiscoverySummaryResponse' :: Maybe Integer
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AserversMappedtoTags%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">serversMappedtoTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_httpStatus"><span class="hs-identifier hs-type">getDiscoverySummaryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span id="getDiscoverySummaryResponse_httpStatus"><span class="annot"><span class="annottext">getDiscoverySummaryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDiscoverySummaryResponse -&gt; f GetDiscoverySummaryResponse
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#getDiscoverySummaryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDiscoverySummaryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDiscoverySummaryResponse -&gt; Int)
+-&gt; (GetDiscoverySummaryResponse
+    -&gt; Int -&gt; GetDiscoverySummaryResponse)
+-&gt; Lens
+     GetDiscoverySummaryResponse GetDiscoverySummaryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207284"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDiscoverySummaryResponse' :: GetDiscoverySummaryResponse -&gt; Int
+</span><a href="#local-6989586621679207284"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207284"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207283"><span class="annot"><span class="annottext">s :: GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse%27"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiscoverySummaryResponse
+</span><a href="#local-6989586621679207283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiscoverySummaryResponse' :: Int
+</span><a href="Network.AWS.Discovery.GetDiscoverySummary.html#%24sel%3AhttpStatus%3AGetDiscoverySummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.GetDiscoverySummary.html#GetDiscoverySummaryResponse"><span class="hs-identifier hs-type">GetDiscoverySummaryResponse</span></a></span></span><span>
+</span><span id="line-202"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.ExecutionMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.ExecutionMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier">ExecutionMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Auto"><span class="hs-identifier">ExecutionMode_Auto</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Interactive"><span class="hs-identifier">ExecutionMode_Interactive</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679793352"><span id="local-6989586621679793353"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionMode"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier hs-var">ExecutionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionMode%27"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-identifier hs-var">ExecutionMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionMode"><span class="annot"><span class="annottext">ExecutionMode -&gt; Text
+</span><a href="Network.AWS.SSM.Types.ExecutionMode.html#fromExecutionMode"><span class="hs-identifier hs-var hs-var">fromExecutionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793344"><span id="local-6989586621679793346"><span id="local-6989586621679793348"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; ShowS
+[ExecutionMode] -&gt; ShowS
+ExecutionMode -&gt; String
+(Int -&gt; ExecutionMode -&gt; ShowS)
+-&gt; (ExecutionMode -&gt; String)
+-&gt; ([ExecutionMode] -&gt; ShowS)
+-&gt; Show ExecutionMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionMode] -&gt; ShowS
+$cshowList :: [ExecutionMode] -&gt; ShowS
+show :: ExecutionMode -&gt; String
+$cshow :: ExecutionMode -&gt; String
+showsPrec :: Int -&gt; ExecutionMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679793335"><span id="local-6989586621679793337"><span id="local-6989586621679793339"><span id="local-6989586621679793341"><span class="annot"><span class="annottext">ReadPrec [ExecutionMode]
+ReadPrec ExecutionMode
+Int -&gt; ReadS ExecutionMode
+ReadS [ExecutionMode]
+(Int -&gt; ReadS ExecutionMode)
+-&gt; ReadS [ExecutionMode]
+-&gt; ReadPrec ExecutionMode
+-&gt; ReadPrec [ExecutionMode]
+-&gt; Read ExecutionMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionMode]
+$creadListPrec :: ReadPrec [ExecutionMode]
+readPrec :: ReadPrec ExecutionMode
+$creadPrec :: ReadPrec ExecutionMode
+readList :: ReadS [ExecutionMode]
+$creadList :: ReadS [ExecutionMode]
+readsPrec :: Int -&gt; ReadS ExecutionMode
+$creadsPrec :: Int -&gt; ReadS ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679793330"><span id="local-6989586621679793332"><span class="annot"><span class="annottext">ExecutionMode -&gt; ExecutionMode -&gt; Bool
+(ExecutionMode -&gt; ExecutionMode -&gt; Bool)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool) -&gt; Eq ExecutionMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c/= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+== :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c== :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679793314"><span id="local-6989586621679793316"><span id="local-6989586621679793318"><span id="local-6989586621679793320"><span id="local-6989586621679793322"><span id="local-6989586621679793324"><span id="local-6989586621679793326"><span class="annot"><span class="annottext">Eq ExecutionMode
+Eq ExecutionMode
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Ordering)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode)
+-&gt; (ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode)
+-&gt; Ord ExecutionMode
+ExecutionMode -&gt; ExecutionMode -&gt; Bool
+ExecutionMode -&gt; ExecutionMode -&gt; Ordering
+ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode
+$cmin :: ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode
+max :: ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode
+$cmax :: ExecutionMode -&gt; ExecutionMode -&gt; ExecutionMode
+&gt;= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c&gt;= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+&gt; :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c&gt; :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+&lt;= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c&lt;= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+&lt; :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+$c&lt; :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
+compare :: ExecutionMode -&gt; ExecutionMode -&gt; Ordering
+$ccompare :: ExecutionMode -&gt; ExecutionMode -&gt; Ordering
+$cp1Ord :: Eq ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecutionMode -&gt; Rep ExecutionMode x)
+-&gt; (forall x. Rep ExecutionMode x -&gt; ExecutionMode)
+-&gt; Generic ExecutionMode
+forall x. Rep ExecutionMode x -&gt; ExecutionMode
+forall x. ExecutionMode -&gt; Rep ExecutionMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionMode x -&gt; ExecutionMode
+$cfrom :: forall x. ExecutionMode -&gt; Rep ExecutionMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793306"><span id="local-6989586621679793308"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; Int
+ExecutionMode -&gt; Int
+(Int -&gt; ExecutionMode -&gt; Int)
+-&gt; (ExecutionMode -&gt; Int) -&gt; Hashable ExecutionMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecutionMode -&gt; Int
+$chash :: ExecutionMode -&gt; Int
+hashWithSalt :: Int -&gt; ExecutionMode -&gt; Int
+$chashWithSalt :: Int -&gt; ExecutionMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679793303"><span class="annot"><span class="annottext">ExecutionMode -&gt; ()
+(ExecutionMode -&gt; ()) -&gt; NFData ExecutionMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecutionMode -&gt; ()
+$crnf :: ExecutionMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679793300"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionMode
+(Text -&gt; Either String ExecutionMode) -&gt; FromText ExecutionMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecutionMode
+$cfromText :: Text -&gt; Either String ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679793297"><span class="annot"><span class="annottext">ExecutionMode -&gt; Text
+(ExecutionMode -&gt; Text) -&gt; ToText ExecutionMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecutionMode -&gt; Text
+$ctoText :: ExecutionMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679793294"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteString
+(ExecutionMode -&gt; ByteString) -&gt; ToByteString ExecutionMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecutionMode -&gt; ByteString
+$ctoBS :: ExecutionMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793291"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteStringBuilder
+(ExecutionMode -&gt; ByteStringBuilder) -&gt; ToLog ExecutionMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecutionMode -&gt; ByteStringBuilder
+$cbuild :: ExecutionMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793288"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionMode -&gt; [Header]
+(HeaderName -&gt; ExecutionMode -&gt; [Header]) -&gt; ToHeader ExecutionMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecutionMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecutionMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793285"><span class="annot"><span class="annottext">ExecutionMode -&gt; QueryString
+(ExecutionMode -&gt; QueryString) -&gt; ToQuery ExecutionMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecutionMode -&gt; QueryString
+$ctoQuery :: ExecutionMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793280"><span id="local-6989586621679793282"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionMode]
+Value -&gt; Parser ExecutionMode
+(Value -&gt; Parser ExecutionMode)
+-&gt; (Value -&gt; Parser [ExecutionMode]) -&gt; FromJSON ExecutionMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecutionMode]
+$cparseJSONList :: Value -&gt; Parser [ExecutionMode]
+parseJSON :: Value -&gt; Parser ExecutionMode
+$cparseJSON :: Value -&gt; Parser ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793275"><span id="local-6989586621679793277"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionMode]
+FromJSONKeyFunction ExecutionMode
+FromJSONKeyFunction ExecutionMode
+-&gt; FromJSONKeyFunction [ExecutionMode] -&gt; FromJSONKey ExecutionMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecutionMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecutionMode]
+fromJSONKey :: FromJSONKeyFunction ExecutionMode
+$cfromJSONKey :: FromJSONKeyFunction ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793266"><span id="local-6989586621679793268"><span id="local-6989586621679793270"><span id="local-6989586621679793272"><span class="annot"><span class="annottext">[ExecutionMode] -&gt; Encoding
+[ExecutionMode] -&gt; Value
+ExecutionMode -&gt; Encoding
+ExecutionMode -&gt; Value
+(ExecutionMode -&gt; Value)
+-&gt; (ExecutionMode -&gt; Encoding)
+-&gt; ([ExecutionMode] -&gt; Value)
+-&gt; ([ExecutionMode] -&gt; Encoding)
+-&gt; ToJSON ExecutionMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecutionMode] -&gt; Encoding
+$ctoEncodingList :: [ExecutionMode] -&gt; Encoding
+toJSONList :: [ExecutionMode] -&gt; Value
+$ctoJSONList :: [ExecutionMode] -&gt; Value
+toEncoding :: ExecutionMode -&gt; Encoding
+$ctoEncoding :: ExecutionMode -&gt; Encoding
+toJSON :: ExecutionMode -&gt; Value
+$ctoJSON :: ExecutionMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793261"><span id="local-6989586621679793263"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionMode]
+ToJSONKeyFunction ExecutionMode
+ToJSONKeyFunction ExecutionMode
+-&gt; ToJSONKeyFunction [ExecutionMode] -&gt; ToJSONKey ExecutionMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecutionMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecutionMode]
+toJSONKey :: ToJSONKeyFunction ExecutionMode
+$ctoJSONKey :: ToJSONKeyFunction ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793258"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionMode
+([Node] -&gt; Either String ExecutionMode) -&gt; FromXML ExecutionMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecutionMode
+$cparseXML :: [Node] -&gt; Either String ExecutionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679793255"><span class="annot"><span class="annottext">ExecutionMode -&gt; XML
+(ExecutionMode -&gt; XML) -&gt; ToXML ExecutionMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecutionMode -&gt; XML
+$ctoXML :: ExecutionMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Auto"><span class="hs-identifier hs-type">ExecutionMode_Auto</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier hs-type">ExecutionMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionMode_Auto"><span id="%24mExecutionMode_Auto"><span id="ExecutionMode_Auto"><span class="annot"><span class="annottext">$bExecutionMode_Auto :: ExecutionMode
+$mExecutionMode_Auto :: forall r. ExecutionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ExecutionMode.html#%24bExecutionMode_Auto"><span class="hs-identifier hs-var hs-var hs-var">ExecutionMode_Auto</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-identifier hs-type">ExecutionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Auto&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Interactive"><span class="hs-identifier hs-type">ExecutionMode_Interactive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier hs-type">ExecutionMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionMode_Interactive"><span id="%24mExecutionMode_Interactive"><span id="ExecutionMode_Interactive"><span class="annot"><span class="annottext">$bExecutionMode_Interactive :: ExecutionMode
+$mExecutionMode_Interactive :: forall r. ExecutionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ExecutionMode.html#%24bExecutionMode_Interactive"><span class="hs-identifier hs-var hs-var hs-var">ExecutionMode_Interactive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-identifier hs-type">ExecutionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Interactive&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Auto"><span class="hs-pragma hs-type">ExecutionMode_Auto</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode_Interactive"><span class="hs-pragma hs-type">ExecutionMode_Interactive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-pragma hs-type">ExecutionMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECR.Types.ScanStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECR.Types.ScanStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier">ScanStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_COMPLETE"><span class="hs-identifier">ScanStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_FAILED"><span class="hs-identifier">ScanStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_IN_PROGRESS"><span class="hs-identifier">ScanStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679235205"><span id="local-6989586621679235206"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScanStatus"><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier hs-var">ScanStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanStatus%27"><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus%27"><span class="hs-identifier hs-var">ScanStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScanStatus"><span class="annot"><span class="annottext">ScanStatus -&gt; Text
+</span><a href="Network.AWS.ECR.Types.ScanStatus.html#fromScanStatus"><span class="hs-identifier hs-var hs-var">fromScanStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235197"><span id="local-6989586621679235199"><span id="local-6989586621679235201"><span class="annot"><span class="annottext">Int -&gt; ScanStatus -&gt; ShowS
+[ScanStatus] -&gt; ShowS
+ScanStatus -&gt; String
+(Int -&gt; ScanStatus -&gt; ShowS)
+-&gt; (ScanStatus -&gt; String)
+-&gt; ([ScanStatus] -&gt; ShowS)
+-&gt; Show ScanStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScanStatus] -&gt; ShowS
+$cshowList :: [ScanStatus] -&gt; ShowS
+show :: ScanStatus -&gt; String
+$cshow :: ScanStatus -&gt; String
+showsPrec :: Int -&gt; ScanStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScanStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235188"><span id="local-6989586621679235190"><span id="local-6989586621679235192"><span id="local-6989586621679235194"><span class="annot"><span class="annottext">ReadPrec [ScanStatus]
+ReadPrec ScanStatus
+Int -&gt; ReadS ScanStatus
+ReadS [ScanStatus]
+(Int -&gt; ReadS ScanStatus)
+-&gt; ReadS [ScanStatus]
+-&gt; ReadPrec ScanStatus
+-&gt; ReadPrec [ScanStatus]
+-&gt; Read ScanStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScanStatus]
+$creadListPrec :: ReadPrec [ScanStatus]
+readPrec :: ReadPrec ScanStatus
+$creadPrec :: ReadPrec ScanStatus
+readList :: ReadS [ScanStatus]
+$creadList :: ReadS [ScanStatus]
+readsPrec :: Int -&gt; ReadS ScanStatus
+$creadsPrec :: Int -&gt; ReadS ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235183"><span id="local-6989586621679235185"><span class="annot"><span class="annottext">ScanStatus -&gt; ScanStatus -&gt; Bool
+(ScanStatus -&gt; ScanStatus -&gt; Bool)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Bool) -&gt; Eq ScanStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c/= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+== :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c== :: ScanStatus -&gt; ScanStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679235167"><span id="local-6989586621679235169"><span id="local-6989586621679235171"><span id="local-6989586621679235173"><span id="local-6989586621679235175"><span id="local-6989586621679235177"><span id="local-6989586621679235179"><span class="annot"><span class="annottext">Eq ScanStatus
+Eq ScanStatus
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Ordering)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Bool)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Bool)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Bool)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; Bool)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; ScanStatus)
+-&gt; (ScanStatus -&gt; ScanStatus -&gt; ScanStatus)
+-&gt; Ord ScanStatus
+ScanStatus -&gt; ScanStatus -&gt; Bool
+ScanStatus -&gt; ScanStatus -&gt; Ordering
+ScanStatus -&gt; ScanStatus -&gt; ScanStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScanStatus -&gt; ScanStatus -&gt; ScanStatus
+$cmin :: ScanStatus -&gt; ScanStatus -&gt; ScanStatus
+max :: ScanStatus -&gt; ScanStatus -&gt; ScanStatus
+$cmax :: ScanStatus -&gt; ScanStatus -&gt; ScanStatus
+&gt;= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c&gt;= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+&gt; :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c&gt; :: ScanStatus -&gt; ScanStatus -&gt; Bool
+&lt;= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c&lt;= :: ScanStatus -&gt; ScanStatus -&gt; Bool
+&lt; :: ScanStatus -&gt; ScanStatus -&gt; Bool
+$c&lt; :: ScanStatus -&gt; ScanStatus -&gt; Bool
+compare :: ScanStatus -&gt; ScanStatus -&gt; Ordering
+$ccompare :: ScanStatus -&gt; ScanStatus -&gt; Ordering
+$cp1Ord :: Eq ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScanStatus -&gt; Rep ScanStatus x)
+-&gt; (forall x. Rep ScanStatus x -&gt; ScanStatus) -&gt; Generic ScanStatus
+forall x. Rep ScanStatus x -&gt; ScanStatus
+forall x. ScanStatus -&gt; Rep ScanStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScanStatus x -&gt; ScanStatus
+$cfrom :: forall x. ScanStatus -&gt; Rep ScanStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235159"><span id="local-6989586621679235161"><span class="annot"><span class="annottext">Int -&gt; ScanStatus -&gt; Int
+ScanStatus -&gt; Int
+(Int -&gt; ScanStatus -&gt; Int)
+-&gt; (ScanStatus -&gt; Int) -&gt; Hashable ScanStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScanStatus -&gt; Int
+$chash :: ScanStatus -&gt; Int
+hashWithSalt :: Int -&gt; ScanStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ScanStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235156"><span class="annot"><span class="annottext">ScanStatus -&gt; ()
+(ScanStatus -&gt; ()) -&gt; NFData ScanStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScanStatus -&gt; ()
+$crnf :: ScanStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235153"><span class="annot"><span class="annottext">Text -&gt; Either String ScanStatus
+(Text -&gt; Either String ScanStatus) -&gt; FromText ScanStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScanStatus
+$cfromText :: Text -&gt; Either String ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235150"><span class="annot"><span class="annottext">ScanStatus -&gt; Text
+(ScanStatus -&gt; Text) -&gt; ToText ScanStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScanStatus -&gt; Text
+$ctoText :: ScanStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235147"><span class="annot"><span class="annottext">ScanStatus -&gt; ByteString
+(ScanStatus -&gt; ByteString) -&gt; ToByteString ScanStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScanStatus -&gt; ByteString
+$ctoBS :: ScanStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235144"><span class="annot"><span class="annottext">ScanStatus -&gt; ByteStringBuilder
+(ScanStatus -&gt; ByteStringBuilder) -&gt; ToLog ScanStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScanStatus -&gt; ByteStringBuilder
+$cbuild :: ScanStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235141"><span class="annot"><span class="annottext">HeaderName -&gt; ScanStatus -&gt; [Header]
+(HeaderName -&gt; ScanStatus -&gt; [Header]) -&gt; ToHeader ScanStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScanStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScanStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235138"><span class="annot"><span class="annottext">ScanStatus -&gt; QueryString
+(ScanStatus -&gt; QueryString) -&gt; ToQuery ScanStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScanStatus -&gt; QueryString
+$ctoQuery :: ScanStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235133"><span id="local-6989586621679235135"><span class="annot"><span class="annottext">Value -&gt; Parser [ScanStatus]
+Value -&gt; Parser ScanStatus
+(Value -&gt; Parser ScanStatus)
+-&gt; (Value -&gt; Parser [ScanStatus]) -&gt; FromJSON ScanStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScanStatus]
+$cparseJSONList :: Value -&gt; Parser [ScanStatus]
+parseJSON :: Value -&gt; Parser ScanStatus
+$cparseJSON :: Value -&gt; Parser ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235128"><span id="local-6989586621679235130"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScanStatus]
+FromJSONKeyFunction ScanStatus
+FromJSONKeyFunction ScanStatus
+-&gt; FromJSONKeyFunction [ScanStatus] -&gt; FromJSONKey ScanStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScanStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScanStatus]
+fromJSONKey :: FromJSONKeyFunction ScanStatus
+$cfromJSONKey :: FromJSONKeyFunction ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235119"><span id="local-6989586621679235121"><span id="local-6989586621679235123"><span id="local-6989586621679235125"><span class="annot"><span class="annottext">[ScanStatus] -&gt; Encoding
+[ScanStatus] -&gt; Value
+ScanStatus -&gt; Encoding
+ScanStatus -&gt; Value
+(ScanStatus -&gt; Value)
+-&gt; (ScanStatus -&gt; Encoding)
+-&gt; ([ScanStatus] -&gt; Value)
+-&gt; ([ScanStatus] -&gt; Encoding)
+-&gt; ToJSON ScanStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScanStatus] -&gt; Encoding
+$ctoEncodingList :: [ScanStatus] -&gt; Encoding
+toJSONList :: [ScanStatus] -&gt; Value
+$ctoJSONList :: [ScanStatus] -&gt; Value
+toEncoding :: ScanStatus -&gt; Encoding
+$ctoEncoding :: ScanStatus -&gt; Encoding
+toJSON :: ScanStatus -&gt; Value
+$ctoJSON :: ScanStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235114"><span id="local-6989586621679235116"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScanStatus]
+ToJSONKeyFunction ScanStatus
+ToJSONKeyFunction ScanStatus
+-&gt; ToJSONKeyFunction [ScanStatus] -&gt; ToJSONKey ScanStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScanStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScanStatus]
+toJSONKey :: ToJSONKeyFunction ScanStatus
+$ctoJSONKey :: ToJSONKeyFunction ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235111"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScanStatus
+([Node] -&gt; Either String ScanStatus) -&gt; FromXML ScanStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScanStatus
+$cparseXML :: [Node] -&gt; Either String ScanStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235108"><span class="annot"><span class="annottext">ScanStatus -&gt; XML
+(ScanStatus -&gt; XML) -&gt; ToXML ScanStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScanStatus -&gt; XML
+$ctoXML :: ScanStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_COMPLETE"><span class="hs-identifier hs-type">ScanStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier hs-type">ScanStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanStatus_COMPLETE"><span id="%24mScanStatus_COMPLETE"><span id="ScanStatus_COMPLETE"><span class="annot"><span class="annottext">$bScanStatus_COMPLETE :: ScanStatus
+$mScanStatus_COMPLETE :: forall r. ScanStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.ScanStatus.html#%24bScanStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">ScanStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus%27"><span class="hs-identifier hs-type">ScanStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_FAILED"><span class="hs-identifier hs-type">ScanStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier hs-type">ScanStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanStatus_FAILED"><span id="%24mScanStatus_FAILED"><span id="ScanStatus_FAILED"><span class="annot"><span class="annottext">$bScanStatus_FAILED :: ScanStatus
+$mScanStatus_FAILED :: forall r. ScanStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.ScanStatus.html#%24bScanStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ScanStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus%27"><span class="hs-identifier hs-type">ScanStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_IN_PROGRESS"><span class="hs-identifier hs-type">ScanStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus"><span class="hs-identifier hs-type">ScanStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanStatus_IN_PROGRESS"><span id="%24mScanStatus_IN_PROGRESS"><span id="ScanStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bScanStatus_IN_PROGRESS :: ScanStatus
+$mScanStatus_IN_PROGRESS :: forall r. ScanStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECR.Types.ScanStatus.html#%24bScanStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ScanStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus%27"><span class="hs-identifier hs-type">ScanStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_COMPLETE"><span class="hs-pragma hs-type">ScanStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_FAILED"><span class="hs-pragma hs-type">ScanStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus_IN_PROGRESS"><span class="hs-pragma hs-type">ScanStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ScanStatus.html#ScanStatus%27"><span class="hs-pragma hs-type">ScanStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

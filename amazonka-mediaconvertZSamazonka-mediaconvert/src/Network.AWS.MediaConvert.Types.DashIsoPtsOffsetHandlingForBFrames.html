@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames"><span class="hs-identifier">DashIsoPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier">DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier">DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Use this setting only when your output video stream has B-frames, which</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- causes the initial presentation time stamp (PTS) to be offset from the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- initial decode time stamp (DTS). Specify how MediaConvert handles PTS</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- when writing time stamps in output DASH manifests. Choose Match initial</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- PTS as the first time stamp in the manifest. Choose Zero-based</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- stream and instead write the initial time stamp as zero in the manifest.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For outputs that don\'t have B-frames, the time stamps in your DASH</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- manifests start at zero regardless of your choice here.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679949234"><span id="local-6989586621679949235"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoPtsOffsetHandlingForBFrames"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-var">DashIsoPtsOffsetHandlingForBFrames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoPtsOffsetHandlingForBFrames%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-var">DashIsoPtsOffsetHandlingForBFrames'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashIsoPtsOffsetHandlingForBFrames"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#fromDashIsoPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-var hs-var">fromDashIsoPtsOffsetHandlingForBFrames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949226"><span id="local-6989586621679949228"><span id="local-6989586621679949230"><span class="annot"><span class="annottext">Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; ShowS
+[DashIsoPtsOffsetHandlingForBFrames] -&gt; ShowS
+DashIsoPtsOffsetHandlingForBFrames -&gt; String
+(Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; ShowS)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames -&gt; String)
+-&gt; ([DashIsoPtsOffsetHandlingForBFrames] -&gt; ShowS)
+-&gt; Show DashIsoPtsOffsetHandlingForBFrames
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; ShowS
+$cshowList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; ShowS
+show :: DashIsoPtsOffsetHandlingForBFrames -&gt; String
+$cshow :: DashIsoPtsOffsetHandlingForBFrames -&gt; String
+showsPrec :: Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679949217"><span id="local-6989586621679949219"><span id="local-6989586621679949221"><span id="local-6989586621679949223"><span class="annot"><span class="annottext">ReadPrec [DashIsoPtsOffsetHandlingForBFrames]
+ReadPrec DashIsoPtsOffsetHandlingForBFrames
+Int -&gt; ReadS DashIsoPtsOffsetHandlingForBFrames
+ReadS [DashIsoPtsOffsetHandlingForBFrames]
+(Int -&gt; ReadS DashIsoPtsOffsetHandlingForBFrames)
+-&gt; ReadS [DashIsoPtsOffsetHandlingForBFrames]
+-&gt; ReadPrec DashIsoPtsOffsetHandlingForBFrames
+-&gt; ReadPrec [DashIsoPtsOffsetHandlingForBFrames]
+-&gt; Read DashIsoPtsOffsetHandlingForBFrames
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashIsoPtsOffsetHandlingForBFrames]
+$creadListPrec :: ReadPrec [DashIsoPtsOffsetHandlingForBFrames]
+readPrec :: ReadPrec DashIsoPtsOffsetHandlingForBFrames
+$creadPrec :: ReadPrec DashIsoPtsOffsetHandlingForBFrames
+readList :: ReadS [DashIsoPtsOffsetHandlingForBFrames]
+$creadList :: ReadS [DashIsoPtsOffsetHandlingForBFrames]
+readsPrec :: Int -&gt; ReadS DashIsoPtsOffsetHandlingForBFrames
+$creadsPrec :: Int -&gt; ReadS DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679949212"><span id="local-6989586621679949214"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+(DashIsoPtsOffsetHandlingForBFrames
+ -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; Eq DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c/= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+== :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c== :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679949196"><span id="local-6989586621679949198"><span id="local-6989586621679949200"><span id="local-6989586621679949202"><span id="local-6989586621679949204"><span id="local-6989586621679949206"><span id="local-6989586621679949208"><span class="annot"><span class="annottext">Eq DashIsoPtsOffsetHandlingForBFrames
+Eq DashIsoPtsOffsetHandlingForBFrames
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Ordering)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames
+    -&gt; DashIsoPtsOffsetHandlingForBFrames)
+-&gt; Ord DashIsoPtsOffsetHandlingForBFrames
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Ordering
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+$cmin :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+max :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+$cmax :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+&gt;= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c&gt;= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+&gt; :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c&gt; :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+&lt;= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c&lt;= :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+&lt; :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+$c&lt; :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Bool
+compare :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Ordering
+$ccompare :: DashIsoPtsOffsetHandlingForBFrames
+-&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Ordering
+$cp1Ord :: Eq DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DashIsoPtsOffsetHandlingForBFrames
+ -&gt; Rep DashIsoPtsOffsetHandlingForBFrames x)
+-&gt; (forall x.
+    Rep DashIsoPtsOffsetHandlingForBFrames x
+    -&gt; DashIsoPtsOffsetHandlingForBFrames)
+-&gt; Generic DashIsoPtsOffsetHandlingForBFrames
+forall x.
+Rep DashIsoPtsOffsetHandlingForBFrames x
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+forall x.
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; Rep DashIsoPtsOffsetHandlingForBFrames x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DashIsoPtsOffsetHandlingForBFrames x
+-&gt; DashIsoPtsOffsetHandlingForBFrames
+$cfrom :: forall x.
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; Rep DashIsoPtsOffsetHandlingForBFrames x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949188"><span id="local-6989586621679949190"><span class="annot"><span class="annottext">Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+(Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Int)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames -&gt; Int)
+-&gt; Hashable DashIsoPtsOffsetHandlingForBFrames
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+$chash :: DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+hashWithSalt :: Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+$chashWithSalt :: Int -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679949185"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; ()
+(DashIsoPtsOffsetHandlingForBFrames -&gt; ())
+-&gt; NFData DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DashIsoPtsOffsetHandlingForBFrames -&gt; ()
+$crnf :: DashIsoPtsOffsetHandlingForBFrames -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679949182"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+(Text -&gt; Either String DashIsoPtsOffsetHandlingForBFrames)
+-&gt; FromText DashIsoPtsOffsetHandlingForBFrames
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+$cfromText :: Text -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679949179"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; Text
+(DashIsoPtsOffsetHandlingForBFrames -&gt; Text)
+-&gt; ToText DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DashIsoPtsOffsetHandlingForBFrames -&gt; Text
+$ctoText :: DashIsoPtsOffsetHandlingForBFrames -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679949176"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; ByteString
+(DashIsoPtsOffsetHandlingForBFrames -&gt; ByteString)
+-&gt; ToByteString DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DashIsoPtsOffsetHandlingForBFrames -&gt; ByteString
+$ctoBS :: DashIsoPtsOffsetHandlingForBFrames -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679949173"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+(DashIsoPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder)
+-&gt; ToLog DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DashIsoPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+$cbuild :: DashIsoPtsOffsetHandlingForBFrames -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679949170"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; [Header]
+(HeaderName -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; [Header])
+-&gt; ToHeader DashIsoPtsOffsetHandlingForBFrames
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DashIsoPtsOffsetHandlingForBFrames -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679949167"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; QueryString
+(DashIsoPtsOffsetHandlingForBFrames -&gt; QueryString)
+-&gt; ToQuery DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DashIsoPtsOffsetHandlingForBFrames -&gt; QueryString
+$ctoQuery :: DashIsoPtsOffsetHandlingForBFrames -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679949162"><span id="local-6989586621679949164"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoPtsOffsetHandlingForBFrames]
+Value -&gt; Parser DashIsoPtsOffsetHandlingForBFrames
+(Value -&gt; Parser DashIsoPtsOffsetHandlingForBFrames)
+-&gt; (Value -&gt; Parser [DashIsoPtsOffsetHandlingForBFrames])
+-&gt; FromJSON DashIsoPtsOffsetHandlingForBFrames
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DashIsoPtsOffsetHandlingForBFrames]
+$cparseJSONList :: Value -&gt; Parser [DashIsoPtsOffsetHandlingForBFrames]
+parseJSON :: Value -&gt; Parser DashIsoPtsOffsetHandlingForBFrames
+$cparseJSON :: Value -&gt; Parser DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679949157"><span id="local-6989586621679949159"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+FromJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+FromJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+-&gt; FromJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+-&gt; FromJSONKey DashIsoPtsOffsetHandlingForBFrames
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+$cfromJSONKeyList :: FromJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+fromJSONKey :: FromJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+$cfromJSONKey :: FromJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679949148"><span id="local-6989586621679949150"><span id="local-6989586621679949152"><span id="local-6989586621679949154"><span class="annot"><span class="annottext">[DashIsoPtsOffsetHandlingForBFrames] -&gt; Encoding
+[DashIsoPtsOffsetHandlingForBFrames] -&gt; Value
+DashIsoPtsOffsetHandlingForBFrames -&gt; Encoding
+DashIsoPtsOffsetHandlingForBFrames -&gt; Value
+(DashIsoPtsOffsetHandlingForBFrames -&gt; Value)
+-&gt; (DashIsoPtsOffsetHandlingForBFrames -&gt; Encoding)
+-&gt; ([DashIsoPtsOffsetHandlingForBFrames] -&gt; Value)
+-&gt; ([DashIsoPtsOffsetHandlingForBFrames] -&gt; Encoding)
+-&gt; ToJSON DashIsoPtsOffsetHandlingForBFrames
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; Encoding
+$ctoEncodingList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; Encoding
+toJSONList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; Value
+$ctoJSONList :: [DashIsoPtsOffsetHandlingForBFrames] -&gt; Value
+toEncoding :: DashIsoPtsOffsetHandlingForBFrames -&gt; Encoding
+$ctoEncoding :: DashIsoPtsOffsetHandlingForBFrames -&gt; Encoding
+toJSON :: DashIsoPtsOffsetHandlingForBFrames -&gt; Value
+$ctoJSON :: DashIsoPtsOffsetHandlingForBFrames -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679949143"><span id="local-6989586621679949145"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+ToJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+ToJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+-&gt; ToJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+-&gt; ToJSONKey DashIsoPtsOffsetHandlingForBFrames
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+$ctoJSONKeyList :: ToJSONKeyFunction [DashIsoPtsOffsetHandlingForBFrames]
+toJSONKey :: ToJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+$ctoJSONKey :: ToJSONKeyFunction DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679949140"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+([Node] -&gt; Either String DashIsoPtsOffsetHandlingForBFrames)
+-&gt; FromXML DashIsoPtsOffsetHandlingForBFrames
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+$cparseXML :: [Node] -&gt; Either String DashIsoPtsOffsetHandlingForBFrames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679949137"><span class="annot"><span class="annottext">DashIsoPtsOffsetHandlingForBFrames -&gt; XML
+(DashIsoPtsOffsetHandlingForBFrames -&gt; XML)
+-&gt; ToXML DashIsoPtsOffsetHandlingForBFrames
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DashIsoPtsOffsetHandlingForBFrames -&gt; XML
+$ctoXML :: DashIsoPtsOffsetHandlingForBFrames -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span id="%24mDashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span id="DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="annot"><span class="annottext">$bDashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS :: DashIsoPtsOffsetHandlingForBFrames
+$mDashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS :: forall r.
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#%24bDashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-identifier hs-var hs-var hs-var">DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MATCH_INITIAL_PTS&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span id="%24mDashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span id="DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="annot"><span class="annottext">$bDashIsoPtsOffsetHandlingForBFrames_ZERO_BASED :: DashIsoPtsOffsetHandlingForBFrames
+$mDashIsoPtsOffsetHandlingForBFrames_ZERO_BASED :: forall r.
+DashIsoPtsOffsetHandlingForBFrames
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#%24bDashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-identifier hs-var hs-var hs-var">DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames%27"><span class="hs-identifier hs-type">DashIsoPtsOffsetHandlingForBFrames'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZERO_BASED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS"><span class="hs-pragma hs-type">DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED"><span class="hs-pragma hs-type">DashIsoPtsOffsetHandlingForBFrames_ZERO_BASED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames.html#DashIsoPtsOffsetHandlingForBFrames%27"><span class="hs-pragma hs-type">DashIsoPtsOffsetHandlingForBFrames'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

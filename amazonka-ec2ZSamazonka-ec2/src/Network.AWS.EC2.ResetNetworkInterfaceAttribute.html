@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Resets a network interface attribute. You can specify only one attribute</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- at a time.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ResetNetworkInterfaceAttribute</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttribute"><span class="hs-identifier">newResetNetworkInterfaceAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_dryRun"><span class="hs-identifier">resetNetworkInterfaceAttribute_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier">resetNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_networkInterfaceId"><span class="hs-identifier">resetNetworkInterfaceAttribute_networkInterfaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse"><span class="hs-identifier">ResetNetworkInterfaceAttributeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttributeResponse"><span class="hs-identifier">newResetNetworkInterfaceAttributeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | Contains the parameters for ResetNetworkInterfaceAttribute.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newResetNetworkInterfaceAttribute' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621681170560"><span id="local-6989586621681170561"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetNetworkInterfaceAttribute"><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetNetworkInterfaceAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttribute'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdryRun%3AResetNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The source\/destination checking attribute. Resets the value to @true@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsourceDestCheck%3AResetNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AResetNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute -&gt; Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681170552"><span id="local-6989586621681170554"><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute
+-&gt; ResetNetworkInterfaceAttribute -&gt; Bool
+(ResetNetworkInterfaceAttribute
+ -&gt; ResetNetworkInterfaceAttribute -&gt; Bool)
+-&gt; (ResetNetworkInterfaceAttribute
+    -&gt; ResetNetworkInterfaceAttribute -&gt; Bool)
+-&gt; Eq ResetNetworkInterfaceAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetNetworkInterfaceAttribute
+-&gt; ResetNetworkInterfaceAttribute -&gt; Bool
+$c/= :: ResetNetworkInterfaceAttribute
+-&gt; ResetNetworkInterfaceAttribute -&gt; Bool
+== :: ResetNetworkInterfaceAttribute
+-&gt; ResetNetworkInterfaceAttribute -&gt; Bool
+$c== :: ResetNetworkInterfaceAttribute
+-&gt; ResetNetworkInterfaceAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170543"><span id="local-6989586621681170545"><span id="local-6989586621681170547"><span id="local-6989586621681170549"><span class="annot"><span class="annottext">ReadPrec [ResetNetworkInterfaceAttribute]
+ReadPrec ResetNetworkInterfaceAttribute
+Int -&gt; ReadS ResetNetworkInterfaceAttribute
+ReadS [ResetNetworkInterfaceAttribute]
+(Int -&gt; ReadS ResetNetworkInterfaceAttribute)
+-&gt; ReadS [ResetNetworkInterfaceAttribute]
+-&gt; ReadPrec ResetNetworkInterfaceAttribute
+-&gt; ReadPrec [ResetNetworkInterfaceAttribute]
+-&gt; Read ResetNetworkInterfaceAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetNetworkInterfaceAttribute]
+$creadListPrec :: ReadPrec [ResetNetworkInterfaceAttribute]
+readPrec :: ReadPrec ResetNetworkInterfaceAttribute
+$creadPrec :: ReadPrec ResetNetworkInterfaceAttribute
+readList :: ReadS [ResetNetworkInterfaceAttribute]
+$creadList :: ReadS [ResetNetworkInterfaceAttribute]
+readsPrec :: Int -&gt; ReadS ResetNetworkInterfaceAttribute
+$creadsPrec :: Int -&gt; ReadS ResetNetworkInterfaceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170536"><span id="local-6989586621681170538"><span id="local-6989586621681170540"><span class="annot"><span class="annottext">Int -&gt; ResetNetworkInterfaceAttribute -&gt; ShowS
+[ResetNetworkInterfaceAttribute] -&gt; ShowS
+ResetNetworkInterfaceAttribute -&gt; String
+(Int -&gt; ResetNetworkInterfaceAttribute -&gt; ShowS)
+-&gt; (ResetNetworkInterfaceAttribute -&gt; String)
+-&gt; ([ResetNetworkInterfaceAttribute] -&gt; ShowS)
+-&gt; Show ResetNetworkInterfaceAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetNetworkInterfaceAttribute] -&gt; ShowS
+$cshowList :: [ResetNetworkInterfaceAttribute] -&gt; ShowS
+show :: ResetNetworkInterfaceAttribute -&gt; String
+$cshow :: ResetNetworkInterfaceAttribute -&gt; String
+showsPrec :: Int -&gt; ResetNetworkInterfaceAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetNetworkInterfaceAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetNetworkInterfaceAttribute
+ -&gt; Rep ResetNetworkInterfaceAttribute x)
+-&gt; (forall x.
+    Rep ResetNetworkInterfaceAttribute x
+    -&gt; ResetNetworkInterfaceAttribute)
+-&gt; Generic ResetNetworkInterfaceAttribute
+forall x.
+Rep ResetNetworkInterfaceAttribute x
+-&gt; ResetNetworkInterfaceAttribute
+forall x.
+ResetNetworkInterfaceAttribute
+-&gt; Rep ResetNetworkInterfaceAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetNetworkInterfaceAttribute x
+-&gt; ResetNetworkInterfaceAttribute
+$cfrom :: forall x.
+ResetNetworkInterfaceAttribute
+-&gt; Rep ResetNetworkInterfaceAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ResetNetworkInterfaceAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'dryRun', 'resetNetworkInterfaceAttribute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'sourceDestCheck', 'resetNetworkInterfaceAttribute_sourceDestCheck' - The source\/destination checking attribute. Resets the value to @true@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'networkInterfaceId', 'resetNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">newResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'networkInterfaceId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span>
+</span><span id="line-84"></span><span id="newResetNetworkInterfaceAttribute"><span class="annot"><span class="annottext">newResetNetworkInterfaceAttribute :: Text -&gt; ResetNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttribute"><span class="hs-identifier hs-var hs-var">newResetNetworkInterfaceAttribute</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621681170531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170531"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; ResetNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ResetNetworkInterfaceAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ResetNetworkInterfaceAttribute' :: Maybe Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:ResetNetworkInterfaceAttribute' :: Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170531"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-type">resetNetworkInterfaceAttribute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="resetNetworkInterfaceAttribute_dryRun"><span class="annot"><span class="annottext">resetNetworkInterfaceAttribute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResetNetworkInterfaceAttribute
+-&gt; f ResetNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-var hs-var">resetNetworkInterfaceAttribute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetNetworkInterfaceAttribute -&gt; Maybe Bool)
+-&gt; (ResetNetworkInterfaceAttribute
+    -&gt; Maybe Bool -&gt; ResetNetworkInterfaceAttribute)
+-&gt; Lens
+     ResetNetworkInterfaceAttribute
+     ResetNetworkInterfaceAttribute
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170528"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681170528"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170528"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170527"><span class="annot"><span class="annottext">s :: ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170526"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ResetNetworkInterfaceAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The source\/destination checking attribute. Resets the value to @true@.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-type">resetNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="resetNetworkInterfaceAttribute_sourceDestCheck"><span class="annot"><span class="annottext">resetNetworkInterfaceAttribute_sourceDestCheck :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResetNetworkInterfaceAttribute
+-&gt; f ResetNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-var hs-var">resetNetworkInterfaceAttribute_sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetNetworkInterfaceAttribute -&gt; Maybe Text)
+-&gt; (ResetNetworkInterfaceAttribute
+    -&gt; Maybe Text -&gt; ResetNetworkInterfaceAttribute)
+-&gt; Lens
+     ResetNetworkInterfaceAttribute
+     ResetNetworkInterfaceAttribute
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170525"><span class="annot"><span class="annottext">Maybe Text
+sourceDestCheck :: Maybe Text
+$sel:sourceDestCheck:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621681170525"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681170525"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170524"><span class="annot"><span class="annottext">s :: ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681170523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ResetNetworkInterfaceAttribute' :: Maybe Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681170523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the network interface.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_networkInterfaceId"><span class="hs-identifier hs-type">resetNetworkInterfaceAttribute_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="resetNetworkInterfaceAttribute_networkInterfaceId"><span class="annot"><span class="annottext">resetNetworkInterfaceAttribute_networkInterfaceId :: (Text -&gt; f Text)
+-&gt; ResetNetworkInterfaceAttribute
+-&gt; f ResetNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#resetNetworkInterfaceAttribute_networkInterfaceId"><span class="hs-identifier hs-var hs-var">resetNetworkInterfaceAttribute_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetNetworkInterfaceAttribute -&gt; Text)
+-&gt; (ResetNetworkInterfaceAttribute
+    -&gt; Text -&gt; ResetNetworkInterfaceAttribute)
+-&gt; Lens
+     ResetNetworkInterfaceAttribute
+     ResetNetworkInterfaceAttribute
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170522"><span class="annot"><span class="annottext">Text
+networkInterfaceId :: Text
+$sel:networkInterfaceId:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Text
+</span><a href="#local-6989586621681170522"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170522"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170521"><span class="annot"><span class="annottext">s :: ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170520"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetNetworkInterfaceAttribute
+</span><a href="#local-6989586621681170521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:ResetNetworkInterfaceAttribute' :: Text
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttributeResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681170516"><span class="annot"><span class="annottext">request :: ResetNetworkInterfaceAttribute
+-&gt; Request ResetNetworkInterfaceAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ResetNetworkInterfaceAttribute
+-&gt; Request ResetNetworkInterfaceAttribute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681170512"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ResetNetworkInterfaceAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ResetNetworkInterfaceAttribute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse ResetNetworkInterfaceAttribute
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ResetNetworkInterfaceAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ResetNetworkInterfaceAttribute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse ResetNetworkInterfaceAttribute
+ResetNetworkInterfaceAttributeResponse
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttributeResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681170505"><span id="local-6989586621681170507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621681170502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681170498"><span class="annot"><span class="annottext">toHeaders :: ResetNetworkInterfaceAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ResetNetworkInterfaceAttribute -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681170493"><span class="annot"><span class="annottext">toPath :: ResetNetworkInterfaceAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetNetworkInterfaceAttribute -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681170489"><span class="annot"><span class="annottext">toQuery :: ResetNetworkInterfaceAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170485"><span id="local-6989586621681170486"><span id="local-6989586621681170487"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Text
+networkInterfaceId :: Text
+sourceDestCheck :: Maybe Text
+dryRun :: Maybe Bool
+$sel:networkInterfaceId:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Text
+$sel:sourceDestCheck:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Maybe Text
+$sel:dryRun:ResetNetworkInterfaceAttribute' :: ResetNetworkInterfaceAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681170485"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResetNetworkInterfaceAttribute&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170487"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceDestCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681170486"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170485"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newResetNetworkInterfaceAttributeResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621681170482"><span id="local-6989586621681170483"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetNetworkInterfaceAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetNetworkInterfaceAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttributeResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681170478"><span id="local-6989586621681170480"><span class="annot"><span class="annottext">ResetNetworkInterfaceAttributeResponse
+-&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool
+(ResetNetworkInterfaceAttributeResponse
+ -&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool)
+-&gt; (ResetNetworkInterfaceAttributeResponse
+    -&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool)
+-&gt; Eq ResetNetworkInterfaceAttributeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetNetworkInterfaceAttributeResponse
+-&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool
+$c/= :: ResetNetworkInterfaceAttributeResponse
+-&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool
+== :: ResetNetworkInterfaceAttributeResponse
+-&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool
+$c== :: ResetNetworkInterfaceAttributeResponse
+-&gt; ResetNetworkInterfaceAttributeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170470"><span id="local-6989586621681170472"><span id="local-6989586621681170474"><span id="local-6989586621681170476"><span class="annot"><span class="annottext">ReadPrec [ResetNetworkInterfaceAttributeResponse]
+ReadPrec ResetNetworkInterfaceAttributeResponse
+Int -&gt; ReadS ResetNetworkInterfaceAttributeResponse
+ReadS [ResetNetworkInterfaceAttributeResponse]
+(Int -&gt; ReadS ResetNetworkInterfaceAttributeResponse)
+-&gt; ReadS [ResetNetworkInterfaceAttributeResponse]
+-&gt; ReadPrec ResetNetworkInterfaceAttributeResponse
+-&gt; ReadPrec [ResetNetworkInterfaceAttributeResponse]
+-&gt; Read ResetNetworkInterfaceAttributeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetNetworkInterfaceAttributeResponse]
+$creadListPrec :: ReadPrec [ResetNetworkInterfaceAttributeResponse]
+readPrec :: ReadPrec ResetNetworkInterfaceAttributeResponse
+$creadPrec :: ReadPrec ResetNetworkInterfaceAttributeResponse
+readList :: ReadS [ResetNetworkInterfaceAttributeResponse]
+$creadList :: ReadS [ResetNetworkInterfaceAttributeResponse]
+readsPrec :: Int -&gt; ReadS ResetNetworkInterfaceAttributeResponse
+$creadsPrec :: Int -&gt; ReadS ResetNetworkInterfaceAttributeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170464"><span id="local-6989586621681170466"><span id="local-6989586621681170468"><span class="annot"><span class="annottext">Int -&gt; ResetNetworkInterfaceAttributeResponse -&gt; ShowS
+[ResetNetworkInterfaceAttributeResponse] -&gt; ShowS
+ResetNetworkInterfaceAttributeResponse -&gt; String
+(Int -&gt; ResetNetworkInterfaceAttributeResponse -&gt; ShowS)
+-&gt; (ResetNetworkInterfaceAttributeResponse -&gt; String)
+-&gt; ([ResetNetworkInterfaceAttributeResponse] -&gt; ShowS)
+-&gt; Show ResetNetworkInterfaceAttributeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetNetworkInterfaceAttributeResponse] -&gt; ShowS
+$cshowList :: [ResetNetworkInterfaceAttributeResponse] -&gt; ShowS
+show :: ResetNetworkInterfaceAttributeResponse -&gt; String
+$cshow :: ResetNetworkInterfaceAttributeResponse -&gt; String
+showsPrec :: Int -&gt; ResetNetworkInterfaceAttributeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetNetworkInterfaceAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetNetworkInterfaceAttributeResponse
+ -&gt; Rep ResetNetworkInterfaceAttributeResponse x)
+-&gt; (forall x.
+    Rep ResetNetworkInterfaceAttributeResponse x
+    -&gt; ResetNetworkInterfaceAttributeResponse)
+-&gt; Generic ResetNetworkInterfaceAttributeResponse
+forall x.
+Rep ResetNetworkInterfaceAttributeResponse x
+-&gt; ResetNetworkInterfaceAttributeResponse
+forall x.
+ResetNetworkInterfaceAttributeResponse
+-&gt; Rep ResetNetworkInterfaceAttributeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetNetworkInterfaceAttributeResponse x
+-&gt; ResetNetworkInterfaceAttributeResponse
+$cfrom :: forall x.
+ResetNetworkInterfaceAttributeResponse
+-&gt; Rep ResetNetworkInterfaceAttributeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'ResetNetworkInterfaceAttributeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">newResetNetworkInterfaceAttributeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttributeResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newResetNetworkInterfaceAttributeResponse"><span class="annot"><span class="annottext">newResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#newResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-var hs-var">newResetNetworkInterfaceAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">ResetNetworkInterfaceAttributeResponse
+</span><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ResetNetworkInterfaceAttributeResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681170460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetNetworkInterfaceAttribute.html#ResetNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">ResetNetworkInterfaceAttributeResponse</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

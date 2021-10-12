@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DMS.Types.EndpointSetting</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DMS.Types.EndpointSetting</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html"><span class="hs-identifier">Network.AWS.DMS.Types.EndpointSettingTypeValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Endpoint settings.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEndpointSetting' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679431817"><span id="local-6989586621679431818"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointSetting"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-var">EndpointSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointSetting%27"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-var">EndpointSetting'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The relevance or validity of an endpoint setting for an engine name and</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- its endpoint type.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aapplicability%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aapplicability%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">applicability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The minimum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AintValueMin%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMin%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">intValueMin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name that you want to give the endpoint settings.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aname%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The maximum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AintValueMax%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMax%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">intValueMax</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A value that marks this endpoint setting as sensitive.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Asensitive%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Bool
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Asensitive%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">sensitive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Enumerated values to use for this endpoint.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AenumValues%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe [Text]
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AenumValues%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">enumValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The default value of the endpoint setting if no value is specified using</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @CreateEndpoint@ or @ModifyEndpoint@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdefaultValue%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AdefaultValue%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The type of endpoint. Valid values are @source@ and @target@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atype%27%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe EndpointSettingTypeValue
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Atype%27%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue"><span class="hs-identifier hs-type">EndpointSettingTypeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unit of measure for this endpoint setting.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aunits%3AEndpointSetting%27"><span class="annot"><span class="annottext">EndpointSetting -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aunits%3AEndpointSetting%27"><span class="hs-identifier hs-var hs-var">units</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431803"><span id="local-6989586621679431805"><span class="annot"><span class="annottext">EndpointSetting -&gt; EndpointSetting -&gt; Bool
+(EndpointSetting -&gt; EndpointSetting -&gt; Bool)
+-&gt; (EndpointSetting -&gt; EndpointSetting -&gt; Bool)
+-&gt; Eq EndpointSetting
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EndpointSetting -&gt; EndpointSetting -&gt; Bool
+$c/= :: EndpointSetting -&gt; EndpointSetting -&gt; Bool
+== :: EndpointSetting -&gt; EndpointSetting -&gt; Bool
+$c== :: EndpointSetting -&gt; EndpointSetting -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431794"><span id="local-6989586621679431796"><span id="local-6989586621679431798"><span id="local-6989586621679431800"><span class="annot"><span class="annottext">ReadPrec [EndpointSetting]
+ReadPrec EndpointSetting
+Int -&gt; ReadS EndpointSetting
+ReadS [EndpointSetting]
+(Int -&gt; ReadS EndpointSetting)
+-&gt; ReadS [EndpointSetting]
+-&gt; ReadPrec EndpointSetting
+-&gt; ReadPrec [EndpointSetting]
+-&gt; Read EndpointSetting
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EndpointSetting]
+$creadListPrec :: ReadPrec [EndpointSetting]
+readPrec :: ReadPrec EndpointSetting
+$creadPrec :: ReadPrec EndpointSetting
+readList :: ReadS [EndpointSetting]
+$creadList :: ReadS [EndpointSetting]
+readsPrec :: Int -&gt; ReadS EndpointSetting
+$creadsPrec :: Int -&gt; ReadS EndpointSetting
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431787"><span id="local-6989586621679431789"><span id="local-6989586621679431791"><span class="annot"><span class="annottext">Int -&gt; EndpointSetting -&gt; ShowS
+[EndpointSetting] -&gt; ShowS
+EndpointSetting -&gt; String
+(Int -&gt; EndpointSetting -&gt; ShowS)
+-&gt; (EndpointSetting -&gt; String)
+-&gt; ([EndpointSetting] -&gt; ShowS)
+-&gt; Show EndpointSetting
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EndpointSetting] -&gt; ShowS
+$cshowList :: [EndpointSetting] -&gt; ShowS
+show :: EndpointSetting -&gt; String
+$cshow :: EndpointSetting -&gt; String
+showsPrec :: Int -&gt; EndpointSetting -&gt; ShowS
+$cshowsPrec :: Int -&gt; EndpointSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EndpointSetting -&gt; Rep EndpointSetting x)
+-&gt; (forall x. Rep EndpointSetting x -&gt; EndpointSetting)
+-&gt; Generic EndpointSetting
+forall x. Rep EndpointSetting x -&gt; EndpointSetting
+forall x. EndpointSetting -&gt; Rep EndpointSetting x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EndpointSetting x -&gt; EndpointSetting
+$cfrom :: forall x. EndpointSetting -&gt; Rep EndpointSetting x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'EndpointSetting' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'applicability', 'endpointSetting_applicability' - The relevance or validity of an endpoint setting for an engine name and</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- its endpoint type.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'intValueMin', 'endpointSetting_intValueMin' - The minimum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'name', 'endpointSetting_name' - The name that you want to give the endpoint settings.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'intValueMax', 'endpointSetting_intValueMax' - The maximum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'sensitive', 'endpointSetting_sensitive' - A value that marks this endpoint setting as sensitive.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'enumValues', 'endpointSetting_enumValues' - Enumerated values to use for this endpoint.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'defaultValue', 'endpointSetting_defaultValue' - The default value of the endpoint setting if no value is specified using</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @CreateEndpoint@ or @ModifyEndpoint@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'type'', 'endpointSetting_type' - The type of endpoint. Valid values are @source@ and @target@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'units', 'endpointSetting_units' - The unit of measure for this endpoint setting.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#newEndpointSetting"><span class="hs-identifier hs-type">newEndpointSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span>
+</span><span id="line-83"></span><span id="newEndpointSetting"><span class="annot"><span class="annottext">newEndpointSetting :: EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#newEndpointSetting"><span class="hs-identifier hs-var hs-var">newEndpointSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">EndpointSetting' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe EndpointSettingTypeValue
+-&gt; Maybe Text
+-&gt; EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicability:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aapplicability%3AEndpointSetting%27"><span class="hs-identifier hs-var">applicability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:intValueMin:EndpointSetting' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMin%3AEndpointSetting%27"><span class="hs-identifier hs-var">intValueMin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aname%3AEndpointSetting%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:intValueMax:EndpointSetting' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMax%3AEndpointSetting%27"><span class="hs-identifier hs-var">intValueMax</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:sensitive:EndpointSetting' :: Maybe Bool
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Asensitive%3AEndpointSetting%27"><span class="hs-identifier hs-var">sensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:enumValues:EndpointSetting' :: Maybe [Text]
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AenumValues%3AEndpointSetting%27"><span class="hs-identifier hs-var">enumValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultValue:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AdefaultValue%3AEndpointSetting%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':EndpointSetting' :: Maybe EndpointSettingTypeValue
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Atype%27%3AEndpointSetting%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointSettingTypeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:units:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aunits%3AEndpointSetting%27"><span class="hs-identifier hs-var">units</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The relevance or validity of an endpoint setting for an engine name and</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- its endpoint type.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_applicability"><span class="hs-identifier hs-type">endpointSetting_applicability</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="endpointSetting_applicability"><span class="annot"><span class="annottext">endpointSetting_applicability :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_applicability"><span class="hs-identifier hs-var hs-var">endpointSetting_applicability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Text)
+-&gt; (EndpointSetting -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431778"><span class="annot"><span class="annottext">Maybe Text
+applicability :: Maybe Text
+$sel:applicability:EndpointSetting' :: EndpointSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679431778"><span class="hs-identifier hs-var hs-var">applicability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431778"><span class="hs-identifier hs-var">applicability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431777"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicability:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aapplicability%3AEndpointSetting%27"><span class="hs-identifier hs-var">applicability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The minimum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_intValueMin"><span class="hs-identifier hs-type">endpointSetting_intValueMin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="endpointSetting_intValueMin"><span class="annot"><span class="annottext">endpointSetting_intValueMin :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_intValueMin"><span class="hs-identifier hs-var hs-var">endpointSetting_intValueMin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Int)
+-&gt; (EndpointSetting -&gt; Maybe Int -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431774"><span class="annot"><span class="annottext">Maybe Int
+intValueMin :: Maybe Int
+$sel:intValueMin:EndpointSetting' :: EndpointSetting -&gt; Maybe Int
+</span><a href="#local-6989586621679431774"><span class="hs-identifier hs-var hs-var">intValueMin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431774"><span class="hs-identifier hs-var">intValueMin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431773"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431772"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intValueMin:EndpointSetting' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMin%3AEndpointSetting%27"><span class="hs-identifier hs-var">intValueMin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name that you want to give the endpoint settings.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_name"><span class="hs-identifier hs-type">endpointSetting_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="endpointSetting_name"><span class="annot"><span class="annottext">endpointSetting_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_name"><span class="hs-identifier hs-var hs-var">endpointSetting_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Text)
+-&gt; (EndpointSetting -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431770"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:EndpointSetting' :: EndpointSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679431770"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431770"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431769"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431768"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aname%3AEndpointSetting%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum value of an endpoint setting that is of type @int@.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_intValueMax"><span class="hs-identifier hs-type">endpointSetting_intValueMax</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="endpointSetting_intValueMax"><span class="annot"><span class="annottext">endpointSetting_intValueMax :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_intValueMax"><span class="hs-identifier hs-var hs-var">endpointSetting_intValueMax</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Int)
+-&gt; (EndpointSetting -&gt; Maybe Int -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431766"><span class="annot"><span class="annottext">Maybe Int
+intValueMax :: Maybe Int
+$sel:intValueMax:EndpointSetting' :: EndpointSetting -&gt; Maybe Int
+</span><a href="#local-6989586621679431766"><span class="hs-identifier hs-var hs-var">intValueMax</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431766"><span class="hs-identifier hs-var">intValueMax</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431765"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431764"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intValueMax:EndpointSetting' :: Maybe Int
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AintValueMax%3AEndpointSetting%27"><span class="hs-identifier hs-var">intValueMax</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679431764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A value that marks this endpoint setting as sensitive.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_sensitive"><span class="hs-identifier hs-type">endpointSetting_sensitive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="endpointSetting_sensitive"><span class="annot"><span class="annottext">endpointSetting_sensitive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_sensitive"><span class="hs-identifier hs-var hs-var">endpointSetting_sensitive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Bool)
+-&gt; (EndpointSetting -&gt; Maybe Bool -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431762"><span class="annot"><span class="annottext">Maybe Bool
+sensitive :: Maybe Bool
+$sel:sensitive:EndpointSetting' :: EndpointSetting -&gt; Maybe Bool
+</span><a href="#local-6989586621679431762"><span class="hs-identifier hs-var hs-var">sensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679431762"><span class="hs-identifier hs-var">sensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431761"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431760"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679431760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sensitive:EndpointSetting' :: Maybe Bool
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Asensitive%3AEndpointSetting%27"><span class="hs-identifier hs-var">sensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679431760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Enumerated values to use for this endpoint.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_enumValues"><span class="hs-identifier hs-type">endpointSetting_enumValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="endpointSetting_enumValues"><span class="annot"><span class="annottext">endpointSetting_enumValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_enumValues"><span class="hs-identifier hs-var hs-var">endpointSetting_enumValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe [Text])
+-&gt; (EndpointSetting -&gt; Maybe [Text] -&gt; EndpointSetting)
+-&gt; Lens
+     EndpointSetting EndpointSetting (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431758"><span class="annot"><span class="annottext">Maybe [Text]
+enumValues :: Maybe [Text]
+$sel:enumValues:EndpointSetting' :: EndpointSetting -&gt; Maybe [Text]
+</span><a href="#local-6989586621679431758"><span class="hs-identifier hs-var hs-var">enumValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679431758"><span class="hs-identifier hs-var">enumValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431757"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431756"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679431756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enumValues:EndpointSetting' :: Maybe [Text]
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AenumValues%3AEndpointSetting%27"><span class="hs-identifier hs-var">enumValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679431756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; EndpointSetting -&gt; f EndpointSetting)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EndpointSetting
+-&gt; f EndpointSetting
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The default value of the endpoint setting if no value is specified using</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @CreateEndpoint@ or @ModifyEndpoint@.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_defaultValue"><span class="hs-identifier hs-type">endpointSetting_defaultValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="endpointSetting_defaultValue"><span class="annot"><span class="annottext">endpointSetting_defaultValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_defaultValue"><span class="hs-identifier hs-var hs-var">endpointSetting_defaultValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Text)
+-&gt; (EndpointSetting -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431751"><span class="annot"><span class="annottext">Maybe Text
+defaultValue :: Maybe Text
+$sel:defaultValue:EndpointSetting' :: EndpointSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679431751"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431751"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431750"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3AdefaultValue%3AEndpointSetting%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The type of endpoint. Valid values are @source@ and @target@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_type"><span class="hs-identifier hs-type">endpointSetting_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue"><span class="hs-identifier hs-type">EndpointSettingTypeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="endpointSetting_type"><span class="annot"><span class="annottext">endpointSetting_type :: (Maybe EndpointSettingTypeValue
+ -&gt; f (Maybe EndpointSettingTypeValue))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_type"><span class="hs-identifier hs-var hs-var">endpointSetting_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe EndpointSettingTypeValue)
+-&gt; (EndpointSetting
+    -&gt; Maybe EndpointSettingTypeValue -&gt; EndpointSetting)
+-&gt; Lens
+     EndpointSetting
+     EndpointSetting
+     (Maybe EndpointSettingTypeValue)
+     (Maybe EndpointSettingTypeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431747"><span class="annot"><span class="annottext">Maybe EndpointSettingTypeValue
+type' :: Maybe EndpointSettingTypeValue
+$sel:type':EndpointSetting' :: EndpointSetting -&gt; Maybe EndpointSettingTypeValue
+</span><a href="#local-6989586621679431747"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointSettingTypeValue
+</span><a href="#local-6989586621679431747"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431746"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431745"><span class="annot"><span class="annottext">Maybe EndpointSettingTypeValue
+</span><a href="#local-6989586621679431745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EndpointSetting' :: Maybe EndpointSettingTypeValue
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Atype%27%3AEndpointSetting%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointSettingTypeValue
+</span><a href="#local-6989586621679431745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The unit of measure for this endpoint setting.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_units"><span class="hs-identifier hs-type">endpointSetting_units</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="endpointSetting_units"><span class="annot"><span class="annottext">endpointSetting_units :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EndpointSetting -&gt; f EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#endpointSetting_units"><span class="hs-identifier hs-var hs-var">endpointSetting_units</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EndpointSetting -&gt; Maybe Text)
+-&gt; (EndpointSetting -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Lens EndpointSetting EndpointSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431743"><span class="annot"><span class="annottext">Maybe Text
+units :: Maybe Text
+$sel:units:EndpointSetting' :: EndpointSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679431743"><span class="hs-identifier hs-var hs-var">units</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431743"><span class="hs-identifier hs-var">units</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431742"><span class="annot"><span class="annottext">s :: EndpointSetting
+</span><a href="#local-6989586621679431742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-type">EndpointSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSetting
+</span><a href="#local-6989586621679431742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:units:EndpointSetting' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#%24sel%3Aunits%3AEndpointSetting%27"><span class="hs-identifier hs-var">units</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431738"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679431736"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointSetting
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EndpointSetting)
+-&gt; Value
+-&gt; Parser EndpointSetting
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EndpointSetting&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431733"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe EndpointSettingTypeValue
+-&gt; Maybe Text
+-&gt; EndpointSetting
+</span><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting%27"><span class="hs-identifier hs-var">EndpointSetting'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe EndpointSettingTypeValue
+ -&gt; Maybe Text
+ -&gt; EndpointSetting)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue
+      -&gt; Maybe Text
+      -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Applicability&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue
+   -&gt; Maybe Text
+   -&gt; EndpointSetting)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue
+      -&gt; Maybe Text
+      -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntValueMin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue
+   -&gt; Maybe Text
+   -&gt; EndpointSetting)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue
+      -&gt; Maybe Text
+      -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue
+   -&gt; Maybe Text
+   -&gt; EndpointSetting)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue
+      -&gt; Maybe Text
+      -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IntValueMax&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue
+   -&gt; Maybe Text
+   -&gt; EndpointSetting)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue
+      -&gt; Maybe Text
+      -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sensitive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue
+   -&gt; Maybe Text
+   -&gt; EndpointSetting)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EndpointSettingTypeValue -&gt; Maybe Text -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnumValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EndpointSettingTypeValue -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EndpointSettingTypeValue -&gt; Maybe Text -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EndpointSettingTypeValue -&gt; Maybe Text -&gt; EndpointSetting)
+-&gt; Parser (Maybe EndpointSettingTypeValue)
+-&gt; Parser (Maybe Text -&gt; EndpointSetting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointSettingTypeValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EndpointSetting)
+-&gt; Parser (Maybe Text) -&gt; Parser EndpointSetting
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Units&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431726"><span id="local-6989586621679431728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSetting.html#EndpointSetting"><span class="hs-identifier hs-type">EndpointSetting</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

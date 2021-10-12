@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticTranscoder.DeletePipeline</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The DeletePipeline operation removes a pipeline.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can only delete a pipeline that has never been used or that is not</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- currently in use (doesn\'t contain any active jobs). If the pipeline is</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- currently in use, @DeletePipeline@ returns an error.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticTranscoder.DeletePipeline</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier">DeletePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipeline"><span class="hs-identifier">newDeletePipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipeline_id"><span class="hs-identifier">deletePipeline_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier">DeletePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipelineResponse"><span class="hs-identifier">newDeletePipelineResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipelineResponse_httpStatus"><span class="hs-identifier">deletePipelineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.html"><span class="hs-identifier">Network.AWS.ElasticTranscoder.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The @DeletePipelineRequest@ structure.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeletePipeline' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679216647"><span id="local-6989586621679216648"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePipeline"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-var">DeletePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePipeline%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline%27"><span class="hs-identifier hs-var">DeletePipeline'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the pipeline that you want to delete.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3ADeletePipeline%27"><span class="annot"><span class="annottext">DeletePipeline -&gt; Text
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3Aid%3ADeletePipeline%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216641"><span id="local-6989586621679216643"><span class="annot"><span class="annottext">DeletePipeline -&gt; DeletePipeline -&gt; Bool
+(DeletePipeline -&gt; DeletePipeline -&gt; Bool)
+-&gt; (DeletePipeline -&gt; DeletePipeline -&gt; Bool) -&gt; Eq DeletePipeline
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePipeline -&gt; DeletePipeline -&gt; Bool
+$c/= :: DeletePipeline -&gt; DeletePipeline -&gt; Bool
+== :: DeletePipeline -&gt; DeletePipeline -&gt; Bool
+$c== :: DeletePipeline -&gt; DeletePipeline -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216632"><span id="local-6989586621679216634"><span id="local-6989586621679216636"><span id="local-6989586621679216638"><span class="annot"><span class="annottext">ReadPrec [DeletePipeline]
+ReadPrec DeletePipeline
+Int -&gt; ReadS DeletePipeline
+ReadS [DeletePipeline]
+(Int -&gt; ReadS DeletePipeline)
+-&gt; ReadS [DeletePipeline]
+-&gt; ReadPrec DeletePipeline
+-&gt; ReadPrec [DeletePipeline]
+-&gt; Read DeletePipeline
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePipeline]
+$creadListPrec :: ReadPrec [DeletePipeline]
+readPrec :: ReadPrec DeletePipeline
+$creadPrec :: ReadPrec DeletePipeline
+readList :: ReadS [DeletePipeline]
+$creadList :: ReadS [DeletePipeline]
+readsPrec :: Int -&gt; ReadS DeletePipeline
+$creadsPrec :: Int -&gt; ReadS DeletePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216625"><span id="local-6989586621679216627"><span id="local-6989586621679216629"><span class="annot"><span class="annottext">Int -&gt; DeletePipeline -&gt; ShowS
+[DeletePipeline] -&gt; ShowS
+DeletePipeline -&gt; String
+(Int -&gt; DeletePipeline -&gt; ShowS)
+-&gt; (DeletePipeline -&gt; String)
+-&gt; ([DeletePipeline] -&gt; ShowS)
+-&gt; Show DeletePipeline
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePipeline] -&gt; ShowS
+$cshowList :: [DeletePipeline] -&gt; ShowS
+show :: DeletePipeline -&gt; String
+$cshow :: DeletePipeline -&gt; String
+showsPrec :: Int -&gt; DeletePipeline -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletePipeline -&gt; Rep DeletePipeline x)
+-&gt; (forall x. Rep DeletePipeline x -&gt; DeletePipeline)
+-&gt; Generic DeletePipeline
+forall x. Rep DeletePipeline x -&gt; DeletePipeline
+forall x. DeletePipeline -&gt; Rep DeletePipeline x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePipeline x -&gt; DeletePipeline
+$cfrom :: forall x. DeletePipeline -&gt; Rep DeletePipeline x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeletePipeline' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'id', 'deletePipeline_id' - The identifier of the pipeline that you want to delete.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipeline"><span class="hs-identifier hs-type">newDeletePipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeletePipeline"><span class="annot"><span class="annottext">newDeletePipeline :: Text -&gt; DeletePipeline
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipeline"><span class="hs-identifier hs-var hs-var">newDeletePipeline</span></a></span></span><span> </span><span id="local-6989586621679216620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216620"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePipeline' :: Text -&gt; DeletePipeline
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline%27"><span class="hs-identifier hs-type">DeletePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeletePipeline' :: Text
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3Aid%3ADeletePipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216620"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The identifier of the pipeline that you want to delete.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipeline_id"><span class="hs-identifier hs-type">deletePipeline_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="deletePipeline_id"><span class="annot"><span class="annottext">deletePipeline_id :: (Text -&gt; f Text) -&gt; DeletePipeline -&gt; f DeletePipeline
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipeline_id"><span class="hs-identifier hs-var hs-var">deletePipeline_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePipeline -&gt; Text)
+-&gt; (DeletePipeline -&gt; Text -&gt; DeletePipeline)
+-&gt; Lens DeletePipeline DeletePipeline Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline%27"><span class="hs-identifier hs-type">DeletePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216617"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeletePipeline' :: DeletePipeline -&gt; Text
+</span><a href="#local-6989586621679216617"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216617"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216616"><span class="annot"><span class="annottext">s :: DeletePipeline
+</span><a href="#local-6989586621679216616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline%27"><span class="hs-identifier hs-type">DeletePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePipeline
+</span><a href="#local-6989586621679216616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeletePipeline' :: Text
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3Aid%3ADeletePipeline%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-type">DeletePipelineResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679216611"><span class="annot"><span class="annottext">request :: DeletePipeline -&gt; Request DeletePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePipeline -&gt; Request DeletePipeline
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679216607"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeletePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeletePipeline)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeletePipeline))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeletePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeletePipeline)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216604"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216603"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216603"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216602"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679216602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePipelineResponse
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse%27"><span class="hs-identifier hs-var">DeletePipelineResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePipelineResponse)
+-&gt; Either String Int -&gt; Either String DeletePipelineResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216604"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216595"><span id="local-6989586621679216597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679216588"><span class="annot"><span class="annottext">toHeaders :: DeletePipeline -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePipeline -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679216583"><span class="annot"><span class="annottext">toPath :: DeletePipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline%27"><span class="hs-identifier hs-type">DeletePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216581"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeletePipeline' :: DeletePipeline -&gt; Text
+</span><a href="#local-6989586621679216581"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2012-09-25/pipelines/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216581"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipeline"><span class="hs-identifier hs-type">DeletePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679216577"><span class="annot"><span class="annottext">toQuery :: DeletePipeline -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePipeline -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The @DeletePipelineResponse@ structure.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- /See:/ 'newDeletePipelineResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679216574"><span id="local-6989586621679216575"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePipelineResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-var">DeletePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePipelineResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse%27"><span class="hs-identifier hs-var">DeletePipelineResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePipelineResponse%27"><span class="annot"><span class="annottext">DeletePipelineResponse -&gt; Int
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3AhttpStatus%3ADeletePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216569"><span id="local-6989586621679216571"><span class="annot"><span class="annottext">DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool
+(DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool)
+-&gt; (DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool)
+-&gt; Eq DeletePipelineResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool
+$c/= :: DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool
+== :: DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool
+$c== :: DeletePipelineResponse -&gt; DeletePipelineResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216561"><span id="local-6989586621679216563"><span id="local-6989586621679216565"><span id="local-6989586621679216567"><span class="annot"><span class="annottext">ReadPrec [DeletePipelineResponse]
+ReadPrec DeletePipelineResponse
+Int -&gt; ReadS DeletePipelineResponse
+ReadS [DeletePipelineResponse]
+(Int -&gt; ReadS DeletePipelineResponse)
+-&gt; ReadS [DeletePipelineResponse]
+-&gt; ReadPrec DeletePipelineResponse
+-&gt; ReadPrec [DeletePipelineResponse]
+-&gt; Read DeletePipelineResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeletePipelineResponse]
+$creadListPrec :: ReadPrec [DeletePipelineResponse]
+readPrec :: ReadPrec DeletePipelineResponse
+$creadPrec :: ReadPrec DeletePipelineResponse
+readList :: ReadS [DeletePipelineResponse]
+$creadList :: ReadS [DeletePipelineResponse]
+readsPrec :: Int -&gt; ReadS DeletePipelineResponse
+$creadsPrec :: Int -&gt; ReadS DeletePipelineResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216555"><span id="local-6989586621679216557"><span id="local-6989586621679216559"><span class="annot"><span class="annottext">Int -&gt; DeletePipelineResponse -&gt; ShowS
+[DeletePipelineResponse] -&gt; ShowS
+DeletePipelineResponse -&gt; String
+(Int -&gt; DeletePipelineResponse -&gt; ShowS)
+-&gt; (DeletePipelineResponse -&gt; String)
+-&gt; ([DeletePipelineResponse] -&gt; ShowS)
+-&gt; Show DeletePipelineResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeletePipelineResponse] -&gt; ShowS
+$cshowList :: [DeletePipelineResponse] -&gt; ShowS
+show :: DeletePipelineResponse -&gt; String
+$cshow :: DeletePipelineResponse -&gt; String
+showsPrec :: Int -&gt; DeletePipelineResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeletePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeletePipelineResponse -&gt; Rep DeletePipelineResponse x)
+-&gt; (forall x.
+    Rep DeletePipelineResponse x -&gt; DeletePipelineResponse)
+-&gt; Generic DeletePipelineResponse
+forall x. Rep DeletePipelineResponse x -&gt; DeletePipelineResponse
+forall x. DeletePipelineResponse -&gt; Rep DeletePipelineResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeletePipelineResponse x -&gt; DeletePipelineResponse
+$cfrom :: forall x. DeletePipelineResponse -&gt; Rep DeletePipelineResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'DeletePipelineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'httpStatus', 'deletePipelineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipelineResponse"><span class="hs-identifier hs-type">newDeletePipelineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-type">DeletePipelineResponse</span></a></span><span>
+</span><span id="line-129"></span><span id="newDeletePipelineResponse"><span class="annot"><span class="annottext">newDeletePipelineResponse :: Int -&gt; DeletePipelineResponse
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#newDeletePipelineResponse"><span class="hs-identifier hs-var hs-var">newDeletePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679216552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeletePipelineResponse' :: Int -&gt; DeletePipelineResponse
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse%27"><span class="hs-identifier hs-type">DeletePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePipelineResponse' :: Int
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3AhttpStatus%3ADeletePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipelineResponse_httpStatus"><span class="hs-identifier hs-type">deletePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-type">DeletePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span id="deletePipelineResponse_httpStatus"><span class="annot"><span class="annottext">deletePipelineResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeletePipelineResponse -&gt; f DeletePipelineResponse
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#deletePipelineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deletePipelineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeletePipelineResponse -&gt; Int)
+-&gt; (DeletePipelineResponse -&gt; Int -&gt; DeletePipelineResponse)
+-&gt; Lens DeletePipelineResponse DeletePipelineResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse%27"><span class="hs-identifier hs-type">DeletePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216551"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeletePipelineResponse' :: DeletePipelineResponse -&gt; Int
+</span><a href="#local-6989586621679216551"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216551"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216550"><span class="annot"><span class="annottext">s :: DeletePipelineResponse
+</span><a href="#local-6989586621679216550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse%27"><span class="hs-identifier hs-type">DeletePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePipelineResponse
+</span><a href="#local-6989586621679216550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePipelineResponse' :: Int
+</span><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#%24sel%3AhttpStatus%3ADeletePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-type">DeletePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePipeline.html#DeletePipelineResponse"><span class="hs-identifier hs-type">DeletePipelineResponse</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

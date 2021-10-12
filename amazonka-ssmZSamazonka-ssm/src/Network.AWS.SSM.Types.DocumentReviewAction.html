@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.DocumentReviewAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.DocumentReviewAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier">DocumentReviewAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Approve"><span class="hs-identifier">DocumentReviewAction_Approve</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Reject"><span class="hs-identifier">DocumentReviewAction_Reject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_SendForReview"><span class="hs-identifier">DocumentReviewAction_SendForReview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_UpdateReview"><span class="hs-identifier">DocumentReviewAction_UpdateReview</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679792419"><span id="local-6989586621679792420"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReviewAction"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-var">DocumentReviewAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewAction%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-var">DocumentReviewAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReviewAction"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; Text
+</span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#fromDocumentReviewAction"><span class="hs-identifier hs-var hs-var">fromDocumentReviewAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792411"><span id="local-6989586621679792413"><span id="local-6989586621679792415"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; ShowS
+[DocumentReviewAction] -&gt; ShowS
+DocumentReviewAction -&gt; String
+(Int -&gt; DocumentReviewAction -&gt; ShowS)
+-&gt; (DocumentReviewAction -&gt; String)
+-&gt; ([DocumentReviewAction] -&gt; ShowS)
+-&gt; Show DocumentReviewAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DocumentReviewAction] -&gt; ShowS
+$cshowList :: [DocumentReviewAction] -&gt; ShowS
+show :: DocumentReviewAction -&gt; String
+$cshow :: DocumentReviewAction -&gt; String
+showsPrec :: Int -&gt; DocumentReviewAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; DocumentReviewAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679792402"><span id="local-6989586621679792404"><span id="local-6989586621679792406"><span id="local-6989586621679792408"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewAction]
+ReadPrec DocumentReviewAction
+Int -&gt; ReadS DocumentReviewAction
+ReadS [DocumentReviewAction]
+(Int -&gt; ReadS DocumentReviewAction)
+-&gt; ReadS [DocumentReviewAction]
+-&gt; ReadPrec DocumentReviewAction
+-&gt; ReadPrec [DocumentReviewAction]
+-&gt; Read DocumentReviewAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DocumentReviewAction]
+$creadListPrec :: ReadPrec [DocumentReviewAction]
+readPrec :: ReadPrec DocumentReviewAction
+$creadPrec :: ReadPrec DocumentReviewAction
+readList :: ReadS [DocumentReviewAction]
+$creadList :: ReadS [DocumentReviewAction]
+readsPrec :: Int -&gt; ReadS DocumentReviewAction
+$creadsPrec :: Int -&gt; ReadS DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679792397"><span id="local-6989586621679792399"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+(DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; Eq DocumentReviewAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c/= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+== :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c== :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679792381"><span id="local-6989586621679792383"><span id="local-6989586621679792385"><span id="local-6989586621679792387"><span id="local-6989586621679792389"><span id="local-6989586621679792391"><span id="local-6989586621679792393"><span class="annot"><span class="annottext">Eq DocumentReviewAction
+Eq DocumentReviewAction
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Ordering)
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; (DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool)
+-&gt; (DocumentReviewAction
+    -&gt; DocumentReviewAction -&gt; DocumentReviewAction)
+-&gt; (DocumentReviewAction
+    -&gt; DocumentReviewAction -&gt; DocumentReviewAction)
+-&gt; Ord DocumentReviewAction
+DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+DocumentReviewAction -&gt; DocumentReviewAction -&gt; Ordering
+DocumentReviewAction
+-&gt; DocumentReviewAction -&gt; DocumentReviewAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DocumentReviewAction
+-&gt; DocumentReviewAction -&gt; DocumentReviewAction
+$cmin :: DocumentReviewAction
+-&gt; DocumentReviewAction -&gt; DocumentReviewAction
+max :: DocumentReviewAction
+-&gt; DocumentReviewAction -&gt; DocumentReviewAction
+$cmax :: DocumentReviewAction
+-&gt; DocumentReviewAction -&gt; DocumentReviewAction
+&gt;= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c&gt;= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+&gt; :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c&gt; :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+&lt;= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c&lt;= :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+&lt; :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+$c&lt; :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Bool
+compare :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Ordering
+$ccompare :: DocumentReviewAction -&gt; DocumentReviewAction -&gt; Ordering
+$cp1Ord :: Eq DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DocumentReviewAction -&gt; Rep DocumentReviewAction x)
+-&gt; (forall x. Rep DocumentReviewAction x -&gt; DocumentReviewAction)
+-&gt; Generic DocumentReviewAction
+forall x. Rep DocumentReviewAction x -&gt; DocumentReviewAction
+forall x. DocumentReviewAction -&gt; Rep DocumentReviewAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DocumentReviewAction x -&gt; DocumentReviewAction
+$cfrom :: forall x. DocumentReviewAction -&gt; Rep DocumentReviewAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792373"><span id="local-6989586621679792375"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewAction -&gt; Int
+DocumentReviewAction -&gt; Int
+(Int -&gt; DocumentReviewAction -&gt; Int)
+-&gt; (DocumentReviewAction -&gt; Int) -&gt; Hashable DocumentReviewAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DocumentReviewAction -&gt; Int
+$chash :: DocumentReviewAction -&gt; Int
+hashWithSalt :: Int -&gt; DocumentReviewAction -&gt; Int
+$chashWithSalt :: Int -&gt; DocumentReviewAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679792370"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ()
+(DocumentReviewAction -&gt; ()) -&gt; NFData DocumentReviewAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DocumentReviewAction -&gt; ()
+$crnf :: DocumentReviewAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679792367"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReviewAction
+(Text -&gt; Either String DocumentReviewAction)
+-&gt; FromText DocumentReviewAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DocumentReviewAction
+$cfromText :: Text -&gt; Either String DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679792364"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; Text
+(DocumentReviewAction -&gt; Text) -&gt; ToText DocumentReviewAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DocumentReviewAction -&gt; Text
+$ctoText :: DocumentReviewAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679792361"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteString
+(DocumentReviewAction -&gt; ByteString)
+-&gt; ToByteString DocumentReviewAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DocumentReviewAction -&gt; ByteString
+$ctoBS :: DocumentReviewAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679792358"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; ByteStringBuilder
+(DocumentReviewAction -&gt; ByteStringBuilder)
+-&gt; ToLog DocumentReviewAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DocumentReviewAction -&gt; ByteStringBuilder
+$cbuild :: DocumentReviewAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679792355"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReviewAction -&gt; [Header]
+(HeaderName -&gt; DocumentReviewAction -&gt; [Header])
+-&gt; ToHeader DocumentReviewAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DocumentReviewAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DocumentReviewAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679792352"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; QueryString
+(DocumentReviewAction -&gt; QueryString)
+-&gt; ToQuery DocumentReviewAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DocumentReviewAction -&gt; QueryString
+$ctoQuery :: DocumentReviewAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679792347"><span id="local-6989586621679792349"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReviewAction]
+Value -&gt; Parser DocumentReviewAction
+(Value -&gt; Parser DocumentReviewAction)
+-&gt; (Value -&gt; Parser [DocumentReviewAction])
+-&gt; FromJSON DocumentReviewAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DocumentReviewAction]
+$cparseJSONList :: Value -&gt; Parser [DocumentReviewAction]
+parseJSON :: Value -&gt; Parser DocumentReviewAction
+$cparseJSON :: Value -&gt; Parser DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679792342"><span id="local-6989586621679792344"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReviewAction]
+FromJSONKeyFunction DocumentReviewAction
+FromJSONKeyFunction DocumentReviewAction
+-&gt; FromJSONKeyFunction [DocumentReviewAction]
+-&gt; FromJSONKey DocumentReviewAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DocumentReviewAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [DocumentReviewAction]
+fromJSONKey :: FromJSONKeyFunction DocumentReviewAction
+$cfromJSONKey :: FromJSONKeyFunction DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679792333"><span id="local-6989586621679792335"><span id="local-6989586621679792337"><span id="local-6989586621679792339"><span class="annot"><span class="annottext">[DocumentReviewAction] -&gt; Encoding
+[DocumentReviewAction] -&gt; Value
+DocumentReviewAction -&gt; Encoding
+DocumentReviewAction -&gt; Value
+(DocumentReviewAction -&gt; Value)
+-&gt; (DocumentReviewAction -&gt; Encoding)
+-&gt; ([DocumentReviewAction] -&gt; Value)
+-&gt; ([DocumentReviewAction] -&gt; Encoding)
+-&gt; ToJSON DocumentReviewAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DocumentReviewAction] -&gt; Encoding
+$ctoEncodingList :: [DocumentReviewAction] -&gt; Encoding
+toJSONList :: [DocumentReviewAction] -&gt; Value
+$ctoJSONList :: [DocumentReviewAction] -&gt; Value
+toEncoding :: DocumentReviewAction -&gt; Encoding
+$ctoEncoding :: DocumentReviewAction -&gt; Encoding
+toJSON :: DocumentReviewAction -&gt; Value
+$ctoJSON :: DocumentReviewAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679792328"><span id="local-6989586621679792330"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReviewAction]
+ToJSONKeyFunction DocumentReviewAction
+ToJSONKeyFunction DocumentReviewAction
+-&gt; ToJSONKeyFunction [DocumentReviewAction]
+-&gt; ToJSONKey DocumentReviewAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DocumentReviewAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [DocumentReviewAction]
+toJSONKey :: ToJSONKeyFunction DocumentReviewAction
+$ctoJSONKey :: ToJSONKeyFunction DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679792325"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReviewAction
+([Node] -&gt; Either String DocumentReviewAction)
+-&gt; FromXML DocumentReviewAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DocumentReviewAction
+$cparseXML :: [Node] -&gt; Either String DocumentReviewAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679792322"><span class="annot"><span class="annottext">DocumentReviewAction -&gt; XML
+(DocumentReviewAction -&gt; XML) -&gt; ToXML DocumentReviewAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DocumentReviewAction -&gt; XML
+$ctoXML :: DocumentReviewAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Approve"><span class="hs-identifier hs-type">DocumentReviewAction_Approve</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-type">DocumentReviewAction</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReviewAction_Approve"><span id="%24mDocumentReviewAction_Approve"><span id="DocumentReviewAction_Approve"><span class="annot"><span class="annottext">$bDocumentReviewAction_Approve :: DocumentReviewAction
+$mDocumentReviewAction_Approve :: forall r. DocumentReviewAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#%24bDocumentReviewAction_Approve"><span class="hs-identifier hs-var hs-var hs-var">DocumentReviewAction_Approve</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-type">DocumentReviewAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Approve&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Reject"><span class="hs-identifier hs-type">DocumentReviewAction_Reject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-type">DocumentReviewAction</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReviewAction_Reject"><span id="%24mDocumentReviewAction_Reject"><span id="DocumentReviewAction_Reject"><span class="annot"><span class="annottext">$bDocumentReviewAction_Reject :: DocumentReviewAction
+$mDocumentReviewAction_Reject :: forall r. DocumentReviewAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#%24bDocumentReviewAction_Reject"><span class="hs-identifier hs-var hs-var hs-var">DocumentReviewAction_Reject</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-type">DocumentReviewAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Reject&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_SendForReview"><span class="hs-identifier hs-type">DocumentReviewAction_SendForReview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-type">DocumentReviewAction</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReviewAction_SendForReview"><span id="%24mDocumentReviewAction_SendForReview"><span id="DocumentReviewAction_SendForReview"><span class="annot"><span class="annottext">$bDocumentReviewAction_SendForReview :: DocumentReviewAction
+$mDocumentReviewAction_SendForReview :: forall r. DocumentReviewAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#%24bDocumentReviewAction_SendForReview"><span class="hs-identifier hs-var hs-var hs-var">DocumentReviewAction_SendForReview</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-type">DocumentReviewAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SendForReview&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_UpdateReview"><span class="hs-identifier hs-type">DocumentReviewAction_UpdateReview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction"><span class="hs-identifier hs-type">DocumentReviewAction</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDocumentReviewAction_UpdateReview"><span id="%24mDocumentReviewAction_UpdateReview"><span id="DocumentReviewAction_UpdateReview"><span class="annot"><span class="annottext">$bDocumentReviewAction_UpdateReview :: DocumentReviewAction
+$mDocumentReviewAction_UpdateReview :: forall r. DocumentReviewAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#%24bDocumentReviewAction_UpdateReview"><span class="hs-identifier hs-var hs-var hs-var">DocumentReviewAction_UpdateReview</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-identifier hs-type">DocumentReviewAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UpdateReview&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Approve"><span class="hs-pragma hs-type">DocumentReviewAction_Approve</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_Reject"><span class="hs-pragma hs-type">DocumentReviewAction_Reject</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_SendForReview"><span class="hs-pragma hs-type">DocumentReviewAction_SendForReview</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction_UpdateReview"><span class="hs-pragma hs-type">DocumentReviewAction_UpdateReview</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewAction.html#DocumentReviewAction%27"><span class="hs-pragma hs-type">DocumentReviewAction'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

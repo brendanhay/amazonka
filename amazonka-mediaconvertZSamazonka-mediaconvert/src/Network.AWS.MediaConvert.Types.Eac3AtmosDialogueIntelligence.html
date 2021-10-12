@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence"><span class="hs-identifier">Eac3AtmosDialogueIntelligence</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_DISABLED"><span class="hs-identifier">Eac3AtmosDialogueIntelligence_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_ENABLED"><span class="hs-identifier">Eac3AtmosDialogueIntelligence_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- analysis.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679954114"><span id="local-6989586621679954115"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3AtmosDialogueIntelligence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence"><span class="hs-identifier hs-var">Eac3AtmosDialogueIntelligence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3AtmosDialogueIntelligence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence%27"><span class="hs-identifier hs-var">Eac3AtmosDialogueIntelligence'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3AtmosDialogueIntelligence"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#fromEac3AtmosDialogueIntelligence"><span class="hs-identifier hs-var hs-var">fromEac3AtmosDialogueIntelligence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954106"><span id="local-6989586621679954108"><span id="local-6989586621679954110"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosDialogueIntelligence -&gt; ShowS
+[Eac3AtmosDialogueIntelligence] -&gt; ShowS
+Eac3AtmosDialogueIntelligence -&gt; String
+(Int -&gt; Eac3AtmosDialogueIntelligence -&gt; ShowS)
+-&gt; (Eac3AtmosDialogueIntelligence -&gt; String)
+-&gt; ([Eac3AtmosDialogueIntelligence] -&gt; ShowS)
+-&gt; Show Eac3AtmosDialogueIntelligence
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3AtmosDialogueIntelligence] -&gt; ShowS
+$cshowList :: [Eac3AtmosDialogueIntelligence] -&gt; ShowS
+show :: Eac3AtmosDialogueIntelligence -&gt; String
+$cshow :: Eac3AtmosDialogueIntelligence -&gt; String
+showsPrec :: Int -&gt; Eac3AtmosDialogueIntelligence -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3AtmosDialogueIntelligence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679954097"><span id="local-6989586621679954099"><span id="local-6989586621679954101"><span id="local-6989586621679954103"><span class="annot"><span class="annottext">ReadPrec [Eac3AtmosDialogueIntelligence]
+ReadPrec Eac3AtmosDialogueIntelligence
+Int -&gt; ReadS Eac3AtmosDialogueIntelligence
+ReadS [Eac3AtmosDialogueIntelligence]
+(Int -&gt; ReadS Eac3AtmosDialogueIntelligence)
+-&gt; ReadS [Eac3AtmosDialogueIntelligence]
+-&gt; ReadPrec Eac3AtmosDialogueIntelligence
+-&gt; ReadPrec [Eac3AtmosDialogueIntelligence]
+-&gt; Read Eac3AtmosDialogueIntelligence
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3AtmosDialogueIntelligence]
+$creadListPrec :: ReadPrec [Eac3AtmosDialogueIntelligence]
+readPrec :: ReadPrec Eac3AtmosDialogueIntelligence
+$creadPrec :: ReadPrec Eac3AtmosDialogueIntelligence
+readList :: ReadS [Eac3AtmosDialogueIntelligence]
+$creadList :: ReadS [Eac3AtmosDialogueIntelligence]
+readsPrec :: Int -&gt; ReadS Eac3AtmosDialogueIntelligence
+$creadsPrec :: Int -&gt; ReadS Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679954092"><span id="local-6989586621679954094"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+(Eac3AtmosDialogueIntelligence
+ -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; Eq Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c/= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+== :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c== :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679954076"><span id="local-6989586621679954078"><span id="local-6989586621679954080"><span id="local-6989586621679954082"><span id="local-6989586621679954084"><span id="local-6989586621679954086"><span id="local-6989586621679954088"><span class="annot"><span class="annottext">Eq Eac3AtmosDialogueIntelligence
+Eq Eac3AtmosDialogueIntelligence
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Ordering)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Bool)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence)
+-&gt; (Eac3AtmosDialogueIntelligence
+    -&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence)
+-&gt; Ord Eac3AtmosDialogueIntelligence
+Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Ordering
+Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence
+$cmin :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence
+max :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence
+$cmax :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Eac3AtmosDialogueIntelligence
+&gt;= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c&gt;= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+&gt; :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c&gt; :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+&lt;= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c&lt;= :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+&lt; :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+$c&lt; :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Bool
+compare :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Ordering
+$ccompare :: Eac3AtmosDialogueIntelligence
+-&gt; Eac3AtmosDialogueIntelligence -&gt; Ordering
+$cp1Ord :: Eq Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Eac3AtmosDialogueIntelligence
+ -&gt; Rep Eac3AtmosDialogueIntelligence x)
+-&gt; (forall x.
+    Rep Eac3AtmosDialogueIntelligence x
+    -&gt; Eac3AtmosDialogueIntelligence)
+-&gt; Generic Eac3AtmosDialogueIntelligence
+forall x.
+Rep Eac3AtmosDialogueIntelligence x
+-&gt; Eac3AtmosDialogueIntelligence
+forall x.
+Eac3AtmosDialogueIntelligence
+-&gt; Rep Eac3AtmosDialogueIntelligence x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Eac3AtmosDialogueIntelligence x
+-&gt; Eac3AtmosDialogueIntelligence
+$cfrom :: forall x.
+Eac3AtmosDialogueIntelligence
+-&gt; Rep Eac3AtmosDialogueIntelligence x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679954068"><span id="local-6989586621679954070"><span class="annot"><span class="annottext">Int -&gt; Eac3AtmosDialogueIntelligence -&gt; Int
+Eac3AtmosDialogueIntelligence -&gt; Int
+(Int -&gt; Eac3AtmosDialogueIntelligence -&gt; Int)
+-&gt; (Eac3AtmosDialogueIntelligence -&gt; Int)
+-&gt; Hashable Eac3AtmosDialogueIntelligence
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3AtmosDialogueIntelligence -&gt; Int
+$chash :: Eac3AtmosDialogueIntelligence -&gt; Int
+hashWithSalt :: Int -&gt; Eac3AtmosDialogueIntelligence -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3AtmosDialogueIntelligence -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679954065"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; ()
+(Eac3AtmosDialogueIntelligence -&gt; ())
+-&gt; NFData Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3AtmosDialogueIntelligence -&gt; ()
+$crnf :: Eac3AtmosDialogueIntelligence -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679954062"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3AtmosDialogueIntelligence
+(Text -&gt; Either String Eac3AtmosDialogueIntelligence)
+-&gt; FromText Eac3AtmosDialogueIntelligence
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3AtmosDialogueIntelligence
+$cfromText :: Text -&gt; Either String Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679954059"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; Text
+(Eac3AtmosDialogueIntelligence -&gt; Text)
+-&gt; ToText Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3AtmosDialogueIntelligence -&gt; Text
+$ctoText :: Eac3AtmosDialogueIntelligence -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679954056"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; ByteString
+(Eac3AtmosDialogueIntelligence -&gt; ByteString)
+-&gt; ToByteString Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3AtmosDialogueIntelligence -&gt; ByteString
+$ctoBS :: Eac3AtmosDialogueIntelligence -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679954053"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; ByteStringBuilder
+(Eac3AtmosDialogueIntelligence -&gt; ByteStringBuilder)
+-&gt; ToLog Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3AtmosDialogueIntelligence -&gt; ByteStringBuilder
+$cbuild :: Eac3AtmosDialogueIntelligence -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679954050"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3AtmosDialogueIntelligence -&gt; [Header]
+(HeaderName -&gt; Eac3AtmosDialogueIntelligence -&gt; [Header])
+-&gt; ToHeader Eac3AtmosDialogueIntelligence
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3AtmosDialogueIntelligence -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3AtmosDialogueIntelligence -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679954047"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; QueryString
+(Eac3AtmosDialogueIntelligence -&gt; QueryString)
+-&gt; ToQuery Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3AtmosDialogueIntelligence -&gt; QueryString
+$ctoQuery :: Eac3AtmosDialogueIntelligence -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679954042"><span id="local-6989586621679954044"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3AtmosDialogueIntelligence]
+Value -&gt; Parser Eac3AtmosDialogueIntelligence
+(Value -&gt; Parser Eac3AtmosDialogueIntelligence)
+-&gt; (Value -&gt; Parser [Eac3AtmosDialogueIntelligence])
+-&gt; FromJSON Eac3AtmosDialogueIntelligence
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3AtmosDialogueIntelligence]
+$cparseJSONList :: Value -&gt; Parser [Eac3AtmosDialogueIntelligence]
+parseJSON :: Value -&gt; Parser Eac3AtmosDialogueIntelligence
+$cparseJSON :: Value -&gt; Parser Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679954037"><span id="local-6989586621679954039"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+FromJSONKeyFunction Eac3AtmosDialogueIntelligence
+FromJSONKeyFunction Eac3AtmosDialogueIntelligence
+-&gt; FromJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+-&gt; FromJSONKey Eac3AtmosDialogueIntelligence
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+fromJSONKey :: FromJSONKeyFunction Eac3AtmosDialogueIntelligence
+$cfromJSONKey :: FromJSONKeyFunction Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679954028"><span id="local-6989586621679954030"><span id="local-6989586621679954032"><span id="local-6989586621679954034"><span class="annot"><span class="annottext">[Eac3AtmosDialogueIntelligence] -&gt; Encoding
+[Eac3AtmosDialogueIntelligence] -&gt; Value
+Eac3AtmosDialogueIntelligence -&gt; Encoding
+Eac3AtmosDialogueIntelligence -&gt; Value
+(Eac3AtmosDialogueIntelligence -&gt; Value)
+-&gt; (Eac3AtmosDialogueIntelligence -&gt; Encoding)
+-&gt; ([Eac3AtmosDialogueIntelligence] -&gt; Value)
+-&gt; ([Eac3AtmosDialogueIntelligence] -&gt; Encoding)
+-&gt; ToJSON Eac3AtmosDialogueIntelligence
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3AtmosDialogueIntelligence] -&gt; Encoding
+$ctoEncodingList :: [Eac3AtmosDialogueIntelligence] -&gt; Encoding
+toJSONList :: [Eac3AtmosDialogueIntelligence] -&gt; Value
+$ctoJSONList :: [Eac3AtmosDialogueIntelligence] -&gt; Value
+toEncoding :: Eac3AtmosDialogueIntelligence -&gt; Encoding
+$ctoEncoding :: Eac3AtmosDialogueIntelligence -&gt; Encoding
+toJSON :: Eac3AtmosDialogueIntelligence -&gt; Value
+$ctoJSON :: Eac3AtmosDialogueIntelligence -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679954023"><span id="local-6989586621679954025"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+ToJSONKeyFunction Eac3AtmosDialogueIntelligence
+ToJSONKeyFunction Eac3AtmosDialogueIntelligence
+-&gt; ToJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+-&gt; ToJSONKey Eac3AtmosDialogueIntelligence
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3AtmosDialogueIntelligence]
+toJSONKey :: ToJSONKeyFunction Eac3AtmosDialogueIntelligence
+$ctoJSONKey :: ToJSONKeyFunction Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679954020"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3AtmosDialogueIntelligence
+([Node] -&gt; Either String Eac3AtmosDialogueIntelligence)
+-&gt; FromXML Eac3AtmosDialogueIntelligence
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3AtmosDialogueIntelligence
+$cparseXML :: [Node] -&gt; Either String Eac3AtmosDialogueIntelligence
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679954017"><span class="annot"><span class="annottext">Eac3AtmosDialogueIntelligence -&gt; XML
+(Eac3AtmosDialogueIntelligence -&gt; XML)
+-&gt; ToXML Eac3AtmosDialogueIntelligence
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3AtmosDialogueIntelligence -&gt; XML
+$ctoXML :: Eac3AtmosDialogueIntelligence -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_DISABLED"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDialogueIntelligence_DISABLED"><span id="%24mEac3AtmosDialogueIntelligence_DISABLED"><span id="Eac3AtmosDialogueIntelligence_DISABLED"><span class="annot"><span class="annottext">$bEac3AtmosDialogueIntelligence_DISABLED :: Eac3AtmosDialogueIntelligence
+$mEac3AtmosDialogueIntelligence_DISABLED :: forall r.
+Eac3AtmosDialogueIntelligence -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#%24bEac3AtmosDialogueIntelligence_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDialogueIntelligence_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence%27"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_ENABLED"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3AtmosDialogueIntelligence_ENABLED"><span id="%24mEac3AtmosDialogueIntelligence_ENABLED"><span id="Eac3AtmosDialogueIntelligence_ENABLED"><span class="annot"><span class="annottext">$bEac3AtmosDialogueIntelligence_ENABLED :: Eac3AtmosDialogueIntelligence
+$mEac3AtmosDialogueIntelligence_ENABLED :: forall r.
+Eac3AtmosDialogueIntelligence -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#%24bEac3AtmosDialogueIntelligence_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">Eac3AtmosDialogueIntelligence_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence%27"><span class="hs-identifier hs-type">Eac3AtmosDialogueIntelligence'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_DISABLED"><span class="hs-pragma hs-type">Eac3AtmosDialogueIntelligence_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence_ENABLED"><span class="hs-pragma hs-type">Eac3AtmosDialogueIntelligence_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence.html#Eac3AtmosDialogueIntelligence%27"><span class="hs-pragma hs-type">Eac3AtmosDialogueIntelligence'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

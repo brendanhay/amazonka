@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.Types.QueryArgProfiles</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.Types.QueryArgProfiles</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html"><span class="hs-identifier">Network.AWS.CloudFront.Types.QueryArgProfile</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Query argument-profile mapping for field-level encryption.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQueryArgProfiles' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679398166"><span id="local-6989586621679398167"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryArgProfiles"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-var">QueryArgProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryArgProfiles%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-var">QueryArgProfiles'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of items for query argument-profile mapping for field-level</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aitems%3AQueryArgProfiles%27"><span class="annot"><span class="annottext">QueryArgProfiles -&gt; Maybe [QueryArgProfile]
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aitems%3AQueryArgProfiles%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Number of profiles for query argument-profile mapping for field-level</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aquantity%3AQueryArgProfiles%27"><span class="annot"><span class="annottext">QueryArgProfiles -&gt; Int
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aquantity%3AQueryArgProfiles%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398159"><span id="local-6989586621679398161"><span class="annot"><span class="annottext">QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool
+(QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool)
+-&gt; (QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool)
+-&gt; Eq QueryArgProfiles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool
+$c/= :: QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool
+== :: QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool
+$c== :: QueryArgProfiles -&gt; QueryArgProfiles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398150"><span id="local-6989586621679398152"><span id="local-6989586621679398154"><span id="local-6989586621679398156"><span class="annot"><span class="annottext">ReadPrec [QueryArgProfiles]
+ReadPrec QueryArgProfiles
+Int -&gt; ReadS QueryArgProfiles
+ReadS [QueryArgProfiles]
+(Int -&gt; ReadS QueryArgProfiles)
+-&gt; ReadS [QueryArgProfiles]
+-&gt; ReadPrec QueryArgProfiles
+-&gt; ReadPrec [QueryArgProfiles]
+-&gt; Read QueryArgProfiles
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QueryArgProfiles]
+$creadListPrec :: ReadPrec [QueryArgProfiles]
+readPrec :: ReadPrec QueryArgProfiles
+$creadPrec :: ReadPrec QueryArgProfiles
+readList :: ReadS [QueryArgProfiles]
+$creadList :: ReadS [QueryArgProfiles]
+readsPrec :: Int -&gt; ReadS QueryArgProfiles
+$creadsPrec :: Int -&gt; ReadS QueryArgProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398143"><span id="local-6989586621679398145"><span id="local-6989586621679398147"><span class="annot"><span class="annottext">Int -&gt; QueryArgProfiles -&gt; ShowS
+[QueryArgProfiles] -&gt; ShowS
+QueryArgProfiles -&gt; String
+(Int -&gt; QueryArgProfiles -&gt; ShowS)
+-&gt; (QueryArgProfiles -&gt; String)
+-&gt; ([QueryArgProfiles] -&gt; ShowS)
+-&gt; Show QueryArgProfiles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QueryArgProfiles] -&gt; ShowS
+$cshowList :: [QueryArgProfiles] -&gt; ShowS
+show :: QueryArgProfiles -&gt; String
+$cshow :: QueryArgProfiles -&gt; String
+showsPrec :: Int -&gt; QueryArgProfiles -&gt; ShowS
+$cshowsPrec :: Int -&gt; QueryArgProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. QueryArgProfiles -&gt; Rep QueryArgProfiles x)
+-&gt; (forall x. Rep QueryArgProfiles x -&gt; QueryArgProfiles)
+-&gt; Generic QueryArgProfiles
+forall x. Rep QueryArgProfiles x -&gt; QueryArgProfiles
+forall x. QueryArgProfiles -&gt; Rep QueryArgProfiles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QueryArgProfiles x -&gt; QueryArgProfiles
+$cfrom :: forall x. QueryArgProfiles -&gt; Rep QueryArgProfiles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'QueryArgProfiles' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'items', 'queryArgProfiles_items' - Number of items for query argument-profile mapping for field-level</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'quantity', 'queryArgProfiles_quantity' - Number of profiles for query argument-profile mapping for field-level</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#newQueryArgProfiles"><span class="hs-identifier hs-type">newQueryArgProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'quantity'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span>
+</span><span id="line-57"></span><span id="newQueryArgProfiles"><span class="annot"><span class="annottext">newQueryArgProfiles :: Int -&gt; QueryArgProfiles
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#newQueryArgProfiles"><span class="hs-identifier hs-var hs-var">newQueryArgProfiles</span></a></span></span><span> </span><span id="local-6989586621679398137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398137"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">QueryArgProfiles' :: Maybe [QueryArgProfile] -&gt; Int -&gt; QueryArgProfiles
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:QueryArgProfiles' :: Maybe [QueryArgProfile]
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aitems%3AQueryArgProfiles%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:QueryArgProfiles' :: Int
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aquantity%3AQueryArgProfiles%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398137"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Number of items for query argument-profile mapping for field-level</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#queryArgProfiles_items"><span class="hs-identifier hs-type">queryArgProfiles_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="queryArgProfiles_items"><span class="annot"><span class="annottext">queryArgProfiles_items :: (Maybe [QueryArgProfile] -&gt; f (Maybe [QueryArgProfile]))
+-&gt; QueryArgProfiles -&gt; f QueryArgProfiles
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#queryArgProfiles_items"><span class="hs-identifier hs-var hs-var">queryArgProfiles_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryArgProfiles -&gt; Maybe [QueryArgProfile])
+-&gt; (QueryArgProfiles
+    -&gt; Maybe [QueryArgProfile] -&gt; QueryArgProfiles)
+-&gt; Lens
+     QueryArgProfiles
+     QueryArgProfiles
+     (Maybe [QueryArgProfile])
+     (Maybe [QueryArgProfile])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398133"><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+items :: Maybe [QueryArgProfile]
+$sel:items:QueryArgProfiles' :: QueryArgProfiles -&gt; Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398133"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398133"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398132"><span class="annot"><span class="annottext">s :: QueryArgProfiles
+</span><a href="#local-6989586621679398132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398131"><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfiles
+</span><a href="#local-6989586621679398132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:QueryArgProfiles' :: Maybe [QueryArgProfile]
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aitems%3AQueryArgProfiles%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryArgProfile] -&gt; f (Maybe [QueryArgProfile]))
+ -&gt; QueryArgProfiles -&gt; f QueryArgProfiles)
+-&gt; ((Maybe [QueryArgProfile] -&gt; f (Maybe [QueryArgProfile]))
+    -&gt; Maybe [QueryArgProfile] -&gt; f (Maybe [QueryArgProfile]))
+-&gt; (Maybe [QueryArgProfile] -&gt; f (Maybe [QueryArgProfile]))
+-&gt; QueryArgProfiles
+-&gt; f QueryArgProfiles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [QueryArgProfile]
+  [QueryArgProfile]
+  [QueryArgProfile]
+  [QueryArgProfile]
+-&gt; Iso
+     (Maybe [QueryArgProfile])
+     (Maybe [QueryArgProfile])
+     (Maybe [QueryArgProfile])
+     (Maybe [QueryArgProfile])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [QueryArgProfile]
+  [QueryArgProfile]
+  [QueryArgProfile]
+  [QueryArgProfile]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Number of profiles for query argument-profile mapping for field-level</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#queryArgProfiles_quantity"><span class="hs-identifier hs-type">queryArgProfiles_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-71"></span><span id="queryArgProfiles_quantity"><span class="annot"><span class="annottext">queryArgProfiles_quantity :: (Int -&gt; f Int) -&gt; QueryArgProfiles -&gt; f QueryArgProfiles
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#queryArgProfiles_quantity"><span class="hs-identifier hs-var hs-var">queryArgProfiles_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryArgProfiles -&gt; Int)
+-&gt; (QueryArgProfiles -&gt; Int -&gt; QueryArgProfiles)
+-&gt; Lens QueryArgProfiles QueryArgProfiles Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398126"><span class="annot"><span class="annottext">Int
+quantity :: Int
+$sel:quantity:QueryArgProfiles' :: QueryArgProfiles -&gt; Int
+</span><a href="#local-6989586621679398126"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398126"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398125"><span class="annot"><span class="annottext">s :: QueryArgProfiles
+</span><a href="#local-6989586621679398125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfiles
+</span><a href="#local-6989586621679398125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:QueryArgProfiles' :: Int
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#%24sel%3Aquantity%3AQueryArgProfiles%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679398121"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueryArgProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398119"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe [QueryArgProfile] -&gt; Int -&gt; QueryArgProfiles
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-var">QueryArgProfiles'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [QueryArgProfile] -&gt; Int -&gt; QueryArgProfiles)
+-&gt; Either String (Maybe [QueryArgProfile])
+-&gt; Either String (Int -&gt; QueryArgProfiles)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-77"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [QueryArgProfile]))
+-&gt; Either String (Maybe [QueryArgProfile])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [QueryArgProfile])
+-&gt; [Node] -&gt; Either String (Maybe [QueryArgProfile])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [QueryArgProfile]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryArgProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; QueryArgProfiles)
+-&gt; Either String Int -&gt; Either String QueryArgProfiles
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398109"><span id="local-6989586621679398111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles"><span class="hs-identifier hs-type">QueryArgProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679398102"><span class="annot"><span class="annottext">toXML :: QueryArgProfiles -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfiles.html#QueryArgProfiles%27"><span class="hs-identifier hs-type">QueryArgProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398099"><span id="local-6989586621679398100"><span class="annot"><span class="annottext">Int
+Maybe [QueryArgProfile]
+quantity :: Int
+items :: Maybe [QueryArgProfile]
+$sel:quantity:QueryArgProfiles' :: QueryArgProfiles -&gt; Int
+$sel:items:QueryArgProfiles' :: QueryArgProfiles -&gt; Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398099"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Items&quot;</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
+forall a. ToXML a =&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
+</span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [QueryArgProfile] -&gt; XML
+forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;QueryArgProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">([QueryArgProfile] -&gt; XML) -&gt; Maybe [QueryArgProfile] -&gt; Maybe XML
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QueryArgProfile]
+</span><a href="#local-6989586621679398100"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679398099"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span></pre></body></html>

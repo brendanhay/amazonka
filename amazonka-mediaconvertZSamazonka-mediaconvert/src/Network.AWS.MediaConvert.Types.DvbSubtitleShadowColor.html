@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier">DvbSubtitleShadowColor</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_AUTO"><span class="hs-identifier">DvbSubtitleShadowColor_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_BLACK"><span class="hs-identifier">DvbSubtitleShadowColor_BLACK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_NONE"><span class="hs-identifier">DvbSubtitleShadowColor_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_WHITE"><span class="hs-identifier">DvbSubtitleShadowColor_WHITE</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Specifies the color of the shadow cast by the captions. All burn-in and</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- DVB-Sub font settings must match.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679952852"><span id="local-6989586621679952853"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleShadowColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier hs-var">DvbSubtitleShadowColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleShadowColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-identifier hs-var">DvbSubtitleShadowColor'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitleShadowColor"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#fromDvbSubtitleShadowColor"><span class="hs-identifier hs-var hs-var">fromDvbSubtitleShadowColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952844"><span id="local-6989586621679952846"><span id="local-6989586621679952848"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleShadowColor -&gt; ShowS
+[DvbSubtitleShadowColor] -&gt; ShowS
+DvbSubtitleShadowColor -&gt; String
+(Int -&gt; DvbSubtitleShadowColor -&gt; ShowS)
+-&gt; (DvbSubtitleShadowColor -&gt; String)
+-&gt; ([DvbSubtitleShadowColor] -&gt; ShowS)
+-&gt; Show DvbSubtitleShadowColor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DvbSubtitleShadowColor] -&gt; ShowS
+$cshowList :: [DvbSubtitleShadowColor] -&gt; ShowS
+show :: DvbSubtitleShadowColor -&gt; String
+$cshow :: DvbSubtitleShadowColor -&gt; String
+showsPrec :: Int -&gt; DvbSubtitleShadowColor -&gt; ShowS
+$cshowsPrec :: Int -&gt; DvbSubtitleShadowColor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679952835"><span id="local-6989586621679952837"><span id="local-6989586621679952839"><span id="local-6989586621679952841"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleShadowColor]
+ReadPrec DvbSubtitleShadowColor
+Int -&gt; ReadS DvbSubtitleShadowColor
+ReadS [DvbSubtitleShadowColor]
+(Int -&gt; ReadS DvbSubtitleShadowColor)
+-&gt; ReadS [DvbSubtitleShadowColor]
+-&gt; ReadPrec DvbSubtitleShadowColor
+-&gt; ReadPrec [DvbSubtitleShadowColor]
+-&gt; Read DvbSubtitleShadowColor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DvbSubtitleShadowColor]
+$creadListPrec :: ReadPrec [DvbSubtitleShadowColor]
+readPrec :: ReadPrec DvbSubtitleShadowColor
+$creadPrec :: ReadPrec DvbSubtitleShadowColor
+readList :: ReadS [DvbSubtitleShadowColor]
+$creadList :: ReadS [DvbSubtitleShadowColor]
+readsPrec :: Int -&gt; ReadS DvbSubtitleShadowColor
+$creadsPrec :: Int -&gt; ReadS DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679952830"><span id="local-6989586621679952832"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+(DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; Eq DvbSubtitleShadowColor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c/= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+== :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c== :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679952814"><span id="local-6989586621679952816"><span id="local-6989586621679952818"><span id="local-6989586621679952820"><span id="local-6989586621679952822"><span id="local-6989586621679952824"><span id="local-6989586621679952826"><span class="annot"><span class="annottext">Eq DvbSubtitleShadowColor
+Eq DvbSubtitleShadowColor
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Ordering)
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; (DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool)
+-&gt; (DvbSubtitleShadowColor
+    -&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor)
+-&gt; (DvbSubtitleShadowColor
+    -&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor)
+-&gt; Ord DvbSubtitleShadowColor
+DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Ordering
+DvbSubtitleShadowColor
+-&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DvbSubtitleShadowColor
+-&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor
+$cmin :: DvbSubtitleShadowColor
+-&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor
+max :: DvbSubtitleShadowColor
+-&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor
+$cmax :: DvbSubtitleShadowColor
+-&gt; DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor
+&gt;= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c&gt;= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+&gt; :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c&gt; :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+&lt;= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c&lt;= :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+&lt; :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+$c&lt; :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Bool
+compare :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Ordering
+$ccompare :: DvbSubtitleShadowColor -&gt; DvbSubtitleShadowColor -&gt; Ordering
+$cp1Ord :: Eq DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DvbSubtitleShadowColor -&gt; Rep DvbSubtitleShadowColor x)
+-&gt; (forall x.
+    Rep DvbSubtitleShadowColor x -&gt; DvbSubtitleShadowColor)
+-&gt; Generic DvbSubtitleShadowColor
+forall x. Rep DvbSubtitleShadowColor x -&gt; DvbSubtitleShadowColor
+forall x. DvbSubtitleShadowColor -&gt; Rep DvbSubtitleShadowColor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DvbSubtitleShadowColor x -&gt; DvbSubtitleShadowColor
+$cfrom :: forall x. DvbSubtitleShadowColor -&gt; Rep DvbSubtitleShadowColor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679952806"><span id="local-6989586621679952808"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleShadowColor -&gt; Int
+DvbSubtitleShadowColor -&gt; Int
+(Int -&gt; DvbSubtitleShadowColor -&gt; Int)
+-&gt; (DvbSubtitleShadowColor -&gt; Int)
+-&gt; Hashable DvbSubtitleShadowColor
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DvbSubtitleShadowColor -&gt; Int
+$chash :: DvbSubtitleShadowColor -&gt; Int
+hashWithSalt :: Int -&gt; DvbSubtitleShadowColor -&gt; Int
+$chashWithSalt :: Int -&gt; DvbSubtitleShadowColor -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679952803"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; ()
+(DvbSubtitleShadowColor -&gt; ()) -&gt; NFData DvbSubtitleShadowColor
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DvbSubtitleShadowColor -&gt; ()
+$crnf :: DvbSubtitleShadowColor -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679952800"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleShadowColor
+(Text -&gt; Either String DvbSubtitleShadowColor)
+-&gt; FromText DvbSubtitleShadowColor
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DvbSubtitleShadowColor
+$cfromText :: Text -&gt; Either String DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679952797"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; Text
+(DvbSubtitleShadowColor -&gt; Text) -&gt; ToText DvbSubtitleShadowColor
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DvbSubtitleShadowColor -&gt; Text
+$ctoText :: DvbSubtitleShadowColor -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679952794"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; ByteString
+(DvbSubtitleShadowColor -&gt; ByteString)
+-&gt; ToByteString DvbSubtitleShadowColor
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DvbSubtitleShadowColor -&gt; ByteString
+$ctoBS :: DvbSubtitleShadowColor -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679952791"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; ByteStringBuilder
+(DvbSubtitleShadowColor -&gt; ByteStringBuilder)
+-&gt; ToLog DvbSubtitleShadowColor
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DvbSubtitleShadowColor -&gt; ByteStringBuilder
+$cbuild :: DvbSubtitleShadowColor -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679952788"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleShadowColor -&gt; [Header]
+(HeaderName -&gt; DvbSubtitleShadowColor -&gt; [Header])
+-&gt; ToHeader DvbSubtitleShadowColor
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DvbSubtitleShadowColor -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DvbSubtitleShadowColor -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679952785"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; QueryString
+(DvbSubtitleShadowColor -&gt; QueryString)
+-&gt; ToQuery DvbSubtitleShadowColor
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DvbSubtitleShadowColor -&gt; QueryString
+$ctoQuery :: DvbSubtitleShadowColor -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679952780"><span id="local-6989586621679952782"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleShadowColor]
+Value -&gt; Parser DvbSubtitleShadowColor
+(Value -&gt; Parser DvbSubtitleShadowColor)
+-&gt; (Value -&gt; Parser [DvbSubtitleShadowColor])
+-&gt; FromJSON DvbSubtitleShadowColor
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DvbSubtitleShadowColor]
+$cparseJSONList :: Value -&gt; Parser [DvbSubtitleShadowColor]
+parseJSON :: Value -&gt; Parser DvbSubtitleShadowColor
+$cparseJSON :: Value -&gt; Parser DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679952775"><span id="local-6989586621679952777"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleShadowColor]
+FromJSONKeyFunction DvbSubtitleShadowColor
+FromJSONKeyFunction DvbSubtitleShadowColor
+-&gt; FromJSONKeyFunction [DvbSubtitleShadowColor]
+-&gt; FromJSONKey DvbSubtitleShadowColor
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DvbSubtitleShadowColor]
+$cfromJSONKeyList :: FromJSONKeyFunction [DvbSubtitleShadowColor]
+fromJSONKey :: FromJSONKeyFunction DvbSubtitleShadowColor
+$cfromJSONKey :: FromJSONKeyFunction DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679952766"><span id="local-6989586621679952768"><span id="local-6989586621679952770"><span id="local-6989586621679952772"><span class="annot"><span class="annottext">[DvbSubtitleShadowColor] -&gt; Encoding
+[DvbSubtitleShadowColor] -&gt; Value
+DvbSubtitleShadowColor -&gt; Encoding
+DvbSubtitleShadowColor -&gt; Value
+(DvbSubtitleShadowColor -&gt; Value)
+-&gt; (DvbSubtitleShadowColor -&gt; Encoding)
+-&gt; ([DvbSubtitleShadowColor] -&gt; Value)
+-&gt; ([DvbSubtitleShadowColor] -&gt; Encoding)
+-&gt; ToJSON DvbSubtitleShadowColor
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DvbSubtitleShadowColor] -&gt; Encoding
+$ctoEncodingList :: [DvbSubtitleShadowColor] -&gt; Encoding
+toJSONList :: [DvbSubtitleShadowColor] -&gt; Value
+$ctoJSONList :: [DvbSubtitleShadowColor] -&gt; Value
+toEncoding :: DvbSubtitleShadowColor -&gt; Encoding
+$ctoEncoding :: DvbSubtitleShadowColor -&gt; Encoding
+toJSON :: DvbSubtitleShadowColor -&gt; Value
+$ctoJSON :: DvbSubtitleShadowColor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679952761"><span id="local-6989586621679952763"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleShadowColor]
+ToJSONKeyFunction DvbSubtitleShadowColor
+ToJSONKeyFunction DvbSubtitleShadowColor
+-&gt; ToJSONKeyFunction [DvbSubtitleShadowColor]
+-&gt; ToJSONKey DvbSubtitleShadowColor
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DvbSubtitleShadowColor]
+$ctoJSONKeyList :: ToJSONKeyFunction [DvbSubtitleShadowColor]
+toJSONKey :: ToJSONKeyFunction DvbSubtitleShadowColor
+$ctoJSONKey :: ToJSONKeyFunction DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679952758"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleShadowColor
+([Node] -&gt; Either String DvbSubtitleShadowColor)
+-&gt; FromXML DvbSubtitleShadowColor
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DvbSubtitleShadowColor
+$cparseXML :: [Node] -&gt; Either String DvbSubtitleShadowColor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679952755"><span class="annot"><span class="annottext">DvbSubtitleShadowColor -&gt; XML
+(DvbSubtitleShadowColor -&gt; XML) -&gt; ToXML DvbSubtitleShadowColor
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DvbSubtitleShadowColor -&gt; XML
+$ctoXML :: DvbSubtitleShadowColor -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_AUTO"><span class="hs-identifier hs-type">DvbSubtitleShadowColor_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier hs-type">DvbSubtitleShadowColor</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleShadowColor_AUTO"><span id="%24mDvbSubtitleShadowColor_AUTO"><span id="DvbSubtitleShadowColor_AUTO"><span class="annot"><span class="annottext">$bDvbSubtitleShadowColor_AUTO :: DvbSubtitleShadowColor
+$mDvbSubtitleShadowColor_AUTO :: forall r.
+DvbSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#%24bDvbSubtitleShadowColor_AUTO"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleShadowColor_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-identifier hs-type">DvbSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_BLACK"><span class="hs-identifier hs-type">DvbSubtitleShadowColor_BLACK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier hs-type">DvbSubtitleShadowColor</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleShadowColor_BLACK"><span id="%24mDvbSubtitleShadowColor_BLACK"><span id="DvbSubtitleShadowColor_BLACK"><span class="annot"><span class="annottext">$bDvbSubtitleShadowColor_BLACK :: DvbSubtitleShadowColor
+$mDvbSubtitleShadowColor_BLACK :: forall r.
+DvbSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#%24bDvbSubtitleShadowColor_BLACK"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleShadowColor_BLACK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-identifier hs-type">DvbSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BLACK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_NONE"><span class="hs-identifier hs-type">DvbSubtitleShadowColor_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier hs-type">DvbSubtitleShadowColor</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleShadowColor_NONE"><span id="%24mDvbSubtitleShadowColor_NONE"><span id="DvbSubtitleShadowColor_NONE"><span class="annot"><span class="annottext">$bDvbSubtitleShadowColor_NONE :: DvbSubtitleShadowColor
+$mDvbSubtitleShadowColor_NONE :: forall r.
+DvbSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#%24bDvbSubtitleShadowColor_NONE"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleShadowColor_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-identifier hs-type">DvbSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_WHITE"><span class="hs-identifier hs-type">DvbSubtitleShadowColor_WHITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor"><span class="hs-identifier hs-type">DvbSubtitleShadowColor</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDvbSubtitleShadowColor_WHITE"><span id="%24mDvbSubtitleShadowColor_WHITE"><span id="DvbSubtitleShadowColor_WHITE"><span class="annot"><span class="annottext">$bDvbSubtitleShadowColor_WHITE :: DvbSubtitleShadowColor
+$mDvbSubtitleShadowColor_WHITE :: forall r.
+DvbSubtitleShadowColor -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#%24bDvbSubtitleShadowColor_WHITE"><span class="hs-identifier hs-var hs-var hs-var">DvbSubtitleShadowColor_WHITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-identifier hs-type">DvbSubtitleShadowColor'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WHITE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_AUTO"><span class="hs-pragma hs-type">DvbSubtitleShadowColor_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_BLACK"><span class="hs-pragma hs-type">DvbSubtitleShadowColor_BLACK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_NONE"><span class="hs-pragma hs-type">DvbSubtitleShadowColor_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor_WHITE"><span class="hs-pragma hs-type">DvbSubtitleShadowColor_WHITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor.html#DvbSubtitleShadowColor%27"><span class="hs-pragma hs-type">DvbSubtitleShadowColor'</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-83"></span></pre></body></html>

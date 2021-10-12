@@ -1,0 +1,1184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkSpaces.Types.WorkspaceDirectory</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.Types.WorkspaceDirectory</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.SelfservicePermissions.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.SelfservicePermissions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tenancy.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.Tenancy</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes a directory that is used with Amazon WorkSpaces.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newWorkspaceDirectory' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679272913"><span id="local-6989586621679272914"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceDirectory"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-var">WorkspaceDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceDirectory%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-var">WorkspaceDirectory'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registration code for the directory. This is the code that users</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- enter in their Amazon WorkSpaces client application to connect to the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AregistrationCode%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AregistrationCode%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">registrationCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier of the security group that is assigned to new WorkSpaces.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AworkspaceSecurityGroupId%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceSecurityGroupId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">workspaceSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The directory alias.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aalias%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Aalias%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The devices and operating systems that users can use to access</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AworkspaceAccessProperties%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceAccessProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The identifiers of the IP access control groups associated with the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AipGroupIds%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AipGroupIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">ipGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The identifiers of the subnets used with the directory.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsubnetIds%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AsubnetIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The user name for the service account.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcustomerUserName%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AcustomerUserName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">customerUserName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Specifies whether the directory is dedicated or shared. To use Bring</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Your Own License (BYOL), this value must be set to @DEDICATED@. For more</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atenancy%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Atenancy%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The state of the directory\'s registration with Amazon WorkSpaces. After</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- a directory is deregistered, the @DEREGISTERED@ state is returned very</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- briefly before the directory metadata is cleaned up, so this state is</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- rarely returned. To confirm that a directory is deregistered, check for</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the directory ID by using</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories&gt;.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If the directory ID isn\'t returned, then the directory has been</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- successfully deregistered.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Astate%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryState
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Astate%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState.html#WorkspaceDirectoryState"><span class="hs-identifier hs-type">WorkspaceDirectoryState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The directory identifier.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdirectoryId%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The identifier of the IAM role. This is the role that allows Amazon</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- WorkSpaces to make calls to other services, such as Amazon EC2, on your</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AiamRoleId%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AiamRoleId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">iamRoleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The directory type.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdirectoryType%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryType
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryType%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">directoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-type">WorkspaceDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The default self-service permissions for WorkSpaces in the directory.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AselfservicePermissions%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe SelfservicePermissions
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AselfservicePermissions%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">selfservicePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.SelfservicePermissions.html#SelfservicePermissions"><span class="hs-identifier hs-type">SelfservicePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the directory.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdirectoryName%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The IP addresses of the DNS servers for the directory.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AdnsIpAddresses%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdnsIpAddresses%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">dnsIpAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The default creation properties for all WorkSpaces in the directory.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AworkspaceCreationProperties%3AWorkspaceDirectory%27"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; Maybe DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceCreationProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272892"><span id="local-6989586621679272894"><span class="annot"><span class="annottext">WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool
+(WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool)
+-&gt; (WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool)
+-&gt; Eq WorkspaceDirectory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool
+$c/= :: WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool
+== :: WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool
+$c== :: WorkspaceDirectory -&gt; WorkspaceDirectory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272883"><span id="local-6989586621679272885"><span id="local-6989586621679272887"><span id="local-6989586621679272889"><span class="annot"><span class="annottext">ReadPrec [WorkspaceDirectory]
+ReadPrec WorkspaceDirectory
+Int -&gt; ReadS WorkspaceDirectory
+ReadS [WorkspaceDirectory]
+(Int -&gt; ReadS WorkspaceDirectory)
+-&gt; ReadS [WorkspaceDirectory]
+-&gt; ReadPrec WorkspaceDirectory
+-&gt; ReadPrec [WorkspaceDirectory]
+-&gt; Read WorkspaceDirectory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceDirectory]
+$creadListPrec :: ReadPrec [WorkspaceDirectory]
+readPrec :: ReadPrec WorkspaceDirectory
+$creadPrec :: ReadPrec WorkspaceDirectory
+readList :: ReadS [WorkspaceDirectory]
+$creadList :: ReadS [WorkspaceDirectory]
+readsPrec :: Int -&gt; ReadS WorkspaceDirectory
+$creadsPrec :: Int -&gt; ReadS WorkspaceDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272876"><span id="local-6989586621679272878"><span id="local-6989586621679272880"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectory -&gt; ShowS
+[WorkspaceDirectory] -&gt; ShowS
+WorkspaceDirectory -&gt; String
+(Int -&gt; WorkspaceDirectory -&gt; ShowS)
+-&gt; (WorkspaceDirectory -&gt; String)
+-&gt; ([WorkspaceDirectory] -&gt; ShowS)
+-&gt; Show WorkspaceDirectory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceDirectory] -&gt; ShowS
+$cshowList :: [WorkspaceDirectory] -&gt; ShowS
+show :: WorkspaceDirectory -&gt; String
+$cshow :: WorkspaceDirectory -&gt; String
+showsPrec :: Int -&gt; WorkspaceDirectory -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. WorkspaceDirectory -&gt; Rep WorkspaceDirectory x)
+-&gt; (forall x. Rep WorkspaceDirectory x -&gt; WorkspaceDirectory)
+-&gt; Generic WorkspaceDirectory
+forall x. Rep WorkspaceDirectory x -&gt; WorkspaceDirectory
+forall x. WorkspaceDirectory -&gt; Rep WorkspaceDirectory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceDirectory x -&gt; WorkspaceDirectory
+$cfrom :: forall x. WorkspaceDirectory -&gt; Rep WorkspaceDirectory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'WorkspaceDirectory' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'registrationCode', 'workspaceDirectory_registrationCode' - The registration code for the directory. This is the code that users</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- enter in their Amazon WorkSpaces client application to connect to the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'workspaceSecurityGroupId', 'workspaceDirectory_workspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'alias', 'workspaceDirectory_alias' - The directory alias.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'workspaceAccessProperties', 'workspaceDirectory_workspaceAccessProperties' - The devices and operating systems that users can use to access</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'ipGroupIds', 'workspaceDirectory_ipGroupIds' - The identifiers of the IP access control groups associated with the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'subnetIds', 'workspaceDirectory_subnetIds' - The identifiers of the subnets used with the directory.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'customerUserName', 'workspaceDirectory_customerUserName' - The user name for the service account.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'tenancy', 'workspaceDirectory_tenancy' - Specifies whether the directory is dedicated or shared. To use Bring</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Your Own License (BYOL), this value must be set to @DEDICATED@. For more</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'state', 'workspaceDirectory_state' - The state of the directory\'s registration with Amazon WorkSpaces. After</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- a directory is deregistered, the @DEREGISTERED@ state is returned very</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- briefly before the directory metadata is cleaned up, so this state is</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- rarely returned. To confirm that a directory is deregistered, check for</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the directory ID by using</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories&gt;.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- If the directory ID isn\'t returned, then the directory has been</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- successfully deregistered.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'directoryId', 'workspaceDirectory_directoryId' - The directory identifier.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'iamRoleId', 'workspaceDirectory_iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- WorkSpaces to make calls to other services, such as Amazon EC2, on your</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'directoryType', 'workspaceDirectory_directoryType' - The directory type.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'selfservicePermissions', 'workspaceDirectory_selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'directoryName', 'workspaceDirectory_directoryName' - The name of the directory.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'dnsIpAddresses', 'workspaceDirectory_dnsIpAddresses' - The IP addresses of the DNS servers for the directory.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'workspaceCreationProperties', 'workspaceDirectory_workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#newWorkspaceDirectory"><span class="hs-identifier hs-type">newWorkspaceDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span>
+</span><span id="line-144"></span><span id="newWorkspaceDirectory"><span class="annot"><span class="annottext">newWorkspaceDirectory :: WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#newWorkspaceDirectory"><span class="hs-identifier hs-var hs-var">newWorkspaceDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceDirectory' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkspaceAccessProperties
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Tenancy
+-&gt; Maybe WorkspaceDirectoryState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkspaceDirectoryType
+-&gt; Maybe SelfservicePermissions
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe DefaultWorkspaceCreationProperties
+-&gt; WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registrationCode:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AregistrationCode%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">registrationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceSecurityGroupId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceSecurityGroupId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Aalias%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceAccessProperties:WorkspaceDirectory' :: Maybe WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceAccessProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceAccessProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceAccessProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipGroupIds:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AipGroupIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">ipGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AsubnetIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerUserName:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AcustomerUserName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">customerUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:tenancy:WorkspaceDirectory' :: Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Atenancy%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:WorkspaceDirectory' :: Maybe WorkspaceDirectoryState
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Astate%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRoleId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AiamRoleId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">iamRoleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryType:WorkspaceDirectory' :: Maybe WorkspaceDirectoryType
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryType%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:selfservicePermissions:WorkspaceDirectory' :: Maybe SelfservicePermissions
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AselfservicePermissions%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">selfservicePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelfservicePermissions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsIpAddresses:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdnsIpAddresses%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">dnsIpAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceCreationProperties:WorkspaceDirectory' :: Maybe DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceCreationProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceCreationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultWorkspaceCreationProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The registration code for the directory. This is the code that users</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- enter in their Amazon WorkSpaces client application to connect to the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_registrationCode"><span class="hs-identifier hs-type">workspaceDirectory_registrationCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="workspaceDirectory_registrationCode"><span class="annot"><span class="annottext">workspaceDirectory_registrationCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_registrationCode"><span class="hs-identifier hs-var hs-var">workspaceDirectory_registrationCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272867"><span class="annot"><span class="annottext">Maybe Text
+registrationCode :: Maybe Text
+$sel:registrationCode:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272867"><span class="hs-identifier hs-var hs-var">registrationCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272867"><span class="hs-identifier hs-var">registrationCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272866"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationCode:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AregistrationCode%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">registrationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The identifier of the security group that is assigned to new WorkSpaces.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceSecurityGroupId"><span class="hs-identifier hs-type">workspaceDirectory_workspaceSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="workspaceDirectory_workspaceSecurityGroupId"><span class="annot"><span class="annottext">workspaceDirectory_workspaceSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceSecurityGroupId"><span class="hs-identifier hs-var hs-var">workspaceDirectory_workspaceSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272863"><span class="annot"><span class="annottext">Maybe Text
+workspaceSecurityGroupId :: Maybe Text
+$sel:workspaceSecurityGroupId:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272863"><span class="hs-identifier hs-var hs-var">workspaceSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272863"><span class="hs-identifier hs-var">workspaceSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272862"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceSecurityGroupId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceSecurityGroupId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The directory alias.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_alias"><span class="hs-identifier hs-type">workspaceDirectory_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="workspaceDirectory_alias"><span class="annot"><span class="annottext">workspaceDirectory_alias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_alias"><span class="hs-identifier hs-var hs-var">workspaceDirectory_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272859"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272859"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272859"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272858"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Aalias%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The devices and operating systems that users can use to access</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceAccessProperties"><span class="hs-identifier hs-type">workspaceDirectory_workspaceAccessProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="workspaceDirectory_workspaceAccessProperties"><span class="annot"><span class="annottext">workspaceDirectory_workspaceAccessProperties :: (Maybe WorkspaceAccessProperties
+ -&gt; f (Maybe WorkspaceAccessProperties))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceAccessProperties"><span class="hs-identifier hs-var hs-var">workspaceDirectory_workspaceAccessProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe WorkspaceAccessProperties)
+-&gt; (WorkspaceDirectory
+    -&gt; Maybe WorkspaceAccessProperties -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe WorkspaceAccessProperties)
+     (Maybe WorkspaceAccessProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272855"><span class="annot"><span class="annottext">Maybe WorkspaceAccessProperties
+workspaceAccessProperties :: Maybe WorkspaceAccessProperties
+$sel:workspaceAccessProperties:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe WorkspaceAccessProperties
+</span><a href="#local-6989586621679272855"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceAccessProperties
+</span><a href="#local-6989586621679272855"><span class="hs-identifier hs-var">workspaceAccessProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272854"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272853"><span class="annot"><span class="annottext">Maybe WorkspaceAccessProperties
+</span><a href="#local-6989586621679272853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceAccessProperties:WorkspaceDirectory' :: Maybe WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceAccessProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceAccessProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceAccessProperties
+</span><a href="#local-6989586621679272853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The identifiers of the IP access control groups associated with the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_ipGroupIds"><span class="hs-identifier hs-type">workspaceDirectory_ipGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="workspaceDirectory_ipGroupIds"><span class="annot"><span class="annottext">workspaceDirectory_ipGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_ipGroupIds"><span class="hs-identifier hs-var hs-var">workspaceDirectory_ipGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe [Text])
+-&gt; (WorkspaceDirectory -&gt; Maybe [Text] -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272851"><span class="annot"><span class="annottext">Maybe [Text]
+ipGroupIds :: Maybe [Text]
+$sel:ipGroupIds:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="#local-6989586621679272851"><span class="hs-identifier hs-var hs-var">ipGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272851"><span class="hs-identifier hs-var">ipGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272850"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272849"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipGroupIds:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AipGroupIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">ipGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory
+-&gt; f WorkspaceDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The identifiers of the subnets used with the directory.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_subnetIds"><span class="hs-identifier hs-type">workspaceDirectory_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="workspaceDirectory_subnetIds"><span class="annot"><span class="annottext">workspaceDirectory_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_subnetIds"><span class="hs-identifier hs-var hs-var">workspaceDirectory_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe [Text])
+-&gt; (WorkspaceDirectory -&gt; Maybe [Text] -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272844"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="#local-6989586621679272844"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272844"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272843"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272842"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AsubnetIds%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory
+-&gt; f WorkspaceDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The user name for the service account.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_customerUserName"><span class="hs-identifier hs-type">workspaceDirectory_customerUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="workspaceDirectory_customerUserName"><span class="annot"><span class="annottext">workspaceDirectory_customerUserName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_customerUserName"><span class="hs-identifier hs-var hs-var">workspaceDirectory_customerUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272840"><span class="annot"><span class="annottext">Maybe Text
+customerUserName :: Maybe Text
+$sel:customerUserName:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272840"><span class="hs-identifier hs-var hs-var">customerUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272840"><span class="hs-identifier hs-var">customerUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272839"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272838"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerUserName:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AcustomerUserName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">customerUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Specifies whether the directory is dedicated or shared. To use Bring</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Your Own License (BYOL), this value must be set to @DEDICATED@. For more</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images&gt;.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_tenancy"><span class="hs-identifier hs-type">workspaceDirectory_tenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="workspaceDirectory_tenancy"><span class="annot"><span class="annottext">workspaceDirectory_tenancy :: (Maybe Tenancy -&gt; f (Maybe Tenancy))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_tenancy"><span class="hs-identifier hs-var hs-var">workspaceDirectory_tenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Tenancy)
+-&gt; (WorkspaceDirectory -&gt; Maybe Tenancy -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe Tenancy)
+     (Maybe Tenancy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272836"><span class="annot"><span class="annottext">Maybe Tenancy
+tenancy :: Maybe Tenancy
+$sel:tenancy:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Tenancy
+</span><a href="#local-6989586621679272836"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679272836"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272835"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272834"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679272834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:WorkspaceDirectory' :: Maybe Tenancy
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Atenancy%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621679272834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The state of the directory\'s registration with Amazon WorkSpaces. After</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- a directory is deregistered, the @DEREGISTERED@ state is returned very</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- briefly before the directory metadata is cleaned up, so this state is</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- rarely returned. To confirm that a directory is deregistered, check for</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the directory ID by using</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories&gt;.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- If the directory ID isn\'t returned, then the directory has been</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- successfully deregistered.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_state"><span class="hs-identifier hs-type">workspaceDirectory_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState.html#WorkspaceDirectoryState"><span class="hs-identifier hs-type">WorkspaceDirectoryState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="workspaceDirectory_state"><span class="annot"><span class="annottext">workspaceDirectory_state :: (Maybe WorkspaceDirectoryState
+ -&gt; f (Maybe WorkspaceDirectoryState))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_state"><span class="hs-identifier hs-var hs-var">workspaceDirectory_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryState)
+-&gt; (WorkspaceDirectory
+    -&gt; Maybe WorkspaceDirectoryState -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe WorkspaceDirectoryState)
+     (Maybe WorkspaceDirectoryState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272832"><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryState
+state :: Maybe WorkspaceDirectoryState
+$sel:state:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryState
+</span><a href="#local-6989586621679272832"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryState
+</span><a href="#local-6989586621679272832"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272831"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272830"><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryState
+</span><a href="#local-6989586621679272830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:WorkspaceDirectory' :: Maybe WorkspaceDirectoryState
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3Astate%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryState
+</span><a href="#local-6989586621679272830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The directory identifier.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryId"><span class="hs-identifier hs-type">workspaceDirectory_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="workspaceDirectory_directoryId"><span class="annot"><span class="annottext">workspaceDirectory_directoryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryId"><span class="hs-identifier hs-var hs-var">workspaceDirectory_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272828"><span class="annot"><span class="annottext">Maybe Text
+directoryId :: Maybe Text
+$sel:directoryId:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272828"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272828"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272827"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The identifier of the IAM role. This is the role that allows Amazon</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- WorkSpaces to make calls to other services, such as Amazon EC2, on your</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_iamRoleId"><span class="hs-identifier hs-type">workspaceDirectory_iamRoleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="workspaceDirectory_iamRoleId"><span class="annot"><span class="annottext">workspaceDirectory_iamRoleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_iamRoleId"><span class="hs-identifier hs-var hs-var">workspaceDirectory_iamRoleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272824"><span class="annot"><span class="annottext">Maybe Text
+iamRoleId :: Maybe Text
+$sel:iamRoleId:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272824"><span class="hs-identifier hs-var hs-var">iamRoleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272824"><span class="hs-identifier hs-var">iamRoleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272823"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleId:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AiamRoleId%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">iamRoleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The directory type.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryType"><span class="hs-identifier hs-type">workspaceDirectory_directoryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-type">WorkspaceDirectoryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="workspaceDirectory_directoryType"><span class="annot"><span class="annottext">workspaceDirectory_directoryType :: (Maybe WorkspaceDirectoryType -&gt; f (Maybe WorkspaceDirectoryType))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryType"><span class="hs-identifier hs-var hs-var">workspaceDirectory_directoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryType)
+-&gt; (WorkspaceDirectory
+    -&gt; Maybe WorkspaceDirectoryType -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe WorkspaceDirectoryType)
+     (Maybe WorkspaceDirectoryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272820"><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryType
+directoryType :: Maybe WorkspaceDirectoryType
+$sel:directoryType:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe WorkspaceDirectoryType
+</span><a href="#local-6989586621679272820"><span class="hs-identifier hs-var hs-var">directoryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryType
+</span><a href="#local-6989586621679272820"><span class="hs-identifier hs-var">directoryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272819"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272818"><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryType
+</span><a href="#local-6989586621679272818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryType:WorkspaceDirectory' :: Maybe WorkspaceDirectoryType
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryType%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkspaceDirectoryType
+</span><a href="#local-6989586621679272818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The default self-service permissions for WorkSpaces in the directory.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_selfservicePermissions"><span class="hs-identifier hs-type">workspaceDirectory_selfservicePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.SelfservicePermissions.html#SelfservicePermissions"><span class="hs-identifier hs-type">SelfservicePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="workspaceDirectory_selfservicePermissions"><span class="annot"><span class="annottext">workspaceDirectory_selfservicePermissions :: (Maybe SelfservicePermissions -&gt; f (Maybe SelfservicePermissions))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_selfservicePermissions"><span class="hs-identifier hs-var hs-var">workspaceDirectory_selfservicePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe SelfservicePermissions)
+-&gt; (WorkspaceDirectory
+    -&gt; Maybe SelfservicePermissions -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe SelfservicePermissions)
+     (Maybe SelfservicePermissions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272816"><span class="annot"><span class="annottext">Maybe SelfservicePermissions
+selfservicePermissions :: Maybe SelfservicePermissions
+$sel:selfservicePermissions:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe SelfservicePermissions
+</span><a href="#local-6989586621679272816"><span class="hs-identifier hs-var hs-var">selfservicePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelfservicePermissions
+</span><a href="#local-6989586621679272816"><span class="hs-identifier hs-var">selfservicePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272815"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272814"><span class="annot"><span class="annottext">Maybe SelfservicePermissions
+</span><a href="#local-6989586621679272814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selfservicePermissions:WorkspaceDirectory' :: Maybe SelfservicePermissions
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AselfservicePermissions%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">selfservicePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelfservicePermissions
+</span><a href="#local-6989586621679272814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The name of the directory.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryName"><span class="hs-identifier hs-type">workspaceDirectory_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="workspaceDirectory_directoryName"><span class="annot"><span class="annottext">workspaceDirectory_directoryName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_directoryName"><span class="hs-identifier hs-var hs-var">workspaceDirectory_directoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe Text)
+-&gt; (WorkspaceDirectory -&gt; Maybe Text -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272812"><span class="annot"><span class="annottext">Maybe Text
+directoryName :: Maybe Text
+$sel:directoryName:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe Text
+</span><a href="#local-6989586621679272812"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272812"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272811"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:WorkspaceDirectory' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdirectoryName%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The IP addresses of the DNS servers for the directory.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_dnsIpAddresses"><span class="hs-identifier hs-type">workspaceDirectory_dnsIpAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="workspaceDirectory_dnsIpAddresses"><span class="annot"><span class="annottext">workspaceDirectory_dnsIpAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_dnsIpAddresses"><span class="hs-identifier hs-var hs-var">workspaceDirectory_dnsIpAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe [Text])
+-&gt; (WorkspaceDirectory -&gt; Maybe [Text] -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory WorkspaceDirectory (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272808"><span class="annot"><span class="annottext">Maybe [Text]
+dnsIpAddresses :: Maybe [Text]
+$sel:dnsIpAddresses:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe [Text]
+</span><a href="#local-6989586621679272808"><span class="hs-identifier hs-var hs-var">dnsIpAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272808"><span class="hs-identifier hs-var">dnsIpAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272807"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272806"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsIpAddresses:WorkspaceDirectory' :: Maybe [Text]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AdnsIpAddresses%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">dnsIpAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; WorkspaceDirectory
+-&gt; f WorkspaceDirectory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The default creation properties for all WorkSpaces in the directory.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceCreationProperties"><span class="hs-identifier hs-type">workspaceDirectory_workspaceCreationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties.html#DefaultWorkspaceCreationProperties"><span class="hs-identifier hs-type">DefaultWorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="workspaceDirectory_workspaceCreationProperties"><span class="annot"><span class="annottext">workspaceDirectory_workspaceCreationProperties :: (Maybe DefaultWorkspaceCreationProperties
+ -&gt; f (Maybe DefaultWorkspaceCreationProperties))
+-&gt; WorkspaceDirectory -&gt; f WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#workspaceDirectory_workspaceCreationProperties"><span class="hs-identifier hs-var hs-var">workspaceDirectory_workspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceDirectory -&gt; Maybe DefaultWorkspaceCreationProperties)
+-&gt; (WorkspaceDirectory
+    -&gt; Maybe DefaultWorkspaceCreationProperties -&gt; WorkspaceDirectory)
+-&gt; Lens
+     WorkspaceDirectory
+     WorkspaceDirectory
+     (Maybe DefaultWorkspaceCreationProperties)
+     (Maybe DefaultWorkspaceCreationProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272804"><span class="annot"><span class="annottext">Maybe DefaultWorkspaceCreationProperties
+workspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties
+$sel:workspaceCreationProperties:WorkspaceDirectory' :: WorkspaceDirectory -&gt; Maybe DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679272804"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679272804"><span class="hs-identifier hs-var">workspaceCreationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272803"><span class="annot"><span class="annottext">s :: WorkspaceDirectory
+</span><a href="#local-6989586621679272803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-type">WorkspaceDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272802"><span class="annot"><span class="annottext">Maybe DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679272802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDirectory
+</span><a href="#local-6989586621679272803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceCreationProperties:WorkspaceDirectory' :: Maybe DefaultWorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#%24sel%3AworkspaceCreationProperties%3AWorkspaceDirectory%27"><span class="hs-identifier hs-var">workspaceCreationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultWorkspaceCreationProperties
+</span><a href="#local-6989586621679272802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679272797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser WorkspaceDirectory)
+-&gt; Value
+-&gt; Parser WorkspaceDirectory
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;WorkspaceDirectory&quot;</span></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272794"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkspaceAccessProperties
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Tenancy
+-&gt; Maybe WorkspaceDirectoryState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WorkspaceDirectoryType
+-&gt; Maybe SelfservicePermissions
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe DefaultWorkspaceCreationProperties
+-&gt; WorkspaceDirectory
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory%27"><span class="hs-identifier hs-var">WorkspaceDirectory'</span></a></span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe WorkspaceAccessProperties
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Tenancy
+ -&gt; Maybe WorkspaceDirectoryState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe WorkspaceDirectoryType
+ -&gt; Maybe SelfservicePermissions
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe DefaultWorkspaceCreationProperties
+ -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceAccessProperties
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RegistrationCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceAccessProperties
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WorkspaceAccessProperties
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceSecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WorkspaceAccessProperties
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WorkspaceAccessProperties
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Alias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkspaceAccessProperties
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe WorkspaceAccessProperties)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkspaceAccessProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceAccessProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Tenancy
+      -&gt; Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerUserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Tenancy
+   -&gt; Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Tenancy)
+-&gt; Parser
+     (Maybe WorkspaceDirectoryState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Tenancy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tenancy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkspaceDirectoryState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe WorkspaceDirectoryState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkspaceDirectoryState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe WorkspaceDirectoryType
+      -&gt; Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRoleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkspaceDirectoryType
+   -&gt; Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe WorkspaceDirectoryType)
+-&gt; Parser
+     (Maybe SelfservicePermissions
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkspaceDirectoryType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SelfservicePermissions
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe SelfservicePermissions)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties
+      -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SelfservicePermissions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelfservicePermissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties
+   -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe DefaultWorkspaceCreationProperties -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe DefaultWorkspaceCreationProperties -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe DefaultWorkspaceCreationProperties -&gt; WorkspaceDirectory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsIpAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DefaultWorkspaceCreationProperties -&gt; WorkspaceDirectory)
+-&gt; Parser (Maybe DefaultWorkspaceCreationProperties)
+-&gt; Parser WorkspaceDirectory
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DefaultWorkspaceCreationProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkspaceCreationProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272787"><span id="local-6989586621679272789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span></span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectory.html#WorkspaceDirectory"><span class="hs-identifier hs-type">WorkspaceDirectory</span></a></span></span><span>
+</span><span id="line-272"></span></pre></body></html>

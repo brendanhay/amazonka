@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.RequirePin</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.RequirePin</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier">RequirePin</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_NO"><span class="hs-identifier">RequirePin_NO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_OPTIONAL"><span class="hs-identifier">RequirePin_OPTIONAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_YES"><span class="hs-identifier">RequirePin_YES</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370411"><span id="local-6989586621679370412"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequirePin"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-var">RequirePin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequirePin%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin%27"><span class="hs-identifier hs-var">RequirePin'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequirePin"><span class="annot"><span class="annottext">RequirePin -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#fromRequirePin"><span class="hs-identifier hs-var hs-var">fromRequirePin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370403"><span id="local-6989586621679370405"><span id="local-6989586621679370407"><span class="annot"><span class="annottext">Int -&gt; RequirePin -&gt; ShowS
+[RequirePin] -&gt; ShowS
+RequirePin -&gt; String
+(Int -&gt; RequirePin -&gt; ShowS)
+-&gt; (RequirePin -&gt; String)
+-&gt; ([RequirePin] -&gt; ShowS)
+-&gt; Show RequirePin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequirePin] -&gt; ShowS
+$cshowList :: [RequirePin] -&gt; ShowS
+show :: RequirePin -&gt; String
+$cshow :: RequirePin -&gt; String
+showsPrec :: Int -&gt; RequirePin -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequirePin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370394"><span id="local-6989586621679370396"><span id="local-6989586621679370398"><span id="local-6989586621679370400"><span class="annot"><span class="annottext">ReadPrec [RequirePin]
+ReadPrec RequirePin
+Int -&gt; ReadS RequirePin
+ReadS [RequirePin]
+(Int -&gt; ReadS RequirePin)
+-&gt; ReadS [RequirePin]
+-&gt; ReadPrec RequirePin
+-&gt; ReadPrec [RequirePin]
+-&gt; Read RequirePin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequirePin]
+$creadListPrec :: ReadPrec [RequirePin]
+readPrec :: ReadPrec RequirePin
+$creadPrec :: ReadPrec RequirePin
+readList :: ReadS [RequirePin]
+$creadList :: ReadS [RequirePin]
+readsPrec :: Int -&gt; ReadS RequirePin
+$creadsPrec :: Int -&gt; ReadS RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370389"><span id="local-6989586621679370391"><span class="annot"><span class="annottext">RequirePin -&gt; RequirePin -&gt; Bool
+(RequirePin -&gt; RequirePin -&gt; Bool)
+-&gt; (RequirePin -&gt; RequirePin -&gt; Bool) -&gt; Eq RequirePin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequirePin -&gt; RequirePin -&gt; Bool
+$c/= :: RequirePin -&gt; RequirePin -&gt; Bool
+== :: RequirePin -&gt; RequirePin -&gt; Bool
+$c== :: RequirePin -&gt; RequirePin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370373"><span id="local-6989586621679370375"><span id="local-6989586621679370377"><span id="local-6989586621679370379"><span id="local-6989586621679370381"><span id="local-6989586621679370383"><span id="local-6989586621679370385"><span class="annot"><span class="annottext">Eq RequirePin
+Eq RequirePin
+-&gt; (RequirePin -&gt; RequirePin -&gt; Ordering)
+-&gt; (RequirePin -&gt; RequirePin -&gt; Bool)
+-&gt; (RequirePin -&gt; RequirePin -&gt; Bool)
+-&gt; (RequirePin -&gt; RequirePin -&gt; Bool)
+-&gt; (RequirePin -&gt; RequirePin -&gt; Bool)
+-&gt; (RequirePin -&gt; RequirePin -&gt; RequirePin)
+-&gt; (RequirePin -&gt; RequirePin -&gt; RequirePin)
+-&gt; Ord RequirePin
+RequirePin -&gt; RequirePin -&gt; Bool
+RequirePin -&gt; RequirePin -&gt; Ordering
+RequirePin -&gt; RequirePin -&gt; RequirePin
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RequirePin -&gt; RequirePin -&gt; RequirePin
+$cmin :: RequirePin -&gt; RequirePin -&gt; RequirePin
+max :: RequirePin -&gt; RequirePin -&gt; RequirePin
+$cmax :: RequirePin -&gt; RequirePin -&gt; RequirePin
+&gt;= :: RequirePin -&gt; RequirePin -&gt; Bool
+$c&gt;= :: RequirePin -&gt; RequirePin -&gt; Bool
+&gt; :: RequirePin -&gt; RequirePin -&gt; Bool
+$c&gt; :: RequirePin -&gt; RequirePin -&gt; Bool
+&lt;= :: RequirePin -&gt; RequirePin -&gt; Bool
+$c&lt;= :: RequirePin -&gt; RequirePin -&gt; Bool
+&lt; :: RequirePin -&gt; RequirePin -&gt; Bool
+$c&lt; :: RequirePin -&gt; RequirePin -&gt; Bool
+compare :: RequirePin -&gt; RequirePin -&gt; Ordering
+$ccompare :: RequirePin -&gt; RequirePin -&gt; Ordering
+$cp1Ord :: Eq RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RequirePin -&gt; Rep RequirePin x)
+-&gt; (forall x. Rep RequirePin x -&gt; RequirePin) -&gt; Generic RequirePin
+forall x. Rep RequirePin x -&gt; RequirePin
+forall x. RequirePin -&gt; Rep RequirePin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RequirePin x -&gt; RequirePin
+$cfrom :: forall x. RequirePin -&gt; Rep RequirePin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370365"><span id="local-6989586621679370367"><span class="annot"><span class="annottext">Int -&gt; RequirePin -&gt; Int
+RequirePin -&gt; Int
+(Int -&gt; RequirePin -&gt; Int)
+-&gt; (RequirePin -&gt; Int) -&gt; Hashable RequirePin
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RequirePin -&gt; Int
+$chash :: RequirePin -&gt; Int
+hashWithSalt :: Int -&gt; RequirePin -&gt; Int
+$chashWithSalt :: Int -&gt; RequirePin -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370362"><span class="annot"><span class="annottext">RequirePin -&gt; ()
+(RequirePin -&gt; ()) -&gt; NFData RequirePin
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RequirePin -&gt; ()
+$crnf :: RequirePin -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370359"><span class="annot"><span class="annottext">Text -&gt; Either String RequirePin
+(Text -&gt; Either String RequirePin) -&gt; FromText RequirePin
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RequirePin
+$cfromText :: Text -&gt; Either String RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370356"><span class="annot"><span class="annottext">RequirePin -&gt; Text
+(RequirePin -&gt; Text) -&gt; ToText RequirePin
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RequirePin -&gt; Text
+$ctoText :: RequirePin -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370353"><span class="annot"><span class="annottext">RequirePin -&gt; ByteString
+(RequirePin -&gt; ByteString) -&gt; ToByteString RequirePin
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RequirePin -&gt; ByteString
+$ctoBS :: RequirePin -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370350"><span class="annot"><span class="annottext">RequirePin -&gt; ByteStringBuilder
+(RequirePin -&gt; ByteStringBuilder) -&gt; ToLog RequirePin
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RequirePin -&gt; ByteStringBuilder
+$cbuild :: RequirePin -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370347"><span class="annot"><span class="annottext">HeaderName -&gt; RequirePin -&gt; [Header]
+(HeaderName -&gt; RequirePin -&gt; [Header]) -&gt; ToHeader RequirePin
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RequirePin -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RequirePin -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370344"><span class="annot"><span class="annottext">RequirePin -&gt; QueryString
+(RequirePin -&gt; QueryString) -&gt; ToQuery RequirePin
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RequirePin -&gt; QueryString
+$ctoQuery :: RequirePin -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370339"><span id="local-6989586621679370341"><span class="annot"><span class="annottext">Value -&gt; Parser [RequirePin]
+Value -&gt; Parser RequirePin
+(Value -&gt; Parser RequirePin)
+-&gt; (Value -&gt; Parser [RequirePin]) -&gt; FromJSON RequirePin
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RequirePin]
+$cparseJSONList :: Value -&gt; Parser [RequirePin]
+parseJSON :: Value -&gt; Parser RequirePin
+$cparseJSON :: Value -&gt; Parser RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370334"><span id="local-6989586621679370336"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequirePin]
+FromJSONKeyFunction RequirePin
+FromJSONKeyFunction RequirePin
+-&gt; FromJSONKeyFunction [RequirePin] -&gt; FromJSONKey RequirePin
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RequirePin]
+$cfromJSONKeyList :: FromJSONKeyFunction [RequirePin]
+fromJSONKey :: FromJSONKeyFunction RequirePin
+$cfromJSONKey :: FromJSONKeyFunction RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370325"><span id="local-6989586621679370327"><span id="local-6989586621679370329"><span id="local-6989586621679370331"><span class="annot"><span class="annottext">[RequirePin] -&gt; Encoding
+[RequirePin] -&gt; Value
+RequirePin -&gt; Encoding
+RequirePin -&gt; Value
+(RequirePin -&gt; Value)
+-&gt; (RequirePin -&gt; Encoding)
+-&gt; ([RequirePin] -&gt; Value)
+-&gt; ([RequirePin] -&gt; Encoding)
+-&gt; ToJSON RequirePin
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RequirePin] -&gt; Encoding
+$ctoEncodingList :: [RequirePin] -&gt; Encoding
+toJSONList :: [RequirePin] -&gt; Value
+$ctoJSONList :: [RequirePin] -&gt; Value
+toEncoding :: RequirePin -&gt; Encoding
+$ctoEncoding :: RequirePin -&gt; Encoding
+toJSON :: RequirePin -&gt; Value
+$ctoJSON :: RequirePin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370320"><span id="local-6989586621679370322"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequirePin]
+ToJSONKeyFunction RequirePin
+ToJSONKeyFunction RequirePin
+-&gt; ToJSONKeyFunction [RequirePin] -&gt; ToJSONKey RequirePin
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RequirePin]
+$ctoJSONKeyList :: ToJSONKeyFunction [RequirePin]
+toJSONKey :: ToJSONKeyFunction RequirePin
+$ctoJSONKey :: ToJSONKeyFunction RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370317"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequirePin
+([Node] -&gt; Either String RequirePin) -&gt; FromXML RequirePin
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RequirePin
+$cparseXML :: [Node] -&gt; Either String RequirePin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370314"><span class="annot"><span class="annottext">RequirePin -&gt; XML
+(RequirePin -&gt; XML) -&gt; ToXML RequirePin
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RequirePin -&gt; XML
+$ctoXML :: RequirePin -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_NO"><span class="hs-identifier hs-type">RequirePin_NO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequirePin_NO"><span id="%24mRequirePin_NO"><span id="RequirePin_NO"><span class="annot"><span class="annottext">$bRequirePin_NO :: RequirePin
+$mRequirePin_NO :: forall r. RequirePin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#%24bRequirePin_NO"><span class="hs-identifier hs-var hs-var hs-var">RequirePin_NO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin%27"><span class="hs-identifier hs-type">RequirePin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_OPTIONAL"><span class="hs-identifier hs-type">RequirePin_OPTIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequirePin_OPTIONAL"><span id="%24mRequirePin_OPTIONAL"><span id="RequirePin_OPTIONAL"><span class="annot"><span class="annottext">$bRequirePin_OPTIONAL :: RequirePin
+$mRequirePin_OPTIONAL :: forall r. RequirePin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#%24bRequirePin_OPTIONAL"><span class="hs-identifier hs-var hs-var hs-var">RequirePin_OPTIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin%27"><span class="hs-identifier hs-type">RequirePin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPTIONAL&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_YES"><span class="hs-identifier hs-type">RequirePin_YES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequirePin_YES"><span id="%24mRequirePin_YES"><span id="RequirePin_YES"><span class="annot"><span class="annottext">$bRequirePin_YES :: RequirePin
+$mRequirePin_YES :: forall r. RequirePin -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#%24bRequirePin_YES"><span class="hs-identifier hs-var hs-var hs-var">RequirePin_YES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin%27"><span class="hs-identifier hs-type">RequirePin'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;YES&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_NO"><span class="hs-pragma hs-type">RequirePin_NO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_OPTIONAL"><span class="hs-pragma hs-type">RequirePin_OPTIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin_YES"><span class="hs-pragma hs-type">RequirePin_YES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin%27"><span class="hs-pragma hs-type">RequirePin'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

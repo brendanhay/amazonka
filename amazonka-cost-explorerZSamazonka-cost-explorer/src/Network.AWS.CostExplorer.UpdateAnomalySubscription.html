@@ -1,0 +1,729 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CostExplorer.UpdateAnomalySubscription</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing cost anomaly monitor subscription.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CostExplorer.UpdateAnomalySubscription</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscription"><span class="hs-identifier">newUpdateAnomalySubscription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_threshold"><span class="hs-identifier">updateAnomalySubscription_threshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionName"><span class="hs-identifier">updateAnomalySubscription_subscriptionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscribers"><span class="hs-identifier">updateAnomalySubscription_subscribers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_frequency"><span class="hs-identifier">updateAnomalySubscription_frequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_monitorArnList"><span class="hs-identifier">updateAnomalySubscription_monitorArnList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionArn"><span class="hs-identifier">updateAnomalySubscription_subscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier">UpdateAnomalySubscriptionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscriptionResponse"><span class="hs-identifier">newUpdateAnomalySubscriptionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_httpStatus"><span class="hs-identifier">updateAnomalySubscriptionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_subscriptionArn"><span class="hs-identifier">updateAnomalySubscriptionResponse_subscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.html"><span class="hs-identifier">Network.AWS.CostExplorer.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateAnomalySubscription' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679349011"><span id="local-6989586621679349012"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnomalySubscription"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-var">UpdateAnomalySubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnomalySubscription%27"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-var">UpdateAnomalySubscription'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The update to the threshold value for receiving notifications.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Athreshold%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Maybe Double
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Athreshold%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The new name of the subscription.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsubscriptionName%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionName%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The update to the subscriber list.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Asubscribers%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Maybe [Subscriber]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Asubscribers%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The update to the frequency value that subscribers receive</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- notifications.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afrequency%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Maybe AnomalySubscriptionFrequency
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Afrequency%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency.html#AnomalySubscriptionFrequency"><span class="hs-identifier hs-type">AnomalySubscriptionFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A list of cost anomaly monitor ARNs.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmonitorArnList%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AmonitorArnList%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">monitorArnList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A cost anomaly subscription Amazon Resource Name (ARN).</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AUpdateAnomalySubscription%27"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349000"><span id="local-6989586621679349002"><span class="annot"><span class="annottext">UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool
+(UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool)
+-&gt; (UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool)
+-&gt; Eq UpdateAnomalySubscription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool
+$c/= :: UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool
+== :: UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool
+$c== :: UpdateAnomalySubscription -&gt; UpdateAnomalySubscription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348991"><span id="local-6989586621679348993"><span id="local-6989586621679348995"><span id="local-6989586621679348997"><span class="annot"><span class="annottext">ReadPrec [UpdateAnomalySubscription]
+ReadPrec UpdateAnomalySubscription
+Int -&gt; ReadS UpdateAnomalySubscription
+ReadS [UpdateAnomalySubscription]
+(Int -&gt; ReadS UpdateAnomalySubscription)
+-&gt; ReadS [UpdateAnomalySubscription]
+-&gt; ReadPrec UpdateAnomalySubscription
+-&gt; ReadPrec [UpdateAnomalySubscription]
+-&gt; Read UpdateAnomalySubscription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnomalySubscription]
+$creadListPrec :: ReadPrec [UpdateAnomalySubscription]
+readPrec :: ReadPrec UpdateAnomalySubscription
+$creadPrec :: ReadPrec UpdateAnomalySubscription
+readList :: ReadS [UpdateAnomalySubscription]
+$creadList :: ReadS [UpdateAnomalySubscription]
+readsPrec :: Int -&gt; ReadS UpdateAnomalySubscription
+$creadsPrec :: Int -&gt; ReadS UpdateAnomalySubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348984"><span id="local-6989586621679348986"><span id="local-6989586621679348988"><span class="annot"><span class="annottext">Int -&gt; UpdateAnomalySubscription -&gt; ShowS
+[UpdateAnomalySubscription] -&gt; ShowS
+UpdateAnomalySubscription -&gt; String
+(Int -&gt; UpdateAnomalySubscription -&gt; ShowS)
+-&gt; (UpdateAnomalySubscription -&gt; String)
+-&gt; ([UpdateAnomalySubscription] -&gt; ShowS)
+-&gt; Show UpdateAnomalySubscription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnomalySubscription] -&gt; ShowS
+$cshowList :: [UpdateAnomalySubscription] -&gt; ShowS
+show :: UpdateAnomalySubscription -&gt; String
+$cshow :: UpdateAnomalySubscription -&gt; String
+showsPrec :: Int -&gt; UpdateAnomalySubscription -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnomalySubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAnomalySubscription -&gt; Rep UpdateAnomalySubscription x)
+-&gt; (forall x.
+    Rep UpdateAnomalySubscription x -&gt; UpdateAnomalySubscription)
+-&gt; Generic UpdateAnomalySubscription
+forall x.
+Rep UpdateAnomalySubscription x -&gt; UpdateAnomalySubscription
+forall x.
+UpdateAnomalySubscription -&gt; Rep UpdateAnomalySubscription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAnomalySubscription x -&gt; UpdateAnomalySubscription
+$cfrom :: forall x.
+UpdateAnomalySubscription -&gt; Rep UpdateAnomalySubscription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'UpdateAnomalySubscription' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'threshold', 'updateAnomalySubscription_threshold' - The update to the threshold value for receiving notifications.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The new name of the subscription.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'subscribers', 'updateAnomalySubscription_subscribers' - The update to the subscriber list.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'frequency', 'updateAnomalySubscription_frequency' - The update to the frequency value that subscribers receive</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- notifications.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'monitorArnList', 'updateAnomalySubscription_monitorArnList' - A list of cost anomaly monitor ARNs.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'subscriptionArn', 'updateAnomalySubscription_subscriptionArn' - A cost anomaly subscription Amazon Resource Name (ARN).</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscription"><span class="hs-identifier hs-type">newUpdateAnomalySubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'subscriptionArn'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span>
+</span><span id="line-96"></span><span id="newUpdateAnomalySubscription"><span class="annot"><span class="annottext">newUpdateAnomalySubscription :: Text -&gt; UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscription"><span class="hs-identifier hs-var hs-var">newUpdateAnomalySubscription</span></a></span></span><span> </span><span id="local-6989586621679348979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348979"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">UpdateAnomalySubscription' :: Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe [Subscriber]
+-&gt; Maybe AnomalySubscriptionFrequency
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:threshold:UpdateAnomalySubscription' :: Maybe Double
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Athreshold%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionName:UpdateAnomalySubscription' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionName%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscribers:UpdateAnomalySubscription' :: Maybe [Subscriber]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Asubscribers%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscriber]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:frequency:UpdateAnomalySubscription' :: Maybe AnomalySubscriptionFrequency
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Afrequency%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitorArnList:UpdateAnomalySubscription' :: Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AmonitorArnList%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionArn:UpdateAnomalySubscription' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348979"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The update to the threshold value for receiving notifications.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_threshold"><span class="hs-identifier hs-type">updateAnomalySubscription_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateAnomalySubscription_threshold"><span class="annot"><span class="annottext">updateAnomalySubscription_threshold :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_threshold"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_threshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Maybe Double)
+-&gt; (UpdateAnomalySubscription
+    -&gt; Maybe Double -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription
+     UpdateAnomalySubscription
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348976"><span class="annot"><span class="annottext">Maybe Double
+threshold :: Maybe Double
+$sel:threshold:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe Double
+</span><a href="#local-6989586621679348976"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348976"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348975"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348974"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:UpdateAnomalySubscription' :: Maybe Double
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Athreshold%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The new name of the subscription.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionName"><span class="hs-identifier hs-type">updateAnomalySubscription_subscriptionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateAnomalySubscription_subscriptionName"><span class="annot"><span class="annottext">updateAnomalySubscription_subscriptionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionName"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Maybe Text)
+-&gt; (UpdateAnomalySubscription
+    -&gt; Maybe Text -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription
+     UpdateAnomalySubscription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348973"><span class="annot"><span class="annottext">Maybe Text
+subscriptionName :: Maybe Text
+$sel:subscriptionName:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679348973"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348973"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348972"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:UpdateAnomalySubscription' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionName%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The update to the subscriber list.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscribers"><span class="hs-identifier hs-type">updateAnomalySubscription_subscribers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateAnomalySubscription_subscribers"><span class="annot"><span class="annottext">updateAnomalySubscription_subscribers :: (Maybe [Subscriber] -&gt; f (Maybe [Subscriber]))
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscribers"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_subscribers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Maybe [Subscriber])
+-&gt; (UpdateAnomalySubscription
+    -&gt; Maybe [Subscriber] -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription
+     UpdateAnomalySubscription
+     (Maybe [Subscriber])
+     (Maybe [Subscriber])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348970"><span class="annot"><span class="annottext">Maybe [Subscriber]
+subscribers :: Maybe [Subscriber]
+$sel:subscribers:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe [Subscriber]
+</span><a href="#local-6989586621679348970"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscriber]
+</span><a href="#local-6989586621679348970"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348969"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348968"><span class="annot"><span class="annottext">Maybe [Subscriber]
+</span><a href="#local-6989586621679348968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribers:UpdateAnomalySubscription' :: Maybe [Subscriber]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Asubscribers%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subscriber]
+</span><a href="#local-6989586621679348968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subscriber] -&gt; f (Maybe [Subscriber]))
+ -&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription)
+-&gt; ((Maybe [Subscriber] -&gt; f (Maybe [Subscriber]))
+    -&gt; Maybe [Subscriber] -&gt; f (Maybe [Subscriber]))
+-&gt; (Maybe [Subscriber] -&gt; f (Maybe [Subscriber]))
+-&gt; UpdateAnomalySubscription
+-&gt; f UpdateAnomalySubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subscriber] [Subscriber] [Subscriber] [Subscriber]
+-&gt; Iso
+     (Maybe [Subscriber])
+     (Maybe [Subscriber])
+     (Maybe [Subscriber])
+     (Maybe [Subscriber])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subscriber] [Subscriber] [Subscriber] [Subscriber]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The update to the frequency value that subscribers receive</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- notifications.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_frequency"><span class="hs-identifier hs-type">updateAnomalySubscription_frequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency.html#AnomalySubscriptionFrequency"><span class="hs-identifier hs-type">AnomalySubscriptionFrequency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateAnomalySubscription_frequency"><span class="annot"><span class="annottext">updateAnomalySubscription_frequency :: (Maybe AnomalySubscriptionFrequency
+ -&gt; f (Maybe AnomalySubscriptionFrequency))
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_frequency"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_frequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Maybe AnomalySubscriptionFrequency)
+-&gt; (UpdateAnomalySubscription
+    -&gt; Maybe AnomalySubscriptionFrequency -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription
+     UpdateAnomalySubscription
+     (Maybe AnomalySubscriptionFrequency)
+     (Maybe AnomalySubscriptionFrequency)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348964"><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+frequency :: Maybe AnomalySubscriptionFrequency
+$sel:frequency:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679348964"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679348964"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348963"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348962"><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679348962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:UpdateAnomalySubscription' :: Maybe AnomalySubscriptionFrequency
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3Afrequency%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679348962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A list of cost anomaly monitor ARNs.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_monitorArnList"><span class="hs-identifier hs-type">updateAnomalySubscription_monitorArnList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateAnomalySubscription_monitorArnList"><span class="annot"><span class="annottext">updateAnomalySubscription_monitorArnList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_monitorArnList"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_monitorArnList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Maybe [Text])
+-&gt; (UpdateAnomalySubscription
+    -&gt; Maybe [Text] -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription
+     UpdateAnomalySubscription
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348961"><span class="annot"><span class="annottext">Maybe [Text]
+monitorArnList :: Maybe [Text]
+$sel:monitorArnList:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe [Text]
+</span><a href="#local-6989586621679348961"><span class="hs-identifier hs-var hs-var">monitorArnList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679348961"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348960"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348959"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679348959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitorArnList:UpdateAnomalySubscription' :: Maybe [Text]
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AmonitorArnList%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679348959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateAnomalySubscription
+-&gt; f UpdateAnomalySubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A cost anomaly subscription Amazon Resource Name (ARN).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionArn"><span class="hs-identifier hs-type">updateAnomalySubscription_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="updateAnomalySubscription_subscriptionArn"><span class="annot"><span class="annottext">updateAnomalySubscription_subscriptionArn :: (Text -&gt; f Text)
+-&gt; UpdateAnomalySubscription -&gt; f UpdateAnomalySubscription
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscription_subscriptionArn"><span class="hs-identifier hs-var hs-var">updateAnomalySubscription_subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscription -&gt; Text)
+-&gt; (UpdateAnomalySubscription -&gt; Text -&gt; UpdateAnomalySubscription)
+-&gt; Lens
+     UpdateAnomalySubscription UpdateAnomalySubscription Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348958"><span class="annot"><span class="annottext">Text
+subscriptionArn :: Text
+$sel:subscriptionArn:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Text
+</span><a href="#local-6989586621679348958"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348958"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348957"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscription
+</span><a href="#local-6989586621679348957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348956"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscription
+</span><a href="#local-6989586621679348957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:UpdateAnomalySubscription' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679348952"><span class="annot"><span class="annottext">request :: UpdateAnomalySubscription -&gt; Request UpdateAnomalySubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateAnomalySubscription -&gt; Request UpdateAnomalySubscription
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679348948"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAnomalySubscription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAnomalySubscription)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateAnomalySubscription))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAnomalySubscription
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAnomalySubscription)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348945"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348944"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348944"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348943"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348943"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateAnomalySubscriptionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">UpdateAnomalySubscriptionResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateAnomalySubscriptionResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateAnomalySubscriptionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348945"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateAnomalySubscriptionResponse)
+-&gt; Either String Text
+-&gt; Either String UpdateAnomalySubscriptionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348935"><span id="local-6989586621679348937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679348928"><span class="annot"><span class="annottext">toHeaders :: UpdateAnomalySubscription -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAnomalySubscription -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSInsightsIndexService.UpdateAnomalySubscription&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348918"><span id="local-6989586621679348920"><span id="local-6989586621679348922"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679348916"><span class="annot"><span class="annottext">toJSON :: UpdateAnomalySubscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription%27"><span class="hs-identifier hs-type">UpdateAnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348909"><span id="local-6989586621679348910"><span id="local-6989586621679348911"><span id="local-6989586621679348912"><span id="local-6989586621679348913"><span id="local-6989586621679348914"><span class="annot"><span class="annottext">Maybe Double
+Maybe [Text]
+Maybe [Subscriber]
+Maybe Text
+Maybe AnomalySubscriptionFrequency
+Text
+subscriptionArn :: Text
+monitorArnList :: Maybe [Text]
+frequency :: Maybe AnomalySubscriptionFrequency
+subscribers :: Maybe [Subscriber]
+subscriptionName :: Maybe Text
+threshold :: Maybe Double
+$sel:subscriptionArn:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Text
+$sel:monitorArnList:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe [Text]
+$sel:frequency:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe AnomalySubscriptionFrequency
+$sel:subscribers:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe [Subscriber]
+$sel:subscriptionName:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe Text
+$sel:threshold:UpdateAnomalySubscription' :: UpdateAnomalySubscription -&gt; Maybe Double
+</span><a href="#local-6989586621679348909"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679348914"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348913"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subscribers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Subscriber] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Subscriber] -&gt; Pair) -&gt; Maybe [Subscriber] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Subscriber]
+</span><a href="#local-6989586621679348912"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Frequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnomalySubscriptionFrequency -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AnomalySubscriptionFrequency -&gt; Pair)
+-&gt; Maybe AnomalySubscriptionFrequency -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679348911"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitorArnList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679348910"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348909"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679348903"><span class="annot"><span class="annottext">toPath :: UpdateAnomalySubscription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAnomalySubscription -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscription"><span class="hs-identifier hs-type">UpdateAnomalySubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679348899"><span class="annot"><span class="annottext">toQuery :: UpdateAnomalySubscription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAnomalySubscription -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newUpdateAnomalySubscriptionResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679348896"><span id="local-6989586621679348897"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnomalySubscriptionResponse"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-var">UpdateAnomalySubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnomalySubscriptionResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">UpdateAnomalySubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAnomalySubscriptionResponse%27"><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse -&gt; Int
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AhttpStatus%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | A cost anomaly subscription ARN.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AUpdateAnomalySubscriptionResponse%27"><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse -&gt; Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348890"><span id="local-6989586621679348892"><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse
+-&gt; UpdateAnomalySubscriptionResponse -&gt; Bool
+(UpdateAnomalySubscriptionResponse
+ -&gt; UpdateAnomalySubscriptionResponse -&gt; Bool)
+-&gt; (UpdateAnomalySubscriptionResponse
+    -&gt; UpdateAnomalySubscriptionResponse -&gt; Bool)
+-&gt; Eq UpdateAnomalySubscriptionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnomalySubscriptionResponse
+-&gt; UpdateAnomalySubscriptionResponse -&gt; Bool
+$c/= :: UpdateAnomalySubscriptionResponse
+-&gt; UpdateAnomalySubscriptionResponse -&gt; Bool
+== :: UpdateAnomalySubscriptionResponse
+-&gt; UpdateAnomalySubscriptionResponse -&gt; Bool
+$c== :: UpdateAnomalySubscriptionResponse
+-&gt; UpdateAnomalySubscriptionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348882"><span id="local-6989586621679348884"><span id="local-6989586621679348886"><span id="local-6989586621679348888"><span class="annot"><span class="annottext">ReadPrec [UpdateAnomalySubscriptionResponse]
+ReadPrec UpdateAnomalySubscriptionResponse
+Int -&gt; ReadS UpdateAnomalySubscriptionResponse
+ReadS [UpdateAnomalySubscriptionResponse]
+(Int -&gt; ReadS UpdateAnomalySubscriptionResponse)
+-&gt; ReadS [UpdateAnomalySubscriptionResponse]
+-&gt; ReadPrec UpdateAnomalySubscriptionResponse
+-&gt; ReadPrec [UpdateAnomalySubscriptionResponse]
+-&gt; Read UpdateAnomalySubscriptionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnomalySubscriptionResponse]
+$creadListPrec :: ReadPrec [UpdateAnomalySubscriptionResponse]
+readPrec :: ReadPrec UpdateAnomalySubscriptionResponse
+$creadPrec :: ReadPrec UpdateAnomalySubscriptionResponse
+readList :: ReadS [UpdateAnomalySubscriptionResponse]
+$creadList :: ReadS [UpdateAnomalySubscriptionResponse]
+readsPrec :: Int -&gt; ReadS UpdateAnomalySubscriptionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAnomalySubscriptionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348876"><span id="local-6989586621679348878"><span id="local-6989586621679348880"><span class="annot"><span class="annottext">Int -&gt; UpdateAnomalySubscriptionResponse -&gt; ShowS
+[UpdateAnomalySubscriptionResponse] -&gt; ShowS
+UpdateAnomalySubscriptionResponse -&gt; String
+(Int -&gt; UpdateAnomalySubscriptionResponse -&gt; ShowS)
+-&gt; (UpdateAnomalySubscriptionResponse -&gt; String)
+-&gt; ([UpdateAnomalySubscriptionResponse] -&gt; ShowS)
+-&gt; Show UpdateAnomalySubscriptionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnomalySubscriptionResponse] -&gt; ShowS
+$cshowList :: [UpdateAnomalySubscriptionResponse] -&gt; ShowS
+show :: UpdateAnomalySubscriptionResponse -&gt; String
+$cshow :: UpdateAnomalySubscriptionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAnomalySubscriptionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnomalySubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAnomalySubscriptionResponse
+ -&gt; Rep UpdateAnomalySubscriptionResponse x)
+-&gt; (forall x.
+    Rep UpdateAnomalySubscriptionResponse x
+    -&gt; UpdateAnomalySubscriptionResponse)
+-&gt; Generic UpdateAnomalySubscriptionResponse
+forall x.
+Rep UpdateAnomalySubscriptionResponse x
+-&gt; UpdateAnomalySubscriptionResponse
+forall x.
+UpdateAnomalySubscriptionResponse
+-&gt; Rep UpdateAnomalySubscriptionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAnomalySubscriptionResponse x
+-&gt; UpdateAnomalySubscriptionResponse
+$cfrom :: forall x.
+UpdateAnomalySubscriptionResponse
+-&gt; Rep UpdateAnomalySubscriptionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'UpdateAnomalySubscriptionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'httpStatus', 'updateAnomalySubscriptionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'subscriptionArn', 'updateAnomalySubscriptionResponse_subscriptionArn' - A cost anomaly subscription ARN.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">newUpdateAnomalySubscriptionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'subscriptionArn'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newUpdateAnomalySubscriptionResponse"><span class="annot"><span class="annottext">newUpdateAnomalySubscriptionResponse :: Int -&gt; Text -&gt; UpdateAnomalySubscriptionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#newUpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdateAnomalySubscriptionResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679348873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679348872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348872"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse' :: Int -&gt; Text -&gt; UpdateAnomalySubscriptionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAnomalySubscriptionResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AhttpStatus%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:subscriptionArn:UpdateAnomalySubscriptionResponse' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348872"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_httpStatus"><span class="hs-identifier hs-type">updateAnomalySubscriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="updateAnomalySubscriptionResponse_httpStatus"><span class="annot"><span class="annottext">updateAnomalySubscriptionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateAnomalySubscriptionResponse
+-&gt; f UpdateAnomalySubscriptionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateAnomalySubscriptionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscriptionResponse -&gt; Int)
+-&gt; (UpdateAnomalySubscriptionResponse
+    -&gt; Int -&gt; UpdateAnomalySubscriptionResponse)
+-&gt; Lens
+     UpdateAnomalySubscriptionResponse
+     UpdateAnomalySubscriptionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348871"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateAnomalySubscriptionResponse' :: UpdateAnomalySubscriptionResponse -&gt; Int
+</span><a href="#local-6989586621679348871"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348871"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348870"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscriptionResponse
+</span><a href="#local-6989586621679348870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse
+</span><a href="#local-6989586621679348870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAnomalySubscriptionResponse' :: Int
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AhttpStatus%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | A cost anomaly subscription ARN.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_subscriptionArn"><span class="hs-identifier hs-type">updateAnomalySubscriptionResponse_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="updateAnomalySubscriptionResponse_subscriptionArn"><span class="annot"><span class="annottext">updateAnomalySubscriptionResponse_subscriptionArn :: (Text -&gt; f Text)
+-&gt; UpdateAnomalySubscriptionResponse
+-&gt; f UpdateAnomalySubscriptionResponse
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#updateAnomalySubscriptionResponse_subscriptionArn"><span class="hs-identifier hs-var hs-var">updateAnomalySubscriptionResponse_subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnomalySubscriptionResponse -&gt; Text)
+-&gt; (UpdateAnomalySubscriptionResponse
+    -&gt; Text -&gt; UpdateAnomalySubscriptionResponse)
+-&gt; Lens
+     UpdateAnomalySubscriptionResponse
+     UpdateAnomalySubscriptionResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348868"><span class="annot"><span class="annottext">Text
+subscriptionArn :: Text
+$sel:subscriptionArn:UpdateAnomalySubscriptionResponse' :: UpdateAnomalySubscriptionResponse -&gt; Text
+</span><a href="#local-6989586621679348868"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348868"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348867"><span class="annot"><span class="annottext">s :: UpdateAnomalySubscriptionResponse
+</span><a href="#local-6989586621679348867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnomalySubscriptionResponse
+</span><a href="#local-6989586621679348867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:UpdateAnomalySubscriptionResponse' :: Text
+</span><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#%24sel%3AsubscriptionArn%3AUpdateAnomalySubscriptionResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679348864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.UpdateAnomalySubscription.html#UpdateAnomalySubscriptionResponse"><span class="hs-identifier hs-type">UpdateAnomalySubscriptionResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

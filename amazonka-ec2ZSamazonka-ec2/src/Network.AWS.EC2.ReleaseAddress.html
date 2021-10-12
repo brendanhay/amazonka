@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ReleaseAddress</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Releases the specified Elastic IP address.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- disassociates it from any instance that it\'s associated with. To</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- disassociate an Elastic IP address without releasing it, use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- DisassociateAddress.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- [Nondefault VPC] You must use DisassociateAddress to disassociate the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Elastic IP address before you can release it. Otherwise, Amazon EC2</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- returns an error (@InvalidIPAddress.InUse@).</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- After releasing an Elastic IP address, it is released to the IP address</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- pool. Be sure to update your DNS records and any servers or devices that</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- communicate with the address. If you attempt to release an Elastic IP</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- address that you already released, you\'ll get an @AuthFailure@ error if</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- the address is already allocated to another Amazon Web Services account.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- [EC2-VPC] After you release an Elastic IP address for use in a VPC, you</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- might be able to recover it. For more information, see AllocateAddress.</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ReleaseAddress</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier">ReleaseAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddress"><span class="hs-identifier">newReleaseAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_dryRun"><span class="hs-identifier">releaseAddress_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_publicIp"><span class="hs-identifier">releaseAddress_publicIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_allocationId"><span class="hs-identifier">releaseAddress_allocationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_networkBorderGroup"><span class="hs-identifier">releaseAddress_networkBorderGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse"><span class="hs-identifier">ReleaseAddressResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddressResponse"><span class="hs-identifier">newReleaseAddressResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newReleaseAddress' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621681173883"><span id="local-6989586621681173884"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseAddress"><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-var">ReleaseAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseAddress%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-var">ReleaseAddress'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdryRun%3AReleaseAddress%27"><span class="annot"><span class="annottext">ReleaseAddress -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AdryRun%3AReleaseAddress%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ApublicIp%3AReleaseAddress%27"><span class="annot"><span class="annottext">ReleaseAddress -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3ApublicIp%3AReleaseAddress%27"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | [EC2-VPC] The allocation ID. Required for EC2-VPC.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AallocationId%3AReleaseAddress%27"><span class="annot"><span class="annottext">ReleaseAddress -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AallocationId%3AReleaseAddress%27"><span class="hs-identifier hs-var hs-var">allocationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The set of Availability Zones, Local Zones, or Wavelength Zones from</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- which AWS advertises IP addresses.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- If you provide an incorrect network border group, you will receive an</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @InvalidAddress.NotFound@ error. For more information, see</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- You cannot use a network border group with EC2 Classic. If you attempt</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- this operation on EC2 classic, you will receive an</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @InvalidParameterCombination@ error. For more information, see</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AnetworkBorderGroup%3AReleaseAddress%27"><span class="annot"><span class="annottext">ReleaseAddress -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AnetworkBorderGroup%3AReleaseAddress%27"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173874"><span id="local-6989586621681173876"><span class="annot"><span class="annottext">ReleaseAddress -&gt; ReleaseAddress -&gt; Bool
+(ReleaseAddress -&gt; ReleaseAddress -&gt; Bool)
+-&gt; (ReleaseAddress -&gt; ReleaseAddress -&gt; Bool) -&gt; Eq ReleaseAddress
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReleaseAddress -&gt; ReleaseAddress -&gt; Bool
+$c/= :: ReleaseAddress -&gt; ReleaseAddress -&gt; Bool
+== :: ReleaseAddress -&gt; ReleaseAddress -&gt; Bool
+$c== :: ReleaseAddress -&gt; ReleaseAddress -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173865"><span id="local-6989586621681173867"><span id="local-6989586621681173869"><span id="local-6989586621681173871"><span class="annot"><span class="annottext">ReadPrec [ReleaseAddress]
+ReadPrec ReleaseAddress
+Int -&gt; ReadS ReleaseAddress
+ReadS [ReleaseAddress]
+(Int -&gt; ReadS ReleaseAddress)
+-&gt; ReadS [ReleaseAddress]
+-&gt; ReadPrec ReleaseAddress
+-&gt; ReadPrec [ReleaseAddress]
+-&gt; Read ReleaseAddress
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReleaseAddress]
+$creadListPrec :: ReadPrec [ReleaseAddress]
+readPrec :: ReadPrec ReleaseAddress
+$creadPrec :: ReadPrec ReleaseAddress
+readList :: ReadS [ReleaseAddress]
+$creadList :: ReadS [ReleaseAddress]
+readsPrec :: Int -&gt; ReadS ReleaseAddress
+$creadsPrec :: Int -&gt; ReadS ReleaseAddress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173858"><span id="local-6989586621681173860"><span id="local-6989586621681173862"><span class="annot"><span class="annottext">Int -&gt; ReleaseAddress -&gt; ShowS
+[ReleaseAddress] -&gt; ShowS
+ReleaseAddress -&gt; String
+(Int -&gt; ReleaseAddress -&gt; ShowS)
+-&gt; (ReleaseAddress -&gt; String)
+-&gt; ([ReleaseAddress] -&gt; ShowS)
+-&gt; Show ReleaseAddress
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReleaseAddress] -&gt; ShowS
+$cshowList :: [ReleaseAddress] -&gt; ShowS
+show :: ReleaseAddress -&gt; String
+$cshow :: ReleaseAddress -&gt; String
+showsPrec :: Int -&gt; ReleaseAddress -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReleaseAddress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReleaseAddress -&gt; Rep ReleaseAddress x)
+-&gt; (forall x. Rep ReleaseAddress x -&gt; ReleaseAddress)
+-&gt; Generic ReleaseAddress
+forall x. Rep ReleaseAddress x -&gt; ReleaseAddress
+forall x. ReleaseAddress -&gt; Rep ReleaseAddress x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReleaseAddress x -&gt; ReleaseAddress
+$cfrom :: forall x. ReleaseAddress -&gt; Rep ReleaseAddress x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'ReleaseAddress' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'dryRun', 'releaseAddress_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'publicIp', 'releaseAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'allocationId', 'releaseAddress_allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'networkBorderGroup', 'releaseAddress_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- which AWS advertises IP addresses.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- If you provide an incorrect network border group, you will receive an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @InvalidAddress.NotFound@ error. For more information, see</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- You cannot use a network border group with EC2 Classic. If you attempt</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- this operation on EC2 classic, you will receive an</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @InvalidParameterCombination@ error. For more information, see</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddress"><span class="hs-identifier hs-type">newReleaseAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span>
+</span><span id="line-122"></span><span id="newReleaseAddress"><span class="annot"><span class="annottext">newReleaseAddress :: ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddress"><span class="hs-identifier hs-var hs-var">newReleaseAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">ReleaseAddress' :: Maybe Bool
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ReleaseAddress' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AdryRun%3AReleaseAddress%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicIp:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3ApublicIp%3AReleaseAddress%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocationId:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AallocationId%3AReleaseAddress%27"><span class="hs-identifier hs-var">allocationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkBorderGroup:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AnetworkBorderGroup%3AReleaseAddress%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_dryRun"><span class="hs-identifier hs-type">releaseAddress_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="releaseAddress_dryRun"><span class="annot"><span class="annottext">releaseAddress_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReleaseAddress -&gt; f ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_dryRun"><span class="hs-identifier hs-var hs-var">releaseAddress_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReleaseAddress -&gt; Maybe Bool)
+-&gt; (ReleaseAddress -&gt; Maybe Bool -&gt; ReleaseAddress)
+-&gt; Lens ReleaseAddress ReleaseAddress (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173851"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Bool
+</span><a href="#local-6989586621681173851"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681173851"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173850"><span class="annot"><span class="annottext">s :: ReleaseAddress
+</span><a href="#local-6989586621681173850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173849"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681173849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseAddress
+</span><a href="#local-6989586621681173850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ReleaseAddress' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AdryRun%3AReleaseAddress%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681173849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_publicIp"><span class="hs-identifier hs-type">releaseAddress_publicIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="releaseAddress_publicIp"><span class="annot"><span class="annottext">releaseAddress_publicIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReleaseAddress -&gt; f ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_publicIp"><span class="hs-identifier hs-var hs-var">releaseAddress_publicIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReleaseAddress -&gt; Maybe Text)
+-&gt; (ReleaseAddress -&gt; Maybe Text -&gt; ReleaseAddress)
+-&gt; Lens ReleaseAddress ReleaseAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173848"><span class="annot"><span class="annottext">Maybe Text
+publicIp :: Maybe Text
+$sel:publicIp:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+</span><a href="#local-6989586621681173848"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173848"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173847"><span class="annot"><span class="annottext">s :: ReleaseAddress
+</span><a href="#local-6989586621681173847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseAddress
+</span><a href="#local-6989586621681173847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3ApublicIp%3AReleaseAddress%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | [EC2-VPC] The allocation ID. Required for EC2-VPC.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_allocationId"><span class="hs-identifier hs-type">releaseAddress_allocationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="releaseAddress_allocationId"><span class="annot"><span class="annottext">releaseAddress_allocationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReleaseAddress -&gt; f ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_allocationId"><span class="hs-identifier hs-var hs-var">releaseAddress_allocationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReleaseAddress -&gt; Maybe Text)
+-&gt; (ReleaseAddress -&gt; Maybe Text -&gt; ReleaseAddress)
+-&gt; Lens ReleaseAddress ReleaseAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173845"><span class="annot"><span class="annottext">Maybe Text
+allocationId :: Maybe Text
+$sel:allocationId:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+</span><a href="#local-6989586621681173845"><span class="hs-identifier hs-var hs-var">allocationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173845"><span class="hs-identifier hs-var">allocationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173844"><span class="annot"><span class="annottext">s :: ReleaseAddress
+</span><a href="#local-6989586621681173844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseAddress
+</span><a href="#local-6989586621681173844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationId:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AallocationId%3AReleaseAddress%27"><span class="hs-identifier hs-var">allocationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The set of Availability Zones, Local Zones, or Wavelength Zones from</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- which AWS advertises IP addresses.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- If you provide an incorrect network border group, you will receive an</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @InvalidAddress.NotFound@ error. For more information, see</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- You cannot use a network border group with EC2 Classic. If you attempt</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- this operation on EC2 classic, you will receive an</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @InvalidParameterCombination@ error. For more information, see</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes&gt;.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_networkBorderGroup"><span class="hs-identifier hs-type">releaseAddress_networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="releaseAddress_networkBorderGroup"><span class="annot"><span class="annottext">releaseAddress_networkBorderGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReleaseAddress -&gt; f ReleaseAddress
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#releaseAddress_networkBorderGroup"><span class="hs-identifier hs-var hs-var">releaseAddress_networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReleaseAddress -&gt; Maybe Text)
+-&gt; (ReleaseAddress -&gt; Maybe Text -&gt; ReleaseAddress)
+-&gt; Lens ReleaseAddress ReleaseAddress (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173842"><span class="annot"><span class="annottext">Maybe Text
+networkBorderGroup :: Maybe Text
+$sel:networkBorderGroup:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+</span><a href="#local-6989586621681173842"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173842"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173841"><span class="annot"><span class="annottext">s :: ReleaseAddress
+</span><a href="#local-6989586621681173841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseAddress
+</span><a href="#local-6989586621681173841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkBorderGroup:ReleaseAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#%24sel%3AnetworkBorderGroup%3AReleaseAddress%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse"><span class="hs-identifier hs-type">ReleaseAddressResponse</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681173836"><span class="annot"><span class="annottext">request :: ReleaseAddress -&gt; Request ReleaseAddress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReleaseAddress -&gt; Request ReleaseAddress
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681173832"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ReleaseAddress
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ReleaseAddress)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse ReleaseAddress
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ReleaseAddress
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ReleaseAddress)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ReleaseAddress
+ReleaseAddressResponse
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse%27"><span class="hs-identifier hs-var">ReleaseAddressResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173825"><span id="local-6989586621681173827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681173818"><span class="annot"><span class="annottext">toHeaders :: ReleaseAddress -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ReleaseAddress -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681173813"><span class="annot"><span class="annottext">toPath :: ReleaseAddress -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReleaseAddress -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress"><span class="hs-identifier hs-type">ReleaseAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681173809"><span class="annot"><span class="annottext">toQuery :: ReleaseAddress -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddress%27"><span class="hs-identifier hs-type">ReleaseAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173804"><span id="local-6989586621681173805"><span id="local-6989586621681173806"><span id="local-6989586621681173807"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+networkBorderGroup :: Maybe Text
+allocationId :: Maybe Text
+publicIp :: Maybe Text
+dryRun :: Maybe Bool
+$sel:networkBorderGroup:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+$sel:allocationId:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+$sel:publicIp:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Text
+$sel:dryRun:ReleaseAddress' :: ReleaseAddress -&gt; Maybe Bool
+</span><a href="#local-6989586621681173804"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReleaseAddress&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681173807"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PublicIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173806"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AllocationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173805"><span class="hs-identifier hs-var">allocationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkBorderGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681173804"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newReleaseAddressResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621681173801"><span id="local-6989586621681173802"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseAddressResponse"><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse"><span class="hs-identifier hs-var">ReleaseAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseAddressResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse%27"><span class="hs-identifier hs-var">ReleaseAddressResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173797"><span id="local-6989586621681173799"><span class="annot"><span class="annottext">ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool
+(ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool)
+-&gt; (ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool)
+-&gt; Eq ReleaseAddressResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool
+$c/= :: ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool
+== :: ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool
+$c== :: ReleaseAddressResponse -&gt; ReleaseAddressResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173789"><span id="local-6989586621681173791"><span id="local-6989586621681173793"><span id="local-6989586621681173795"><span class="annot"><span class="annottext">ReadPrec [ReleaseAddressResponse]
+ReadPrec ReleaseAddressResponse
+Int -&gt; ReadS ReleaseAddressResponse
+ReadS [ReleaseAddressResponse]
+(Int -&gt; ReadS ReleaseAddressResponse)
+-&gt; ReadS [ReleaseAddressResponse]
+-&gt; ReadPrec ReleaseAddressResponse
+-&gt; ReadPrec [ReleaseAddressResponse]
+-&gt; Read ReleaseAddressResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReleaseAddressResponse]
+$creadListPrec :: ReadPrec [ReleaseAddressResponse]
+readPrec :: ReadPrec ReleaseAddressResponse
+$creadPrec :: ReadPrec ReleaseAddressResponse
+readList :: ReadS [ReleaseAddressResponse]
+$creadList :: ReadS [ReleaseAddressResponse]
+readsPrec :: Int -&gt; ReadS ReleaseAddressResponse
+$creadsPrec :: Int -&gt; ReadS ReleaseAddressResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173783"><span id="local-6989586621681173785"><span id="local-6989586621681173787"><span class="annot"><span class="annottext">Int -&gt; ReleaseAddressResponse -&gt; ShowS
+[ReleaseAddressResponse] -&gt; ShowS
+ReleaseAddressResponse -&gt; String
+(Int -&gt; ReleaseAddressResponse -&gt; ShowS)
+-&gt; (ReleaseAddressResponse -&gt; String)
+-&gt; ([ReleaseAddressResponse] -&gt; ShowS)
+-&gt; Show ReleaseAddressResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReleaseAddressResponse] -&gt; ShowS
+$cshowList :: [ReleaseAddressResponse] -&gt; ShowS
+show :: ReleaseAddressResponse -&gt; String
+$cshow :: ReleaseAddressResponse -&gt; String
+showsPrec :: Int -&gt; ReleaseAddressResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReleaseAddressResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReleaseAddressResponse -&gt; Rep ReleaseAddressResponse x)
+-&gt; (forall x.
+    Rep ReleaseAddressResponse x -&gt; ReleaseAddressResponse)
+-&gt; Generic ReleaseAddressResponse
+forall x. Rep ReleaseAddressResponse x -&gt; ReleaseAddressResponse
+forall x. ReleaseAddressResponse -&gt; Rep ReleaseAddressResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReleaseAddressResponse x -&gt; ReleaseAddressResponse
+$cfrom :: forall x. ReleaseAddressResponse -&gt; Rep ReleaseAddressResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'ReleaseAddressResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddressResponse"><span class="hs-identifier hs-type">newReleaseAddressResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse"><span class="hs-identifier hs-type">ReleaseAddressResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newReleaseAddressResponse"><span class="annot"><span class="annottext">newReleaseAddressResponse :: ReleaseAddressResponse
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#newReleaseAddressResponse"><span class="hs-identifier hs-var hs-var">newReleaseAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReleaseAddressResponse
+</span><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse%27"><span class="hs-identifier hs-var">ReleaseAddressResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseAddress.html#ReleaseAddressResponse"><span class="hs-identifier hs-type">ReleaseAddressResponse</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

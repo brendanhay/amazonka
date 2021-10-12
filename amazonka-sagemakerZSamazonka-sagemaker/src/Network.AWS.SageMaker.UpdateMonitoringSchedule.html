@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.UpdateMonitoringSchedule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a previously created schedule.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.UpdateMonitoringSchedule</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringSchedule"><span class="hs-identifier">newUpdateMonitoringSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleName"><span class="hs-identifier">updateMonitoringSchedule_monitoringScheduleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleConfig"><span class="hs-identifier">updateMonitoringSchedule_monitoringScheduleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier">UpdateMonitoringScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringScheduleResponse"><span class="hs-identifier">newUpdateMonitoringScheduleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_httpStatus"><span class="hs-identifier">updateMonitoringScheduleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_monitoringScheduleArn"><span class="hs-identifier">updateMonitoringScheduleResponse_monitoringScheduleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateMonitoringSchedule' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621680426408"><span id="local-6989586621680426409"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMonitoringSchedule"><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-var">UpdateMonitoringSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMonitoringSchedule%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-var">UpdateMonitoringSchedule'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the monitoring schedule. The name must be unique within an</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region within an Amazon Web Services account.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AmonitoringScheduleName%3AUpdateMonitoringSchedule%27"><span class="annot"><span class="annottext">UpdateMonitoringSchedule -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleName%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var hs-var">monitoringScheduleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The configuration object that specifies the monitoring schedule and</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- defines the monitoring job.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmonitoringScheduleConfig%3AUpdateMonitoringSchedule%27"><span class="annot"><span class="annottext">UpdateMonitoringSchedule -&gt; MonitoringScheduleConfig
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleConfig%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680426401"><span id="local-6989586621680426403"><span class="annot"><span class="annottext">UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool
+(UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool)
+-&gt; (UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool)
+-&gt; Eq UpdateMonitoringSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool
+$c/= :: UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool
+== :: UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool
+$c== :: UpdateMonitoringSchedule -&gt; UpdateMonitoringSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426392"><span id="local-6989586621680426394"><span id="local-6989586621680426396"><span id="local-6989586621680426398"><span class="annot"><span class="annottext">ReadPrec [UpdateMonitoringSchedule]
+ReadPrec UpdateMonitoringSchedule
+Int -&gt; ReadS UpdateMonitoringSchedule
+ReadS [UpdateMonitoringSchedule]
+(Int -&gt; ReadS UpdateMonitoringSchedule)
+-&gt; ReadS [UpdateMonitoringSchedule]
+-&gt; ReadPrec UpdateMonitoringSchedule
+-&gt; ReadPrec [UpdateMonitoringSchedule]
+-&gt; Read UpdateMonitoringSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMonitoringSchedule]
+$creadListPrec :: ReadPrec [UpdateMonitoringSchedule]
+readPrec :: ReadPrec UpdateMonitoringSchedule
+$creadPrec :: ReadPrec UpdateMonitoringSchedule
+readList :: ReadS [UpdateMonitoringSchedule]
+$creadList :: ReadS [UpdateMonitoringSchedule]
+readsPrec :: Int -&gt; ReadS UpdateMonitoringSchedule
+$creadsPrec :: Int -&gt; ReadS UpdateMonitoringSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426385"><span id="local-6989586621680426387"><span id="local-6989586621680426389"><span class="annot"><span class="annottext">Int -&gt; UpdateMonitoringSchedule -&gt; ShowS
+[UpdateMonitoringSchedule] -&gt; ShowS
+UpdateMonitoringSchedule -&gt; String
+(Int -&gt; UpdateMonitoringSchedule -&gt; ShowS)
+-&gt; (UpdateMonitoringSchedule -&gt; String)
+-&gt; ([UpdateMonitoringSchedule] -&gt; ShowS)
+-&gt; Show UpdateMonitoringSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMonitoringSchedule] -&gt; ShowS
+$cshowList :: [UpdateMonitoringSchedule] -&gt; ShowS
+show :: UpdateMonitoringSchedule -&gt; String
+$cshow :: UpdateMonitoringSchedule -&gt; String
+showsPrec :: Int -&gt; UpdateMonitoringSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMonitoringSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMonitoringSchedule -&gt; Rep UpdateMonitoringSchedule x)
+-&gt; (forall x.
+    Rep UpdateMonitoringSchedule x -&gt; UpdateMonitoringSchedule)
+-&gt; Generic UpdateMonitoringSchedule
+forall x.
+Rep UpdateMonitoringSchedule x -&gt; UpdateMonitoringSchedule
+forall x.
+UpdateMonitoringSchedule -&gt; Rep UpdateMonitoringSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateMonitoringSchedule x -&gt; UpdateMonitoringSchedule
+$cfrom :: forall x.
+UpdateMonitoringSchedule -&gt; Rep UpdateMonitoringSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UpdateMonitoringSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'monitoringScheduleName', 'updateMonitoringSchedule_monitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Amazon Web Services Region within an Amazon Web Services account.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'monitoringScheduleConfig', 'updateMonitoringSchedule_monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- defines the monitoring job.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringSchedule"><span class="hs-identifier hs-type">newUpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'monitoringScheduleName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'monitoringScheduleConfig'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateMonitoringSchedule"><span class="annot"><span class="annottext">newUpdateMonitoringSchedule :: Text -&gt; MonitoringScheduleConfig -&gt; UpdateMonitoringSchedule
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringSchedule"><span class="hs-identifier hs-var hs-var">newUpdateMonitoringSchedule</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680426380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426380"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621680426379"><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426379"><span class="hs-identifier hs-var">pMonitoringScheduleConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">UpdateMonitoringSchedule' :: Text -&gt; MonitoringScheduleConfig -&gt; UpdateMonitoringSchedule
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringScheduleName:UpdateMonitoringSchedule' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleName%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426380"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringScheduleConfig:UpdateMonitoringSchedule' :: MonitoringScheduleConfig
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleConfig%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var">monitoringScheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426379"><span class="hs-identifier hs-var">pMonitoringScheduleConfig_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the monitoring schedule. The name must be unique within an</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Amazon Web Services Region within an Amazon Web Services account.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleName"><span class="hs-identifier hs-type">updateMonitoringSchedule_monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="updateMonitoringSchedule_monitoringScheduleName"><span class="annot"><span class="annottext">updateMonitoringSchedule_monitoringScheduleName :: (Text -&gt; f Text)
+-&gt; UpdateMonitoringSchedule -&gt; f UpdateMonitoringSchedule
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleName"><span class="hs-identifier hs-var hs-var">updateMonitoringSchedule_monitoringScheduleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMonitoringSchedule -&gt; Text)
+-&gt; (UpdateMonitoringSchedule -&gt; Text -&gt; UpdateMonitoringSchedule)
+-&gt; Lens UpdateMonitoringSchedule UpdateMonitoringSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426376"><span class="annot"><span class="annottext">Text
+monitoringScheduleName :: Text
+$sel:monitoringScheduleName:UpdateMonitoringSchedule' :: UpdateMonitoringSchedule -&gt; Text
+</span><a href="#local-6989586621680426376"><span class="hs-identifier hs-var hs-var">monitoringScheduleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426376"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426375"><span class="annot"><span class="annottext">s :: UpdateMonitoringSchedule
+</span><a href="#local-6989586621680426375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMonitoringSchedule
+</span><a href="#local-6989586621680426375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringScheduleName:UpdateMonitoringSchedule' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleName%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The configuration object that specifies the monitoring schedule and</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- defines the monitoring job.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleConfig"><span class="hs-identifier hs-type">updateMonitoringSchedule_monitoringScheduleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringScheduleConfig.html#MonitoringScheduleConfig"><span class="hs-identifier hs-type">MonitoringScheduleConfig</span></a></span><span>
+</span><span id="line-98"></span><span id="updateMonitoringSchedule_monitoringScheduleConfig"><span class="annot"><span class="annottext">updateMonitoringSchedule_monitoringScheduleConfig :: (MonitoringScheduleConfig -&gt; f MonitoringScheduleConfig)
+-&gt; UpdateMonitoringSchedule -&gt; f UpdateMonitoringSchedule
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringSchedule_monitoringScheduleConfig"><span class="hs-identifier hs-var hs-var">updateMonitoringSchedule_monitoringScheduleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMonitoringSchedule -&gt; MonitoringScheduleConfig)
+-&gt; (UpdateMonitoringSchedule
+    -&gt; MonitoringScheduleConfig -&gt; UpdateMonitoringSchedule)
+-&gt; Lens
+     UpdateMonitoringSchedule
+     UpdateMonitoringSchedule
+     MonitoringScheduleConfig
+     MonitoringScheduleConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426373"><span class="annot"><span class="annottext">MonitoringScheduleConfig
+monitoringScheduleConfig :: MonitoringScheduleConfig
+$sel:monitoringScheduleConfig:UpdateMonitoringSchedule' :: UpdateMonitoringSchedule -&gt; MonitoringScheduleConfig
+</span><a href="#local-6989586621680426373"><span class="hs-identifier hs-var hs-var">monitoringScheduleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426373"><span class="hs-identifier hs-var">monitoringScheduleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426372"><span class="annot"><span class="annottext">s :: UpdateMonitoringSchedule
+</span><a href="#local-6989586621680426372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426371"><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMonitoringSchedule
+</span><a href="#local-6989586621680426372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringScheduleConfig:UpdateMonitoringSchedule' :: MonitoringScheduleConfig
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleConfig%3AUpdateMonitoringSchedule%27"><span class="hs-identifier hs-var">monitoringScheduleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680426367"><span class="annot"><span class="annottext">request :: UpdateMonitoringSchedule -&gt; Request UpdateMonitoringSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateMonitoringSchedule -&gt; Request UpdateMonitoringSchedule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680426363"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateMonitoringSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMonitoringSchedule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateMonitoringSchedule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateMonitoringSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMonitoringSchedule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680426360"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680426359"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680426359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680426358"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680426358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateMonitoringScheduleResponse
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">UpdateMonitoringScheduleResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateMonitoringScheduleResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; UpdateMonitoringScheduleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateMonitoringScheduleResponse)
+-&gt; Either String Text
+-&gt; Either String UpdateMonitoringScheduleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680426358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringScheduleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426350"><span id="local-6989586621680426352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621680426343"><span class="annot"><span class="annottext">toHeaders :: UpdateMonitoringSchedule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateMonitoringSchedule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.UpdateMonitoringSchedule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680426333"><span id="local-6989586621680426335"><span id="local-6989586621680426337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680426331"><span class="annot"><span class="annottext">toJSON :: UpdateMonitoringSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule%27"><span class="hs-identifier hs-type">UpdateMonitoringSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426328"><span id="local-6989586621680426329"><span class="annot"><span class="annottext">Text
+MonitoringScheduleConfig
+monitoringScheduleConfig :: MonitoringScheduleConfig
+monitoringScheduleName :: Text
+$sel:monitoringScheduleConfig:UpdateMonitoringSchedule' :: UpdateMonitoringSchedule -&gt; MonitoringScheduleConfig
+$sel:monitoringScheduleName:UpdateMonitoringSchedule' :: UpdateMonitoringSchedule -&gt; Text
+</span><a href="#local-6989586621680426328"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringScheduleName&quot;</span></span><span>
+</span><span id="line-138"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426329"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span>
+</span><span id="line-139"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringScheduleConfig&quot;</span></span><span>
+</span><span id="line-142"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; MonitoringScheduleConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringScheduleConfig
+</span><a href="#local-6989586621680426328"><span class="hs-identifier hs-var">monitoringScheduleConfig</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621680426322"><span class="annot"><span class="annottext">toPath :: UpdateMonitoringSchedule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateMonitoringSchedule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringSchedule"><span class="hs-identifier hs-type">UpdateMonitoringSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621680426318"><span class="annot"><span class="annottext">toQuery :: UpdateMonitoringSchedule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMonitoringSchedule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newUpdateMonitoringScheduleResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621680426315"><span id="local-6989586621680426316"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMonitoringScheduleResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-var">UpdateMonitoringScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMonitoringScheduleResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">UpdateMonitoringScheduleResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateMonitoringScheduleResponse%27"><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AhttpStatus%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring schedule.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AmonitoringScheduleArn%3AUpdateMonitoringScheduleResponse%27"><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse -&gt; Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleArn%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var hs-var">monitoringScheduleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680426309"><span id="local-6989586621680426311"><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse
+-&gt; UpdateMonitoringScheduleResponse -&gt; Bool
+(UpdateMonitoringScheduleResponse
+ -&gt; UpdateMonitoringScheduleResponse -&gt; Bool)
+-&gt; (UpdateMonitoringScheduleResponse
+    -&gt; UpdateMonitoringScheduleResponse -&gt; Bool)
+-&gt; Eq UpdateMonitoringScheduleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMonitoringScheduleResponse
+-&gt; UpdateMonitoringScheduleResponse -&gt; Bool
+$c/= :: UpdateMonitoringScheduleResponse
+-&gt; UpdateMonitoringScheduleResponse -&gt; Bool
+== :: UpdateMonitoringScheduleResponse
+-&gt; UpdateMonitoringScheduleResponse -&gt; Bool
+$c== :: UpdateMonitoringScheduleResponse
+-&gt; UpdateMonitoringScheduleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426301"><span id="local-6989586621680426303"><span id="local-6989586621680426305"><span id="local-6989586621680426307"><span class="annot"><span class="annottext">ReadPrec [UpdateMonitoringScheduleResponse]
+ReadPrec UpdateMonitoringScheduleResponse
+Int -&gt; ReadS UpdateMonitoringScheduleResponse
+ReadS [UpdateMonitoringScheduleResponse]
+(Int -&gt; ReadS UpdateMonitoringScheduleResponse)
+-&gt; ReadS [UpdateMonitoringScheduleResponse]
+-&gt; ReadPrec UpdateMonitoringScheduleResponse
+-&gt; ReadPrec [UpdateMonitoringScheduleResponse]
+-&gt; Read UpdateMonitoringScheduleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMonitoringScheduleResponse]
+$creadListPrec :: ReadPrec [UpdateMonitoringScheduleResponse]
+readPrec :: ReadPrec UpdateMonitoringScheduleResponse
+$creadPrec :: ReadPrec UpdateMonitoringScheduleResponse
+readList :: ReadS [UpdateMonitoringScheduleResponse]
+$creadList :: ReadS [UpdateMonitoringScheduleResponse]
+readsPrec :: Int -&gt; ReadS UpdateMonitoringScheduleResponse
+$creadsPrec :: Int -&gt; ReadS UpdateMonitoringScheduleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680426295"><span id="local-6989586621680426297"><span id="local-6989586621680426299"><span class="annot"><span class="annottext">Int -&gt; UpdateMonitoringScheduleResponse -&gt; ShowS
+[UpdateMonitoringScheduleResponse] -&gt; ShowS
+UpdateMonitoringScheduleResponse -&gt; String
+(Int -&gt; UpdateMonitoringScheduleResponse -&gt; ShowS)
+-&gt; (UpdateMonitoringScheduleResponse -&gt; String)
+-&gt; ([UpdateMonitoringScheduleResponse] -&gt; ShowS)
+-&gt; Show UpdateMonitoringScheduleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMonitoringScheduleResponse] -&gt; ShowS
+$cshowList :: [UpdateMonitoringScheduleResponse] -&gt; ShowS
+show :: UpdateMonitoringScheduleResponse -&gt; String
+$cshow :: UpdateMonitoringScheduleResponse -&gt; String
+showsPrec :: Int -&gt; UpdateMonitoringScheduleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMonitoringScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMonitoringScheduleResponse
+ -&gt; Rep UpdateMonitoringScheduleResponse x)
+-&gt; (forall x.
+    Rep UpdateMonitoringScheduleResponse x
+    -&gt; UpdateMonitoringScheduleResponse)
+-&gt; Generic UpdateMonitoringScheduleResponse
+forall x.
+Rep UpdateMonitoringScheduleResponse x
+-&gt; UpdateMonitoringScheduleResponse
+forall x.
+UpdateMonitoringScheduleResponse
+-&gt; Rep UpdateMonitoringScheduleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateMonitoringScheduleResponse x
+-&gt; UpdateMonitoringScheduleResponse
+$cfrom :: forall x.
+UpdateMonitoringScheduleResponse
+-&gt; Rep UpdateMonitoringScheduleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'UpdateMonitoringScheduleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'updateMonitoringScheduleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'monitoringScheduleArn', 'updateMonitoringScheduleResponse_monitoringScheduleArn' - The Amazon Resource Name (ARN) of the monitoring schedule.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">newUpdateMonitoringScheduleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'monitoringScheduleArn'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newUpdateMonitoringScheduleResponse"><span class="annot"><span class="annottext">newUpdateMonitoringScheduleResponse :: Int -&gt; Text -&gt; UpdateMonitoringScheduleResponse
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#newUpdateMonitoringScheduleResponse"><span class="hs-identifier hs-var hs-var">newUpdateMonitoringScheduleResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621680426292"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680426291"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426291"><span class="hs-identifier hs-var">pMonitoringScheduleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse' :: Int -&gt; Text -&gt; UpdateMonitoringScheduleResponse
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMonitoringScheduleResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AhttpStatus%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringScheduleArn:UpdateMonitoringScheduleResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleArn%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">monitoringScheduleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426291"><span class="hs-identifier hs-var">pMonitoringScheduleArn_</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_httpStatus"><span class="hs-identifier hs-type">updateMonitoringScheduleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="updateMonitoringScheduleResponse_httpStatus"><span class="annot"><span class="annottext">updateMonitoringScheduleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateMonitoringScheduleResponse
+-&gt; f UpdateMonitoringScheduleResponse
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateMonitoringScheduleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMonitoringScheduleResponse -&gt; Int)
+-&gt; (UpdateMonitoringScheduleResponse
+    -&gt; Int -&gt; UpdateMonitoringScheduleResponse)
+-&gt; Lens
+     UpdateMonitoringScheduleResponse
+     UpdateMonitoringScheduleResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426290"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateMonitoringScheduleResponse' :: UpdateMonitoringScheduleResponse -&gt; Int
+</span><a href="#local-6989586621680426290"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426290"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426289"><span class="annot"><span class="annottext">s :: UpdateMonitoringScheduleResponse
+</span><a href="#local-6989586621680426289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426288"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse
+</span><a href="#local-6989586621680426289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMonitoringScheduleResponse' :: Int
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AhttpStatus%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680426288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring schedule.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_monitoringScheduleArn"><span class="hs-identifier hs-type">updateMonitoringScheduleResponse_monitoringScheduleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-195"></span><span id="updateMonitoringScheduleResponse_monitoringScheduleArn"><span class="annot"><span class="annottext">updateMonitoringScheduleResponse_monitoringScheduleArn :: (Text -&gt; f Text)
+-&gt; UpdateMonitoringScheduleResponse
+-&gt; f UpdateMonitoringScheduleResponse
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#updateMonitoringScheduleResponse_monitoringScheduleArn"><span class="hs-identifier hs-var hs-var">updateMonitoringScheduleResponse_monitoringScheduleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMonitoringScheduleResponse -&gt; Text)
+-&gt; (UpdateMonitoringScheduleResponse
+    -&gt; Text -&gt; UpdateMonitoringScheduleResponse)
+-&gt; Lens
+     UpdateMonitoringScheduleResponse
+     UpdateMonitoringScheduleResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680426287"><span class="annot"><span class="annottext">Text
+monitoringScheduleArn :: Text
+$sel:monitoringScheduleArn:UpdateMonitoringScheduleResponse' :: UpdateMonitoringScheduleResponse -&gt; Text
+</span><a href="#local-6989586621680426287"><span class="hs-identifier hs-var hs-var">monitoringScheduleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426287"><span class="hs-identifier hs-var">monitoringScheduleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680426286"><span class="annot"><span class="annottext">s :: UpdateMonitoringScheduleResponse
+</span><a href="#local-6989586621680426286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680426285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMonitoringScheduleResponse
+</span><a href="#local-6989586621680426286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringScheduleArn:UpdateMonitoringScheduleResponse' :: Text
+</span><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#%24sel%3AmonitoringScheduleArn%3AUpdateMonitoringScheduleResponse%27"><span class="hs-identifier hs-var">monitoringScheduleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680426285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621680426283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateMonitoringSchedule.html#UpdateMonitoringScheduleResponse"><span class="hs-identifier hs-type">UpdateMonitoringScheduleResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest"><span class="hs-identifier">CmafInitializationVectorInManifest</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_EXCLUDE"><span class="hs-identifier">CmafInitializationVectorInManifest_EXCLUDE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_INCLUDE"><span class="hs-identifier">CmafInitializationVectorInManifest_INCLUDE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When you use DRM with CMAF outputs, choose whether the service writes</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the 128-bit encryption initialization vector in the HLS and DASH</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- manifests.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679943198"><span id="local-6989586621679943199"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafInitializationVectorInManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest"><span class="hs-identifier hs-var">CmafInitializationVectorInManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafInitializationVectorInManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest%27"><span class="hs-identifier hs-var">CmafInitializationVectorInManifest'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafInitializationVectorInManifest"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#fromCmafInitializationVectorInManifest"><span class="hs-identifier hs-var hs-var">fromCmafInitializationVectorInManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943190"><span id="local-6989586621679943192"><span id="local-6989586621679943194"><span class="annot"><span class="annottext">Int -&gt; CmafInitializationVectorInManifest -&gt; ShowS
+[CmafInitializationVectorInManifest] -&gt; ShowS
+CmafInitializationVectorInManifest -&gt; String
+(Int -&gt; CmafInitializationVectorInManifest -&gt; ShowS)
+-&gt; (CmafInitializationVectorInManifest -&gt; String)
+-&gt; ([CmafInitializationVectorInManifest] -&gt; ShowS)
+-&gt; Show CmafInitializationVectorInManifest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmafInitializationVectorInManifest] -&gt; ShowS
+$cshowList :: [CmafInitializationVectorInManifest] -&gt; ShowS
+show :: CmafInitializationVectorInManifest -&gt; String
+$cshow :: CmafInitializationVectorInManifest -&gt; String
+showsPrec :: Int -&gt; CmafInitializationVectorInManifest -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmafInitializationVectorInManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679943181"><span id="local-6989586621679943183"><span id="local-6989586621679943185"><span id="local-6989586621679943187"><span class="annot"><span class="annottext">ReadPrec [CmafInitializationVectorInManifest]
+ReadPrec CmafInitializationVectorInManifest
+Int -&gt; ReadS CmafInitializationVectorInManifest
+ReadS [CmafInitializationVectorInManifest]
+(Int -&gt; ReadS CmafInitializationVectorInManifest)
+-&gt; ReadS [CmafInitializationVectorInManifest]
+-&gt; ReadPrec CmafInitializationVectorInManifest
+-&gt; ReadPrec [CmafInitializationVectorInManifest]
+-&gt; Read CmafInitializationVectorInManifest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmafInitializationVectorInManifest]
+$creadListPrec :: ReadPrec [CmafInitializationVectorInManifest]
+readPrec :: ReadPrec CmafInitializationVectorInManifest
+$creadPrec :: ReadPrec CmafInitializationVectorInManifest
+readList :: ReadS [CmafInitializationVectorInManifest]
+$creadList :: ReadS [CmafInitializationVectorInManifest]
+readsPrec :: Int -&gt; ReadS CmafInitializationVectorInManifest
+$creadsPrec :: Int -&gt; ReadS CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679943176"><span id="local-6989586621679943178"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+(CmafInitializationVectorInManifest
+ -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; Eq CmafInitializationVectorInManifest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c/= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+== :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c== :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679943160"><span id="local-6989586621679943162"><span id="local-6989586621679943164"><span id="local-6989586621679943166"><span id="local-6989586621679943168"><span id="local-6989586621679943170"><span id="local-6989586621679943172"><span class="annot"><span class="annottext">Eq CmafInitializationVectorInManifest
+Eq CmafInitializationVectorInManifest
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Ordering)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest -&gt; Bool)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest)
+-&gt; (CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest
+    -&gt; CmafInitializationVectorInManifest)
+-&gt; Ord CmafInitializationVectorInManifest
+CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Ordering
+CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+$cmin :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+max :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+$cmax :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest
+&gt;= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c&gt;= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+&gt; :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c&gt; :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+&lt;= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c&lt;= :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+&lt; :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+$c&lt; :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Bool
+compare :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Ordering
+$ccompare :: CmafInitializationVectorInManifest
+-&gt; CmafInitializationVectorInManifest -&gt; Ordering
+$cp1Ord :: Eq CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CmafInitializationVectorInManifest
+ -&gt; Rep CmafInitializationVectorInManifest x)
+-&gt; (forall x.
+    Rep CmafInitializationVectorInManifest x
+    -&gt; CmafInitializationVectorInManifest)
+-&gt; Generic CmafInitializationVectorInManifest
+forall x.
+Rep CmafInitializationVectorInManifest x
+-&gt; CmafInitializationVectorInManifest
+forall x.
+CmafInitializationVectorInManifest
+-&gt; Rep CmafInitializationVectorInManifest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CmafInitializationVectorInManifest x
+-&gt; CmafInitializationVectorInManifest
+$cfrom :: forall x.
+CmafInitializationVectorInManifest
+-&gt; Rep CmafInitializationVectorInManifest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943152"><span id="local-6989586621679943154"><span class="annot"><span class="annottext">Int -&gt; CmafInitializationVectorInManifest -&gt; Int
+CmafInitializationVectorInManifest -&gt; Int
+(Int -&gt; CmafInitializationVectorInManifest -&gt; Int)
+-&gt; (CmafInitializationVectorInManifest -&gt; Int)
+-&gt; Hashable CmafInitializationVectorInManifest
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmafInitializationVectorInManifest -&gt; Int
+$chash :: CmafInitializationVectorInManifest -&gt; Int
+hashWithSalt :: Int -&gt; CmafInitializationVectorInManifest -&gt; Int
+$chashWithSalt :: Int -&gt; CmafInitializationVectorInManifest -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679943149"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; ()
+(CmafInitializationVectorInManifest -&gt; ())
+-&gt; NFData CmafInitializationVectorInManifest
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmafInitializationVectorInManifest -&gt; ()
+$crnf :: CmafInitializationVectorInManifest -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679943146"><span class="annot"><span class="annottext">Text -&gt; Either String CmafInitializationVectorInManifest
+(Text -&gt; Either String CmafInitializationVectorInManifest)
+-&gt; FromText CmafInitializationVectorInManifest
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmafInitializationVectorInManifest
+$cfromText :: Text -&gt; Either String CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679943143"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; Text
+(CmafInitializationVectorInManifest -&gt; Text)
+-&gt; ToText CmafInitializationVectorInManifest
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmafInitializationVectorInManifest -&gt; Text
+$ctoText :: CmafInitializationVectorInManifest -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943140"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; ByteString
+(CmafInitializationVectorInManifest -&gt; ByteString)
+-&gt; ToByteString CmafInitializationVectorInManifest
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmafInitializationVectorInManifest -&gt; ByteString
+$ctoBS :: CmafInitializationVectorInManifest -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943137"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; ByteStringBuilder
+(CmafInitializationVectorInManifest -&gt; ByteStringBuilder)
+-&gt; ToLog CmafInitializationVectorInManifest
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmafInitializationVectorInManifest -&gt; ByteStringBuilder
+$cbuild :: CmafInitializationVectorInManifest -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943134"><span class="annot"><span class="annottext">HeaderName -&gt; CmafInitializationVectorInManifest -&gt; [Header]
+(HeaderName -&gt; CmafInitializationVectorInManifest -&gt; [Header])
+-&gt; ToHeader CmafInitializationVectorInManifest
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmafInitializationVectorInManifest -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmafInitializationVectorInManifest -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943131"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; QueryString
+(CmafInitializationVectorInManifest -&gt; QueryString)
+-&gt; ToQuery CmafInitializationVectorInManifest
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmafInitializationVectorInManifest -&gt; QueryString
+$ctoQuery :: CmafInitializationVectorInManifest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943126"><span id="local-6989586621679943128"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafInitializationVectorInManifest]
+Value -&gt; Parser CmafInitializationVectorInManifest
+(Value -&gt; Parser CmafInitializationVectorInManifest)
+-&gt; (Value -&gt; Parser [CmafInitializationVectorInManifest])
+-&gt; FromJSON CmafInitializationVectorInManifest
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmafInitializationVectorInManifest]
+$cparseJSONList :: Value -&gt; Parser [CmafInitializationVectorInManifest]
+parseJSON :: Value -&gt; Parser CmafInitializationVectorInManifest
+$cparseJSON :: Value -&gt; Parser CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943121"><span id="local-6989586621679943123"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafInitializationVectorInManifest]
+FromJSONKeyFunction CmafInitializationVectorInManifest
+FromJSONKeyFunction CmafInitializationVectorInManifest
+-&gt; FromJSONKeyFunction [CmafInitializationVectorInManifest]
+-&gt; FromJSONKey CmafInitializationVectorInManifest
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmafInitializationVectorInManifest]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmafInitializationVectorInManifest]
+fromJSONKey :: FromJSONKeyFunction CmafInitializationVectorInManifest
+$cfromJSONKey :: FromJSONKeyFunction CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943112"><span id="local-6989586621679943114"><span id="local-6989586621679943116"><span id="local-6989586621679943118"><span class="annot"><span class="annottext">[CmafInitializationVectorInManifest] -&gt; Encoding
+[CmafInitializationVectorInManifest] -&gt; Value
+CmafInitializationVectorInManifest -&gt; Encoding
+CmafInitializationVectorInManifest -&gt; Value
+(CmafInitializationVectorInManifest -&gt; Value)
+-&gt; (CmafInitializationVectorInManifest -&gt; Encoding)
+-&gt; ([CmafInitializationVectorInManifest] -&gt; Value)
+-&gt; ([CmafInitializationVectorInManifest] -&gt; Encoding)
+-&gt; ToJSON CmafInitializationVectorInManifest
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmafInitializationVectorInManifest] -&gt; Encoding
+$ctoEncodingList :: [CmafInitializationVectorInManifest] -&gt; Encoding
+toJSONList :: [CmafInitializationVectorInManifest] -&gt; Value
+$ctoJSONList :: [CmafInitializationVectorInManifest] -&gt; Value
+toEncoding :: CmafInitializationVectorInManifest -&gt; Encoding
+$ctoEncoding :: CmafInitializationVectorInManifest -&gt; Encoding
+toJSON :: CmafInitializationVectorInManifest -&gt; Value
+$ctoJSON :: CmafInitializationVectorInManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943107"><span id="local-6989586621679943109"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafInitializationVectorInManifest]
+ToJSONKeyFunction CmafInitializationVectorInManifest
+ToJSONKeyFunction CmafInitializationVectorInManifest
+-&gt; ToJSONKeyFunction [CmafInitializationVectorInManifest]
+-&gt; ToJSONKey CmafInitializationVectorInManifest
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmafInitializationVectorInManifest]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmafInitializationVectorInManifest]
+toJSONKey :: ToJSONKeyFunction CmafInitializationVectorInManifest
+$ctoJSONKey :: ToJSONKeyFunction CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943104"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafInitializationVectorInManifest
+([Node] -&gt; Either String CmafInitializationVectorInManifest)
+-&gt; FromXML CmafInitializationVectorInManifest
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmafInitializationVectorInManifest
+$cparseXML :: [Node] -&gt; Either String CmafInitializationVectorInManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943101"><span class="annot"><span class="annottext">CmafInitializationVectorInManifest -&gt; XML
+(CmafInitializationVectorInManifest -&gt; XML)
+-&gt; ToXML CmafInitializationVectorInManifest
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmafInitializationVectorInManifest -&gt; XML
+$ctoXML :: CmafInitializationVectorInManifest -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_EXCLUDE"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest_EXCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafInitializationVectorInManifest_EXCLUDE"><span id="%24mCmafInitializationVectorInManifest_EXCLUDE"><span id="CmafInitializationVectorInManifest_EXCLUDE"><span class="annot"><span class="annottext">$bCmafInitializationVectorInManifest_EXCLUDE :: CmafInitializationVectorInManifest
+$mCmafInitializationVectorInManifest_EXCLUDE :: forall r.
+CmafInitializationVectorInManifest
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#%24bCmafInitializationVectorInManifest_EXCLUDE"><span class="hs-identifier hs-var hs-var hs-var">CmafInitializationVectorInManifest_EXCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest%27"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXCLUDE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_INCLUDE"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest_INCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmafInitializationVectorInManifest_INCLUDE"><span id="%24mCmafInitializationVectorInManifest_INCLUDE"><span id="CmafInitializationVectorInManifest_INCLUDE"><span class="annot"><span class="annottext">$bCmafInitializationVectorInManifest_INCLUDE :: CmafInitializationVectorInManifest
+$mCmafInitializationVectorInManifest_INCLUDE :: forall r.
+CmafInitializationVectorInManifest
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#%24bCmafInitializationVectorInManifest_INCLUDE"><span class="hs-identifier hs-var hs-var hs-var">CmafInitializationVectorInManifest_INCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest%27"><span class="hs-identifier hs-type">CmafInitializationVectorInManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCLUDE&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_EXCLUDE"><span class="hs-pragma hs-type">CmafInitializationVectorInManifest_EXCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest_INCLUDE"><span class="hs-pragma hs-type">CmafInitializationVectorInManifest_INCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest.html#CmafInitializationVectorInManifest%27"><span class="hs-pragma hs-type">CmafInitializationVectorInManifest'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

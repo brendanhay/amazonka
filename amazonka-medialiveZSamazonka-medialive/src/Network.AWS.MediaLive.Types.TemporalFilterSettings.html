@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.TemporalFilterSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.TemporalFilterSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterStrength.html"><span class="hs-identifier">Network.AWS.MediaLive.Types.TemporalFilterStrength</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Temporal Filter Settings</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTemporalFilterSettings' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679918249"><span id="local-6989586621679918250"></span></span><span class="hs-keyword">data</span><span> </span><span id="TemporalFilterSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-var">TemporalFilterSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemporalFilterSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-var">TemporalFilterSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you enable this filter, the results are the following: - If the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- source content is noisy (it contains excessive digital artifacts), the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- filter cleans up the source. - If the source content is already clean,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the filter tends to decrease the bitrate, especially when the rate</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- control mode is QVBR.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApostFilterSharpening%3ATemporalFilterSettings%27"><span class="annot"><span class="annottext">TemporalFilterSettings -&gt; Maybe TemporalFilterPostFilterSharpening
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3ApostFilterSharpening%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var hs-var">postFilterSharpening</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Choose a filter strength. We recommend a strength of 1 or 2. A higher</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- strength might take out good information, resulting in an image that is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- overly soft.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astrength%3ATemporalFilterSettings%27"><span class="annot"><span class="annottext">TemporalFilterSettings -&gt; Maybe TemporalFilterStrength
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3Astrength%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679918242"><span id="local-6989586621679918244"><span class="annot"><span class="annottext">TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool
+(TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool)
+-&gt; (TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool)
+-&gt; Eq TemporalFilterSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool
+$c/= :: TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool
+== :: TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool
+$c== :: TemporalFilterSettings -&gt; TemporalFilterSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679918233"><span id="local-6989586621679918235"><span id="local-6989586621679918237"><span id="local-6989586621679918239"><span class="annot"><span class="annottext">ReadPrec [TemporalFilterSettings]
+ReadPrec TemporalFilterSettings
+Int -&gt; ReadS TemporalFilterSettings
+ReadS [TemporalFilterSettings]
+(Int -&gt; ReadS TemporalFilterSettings)
+-&gt; ReadS [TemporalFilterSettings]
+-&gt; ReadPrec TemporalFilterSettings
+-&gt; ReadPrec [TemporalFilterSettings]
+-&gt; Read TemporalFilterSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TemporalFilterSettings]
+$creadListPrec :: ReadPrec [TemporalFilterSettings]
+readPrec :: ReadPrec TemporalFilterSettings
+$creadPrec :: ReadPrec TemporalFilterSettings
+readList :: ReadS [TemporalFilterSettings]
+$creadList :: ReadS [TemporalFilterSettings]
+readsPrec :: Int -&gt; ReadS TemporalFilterSettings
+$creadsPrec :: Int -&gt; ReadS TemporalFilterSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679918226"><span id="local-6989586621679918228"><span id="local-6989586621679918230"><span class="annot"><span class="annottext">Int -&gt; TemporalFilterSettings -&gt; ShowS
+[TemporalFilterSettings] -&gt; ShowS
+TemporalFilterSettings -&gt; String
+(Int -&gt; TemporalFilterSettings -&gt; ShowS)
+-&gt; (TemporalFilterSettings -&gt; String)
+-&gt; ([TemporalFilterSettings] -&gt; ShowS)
+-&gt; Show TemporalFilterSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TemporalFilterSettings] -&gt; ShowS
+$cshowList :: [TemporalFilterSettings] -&gt; ShowS
+show :: TemporalFilterSettings -&gt; String
+$cshow :: TemporalFilterSettings -&gt; String
+showsPrec :: Int -&gt; TemporalFilterSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; TemporalFilterSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TemporalFilterSettings -&gt; Rep TemporalFilterSettings x)
+-&gt; (forall x.
+    Rep TemporalFilterSettings x -&gt; TemporalFilterSettings)
+-&gt; Generic TemporalFilterSettings
+forall x. Rep TemporalFilterSettings x -&gt; TemporalFilterSettings
+forall x. TemporalFilterSettings -&gt; Rep TemporalFilterSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TemporalFilterSettings x -&gt; TemporalFilterSettings
+$cfrom :: forall x. TemporalFilterSettings -&gt; Rep TemporalFilterSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'TemporalFilterSettings' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'postFilterSharpening', 'temporalFilterSettings_postFilterSharpening' - If you enable this filter, the results are the following: - If the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- source content is noisy (it contains excessive digital artifacts), the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- filter cleans up the source. - If the source content is already clean,</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- the filter tends to decrease the bitrate, especially when the rate</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- control mode is QVBR.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'strength', 'temporalFilterSettings_strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- strength might take out good information, resulting in an image that is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- overly soft.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#newTemporalFilterSettings"><span class="hs-identifier hs-type">newTemporalFilterSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span><span>
+</span><span id="line-64"></span><span id="newTemporalFilterSettings"><span class="annot"><span class="annottext">newTemporalFilterSettings :: TemporalFilterSettings
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#newTemporalFilterSettings"><span class="hs-identifier hs-var hs-var">newTemporalFilterSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TemporalFilterSettings' :: Maybe TemporalFilterPostFilterSharpening
+-&gt; Maybe TemporalFilterStrength -&gt; TemporalFilterSettings
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:postFilterSharpening:TemporalFilterSettings' :: Maybe TemporalFilterPostFilterSharpening
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3ApostFilterSharpening%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var">postFilterSharpening</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:strength:TemporalFilterSettings' :: Maybe TemporalFilterStrength
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3Astrength%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var">strength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | If you enable this filter, the results are the following: - If the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- source content is noisy (it contains excessive digital artifacts), the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- filter cleans up the source. - If the source content is already clean,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the filter tends to decrease the bitrate, especially when the rate</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- control mode is QVBR.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#temporalFilterSettings_postFilterSharpening"><span class="hs-identifier hs-type">temporalFilterSettings_postFilterSharpening</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening.html#TemporalFilterPostFilterSharpening"><span class="hs-identifier hs-type">TemporalFilterPostFilterSharpening</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="temporalFilterSettings_postFilterSharpening"><span class="annot"><span class="annottext">temporalFilterSettings_postFilterSharpening :: (Maybe TemporalFilterPostFilterSharpening
+ -&gt; f (Maybe TemporalFilterPostFilterSharpening))
+-&gt; TemporalFilterSettings -&gt; f TemporalFilterSettings
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#temporalFilterSettings_postFilterSharpening"><span class="hs-identifier hs-var hs-var">temporalFilterSettings_postFilterSharpening</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemporalFilterSettings
+ -&gt; Maybe TemporalFilterPostFilterSharpening)
+-&gt; (TemporalFilterSettings
+    -&gt; Maybe TemporalFilterPostFilterSharpening
+    -&gt; TemporalFilterSettings)
+-&gt; Lens
+     TemporalFilterSettings
+     TemporalFilterSettings
+     (Maybe TemporalFilterPostFilterSharpening)
+     (Maybe TemporalFilterPostFilterSharpening)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679918217"><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+postFilterSharpening :: Maybe TemporalFilterPostFilterSharpening
+$sel:postFilterSharpening:TemporalFilterSettings' :: TemporalFilterSettings -&gt; Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918217"><span class="hs-identifier hs-var hs-var">postFilterSharpening</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918217"><span class="hs-identifier hs-var">postFilterSharpening</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679918216"><span class="annot"><span class="annottext">s :: TemporalFilterSettings
+</span><a href="#local-6989586621679918216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679918215"><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemporalFilterSettings
+</span><a href="#local-6989586621679918216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postFilterSharpening:TemporalFilterSettings' :: Maybe TemporalFilterPostFilterSharpening
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3ApostFilterSharpening%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var">postFilterSharpening</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Choose a filter strength. We recommend a strength of 1 or 2. A higher</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- strength might take out good information, resulting in an image that is</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- overly soft.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#temporalFilterSettings_strength"><span class="hs-identifier hs-type">temporalFilterSettings_strength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="temporalFilterSettings_strength"><span class="annot"><span class="annottext">temporalFilterSettings_strength :: (Maybe TemporalFilterStrength -&gt; f (Maybe TemporalFilterStrength))
+-&gt; TemporalFilterSettings -&gt; f TemporalFilterSettings
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#temporalFilterSettings_strength"><span class="hs-identifier hs-var hs-var">temporalFilterSettings_strength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemporalFilterSettings -&gt; Maybe TemporalFilterStrength)
+-&gt; (TemporalFilterSettings
+    -&gt; Maybe TemporalFilterStrength -&gt; TemporalFilterSettings)
+-&gt; Lens
+     TemporalFilterSettings
+     TemporalFilterSettings
+     (Maybe TemporalFilterStrength)
+     (Maybe TemporalFilterStrength)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679918213"><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+strength :: Maybe TemporalFilterStrength
+$sel:strength:TemporalFilterSettings' :: TemporalFilterSettings -&gt; Maybe TemporalFilterStrength
+</span><a href="#local-6989586621679918213"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+</span><a href="#local-6989586621679918213"><span class="hs-identifier hs-var">strength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679918212"><span class="annot"><span class="annottext">s :: TemporalFilterSettings
+</span><a href="#local-6989586621679918212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679918211"><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+</span><a href="#local-6989586621679918211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemporalFilterSettings
+</span><a href="#local-6989586621679918212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strength:TemporalFilterSettings' :: Maybe TemporalFilterStrength
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#%24sel%3Astrength%3ATemporalFilterSettings%27"><span class="hs-identifier hs-var">strength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+</span><a href="#local-6989586621679918211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918208"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679918206"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TemporalFilterSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TemporalFilterSettings)
+-&gt; Value
+-&gt; Parser TemporalFilterSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TemporalFilterSettings&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679918203"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679918203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+-&gt; Maybe TemporalFilterStrength -&gt; TemporalFilterSettings
+</span><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-var">TemporalFilterSettings'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TemporalFilterPostFilterSharpening
+ -&gt; Maybe TemporalFilterStrength -&gt; TemporalFilterSettings)
+-&gt; Parser (Maybe TemporalFilterPostFilterSharpening)
+-&gt; Parser (Maybe TemporalFilterStrength -&gt; TemporalFilterSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679918203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TemporalFilterPostFilterSharpening)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;postFilterSharpening&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TemporalFilterStrength -&gt; TemporalFilterSettings)
+-&gt; Parser (Maybe TemporalFilterStrength)
+-&gt; Parser TemporalFilterSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679918203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TemporalFilterStrength)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;strength&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918197"><span id="local-6989586621679918199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918186"><span id="local-6989586621679918188"><span id="local-6989586621679918190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings"><span class="hs-identifier hs-type">TemporalFilterSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679918184"><span class="annot"><span class="annottext">toJSON :: TemporalFilterSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TemporalFilterSettings.html#TemporalFilterSettings%27"><span class="hs-identifier hs-type">TemporalFilterSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679918181"><span id="local-6989586621679918182"><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+Maybe TemporalFilterStrength
+strength :: Maybe TemporalFilterStrength
+postFilterSharpening :: Maybe TemporalFilterPostFilterSharpening
+$sel:strength:TemporalFilterSettings' :: TemporalFilterSettings -&gt; Maybe TemporalFilterStrength
+$sel:postFilterSharpening:TemporalFilterSettings' :: TemporalFilterSettings -&gt; Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918181"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;postFilterSharpening&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TemporalFilterPostFilterSharpening -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(TemporalFilterPostFilterSharpening -&gt; Pair)
+-&gt; Maybe TemporalFilterPostFilterSharpening -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterPostFilterSharpening
+</span><a href="#local-6989586621679918182"><span class="hs-identifier hs-var">postFilterSharpening</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;strength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TemporalFilterStrength -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TemporalFilterStrength -&gt; Pair)
+-&gt; Maybe TemporalFilterStrength -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TemporalFilterStrength
+</span><a href="#local-6989586621679918181"><span class="hs-identifier hs-var">strength</span></a></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

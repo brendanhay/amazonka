@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.Types.NodeGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.Types.NodeGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Endpoint.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.Endpoint</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupMember.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.NodeGroupMember</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a collection of cache nodes in a replication group. One node</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- in the node group is the read\/write primary node. All the other nodes</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- are read-only Replica nodes.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newNodeGroup' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679401451"><span id="local-6989586621679401452"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-var">NodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-var">NodeGroup'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of this replication group - @creating@, @available@,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @modifying@, @deleting@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Astatus%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The endpoint of the replica nodes in this node group (shard).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AreaderEndpoint%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AreaderEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">readerEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identifier for the node group (shard). A Redis (cluster mode</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- disabled) replication group contains only 1 node group; therefore, the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- node group ID is 0001. A Redis (cluster mode enabled) replication group</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- can provide the id for a node group.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupId%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The keyspace for this node group (shard).</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aslots%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Aslots%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The endpoint of the primary node in this node group (shard).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprimaryEndpoint%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AprimaryEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">primaryEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A list containing information about individual nodes within the node</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- group (shard).</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnodeGroupMembers%3ANodeGroup%27"><span class="annot"><span class="annottext">NodeGroup -&gt; Maybe [NodeGroupMember]
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupMembers%3ANodeGroup%27"><span class="hs-identifier hs-var hs-var">nodeGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupMember.html#NodeGroupMember"><span class="hs-identifier hs-type">NodeGroupMember</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401440"><span id="local-6989586621679401442"><span class="annot"><span class="annottext">NodeGroup -&gt; NodeGroup -&gt; Bool
+(NodeGroup -&gt; NodeGroup -&gt; Bool)
+-&gt; (NodeGroup -&gt; NodeGroup -&gt; Bool) -&gt; Eq NodeGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeGroup -&gt; NodeGroup -&gt; Bool
+$c/= :: NodeGroup -&gt; NodeGroup -&gt; Bool
+== :: NodeGroup -&gt; NodeGroup -&gt; Bool
+$c== :: NodeGroup -&gt; NodeGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401431"><span id="local-6989586621679401433"><span id="local-6989586621679401435"><span id="local-6989586621679401437"><span class="annot"><span class="annottext">ReadPrec [NodeGroup]
+ReadPrec NodeGroup
+Int -&gt; ReadS NodeGroup
+ReadS [NodeGroup]
+(Int -&gt; ReadS NodeGroup)
+-&gt; ReadS [NodeGroup]
+-&gt; ReadPrec NodeGroup
+-&gt; ReadPrec [NodeGroup]
+-&gt; Read NodeGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeGroup]
+$creadListPrec :: ReadPrec [NodeGroup]
+readPrec :: ReadPrec NodeGroup
+$creadPrec :: ReadPrec NodeGroup
+readList :: ReadS [NodeGroup]
+$creadList :: ReadS [NodeGroup]
+readsPrec :: Int -&gt; ReadS NodeGroup
+$creadsPrec :: Int -&gt; ReadS NodeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401424"><span id="local-6989586621679401426"><span id="local-6989586621679401428"><span class="annot"><span class="annottext">Int -&gt; NodeGroup -&gt; ShowS
+[NodeGroup] -&gt; ShowS
+NodeGroup -&gt; String
+(Int -&gt; NodeGroup -&gt; ShowS)
+-&gt; (NodeGroup -&gt; String)
+-&gt; ([NodeGroup] -&gt; ShowS)
+-&gt; Show NodeGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeGroup] -&gt; ShowS
+$cshowList :: [NodeGroup] -&gt; ShowS
+show :: NodeGroup -&gt; String
+$cshow :: NodeGroup -&gt; String
+showsPrec :: Int -&gt; NodeGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeGroup -&gt; Rep NodeGroup x)
+-&gt; (forall x. Rep NodeGroup x -&gt; NodeGroup) -&gt; Generic NodeGroup
+forall x. Rep NodeGroup x -&gt; NodeGroup
+forall x. NodeGroup -&gt; Rep NodeGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeGroup x -&gt; NodeGroup
+$cfrom :: forall x. NodeGroup -&gt; Rep NodeGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'NodeGroup' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'status', 'nodeGroup_status' - The current state of this replication group - @creating@, @available@,</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @modifying@, @deleting@.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'readerEndpoint', 'nodeGroup_readerEndpoint' - The endpoint of the replica nodes in this node group (shard).</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'nodeGroupId', 'nodeGroup_nodeGroupId' - The identifier for the node group (shard). A Redis (cluster mode</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- disabled) replication group contains only 1 node group; therefore, the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- node group ID is 0001. A Redis (cluster mode enabled) replication group</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- can provide the id for a node group.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'slots', 'nodeGroup_slots' - The keyspace for this node group (shard).</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'primaryEndpoint', 'nodeGroup_primaryEndpoint' - The endpoint of the primary node in this node group (shard).</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nodeGroupMembers', 'nodeGroup_nodeGroupMembers' - A list containing information about individual nodes within the node</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- group (shard).</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#newNodeGroup"><span class="hs-identifier hs-type">newNodeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span>
+</span><span id="line-82"></span><span id="newNodeGroup"><span class="annot"><span class="annottext">newNodeGroup :: NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#newNodeGroup"><span class="hs-identifier hs-var hs-var">newNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">NodeGroup' :: Maybe Text
+-&gt; Maybe Endpoint
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Endpoint
+-&gt; Maybe [NodeGroupMember]
+-&gt; NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Astatus%3ANodeGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:readerEndpoint:NodeGroup' :: Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AreaderEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var">readerEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupId%3ANodeGroup%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Aslots%3ANodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryEndpoint:NodeGroup' :: Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AprimaryEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var">primaryEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupMembers:NodeGroup' :: Maybe [NodeGroupMember]
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupMembers%3ANodeGroup%27"><span class="hs-identifier hs-var">nodeGroupMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeGroupMember]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The current state of this replication group - @creating@, @available@,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @modifying@, @deleting@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_status"><span class="hs-identifier hs-type">nodeGroup_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="nodeGroup_status"><span class="annot"><span class="annottext">nodeGroup_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_status"><span class="hs-identifier hs-var hs-var">nodeGroup_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe Text)
+-&gt; (NodeGroup -&gt; Maybe Text -&gt; NodeGroup)
+-&gt; Lens NodeGroup NodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401415"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:NodeGroup' :: NodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679401415"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401415"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401414"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Astatus%3ANodeGroup%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The endpoint of the replica nodes in this node group (shard).</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_readerEndpoint"><span class="hs-identifier hs-type">nodeGroup_readerEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="nodeGroup_readerEndpoint"><span class="annot"><span class="annottext">nodeGroup_readerEndpoint :: (Maybe Endpoint -&gt; f (Maybe Endpoint)) -&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_readerEndpoint"><span class="hs-identifier hs-var hs-var">nodeGroup_readerEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe Endpoint)
+-&gt; (NodeGroup -&gt; Maybe Endpoint -&gt; NodeGroup)
+-&gt; Lens NodeGroup NodeGroup (Maybe Endpoint) (Maybe Endpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401411"><span class="annot"><span class="annottext">Maybe Endpoint
+readerEndpoint :: Maybe Endpoint
+$sel:readerEndpoint:NodeGroup' :: NodeGroup -&gt; Maybe Endpoint
+</span><a href="#local-6989586621679401411"><span class="hs-identifier hs-var hs-var">readerEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401411"><span class="hs-identifier hs-var">readerEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401410"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401409"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readerEndpoint:NodeGroup' :: Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AreaderEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var">readerEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The identifier for the node group (shard). A Redis (cluster mode</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- disabled) replication group contains only 1 node group; therefore, the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- node group ID is 0001. A Redis (cluster mode enabled) replication group</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- can provide the id for a node group.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_nodeGroupId"><span class="hs-identifier hs-type">nodeGroup_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="nodeGroup_nodeGroupId"><span class="annot"><span class="annottext">nodeGroup_nodeGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_nodeGroupId"><span class="hs-identifier hs-var hs-var">nodeGroup_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe Text)
+-&gt; (NodeGroup -&gt; Maybe Text -&gt; NodeGroup)
+-&gt; Lens NodeGroup NodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401407"><span class="annot"><span class="annottext">Maybe Text
+nodeGroupId :: Maybe Text
+$sel:nodeGroupId:NodeGroup' :: NodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679401407"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401407"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401406"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupId%3ANodeGroup%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The keyspace for this node group (shard).</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_slots"><span class="hs-identifier hs-type">nodeGroup_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="nodeGroup_slots"><span class="annot"><span class="annottext">nodeGroup_slots :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_slots"><span class="hs-identifier hs-var hs-var">nodeGroup_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe Text)
+-&gt; (NodeGroup -&gt; Maybe Text -&gt; NodeGroup)
+-&gt; Lens NodeGroup NodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401403"><span class="annot"><span class="annottext">Maybe Text
+slots :: Maybe Text
+$sel:slots:NodeGroup' :: NodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679401403"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401403"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401402"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:NodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3Aslots%3ANodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The endpoint of the primary node in this node group (shard).</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_primaryEndpoint"><span class="hs-identifier hs-type">nodeGroup_primaryEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="nodeGroup_primaryEndpoint"><span class="annot"><span class="annottext">nodeGroup_primaryEndpoint :: (Maybe Endpoint -&gt; f (Maybe Endpoint)) -&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_primaryEndpoint"><span class="hs-identifier hs-var hs-var">nodeGroup_primaryEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe Endpoint)
+-&gt; (NodeGroup -&gt; Maybe Endpoint -&gt; NodeGroup)
+-&gt; Lens NodeGroup NodeGroup (Maybe Endpoint) (Maybe Endpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401399"><span class="annot"><span class="annottext">Maybe Endpoint
+primaryEndpoint :: Maybe Endpoint
+$sel:primaryEndpoint:NodeGroup' :: NodeGroup -&gt; Maybe Endpoint
+</span><a href="#local-6989586621679401399"><span class="hs-identifier hs-var hs-var">primaryEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401399"><span class="hs-identifier hs-var">primaryEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401398"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401397"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryEndpoint:NodeGroup' :: Maybe Endpoint
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AprimaryEndpoint%3ANodeGroup%27"><span class="hs-identifier hs-var">primaryEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679401397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A list containing information about individual nodes within the node</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- group (shard).</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_nodeGroupMembers"><span class="hs-identifier hs-type">nodeGroup_nodeGroupMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupMember.html#NodeGroupMember"><span class="hs-identifier hs-type">NodeGroupMember</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="nodeGroup_nodeGroupMembers"><span class="annot"><span class="annottext">nodeGroup_nodeGroupMembers :: (Maybe [NodeGroupMember] -&gt; f (Maybe [NodeGroupMember]))
+-&gt; NodeGroup -&gt; f NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#nodeGroup_nodeGroupMembers"><span class="hs-identifier hs-var hs-var">nodeGroup_nodeGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeGroup -&gt; Maybe [NodeGroupMember])
+-&gt; (NodeGroup -&gt; Maybe [NodeGroupMember] -&gt; NodeGroup)
+-&gt; Lens
+     NodeGroup
+     NodeGroup
+     (Maybe [NodeGroupMember])
+     (Maybe [NodeGroupMember])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401395"><span class="annot"><span class="annottext">Maybe [NodeGroupMember]
+nodeGroupMembers :: Maybe [NodeGroupMember]
+$sel:nodeGroupMembers:NodeGroup' :: NodeGroup -&gt; Maybe [NodeGroupMember]
+</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var hs-var">nodeGroupMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeGroupMember]
+</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var">nodeGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401394"><span class="annot"><span class="annottext">s :: NodeGroup
+</span><a href="#local-6989586621679401394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-type">NodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401393"><span class="annot"><span class="annottext">Maybe [NodeGroupMember]
+</span><a href="#local-6989586621679401393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroup
+</span><a href="#local-6989586621679401394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupMembers:NodeGroup' :: Maybe [NodeGroupMember]
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#%24sel%3AnodeGroupMembers%3ANodeGroup%27"><span class="hs-identifier hs-var">nodeGroupMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeGroupMember]
+</span><a href="#local-6989586621679401393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeGroupMember] -&gt; f (Maybe [NodeGroupMember]))
+ -&gt; NodeGroup -&gt; f NodeGroup)
+-&gt; ((Maybe [NodeGroupMember] -&gt; f (Maybe [NodeGroupMember]))
+    -&gt; Maybe [NodeGroupMember] -&gt; f (Maybe [NodeGroupMember]))
+-&gt; (Maybe [NodeGroupMember] -&gt; f (Maybe [NodeGroupMember]))
+-&gt; NodeGroup
+-&gt; f NodeGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeGroupMember]
+  [NodeGroupMember]
+  [NodeGroupMember]
+  [NodeGroupMember]
+-&gt; Iso
+     (Maybe [NodeGroupMember])
+     (Maybe [NodeGroupMember])
+     (Maybe [NodeGroupMember])
+     (Maybe [NodeGroupMember])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NodeGroupMember]
+  [NodeGroupMember]
+  [NodeGroupMember]
+  [NodeGroupMember]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679401387"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401385"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Endpoint
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Endpoint
+-&gt; Maybe [NodeGroupMember]
+-&gt; NodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup%27"><span class="hs-identifier hs-var">NodeGroup'</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Endpoint
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Endpoint
+ -&gt; Maybe [NodeGroupMember]
+ -&gt; NodeGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Endpoint
+      -&gt; Maybe [NodeGroupMember]
+      -&gt; NodeGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Endpoint
+   -&gt; Maybe [NodeGroupMember]
+   -&gt; NodeGroup)
+-&gt; Either String (Maybe Endpoint)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Endpoint
+      -&gt; Maybe [NodeGroupMember]
+      -&gt; NodeGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Endpoint)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReaderEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Endpoint
+   -&gt; Maybe [NodeGroupMember]
+   -&gt; NodeGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Endpoint -&gt; Maybe [NodeGroupMember] -&gt; NodeGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Endpoint -&gt; Maybe [NodeGroupMember] -&gt; NodeGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Endpoint -&gt; Maybe [NodeGroupMember] -&gt; NodeGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Slots&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Endpoint -&gt; Maybe [NodeGroupMember] -&gt; NodeGroup)
+-&gt; Either String (Maybe Endpoint)
+-&gt; Either String (Maybe [NodeGroupMember] -&gt; NodeGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Endpoint)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PrimaryEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [NodeGroupMember] -&gt; NodeGroup)
+-&gt; Either String (Maybe [NodeGroupMember])
+-&gt; Either String NodeGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupMembers&quot;</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [NodeGroupMember]))
+-&gt; Either String (Maybe [NodeGroupMember])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [NodeGroupMember])
+-&gt; [Node] -&gt; Either String (Maybe [NodeGroupMember])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [NodeGroupMember]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeGroupMember&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401376"><span id="local-6989586621679401378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroup.html#NodeGroup"><span class="hs-identifier hs-type">NodeGroup</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

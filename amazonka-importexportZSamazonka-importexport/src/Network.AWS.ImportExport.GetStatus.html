@@ -1,0 +1,1416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ImportExport.GetStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation returns information about a job, including where the job</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- is in the processing pipeline, the status of the results, and the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- signature value associated with the job. You can only return information</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- about jobs you own.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImportExport.GetStatus</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier">GetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatus"><span class="hs-identifier">newGetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_aPIVersion"><span class="hs-identifier">getStatus_aPIVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_jobId"><span class="hs-identifier">getStatus_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatusResponse"><span class="hs-identifier">newGetStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_trackingNumber"><span class="hs-identifier">getStatusResponse_trackingNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_currentManifest"><span class="hs-identifier">getStatusResponse_currentManifest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_errorCount"><span class="hs-identifier">getStatusResponse_errorCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_creationDate"><span class="hs-identifier">getStatusResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logBucket"><span class="hs-identifier">getStatusResponse_logBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobType"><span class="hs-identifier">getStatusResponse_jobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signature"><span class="hs-identifier">getStatusResponse_signature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_carrier"><span class="hs-identifier">getStatusResponse_carrier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_artifactList"><span class="hs-identifier">getStatusResponse_artifactList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressMessage"><span class="hs-identifier">getStatusResponse_progressMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationMessage"><span class="hs-identifier">getStatusResponse_locationMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logKey"><span class="hs-identifier">getStatusResponse_logKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signatureFileContents"><span class="hs-identifier">getStatusResponse_signatureFileContents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationCode"><span class="hs-identifier">getStatusResponse_locationCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressCode"><span class="hs-identifier">getStatusResponse_progressCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobId"><span class="hs-identifier">getStatusResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_httpStatus"><span class="hs-identifier">getStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.html"><span class="hs-identifier">Network.AWS.ImportExport.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Input structure for the GetStatus operation.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newGetStatus' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679154932"><span id="local-6989586621679154933"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatus"><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-var">GetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatus%27"><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-var">GetStatus'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AaPIVersion%3AGetStatus%27"><span class="annot"><span class="annottext">GetStatus -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AaPIVersion%3AGetStatus%27"><span class="hs-identifier hs-var hs-var">aPIVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AjobId%3AGetStatus%27"><span class="annot"><span class="annottext">GetStatus -&gt; Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatus%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154925"><span id="local-6989586621679154927"><span class="annot"><span class="annottext">GetStatus -&gt; GetStatus -&gt; Bool
+(GetStatus -&gt; GetStatus -&gt; Bool)
+-&gt; (GetStatus -&gt; GetStatus -&gt; Bool) -&gt; Eq GetStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStatus -&gt; GetStatus -&gt; Bool
+$c/= :: GetStatus -&gt; GetStatus -&gt; Bool
+== :: GetStatus -&gt; GetStatus -&gt; Bool
+$c== :: GetStatus -&gt; GetStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154916"><span id="local-6989586621679154918"><span id="local-6989586621679154920"><span id="local-6989586621679154922"><span class="annot"><span class="annottext">ReadPrec [GetStatus]
+ReadPrec GetStatus
+Int -&gt; ReadS GetStatus
+ReadS [GetStatus]
+(Int -&gt; ReadS GetStatus)
+-&gt; ReadS [GetStatus]
+-&gt; ReadPrec GetStatus
+-&gt; ReadPrec [GetStatus]
+-&gt; Read GetStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStatus]
+$creadListPrec :: ReadPrec [GetStatus]
+readPrec :: ReadPrec GetStatus
+$creadPrec :: ReadPrec GetStatus
+readList :: ReadS [GetStatus]
+$creadList :: ReadS [GetStatus]
+readsPrec :: Int -&gt; ReadS GetStatus
+$creadsPrec :: Int -&gt; ReadS GetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154909"><span id="local-6989586621679154911"><span id="local-6989586621679154913"><span class="annot"><span class="annottext">Int -&gt; GetStatus -&gt; ShowS
+[GetStatus] -&gt; ShowS
+GetStatus -&gt; String
+(Int -&gt; GetStatus -&gt; ShowS)
+-&gt; (GetStatus -&gt; String)
+-&gt; ([GetStatus] -&gt; ShowS)
+-&gt; Show GetStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStatus] -&gt; ShowS
+$cshowList :: [GetStatus] -&gt; ShowS
+show :: GetStatus -&gt; String
+$cshow :: GetStatus -&gt; String
+showsPrec :: Int -&gt; GetStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetStatus -&gt; Rep GetStatus x)
+-&gt; (forall x. Rep GetStatus x -&gt; GetStatus) -&gt; Generic GetStatus
+forall x. Rep GetStatus x -&gt; GetStatus
+forall x. GetStatus -&gt; Rep GetStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetStatus x -&gt; GetStatus
+$cfrom :: forall x. GetStatus -&gt; Rep GetStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'GetStatus' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'aPIVersion', 'getStatus_aPIVersion' - Undocumented member.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'jobId', 'getStatus_jobId' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatus"><span class="hs-identifier hs-type">newGetStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span>
+</span><span id="line-92"></span><span id="newGetStatus"><span class="annot"><span class="annottext">newGetStatus :: Text -&gt; GetStatus
+</span><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatus"><span class="hs-identifier hs-var hs-var">newGetStatus</span></a></span></span><span> </span><span id="local-6989586621679154904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154904"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">GetStatus' :: Maybe Text -&gt; Text -&gt; GetStatus
+</span><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aPIVersion:GetStatus' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AaPIVersion%3AGetStatus%27"><span class="hs-identifier hs-var">aPIVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetStatus' :: Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatus%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154904"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_aPIVersion"><span class="hs-identifier hs-type">getStatus_aPIVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="getStatus_aPIVersion"><span class="annot"><span class="annottext">getStatus_aPIVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetStatus -&gt; f GetStatus
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_aPIVersion"><span class="hs-identifier hs-var hs-var">getStatus_aPIVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatus -&gt; Maybe Text)
+-&gt; (GetStatus -&gt; Maybe Text -&gt; GetStatus)
+-&gt; Lens GetStatus GetStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154901"><span class="annot"><span class="annottext">Maybe Text
+aPIVersion :: Maybe Text
+$sel:aPIVersion:GetStatus' :: GetStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679154901"><span class="hs-identifier hs-var hs-var">aPIVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154901"><span class="hs-identifier hs-var">aPIVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154900"><span class="annot"><span class="annottext">s :: GetStatus
+</span><a href="#local-6989586621679154900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatus
+</span><a href="#local-6989586621679154900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aPIVersion:GetStatus' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AaPIVersion%3AGetStatus%27"><span class="hs-identifier hs-var">aPIVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_jobId"><span class="hs-identifier hs-type">getStatus_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="getStatus_jobId"><span class="annot"><span class="annottext">getStatus_jobId :: (Text -&gt; f Text) -&gt; GetStatus -&gt; f GetStatus
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatus_jobId"><span class="hs-identifier hs-var hs-var">getStatus_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatus -&gt; Text)
+-&gt; (GetStatus -&gt; Text -&gt; GetStatus)
+-&gt; Lens GetStatus GetStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154898"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetStatus' :: GetStatus -&gt; Text
+</span><a href="#local-6989586621679154898"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154898"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154897"><span class="annot"><span class="annottext">s :: GetStatus
+</span><a href="#local-6989586621679154897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatus
+</span><a href="#local-6989586621679154897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetStatus' :: Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatus%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679154892"><span class="annot"><span class="annottext">request :: GetStatus -&gt; Request GetStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetStatus -&gt; Request GetStatus
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ImportExport.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679154888"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetStatusResult&quot;</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679154885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154885"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679154884"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679154884"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679154883"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Artifact]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-var">GetStatusResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe JobType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Artifact]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrackingNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentManifest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogBucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe JobType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe JobType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Signature&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Artifact]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Carrier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Artifact]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe [Artifact])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Artifact]))
+-&gt; Either String (Maybe [Artifact])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Artifact])
+-&gt; [Node] -&gt; Either String (Maybe [Artifact])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Artifact]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SignatureFileContents&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679154883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetStatusResponse)
+-&gt; Either String Int -&gt; Either String GetStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154885"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154872"><span id="local-6989586621679154874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679154865"><span class="annot"><span class="annottext">toHeaders :: GetStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679154860"><span class="annot"><span class="annottext">toPath :: GetStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus"><span class="hs-identifier hs-type">GetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679154856"><span class="annot"><span class="annottext">toQuery :: GetStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatus%27"><span class="hs-identifier hs-type">GetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154853"><span id="local-6989586621679154854"><span class="annot"><span class="annottext">Maybe Text
+Text
+jobId :: Text
+aPIVersion :: Maybe Text
+$sel:jobId:GetStatus' :: GetStatus -&gt; Text
+$sel:aPIVersion:GetStatus' :: GetStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679154853"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;Operation=GetStatus&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;APIVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154854"><span class="hs-identifier hs-var">aPIVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154853"><span class="hs-identifier hs-var">jobId</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Output structure for the GetStatus operation.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- /See:/ 'newGetStatusResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679154850"><span id="local-6989586621679154851"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStatusResponse"><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-var">GetStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStatusResponse%27"><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-var">GetStatusResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AtrackingNumber%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AtrackingNumber%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AcurrentManifest%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcurrentManifest%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">currentManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AerrorCount%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AerrorCount%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">errorCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AcreationDate%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcreationDate%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AlogBucket%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogBucket%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">logBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AjobType%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe JobType
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobType%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Asignature%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Asignature%3AGetStatusResponse%27"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Acarrier%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Acarrier%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">carrier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AartifactList%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe [Artifact]
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AartifactList%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">artifactList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AprogressMessage%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">progressMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AlocationMessage%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">locationMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AlogKey%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogKey%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">logKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AsignatureFileContents%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AsignatureFileContents%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">signatureFileContents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AlocationCode%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">locationCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AprogressCode%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">progressCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AjobId%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetStatusResponse%27"><span class="annot"><span class="annottext">GetStatusResponse -&gt; Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AhttpStatus%3AGetStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154829"><span id="local-6989586621679154831"><span class="annot"><span class="annottext">GetStatusResponse -&gt; GetStatusResponse -&gt; Bool
+(GetStatusResponse -&gt; GetStatusResponse -&gt; Bool)
+-&gt; (GetStatusResponse -&gt; GetStatusResponse -&gt; Bool)
+-&gt; Eq GetStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStatusResponse -&gt; GetStatusResponse -&gt; Bool
+$c/= :: GetStatusResponse -&gt; GetStatusResponse -&gt; Bool
+== :: GetStatusResponse -&gt; GetStatusResponse -&gt; Bool
+$c== :: GetStatusResponse -&gt; GetStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154821"><span id="local-6989586621679154823"><span id="local-6989586621679154825"><span id="local-6989586621679154827"><span class="annot"><span class="annottext">ReadPrec [GetStatusResponse]
+ReadPrec GetStatusResponse
+Int -&gt; ReadS GetStatusResponse
+ReadS [GetStatusResponse]
+(Int -&gt; ReadS GetStatusResponse)
+-&gt; ReadS [GetStatusResponse]
+-&gt; ReadPrec GetStatusResponse
+-&gt; ReadPrec [GetStatusResponse]
+-&gt; Read GetStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStatusResponse]
+$creadListPrec :: ReadPrec [GetStatusResponse]
+readPrec :: ReadPrec GetStatusResponse
+$creadPrec :: ReadPrec GetStatusResponse
+readList :: ReadS [GetStatusResponse]
+$creadList :: ReadS [GetStatusResponse]
+readsPrec :: Int -&gt; ReadS GetStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154815"><span id="local-6989586621679154817"><span id="local-6989586621679154819"><span class="annot"><span class="annottext">Int -&gt; GetStatusResponse -&gt; ShowS
+[GetStatusResponse] -&gt; ShowS
+GetStatusResponse -&gt; String
+(Int -&gt; GetStatusResponse -&gt; ShowS)
+-&gt; (GetStatusResponse -&gt; String)
+-&gt; ([GetStatusResponse] -&gt; ShowS)
+-&gt; Show GetStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStatusResponse] -&gt; ShowS
+$cshowList :: [GetStatusResponse] -&gt; ShowS
+show :: GetStatusResponse -&gt; String
+$cshow :: GetStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetStatusResponse -&gt; Rep GetStatusResponse x)
+-&gt; (forall x. Rep GetStatusResponse x -&gt; GetStatusResponse)
+-&gt; Generic GetStatusResponse
+forall x. Rep GetStatusResponse x -&gt; GetStatusResponse
+forall x. GetStatusResponse -&gt; Rep GetStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetStatusResponse x -&gt; GetStatusResponse
+$cfrom :: forall x. GetStatusResponse -&gt; Rep GetStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'GetStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'trackingNumber', 'getStatusResponse_trackingNumber' - Undocumented member.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'currentManifest', 'getStatusResponse_currentManifest' - Undocumented member.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'errorCount', 'getStatusResponse_errorCount' - Undocumented member.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'creationDate', 'getStatusResponse_creationDate' - Undocumented member.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'logBucket', 'getStatusResponse_logBucket' - Undocumented member.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'jobType', 'getStatusResponse_jobType' - Undocumented member.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'signature', 'getStatusResponse_signature' - Undocumented member.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'carrier', 'getStatusResponse_carrier' - Undocumented member.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'artifactList', 'getStatusResponse_artifactList' - Undocumented member.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'progressMessage', 'getStatusResponse_progressMessage' - Undocumented member.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'locationMessage', 'getStatusResponse_locationMessage' - Undocumented member.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'logKey', 'getStatusResponse_logKey' - Undocumented member.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'signatureFileContents', 'getStatusResponse_signatureFileContents' - Undocumented member.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'locationCode', 'getStatusResponse_locationCode' - Undocumented member.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'progressCode', 'getStatusResponse_progressCode' - Undocumented member.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'jobId', 'getStatusResponse_jobId' - Undocumented member.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'getStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatusResponse"><span class="hs-identifier hs-type">newGetStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newGetStatusResponse"><span class="annot"><span class="annottext">newGetStatusResponse :: Int -&gt; GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#newGetStatusResponse"><span class="hs-identifier hs-var hs-var">newGetStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679154812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154812"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">GetStatusResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Artifact]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trackingNumber:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AtrackingNumber%3AGetStatusResponse%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentManifest:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcurrentManifest%3AGetStatusResponse%27"><span class="hs-identifier hs-var">currentManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCount:GetStatusResponse' :: Maybe Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AerrorCount%3AGetStatusResponse%27"><span class="hs-identifier hs-var">errorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:GetStatusResponse' :: Maybe ISO8601
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcreationDate%3AGetStatusResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:logBucket:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogBucket%3AGetStatusResponse%27"><span class="hs-identifier hs-var">logBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobType:GetStatusResponse' :: Maybe JobType
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobType%3AGetStatusResponse%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:signature:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Asignature%3AGetStatusResponse%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:carrier:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Acarrier%3AGetStatusResponse%27"><span class="hs-identifier hs-var">carrier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactList:GetStatusResponse' :: Maybe [Artifact]
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AartifactList%3AGetStatusResponse%27"><span class="hs-identifier hs-var">artifactList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:progressMessage:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var">progressMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:locationMessage:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var">locationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:logKey:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogKey%3AGetStatusResponse%27"><span class="hs-identifier hs-var">logKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:signatureFileContents:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AsignatureFileContents%3AGetStatusResponse%27"><span class="hs-identifier hs-var">signatureFileContents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:locationCode:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var">locationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:progressCode:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var">progressCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatusResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetStatusResponse' :: Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AhttpStatus%3AGetStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154812"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_trackingNumber"><span class="hs-identifier hs-type">getStatusResponse_trackingNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="getStatusResponse_trackingNumber"><span class="annot"><span class="annottext">getStatusResponse_trackingNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_trackingNumber"><span class="hs-identifier hs-var hs-var">getStatusResponse_trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154811"><span class="annot"><span class="annottext">Maybe Text
+trackingNumber :: Maybe Text
+$sel:trackingNumber:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154811"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154811"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154810"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackingNumber:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AtrackingNumber%3AGetStatusResponse%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_currentManifest"><span class="hs-identifier hs-type">getStatusResponse_currentManifest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="getStatusResponse_currentManifest"><span class="annot"><span class="annottext">getStatusResponse_currentManifest :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_currentManifest"><span class="hs-identifier hs-var hs-var">getStatusResponse_currentManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154808"><span class="annot"><span class="annottext">Maybe Text
+currentManifest :: Maybe Text
+$sel:currentManifest:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154808"><span class="hs-identifier hs-var hs-var">currentManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154808"><span class="hs-identifier hs-var">currentManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154807"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentManifest:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcurrentManifest%3AGetStatusResponse%27"><span class="hs-identifier hs-var">currentManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_errorCount"><span class="hs-identifier hs-type">getStatusResponse_errorCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="getStatusResponse_errorCount"><span class="annot"><span class="annottext">getStatusResponse_errorCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_errorCount"><span class="hs-identifier hs-var hs-var">getStatusResponse_errorCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Int)
+-&gt; (GetStatusResponse -&gt; Maybe Int -&gt; GetStatusResponse)
+-&gt; Lens GetStatusResponse GetStatusResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154805"><span class="annot"><span class="annottext">Maybe Int
+errorCount :: Maybe Int
+$sel:errorCount:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679154805"><span class="hs-identifier hs-var hs-var">errorCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679154805"><span class="hs-identifier hs-var">errorCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154804"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154803"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679154803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCount:GetStatusResponse' :: Maybe Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AerrorCount%3AGetStatusResponse%27"><span class="hs-identifier hs-var">errorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679154803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_creationDate"><span class="hs-identifier hs-type">getStatusResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="getStatusResponse_creationDate"><span class="annot"><span class="annottext">getStatusResponse_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_creationDate"><span class="hs-identifier hs-var hs-var">getStatusResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe ISO8601)
+-&gt; (GetStatusResponse -&gt; Maybe ISO8601 -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154802"><span class="annot"><span class="annottext">Maybe ISO8601
+creationDate :: Maybe ISO8601
+$sel:creationDate:GetStatusResponse' :: GetStatusResponse -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679154802"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679154802"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154801"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154800"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679154800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:GetStatusResponse' :: Maybe ISO8601
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AcreationDate%3AGetStatusResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679154800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; GetStatusResponse -&gt; f GetStatusResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetStatusResponse
+-&gt; f GetStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logBucket"><span class="hs-identifier hs-type">getStatusResponse_logBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="getStatusResponse_logBucket"><span class="annot"><span class="annottext">getStatusResponse_logBucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logBucket"><span class="hs-identifier hs-var hs-var">getStatusResponse_logBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154796"><span class="annot"><span class="annottext">Maybe Text
+logBucket :: Maybe Text
+$sel:logBucket:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154796"><span class="hs-identifier hs-var hs-var">logBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154796"><span class="hs-identifier hs-var">logBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154795"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logBucket:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogBucket%3AGetStatusResponse%27"><span class="hs-identifier hs-var">logBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobType"><span class="hs-identifier hs-type">getStatusResponse_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="getStatusResponse_jobType"><span class="annot"><span class="annottext">getStatusResponse_jobType :: (Maybe JobType -&gt; f (Maybe JobType))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobType"><span class="hs-identifier hs-var hs-var">getStatusResponse_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe JobType)
+-&gt; (GetStatusResponse -&gt; Maybe JobType -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe JobType) (Maybe JobType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154793"><span class="annot"><span class="annottext">Maybe JobType
+jobType :: Maybe JobType
+$sel:jobType:GetStatusResponse' :: GetStatusResponse -&gt; Maybe JobType
+</span><a href="#local-6989586621679154793"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679154793"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154792"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154791"><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679154791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:GetStatusResponse' :: Maybe JobType
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobType%3AGetStatusResponse%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679154791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signature"><span class="hs-identifier hs-type">getStatusResponse_signature</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="getStatusResponse_signature"><span class="annot"><span class="annottext">getStatusResponse_signature :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signature"><span class="hs-identifier hs-var hs-var">getStatusResponse_signature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154790"><span class="annot"><span class="annottext">Maybe Text
+signature :: Maybe Text
+$sel:signature:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154790"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154790"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154789"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Asignature%3AGetStatusResponse%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_carrier"><span class="hs-identifier hs-type">getStatusResponse_carrier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="getStatusResponse_carrier"><span class="annot"><span class="annottext">getStatusResponse_carrier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_carrier"><span class="hs-identifier hs-var hs-var">getStatusResponse_carrier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154787"><span class="annot"><span class="annottext">Maybe Text
+carrier :: Maybe Text
+$sel:carrier:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154787"><span class="hs-identifier hs-var hs-var">carrier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154787"><span class="hs-identifier hs-var">carrier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154786"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154785"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:carrier:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3Acarrier%3AGetStatusResponse%27"><span class="hs-identifier hs-var">carrier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_artifactList"><span class="hs-identifier hs-type">getStatusResponse_artifactList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ImportExport.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="getStatusResponse_artifactList"><span class="annot"><span class="annottext">getStatusResponse_artifactList :: (Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_artifactList"><span class="hs-identifier hs-var hs-var">getStatusResponse_artifactList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe [Artifact])
+-&gt; (GetStatusResponse -&gt; Maybe [Artifact] -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse
+     GetStatusResponse
+     (Maybe [Artifact])
+     (Maybe [Artifact])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154784"><span class="annot"><span class="annottext">Maybe [Artifact]
+artifactList :: Maybe [Artifact]
+$sel:artifactList:GetStatusResponse' :: GetStatusResponse -&gt; Maybe [Artifact]
+</span><a href="#local-6989586621679154784"><span class="hs-identifier hs-var hs-var">artifactList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><a href="#local-6989586621679154784"><span class="hs-identifier hs-var">artifactList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154783"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154782"><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><a href="#local-6989586621679154782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactList:GetStatusResponse' :: Maybe [Artifact]
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AartifactList%3AGetStatusResponse%27"><span class="hs-identifier hs-var">artifactList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Artifact]
+</span><a href="#local-6989586621679154782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+ -&gt; GetStatusResponse -&gt; f GetStatusResponse)
+-&gt; ((Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+    -&gt; Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+-&gt; (Maybe [Artifact] -&gt; f (Maybe [Artifact]))
+-&gt; GetStatusResponse
+-&gt; f GetStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Artifact] [Artifact] [Artifact] [Artifact]
+-&gt; Iso
+     (Maybe [Artifact])
+     (Maybe [Artifact])
+     (Maybe [Artifact])
+     (Maybe [Artifact])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Artifact] [Artifact] [Artifact] [Artifact]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressMessage"><span class="hs-identifier hs-type">getStatusResponse_progressMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="getStatusResponse_progressMessage"><span class="annot"><span class="annottext">getStatusResponse_progressMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressMessage"><span class="hs-identifier hs-var hs-var">getStatusResponse_progressMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154780"><span class="annot"><span class="annottext">Maybe Text
+progressMessage :: Maybe Text
+$sel:progressMessage:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154780"><span class="hs-identifier hs-var hs-var">progressMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154780"><span class="hs-identifier hs-var">progressMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154779"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressMessage:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var">progressMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationMessage"><span class="hs-identifier hs-type">getStatusResponse_locationMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="getStatusResponse_locationMessage"><span class="annot"><span class="annottext">getStatusResponse_locationMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationMessage"><span class="hs-identifier hs-var hs-var">getStatusResponse_locationMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154777"><span class="annot"><span class="annottext">Maybe Text
+locationMessage :: Maybe Text
+$sel:locationMessage:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var hs-var">locationMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var">locationMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154776"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationMessage:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationMessage%3AGetStatusResponse%27"><span class="hs-identifier hs-var">locationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logKey"><span class="hs-identifier hs-type">getStatusResponse_logKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="getStatusResponse_logKey"><span class="annot"><span class="annottext">getStatusResponse_logKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_logKey"><span class="hs-identifier hs-var hs-var">getStatusResponse_logKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154774"><span class="annot"><span class="annottext">Maybe Text
+logKey :: Maybe Text
+$sel:logKey:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154774"><span class="hs-identifier hs-var hs-var">logKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154774"><span class="hs-identifier hs-var">logKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154773"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logKey:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlogKey%3AGetStatusResponse%27"><span class="hs-identifier hs-var">logKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signatureFileContents"><span class="hs-identifier hs-type">getStatusResponse_signatureFileContents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="getStatusResponse_signatureFileContents"><span class="annot"><span class="annottext">getStatusResponse_signatureFileContents :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_signatureFileContents"><span class="hs-identifier hs-var hs-var">getStatusResponse_signatureFileContents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154771"><span class="annot"><span class="annottext">Maybe Text
+signatureFileContents :: Maybe Text
+$sel:signatureFileContents:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154771"><span class="hs-identifier hs-var hs-var">signatureFileContents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154771"><span class="hs-identifier hs-var">signatureFileContents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154770"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureFileContents:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AsignatureFileContents%3AGetStatusResponse%27"><span class="hs-identifier hs-var">signatureFileContents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationCode"><span class="hs-identifier hs-type">getStatusResponse_locationCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="getStatusResponse_locationCode"><span class="annot"><span class="annottext">getStatusResponse_locationCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_locationCode"><span class="hs-identifier hs-var hs-var">getStatusResponse_locationCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154768"><span class="annot"><span class="annottext">Maybe Text
+locationCode :: Maybe Text
+$sel:locationCode:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154768"><span class="hs-identifier hs-var hs-var">locationCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154768"><span class="hs-identifier hs-var">locationCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154767"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationCode:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AlocationCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var">locationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressCode"><span class="hs-identifier hs-type">getStatusResponse_progressCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="getStatusResponse_progressCode"><span class="annot"><span class="annottext">getStatusResponse_progressCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_progressCode"><span class="hs-identifier hs-var hs-var">getStatusResponse_progressCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154765"><span class="annot"><span class="annottext">Maybe Text
+progressCode :: Maybe Text
+$sel:progressCode:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154765"><span class="hs-identifier hs-var hs-var">progressCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154765"><span class="hs-identifier hs-var">progressCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154764"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressCode:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AprogressCode%3AGetStatusResponse%27"><span class="hs-identifier hs-var">progressCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobId"><span class="hs-identifier hs-type">getStatusResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="getStatusResponse_jobId"><span class="annot"><span class="annottext">getStatusResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_jobId"><span class="hs-identifier hs-var hs-var">getStatusResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Maybe Text)
+-&gt; (GetStatusResponse -&gt; Maybe Text -&gt; GetStatusResponse)
+-&gt; Lens
+     GetStatusResponse GetStatusResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154762"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:GetStatusResponse' :: GetStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154762"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154762"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154761"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AjobId%3AGetStatusResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_httpStatus"><span class="hs-identifier hs-type">getStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-314"></span><span id="getStatusResponse_httpStatus"><span class="annot"><span class="annottext">getStatusResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetStatusResponse -&gt; f GetStatusResponse
+</span><a href="Network.AWS.ImportExport.GetStatus.html#getStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStatusResponse -&gt; Int)
+-&gt; (GetStatusResponse -&gt; Int -&gt; GetStatusResponse)
+-&gt; Lens GetStatusResponse GetStatusResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154759"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetStatusResponse' :: GetStatusResponse -&gt; Int
+</span><a href="#local-6989586621679154759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154758"><span class="annot"><span class="annottext">s :: GetStatusResponse
+</span><a href="#local-6989586621679154758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse%27"><span class="hs-identifier hs-type">GetStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStatusResponse
+</span><a href="#local-6989586621679154758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStatusResponse' :: Int
+</span><a href="Network.AWS.ImportExport.GetStatus.html#%24sel%3AhttpStatus%3AGetStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImportExport.GetStatus.html#GetStatusResponse"><span class="hs-identifier hs-type">GetStatusResponse</span></a></span></span><span>
+</span><span id="line-317"></span></pre></body></html>

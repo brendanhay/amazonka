@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Transcribe.Types.TranscriptFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transcribe.Types.TranscriptFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html"><span class="hs-identifier">Network.AWS.Transcribe.Types.AbsoluteTimeRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html"><span class="hs-identifier">Network.AWS.Transcribe.Types.ParticipantRole</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html"><span class="hs-identifier">Network.AWS.Transcribe.Types.RelativeTimeRange</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html"><span class="hs-identifier">Network.AWS.Transcribe.Types.TranscriptFilterType</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Matches the output of the transcription to either the specific phrases</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- that you specify, or the intent of the phrases that you specify.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTranscriptFilter' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679275892"><span id="local-6989586621679275893"></span></span><span class="hs-keyword">data</span><span> </span><span id="TranscriptFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-var">TranscriptFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-var">TranscriptFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- where you would like to apply a filter. For example, you can specify the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- first half of the call. You can also specify the period of time between</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- halfway through to three-quarters of the way through the call. Because</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the length of conversation can vary between calls, you can apply</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArelativeTimeRange%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; Maybe RelativeTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3ArelativeTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | If @TRUE@, the rule that you specify is applied to everything except for</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the phrases that you specify.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Anegate%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; Maybe Bool
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Anegate%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Determines whether the customer or the agent is speaking the phrases</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- that you\'ve specified.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AparticipantRole%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; Maybe ParticipantRole
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AparticipantRole%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A time range, set in seconds, between two points in the call.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AabsoluteTimeRange%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; Maybe AbsoluteTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AabsoluteTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Matches the phrase to the transcription output in a word for word</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- fashion. For example, if you specify the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- manager.\&quot; Amazon Transcribe attempts to match that specific phrase to</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the transcription.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtranscriptFilterType%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; TranscriptFilterType
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AtranscriptFilterType%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">transcriptFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType"><span class="hs-identifier hs-type">TranscriptFilterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The phrases that you\'re specifying for the transcript filter to match.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atargets%3ATranscriptFilter%27"><span class="annot"><span class="annottext">TranscriptFilter -&gt; NonEmpty Text
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Atargets%3ATranscriptFilter%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275881"><span id="local-6989586621679275883"><span class="annot"><span class="annottext">TranscriptFilter -&gt; TranscriptFilter -&gt; Bool
+(TranscriptFilter -&gt; TranscriptFilter -&gt; Bool)
+-&gt; (TranscriptFilter -&gt; TranscriptFilter -&gt; Bool)
+-&gt; Eq TranscriptFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TranscriptFilter -&gt; TranscriptFilter -&gt; Bool
+$c/= :: TranscriptFilter -&gt; TranscriptFilter -&gt; Bool
+== :: TranscriptFilter -&gt; TranscriptFilter -&gt; Bool
+$c== :: TranscriptFilter -&gt; TranscriptFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275872"><span id="local-6989586621679275874"><span id="local-6989586621679275876"><span id="local-6989586621679275878"><span class="annot"><span class="annottext">ReadPrec [TranscriptFilter]
+ReadPrec TranscriptFilter
+Int -&gt; ReadS TranscriptFilter
+ReadS [TranscriptFilter]
+(Int -&gt; ReadS TranscriptFilter)
+-&gt; ReadS [TranscriptFilter]
+-&gt; ReadPrec TranscriptFilter
+-&gt; ReadPrec [TranscriptFilter]
+-&gt; Read TranscriptFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TranscriptFilter]
+$creadListPrec :: ReadPrec [TranscriptFilter]
+readPrec :: ReadPrec TranscriptFilter
+$creadPrec :: ReadPrec TranscriptFilter
+readList :: ReadS [TranscriptFilter]
+$creadList :: ReadS [TranscriptFilter]
+readsPrec :: Int -&gt; ReadS TranscriptFilter
+$creadsPrec :: Int -&gt; ReadS TranscriptFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275865"><span id="local-6989586621679275867"><span id="local-6989586621679275869"><span class="annot"><span class="annottext">Int -&gt; TranscriptFilter -&gt; ShowS
+[TranscriptFilter] -&gt; ShowS
+TranscriptFilter -&gt; String
+(Int -&gt; TranscriptFilter -&gt; ShowS)
+-&gt; (TranscriptFilter -&gt; String)
+-&gt; ([TranscriptFilter] -&gt; ShowS)
+-&gt; Show TranscriptFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TranscriptFilter] -&gt; ShowS
+$cshowList :: [TranscriptFilter] -&gt; ShowS
+show :: TranscriptFilter -&gt; String
+$cshow :: TranscriptFilter -&gt; String
+showsPrec :: Int -&gt; TranscriptFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; TranscriptFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TranscriptFilter -&gt; Rep TranscriptFilter x)
+-&gt; (forall x. Rep TranscriptFilter x -&gt; TranscriptFilter)
+-&gt; Generic TranscriptFilter
+forall x. Rep TranscriptFilter x -&gt; TranscriptFilter
+forall x. TranscriptFilter -&gt; Rep TranscriptFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TranscriptFilter x -&gt; TranscriptFilter
+$cfrom :: forall x. TranscriptFilter -&gt; Rep TranscriptFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'TranscriptFilter' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- where you would like to apply a filter. For example, you can specify the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- first half of the call. You can also specify the period of time between</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- halfway through to three-quarters of the way through the call. Because</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the length of conversation can vary between calls, you can apply</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'negate', 'transcriptFilter_negate' - If @TRUE@, the rule that you specify is applied to everything except for</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the phrases that you specify.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'participantRole', 'transcriptFilter_participantRole' - Determines whether the customer or the agent is speaking the phrases</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- that you\'ve specified.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - A time range, set in seconds, between two points in the call.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'transcriptFilterType', 'transcriptFilter_transcriptFilterType' - Matches the phrase to the transcription output in a word for word</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- fashion. For example, if you specify the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- manager.\&quot; Amazon Transcribe attempts to match that specific phrase to</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the transcription.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'targets', 'transcriptFilter_targets' - The phrases that you\'re specifying for the transcript filter to match.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#newTranscriptFilter"><span class="hs-identifier hs-type">newTranscriptFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'transcriptFilterType'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType"><span class="hs-identifier hs-type">TranscriptFilterType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'targets'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span>
+</span><span id="line-95"></span><span id="newTranscriptFilter"><span class="annot"><span class="annottext">newTranscriptFilter :: TranscriptFilterType -&gt; NonEmpty Text -&gt; TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#newTranscriptFilter"><span class="hs-identifier hs-var hs-var">newTranscriptFilter</span></a></span></span><span> </span><span id="local-6989586621679275859"><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275859"><span class="hs-identifier hs-var">pTranscriptFilterType_</span></a></span></span><span> </span><span id="local-6989586621679275858"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275858"><span class="hs-identifier hs-var">pTargets_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">TranscriptFilter' :: Maybe RelativeTimeRange
+-&gt; Maybe Bool
+-&gt; Maybe ParticipantRole
+-&gt; Maybe AbsoluteTimeRange
+-&gt; TranscriptFilterType
+-&gt; NonEmpty Text
+-&gt; TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relativeTimeRange:TranscriptFilter' :: Maybe RelativeTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3ArelativeTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:negate:TranscriptFilter' :: Maybe Bool
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Anegate%3ATranscriptFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:participantRole:TranscriptFilter' :: Maybe ParticipantRole
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AparticipantRole%3ATranscriptFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:TranscriptFilter' :: Maybe AbsoluteTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AabsoluteTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcriptFilterType:TranscriptFilter' :: TranscriptFilterType
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AtranscriptFilterType%3ATranscriptFilter%27"><span class="hs-identifier hs-var">transcriptFilterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275859"><span class="hs-identifier hs-var">pTranscriptFilterType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:TranscriptFilter' :: NonEmpty Text
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Atargets%3ATranscriptFilter%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275858"><span class="hs-identifier hs-var">pTargets_</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- where you would like to apply a filter. For example, you can specify the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- first half of the call. You can also specify the period of time between</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- halfway through to three-quarters of the way through the call. Because</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the length of conversation can vary between calls, you can apply</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_relativeTimeRange"><span class="hs-identifier hs-type">transcriptFilter_relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="transcriptFilter_relativeTimeRange"><span class="annot"><span class="annottext">transcriptFilter_relativeTimeRange :: (Maybe RelativeTimeRange -&gt; f (Maybe RelativeTimeRange))
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_relativeTimeRange"><span class="hs-identifier hs-var hs-var">transcriptFilter_relativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Maybe RelativeTimeRange)
+-&gt; (TranscriptFilter
+    -&gt; Maybe RelativeTimeRange -&gt; TranscriptFilter)
+-&gt; Lens
+     TranscriptFilter
+     TranscriptFilter
+     (Maybe RelativeTimeRange)
+     (Maybe RelativeTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275852"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+relativeTimeRange :: Maybe RelativeTimeRange
+$sel:relativeTimeRange:TranscriptFilter' :: TranscriptFilter -&gt; Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275852"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275852"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275851"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275850"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:TranscriptFilter' :: Maybe RelativeTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3ArelativeTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | If @TRUE@, the rule that you specify is applied to everything except for</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the phrases that you specify.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_negate"><span class="hs-identifier hs-type">transcriptFilter_negate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="transcriptFilter_negate"><span class="annot"><span class="annottext">transcriptFilter_negate :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_negate"><span class="hs-identifier hs-var hs-var">transcriptFilter_negate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Maybe Bool)
+-&gt; (TranscriptFilter -&gt; Maybe Bool -&gt; TranscriptFilter)
+-&gt; Lens TranscriptFilter TranscriptFilter (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275848"><span class="annot"><span class="annottext">Maybe Bool
+negate :: Maybe Bool
+$sel:negate:TranscriptFilter' :: TranscriptFilter -&gt; Maybe Bool
+</span><a href="#local-6989586621679275848"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275848"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275847"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275846"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:TranscriptFilter' :: Maybe Bool
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Anegate%3ATranscriptFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Determines whether the customer or the agent is speaking the phrases</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- that you\'ve specified.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_participantRole"><span class="hs-identifier hs-type">transcriptFilter_participantRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="transcriptFilter_participantRole"><span class="annot"><span class="annottext">transcriptFilter_participantRole :: (Maybe ParticipantRole -&gt; f (Maybe ParticipantRole))
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_participantRole"><span class="hs-identifier hs-var hs-var">transcriptFilter_participantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Maybe ParticipantRole)
+-&gt; (TranscriptFilter -&gt; Maybe ParticipantRole -&gt; TranscriptFilter)
+-&gt; Lens
+     TranscriptFilter
+     TranscriptFilter
+     (Maybe ParticipantRole)
+     (Maybe ParticipantRole)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275844"><span class="annot"><span class="annottext">Maybe ParticipantRole
+participantRole :: Maybe ParticipantRole
+$sel:participantRole:TranscriptFilter' :: TranscriptFilter -&gt; Maybe ParticipantRole
+</span><a href="#local-6989586621679275844"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679275844"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275843"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275842"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679275842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:TranscriptFilter' :: Maybe ParticipantRole
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AparticipantRole%3ATranscriptFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679275842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A time range, set in seconds, between two points in the call.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_absoluteTimeRange"><span class="hs-identifier hs-type">transcriptFilter_absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="transcriptFilter_absoluteTimeRange"><span class="annot"><span class="annottext">transcriptFilter_absoluteTimeRange :: (Maybe AbsoluteTimeRange -&gt; f (Maybe AbsoluteTimeRange))
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_absoluteTimeRange"><span class="hs-identifier hs-var hs-var">transcriptFilter_absoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Maybe AbsoluteTimeRange)
+-&gt; (TranscriptFilter
+    -&gt; Maybe AbsoluteTimeRange -&gt; TranscriptFilter)
+-&gt; Lens
+     TranscriptFilter
+     TranscriptFilter
+     (Maybe AbsoluteTimeRange)
+     (Maybe AbsoluteTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275840"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+absoluteTimeRange :: Maybe AbsoluteTimeRange
+$sel:absoluteTimeRange:TranscriptFilter' :: TranscriptFilter -&gt; Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679275840"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679275840"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275839"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275838"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679275838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:TranscriptFilter' :: Maybe AbsoluteTimeRange
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AabsoluteTimeRange%3ATranscriptFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679275838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Matches the phrase to the transcription output in a word for word</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- fashion. For example, if you specify the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- manager.\&quot; Amazon Transcribe attempts to match that specific phrase to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the transcription.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_transcriptFilterType"><span class="hs-identifier hs-type">transcriptFilter_transcriptFilterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType"><span class="hs-identifier hs-type">TranscriptFilterType</span></a></span><span>
+</span><span id="line-134"></span><span id="transcriptFilter_transcriptFilterType"><span class="annot"><span class="annottext">transcriptFilter_transcriptFilterType :: (TranscriptFilterType -&gt; f TranscriptFilterType)
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_transcriptFilterType"><span class="hs-identifier hs-var hs-var">transcriptFilter_transcriptFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; TranscriptFilterType)
+-&gt; (TranscriptFilter -&gt; TranscriptFilterType -&gt; TranscriptFilter)
+-&gt; Lens
+     TranscriptFilter
+     TranscriptFilter
+     TranscriptFilterType
+     TranscriptFilterType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275836"><span class="annot"><span class="annottext">TranscriptFilterType
+transcriptFilterType :: TranscriptFilterType
+$sel:transcriptFilterType:TranscriptFilter' :: TranscriptFilter -&gt; TranscriptFilterType
+</span><a href="#local-6989586621679275836"><span class="hs-identifier hs-var hs-var">transcriptFilterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275836"><span class="hs-identifier hs-var">transcriptFilterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275835"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275834"><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptFilterType:TranscriptFilter' :: TranscriptFilterType
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3AtranscriptFilterType%3ATranscriptFilter%27"><span class="hs-identifier hs-var">transcriptFilterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The phrases that you\'re specifying for the transcript filter to match.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_targets"><span class="hs-identifier hs-type">transcriptFilter_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="transcriptFilter_targets"><span class="annot"><span class="annottext">transcriptFilter_targets :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; TranscriptFilter -&gt; f TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#transcriptFilter_targets"><span class="hs-identifier hs-var hs-var">transcriptFilter_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; NonEmpty Text)
+-&gt; (TranscriptFilter -&gt; NonEmpty Text -&gt; TranscriptFilter)
+-&gt; Lens
+     TranscriptFilter TranscriptFilter (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275832"><span class="annot"><span class="annottext">NonEmpty Text
+targets :: NonEmpty Text
+$sel:targets:TranscriptFilter' :: TranscriptFilter -&gt; NonEmpty Text
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275831"><span class="annot"><span class="annottext">s :: TranscriptFilter
+</span><a href="#local-6989586621679275831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275830"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranscriptFilter
+</span><a href="#local-6989586621679275831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:TranscriptFilter' :: NonEmpty Text
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#%24sel%3Atargets%3ATranscriptFilter%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; TranscriptFilter -&gt; f TranscriptFilter)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; TranscriptFilter
+-&gt; f TranscriptFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275826"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679275824"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TranscriptFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TranscriptFilter)
+-&gt; Value
+-&gt; Parser TranscriptFilter
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TranscriptFilter&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275821"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+-&gt; Maybe Bool
+-&gt; Maybe ParticipantRole
+-&gt; Maybe AbsoluteTimeRange
+-&gt; TranscriptFilterType
+-&gt; NonEmpty Text
+-&gt; TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-var">TranscriptFilter'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RelativeTimeRange
+ -&gt; Maybe Bool
+ -&gt; Maybe ParticipantRole
+ -&gt; Maybe AbsoluteTimeRange
+ -&gt; TranscriptFilterType
+ -&gt; NonEmpty Text
+ -&gt; TranscriptFilter)
+-&gt; Parser (Maybe RelativeTimeRange)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe ParticipantRole
+      -&gt; Maybe AbsoluteTimeRange
+      -&gt; TranscriptFilterType
+      -&gt; NonEmpty Text
+      -&gt; TranscriptFilter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe ParticipantRole
+   -&gt; Maybe AbsoluteTimeRange
+   -&gt; TranscriptFilterType
+   -&gt; NonEmpty Text
+   -&gt; TranscriptFilter)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe ParticipantRole
+      -&gt; Maybe AbsoluteTimeRange
+      -&gt; TranscriptFilterType
+      -&gt; NonEmpty Text
+      -&gt; TranscriptFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Negate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ParticipantRole
+   -&gt; Maybe AbsoluteTimeRange
+   -&gt; TranscriptFilterType
+   -&gt; NonEmpty Text
+   -&gt; TranscriptFilter)
+-&gt; Parser (Maybe ParticipantRole)
+-&gt; Parser
+     (Maybe AbsoluteTimeRange
+      -&gt; TranscriptFilterType -&gt; NonEmpty Text -&gt; TranscriptFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AbsoluteTimeRange
+   -&gt; TranscriptFilterType -&gt; NonEmpty Text -&gt; TranscriptFilter)
+-&gt; Parser (Maybe AbsoluteTimeRange)
+-&gt; Parser
+     (TranscriptFilterType -&gt; NonEmpty Text -&gt; TranscriptFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (TranscriptFilterType -&gt; NonEmpty Text -&gt; TranscriptFilter)
+-&gt; Parser TranscriptFilterType
+-&gt; Parser (NonEmpty Text -&gt; TranscriptFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TranscriptFilterType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscriptFilterType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty Text -&gt; TranscriptFilter)
+-&gt; Parser (NonEmpty Text) -&gt; Parser TranscriptFilter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275821"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275814"><span id="local-6989586621679275816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275803"><span id="local-6989586621679275805"><span id="local-6989586621679275807"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679275801"><span class="annot"><span class="annottext">toJSON :: TranscriptFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter%27"><span class="hs-identifier hs-type">TranscriptFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275794"><span id="local-6989586621679275795"><span id="local-6989586621679275796"><span id="local-6989586621679275797"><span id="local-6989586621679275798"><span id="local-6989586621679275799"><span class="annot"><span class="annottext">Maybe Bool
+Maybe AbsoluteTimeRange
+Maybe ParticipantRole
+Maybe RelativeTimeRange
+NonEmpty Text
+TranscriptFilterType
+targets :: NonEmpty Text
+transcriptFilterType :: TranscriptFilterType
+absoluteTimeRange :: Maybe AbsoluteTimeRange
+participantRole :: Maybe ParticipantRole
+negate :: Maybe Bool
+relativeTimeRange :: Maybe RelativeTimeRange
+$sel:targets:TranscriptFilter' :: TranscriptFilter -&gt; NonEmpty Text
+$sel:transcriptFilterType:TranscriptFilter' :: TranscriptFilter -&gt; TranscriptFilterType
+$sel:absoluteTimeRange:TranscriptFilter' :: TranscriptFilter -&gt; Maybe AbsoluteTimeRange
+$sel:participantRole:TranscriptFilter' :: TranscriptFilter -&gt; Maybe ParticipantRole
+$sel:negate:TranscriptFilter' :: TranscriptFilter -&gt; Maybe Bool
+$sel:relativeTimeRange:TranscriptFilter' :: TranscriptFilter -&gt; Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275794"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RelativeTimeRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">(RelativeTimeRange -&gt; Pair)
+-&gt; Maybe RelativeTimeRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679275799"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Negate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275798"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParticipantRole -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(ParticipantRole -&gt; Pair) -&gt; Maybe ParticipantRole -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679275797"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbsoluteTimeRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(AbsoluteTimeRange -&gt; Pair)
+-&gt; Maybe AbsoluteTimeRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679275796"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscriptFilterType&quot;</span></span><span>
+</span><span id="line-171"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; TranscriptFilterType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TranscriptFilterType
+</span><a href="#local-6989586621679275795"><span class="hs-identifier hs-var">transcriptFilterType</span></a></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275794"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span></pre></body></html>

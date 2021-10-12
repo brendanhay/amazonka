@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Organizations.ListPolicies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the list of all policies in an organization of a specified</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Always check the @NextToken@ response parameter for a @null@ value when</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- calling a @List*@ operation. These operations can occasionally return an</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- empty set of results even when there are more results available. The</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @NextToken@ response parameter value is @null@ /only/ when there are no</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- more results to display.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation can be called only from the organization\'s management</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- account or by a member account that is a delegated administrator for an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- AWS service.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Organizations.ListPolicies</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier">ListPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#newListPolicies"><span class="hs-identifier">newListPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_nextToken"><span class="hs-identifier">listPolicies_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_maxResults"><span class="hs-identifier">listPolicies_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_filter"><span class="hs-identifier">listPolicies_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier">ListPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#newListPoliciesResponse"><span class="hs-identifier">newListPoliciesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_nextToken"><span class="hs-identifier">listPoliciesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_policies"><span class="hs-identifier">listPoliciesResponse_policies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_httpStatus"><span class="hs-identifier">listPoliciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.html"><span class="hs-identifier">Network.AWS.Organizations.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newListPolicies' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679242563"><span id="local-6989586621679242564"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicies"><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-var">ListPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicies%27"><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-var">ListPolicies'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnextToken%3AListPolicies%27"><span class="annot"><span class="annottext">ListPolicies -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPolicies%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPolicies%27"><span class="annot"><span class="annottext">ListPolicies -&gt; Maybe Natural
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AmaxResults%3AListPolicies%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Specifies the type of policy that you want to include in the response.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- You must specify one of the following values:</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY&gt;</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY&gt;</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY&gt;</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY&gt;</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Afilter%27%3AListPolicies%27"><span class="annot"><span class="annottext">ListPolicies -&gt; PolicyType
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Afilter%27%3AListPolicies%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-type">PolicyType</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242555"><span id="local-6989586621679242557"><span class="annot"><span class="annottext">ListPolicies -&gt; ListPolicies -&gt; Bool
+(ListPolicies -&gt; ListPolicies -&gt; Bool)
+-&gt; (ListPolicies -&gt; ListPolicies -&gt; Bool) -&gt; Eq ListPolicies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPolicies -&gt; ListPolicies -&gt; Bool
+$c/= :: ListPolicies -&gt; ListPolicies -&gt; Bool
+== :: ListPolicies -&gt; ListPolicies -&gt; Bool
+$c== :: ListPolicies -&gt; ListPolicies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242546"><span id="local-6989586621679242548"><span id="local-6989586621679242550"><span id="local-6989586621679242552"><span class="annot"><span class="annottext">ReadPrec [ListPolicies]
+ReadPrec ListPolicies
+Int -&gt; ReadS ListPolicies
+ReadS [ListPolicies]
+(Int -&gt; ReadS ListPolicies)
+-&gt; ReadS [ListPolicies]
+-&gt; ReadPrec ListPolicies
+-&gt; ReadPrec [ListPolicies]
+-&gt; Read ListPolicies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPolicies]
+$creadListPrec :: ReadPrec [ListPolicies]
+readPrec :: ReadPrec ListPolicies
+$creadPrec :: ReadPrec ListPolicies
+readList :: ReadS [ListPolicies]
+$creadList :: ReadS [ListPolicies]
+readsPrec :: Int -&gt; ReadS ListPolicies
+$creadsPrec :: Int -&gt; ReadS ListPolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242539"><span id="local-6989586621679242541"><span id="local-6989586621679242543"><span class="annot"><span class="annottext">Int -&gt; ListPolicies -&gt; ShowS
+[ListPolicies] -&gt; ShowS
+ListPolicies -&gt; String
+(Int -&gt; ListPolicies -&gt; ShowS)
+-&gt; (ListPolicies -&gt; String)
+-&gt; ([ListPolicies] -&gt; ShowS)
+-&gt; Show ListPolicies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPolicies] -&gt; ShowS
+$cshowList :: [ListPolicies] -&gt; ShowS
+show :: ListPolicies -&gt; String
+$cshow :: ListPolicies -&gt; String
+showsPrec :: Int -&gt; ListPolicies -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPolicies -&gt; Rep ListPolicies x)
+-&gt; (forall x. Rep ListPolicies x -&gt; ListPolicies)
+-&gt; Generic ListPolicies
+forall x. Rep ListPolicies x -&gt; ListPolicies
+forall x. ListPolicies -&gt; Rep ListPolicies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPolicies x -&gt; ListPolicies
+$cfrom :: forall x. ListPolicies -&gt; Rep ListPolicies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Create a value of 'ListPolicies' with all optional fields omitted.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'nextToken', 'listPolicies_nextToken' - The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxResults', 'listPolicies_maxResults' - The total number of results that you want included on each page of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'filter'', 'listPolicies_filter' - Specifies the type of policy that you want to include in the response.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- You must specify one of the following values:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY&gt;</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY&gt;</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY&gt;</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY&gt;</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#newListPolicies"><span class="hs-identifier hs-type">newListPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'filter''</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-type">PolicyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span>
+</span><span id="line-137"></span><span id="newListPolicies"><span class="annot"><span class="annottext">newListPolicies :: PolicyType -&gt; ListPolicies
+</span><a href="Network.AWS.Organizations.ListPolicies.html#newListPolicies"><span class="hs-identifier hs-var hs-var">newListPolicies</span></a></span></span><span> </span><span id="local-6989586621679242534"><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242534"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">ListPolicies' :: Maybe Text -&gt; Maybe Natural -&gt; PolicyType -&gt; ListPolicies
+</span><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPolicies' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPolicies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPolicies' :: Maybe Natural
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AmaxResults%3AListPolicies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListPolicies' :: PolicyType
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Afilter%27%3AListPolicies%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242534"><span class="hs-identifier hs-var">pFilter_</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- of the previous call\'s @NextToken@ response to indicate where the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- output should continue from.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_nextToken"><span class="hs-identifier hs-type">listPolicies_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listPolicies_nextToken"><span class="annot"><span class="annottext">listPolicies_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListPolicies -&gt; f ListPolicies
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_nextToken"><span class="hs-identifier hs-var hs-var">listPolicies_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPolicies -&gt; Maybe Text)
+-&gt; (ListPolicies -&gt; Maybe Text -&gt; ListPolicies)
+-&gt; Lens ListPolicies ListPolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242532"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPolicies' :: ListPolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679242532"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242532"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242531"><span class="annot"><span class="annottext">s :: ListPolicies
+</span><a href="#local-6989586621679242531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicies
+</span><a href="#local-6989586621679242531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPolicies' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPolicies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- that is specific to the operation. If additional items exist beyond the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- maximum you specify, the @NextToken@ response element is present and has</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- a value (is not null). Include that value as the @NextToken@ request</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- parameter in the next call to the operation to get the next part of the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- results. Note that Organizations might return fewer results than the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- maximum even when there are more results available. You should check</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- @NextToken@ after every operation to ensure that you receive all of the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_maxResults"><span class="hs-identifier hs-type">listPolicies_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="listPolicies_maxResults"><span class="annot"><span class="annottext">listPolicies_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPolicies -&gt; f ListPolicies
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_maxResults"><span class="hs-identifier hs-var hs-var">listPolicies_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPolicies -&gt; Maybe Natural)
+-&gt; (ListPolicies -&gt; Maybe Natural -&gt; ListPolicies)
+-&gt; Lens ListPolicies ListPolicies (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242529"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPolicies' :: ListPolicies -&gt; Maybe Natural
+</span><a href="#local-6989586621679242529"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679242529"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242528"><span class="annot"><span class="annottext">s :: ListPolicies
+</span><a href="#local-6989586621679242528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242527"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679242527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicies
+</span><a href="#local-6989586621679242528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPolicies' :: Maybe Natural
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AmaxResults%3AListPolicies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679242527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Specifies the type of policy that you want to include in the response.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- You must specify one of the following values:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY&gt;</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY&gt;</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_filter"><span class="hs-identifier hs-type">listPolicies_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-type">PolicyType</span></a></span><span>
+</span><span id="line-176"></span><span id="listPolicies_filter"><span class="annot"><span class="annottext">listPolicies_filter :: (PolicyType -&gt; f PolicyType) -&gt; ListPolicies -&gt; f ListPolicies
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_filter"><span class="hs-identifier hs-var hs-var">listPolicies_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPolicies -&gt; PolicyType)
+-&gt; (ListPolicies -&gt; PolicyType -&gt; ListPolicies)
+-&gt; Lens ListPolicies ListPolicies PolicyType PolicyType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242526"><span class="annot"><span class="annottext">PolicyType
+filter' :: PolicyType
+$sel:filter':ListPolicies' :: ListPolicies -&gt; PolicyType
+</span><a href="#local-6989586621679242526"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242526"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242525"><span class="annot"><span class="annottext">s :: ListPolicies
+</span><a href="#local-6989586621679242525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242524"><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicies
+</span><a href="#local-6989586621679242525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListPolicies' :: PolicyType
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Afilter%27%3AListPolicies%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679242520"><span class="annot"><span class="annottext">page :: ListPolicies -&gt; AWSResponse ListPolicies -&gt; Maybe ListPolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679242518"><span class="annot"><span class="annottext">ListPolicies
+</span><a href="#local-6989586621679242518"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679242517"><span class="annot"><span class="annottext">AWSResponse ListPolicies
+</span><a href="#local-6989586621679242517"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-181"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPolicies
+ListPoliciesResponse
+</span><a href="#local-6989586621679242517"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">ListPoliciesResponse
+-&gt; Getting (First Text) ListPoliciesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPoliciesResponse -&gt; Const (First Text) ListPoliciesResponse
+Lens' ListPoliciesResponse (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_nextToken"><span class="hs-identifier hs-var">listPoliciesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPoliciesResponse -&gt; Const (First Text) ListPoliciesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPoliciesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-183"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPolicies
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicySummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-186"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPolicies
+ListPoliciesResponse
+</span><a href="#local-6989586621679242517"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">ListPoliciesResponse
+-&gt; Getting
+     (First [PolicySummary]) ListPoliciesResponse [PolicySummary]
+-&gt; Maybe [PolicySummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PolicySummary]
+ -&gt; Const (First [PolicySummary]) (Maybe [PolicySummary]))
+-&gt; ListPoliciesResponse
+-&gt; Const (First [PolicySummary]) ListPoliciesResponse
+Lens' ListPoliciesResponse (Maybe [PolicySummary])
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_policies"><span class="hs-identifier hs-var">listPoliciesResponse_policies</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicySummary]
+  -&gt; Const (First [PolicySummary]) (Maybe [PolicySummary]))
+ -&gt; ListPoliciesResponse
+ -&gt; Const (First [PolicySummary]) ListPoliciesResponse)
+-&gt; (([PolicySummary]
+     -&gt; Const (First [PolicySummary]) [PolicySummary])
+    -&gt; Maybe [PolicySummary]
+    -&gt; Const (First [PolicySummary]) (Maybe [PolicySummary]))
+-&gt; Getting
+     (First [PolicySummary]) ListPoliciesResponse [PolicySummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PolicySummary] -&gt; Const (First [PolicySummary]) [PolicySummary])
+-&gt; Maybe [PolicySummary]
+-&gt; Const (First [PolicySummary]) (Maybe [PolicySummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-188"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPolicies
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">ListPolicies -&gt; Maybe ListPolicies
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPolicies -&gt; Maybe ListPolicies)
+-&gt; ListPolicies -&gt; Maybe ListPolicies
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ListPolicies
+</span><a href="#local-6989586621679242518"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">ListPolicies -&gt; (ListPolicies -&gt; ListPolicies) -&gt; ListPolicies
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPolicies -&gt; Identity ListPolicies
+Lens ListPolicies ListPolicies (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPolicies_nextToken"><span class="hs-identifier hs-var">listPolicies_nextToken</span></a></span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPolicies -&gt; Identity ListPolicies)
+-&gt; Maybe Text -&gt; ListPolicies -&gt; ListPolicies
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPolicies
+ListPoliciesResponse
+</span><a href="#local-6989586621679242517"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">ListPoliciesResponse
+-&gt; Getting (First Text) ListPoliciesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPoliciesResponse -&gt; Const (First Text) ListPoliciesResponse
+Lens' ListPoliciesResponse (Maybe Text)
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_nextToken"><span class="hs-identifier hs-var">listPoliciesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPoliciesResponse -&gt; Const (First Text) ListPoliciesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPoliciesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679242507"><span class="annot"><span class="annottext">request :: ListPolicies -&gt; Request ListPolicies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPolicies -&gt; Request ListPolicies
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679242503"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPolicies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPolicies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPolicies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListPolicies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242500"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242499"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679242499"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242498"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [PolicySummary] -&gt; Int -&gt; ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-var">ListPoliciesResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PolicySummary] -&gt; Int -&gt; ListPoliciesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [PolicySummary] -&gt; Int -&gt; ListPoliciesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [PolicySummary] -&gt; Int -&gt; ListPoliciesResponse)
+-&gt; Either String (Maybe [PolicySummary])
+-&gt; Either String (Int -&gt; ListPoliciesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PolicySummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PolicySummary]))
+-&gt; Maybe [PolicySummary] -&gt; Either String (Maybe [PolicySummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicySummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPoliciesResponse)
+-&gt; Either String Int -&gt; Either String ListPoliciesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242500"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242489"><span id="local-6989586621679242491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679242482"><span class="annot"><span class="annottext">toHeaders :: ListPolicies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPolicies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSOrganizationsV20161128.ListPolicies&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-219"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-220"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-224"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242472"><span id="local-6989586621679242474"><span id="local-6989586621679242476"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679242470"><span class="annot"><span class="annottext">toJSON :: ListPolicies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies%27"><span class="hs-identifier hs-type">ListPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242466"><span id="local-6989586621679242467"><span id="local-6989586621679242468"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+PolicyType
+filter' :: PolicyType
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filter':ListPolicies' :: ListPolicies -&gt; PolicyType
+$sel:maxResults:ListPolicies' :: ListPolicies -&gt; Maybe Natural
+$sel:nextToken:ListPolicies' :: ListPolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679242466"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-232"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242468"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679242467"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PolicyType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679242466"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679242460"><span class="annot"><span class="annottext">toPath :: ListPolicies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPolicies -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPolicies"><span class="hs-identifier hs-type">ListPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679242456"><span class="annot"><span class="annottext">toQuery :: ListPolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPolicies -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | /See:/ 'newListPoliciesResponse' smart constructor.</span><span>
+</span><span id="line-245"></span><span id="local-6989586621679242453"><span id="local-6989586621679242454"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPoliciesResponse"><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-var">ListPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPoliciesResponse%27"><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-var">ListPoliciesResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AnextToken%3AListPoliciesResponse%27"><span class="annot"><span class="annottext">ListPoliciesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | A list of policies that match the filter criteria in the request. The</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- output list doesn\'t include the policy contents. To see the content for</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- a policy, see DescribePolicy.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3Apolicies%3AListPoliciesResponse%27"><span class="annot"><span class="annottext">ListPoliciesResponse -&gt; Maybe [PolicySummary]
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Apolicies%3AListPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicySummary.html#PolicySummary"><span class="hs-identifier hs-type">PolicySummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPoliciesResponse%27"><span class="annot"><span class="annottext">ListPoliciesResponse -&gt; Int
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AhttpStatus%3AListPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242446"><span id="local-6989586621679242448"><span class="annot"><span class="annottext">ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool
+(ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool)
+-&gt; (ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool)
+-&gt; Eq ListPoliciesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool
+$c/= :: ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool
+== :: ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool
+$c== :: ListPoliciesResponse -&gt; ListPoliciesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242438"><span id="local-6989586621679242440"><span id="local-6989586621679242442"><span id="local-6989586621679242444"><span class="annot"><span class="annottext">ReadPrec [ListPoliciesResponse]
+ReadPrec ListPoliciesResponse
+Int -&gt; ReadS ListPoliciesResponse
+ReadS [ListPoliciesResponse]
+(Int -&gt; ReadS ListPoliciesResponse)
+-&gt; ReadS [ListPoliciesResponse]
+-&gt; ReadPrec ListPoliciesResponse
+-&gt; ReadPrec [ListPoliciesResponse]
+-&gt; Read ListPoliciesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPoliciesResponse]
+$creadListPrec :: ReadPrec [ListPoliciesResponse]
+readPrec :: ReadPrec ListPoliciesResponse
+$creadPrec :: ReadPrec ListPoliciesResponse
+readList :: ReadS [ListPoliciesResponse]
+$creadList :: ReadS [ListPoliciesResponse]
+readsPrec :: Int -&gt; ReadS ListPoliciesResponse
+$creadsPrec :: Int -&gt; ReadS ListPoliciesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242432"><span id="local-6989586621679242434"><span id="local-6989586621679242436"><span class="annot"><span class="annottext">Int -&gt; ListPoliciesResponse -&gt; ShowS
+[ListPoliciesResponse] -&gt; ShowS
+ListPoliciesResponse -&gt; String
+(Int -&gt; ListPoliciesResponse -&gt; ShowS)
+-&gt; (ListPoliciesResponse -&gt; String)
+-&gt; ([ListPoliciesResponse] -&gt; ShowS)
+-&gt; Show ListPoliciesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPoliciesResponse] -&gt; ShowS
+$cshowList :: [ListPoliciesResponse] -&gt; ShowS
+show :: ListPoliciesResponse -&gt; String
+$cshow :: ListPoliciesResponse -&gt; String
+showsPrec :: Int -&gt; ListPoliciesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPoliciesResponse -&gt; Rep ListPoliciesResponse x)
+-&gt; (forall x. Rep ListPoliciesResponse x -&gt; ListPoliciesResponse)
+-&gt; Generic ListPoliciesResponse
+forall x. Rep ListPoliciesResponse x -&gt; ListPoliciesResponse
+forall x. ListPoliciesResponse -&gt; Rep ListPoliciesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPoliciesResponse x -&gt; ListPoliciesResponse
+$cfrom :: forall x. ListPoliciesResponse -&gt; Rep ListPoliciesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Create a value of 'ListPoliciesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'nextToken', 'listPoliciesResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'policies', 'listPoliciesResponse_policies' - A list of policies that match the filter criteria in the request. The</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- output list doesn\'t include the policy contents. To see the content for</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- a policy, see DescribePolicy.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#newListPoliciesResponse"><span class="hs-identifier hs-type">newListPoliciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span>
+</span><span id="line-284"></span><span id="newListPoliciesResponse"><span class="annot"><span class="annottext">newListPoliciesResponse :: Int -&gt; ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#newListPoliciesResponse"><span class="hs-identifier hs-var hs-var">newListPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679242429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242429"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="annottext">ListPoliciesResponse' :: Maybe Text -&gt; Maybe [PolicySummary] -&gt; Int -&gt; ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPoliciesResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:policies:ListPoliciesResponse' :: Maybe [PolicySummary]
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Apolicies%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicySummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPoliciesResponse' :: Int
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AhttpStatus%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242429"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_nextToken"><span class="hs-identifier hs-type">listPoliciesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="listPoliciesResponse_nextToken"><span class="annot"><span class="annottext">listPoliciesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPoliciesResponse -&gt; f ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPoliciesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPoliciesResponse -&gt; Maybe Text)
+-&gt; (ListPoliciesResponse -&gt; Maybe Text -&gt; ListPoliciesResponse)
+-&gt; Lens' ListPoliciesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242428"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPoliciesResponse' :: ListPoliciesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242428"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242428"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242427"><span class="annot"><span class="annottext">s :: ListPoliciesResponse
+</span><a href="#local-6989586621679242427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242426"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPoliciesResponse
+</span><a href="#local-6989586621679242427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPoliciesResponse' :: Maybe Text
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AnextToken%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | A list of policies that match the filter criteria in the request. The</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- output list doesn\'t include the policy contents. To see the content for</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- a policy, see DescribePolicy.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_policies"><span class="hs-identifier hs-type">listPoliciesResponse_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicySummary.html#PolicySummary"><span class="hs-identifier hs-type">PolicySummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="listPoliciesResponse_policies"><span class="annot"><span class="annottext">listPoliciesResponse_policies :: (Maybe [PolicySummary] -&gt; f (Maybe [PolicySummary]))
+-&gt; ListPoliciesResponse -&gt; f ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_policies"><span class="hs-identifier hs-var hs-var">listPoliciesResponse_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPoliciesResponse -&gt; Maybe [PolicySummary])
+-&gt; (ListPoliciesResponse
+    -&gt; Maybe [PolicySummary] -&gt; ListPoliciesResponse)
+-&gt; Lens' ListPoliciesResponse (Maybe [PolicySummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242425"><span class="annot"><span class="annottext">Maybe [PolicySummary]
+policies :: Maybe [PolicySummary]
+$sel:policies:ListPoliciesResponse' :: ListPoliciesResponse -&gt; Maybe [PolicySummary]
+</span><a href="#local-6989586621679242425"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicySummary]
+</span><a href="#local-6989586621679242425"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242424"><span class="annot"><span class="annottext">s :: ListPoliciesResponse
+</span><a href="#local-6989586621679242424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242423"><span class="annot"><span class="annottext">Maybe [PolicySummary]
+</span><a href="#local-6989586621679242423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPoliciesResponse
+</span><a href="#local-6989586621679242424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:ListPoliciesResponse' :: Maybe [PolicySummary]
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3Apolicies%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicySummary]
+</span><a href="#local-6989586621679242423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicySummary] -&gt; f (Maybe [PolicySummary]))
+ -&gt; ListPoliciesResponse -&gt; f ListPoliciesResponse)
+-&gt; ((Maybe [PolicySummary] -&gt; f (Maybe [PolicySummary]))
+    -&gt; Maybe [PolicySummary] -&gt; f (Maybe [PolicySummary]))
+-&gt; (Maybe [PolicySummary] -&gt; f (Maybe [PolicySummary]))
+-&gt; ListPoliciesResponse
+-&gt; f ListPoliciesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicySummary] [PolicySummary] [PolicySummary] [PolicySummary]
+-&gt; Iso
+     (Maybe [PolicySummary])
+     (Maybe [PolicySummary])
+     (Maybe [PolicySummary])
+     (Maybe [PolicySummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PolicySummary] [PolicySummary] [PolicySummary] [PolicySummary]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_httpStatus"><span class="hs-identifier hs-type">listPoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-307"></span><span id="listPoliciesResponse_httpStatus"><span class="annot"><span class="annottext">listPoliciesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListPoliciesResponse -&gt; f ListPoliciesResponse
+</span><a href="Network.AWS.Organizations.ListPolicies.html#listPoliciesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPoliciesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPoliciesResponse -&gt; Int)
+-&gt; (ListPoliciesResponse -&gt; Int -&gt; ListPoliciesResponse)
+-&gt; Lens ListPoliciesResponse ListPoliciesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242420"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPoliciesResponse' :: ListPoliciesResponse -&gt; Int
+</span><a href="#local-6989586621679242420"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242420"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242419"><span class="annot"><span class="annottext">s :: ListPoliciesResponse
+</span><a href="#local-6989586621679242419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse%27"><span class="hs-identifier hs-type">ListPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242418"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPoliciesResponse
+</span><a href="#local-6989586621679242419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPoliciesResponse' :: Int
+</span><a href="Network.AWS.Organizations.ListPolicies.html#%24sel%3AhttpStatus%3AListPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.ListPolicies.html#ListPoliciesResponse"><span class="hs-identifier hs-type">ListPoliciesResponse</span></a></span></span><span>
+</span><span id="line-310"></span></pre></body></html>

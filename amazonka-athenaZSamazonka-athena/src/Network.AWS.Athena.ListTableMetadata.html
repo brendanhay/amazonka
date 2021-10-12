@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Athena.ListTableMetadata</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the metadata for the tables in the specified data catalog</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Athena.ListTableMetadata</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier">ListTableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadata"><span class="hs-identifier">newListTableMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_nextToken"><span class="hs-identifier">listTableMetadata_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_maxResults"><span class="hs-identifier">listTableMetadata_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_expression"><span class="hs-identifier">listTableMetadata_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_catalogName"><span class="hs-identifier">listTableMetadata_catalogName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_databaseName"><span class="hs-identifier">listTableMetadata_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier">ListTableMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadataResponse"><span class="hs-identifier">newListTableMetadataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_nextToken"><span class="hs-identifier">listTableMetadataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_tableMetadataList"><span class="hs-identifier">listTableMetadataResponse_tableMetadataList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_httpStatus"><span class="hs-identifier">listTableMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.html"><span class="hs-identifier">Network.AWS.Athena.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListTableMetadata' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679221693"><span id="local-6989586621679221694"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTableMetadata"><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-var">ListTableMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTableMetadata%27"><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-var">ListTableMetadata'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListTableMetadata%27"><span class="annot"><span class="annottext">ListTableMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadata%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of results to return.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTableMetadata%27"><span class="annot"><span class="annottext">ListTableMetadata -&gt; Maybe Natural
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AmaxResults%3AListTableMetadata%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A regex filter that pattern-matches table names. If no expression is</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- supplied, metadata for all tables are listed.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aexpression%3AListTableMetadata%27"><span class="annot"><span class="annottext">ListTableMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3Aexpression%3AListTableMetadata%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the data catalog for which table metadata should be</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AcatalogName%3AListTableMetadata%27"><span class="annot"><span class="annottext">ListTableMetadata -&gt; Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AcatalogName%3AListTableMetadata%27"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the database for which table metadata should be returned.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdatabaseName%3AListTableMetadata%27"><span class="annot"><span class="annottext">ListTableMetadata -&gt; Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AdatabaseName%3AListTableMetadata%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221683"><span id="local-6989586621679221685"><span class="annot"><span class="annottext">ListTableMetadata -&gt; ListTableMetadata -&gt; Bool
+(ListTableMetadata -&gt; ListTableMetadata -&gt; Bool)
+-&gt; (ListTableMetadata -&gt; ListTableMetadata -&gt; Bool)
+-&gt; Eq ListTableMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTableMetadata -&gt; ListTableMetadata -&gt; Bool
+$c/= :: ListTableMetadata -&gt; ListTableMetadata -&gt; Bool
+== :: ListTableMetadata -&gt; ListTableMetadata -&gt; Bool
+$c== :: ListTableMetadata -&gt; ListTableMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221674"><span id="local-6989586621679221676"><span id="local-6989586621679221678"><span id="local-6989586621679221680"><span class="annot"><span class="annottext">ReadPrec [ListTableMetadata]
+ReadPrec ListTableMetadata
+Int -&gt; ReadS ListTableMetadata
+ReadS [ListTableMetadata]
+(Int -&gt; ReadS ListTableMetadata)
+-&gt; ReadS [ListTableMetadata]
+-&gt; ReadPrec ListTableMetadata
+-&gt; ReadPrec [ListTableMetadata]
+-&gt; Read ListTableMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTableMetadata]
+$creadListPrec :: ReadPrec [ListTableMetadata]
+readPrec :: ReadPrec ListTableMetadata
+$creadPrec :: ReadPrec ListTableMetadata
+readList :: ReadS [ListTableMetadata]
+$creadList :: ReadS [ListTableMetadata]
+readsPrec :: Int -&gt; ReadS ListTableMetadata
+$creadsPrec :: Int -&gt; ReadS ListTableMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221667"><span id="local-6989586621679221669"><span id="local-6989586621679221671"><span class="annot"><span class="annottext">Int -&gt; ListTableMetadata -&gt; ShowS
+[ListTableMetadata] -&gt; ShowS
+ListTableMetadata -&gt; String
+(Int -&gt; ListTableMetadata -&gt; ShowS)
+-&gt; (ListTableMetadata -&gt; String)
+-&gt; ([ListTableMetadata] -&gt; ShowS)
+-&gt; Show ListTableMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTableMetadata] -&gt; ShowS
+$cshowList :: [ListTableMetadata] -&gt; ShowS
+show :: ListTableMetadata -&gt; String
+$cshow :: ListTableMetadata -&gt; String
+showsPrec :: Int -&gt; ListTableMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTableMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTableMetadata -&gt; Rep ListTableMetadata x)
+-&gt; (forall x. Rep ListTableMetadata x -&gt; ListTableMetadata)
+-&gt; Generic ListTableMetadata
+forall x. Rep ListTableMetadata x -&gt; ListTableMetadata
+forall x. ListTableMetadata -&gt; Rep ListTableMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTableMetadata x -&gt; ListTableMetadata
+$cfrom :: forall x. ListTableMetadata -&gt; Rep ListTableMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'ListTableMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'listTableMetadata_nextToken' - A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listTableMetadata_maxResults' - Specifies the maximum number of results to return.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'expression', 'listTableMetadata_expression' - A regex filter that pattern-matches table names. If no expression is</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- supplied, metadata for all tables are listed.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'catalogName', 'listTableMetadata_catalogName' - The name of the data catalog for which table metadata should be</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'databaseName', 'listTableMetadata_databaseName' - The name of the database for which table metadata should be returned.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadata"><span class="hs-identifier hs-type">newListTableMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'catalogName'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'databaseName'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span>
+</span><span id="line-105"></span><span id="newListTableMetadata"><span class="annot"><span class="annottext">newListTableMetadata :: Text -&gt; Text -&gt; ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadata"><span class="hs-identifier hs-var hs-var">newListTableMetadata</span></a></span></span><span> </span><span id="local-6989586621679221662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221662"><span class="hs-identifier hs-var">pCatalogName_</span></a></span></span><span> </span><span id="local-6989586621679221661"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221661"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ListTableMetadata' :: Maybe Text
+-&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTableMetadata' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadata%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTableMetadata' :: Maybe Natural
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AmaxResults%3AListTableMetadata%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:ListTableMetadata' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3Aexpression%3AListTableMetadata%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogName:ListTableMetadata' :: Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AcatalogName%3AListTableMetadata%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221662"><span class="hs-identifier hs-var">pCatalogName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:ListTableMetadata' :: Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AdatabaseName%3AListTableMetadata%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221661"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_nextToken"><span class="hs-identifier hs-type">listTableMetadata_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listTableMetadata_nextToken"><span class="annot"><span class="annottext">listTableMetadata_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTableMetadata -&gt; f ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_nextToken"><span class="hs-identifier hs-var hs-var">listTableMetadata_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Maybe Text)
+-&gt; (ListTableMetadata -&gt; Maybe Text -&gt; ListTableMetadata)
+-&gt; Lens
+     ListTableMetadata ListTableMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221659"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679221659"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221659"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221658"><span class="annot"><span class="annottext">s :: ListTableMetadata
+</span><a href="#local-6989586621679221658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTableMetadata' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadata%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Specifies the maximum number of results to return.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_maxResults"><span class="hs-identifier hs-type">listTableMetadata_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="listTableMetadata_maxResults"><span class="annot"><span class="annottext">listTableMetadata_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListTableMetadata -&gt; f ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_maxResults"><span class="hs-identifier hs-var hs-var">listTableMetadata_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Maybe Natural)
+-&gt; (ListTableMetadata -&gt; Maybe Natural -&gt; ListTableMetadata)
+-&gt; Lens
+     ListTableMetadata ListTableMetadata (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221656"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Natural
+</span><a href="#local-6989586621679221656"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221656"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221655"><span class="annot"><span class="annottext">s :: ListTableMetadata
+</span><a href="#local-6989586621679221655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221654"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTableMetadata' :: Maybe Natural
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AmaxResults%3AListTableMetadata%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | A regex filter that pattern-matches table names. If no expression is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- supplied, metadata for all tables are listed.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_expression"><span class="hs-identifier hs-type">listTableMetadata_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="listTableMetadata_expression"><span class="annot"><span class="annottext">listTableMetadata_expression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTableMetadata -&gt; f ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_expression"><span class="hs-identifier hs-var hs-var">listTableMetadata_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Maybe Text)
+-&gt; (ListTableMetadata -&gt; Maybe Text -&gt; ListTableMetadata)
+-&gt; Lens
+     ListTableMetadata ListTableMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221653"><span class="annot"><span class="annottext">Maybe Text
+expression :: Maybe Text
+$sel:expression:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679221653"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221653"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221652"><span class="annot"><span class="annottext">s :: ListTableMetadata
+</span><a href="#local-6989586621679221652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:ListTableMetadata' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3Aexpression%3AListTableMetadata%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The name of the data catalog for which table metadata should be</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- returned.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_catalogName"><span class="hs-identifier hs-type">listTableMetadata_catalogName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="listTableMetadata_catalogName"><span class="annot"><span class="annottext">listTableMetadata_catalogName :: (Text -&gt; f Text) -&gt; ListTableMetadata -&gt; f ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_catalogName"><span class="hs-identifier hs-var hs-var">listTableMetadata_catalogName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Text)
+-&gt; (ListTableMetadata -&gt; Text -&gt; ListTableMetadata)
+-&gt; Lens ListTableMetadata ListTableMetadata Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221650"><span class="annot"><span class="annottext">Text
+catalogName :: Text
+$sel:catalogName:ListTableMetadata' :: ListTableMetadata -&gt; Text
+</span><a href="#local-6989586621679221650"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221650"><span class="hs-identifier hs-var">catalogName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221649"><span class="annot"><span class="annottext">s :: ListTableMetadata
+</span><a href="#local-6989586621679221649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogName:ListTableMetadata' :: Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AcatalogName%3AListTableMetadata%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The name of the database for which table metadata should be returned.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_databaseName"><span class="hs-identifier hs-type">listTableMetadata_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="listTableMetadata_databaseName"><span class="annot"><span class="annottext">listTableMetadata_databaseName :: (Text -&gt; f Text) -&gt; ListTableMetadata -&gt; f ListTableMetadata
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_databaseName"><span class="hs-identifier hs-var hs-var">listTableMetadata_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Text)
+-&gt; (ListTableMetadata -&gt; Text -&gt; ListTableMetadata)
+-&gt; Lens ListTableMetadata ListTableMetadata Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221647"><span class="annot"><span class="annottext">Text
+databaseName :: Text
+$sel:databaseName:ListTableMetadata' :: ListTableMetadata -&gt; Text
+</span><a href="#local-6989586621679221647"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221647"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221646"><span class="annot"><span class="annottext">s :: ListTableMetadata
+</span><a href="#local-6989586621679221646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:ListTableMetadata' :: Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AdatabaseName%3AListTableMetadata%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679221641"><span class="annot"><span class="annottext">page :: ListTableMetadata
+-&gt; AWSResponse ListTableMetadata -&gt; Maybe ListTableMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679221639"><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679221638"><span class="annot"><span class="annottext">AWSResponse ListTableMetadata
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTableMetadata
+ListTableMetadataResponse
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+-&gt; Getting (First Text) ListTableMetadataResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTableMetadataResponse
+-&gt; Const (First Text) ListTableMetadataResponse
+Lens' ListTableMetadataResponse (Maybe Text)
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_nextToken"><span class="hs-identifier hs-var">listTableMetadataResponse_nextToken</span></a></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTableMetadataResponse
+ -&gt; Const (First Text) ListTableMetadataResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTableMetadataResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTableMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [TableMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTableMetadata
+ListTableMetadataResponse
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+-&gt; Getting
+     (First [TableMetadata]) ListTableMetadataResponse [TableMetadata]
+-&gt; Maybe [TableMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [TableMetadata]
+ -&gt; Const (First [TableMetadata]) (Maybe [TableMetadata]))
+-&gt; ListTableMetadataResponse
+-&gt; Const (First [TableMetadata]) ListTableMetadataResponse
+Lens' ListTableMetadataResponse (Maybe [TableMetadata])
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_tableMetadataList"><span class="hs-identifier hs-var">listTableMetadataResponse_tableMetadataList</span></a></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [TableMetadata]
+  -&gt; Const (First [TableMetadata]) (Maybe [TableMetadata]))
+ -&gt; ListTableMetadataResponse
+ -&gt; Const (First [TableMetadata]) ListTableMetadataResponse)
+-&gt; (([TableMetadata]
+     -&gt; Const (First [TableMetadata]) [TableMetadata])
+    -&gt; Maybe [TableMetadata]
+    -&gt; Const (First [TableMetadata]) (Maybe [TableMetadata]))
+-&gt; Getting
+     (First [TableMetadata]) ListTableMetadataResponse [TableMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TableMetadata] -&gt; Const (First [TableMetadata]) [TableMetadata])
+-&gt; Maybe [TableMetadata]
+-&gt; Const (First [TableMetadata]) (Maybe [TableMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-151"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTableMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">ListTableMetadata -&gt; Maybe ListTableMetadata
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListTableMetadata -&gt; Maybe ListTableMetadata)
+-&gt; ListTableMetadata -&gt; Maybe ListTableMetadata
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ListTableMetadata
+</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ListTableMetadata
+-&gt; (ListTableMetadata -&gt; ListTableMetadata) -&gt; ListTableMetadata
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListTableMetadata -&gt; Identity ListTableMetadata
+Lens ListTableMetadata ListTableMetadata (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadata_nextToken"><span class="hs-identifier hs-var">listTableMetadata_nextToken</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListTableMetadata -&gt; Identity ListTableMetadata)
+-&gt; Maybe Text -&gt; ListTableMetadata -&gt; ListTableMetadata
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTableMetadata
+ListTableMetadataResponse
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+-&gt; Getting (First Text) ListTableMetadataResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTableMetadataResponse
+-&gt; Const (First Text) ListTableMetadataResponse
+Lens' ListTableMetadataResponse (Maybe Text)
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_nextToken"><span class="hs-identifier hs-var">listTableMetadataResponse_nextToken</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTableMetadataResponse
+ -&gt; Const (First Text) ListTableMetadataResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTableMetadataResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679221628"><span class="annot"><span class="annottext">request :: ListTableMetadata -&gt; Request ListTableMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTableMetadata -&gt; Request ListTableMetadata
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679221624"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTableMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTableMetadata)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTableMetadata))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTableMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTableMetadata)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221621"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221620"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221620"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221619"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [TableMetadata] -&gt; Int -&gt; ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-var">ListTableMetadataResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [TableMetadata] -&gt; Int -&gt; ListTableMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [TableMetadata] -&gt; Int -&gt; ListTableMetadataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [TableMetadata] -&gt; Int -&gt; ListTableMetadataResponse)
+-&gt; Either String (Maybe [TableMetadata])
+-&gt; Either String (Int -&gt; ListTableMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TableMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableMetadataList&quot;</span></span><span>
+</span><span id="line-172"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TableMetadata]))
+-&gt; Maybe [TableMetadata] -&gt; Either String (Maybe [TableMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TableMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTableMetadataResponse)
+-&gt; Either String Int -&gt; Either String ListTableMetadataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221621"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221610"><span id="local-6989586621679221612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679221603"><span class="annot"><span class="annottext">toHeaders :: ListTableMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTableMetadata -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.ListTableMetadata&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-188"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-192"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221593"><span id="local-6989586621679221595"><span id="local-6989586621679221597"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679221591"><span class="annot"><span class="annottext">toJSON :: ListTableMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata%27"><span class="hs-identifier hs-type">ListTableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221585"><span id="local-6989586621679221586"><span id="local-6989586621679221587"><span id="local-6989586621679221588"><span id="local-6989586621679221589"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+databaseName :: Text
+catalogName :: Text
+expression :: Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:databaseName:ListTableMetadata' :: ListTableMetadata -&gt; Text
+$sel:catalogName:ListTableMetadata' :: ListTableMetadata -&gt; Text
+$sel:expression:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Text
+$sel:maxResults:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Natural
+$sel:nextToken:ListTableMetadata' :: ListTableMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679221585"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221589"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221588"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221587"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221586"><span class="hs-identifier hs-var">catalogName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221585"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679221579"><span class="annot"><span class="annottext">toPath :: ListTableMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTableMetadata -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadata"><span class="hs-identifier hs-type">ListTableMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679221575"><span class="annot"><span class="annottext">toQuery :: ListTableMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTableMetadata -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newListTableMetadataResponse' smart constructor.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679221572"><span id="local-6989586621679221573"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTableMetadataResponse"><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-var">ListTableMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTableMetadataResponse%27"><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-var">ListTableMetadataResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AnextToken%3AListTableMetadataResponse%27"><span class="annot"><span class="annottext">ListTableMetadataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | A list of table metadata.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AtableMetadataList%3AListTableMetadataResponse%27"><span class="annot"><span class="annottext">ListTableMetadataResponse -&gt; Maybe [TableMetadata]
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AtableMetadataList%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var hs-var">tableMetadataList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTableMetadataResponse%27"><span class="annot"><span class="annottext">ListTableMetadataResponse -&gt; Int
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AhttpStatus%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221565"><span id="local-6989586621679221567"><span class="annot"><span class="annottext">ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool
+(ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool)
+-&gt; (ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool)
+-&gt; Eq ListTableMetadataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool
+$c/= :: ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool
+== :: ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool
+$c== :: ListTableMetadataResponse -&gt; ListTableMetadataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221557"><span id="local-6989586621679221559"><span id="local-6989586621679221561"><span id="local-6989586621679221563"><span class="annot"><span class="annottext">ReadPrec [ListTableMetadataResponse]
+ReadPrec ListTableMetadataResponse
+Int -&gt; ReadS ListTableMetadataResponse
+ReadS [ListTableMetadataResponse]
+(Int -&gt; ReadS ListTableMetadataResponse)
+-&gt; ReadS [ListTableMetadataResponse]
+-&gt; ReadPrec ListTableMetadataResponse
+-&gt; ReadPrec [ListTableMetadataResponse]
+-&gt; Read ListTableMetadataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTableMetadataResponse]
+$creadListPrec :: ReadPrec [ListTableMetadataResponse]
+readPrec :: ReadPrec ListTableMetadataResponse
+$creadPrec :: ReadPrec ListTableMetadataResponse
+readList :: ReadS [ListTableMetadataResponse]
+$creadList :: ReadS [ListTableMetadataResponse]
+readsPrec :: Int -&gt; ReadS ListTableMetadataResponse
+$creadsPrec :: Int -&gt; ReadS ListTableMetadataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221551"><span id="local-6989586621679221553"><span id="local-6989586621679221555"><span class="annot"><span class="annottext">Int -&gt; ListTableMetadataResponse -&gt; ShowS
+[ListTableMetadataResponse] -&gt; ShowS
+ListTableMetadataResponse -&gt; String
+(Int -&gt; ListTableMetadataResponse -&gt; ShowS)
+-&gt; (ListTableMetadataResponse -&gt; String)
+-&gt; ([ListTableMetadataResponse] -&gt; ShowS)
+-&gt; Show ListTableMetadataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTableMetadataResponse] -&gt; ShowS
+$cshowList :: [ListTableMetadataResponse] -&gt; ShowS
+show :: ListTableMetadataResponse -&gt; String
+$cshow :: ListTableMetadataResponse -&gt; String
+showsPrec :: Int -&gt; ListTableMetadataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTableMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListTableMetadataResponse -&gt; Rep ListTableMetadataResponse x)
+-&gt; (forall x.
+    Rep ListTableMetadataResponse x -&gt; ListTableMetadataResponse)
+-&gt; Generic ListTableMetadataResponse
+forall x.
+Rep ListTableMetadataResponse x -&gt; ListTableMetadataResponse
+forall x.
+ListTableMetadataResponse -&gt; Rep ListTableMetadataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListTableMetadataResponse x -&gt; ListTableMetadataResponse
+$cfrom :: forall x.
+ListTableMetadataResponse -&gt; Rep ListTableMetadataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'ListTableMetadataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'nextToken', 'listTableMetadataResponse_nextToken' - A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'tableMetadataList', 'listTableMetadataResponse_tableMetadataList' - A list of table metadata.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'httpStatus', 'listTableMetadataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadataResponse"><span class="hs-identifier hs-type">newListTableMetadataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span>
+</span><span id="line-248"></span><span id="newListTableMetadataResponse"><span class="annot"><span class="annottext">newListTableMetadataResponse :: Int -&gt; ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#newListTableMetadataResponse"><span class="hs-identifier hs-var hs-var">newListTableMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679221548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="annottext">ListTableMetadataResponse' :: Maybe Text
+-&gt; Maybe [TableMetadata] -&gt; Int -&gt; ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTableMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableMetadataList:ListTableMetadataResponse' :: Maybe [TableMetadata]
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AtableMetadataList%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">tableMetadataList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTableMetadataResponse' :: Int
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AhttpStatus%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- of pages, pass in the NextToken from the response object of the previous</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- page call.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_nextToken"><span class="hs-identifier hs-type">listTableMetadataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="listTableMetadataResponse_nextToken"><span class="annot"><span class="annottext">listTableMetadataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTableMetadataResponse -&gt; f ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_nextToken"><span class="hs-identifier hs-var hs-var">listTableMetadataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadataResponse -&gt; Maybe Text)
+-&gt; (ListTableMetadataResponse
+    -&gt; Maybe Text -&gt; ListTableMetadataResponse)
+-&gt; Lens' ListTableMetadataResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221547"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListTableMetadataResponse' :: ListTableMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679221547"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221547"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221546"><span class="annot"><span class="annottext">s :: ListTableMetadataResponse
+</span><a href="#local-6989586621679221546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221545"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+</span><a href="#local-6989586621679221546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTableMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AnextToken%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | A list of table metadata.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_tableMetadataList"><span class="hs-identifier hs-type">listTableMetadataResponse_tableMetadataList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="listTableMetadataResponse_tableMetadataList"><span class="annot"><span class="annottext">listTableMetadataResponse_tableMetadataList :: (Maybe [TableMetadata] -&gt; f (Maybe [TableMetadata]))
+-&gt; ListTableMetadataResponse -&gt; f ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_tableMetadataList"><span class="hs-identifier hs-var hs-var">listTableMetadataResponse_tableMetadataList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadataResponse -&gt; Maybe [TableMetadata])
+-&gt; (ListTableMetadataResponse
+    -&gt; Maybe [TableMetadata] -&gt; ListTableMetadataResponse)
+-&gt; Lens' ListTableMetadataResponse (Maybe [TableMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221544"><span class="annot"><span class="annottext">Maybe [TableMetadata]
+tableMetadataList :: Maybe [TableMetadata]
+$sel:tableMetadataList:ListTableMetadataResponse' :: ListTableMetadataResponse -&gt; Maybe [TableMetadata]
+</span><a href="#local-6989586621679221544"><span class="hs-identifier hs-var hs-var">tableMetadataList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TableMetadata]
+</span><a href="#local-6989586621679221544"><span class="hs-identifier hs-var">tableMetadataList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221543"><span class="annot"><span class="annottext">s :: ListTableMetadataResponse
+</span><a href="#local-6989586621679221543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221542"><span class="annot"><span class="annottext">Maybe [TableMetadata]
+</span><a href="#local-6989586621679221542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+</span><a href="#local-6989586621679221543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableMetadataList:ListTableMetadataResponse' :: Maybe [TableMetadata]
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AtableMetadataList%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">tableMetadataList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TableMetadata]
+</span><a href="#local-6989586621679221542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TableMetadata] -&gt; f (Maybe [TableMetadata]))
+ -&gt; ListTableMetadataResponse -&gt; f ListTableMetadataResponse)
+-&gt; ((Maybe [TableMetadata] -&gt; f (Maybe [TableMetadata]))
+    -&gt; Maybe [TableMetadata] -&gt; f (Maybe [TableMetadata]))
+-&gt; (Maybe [TableMetadata] -&gt; f (Maybe [TableMetadata]))
+-&gt; ListTableMetadataResponse
+-&gt; f ListTableMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TableMetadata] [TableMetadata] [TableMetadata] [TableMetadata]
+-&gt; Iso
+     (Maybe [TableMetadata])
+     (Maybe [TableMetadata])
+     (Maybe [TableMetadata])
+     (Maybe [TableMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TableMetadata] [TableMetadata] [TableMetadata] [TableMetadata]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_httpStatus"><span class="hs-identifier hs-type">listTableMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span id="listTableMetadataResponse_httpStatus"><span class="annot"><span class="annottext">listTableMetadataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListTableMetadataResponse -&gt; f ListTableMetadataResponse
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#listTableMetadataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTableMetadataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTableMetadataResponse -&gt; Int)
+-&gt; (ListTableMetadataResponse -&gt; Int -&gt; ListTableMetadataResponse)
+-&gt; Lens ListTableMetadataResponse ListTableMetadataResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221539"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTableMetadataResponse' :: ListTableMetadataResponse -&gt; Int
+</span><a href="#local-6989586621679221539"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221539"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221538"><span class="annot"><span class="annottext">s :: ListTableMetadataResponse
+</span><a href="#local-6989586621679221538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse%27"><span class="hs-identifier hs-type">ListTableMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTableMetadataResponse
+</span><a href="#local-6989586621679221538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTableMetadataResponse' :: Int
+</span><a href="Network.AWS.Athena.ListTableMetadata.html#%24sel%3AhttpStatus%3AListTableMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListTableMetadata.html#ListTableMetadataResponse"><span class="hs-identifier hs-type">ListTableMetadataResponse</span></a></span></span><span>
+</span><span id="line-272"></span></pre></body></html>

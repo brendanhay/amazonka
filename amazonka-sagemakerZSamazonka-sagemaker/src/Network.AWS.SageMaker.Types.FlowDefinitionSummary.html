@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.FlowDefinitionSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.FlowDefinitionSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.FlowDefinitionStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains summary information about the flow definition.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFlowDefinitionSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680305606"><span id="local-6989586621680305607"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlowDefinitionSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-var">FlowDefinitionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowDefinitionSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-var">FlowDefinitionSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason why the flow definition creation failed. A failure reason is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- returned only when the flow definition status is @Failed@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailureReason%3AFlowDefinitionSummary%27"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AfailureReason%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the flow definition.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AflowDefinitionName%3AFlowDefinitionSummary%27"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionName%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">flowDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow definition.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AflowDefinitionArn%3AFlowDefinitionSummary%27"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionArn%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The status of the flow definition. Valid values:</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AflowDefinitionStatus%3AFlowDefinitionSummary%27"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; FlowDefinitionStatus
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionStatus%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">flowDefinitionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus"><span class="hs-identifier hs-type">FlowDefinitionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The timestamp when SageMaker created the flow definition.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreationTime%3AFlowDefinitionSummary%27"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; POSIX
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AcreationTime%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680305596"><span id="local-6989586621680305598"><span class="annot"><span class="annottext">FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool
+(FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool)
+-&gt; (FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool)
+-&gt; Eq FlowDefinitionSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool
+$c/= :: FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool
+== :: FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool
+$c== :: FlowDefinitionSummary -&gt; FlowDefinitionSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305587"><span id="local-6989586621680305589"><span id="local-6989586621680305591"><span id="local-6989586621680305593"><span class="annot"><span class="annottext">ReadPrec [FlowDefinitionSummary]
+ReadPrec FlowDefinitionSummary
+Int -&gt; ReadS FlowDefinitionSummary
+ReadS [FlowDefinitionSummary]
+(Int -&gt; ReadS FlowDefinitionSummary)
+-&gt; ReadS [FlowDefinitionSummary]
+-&gt; ReadPrec FlowDefinitionSummary
+-&gt; ReadPrec [FlowDefinitionSummary]
+-&gt; Read FlowDefinitionSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FlowDefinitionSummary]
+$creadListPrec :: ReadPrec [FlowDefinitionSummary]
+readPrec :: ReadPrec FlowDefinitionSummary
+$creadPrec :: ReadPrec FlowDefinitionSummary
+readList :: ReadS [FlowDefinitionSummary]
+$creadList :: ReadS [FlowDefinitionSummary]
+readsPrec :: Int -&gt; ReadS FlowDefinitionSummary
+$creadsPrec :: Int -&gt; ReadS FlowDefinitionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305580"><span id="local-6989586621680305582"><span id="local-6989586621680305584"><span class="annot"><span class="annottext">Int -&gt; FlowDefinitionSummary -&gt; ShowS
+[FlowDefinitionSummary] -&gt; ShowS
+FlowDefinitionSummary -&gt; String
+(Int -&gt; FlowDefinitionSummary -&gt; ShowS)
+-&gt; (FlowDefinitionSummary -&gt; String)
+-&gt; ([FlowDefinitionSummary] -&gt; ShowS)
+-&gt; Show FlowDefinitionSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FlowDefinitionSummary] -&gt; ShowS
+$cshowList :: [FlowDefinitionSummary] -&gt; ShowS
+show :: FlowDefinitionSummary -&gt; String
+$cshow :: FlowDefinitionSummary -&gt; String
+showsPrec :: Int -&gt; FlowDefinitionSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; FlowDefinitionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FlowDefinitionSummary -&gt; Rep FlowDefinitionSummary x)
+-&gt; (forall x. Rep FlowDefinitionSummary x -&gt; FlowDefinitionSummary)
+-&gt; Generic FlowDefinitionSummary
+forall x. Rep FlowDefinitionSummary x -&gt; FlowDefinitionSummary
+forall x. FlowDefinitionSummary -&gt; Rep FlowDefinitionSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FlowDefinitionSummary x -&gt; FlowDefinitionSummary
+$cfrom :: forall x. FlowDefinitionSummary -&gt; Rep FlowDefinitionSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'FlowDefinitionSummary' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'failureReason', 'flowDefinitionSummary_failureReason' - The reason why the flow definition creation failed. A failure reason is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- returned only when the flow definition status is @Failed@.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'flowDefinitionName', 'flowDefinitionSummary_flowDefinitionName' - The name of the flow definition.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'flowDefinitionArn', 'flowDefinitionSummary_flowDefinitionArn' - The Amazon Resource Name (ARN) of the flow definition.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'flowDefinitionStatus', 'flowDefinitionSummary_flowDefinitionStatus' - The status of the flow definition. Valid values:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'creationTime', 'flowDefinitionSummary_creationTime' - The timestamp when SageMaker created the flow definition.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#newFlowDefinitionSummary"><span class="hs-identifier hs-type">newFlowDefinitionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'flowDefinitionName'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'flowDefinitionArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'flowDefinitionStatus'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus"><span class="hs-identifier hs-type">FlowDefinitionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'creationTime'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span>
+</span><span id="line-73"></span><span id="newFlowDefinitionSummary"><span class="annot"><span class="annottext">newFlowDefinitionSummary :: Text
+-&gt; Text -&gt; FlowDefinitionStatus -&gt; UTCTime -&gt; FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#newFlowDefinitionSummary"><span class="hs-identifier hs-var hs-var">newFlowDefinitionSummary</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680305574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305574"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680305573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305573"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680305572"><span class="annot"><span class="annottext">FlowDefinitionStatus
+</span><a href="#local-6989586621680305572"><span class="hs-identifier hs-var">pFlowDefinitionStatus_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680305571"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680305571"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">FlowDefinitionSummary' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; FlowDefinitionStatus
+-&gt; POSIX
+-&gt; FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:FlowDefinitionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AfailureReason%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionName:FlowDefinitionSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionName%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305574"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:FlowDefinitionSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionArn%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305573"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionStatus:FlowDefinitionSummary' :: FlowDefinitionStatus
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionStatus%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionStatus
+</span><a href="#local-6989586621680305572"><span class="hs-identifier hs-var">pFlowDefinitionStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:FlowDefinitionSummary' :: POSIX
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AcreationTime%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680305571"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The reason why the flow definition creation failed. A failure reason is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- returned only when the flow definition status is @Failed@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_failureReason"><span class="hs-identifier hs-type">flowDefinitionSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="flowDefinitionSummary_failureReason"><span class="annot"><span class="annottext">flowDefinitionSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_failureReason"><span class="hs-identifier hs-var hs-var">flowDefinitionSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlowDefinitionSummary -&gt; Maybe Text)
+-&gt; (FlowDefinitionSummary -&gt; Maybe Text -&gt; FlowDefinitionSummary)
+-&gt; Lens
+     FlowDefinitionSummary
+     FlowDefinitionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305565"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:FlowDefinitionSummary' :: FlowDefinitionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680305565"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305565"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305564"><span class="annot"><span class="annottext">s :: FlowDefinitionSummary
+</span><a href="#local-6989586621680305564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionSummary
+</span><a href="#local-6989586621680305564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:FlowDefinitionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AfailureReason%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the flow definition.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionName"><span class="hs-identifier hs-type">flowDefinitionSummary_flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="flowDefinitionSummary_flowDefinitionName"><span class="annot"><span class="annottext">flowDefinitionSummary_flowDefinitionName :: (Text -&gt; f Text)
+-&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionName"><span class="hs-identifier hs-var hs-var">flowDefinitionSummary_flowDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlowDefinitionSummary -&gt; Text)
+-&gt; (FlowDefinitionSummary -&gt; Text -&gt; FlowDefinitionSummary)
+-&gt; Lens FlowDefinitionSummary FlowDefinitionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305561"><span class="annot"><span class="annottext">Text
+flowDefinitionName :: Text
+$sel:flowDefinitionName:FlowDefinitionSummary' :: FlowDefinitionSummary -&gt; Text
+</span><a href="#local-6989586621680305561"><span class="hs-identifier hs-var hs-var">flowDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305561"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305560"><span class="annot"><span class="annottext">s :: FlowDefinitionSummary
+</span><a href="#local-6989586621680305560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionSummary
+</span><a href="#local-6989586621680305560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionName:FlowDefinitionSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionName%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow definition.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionArn"><span class="hs-identifier hs-type">flowDefinitionSummary_flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="flowDefinitionSummary_flowDefinitionArn"><span class="annot"><span class="annottext">flowDefinitionSummary_flowDefinitionArn :: (Text -&gt; f Text)
+-&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionArn"><span class="hs-identifier hs-var hs-var">flowDefinitionSummary_flowDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlowDefinitionSummary -&gt; Text)
+-&gt; (FlowDefinitionSummary -&gt; Text -&gt; FlowDefinitionSummary)
+-&gt; Lens FlowDefinitionSummary FlowDefinitionSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305557"><span class="annot"><span class="annottext">Text
+flowDefinitionArn :: Text
+$sel:flowDefinitionArn:FlowDefinitionSummary' :: FlowDefinitionSummary -&gt; Text
+</span><a href="#local-6989586621680305557"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305557"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305556"><span class="annot"><span class="annottext">s :: FlowDefinitionSummary
+</span><a href="#local-6989586621680305556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionSummary
+</span><a href="#local-6989586621680305556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:FlowDefinitionSummary' :: Text
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionArn%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680305555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The status of the flow definition. Valid values:</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionStatus"><span class="hs-identifier hs-type">flowDefinitionSummary_flowDefinitionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus"><span class="hs-identifier hs-type">FlowDefinitionStatus</span></a></span><span>
+</span><span id="line-102"></span><span id="flowDefinitionSummary_flowDefinitionStatus"><span class="annot"><span class="annottext">flowDefinitionSummary_flowDefinitionStatus :: (FlowDefinitionStatus -&gt; f FlowDefinitionStatus)
+-&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_flowDefinitionStatus"><span class="hs-identifier hs-var hs-var">flowDefinitionSummary_flowDefinitionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlowDefinitionSummary -&gt; FlowDefinitionStatus)
+-&gt; (FlowDefinitionSummary
+    -&gt; FlowDefinitionStatus -&gt; FlowDefinitionSummary)
+-&gt; Lens
+     FlowDefinitionSummary
+     FlowDefinitionSummary
+     FlowDefinitionStatus
+     FlowDefinitionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305553"><span class="annot"><span class="annottext">FlowDefinitionStatus
+flowDefinitionStatus :: FlowDefinitionStatus
+$sel:flowDefinitionStatus:FlowDefinitionSummary' :: FlowDefinitionSummary -&gt; FlowDefinitionStatus
+</span><a href="#local-6989586621680305553"><span class="hs-identifier hs-var hs-var">flowDefinitionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionStatus
+</span><a href="#local-6989586621680305553"><span class="hs-identifier hs-var">flowDefinitionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305552"><span class="annot"><span class="annottext">s :: FlowDefinitionSummary
+</span><a href="#local-6989586621680305552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305551"><span class="annot"><span class="annottext">FlowDefinitionStatus
+</span><a href="#local-6989586621680305551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionSummary
+</span><a href="#local-6989586621680305552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionStatus:FlowDefinitionSummary' :: FlowDefinitionStatus
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AflowDefinitionStatus%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">flowDefinitionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionStatus
+</span><a href="#local-6989586621680305551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The timestamp when SageMaker created the flow definition.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_creationTime"><span class="hs-identifier hs-type">flowDefinitionSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-106"></span><span id="flowDefinitionSummary_creationTime"><span class="annot"><span class="annottext">flowDefinitionSummary_creationTime :: (UTCTime -&gt; f UTCTime)
+-&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#flowDefinitionSummary_creationTime"><span class="hs-identifier hs-var hs-var">flowDefinitionSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FlowDefinitionSummary -&gt; POSIX)
+-&gt; (FlowDefinitionSummary -&gt; POSIX -&gt; FlowDefinitionSummary)
+-&gt; Lens FlowDefinitionSummary FlowDefinitionSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305549"><span class="annot"><span class="annottext">POSIX
+creationTime :: POSIX
+$sel:creationTime:FlowDefinitionSummary' :: FlowDefinitionSummary -&gt; POSIX
+</span><a href="#local-6989586621680305549"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680305549"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305548"><span class="annot"><span class="annottext">s :: FlowDefinitionSummary
+</span><a href="#local-6989586621680305548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-type">FlowDefinitionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305547"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680305547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionSummary
+</span><a href="#local-6989586621680305548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:FlowDefinitionSummary' :: POSIX
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#%24sel%3AcreationTime%3AFlowDefinitionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680305547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; FlowDefinitionSummary -&gt; f FlowDefinitionSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; FlowDefinitionSummary
+-&gt; f FlowDefinitionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305543"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621680305541"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FlowDefinitionSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FlowDefinitionSummary)
+-&gt; Value
+-&gt; Parser FlowDefinitionSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FlowDefinitionSummary&quot;</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680305538"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; FlowDefinitionStatus
+-&gt; POSIX
+-&gt; FlowDefinitionSummary
+</span><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary%27"><span class="hs-identifier hs-var">FlowDefinitionSummary'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; FlowDefinitionStatus
+ -&gt; POSIX
+ -&gt; FlowDefinitionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlowDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+-&gt; Parser Text
+-&gt; Parser (FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlowDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (FlowDefinitionStatus -&gt; POSIX -&gt; FlowDefinitionSummary)
+-&gt; Parser FlowDefinitionStatus
+-&gt; Parser (POSIX -&gt; FlowDefinitionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FlowDefinitionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlowDefinitionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; FlowDefinitionSummary)
+-&gt; Parser POSIX -&gt; Parser FlowDefinitionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305531"><span id="local-6989586621680305533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionSummary.html#FlowDefinitionSummary"><span class="hs-identifier hs-type">FlowDefinitionSummary</span></a></span></span><span>
+</span><span id="line-124"></span></pre></body></html>

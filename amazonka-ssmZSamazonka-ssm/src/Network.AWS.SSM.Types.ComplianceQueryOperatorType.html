@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.ComplianceQueryOperatorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.ComplianceQueryOperatorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_BEGIN_WITH"><span class="hs-identifier">ComplianceQueryOperatorType_BEGIN_WITH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_EQUAL"><span class="hs-identifier">ComplianceQueryOperatorType_EQUAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_GREATER_THAN"><span class="hs-identifier">ComplianceQueryOperatorType_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_LESS_THAN"><span class="hs-identifier">ComplianceQueryOperatorType_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_NOT_EQUAL"><span class="hs-identifier">ComplianceQueryOperatorType_NOT_EQUAL</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679789326"><span id="local-6989586621679789327"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceQueryOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-var">ComplianceQueryOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceQueryOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-var">ComplianceQueryOperatorType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComplianceQueryOperatorType"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; Text
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#fromComplianceQueryOperatorType"><span class="hs-identifier hs-var hs-var">fromComplianceQueryOperatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789318"><span id="local-6989586621679789320"><span id="local-6989586621679789322"><span class="annot"><span class="annottext">Int -&gt; ComplianceQueryOperatorType -&gt; ShowS
+[ComplianceQueryOperatorType] -&gt; ShowS
+ComplianceQueryOperatorType -&gt; String
+(Int -&gt; ComplianceQueryOperatorType -&gt; ShowS)
+-&gt; (ComplianceQueryOperatorType -&gt; String)
+-&gt; ([ComplianceQueryOperatorType] -&gt; ShowS)
+-&gt; Show ComplianceQueryOperatorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComplianceQueryOperatorType] -&gt; ShowS
+$cshowList :: [ComplianceQueryOperatorType] -&gt; ShowS
+show :: ComplianceQueryOperatorType -&gt; String
+$cshow :: ComplianceQueryOperatorType -&gt; String
+showsPrec :: Int -&gt; ComplianceQueryOperatorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComplianceQueryOperatorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679789309"><span id="local-6989586621679789311"><span id="local-6989586621679789313"><span id="local-6989586621679789315"><span class="annot"><span class="annottext">ReadPrec [ComplianceQueryOperatorType]
+ReadPrec ComplianceQueryOperatorType
+Int -&gt; ReadS ComplianceQueryOperatorType
+ReadS [ComplianceQueryOperatorType]
+(Int -&gt; ReadS ComplianceQueryOperatorType)
+-&gt; ReadS [ComplianceQueryOperatorType]
+-&gt; ReadPrec ComplianceQueryOperatorType
+-&gt; ReadPrec [ComplianceQueryOperatorType]
+-&gt; Read ComplianceQueryOperatorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComplianceQueryOperatorType]
+$creadListPrec :: ReadPrec [ComplianceQueryOperatorType]
+readPrec :: ReadPrec ComplianceQueryOperatorType
+$creadPrec :: ReadPrec ComplianceQueryOperatorType
+readList :: ReadS [ComplianceQueryOperatorType]
+$creadList :: ReadS [ComplianceQueryOperatorType]
+readsPrec :: Int -&gt; ReadS ComplianceQueryOperatorType
+$creadsPrec :: Int -&gt; ReadS ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679789304"><span id="local-6989586621679789306"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+(ComplianceQueryOperatorType
+ -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; Eq ComplianceQueryOperatorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c/= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+== :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c== :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679789288"><span id="local-6989586621679789290"><span id="local-6989586621679789292"><span id="local-6989586621679789294"><span id="local-6989586621679789296"><span id="local-6989586621679789298"><span id="local-6989586621679789300"><span class="annot"><span class="annottext">Eq ComplianceQueryOperatorType
+Eq ComplianceQueryOperatorType
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Ordering)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; Bool)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType)
+-&gt; (ComplianceQueryOperatorType
+    -&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType)
+-&gt; Ord ComplianceQueryOperatorType
+ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; Ordering
+ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType
+$cmin :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType
+max :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType
+$cmax :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType
+&gt;= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c&gt;= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+&gt; :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c&gt; :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+&lt;= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c&lt;= :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+&lt; :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+$c&lt; :: ComplianceQueryOperatorType -&gt; ComplianceQueryOperatorType -&gt; Bool
+compare :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; Ordering
+$ccompare :: ComplianceQueryOperatorType
+-&gt; ComplianceQueryOperatorType -&gt; Ordering
+$cp1Ord :: Eq ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ComplianceQueryOperatorType -&gt; Rep ComplianceQueryOperatorType x)
+-&gt; (forall x.
+    Rep ComplianceQueryOperatorType x -&gt; ComplianceQueryOperatorType)
+-&gt; Generic ComplianceQueryOperatorType
+forall x.
+Rep ComplianceQueryOperatorType x -&gt; ComplianceQueryOperatorType
+forall x.
+ComplianceQueryOperatorType -&gt; Rep ComplianceQueryOperatorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ComplianceQueryOperatorType x -&gt; ComplianceQueryOperatorType
+$cfrom :: forall x.
+ComplianceQueryOperatorType -&gt; Rep ComplianceQueryOperatorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789280"><span id="local-6989586621679789282"><span class="annot"><span class="annottext">Int -&gt; ComplianceQueryOperatorType -&gt; Int
+ComplianceQueryOperatorType -&gt; Int
+(Int -&gt; ComplianceQueryOperatorType -&gt; Int)
+-&gt; (ComplianceQueryOperatorType -&gt; Int)
+-&gt; Hashable ComplianceQueryOperatorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ComplianceQueryOperatorType -&gt; Int
+$chash :: ComplianceQueryOperatorType -&gt; Int
+hashWithSalt :: Int -&gt; ComplianceQueryOperatorType -&gt; Int
+$chashWithSalt :: Int -&gt; ComplianceQueryOperatorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679789277"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; ()
+(ComplianceQueryOperatorType -&gt; ())
+-&gt; NFData ComplianceQueryOperatorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ComplianceQueryOperatorType -&gt; ()
+$crnf :: ComplianceQueryOperatorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789274"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceQueryOperatorType
+(Text -&gt; Either String ComplianceQueryOperatorType)
+-&gt; FromText ComplianceQueryOperatorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ComplianceQueryOperatorType
+$cfromText :: Text -&gt; Either String ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789271"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; Text
+(ComplianceQueryOperatorType -&gt; Text)
+-&gt; ToText ComplianceQueryOperatorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ComplianceQueryOperatorType -&gt; Text
+$ctoText :: ComplianceQueryOperatorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789268"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; ByteString
+(ComplianceQueryOperatorType -&gt; ByteString)
+-&gt; ToByteString ComplianceQueryOperatorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ComplianceQueryOperatorType -&gt; ByteString
+$ctoBS :: ComplianceQueryOperatorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789265"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; ByteStringBuilder
+(ComplianceQueryOperatorType -&gt; ByteStringBuilder)
+-&gt; ToLog ComplianceQueryOperatorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ComplianceQueryOperatorType -&gt; ByteStringBuilder
+$cbuild :: ComplianceQueryOperatorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789262"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceQueryOperatorType -&gt; [Header]
+(HeaderName -&gt; ComplianceQueryOperatorType -&gt; [Header])
+-&gt; ToHeader ComplianceQueryOperatorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ComplianceQueryOperatorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ComplianceQueryOperatorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789259"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; QueryString
+(ComplianceQueryOperatorType -&gt; QueryString)
+-&gt; ToQuery ComplianceQueryOperatorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ComplianceQueryOperatorType -&gt; QueryString
+$ctoQuery :: ComplianceQueryOperatorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789254"><span id="local-6989586621679789256"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceQueryOperatorType]
+Value -&gt; Parser ComplianceQueryOperatorType
+(Value -&gt; Parser ComplianceQueryOperatorType)
+-&gt; (Value -&gt; Parser [ComplianceQueryOperatorType])
+-&gt; FromJSON ComplianceQueryOperatorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ComplianceQueryOperatorType]
+$cparseJSONList :: Value -&gt; Parser [ComplianceQueryOperatorType]
+parseJSON :: Value -&gt; Parser ComplianceQueryOperatorType
+$cparseJSON :: Value -&gt; Parser ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789249"><span id="local-6989586621679789251"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceQueryOperatorType]
+FromJSONKeyFunction ComplianceQueryOperatorType
+FromJSONKeyFunction ComplianceQueryOperatorType
+-&gt; FromJSONKeyFunction [ComplianceQueryOperatorType]
+-&gt; FromJSONKey ComplianceQueryOperatorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ComplianceQueryOperatorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ComplianceQueryOperatorType]
+fromJSONKey :: FromJSONKeyFunction ComplianceQueryOperatorType
+$cfromJSONKey :: FromJSONKeyFunction ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789240"><span id="local-6989586621679789242"><span id="local-6989586621679789244"><span id="local-6989586621679789246"><span class="annot"><span class="annottext">[ComplianceQueryOperatorType] -&gt; Encoding
+[ComplianceQueryOperatorType] -&gt; Value
+ComplianceQueryOperatorType -&gt; Encoding
+ComplianceQueryOperatorType -&gt; Value
+(ComplianceQueryOperatorType -&gt; Value)
+-&gt; (ComplianceQueryOperatorType -&gt; Encoding)
+-&gt; ([ComplianceQueryOperatorType] -&gt; Value)
+-&gt; ([ComplianceQueryOperatorType] -&gt; Encoding)
+-&gt; ToJSON ComplianceQueryOperatorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ComplianceQueryOperatorType] -&gt; Encoding
+$ctoEncodingList :: [ComplianceQueryOperatorType] -&gt; Encoding
+toJSONList :: [ComplianceQueryOperatorType] -&gt; Value
+$ctoJSONList :: [ComplianceQueryOperatorType] -&gt; Value
+toEncoding :: ComplianceQueryOperatorType -&gt; Encoding
+$ctoEncoding :: ComplianceQueryOperatorType -&gt; Encoding
+toJSON :: ComplianceQueryOperatorType -&gt; Value
+$ctoJSON :: ComplianceQueryOperatorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679789235"><span id="local-6989586621679789237"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceQueryOperatorType]
+ToJSONKeyFunction ComplianceQueryOperatorType
+ToJSONKeyFunction ComplianceQueryOperatorType
+-&gt; ToJSONKeyFunction [ComplianceQueryOperatorType]
+-&gt; ToJSONKey ComplianceQueryOperatorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ComplianceQueryOperatorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ComplianceQueryOperatorType]
+toJSONKey :: ToJSONKeyFunction ComplianceQueryOperatorType
+$ctoJSONKey :: ToJSONKeyFunction ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679789232"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceQueryOperatorType
+([Node] -&gt; Either String ComplianceQueryOperatorType)
+-&gt; FromXML ComplianceQueryOperatorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ComplianceQueryOperatorType
+$cparseXML :: [Node] -&gt; Either String ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679789229"><span class="annot"><span class="annottext">ComplianceQueryOperatorType -&gt; XML
+(ComplianceQueryOperatorType -&gt; XML)
+-&gt; ToXML ComplianceQueryOperatorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ComplianceQueryOperatorType -&gt; XML
+$ctoXML :: ComplianceQueryOperatorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_BEGIN_WITH"><span class="hs-identifier hs-type">ComplianceQueryOperatorType_BEGIN_WITH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComplianceQueryOperatorType_BEGIN_WITH"><span id="%24mComplianceQueryOperatorType_BEGIN_WITH"><span id="ComplianceQueryOperatorType_BEGIN_WITH"><span class="annot"><span class="annottext">$bComplianceQueryOperatorType_BEGIN_WITH :: ComplianceQueryOperatorType
+$mComplianceQueryOperatorType_BEGIN_WITH :: forall r.
+ComplianceQueryOperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#%24bComplianceQueryOperatorType_BEGIN_WITH"><span class="hs-identifier hs-var hs-var hs-var">ComplianceQueryOperatorType_BEGIN_WITH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-type">ComplianceQueryOperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BEGIN_WITH&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_EQUAL"><span class="hs-identifier hs-type">ComplianceQueryOperatorType_EQUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComplianceQueryOperatorType_EQUAL"><span id="%24mComplianceQueryOperatorType_EQUAL"><span id="ComplianceQueryOperatorType_EQUAL"><span class="annot"><span class="annottext">$bComplianceQueryOperatorType_EQUAL :: ComplianceQueryOperatorType
+$mComplianceQueryOperatorType_EQUAL :: forall r.
+ComplianceQueryOperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#%24bComplianceQueryOperatorType_EQUAL"><span class="hs-identifier hs-var hs-var hs-var">ComplianceQueryOperatorType_EQUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-type">ComplianceQueryOperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_GREATER_THAN"><span class="hs-identifier hs-type">ComplianceQueryOperatorType_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComplianceQueryOperatorType_GREATER_THAN"><span id="%24mComplianceQueryOperatorType_GREATER_THAN"><span id="ComplianceQueryOperatorType_GREATER_THAN"><span class="annot"><span class="annottext">$bComplianceQueryOperatorType_GREATER_THAN :: ComplianceQueryOperatorType
+$mComplianceQueryOperatorType_GREATER_THAN :: forall r.
+ComplianceQueryOperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#%24bComplianceQueryOperatorType_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">ComplianceQueryOperatorType_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-type">ComplianceQueryOperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_LESS_THAN"><span class="hs-identifier hs-type">ComplianceQueryOperatorType_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComplianceQueryOperatorType_LESS_THAN"><span id="%24mComplianceQueryOperatorType_LESS_THAN"><span id="ComplianceQueryOperatorType_LESS_THAN"><span class="annot"><span class="annottext">$bComplianceQueryOperatorType_LESS_THAN :: ComplianceQueryOperatorType
+$mComplianceQueryOperatorType_LESS_THAN :: forall r.
+ComplianceQueryOperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#%24bComplianceQueryOperatorType_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">ComplianceQueryOperatorType_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-type">ComplianceQueryOperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_NOT_EQUAL"><span class="hs-identifier hs-type">ComplianceQueryOperatorType_NOT_EQUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComplianceQueryOperatorType_NOT_EQUAL"><span id="%24mComplianceQueryOperatorType_NOT_EQUAL"><span id="ComplianceQueryOperatorType_NOT_EQUAL"><span class="annot"><span class="annottext">$bComplianceQueryOperatorType_NOT_EQUAL :: ComplianceQueryOperatorType
+$mComplianceQueryOperatorType_NOT_EQUAL :: forall r.
+ComplianceQueryOperatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#%24bComplianceQueryOperatorType_NOT_EQUAL"><span class="hs-identifier hs-var hs-var hs-var">ComplianceQueryOperatorType_NOT_EQUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-identifier hs-type">ComplianceQueryOperatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_EQUAL&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_BEGIN_WITH"><span class="hs-pragma hs-type">ComplianceQueryOperatorType_BEGIN_WITH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_EQUAL"><span class="hs-pragma hs-type">ComplianceQueryOperatorType_EQUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_GREATER_THAN"><span class="hs-pragma hs-type">ComplianceQueryOperatorType_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_LESS_THAN"><span class="hs-pragma hs-type">ComplianceQueryOperatorType_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType_NOT_EQUAL"><span class="hs-pragma hs-type">ComplianceQueryOperatorType_NOT_EQUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType%27"><span class="hs-pragma hs-type">ComplianceQueryOperatorType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

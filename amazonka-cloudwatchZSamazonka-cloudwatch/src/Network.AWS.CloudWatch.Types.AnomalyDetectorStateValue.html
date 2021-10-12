@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier">AnomalyDetectorStateValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_PENDING_TRAINING"><span class="hs-identifier">AnomalyDetectorStateValue_PENDING_TRAINING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED"><span class="hs-identifier">AnomalyDetectorStateValue_TRAINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span class="hs-identifier">AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679253098"><span id="local-6989586621679253099"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalyDetectorStateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-var">AnomalyDetectorStateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyDetectorStateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-var">AnomalyDetectorStateValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnomalyDetectorStateValue"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; Text
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#fromAnomalyDetectorStateValue"><span class="hs-identifier hs-var hs-var">fromAnomalyDetectorStateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253090"><span id="local-6989586621679253092"><span id="local-6989586621679253094"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
+[AnomalyDetectorStateValue] -&gt; ShowS
+AnomalyDetectorStateValue -&gt; String
+(Int -&gt; AnomalyDetectorStateValue -&gt; ShowS)
+-&gt; (AnomalyDetectorStateValue -&gt; String)
+-&gt; ([AnomalyDetectorStateValue] -&gt; ShowS)
+-&gt; Show AnomalyDetectorStateValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnomalyDetectorStateValue] -&gt; ShowS
+$cshowList :: [AnomalyDetectorStateValue] -&gt; ShowS
+show :: AnomalyDetectorStateValue -&gt; String
+$cshow :: AnomalyDetectorStateValue -&gt; String
+showsPrec :: Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679253081"><span id="local-6989586621679253083"><span id="local-6989586621679253085"><span id="local-6989586621679253087"><span class="annot"><span class="annottext">ReadPrec [AnomalyDetectorStateValue]
+ReadPrec AnomalyDetectorStateValue
+Int -&gt; ReadS AnomalyDetectorStateValue
+ReadS [AnomalyDetectorStateValue]
+(Int -&gt; ReadS AnomalyDetectorStateValue)
+-&gt; ReadS [AnomalyDetectorStateValue]
+-&gt; ReadPrec AnomalyDetectorStateValue
+-&gt; ReadPrec [AnomalyDetectorStateValue]
+-&gt; Read AnomalyDetectorStateValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnomalyDetectorStateValue]
+$creadListPrec :: ReadPrec [AnomalyDetectorStateValue]
+readPrec :: ReadPrec AnomalyDetectorStateValue
+$creadPrec :: ReadPrec AnomalyDetectorStateValue
+readList :: ReadS [AnomalyDetectorStateValue]
+$creadList :: ReadS [AnomalyDetectorStateValue]
+readsPrec :: Int -&gt; ReadS AnomalyDetectorStateValue
+$creadsPrec :: Int -&gt; ReadS AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253076"><span id="local-6989586621679253078"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+(AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; Eq AnomalyDetectorStateValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c/= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+== :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c== :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253060"><span id="local-6989586621679253062"><span id="local-6989586621679253064"><span id="local-6989586621679253066"><span id="local-6989586621679253068"><span id="local-6989586621679253070"><span id="local-6989586621679253072"><span class="annot"><span class="annottext">Eq AnomalyDetectorStateValue
+Eq AnomalyDetectorStateValue
+-&gt; (AnomalyDetectorStateValue
+    -&gt; AnomalyDetectorStateValue -&gt; Ordering)
+-&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
+-&gt; (AnomalyDetectorStateValue
+    -&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue)
+-&gt; (AnomalyDetectorStateValue
+    -&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue)
+-&gt; Ord AnomalyDetectorStateValue
+AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Ordering
+AnomalyDetectorStateValue
+-&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnomalyDetectorStateValue
+-&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue
+$cmin :: AnomalyDetectorStateValue
+-&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue
+max :: AnomalyDetectorStateValue
+-&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue
+$cmax :: AnomalyDetectorStateValue
+-&gt; AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue
+&gt;= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c&gt;= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+&gt; :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c&gt; :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+&lt;= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c&lt;= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+&lt; :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+$c&lt; :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+compare :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Ordering
+$ccompare :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Ordering
+$cp1Ord :: Eq AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AnomalyDetectorStateValue -&gt; Rep AnomalyDetectorStateValue x)
+-&gt; (forall x.
+    Rep AnomalyDetectorStateValue x -&gt; AnomalyDetectorStateValue)
+-&gt; Generic AnomalyDetectorStateValue
+forall x.
+Rep AnomalyDetectorStateValue x -&gt; AnomalyDetectorStateValue
+forall x.
+AnomalyDetectorStateValue -&gt; Rep AnomalyDetectorStateValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AnomalyDetectorStateValue x -&gt; AnomalyDetectorStateValue
+$cfrom :: forall x.
+AnomalyDetectorStateValue -&gt; Rep AnomalyDetectorStateValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253052"><span id="local-6989586621679253054"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; Int
+AnomalyDetectorStateValue -&gt; Int
+(Int -&gt; AnomalyDetectorStateValue -&gt; Int)
+-&gt; (AnomalyDetectorStateValue -&gt; Int)
+-&gt; Hashable AnomalyDetectorStateValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnomalyDetectorStateValue -&gt; Int
+$chash :: AnomalyDetectorStateValue -&gt; Int
+hashWithSalt :: Int -&gt; AnomalyDetectorStateValue -&gt; Int
+$chashWithSalt :: Int -&gt; AnomalyDetectorStateValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679253049"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ()
+(AnomalyDetectorStateValue -&gt; ())
+-&gt; NFData AnomalyDetectorStateValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnomalyDetectorStateValue -&gt; ()
+$crnf :: AnomalyDetectorStateValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253046"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalyDetectorStateValue
+(Text -&gt; Either String AnomalyDetectorStateValue)
+-&gt; FromText AnomalyDetectorStateValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnomalyDetectorStateValue
+$cfromText :: Text -&gt; Either String AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253043"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; Text
+(AnomalyDetectorStateValue -&gt; Text)
+-&gt; ToText AnomalyDetectorStateValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnomalyDetectorStateValue -&gt; Text
+$ctoText :: AnomalyDetectorStateValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253040"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteString
+(AnomalyDetectorStateValue -&gt; ByteString)
+-&gt; ToByteString AnomalyDetectorStateValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnomalyDetectorStateValue -&gt; ByteString
+$ctoBS :: AnomalyDetectorStateValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253037"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteStringBuilder
+(AnomalyDetectorStateValue -&gt; ByteStringBuilder)
+-&gt; ToLog AnomalyDetectorStateValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnomalyDetectorStateValue -&gt; ByteStringBuilder
+$cbuild :: AnomalyDetectorStateValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253034"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
+(HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header])
+-&gt; ToHeader AnomalyDetectorStateValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253031"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; QueryString
+(AnomalyDetectorStateValue -&gt; QueryString)
+-&gt; ToQuery AnomalyDetectorStateValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnomalyDetectorStateValue -&gt; QueryString
+$ctoQuery :: AnomalyDetectorStateValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253026"><span id="local-6989586621679253028"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalyDetectorStateValue]
+Value -&gt; Parser AnomalyDetectorStateValue
+(Value -&gt; Parser AnomalyDetectorStateValue)
+-&gt; (Value -&gt; Parser [AnomalyDetectorStateValue])
+-&gt; FromJSON AnomalyDetectorStateValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnomalyDetectorStateValue]
+$cparseJSONList :: Value -&gt; Parser [AnomalyDetectorStateValue]
+parseJSON :: Value -&gt; Parser AnomalyDetectorStateValue
+$cparseJSON :: Value -&gt; Parser AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253021"><span id="local-6989586621679253023"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalyDetectorStateValue]
+FromJSONKeyFunction AnomalyDetectorStateValue
+FromJSONKeyFunction AnomalyDetectorStateValue
+-&gt; FromJSONKeyFunction [AnomalyDetectorStateValue]
+-&gt; FromJSONKey AnomalyDetectorStateValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnomalyDetectorStateValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnomalyDetectorStateValue]
+fromJSONKey :: FromJSONKeyFunction AnomalyDetectorStateValue
+$cfromJSONKey :: FromJSONKeyFunction AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253012"><span id="local-6989586621679253014"><span id="local-6989586621679253016"><span id="local-6989586621679253018"><span class="annot"><span class="annottext">[AnomalyDetectorStateValue] -&gt; Encoding
+[AnomalyDetectorStateValue] -&gt; Value
+AnomalyDetectorStateValue -&gt; Encoding
+AnomalyDetectorStateValue -&gt; Value
+(AnomalyDetectorStateValue -&gt; Value)
+-&gt; (AnomalyDetectorStateValue -&gt; Encoding)
+-&gt; ([AnomalyDetectorStateValue] -&gt; Value)
+-&gt; ([AnomalyDetectorStateValue] -&gt; Encoding)
+-&gt; ToJSON AnomalyDetectorStateValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnomalyDetectorStateValue] -&gt; Encoding
+$ctoEncodingList :: [AnomalyDetectorStateValue] -&gt; Encoding
+toJSONList :: [AnomalyDetectorStateValue] -&gt; Value
+$ctoJSONList :: [AnomalyDetectorStateValue] -&gt; Value
+toEncoding :: AnomalyDetectorStateValue -&gt; Encoding
+$ctoEncoding :: AnomalyDetectorStateValue -&gt; Encoding
+toJSON :: AnomalyDetectorStateValue -&gt; Value
+$ctoJSON :: AnomalyDetectorStateValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253007"><span id="local-6989586621679253009"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalyDetectorStateValue]
+ToJSONKeyFunction AnomalyDetectorStateValue
+ToJSONKeyFunction AnomalyDetectorStateValue
+-&gt; ToJSONKeyFunction [AnomalyDetectorStateValue]
+-&gt; ToJSONKey AnomalyDetectorStateValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnomalyDetectorStateValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnomalyDetectorStateValue]
+toJSONKey :: ToJSONKeyFunction AnomalyDetectorStateValue
+$ctoJSONKey :: ToJSONKeyFunction AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253004"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalyDetectorStateValue
+([Node] -&gt; Either String AnomalyDetectorStateValue)
+-&gt; FromXML AnomalyDetectorStateValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnomalyDetectorStateValue
+$cparseXML :: [Node] -&gt; Either String AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253001"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; XML
+(AnomalyDetectorStateValue -&gt; XML)
+-&gt; ToXML AnomalyDetectorStateValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnomalyDetectorStateValue -&gt; XML
+$ctoXML :: AnomalyDetectorStateValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_PENDING_TRAINING"><span class="hs-identifier hs-type">AnomalyDetectorStateValue_PENDING_TRAINING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalyDetectorStateValue_PENDING_TRAINING"><span id="%24mAnomalyDetectorStateValue_PENDING_TRAINING"><span id="AnomalyDetectorStateValue_PENDING_TRAINING"><span class="annot"><span class="annottext">$bAnomalyDetectorStateValue_PENDING_TRAINING :: AnomalyDetectorStateValue
+$mAnomalyDetectorStateValue_PENDING_TRAINING :: forall r.
+AnomalyDetectorStateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#%24bAnomalyDetectorStateValue_PENDING_TRAINING"><span class="hs-identifier hs-var hs-var hs-var">AnomalyDetectorStateValue_PENDING_TRAINING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-type">AnomalyDetectorStateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_TRAINING&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED"><span class="hs-identifier hs-type">AnomalyDetectorStateValue_TRAINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalyDetectorStateValue_TRAINED"><span id="%24mAnomalyDetectorStateValue_TRAINED"><span id="AnomalyDetectorStateValue_TRAINED"><span class="annot"><span class="annottext">$bAnomalyDetectorStateValue_TRAINED :: AnomalyDetectorStateValue
+$mAnomalyDetectorStateValue_TRAINED :: forall r.
+AnomalyDetectorStateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#%24bAnomalyDetectorStateValue_TRAINED"><span class="hs-identifier hs-var hs-var hs-var">AnomalyDetectorStateValue_TRAINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-type">AnomalyDetectorStateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRAINED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span class="hs-identifier hs-type">AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span id="%24mAnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span id="AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span class="annot"><span class="annottext">$bAnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA :: AnomalyDetectorStateValue
+$mAnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA :: forall r.
+AnomalyDetectorStateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#%24bAnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span class="hs-identifier hs-var hs-var hs-var">AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-type">AnomalyDetectorStateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TRAINED_INSUFFICIENT_DATA&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_PENDING_TRAINING"><span class="hs-pragma hs-type">AnomalyDetectorStateValue_PENDING_TRAINING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED"><span class="hs-pragma hs-type">AnomalyDetectorStateValue_TRAINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA"><span class="hs-pragma hs-type">AnomalyDetectorStateValue_TRAINED_INSUFFICIENT_DATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-pragma hs-type">AnomalyDetectorStateValue'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.GetConferenceProvider</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets details about a specific conference provider.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.GetConferenceProvider</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier">GetConferenceProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProvider"><span class="hs-identifier">newGetConferenceProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProvider_conferenceProviderArn"><span class="hs-identifier">getConferenceProvider_conferenceProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier">GetConferenceProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProviderResponse"><span class="hs-identifier">newGetConferenceProviderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_conferenceProvider"><span class="hs-identifier">getConferenceProviderResponse_conferenceProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_httpStatus"><span class="hs-identifier">getConferenceProviderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.html"><span class="hs-identifier">Network.AWS.AlexaBusiness.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetConferenceProvider' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679385659"><span id="local-6989586621679385660"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferenceProvider"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-var">GetConferenceProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferenceProvider%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider%27"><span class="hs-identifier hs-var">GetConferenceProvider'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the newly created conference provider.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AconferenceProviderArn%3AGetConferenceProvider%27"><span class="annot"><span class="annottext">GetConferenceProvider -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProviderArn%3AGetConferenceProvider%27"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385653"><span id="local-6989586621679385655"><span class="annot"><span class="annottext">GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool
+(GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool)
+-&gt; (GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool)
+-&gt; Eq GetConferenceProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool
+$c/= :: GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool
+== :: GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool
+$c== :: GetConferenceProvider -&gt; GetConferenceProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385644"><span id="local-6989586621679385646"><span id="local-6989586621679385648"><span id="local-6989586621679385650"><span class="annot"><span class="annottext">ReadPrec [GetConferenceProvider]
+ReadPrec GetConferenceProvider
+Int -&gt; ReadS GetConferenceProvider
+ReadS [GetConferenceProvider]
+(Int -&gt; ReadS GetConferenceProvider)
+-&gt; ReadS [GetConferenceProvider]
+-&gt; ReadPrec GetConferenceProvider
+-&gt; ReadPrec [GetConferenceProvider]
+-&gt; Read GetConferenceProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConferenceProvider]
+$creadListPrec :: ReadPrec [GetConferenceProvider]
+readPrec :: ReadPrec GetConferenceProvider
+$creadPrec :: ReadPrec GetConferenceProvider
+readList :: ReadS [GetConferenceProvider]
+$creadList :: ReadS [GetConferenceProvider]
+readsPrec :: Int -&gt; ReadS GetConferenceProvider
+$creadsPrec :: Int -&gt; ReadS GetConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385637"><span id="local-6989586621679385639"><span id="local-6989586621679385641"><span class="annot"><span class="annottext">Int -&gt; GetConferenceProvider -&gt; ShowS
+[GetConferenceProvider] -&gt; ShowS
+GetConferenceProvider -&gt; String
+(Int -&gt; GetConferenceProvider -&gt; ShowS)
+-&gt; (GetConferenceProvider -&gt; String)
+-&gt; ([GetConferenceProvider] -&gt; ShowS)
+-&gt; Show GetConferenceProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConferenceProvider] -&gt; ShowS
+$cshowList :: [GetConferenceProvider] -&gt; ShowS
+show :: GetConferenceProvider -&gt; String
+$cshow :: GetConferenceProvider -&gt; String
+showsPrec :: Int -&gt; GetConferenceProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConferenceProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetConferenceProvider -&gt; Rep GetConferenceProvider x)
+-&gt; (forall x. Rep GetConferenceProvider x -&gt; GetConferenceProvider)
+-&gt; Generic GetConferenceProvider
+forall x. Rep GetConferenceProvider x -&gt; GetConferenceProvider
+forall x. GetConferenceProvider -&gt; Rep GetConferenceProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetConferenceProvider x -&gt; GetConferenceProvider
+$cfrom :: forall x. GetConferenceProvider -&gt; Rep GetConferenceProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetConferenceProvider' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'conferenceProviderArn', 'getConferenceProvider_conferenceProviderArn' - The ARN of the newly created conference provider.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProvider"><span class="hs-identifier hs-type">newGetConferenceProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'conferenceProviderArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetConferenceProvider"><span class="annot"><span class="annottext">newGetConferenceProvider :: Text -&gt; GetConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProvider"><span class="hs-identifier hs-var hs-var">newGetConferenceProvider</span></a></span></span><span> </span><span id="local-6989586621679385632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385632"><span class="hs-identifier hs-var">pConferenceProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetConferenceProvider' :: Text -&gt; GetConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider%27"><span class="hs-identifier hs-type">GetConferenceProvider'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:GetConferenceProvider' :: Text
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProviderArn%3AGetConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385632"><span class="hs-identifier hs-var">pConferenceProviderArn_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the newly created conference provider.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProvider_conferenceProviderArn"><span class="hs-identifier hs-type">getConferenceProvider_conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getConferenceProvider_conferenceProviderArn"><span class="annot"><span class="annottext">getConferenceProvider_conferenceProviderArn :: (Text -&gt; f Text)
+-&gt; GetConferenceProvider -&gt; f GetConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProvider_conferenceProviderArn"><span class="hs-identifier hs-var hs-var">getConferenceProvider_conferenceProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConferenceProvider -&gt; Text)
+-&gt; (GetConferenceProvider -&gt; Text -&gt; GetConferenceProvider)
+-&gt; Lens GetConferenceProvider GetConferenceProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider%27"><span class="hs-identifier hs-type">GetConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385629"><span class="annot"><span class="annottext">Text
+conferenceProviderArn :: Text
+$sel:conferenceProviderArn:GetConferenceProvider' :: GetConferenceProvider -&gt; Text
+</span><a href="#local-6989586621679385629"><span class="hs-identifier hs-var hs-var">conferenceProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385629"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385628"><span class="annot"><span class="annottext">s :: GetConferenceProvider
+</span><a href="#local-6989586621679385628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider%27"><span class="hs-identifier hs-type">GetConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferenceProvider
+</span><a href="#local-6989586621679385628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProviderArn:GetConferenceProvider' :: Text
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProviderArn%3AGetConferenceProvider%27"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679385623"><span class="annot"><span class="annottext">request :: GetConferenceProvider -&gt; Request GetConferenceProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetConferenceProvider -&gt; Request GetConferenceProvider
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679385619"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetConferenceProvider)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetConferenceProvider))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetConferenceProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetConferenceProvider)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385616"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385615"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385615"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConferenceProvider -&gt; Int -&gt; GetConferenceProviderResponse
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-var">GetConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConferenceProvider -&gt; Int -&gt; GetConferenceProviderResponse)
+-&gt; Either String (Maybe ConferenceProvider)
+-&gt; Either String (Int -&gt; GetConferenceProviderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConferenceProvider)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProvider&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetConferenceProviderResponse)
+-&gt; Either String Int -&gt; Either String GetConferenceProviderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385616"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385606"><span id="local-6989586621679385608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679385599"><span class="annot"><span class="annottext">toHeaders :: GetConferenceProvider -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetConferenceProvider -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AlexaForBusiness.GetConferenceProvider&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385589"><span id="local-6989586621679385591"><span id="local-6989586621679385593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679385587"><span class="annot"><span class="annottext">toJSON :: GetConferenceProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider%27"><span class="hs-identifier hs-type">GetConferenceProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385585"><span class="annot"><span class="annottext">Text
+conferenceProviderArn :: Text
+$sel:conferenceProviderArn:GetConferenceProvider' :: GetConferenceProvider -&gt; Text
+</span><a href="#local-6989586621679385585"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConferenceProviderArn&quot;</span></span><span>
+</span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385585"><span class="hs-identifier hs-var">conferenceProviderArn</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679385579"><span class="annot"><span class="annottext">toPath :: GetConferenceProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetConferenceProvider -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProvider"><span class="hs-identifier hs-type">GetConferenceProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679385575"><span class="annot"><span class="annottext">toQuery :: GetConferenceProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetConferenceProvider -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetConferenceProviderResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679385572"><span id="local-6989586621679385573"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferenceProviderResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-var">GetConferenceProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferenceProviderResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-var">GetConferenceProviderResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The conference provider.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AconferenceProvider%3AGetConferenceProviderResponse%27"><span class="annot"><span class="annottext">GetConferenceProviderResponse -&gt; Maybe ConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProvider%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var hs-var">conferenceProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProvider.html#ConferenceProvider"><span class="hs-identifier hs-type">ConferenceProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetConferenceProviderResponse%27"><span class="annot"><span class="annottext">GetConferenceProviderResponse -&gt; Int
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AhttpStatus%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385566"><span id="local-6989586621679385568"><span class="annot"><span class="annottext">GetConferenceProviderResponse
+-&gt; GetConferenceProviderResponse -&gt; Bool
+(GetConferenceProviderResponse
+ -&gt; GetConferenceProviderResponse -&gt; Bool)
+-&gt; (GetConferenceProviderResponse
+    -&gt; GetConferenceProviderResponse -&gt; Bool)
+-&gt; Eq GetConferenceProviderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConferenceProviderResponse
+-&gt; GetConferenceProviderResponse -&gt; Bool
+$c/= :: GetConferenceProviderResponse
+-&gt; GetConferenceProviderResponse -&gt; Bool
+== :: GetConferenceProviderResponse
+-&gt; GetConferenceProviderResponse -&gt; Bool
+$c== :: GetConferenceProviderResponse
+-&gt; GetConferenceProviderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385558"><span id="local-6989586621679385560"><span id="local-6989586621679385562"><span id="local-6989586621679385564"><span class="annot"><span class="annottext">ReadPrec [GetConferenceProviderResponse]
+ReadPrec GetConferenceProviderResponse
+Int -&gt; ReadS GetConferenceProviderResponse
+ReadS [GetConferenceProviderResponse]
+(Int -&gt; ReadS GetConferenceProviderResponse)
+-&gt; ReadS [GetConferenceProviderResponse]
+-&gt; ReadPrec GetConferenceProviderResponse
+-&gt; ReadPrec [GetConferenceProviderResponse]
+-&gt; Read GetConferenceProviderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConferenceProviderResponse]
+$creadListPrec :: ReadPrec [GetConferenceProviderResponse]
+readPrec :: ReadPrec GetConferenceProviderResponse
+$creadPrec :: ReadPrec GetConferenceProviderResponse
+readList :: ReadS [GetConferenceProviderResponse]
+$creadList :: ReadS [GetConferenceProviderResponse]
+readsPrec :: Int -&gt; ReadS GetConferenceProviderResponse
+$creadsPrec :: Int -&gt; ReadS GetConferenceProviderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385552"><span id="local-6989586621679385554"><span id="local-6989586621679385556"><span class="annot"><span class="annottext">Int -&gt; GetConferenceProviderResponse -&gt; ShowS
+[GetConferenceProviderResponse] -&gt; ShowS
+GetConferenceProviderResponse -&gt; String
+(Int -&gt; GetConferenceProviderResponse -&gt; ShowS)
+-&gt; (GetConferenceProviderResponse -&gt; String)
+-&gt; ([GetConferenceProviderResponse] -&gt; ShowS)
+-&gt; Show GetConferenceProviderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConferenceProviderResponse] -&gt; ShowS
+$cshowList :: [GetConferenceProviderResponse] -&gt; ShowS
+show :: GetConferenceProviderResponse -&gt; String
+$cshow :: GetConferenceProviderResponse -&gt; String
+showsPrec :: Int -&gt; GetConferenceProviderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConferenceProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetConferenceProviderResponse
+ -&gt; Rep GetConferenceProviderResponse x)
+-&gt; (forall x.
+    Rep GetConferenceProviderResponse x
+    -&gt; GetConferenceProviderResponse)
+-&gt; Generic GetConferenceProviderResponse
+forall x.
+Rep GetConferenceProviderResponse x
+-&gt; GetConferenceProviderResponse
+forall x.
+GetConferenceProviderResponse
+-&gt; Rep GetConferenceProviderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetConferenceProviderResponse x
+-&gt; GetConferenceProviderResponse
+$cfrom :: forall x.
+GetConferenceProviderResponse
+-&gt; Rep GetConferenceProviderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'GetConferenceProviderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'conferenceProvider', 'getConferenceProviderResponse_conferenceProvider' - The conference provider.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'getConferenceProviderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProviderResponse"><span class="hs-identifier hs-type">newGetConferenceProviderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newGetConferenceProviderResponse"><span class="annot"><span class="annottext">newGetConferenceProviderResponse :: Int -&gt; GetConferenceProviderResponse
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#newGetConferenceProviderResponse"><span class="hs-identifier hs-var hs-var">newGetConferenceProviderResponse</span></a></span></span><span> </span><span id="local-6989586621679385549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">GetConferenceProviderResponse' :: Maybe ConferenceProvider -&gt; Int -&gt; GetConferenceProviderResponse
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-type">GetConferenceProviderResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conferenceProvider:GetConferenceProviderResponse' :: Maybe ConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProvider%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var">conferenceProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConferenceProvider
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetConferenceProviderResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AhttpStatus%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The conference provider.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_conferenceProvider"><span class="hs-identifier hs-type">getConferenceProviderResponse_conferenceProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferenceProvider.html#ConferenceProvider"><span class="hs-identifier hs-type">ConferenceProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getConferenceProviderResponse_conferenceProvider"><span class="annot"><span class="annottext">getConferenceProviderResponse_conferenceProvider :: (Maybe ConferenceProvider -&gt; f (Maybe ConferenceProvider))
+-&gt; GetConferenceProviderResponse -&gt; f GetConferenceProviderResponse
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_conferenceProvider"><span class="hs-identifier hs-var hs-var">getConferenceProviderResponse_conferenceProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConferenceProviderResponse -&gt; Maybe ConferenceProvider)
+-&gt; (GetConferenceProviderResponse
+    -&gt; Maybe ConferenceProvider -&gt; GetConferenceProviderResponse)
+-&gt; Lens
+     GetConferenceProviderResponse
+     GetConferenceProviderResponse
+     (Maybe ConferenceProvider)
+     (Maybe ConferenceProvider)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-type">GetConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385548"><span class="annot"><span class="annottext">Maybe ConferenceProvider
+conferenceProvider :: Maybe ConferenceProvider
+$sel:conferenceProvider:GetConferenceProviderResponse' :: GetConferenceProviderResponse -&gt; Maybe ConferenceProvider
+</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var hs-var">conferenceProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConferenceProvider
+</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var">conferenceProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385547"><span class="annot"><span class="annottext">s :: GetConferenceProviderResponse
+</span><a href="#local-6989586621679385547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-type">GetConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385546"><span class="annot"><span class="annottext">Maybe ConferenceProvider
+</span><a href="#local-6989586621679385546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferenceProviderResponse
+</span><a href="#local-6989586621679385547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conferenceProvider:GetConferenceProviderResponse' :: Maybe ConferenceProvider
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AconferenceProvider%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var">conferenceProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConferenceProvider
+</span><a href="#local-6989586621679385546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-type">getConferenceProviderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getConferenceProviderResponse_httpStatus"><span class="annot"><span class="annottext">getConferenceProviderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetConferenceProviderResponse -&gt; f GetConferenceProviderResponse
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#getConferenceProviderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getConferenceProviderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConferenceProviderResponse -&gt; Int)
+-&gt; (GetConferenceProviderResponse
+    -&gt; Int -&gt; GetConferenceProviderResponse)
+-&gt; Lens
+     GetConferenceProviderResponse GetConferenceProviderResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-type">GetConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385545"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetConferenceProviderResponse' :: GetConferenceProviderResponse -&gt; Int
+</span><a href="#local-6989586621679385545"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385545"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385544"><span class="annot"><span class="annottext">s :: GetConferenceProviderResponse
+</span><a href="#local-6989586621679385544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse%27"><span class="hs-identifier hs-type">GetConferenceProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferenceProviderResponse
+</span><a href="#local-6989586621679385544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConferenceProviderResponse' :: Int
+</span><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#%24sel%3AhttpStatus%3AGetConferenceProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferenceProvider.html#GetConferenceProviderResponse"><span class="hs-identifier hs-type">GetConferenceProviderResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

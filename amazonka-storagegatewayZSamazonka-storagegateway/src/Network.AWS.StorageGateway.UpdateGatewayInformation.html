@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a gateway\'s metadata, which includes the gateway\'s name and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- time zone. To specify which gateway to update, use the Amazon Resource</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Name (ARN) of the gateway in your request.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- For gateways activated after September 2, 2015, the gateway\'s ARN</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- contains the gateway ID rather than the gateway name. However, changing</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the name of the gateway has no effect on the gateway\'s ARN.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.UpdateGatewayInformation</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformation"><span class="hs-identifier">newUpdateGatewayInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayCapacity"><span class="hs-identifier">updateGatewayInformation_gatewayCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayName"><span class="hs-identifier">updateGatewayInformation_gatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayTimezone"><span class="hs-identifier">updateGatewayInformation_gatewayTimezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_cloudWatchLogGroupARN"><span class="hs-identifier">updateGatewayInformation_cloudWatchLogGroupARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayARN"><span class="hs-identifier">updateGatewayInformation_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier">UpdateGatewayInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformationResponse"><span class="hs-identifier">newUpdateGatewayInformationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayARN"><span class="hs-identifier">updateGatewayInformationResponse_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayName"><span class="hs-identifier">updateGatewayInformationResponse_gatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_httpStatus"><span class="hs-identifier">updateGatewayInformationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newUpdateGatewayInformation' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679392203"><span id="local-6989586621679392204"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayInformation"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-var">UpdateGatewayInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayInformation%27"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-var">UpdateGatewayInformation'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the size of the gateway\'s metadata cache.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AgatewayCapacity%3AUpdateGatewayInformation%27"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; Maybe GatewayCapacity
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayCapacity%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var hs-var">gatewayCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-type">GatewayCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AgatewayName%3AUpdateGatewayInformation%27"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A value that indicates the time zone of the gateway.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AgatewayTimezone%3AUpdateGatewayInformation%27"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayTimezone%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var hs-var">gatewayTimezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- you want to use to monitor and log events in the gateway.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcloudWatchLogGroupARN%3AUpdateGatewayInformation%27"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AcloudWatchLogGroupARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AgatewayARN%3AUpdateGatewayInformation%27"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392193"><span id="local-6989586621679392195"><span class="annot"><span class="annottext">UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool
+(UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool)
+-&gt; (UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool)
+-&gt; Eq UpdateGatewayInformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool
+$c/= :: UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool
+== :: UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool
+$c== :: UpdateGatewayInformation -&gt; UpdateGatewayInformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392184"><span id="local-6989586621679392186"><span id="local-6989586621679392188"><span id="local-6989586621679392190"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayInformation]
+ReadPrec UpdateGatewayInformation
+Int -&gt; ReadS UpdateGatewayInformation
+ReadS [UpdateGatewayInformation]
+(Int -&gt; ReadS UpdateGatewayInformation)
+-&gt; ReadS [UpdateGatewayInformation]
+-&gt; ReadPrec UpdateGatewayInformation
+-&gt; ReadPrec [UpdateGatewayInformation]
+-&gt; Read UpdateGatewayInformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGatewayInformation]
+$creadListPrec :: ReadPrec [UpdateGatewayInformation]
+readPrec :: ReadPrec UpdateGatewayInformation
+$creadPrec :: ReadPrec UpdateGatewayInformation
+readList :: ReadS [UpdateGatewayInformation]
+$creadList :: ReadS [UpdateGatewayInformation]
+readsPrec :: Int -&gt; ReadS UpdateGatewayInformation
+$creadsPrec :: Int -&gt; ReadS UpdateGatewayInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392177"><span id="local-6989586621679392179"><span id="local-6989586621679392181"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayInformation -&gt; ShowS
+[UpdateGatewayInformation] -&gt; ShowS
+UpdateGatewayInformation -&gt; String
+(Int -&gt; UpdateGatewayInformation -&gt; ShowS)
+-&gt; (UpdateGatewayInformation -&gt; String)
+-&gt; ([UpdateGatewayInformation] -&gt; ShowS)
+-&gt; Show UpdateGatewayInformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGatewayInformation] -&gt; ShowS
+$cshowList :: [UpdateGatewayInformation] -&gt; ShowS
+show :: UpdateGatewayInformation -&gt; String
+$cshow :: UpdateGatewayInformation -&gt; String
+showsPrec :: Int -&gt; UpdateGatewayInformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGatewayInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGatewayInformation -&gt; Rep UpdateGatewayInformation x)
+-&gt; (forall x.
+    Rep UpdateGatewayInformation x -&gt; UpdateGatewayInformation)
+-&gt; Generic UpdateGatewayInformation
+forall x.
+Rep UpdateGatewayInformation x -&gt; UpdateGatewayInformation
+forall x.
+UpdateGatewayInformation -&gt; Rep UpdateGatewayInformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGatewayInformation x -&gt; UpdateGatewayInformation
+$cfrom :: forall x.
+UpdateGatewayInformation -&gt; Rep UpdateGatewayInformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'UpdateGatewayInformation' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'gatewayCapacity', 'updateGatewayInformation_gatewayCapacity' - Specifies the size of the gateway\'s metadata cache.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'gatewayName', 'updateGatewayInformation_gatewayName' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'gatewayTimezone', 'updateGatewayInformation_gatewayTimezone' - A value that indicates the time zone of the gateway.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'cloudWatchLogGroupARN', 'updateGatewayInformation_cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- you want to use to monitor and log events in the gateway.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?&gt;</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'gatewayARN', 'updateGatewayInformation_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformation"><span class="hs-identifier hs-type">newUpdateGatewayInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span>
+</span><span id="line-102"></span><span id="newUpdateGatewayInformation"><span class="annot"><span class="annottext">newUpdateGatewayInformation :: Text -&gt; UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformation"><span class="hs-identifier hs-var hs-var">newUpdateGatewayInformation</span></a></span></span><span> </span><span id="local-6989586621679392172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392172"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewayInformation' :: Maybe GatewayCapacity
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayCapacity:UpdateGatewayInformation' :: Maybe GatewayCapacity
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayCapacity%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe GatewayCapacity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayName:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayTimezone:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayTimezone%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupARN:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AcloudWatchLogGroupARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">cloudWatchLogGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewayInformation' :: Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392172"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specifies the size of the gateway\'s metadata cache.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayCapacity"><span class="hs-identifier hs-type">updateGatewayInformation_gatewayCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-type">GatewayCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="updateGatewayInformation_gatewayCapacity"><span class="annot"><span class="annottext">updateGatewayInformation_gatewayCapacity :: (Maybe GatewayCapacity -&gt; f (Maybe GatewayCapacity))
+-&gt; UpdateGatewayInformation -&gt; f UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayCapacity"><span class="hs-identifier hs-var hs-var">updateGatewayInformation_gatewayCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformation -&gt; Maybe GatewayCapacity)
+-&gt; (UpdateGatewayInformation
+    -&gt; Maybe GatewayCapacity -&gt; UpdateGatewayInformation)
+-&gt; Lens
+     UpdateGatewayInformation
+     UpdateGatewayInformation
+     (Maybe GatewayCapacity)
+     (Maybe GatewayCapacity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392169"><span class="annot"><span class="annottext">Maybe GatewayCapacity
+gatewayCapacity :: Maybe GatewayCapacity
+$sel:gatewayCapacity:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe GatewayCapacity
+</span><a href="#local-6989586621679392169"><span class="hs-identifier hs-var hs-var">gatewayCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayCapacity
+</span><a href="#local-6989586621679392169"><span class="hs-identifier hs-var">gatewayCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392168"><span class="annot"><span class="annottext">s :: UpdateGatewayInformation
+</span><a href="#local-6989586621679392168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392167"><span class="annot"><span class="annottext">Maybe GatewayCapacity
+</span><a href="#local-6989586621679392167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformation
+</span><a href="#local-6989586621679392168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayCapacity:UpdateGatewayInformation' :: Maybe GatewayCapacity
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayCapacity%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayCapacity
+</span><a href="#local-6989586621679392167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayName"><span class="hs-identifier hs-type">updateGatewayInformation_gatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="updateGatewayInformation_gatewayName"><span class="annot"><span class="annottext">updateGatewayInformation_gatewayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewayInformation -&gt; f UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayName"><span class="hs-identifier hs-var hs-var">updateGatewayInformation_gatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformation -&gt; Maybe Text)
+-&gt; (UpdateGatewayInformation
+    -&gt; Maybe Text -&gt; UpdateGatewayInformation)
+-&gt; Lens
+     UpdateGatewayInformation
+     UpdateGatewayInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392166"><span class="annot"><span class="annottext">Maybe Text
+gatewayName :: Maybe Text
+$sel:gatewayName:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679392166"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392166"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392165"><span class="annot"><span class="annottext">s :: UpdateGatewayInformation
+</span><a href="#local-6989586621679392165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformation
+</span><a href="#local-6989586621679392165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayName:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A value that indicates the time zone of the gateway.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayTimezone"><span class="hs-identifier hs-type">updateGatewayInformation_gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateGatewayInformation_gatewayTimezone"><span class="annot"><span class="annottext">updateGatewayInformation_gatewayTimezone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewayInformation -&gt; f UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayTimezone"><span class="hs-identifier hs-var hs-var">updateGatewayInformation_gatewayTimezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformation -&gt; Maybe Text)
+-&gt; (UpdateGatewayInformation
+    -&gt; Maybe Text -&gt; UpdateGatewayInformation)
+-&gt; Lens
+     UpdateGatewayInformation
+     UpdateGatewayInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392163"><span class="annot"><span class="annottext">Maybe Text
+gatewayTimezone :: Maybe Text
+$sel:gatewayTimezone:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679392163"><span class="hs-identifier hs-var hs-var">gatewayTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392163"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392162"><span class="annot"><span class="annottext">s :: UpdateGatewayInformation
+</span><a href="#local-6989586621679392162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformation
+</span><a href="#local-6989586621679392162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayTimezone:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayTimezone%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- you want to use to monitor and log events in the gateway.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?&gt;</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_cloudWatchLogGroupARN"><span class="hs-identifier hs-type">updateGatewayInformation_cloudWatchLogGroupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="updateGatewayInformation_cloudWatchLogGroupARN"><span class="annot"><span class="annottext">updateGatewayInformation_cloudWatchLogGroupARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewayInformation -&gt; f UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_cloudWatchLogGroupARN"><span class="hs-identifier hs-var hs-var">updateGatewayInformation_cloudWatchLogGroupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformation -&gt; Maybe Text)
+-&gt; (UpdateGatewayInformation
+    -&gt; Maybe Text -&gt; UpdateGatewayInformation)
+-&gt; Lens
+     UpdateGatewayInformation
+     UpdateGatewayInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392160"><span class="annot"><span class="annottext">Maybe Text
+cloudWatchLogGroupARN :: Maybe Text
+$sel:cloudWatchLogGroupARN:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679392160"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392160"><span class="hs-identifier hs-var">cloudWatchLogGroupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392159"><span class="annot"><span class="annottext">s :: UpdateGatewayInformation
+</span><a href="#local-6989586621679392159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformation
+</span><a href="#local-6989586621679392159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupARN:UpdateGatewayInformation' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AcloudWatchLogGroupARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">cloudWatchLogGroupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayARN"><span class="hs-identifier hs-type">updateGatewayInformation_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="updateGatewayInformation_gatewayARN"><span class="annot"><span class="annottext">updateGatewayInformation_gatewayARN :: (Text -&gt; f Text)
+-&gt; UpdateGatewayInformation -&gt; f UpdateGatewayInformation
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformation_gatewayARN"><span class="hs-identifier hs-var hs-var">updateGatewayInformation_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformation -&gt; Text)
+-&gt; (UpdateGatewayInformation -&gt; Text -&gt; UpdateGatewayInformation)
+-&gt; Lens UpdateGatewayInformation UpdateGatewayInformation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392157"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Text
+</span><a href="#local-6989586621679392157"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392157"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392156"><span class="annot"><span class="annottext">s :: UpdateGatewayInformation
+</span><a href="#local-6989586621679392156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformation
+</span><a href="#local-6989586621679392156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewayInformation' :: Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformation%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679392151"><span class="annot"><span class="annottext">request :: UpdateGatewayInformation -&gt; Request UpdateGatewayInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateGatewayInformation -&gt; Request UpdateGatewayInformation
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679392147"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateGatewayInformation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGatewayInformation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateGatewayInformation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateGatewayInformation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGatewayInformation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392144"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392143"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392143"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392142"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">UpdateGatewayInformationResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Int -&gt; UpdateGatewayInformationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateGatewayInformationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; UpdateGatewayInformationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateGatewayInformationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGatewayInformationResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateGatewayInformationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392144"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392134"><span id="local-6989586621679392136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679392127"><span class="annot"><span class="annottext">toHeaders :: UpdateGatewayInformation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGatewayInformation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.UpdateGatewayInformation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-165"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392117"><span id="local-6989586621679392119"><span id="local-6989586621679392121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679392115"><span class="annot"><span class="annottext">toJSON :: UpdateGatewayInformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation%27"><span class="hs-identifier hs-type">UpdateGatewayInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392109"><span id="local-6989586621679392110"><span id="local-6989586621679392111"><span id="local-6989586621679392112"><span id="local-6989586621679392113"><span class="annot"><span class="annottext">Maybe Text
+Maybe GatewayCapacity
+Text
+gatewayARN :: Text
+cloudWatchLogGroupARN :: Maybe Text
+gatewayTimezone :: Maybe Text
+gatewayName :: Maybe Text
+gatewayCapacity :: Maybe GatewayCapacity
+$sel:gatewayARN:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Text
+$sel:cloudWatchLogGroupARN:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+$sel:gatewayTimezone:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+$sel:gatewayName:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe Text
+$sel:gatewayCapacity:UpdateGatewayInformation' :: UpdateGatewayInformation -&gt; Maybe GatewayCapacity
+</span><a href="#local-6989586621679392109"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GatewayCapacity -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(GatewayCapacity -&gt; Pair) -&gt; Maybe GatewayCapacity -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GatewayCapacity
+</span><a href="#local-6989586621679392113"><span class="hs-identifier hs-var">gatewayCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392112"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayTimezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392111"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLogGroupARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392110"><span class="hs-identifier hs-var">cloudWatchLogGroupARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392109"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679392103"><span class="annot"><span class="annottext">toPath :: UpdateGatewayInformation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGatewayInformation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformation"><span class="hs-identifier hs-type">UpdateGatewayInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679392099"><span class="annot"><span class="annottext">toQuery :: UpdateGatewayInformation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGatewayInformation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- that was updated.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- /See:/ 'newUpdateGatewayInformationResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621679392096"><span id="local-6989586621679392097"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayInformationResponse"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-var">UpdateGatewayInformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayInformationResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">UpdateGatewayInformationResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AUpdateGatewayInformationResponse%27"><span class="annot"><span class="annottext">UpdateGatewayInformationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The name you configured for your gateway.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AgatewayName%3AUpdateGatewayInformationResponse%27"><span class="annot"><span class="annottext">UpdateGatewayInformationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGatewayInformationResponse%27"><span class="annot"><span class="annottext">UpdateGatewayInformationResponse -&gt; Int
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AhttpStatus%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392089"><span id="local-6989586621679392091"><span class="annot"><span class="annottext">UpdateGatewayInformationResponse
+-&gt; UpdateGatewayInformationResponse -&gt; Bool
+(UpdateGatewayInformationResponse
+ -&gt; UpdateGatewayInformationResponse -&gt; Bool)
+-&gt; (UpdateGatewayInformationResponse
+    -&gt; UpdateGatewayInformationResponse -&gt; Bool)
+-&gt; Eq UpdateGatewayInformationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGatewayInformationResponse
+-&gt; UpdateGatewayInformationResponse -&gt; Bool
+$c/= :: UpdateGatewayInformationResponse
+-&gt; UpdateGatewayInformationResponse -&gt; Bool
+== :: UpdateGatewayInformationResponse
+-&gt; UpdateGatewayInformationResponse -&gt; Bool
+$c== :: UpdateGatewayInformationResponse
+-&gt; UpdateGatewayInformationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392081"><span id="local-6989586621679392083"><span id="local-6989586621679392085"><span id="local-6989586621679392087"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayInformationResponse]
+ReadPrec UpdateGatewayInformationResponse
+Int -&gt; ReadS UpdateGatewayInformationResponse
+ReadS [UpdateGatewayInformationResponse]
+(Int -&gt; ReadS UpdateGatewayInformationResponse)
+-&gt; ReadS [UpdateGatewayInformationResponse]
+-&gt; ReadPrec UpdateGatewayInformationResponse
+-&gt; ReadPrec [UpdateGatewayInformationResponse]
+-&gt; Read UpdateGatewayInformationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGatewayInformationResponse]
+$creadListPrec :: ReadPrec [UpdateGatewayInformationResponse]
+readPrec :: ReadPrec UpdateGatewayInformationResponse
+$creadPrec :: ReadPrec UpdateGatewayInformationResponse
+readList :: ReadS [UpdateGatewayInformationResponse]
+$creadList :: ReadS [UpdateGatewayInformationResponse]
+readsPrec :: Int -&gt; ReadS UpdateGatewayInformationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateGatewayInformationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392075"><span id="local-6989586621679392077"><span id="local-6989586621679392079"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayInformationResponse -&gt; ShowS
+[UpdateGatewayInformationResponse] -&gt; ShowS
+UpdateGatewayInformationResponse -&gt; String
+(Int -&gt; UpdateGatewayInformationResponse -&gt; ShowS)
+-&gt; (UpdateGatewayInformationResponse -&gt; String)
+-&gt; ([UpdateGatewayInformationResponse] -&gt; ShowS)
+-&gt; Show UpdateGatewayInformationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGatewayInformationResponse] -&gt; ShowS
+$cshowList :: [UpdateGatewayInformationResponse] -&gt; ShowS
+show :: UpdateGatewayInformationResponse -&gt; String
+$cshow :: UpdateGatewayInformationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateGatewayInformationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGatewayInformationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGatewayInformationResponse
+ -&gt; Rep UpdateGatewayInformationResponse x)
+-&gt; (forall x.
+    Rep UpdateGatewayInformationResponse x
+    -&gt; UpdateGatewayInformationResponse)
+-&gt; Generic UpdateGatewayInformationResponse
+forall x.
+Rep UpdateGatewayInformationResponse x
+-&gt; UpdateGatewayInformationResponse
+forall x.
+UpdateGatewayInformationResponse
+-&gt; Rep UpdateGatewayInformationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGatewayInformationResponse x
+-&gt; UpdateGatewayInformationResponse
+$cfrom :: forall x.
+UpdateGatewayInformationResponse
+-&gt; Rep UpdateGatewayInformationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'UpdateGatewayInformationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'gatewayARN', 'updateGatewayInformationResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'gatewayName', 'updateGatewayInformationResponse_gatewayName' - The name you configured for your gateway.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'updateGatewayInformationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformationResponse"><span class="hs-identifier hs-type">newUpdateGatewayInformationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span>
+</span><span id="line-220"></span><span id="newUpdateGatewayInformationResponse"><span class="annot"><span class="annottext">newUpdateGatewayInformationResponse :: Int -&gt; UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#newUpdateGatewayInformationResponse"><span class="hs-identifier hs-var hs-var">newUpdateGatewayInformationResponse</span></a></span></span><span> </span><span id="local-6989586621679392072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewayInformationResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewayInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayName:UpdateGatewayInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewayInformationResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AhttpStatus%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayARN"><span class="hs-identifier hs-type">updateGatewayInformationResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="updateGatewayInformationResponse_gatewayARN"><span class="annot"><span class="annottext">updateGatewayInformationResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewayInformationResponse
+-&gt; f UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayARN"><span class="hs-identifier hs-var hs-var">updateGatewayInformationResponse_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformationResponse -&gt; Maybe Text)
+-&gt; (UpdateGatewayInformationResponse
+    -&gt; Maybe Text -&gt; UpdateGatewayInformationResponse)
+-&gt; Lens
+     UpdateGatewayInformationResponse
+     UpdateGatewayInformationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392071"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:UpdateGatewayInformationResponse' :: UpdateGatewayInformationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679392071"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392071"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392070"><span class="annot"><span class="annottext">s :: UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392069"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateGatewayInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayARN%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The name you configured for your gateway.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayName"><span class="hs-identifier hs-type">updateGatewayInformationResponse_gatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="updateGatewayInformationResponse_gatewayName"><span class="annot"><span class="annottext">updateGatewayInformationResponse_gatewayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGatewayInformationResponse
+-&gt; f UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_gatewayName"><span class="hs-identifier hs-var hs-var">updateGatewayInformationResponse_gatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformationResponse -&gt; Maybe Text)
+-&gt; (UpdateGatewayInformationResponse
+    -&gt; Maybe Text -&gt; UpdateGatewayInformationResponse)
+-&gt; Lens
+     UpdateGatewayInformationResponse
+     UpdateGatewayInformationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392068"><span class="annot"><span class="annottext">Maybe Text
+gatewayName :: Maybe Text
+$sel:gatewayName:UpdateGatewayInformationResponse' :: UpdateGatewayInformationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679392068"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392068"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392067"><span class="annot"><span class="annottext">s :: UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayName:UpdateGatewayInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AgatewayName%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_httpStatus"><span class="hs-identifier hs-type">updateGatewayInformationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="updateGatewayInformationResponse_httpStatus"><span class="annot"><span class="annottext">updateGatewayInformationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateGatewayInformationResponse
+-&gt; f UpdateGatewayInformationResponse
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#updateGatewayInformationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateGatewayInformationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGatewayInformationResponse -&gt; Int)
+-&gt; (UpdateGatewayInformationResponse
+    -&gt; Int -&gt; UpdateGatewayInformationResponse)
+-&gt; Lens
+     UpdateGatewayInformationResponse
+     UpdateGatewayInformationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392065"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateGatewayInformationResponse' :: UpdateGatewayInformationResponse -&gt; Int
+</span><a href="#local-6989586621679392065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392064"><span class="annot"><span class="annottext">s :: UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse%27"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayInformationResponse
+</span><a href="#local-6989586621679392064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewayInformationResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#%24sel%3AhttpStatus%3AUpdateGatewayInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679392061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateGatewayInformation.html#UpdateGatewayInformationResponse"><span class="hs-identifier hs-type">UpdateGatewayInformationResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

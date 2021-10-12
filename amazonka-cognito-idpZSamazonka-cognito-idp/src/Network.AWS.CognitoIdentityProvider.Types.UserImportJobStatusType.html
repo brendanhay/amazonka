@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Created"><span class="hs-identifier">UserImportJobStatusType_Created</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Expired"><span class="hs-identifier">UserImportJobStatusType_Expired</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Failed"><span class="hs-identifier">UserImportJobStatusType_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_InProgress"><span class="hs-identifier">UserImportJobStatusType_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Pending"><span class="hs-identifier">UserImportJobStatusType_Pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopped"><span class="hs-identifier">UserImportJobStatusType_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopping"><span class="hs-identifier">UserImportJobStatusType_Stopping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Succeeded"><span class="hs-identifier">UserImportJobStatusType_Succeeded</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679435199"><span id="local-6989586621679435200"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserImportJobStatusType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-var">UserImportJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserImportJobStatusType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-var">UserImportJobStatusType'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserImportJobStatusType"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#fromUserImportJobStatusType"><span class="hs-identifier hs-var hs-var">fromUserImportJobStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435191"><span id="local-6989586621679435193"><span id="local-6989586621679435195"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; ShowS
+[UserImportJobStatusType] -&gt; ShowS
+UserImportJobStatusType -&gt; String
+(Int -&gt; UserImportJobStatusType -&gt; ShowS)
+-&gt; (UserImportJobStatusType -&gt; String)
+-&gt; ([UserImportJobStatusType] -&gt; ShowS)
+-&gt; Show UserImportJobStatusType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserImportJobStatusType] -&gt; ShowS
+$cshowList :: [UserImportJobStatusType] -&gt; ShowS
+show :: UserImportJobStatusType -&gt; String
+$cshow :: UserImportJobStatusType -&gt; String
+showsPrec :: Int -&gt; UserImportJobStatusType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserImportJobStatusType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679435182"><span id="local-6989586621679435184"><span id="local-6989586621679435186"><span id="local-6989586621679435188"><span class="annot"><span class="annottext">ReadPrec [UserImportJobStatusType]
+ReadPrec UserImportJobStatusType
+Int -&gt; ReadS UserImportJobStatusType
+ReadS [UserImportJobStatusType]
+(Int -&gt; ReadS UserImportJobStatusType)
+-&gt; ReadS [UserImportJobStatusType]
+-&gt; ReadPrec UserImportJobStatusType
+-&gt; ReadPrec [UserImportJobStatusType]
+-&gt; Read UserImportJobStatusType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserImportJobStatusType]
+$creadListPrec :: ReadPrec [UserImportJobStatusType]
+readPrec :: ReadPrec UserImportJobStatusType
+$creadPrec :: ReadPrec UserImportJobStatusType
+readList :: ReadS [UserImportJobStatusType]
+$creadList :: ReadS [UserImportJobStatusType]
+readsPrec :: Int -&gt; ReadS UserImportJobStatusType
+$creadsPrec :: Int -&gt; ReadS UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679435177"><span id="local-6989586621679435179"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+(UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; Eq UserImportJobStatusType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c/= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+== :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c== :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435161"><span id="local-6989586621679435163"><span id="local-6989586621679435165"><span id="local-6989586621679435167"><span id="local-6989586621679435169"><span id="local-6989586621679435171"><span id="local-6989586621679435173"><span class="annot"><span class="annottext">Eq UserImportJobStatusType
+Eq UserImportJobStatusType
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Ordering)
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; (UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool)
+-&gt; (UserImportJobStatusType
+    -&gt; UserImportJobStatusType -&gt; UserImportJobStatusType)
+-&gt; (UserImportJobStatusType
+    -&gt; UserImportJobStatusType -&gt; UserImportJobStatusType)
+-&gt; Ord UserImportJobStatusType
+UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Ordering
+UserImportJobStatusType
+-&gt; UserImportJobStatusType -&gt; UserImportJobStatusType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UserImportJobStatusType
+-&gt; UserImportJobStatusType -&gt; UserImportJobStatusType
+$cmin :: UserImportJobStatusType
+-&gt; UserImportJobStatusType -&gt; UserImportJobStatusType
+max :: UserImportJobStatusType
+-&gt; UserImportJobStatusType -&gt; UserImportJobStatusType
+$cmax :: UserImportJobStatusType
+-&gt; UserImportJobStatusType -&gt; UserImportJobStatusType
+&gt;= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c&gt;= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+&gt; :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c&gt; :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+&lt;= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c&lt;= :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+&lt; :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+$c&lt; :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Bool
+compare :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Ordering
+$ccompare :: UserImportJobStatusType -&gt; UserImportJobStatusType -&gt; Ordering
+$cp1Ord :: Eq UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ UserImportJobStatusType -&gt; Rep UserImportJobStatusType x)
+-&gt; (forall x.
+    Rep UserImportJobStatusType x -&gt; UserImportJobStatusType)
+-&gt; Generic UserImportJobStatusType
+forall x. Rep UserImportJobStatusType x -&gt; UserImportJobStatusType
+forall x. UserImportJobStatusType -&gt; Rep UserImportJobStatusType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserImportJobStatusType x -&gt; UserImportJobStatusType
+$cfrom :: forall x. UserImportJobStatusType -&gt; Rep UserImportJobStatusType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435153"><span id="local-6989586621679435155"><span class="annot"><span class="annottext">Int -&gt; UserImportJobStatusType -&gt; Int
+UserImportJobStatusType -&gt; Int
+(Int -&gt; UserImportJobStatusType -&gt; Int)
+-&gt; (UserImportJobStatusType -&gt; Int)
+-&gt; Hashable UserImportJobStatusType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UserImportJobStatusType -&gt; Int
+$chash :: UserImportJobStatusType -&gt; Int
+hashWithSalt :: Int -&gt; UserImportJobStatusType -&gt; Int
+$chashWithSalt :: Int -&gt; UserImportJobStatusType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435150"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ()
+(UserImportJobStatusType -&gt; ()) -&gt; NFData UserImportJobStatusType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UserImportJobStatusType -&gt; ()
+$crnf :: UserImportJobStatusType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435147"><span class="annot"><span class="annottext">Text -&gt; Either String UserImportJobStatusType
+(Text -&gt; Either String UserImportJobStatusType)
+-&gt; FromText UserImportJobStatusType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UserImportJobStatusType
+$cfromText :: Text -&gt; Either String UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435144"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; Text
+(UserImportJobStatusType -&gt; Text) -&gt; ToText UserImportJobStatusType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UserImportJobStatusType -&gt; Text
+$ctoText :: UserImportJobStatusType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435141"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteString
+(UserImportJobStatusType -&gt; ByteString)
+-&gt; ToByteString UserImportJobStatusType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UserImportJobStatusType -&gt; ByteString
+$ctoBS :: UserImportJobStatusType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435138"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; ByteStringBuilder
+(UserImportJobStatusType -&gt; ByteStringBuilder)
+-&gt; ToLog UserImportJobStatusType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UserImportJobStatusType -&gt; ByteStringBuilder
+$cbuild :: UserImportJobStatusType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435135"><span class="annot"><span class="annottext">HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
+(HeaderName -&gt; UserImportJobStatusType -&gt; [Header])
+-&gt; ToHeader UserImportJobStatusType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UserImportJobStatusType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435132"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; QueryString
+(UserImportJobStatusType -&gt; QueryString)
+-&gt; ToQuery UserImportJobStatusType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UserImportJobStatusType -&gt; QueryString
+$ctoQuery :: UserImportJobStatusType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435127"><span id="local-6989586621679435129"><span class="annot"><span class="annottext">Value -&gt; Parser [UserImportJobStatusType]
+Value -&gt; Parser UserImportJobStatusType
+(Value -&gt; Parser UserImportJobStatusType)
+-&gt; (Value -&gt; Parser [UserImportJobStatusType])
+-&gt; FromJSON UserImportJobStatusType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UserImportJobStatusType]
+$cparseJSONList :: Value -&gt; Parser [UserImportJobStatusType]
+parseJSON :: Value -&gt; Parser UserImportJobStatusType
+$cparseJSON :: Value -&gt; Parser UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679435122"><span id="local-6989586621679435124"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserImportJobStatusType]
+FromJSONKeyFunction UserImportJobStatusType
+FromJSONKeyFunction UserImportJobStatusType
+-&gt; FromJSONKeyFunction [UserImportJobStatusType]
+-&gt; FromJSONKey UserImportJobStatusType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UserImportJobStatusType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UserImportJobStatusType]
+fromJSONKey :: FromJSONKeyFunction UserImportJobStatusType
+$cfromJSONKey :: FromJSONKeyFunction UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679435113"><span id="local-6989586621679435115"><span id="local-6989586621679435117"><span id="local-6989586621679435119"><span class="annot"><span class="annottext">[UserImportJobStatusType] -&gt; Encoding
+[UserImportJobStatusType] -&gt; Value
+UserImportJobStatusType -&gt; Encoding
+UserImportJobStatusType -&gt; Value
+(UserImportJobStatusType -&gt; Value)
+-&gt; (UserImportJobStatusType -&gt; Encoding)
+-&gt; ([UserImportJobStatusType] -&gt; Value)
+-&gt; ([UserImportJobStatusType] -&gt; Encoding)
+-&gt; ToJSON UserImportJobStatusType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UserImportJobStatusType] -&gt; Encoding
+$ctoEncodingList :: [UserImportJobStatusType] -&gt; Encoding
+toJSONList :: [UserImportJobStatusType] -&gt; Value
+$ctoJSONList :: [UserImportJobStatusType] -&gt; Value
+toEncoding :: UserImportJobStatusType -&gt; Encoding
+$ctoEncoding :: UserImportJobStatusType -&gt; Encoding
+toJSON :: UserImportJobStatusType -&gt; Value
+$ctoJSON :: UserImportJobStatusType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679435108"><span id="local-6989586621679435110"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserImportJobStatusType]
+ToJSONKeyFunction UserImportJobStatusType
+ToJSONKeyFunction UserImportJobStatusType
+-&gt; ToJSONKeyFunction [UserImportJobStatusType]
+-&gt; ToJSONKey UserImportJobStatusType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UserImportJobStatusType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UserImportJobStatusType]
+toJSONKey :: ToJSONKeyFunction UserImportJobStatusType
+$ctoJSONKey :: ToJSONKeyFunction UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679435105"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserImportJobStatusType
+([Node] -&gt; Either String UserImportJobStatusType)
+-&gt; FromXML UserImportJobStatusType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UserImportJobStatusType
+$cparseXML :: [Node] -&gt; Either String UserImportJobStatusType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679435102"><span class="annot"><span class="annottext">UserImportJobStatusType -&gt; XML
+(UserImportJobStatusType -&gt; XML) -&gt; ToXML UserImportJobStatusType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UserImportJobStatusType -&gt; XML
+$ctoXML :: UserImportJobStatusType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Created"><span class="hs-identifier hs-type">UserImportJobStatusType_Created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Created"><span id="%24mUserImportJobStatusType_Created"><span id="UserImportJobStatusType_Created"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Created :: UserImportJobStatusType
+$mUserImportJobStatusType_Created :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Created"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Created</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Created&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Expired"><span class="hs-identifier hs-type">UserImportJobStatusType_Expired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Expired"><span id="%24mUserImportJobStatusType_Expired"><span id="UserImportJobStatusType_Expired"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Expired :: UserImportJobStatusType
+$mUserImportJobStatusType_Expired :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Expired"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Expired</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Expired&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Failed"><span class="hs-identifier hs-type">UserImportJobStatusType_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Failed"><span id="%24mUserImportJobStatusType_Failed"><span id="UserImportJobStatusType_Failed"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Failed :: UserImportJobStatusType
+$mUserImportJobStatusType_Failed :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Failed"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_InProgress"><span class="hs-identifier hs-type">UserImportJobStatusType_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_InProgress"><span id="%24mUserImportJobStatusType_InProgress"><span id="UserImportJobStatusType_InProgress"><span class="annot"><span class="annottext">$bUserImportJobStatusType_InProgress :: UserImportJobStatusType
+$mUserImportJobStatusType_InProgress :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_InProgress"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Pending"><span class="hs-identifier hs-type">UserImportJobStatusType_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Pending"><span id="%24mUserImportJobStatusType_Pending"><span id="UserImportJobStatusType_Pending"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Pending :: UserImportJobStatusType
+$mUserImportJobStatusType_Pending :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Pending"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopped"><span class="hs-identifier hs-type">UserImportJobStatusType_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Stopped"><span id="%24mUserImportJobStatusType_Stopped"><span id="UserImportJobStatusType_Stopped"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Stopped :: UserImportJobStatusType
+$mUserImportJobStatusType_Stopped :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Stopped"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopping"><span class="hs-identifier hs-type">UserImportJobStatusType_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Stopping"><span id="%24mUserImportJobStatusType_Stopping"><span id="UserImportJobStatusType_Stopping"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Stopping :: UserImportJobStatusType
+$mUserImportJobStatusType_Stopping :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Stopping"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopping&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Succeeded"><span class="hs-identifier hs-type">UserImportJobStatusType_Succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType"><span class="hs-identifier hs-type">UserImportJobStatusType</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserImportJobStatusType_Succeeded"><span id="%24mUserImportJobStatusType_Succeeded"><span id="UserImportJobStatusType_Succeeded"><span class="annot"><span class="annottext">$bUserImportJobStatusType_Succeeded :: UserImportJobStatusType
+$mUserImportJobStatusType_Succeeded :: forall r.
+UserImportJobStatusType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#%24bUserImportJobStatusType_Succeeded"><span class="hs-identifier hs-var hs-var hs-var">UserImportJobStatusType_Succeeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-identifier hs-type">UserImportJobStatusType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Succeeded&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Created"><span class="hs-pragma hs-type">UserImportJobStatusType_Created</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Expired"><span class="hs-pragma hs-type">UserImportJobStatusType_Expired</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Failed"><span class="hs-pragma hs-type">UserImportJobStatusType_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_InProgress"><span class="hs-pragma hs-type">UserImportJobStatusType_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Pending"><span class="hs-pragma hs-type">UserImportJobStatusType_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopped"><span class="hs-pragma hs-type">UserImportJobStatusType_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Stopping"><span class="hs-pragma hs-type">UserImportJobStatusType_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType_Succeeded"><span class="hs-pragma hs-type">UserImportJobStatusType_Succeeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType.html#UserImportJobStatusType%27"><span class="hs-pragma hs-type">UserImportJobStatusType'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType"><span class="hs-identifier">HyperParameterTuningJobWarmStartType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span class="hs-identifier">HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_TransferLearning"><span class="hs-identifier">HyperParameterTuningJobWarmStartType_TransferLearning</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680308140"><span id="local-6989586621680308141"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HyperParameterTuningJobWarmStartType"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType"><span class="hs-identifier hs-var">HyperParameterTuningJobWarmStartType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterTuningJobWarmStartType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType%27"><span class="hs-identifier hs-var">HyperParameterTuningJobWarmStartType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHyperParameterTuningJobWarmStartType"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#fromHyperParameterTuningJobWarmStartType"><span class="hs-identifier hs-var hs-var">fromHyperParameterTuningJobWarmStartType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308132"><span id="local-6989586621680308134"><span id="local-6989586621680308136"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobWarmStartType -&gt; ShowS
+[HyperParameterTuningJobWarmStartType] -&gt; ShowS
+HyperParameterTuningJobWarmStartType -&gt; String
+(Int -&gt; HyperParameterTuningJobWarmStartType -&gt; ShowS)
+-&gt; (HyperParameterTuningJobWarmStartType -&gt; String)
+-&gt; ([HyperParameterTuningJobWarmStartType] -&gt; ShowS)
+-&gt; Show HyperParameterTuningJobWarmStartType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HyperParameterTuningJobWarmStartType] -&gt; ShowS
+$cshowList :: [HyperParameterTuningJobWarmStartType] -&gt; ShowS
+show :: HyperParameterTuningJobWarmStartType -&gt; String
+$cshow :: HyperParameterTuningJobWarmStartType -&gt; String
+showsPrec :: Int -&gt; HyperParameterTuningJobWarmStartType -&gt; ShowS
+$cshowsPrec :: Int -&gt; HyperParameterTuningJobWarmStartType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680308123"><span id="local-6989586621680308125"><span id="local-6989586621680308127"><span id="local-6989586621680308129"><span class="annot"><span class="annottext">ReadPrec [HyperParameterTuningJobWarmStartType]
+ReadPrec HyperParameterTuningJobWarmStartType
+Int -&gt; ReadS HyperParameterTuningJobWarmStartType
+ReadS [HyperParameterTuningJobWarmStartType]
+(Int -&gt; ReadS HyperParameterTuningJobWarmStartType)
+-&gt; ReadS [HyperParameterTuningJobWarmStartType]
+-&gt; ReadPrec HyperParameterTuningJobWarmStartType
+-&gt; ReadPrec [HyperParameterTuningJobWarmStartType]
+-&gt; Read HyperParameterTuningJobWarmStartType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HyperParameterTuningJobWarmStartType]
+$creadListPrec :: ReadPrec [HyperParameterTuningJobWarmStartType]
+readPrec :: ReadPrec HyperParameterTuningJobWarmStartType
+$creadPrec :: ReadPrec HyperParameterTuningJobWarmStartType
+readList :: ReadS [HyperParameterTuningJobWarmStartType]
+$creadList :: ReadS [HyperParameterTuningJobWarmStartType]
+readsPrec :: Int -&gt; ReadS HyperParameterTuningJobWarmStartType
+$creadsPrec :: Int -&gt; ReadS HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680308118"><span id="local-6989586621680308120"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+(HyperParameterTuningJobWarmStartType
+ -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; Eq HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c/= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+== :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c== :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680308102"><span id="local-6989586621680308104"><span id="local-6989586621680308106"><span id="local-6989586621680308108"><span id="local-6989586621680308110"><span id="local-6989586621680308112"><span id="local-6989586621680308114"><span class="annot"><span class="annottext">Eq HyperParameterTuningJobWarmStartType
+Eq HyperParameterTuningJobWarmStartType
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Ordering)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType -&gt; Bool)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType)
+-&gt; (HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType
+    -&gt; HyperParameterTuningJobWarmStartType)
+-&gt; Ord HyperParameterTuningJobWarmStartType
+HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Ordering
+HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+$cmin :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+max :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+$cmax :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType
+&gt;= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c&gt;= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+&gt; :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c&gt; :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+&lt;= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c&lt;= :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+&lt; :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+$c&lt; :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Bool
+compare :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Ordering
+$ccompare :: HyperParameterTuningJobWarmStartType
+-&gt; HyperParameterTuningJobWarmStartType -&gt; Ordering
+$cp1Ord :: Eq HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HyperParameterTuningJobWarmStartType
+ -&gt; Rep HyperParameterTuningJobWarmStartType x)
+-&gt; (forall x.
+    Rep HyperParameterTuningJobWarmStartType x
+    -&gt; HyperParameterTuningJobWarmStartType)
+-&gt; Generic HyperParameterTuningJobWarmStartType
+forall x.
+Rep HyperParameterTuningJobWarmStartType x
+-&gt; HyperParameterTuningJobWarmStartType
+forall x.
+HyperParameterTuningJobWarmStartType
+-&gt; Rep HyperParameterTuningJobWarmStartType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HyperParameterTuningJobWarmStartType x
+-&gt; HyperParameterTuningJobWarmStartType
+$cfrom :: forall x.
+HyperParameterTuningJobWarmStartType
+-&gt; Rep HyperParameterTuningJobWarmStartType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680308094"><span id="local-6989586621680308096"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobWarmStartType -&gt; Int
+HyperParameterTuningJobWarmStartType -&gt; Int
+(Int -&gt; HyperParameterTuningJobWarmStartType -&gt; Int)
+-&gt; (HyperParameterTuningJobWarmStartType -&gt; Int)
+-&gt; Hashable HyperParameterTuningJobWarmStartType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HyperParameterTuningJobWarmStartType -&gt; Int
+$chash :: HyperParameterTuningJobWarmStartType -&gt; Int
+hashWithSalt :: Int -&gt; HyperParameterTuningJobWarmStartType -&gt; Int
+$chashWithSalt :: Int -&gt; HyperParameterTuningJobWarmStartType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680308091"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; ()
+(HyperParameterTuningJobWarmStartType -&gt; ())
+-&gt; NFData HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HyperParameterTuningJobWarmStartType -&gt; ()
+$crnf :: HyperParameterTuningJobWarmStartType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680308088"><span class="annot"><span class="annottext">Text -&gt; Either String HyperParameterTuningJobWarmStartType
+(Text -&gt; Either String HyperParameterTuningJobWarmStartType)
+-&gt; FromText HyperParameterTuningJobWarmStartType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HyperParameterTuningJobWarmStartType
+$cfromText :: Text -&gt; Either String HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680308085"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; Text
+(HyperParameterTuningJobWarmStartType -&gt; Text)
+-&gt; ToText HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HyperParameterTuningJobWarmStartType -&gt; Text
+$ctoText :: HyperParameterTuningJobWarmStartType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680308082"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; ByteString
+(HyperParameterTuningJobWarmStartType -&gt; ByteString)
+-&gt; ToByteString HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HyperParameterTuningJobWarmStartType -&gt; ByteString
+$ctoBS :: HyperParameterTuningJobWarmStartType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680308079"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; ByteStringBuilder
+(HyperParameterTuningJobWarmStartType -&gt; ByteStringBuilder)
+-&gt; ToLog HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HyperParameterTuningJobWarmStartType -&gt; ByteStringBuilder
+$cbuild :: HyperParameterTuningJobWarmStartType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680308076"><span class="annot"><span class="annottext">HeaderName -&gt; HyperParameterTuningJobWarmStartType -&gt; [Header]
+(HeaderName -&gt; HyperParameterTuningJobWarmStartType -&gt; [Header])
+-&gt; ToHeader HyperParameterTuningJobWarmStartType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HyperParameterTuningJobWarmStartType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HyperParameterTuningJobWarmStartType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680308073"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; QueryString
+(HyperParameterTuningJobWarmStartType -&gt; QueryString)
+-&gt; ToQuery HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HyperParameterTuningJobWarmStartType -&gt; QueryString
+$ctoQuery :: HyperParameterTuningJobWarmStartType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680308068"><span id="local-6989586621680308070"><span class="annot"><span class="annottext">Value -&gt; Parser [HyperParameterTuningJobWarmStartType]
+Value -&gt; Parser HyperParameterTuningJobWarmStartType
+(Value -&gt; Parser HyperParameterTuningJobWarmStartType)
+-&gt; (Value -&gt; Parser [HyperParameterTuningJobWarmStartType])
+-&gt; FromJSON HyperParameterTuningJobWarmStartType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HyperParameterTuningJobWarmStartType]
+$cparseJSONList :: Value -&gt; Parser [HyperParameterTuningJobWarmStartType]
+parseJSON :: Value -&gt; Parser HyperParameterTuningJobWarmStartType
+$cparseJSON :: Value -&gt; Parser HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680308063"><span id="local-6989586621680308065"><span class="annot"><span class="annottext">FromJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+FromJSONKeyFunction HyperParameterTuningJobWarmStartType
+FromJSONKeyFunction HyperParameterTuningJobWarmStartType
+-&gt; FromJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+-&gt; FromJSONKey HyperParameterTuningJobWarmStartType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+$cfromJSONKeyList :: FromJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+fromJSONKey :: FromJSONKeyFunction HyperParameterTuningJobWarmStartType
+$cfromJSONKey :: FromJSONKeyFunction HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680308054"><span id="local-6989586621680308056"><span id="local-6989586621680308058"><span id="local-6989586621680308060"><span class="annot"><span class="annottext">[HyperParameterTuningJobWarmStartType] -&gt; Encoding
+[HyperParameterTuningJobWarmStartType] -&gt; Value
+HyperParameterTuningJobWarmStartType -&gt; Encoding
+HyperParameterTuningJobWarmStartType -&gt; Value
+(HyperParameterTuningJobWarmStartType -&gt; Value)
+-&gt; (HyperParameterTuningJobWarmStartType -&gt; Encoding)
+-&gt; ([HyperParameterTuningJobWarmStartType] -&gt; Value)
+-&gt; ([HyperParameterTuningJobWarmStartType] -&gt; Encoding)
+-&gt; ToJSON HyperParameterTuningJobWarmStartType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HyperParameterTuningJobWarmStartType] -&gt; Encoding
+$ctoEncodingList :: [HyperParameterTuningJobWarmStartType] -&gt; Encoding
+toJSONList :: [HyperParameterTuningJobWarmStartType] -&gt; Value
+$ctoJSONList :: [HyperParameterTuningJobWarmStartType] -&gt; Value
+toEncoding :: HyperParameterTuningJobWarmStartType -&gt; Encoding
+$ctoEncoding :: HyperParameterTuningJobWarmStartType -&gt; Encoding
+toJSON :: HyperParameterTuningJobWarmStartType -&gt; Value
+$ctoJSON :: HyperParameterTuningJobWarmStartType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680308049"><span id="local-6989586621680308051"><span class="annot"><span class="annottext">ToJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+ToJSONKeyFunction HyperParameterTuningJobWarmStartType
+ToJSONKeyFunction HyperParameterTuningJobWarmStartType
+-&gt; ToJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+-&gt; ToJSONKey HyperParameterTuningJobWarmStartType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+$ctoJSONKeyList :: ToJSONKeyFunction [HyperParameterTuningJobWarmStartType]
+toJSONKey :: ToJSONKeyFunction HyperParameterTuningJobWarmStartType
+$ctoJSONKey :: ToJSONKeyFunction HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680308046"><span class="annot"><span class="annottext">[Node] -&gt; Either String HyperParameterTuningJobWarmStartType
+([Node] -&gt; Either String HyperParameterTuningJobWarmStartType)
+-&gt; FromXML HyperParameterTuningJobWarmStartType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HyperParameterTuningJobWarmStartType
+$cparseXML :: [Node] -&gt; Either String HyperParameterTuningJobWarmStartType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680308043"><span class="annot"><span class="annottext">HyperParameterTuningJobWarmStartType -&gt; XML
+(HyperParameterTuningJobWarmStartType -&gt; XML)
+-&gt; ToXML HyperParameterTuningJobWarmStartType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HyperParameterTuningJobWarmStartType -&gt; XML
+$ctoXML :: HyperParameterTuningJobWarmStartType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span id="%24mHyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span id="HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span class="annot"><span class="annottext">$bHyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm :: HyperParameterTuningJobWarmStartType
+$mHyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm :: forall r.
+HyperParameterTuningJobWarmStartType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#%24bHyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span class="hs-identifier hs-var hs-var hs-var">HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType%27"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IdenticalDataAndAlgorithm&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_TransferLearning"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType_TransferLearning</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHyperParameterTuningJobWarmStartType_TransferLearning"><span id="%24mHyperParameterTuningJobWarmStartType_TransferLearning"><span id="HyperParameterTuningJobWarmStartType_TransferLearning"><span class="annot"><span class="annottext">$bHyperParameterTuningJobWarmStartType_TransferLearning :: HyperParameterTuningJobWarmStartType
+$mHyperParameterTuningJobWarmStartType_TransferLearning :: forall r.
+HyperParameterTuningJobWarmStartType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#%24bHyperParameterTuningJobWarmStartType_TransferLearning"><span class="hs-identifier hs-var hs-var hs-var">HyperParameterTuningJobWarmStartType_TransferLearning</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType%27"><span class="hs-identifier hs-type">HyperParameterTuningJobWarmStartType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TransferLearning&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm"><span class="hs-pragma hs-type">HyperParameterTuningJobWarmStartType_IdenticalDataAndAlgorithm</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType_TransferLearning"><span class="hs-pragma hs-type">HyperParameterTuningJobWarmStartType_TransferLearning</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType.html#HyperParameterTuningJobWarmStartType%27"><span class="hs-pragma hs-type">HyperParameterTuningJobWarmStartType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sets the result of a Lambda validation function. The function validates</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- lifecycle hooks during a deployment that uses the AWS Lambda or Amazon</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- ECS compute platform. For AWS Lambda deployments, the available</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- lifecycle hooks are @BeforeAllowTraffic@ and @AfterAllowTraffic@. For</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon ECS deployments, the available lifecycle hooks are</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @BeforeInstall@, @AfterInstall@, @AfterAllowTestTraffic@,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @BeforeAllowTraffic@, and @AfterAllowTraffic@. Lambda validation</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- functions return @Succeeded@ or @Failed@. For more information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda AppSpec \'hooks\' Section for an AWS Lambda Deployment&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs AppSpec \'hooks\' Section for an Amazon ECS Deployment&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier">PutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatus"><span class="hs-identifier">newPutLifecycleEventHookExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_deploymentId"><span class="hs-identifier">putLifecycleEventHookExecutionStatus_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_status"><span class="hs-identifier">putLifecycleEventHookExecutionStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId"><span class="hs-identifier">putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier">newPutLifecycleEventHookExecutionStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId"><span class="hs-identifier">putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_httpStatus"><span class="hs-identifier">putLifecycleEventHookExecutionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.html"><span class="hs-identifier">Network.AWS.CodeDeploy.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newPutLifecycleEventHookExecutionStatus' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679318988"><span id="local-6989586621679318989"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleEventHookExecutionStatus"><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-var">PutLifecycleEventHookExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleEventHookExecutionStatus%27"><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">PutLifecycleEventHookExecutionStatus'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of a deployment. Pass this ID to a Lambda function that</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- validates a deployment lifecycle event.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdeploymentId%3APutLifecycleEventHookExecutionStatus%27"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AdeploymentId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The result of a Lambda function that validates a deployment lifecycle</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- event. @Succeeded@ and @Failed@ are the only valid values for @status@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Astatus%3APutLifecycleEventHookExecutionStatus%27"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus -&gt; Maybe LifecycleEventStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3Astatus%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus"><span class="hs-identifier hs-type">LifecycleEventStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The execution ID of a deployment\'s lifecycle hook. A deployment</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- lifecycle hook is specified in the @hooks@ section of the AppSpec file.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatus%27"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var hs-var">lifecycleEventHookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318980"><span id="local-6989586621679318982"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool
+(PutLifecycleEventHookExecutionStatus
+ -&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool)
+-&gt; (PutLifecycleEventHookExecutionStatus
+    -&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool)
+-&gt; Eq PutLifecycleEventHookExecutionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLifecycleEventHookExecutionStatus
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool
+$c/= :: PutLifecycleEventHookExecutionStatus
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool
+== :: PutLifecycleEventHookExecutionStatus
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool
+$c== :: PutLifecycleEventHookExecutionStatus
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318971"><span id="local-6989586621679318973"><span id="local-6989586621679318975"><span id="local-6989586621679318977"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleEventHookExecutionStatus]
+ReadPrec PutLifecycleEventHookExecutionStatus
+Int -&gt; ReadS PutLifecycleEventHookExecutionStatus
+ReadS [PutLifecycleEventHookExecutionStatus]
+(Int -&gt; ReadS PutLifecycleEventHookExecutionStatus)
+-&gt; ReadS [PutLifecycleEventHookExecutionStatus]
+-&gt; ReadPrec PutLifecycleEventHookExecutionStatus
+-&gt; ReadPrec [PutLifecycleEventHookExecutionStatus]
+-&gt; Read PutLifecycleEventHookExecutionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLifecycleEventHookExecutionStatus]
+$creadListPrec :: ReadPrec [PutLifecycleEventHookExecutionStatus]
+readPrec :: ReadPrec PutLifecycleEventHookExecutionStatus
+$creadPrec :: ReadPrec PutLifecycleEventHookExecutionStatus
+readList :: ReadS [PutLifecycleEventHookExecutionStatus]
+$creadList :: ReadS [PutLifecycleEventHookExecutionStatus]
+readsPrec :: Int -&gt; ReadS PutLifecycleEventHookExecutionStatus
+$creadsPrec :: Int -&gt; ReadS PutLifecycleEventHookExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318964"><span id="local-6989586621679318966"><span id="local-6989586621679318968"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleEventHookExecutionStatus -&gt; ShowS
+[PutLifecycleEventHookExecutionStatus] -&gt; ShowS
+PutLifecycleEventHookExecutionStatus -&gt; String
+(Int -&gt; PutLifecycleEventHookExecutionStatus -&gt; ShowS)
+-&gt; (PutLifecycleEventHookExecutionStatus -&gt; String)
+-&gt; ([PutLifecycleEventHookExecutionStatus] -&gt; ShowS)
+-&gt; Show PutLifecycleEventHookExecutionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLifecycleEventHookExecutionStatus] -&gt; ShowS
+$cshowList :: [PutLifecycleEventHookExecutionStatus] -&gt; ShowS
+show :: PutLifecycleEventHookExecutionStatus -&gt; String
+$cshow :: PutLifecycleEventHookExecutionStatus -&gt; String
+showsPrec :: Int -&gt; PutLifecycleEventHookExecutionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLifecycleEventHookExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutLifecycleEventHookExecutionStatus
+ -&gt; Rep PutLifecycleEventHookExecutionStatus x)
+-&gt; (forall x.
+    Rep PutLifecycleEventHookExecutionStatus x
+    -&gt; PutLifecycleEventHookExecutionStatus)
+-&gt; Generic PutLifecycleEventHookExecutionStatus
+forall x.
+Rep PutLifecycleEventHookExecutionStatus x
+-&gt; PutLifecycleEventHookExecutionStatus
+forall x.
+PutLifecycleEventHookExecutionStatus
+-&gt; Rep PutLifecycleEventHookExecutionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutLifecycleEventHookExecutionStatus x
+-&gt; PutLifecycleEventHookExecutionStatus
+$cfrom :: forall x.
+PutLifecycleEventHookExecutionStatus
+-&gt; Rep PutLifecycleEventHookExecutionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'PutLifecycleEventHookExecutionStatus' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'deploymentId', 'putLifecycleEventHookExecutionStatus_deploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- validates a deployment lifecycle event.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'status', 'putLifecycleEventHookExecutionStatus_status' - The result of a Lambda function that validates a deployment lifecycle</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- event. @Succeeded@ and @Failed@ are the only valid values for @status@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'lifecycleEventHookExecutionId', 'putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId' - The execution ID of a deployment\'s lifecycle hook. A deployment</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- lifecycle hook is specified in the @hooks@ section of the AppSpec file.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">newPutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span>
+</span><span id="line-93"></span><span id="newPutLifecycleEventHookExecutionStatus"><span class="annot"><span class="annottext">newPutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-var hs-var">newPutLifecycleEventHookExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus' :: Maybe Text
+-&gt; Maybe LifecycleEventStatus
+-&gt; Maybe Text
+-&gt; PutLifecycleEventHookExecutionStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentId:PutLifecycleEventHookExecutionStatus' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AdeploymentId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:PutLifecycleEventHookExecutionStatus' :: Maybe LifecycleEventStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3Astatus%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatus' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The unique ID of a deployment. Pass this ID to a Lambda function that</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- validates a deployment lifecycle event.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_deploymentId"><span class="hs-identifier hs-type">putLifecycleEventHookExecutionStatus_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="putLifecycleEventHookExecutionStatus_deploymentId"><span class="annot"><span class="annottext">putLifecycleEventHookExecutionStatus_deploymentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleEventHookExecutionStatus
+-&gt; f PutLifecycleEventHookExecutionStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_deploymentId"><span class="hs-identifier hs-var hs-var">putLifecycleEventHookExecutionStatus_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleEventHookExecutionStatus -&gt; Maybe Text)
+-&gt; (PutLifecycleEventHookExecutionStatus
+    -&gt; Maybe Text -&gt; PutLifecycleEventHookExecutionStatus)
+-&gt; Lens
+     PutLifecycleEventHookExecutionStatus
+     PutLifecycleEventHookExecutionStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318957"><span class="annot"><span class="annottext">Maybe Text
+deploymentId :: Maybe Text
+$sel:deploymentId:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679318957"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318957"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318956"><span class="annot"><span class="annottext">s :: PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:PutLifecycleEventHookExecutionStatus' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AdeploymentId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The result of a Lambda function that validates a deployment lifecycle</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- event. @Succeeded@ and @Failed@ are the only valid values for @status@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_status"><span class="hs-identifier hs-type">putLifecycleEventHookExecutionStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus"><span class="hs-identifier hs-type">LifecycleEventStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="putLifecycleEventHookExecutionStatus_status"><span class="annot"><span class="annottext">putLifecycleEventHookExecutionStatus_status :: (Maybe LifecycleEventStatus -&gt; f (Maybe LifecycleEventStatus))
+-&gt; PutLifecycleEventHookExecutionStatus
+-&gt; f PutLifecycleEventHookExecutionStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_status"><span class="hs-identifier hs-var hs-var">putLifecycleEventHookExecutionStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleEventHookExecutionStatus
+ -&gt; Maybe LifecycleEventStatus)
+-&gt; (PutLifecycleEventHookExecutionStatus
+    -&gt; Maybe LifecycleEventStatus
+    -&gt; PutLifecycleEventHookExecutionStatus)
+-&gt; Lens
+     PutLifecycleEventHookExecutionStatus
+     PutLifecycleEventHookExecutionStatus
+     (Maybe LifecycleEventStatus)
+     (Maybe LifecycleEventStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318954"><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+status :: Maybe LifecycleEventStatus
+$sel:status:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe LifecycleEventStatus
+</span><a href="#local-6989586621679318954"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+</span><a href="#local-6989586621679318954"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318953"><span class="annot"><span class="annottext">s :: PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318952"><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+</span><a href="#local-6989586621679318952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PutLifecycleEventHookExecutionStatus' :: Maybe LifecycleEventStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3Astatus%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+</span><a href="#local-6989586621679318952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The execution ID of a deployment\'s lifecycle hook. A deployment</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- lifecycle hook is specified in the @hooks@ section of the AppSpec file.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId"><span class="hs-identifier hs-type">putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId"><span class="annot"><span class="annottext">putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleEventHookExecutionStatus
+-&gt; f PutLifecycleEventHookExecutionStatus
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId"><span class="hs-identifier hs-var hs-var">putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleEventHookExecutionStatus -&gt; Maybe Text)
+-&gt; (PutLifecycleEventHookExecutionStatus
+    -&gt; Maybe Text -&gt; PutLifecycleEventHookExecutionStatus)
+-&gt; Lens
+     PutLifecycleEventHookExecutionStatus
+     PutLifecycleEventHookExecutionStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318951"><span class="annot"><span class="annottext">Maybe Text
+lifecycleEventHookExecutionId :: Maybe Text
+$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679318951"><span class="hs-identifier hs-var hs-var">lifecycleEventHookExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318951"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318950"><span class="annot"><span class="annottext">s :: PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatus
+</span><a href="#local-6989586621679318950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatus' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679318945"><span class="annot"><span class="annottext">request :: PutLifecycleEventHookExecutionStatus
+-&gt; Request PutLifecycleEventHookExecutionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutLifecycleEventHookExecutionStatus
+-&gt; Request PutLifecycleEventHookExecutionStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679318941"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutLifecycleEventHookExecutionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutLifecycleEventHookExecutionStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse PutLifecycleEventHookExecutionStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutLifecycleEventHookExecutionStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutLifecycleEventHookExecutionStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679318937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318936"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutLifecycleEventHookExecutionStatusResponse
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutLifecycleEventHookExecutionStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; PutLifecycleEventHookExecutionStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycleEventHookExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutLifecycleEventHookExecutionStatusResponse)
+-&gt; Either String Int
+-&gt; Either String PutLifecycleEventHookExecutionStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679318928"><span id="local-6989586621679318930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679318925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679318921"><span class="annot"><span class="annottext">toHeaders :: PutLifecycleEventHookExecutionStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PutLifecycleEventHookExecutionStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679318911"><span id="local-6989586621679318913"><span id="local-6989586621679318915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span></span></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679318909"><span class="annot"><span class="annottext">toJSON :: PutLifecycleEventHookExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318905"><span id="local-6989586621679318906"><span id="local-6989586621679318907"><span class="annot"><span class="annottext">Maybe Text
+Maybe LifecycleEventStatus
+lifecycleEventHookExecutionId :: Maybe Text
+status :: Maybe LifecycleEventStatus
+deploymentId :: Maybe Text
+$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+$sel:status:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe LifecycleEventStatus
+$sel:deploymentId:PutLifecycleEventHookExecutionStatus' :: PutLifecycleEventHookExecutionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679318905"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318907"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LifecycleEventStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LifecycleEventStatus -&gt; Pair)
+-&gt; Maybe LifecycleEventStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventStatus
+</span><a href="#local-6989586621679318906"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycleEventHookExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318905"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679318899"><span class="annot"><span class="annottext">toPath :: PutLifecycleEventHookExecutionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutLifecycleEventHookExecutionStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatus"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatus</span></a></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679318895"><span class="annot"><span class="annottext">toQuery :: PutLifecycleEventHookExecutionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutLifecycleEventHookExecutionStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newPutLifecycleEventHookExecutionStatusResponse' smart constructor.</span><span>
+</span><span id="line-186"></span><span id="local-6989586621679318892"><span id="local-6989586621679318893"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecycleEventHookExecutionStatusResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-var">PutLifecycleEventHookExecutionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecycleEventHookExecutionStatusResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">PutLifecycleEventHookExecutionStatusResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The execution ID of the lifecycle event hook. A hook is specified in the</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- @hooks@ section of the deployment\'s AppSpec file.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var hs-var">lifecycleEventHookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse -&gt; Int
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AhttpStatus%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318886"><span id="local-6989586621679318888"><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse
+-&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool
+(PutLifecycleEventHookExecutionStatusResponse
+ -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool)
+-&gt; (PutLifecycleEventHookExecutionStatusResponse
+    -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool)
+-&gt; Eq PutLifecycleEventHookExecutionStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLifecycleEventHookExecutionStatusResponse
+-&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool
+$c/= :: PutLifecycleEventHookExecutionStatusResponse
+-&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool
+== :: PutLifecycleEventHookExecutionStatusResponse
+-&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool
+$c== :: PutLifecycleEventHookExecutionStatusResponse
+-&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318878"><span id="local-6989586621679318880"><span id="local-6989586621679318882"><span id="local-6989586621679318884"><span class="annot"><span class="annottext">ReadPrec [PutLifecycleEventHookExecutionStatusResponse]
+ReadPrec PutLifecycleEventHookExecutionStatusResponse
+Int -&gt; ReadS PutLifecycleEventHookExecutionStatusResponse
+ReadS [PutLifecycleEventHookExecutionStatusResponse]
+(Int -&gt; ReadS PutLifecycleEventHookExecutionStatusResponse)
+-&gt; ReadS [PutLifecycleEventHookExecutionStatusResponse]
+-&gt; ReadPrec PutLifecycleEventHookExecutionStatusResponse
+-&gt; ReadPrec [PutLifecycleEventHookExecutionStatusResponse]
+-&gt; Read PutLifecycleEventHookExecutionStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLifecycleEventHookExecutionStatusResponse]
+$creadListPrec :: ReadPrec [PutLifecycleEventHookExecutionStatusResponse]
+readPrec :: ReadPrec PutLifecycleEventHookExecutionStatusResponse
+$creadPrec :: ReadPrec PutLifecycleEventHookExecutionStatusResponse
+readList :: ReadS [PutLifecycleEventHookExecutionStatusResponse]
+$creadList :: ReadS [PutLifecycleEventHookExecutionStatusResponse]
+readsPrec :: Int -&gt; ReadS PutLifecycleEventHookExecutionStatusResponse
+$creadsPrec :: Int -&gt; ReadS PutLifecycleEventHookExecutionStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318872"><span id="local-6989586621679318874"><span id="local-6989586621679318876"><span class="annot"><span class="annottext">Int -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; ShowS
+[PutLifecycleEventHookExecutionStatusResponse] -&gt; ShowS
+PutLifecycleEventHookExecutionStatusResponse -&gt; String
+(Int -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; ShowS)
+-&gt; (PutLifecycleEventHookExecutionStatusResponse -&gt; String)
+-&gt; ([PutLifecycleEventHookExecutionStatusResponse] -&gt; ShowS)
+-&gt; Show PutLifecycleEventHookExecutionStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLifecycleEventHookExecutionStatusResponse] -&gt; ShowS
+$cshowList :: [PutLifecycleEventHookExecutionStatusResponse] -&gt; ShowS
+show :: PutLifecycleEventHookExecutionStatusResponse -&gt; String
+$cshow :: PutLifecycleEventHookExecutionStatusResponse -&gt; String
+showsPrec :: Int -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLifecycleEventHookExecutionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutLifecycleEventHookExecutionStatusResponse
+ -&gt; Rep PutLifecycleEventHookExecutionStatusResponse x)
+-&gt; (forall x.
+    Rep PutLifecycleEventHookExecutionStatusResponse x
+    -&gt; PutLifecycleEventHookExecutionStatusResponse)
+-&gt; Generic PutLifecycleEventHookExecutionStatusResponse
+forall x.
+Rep PutLifecycleEventHookExecutionStatusResponse x
+-&gt; PutLifecycleEventHookExecutionStatusResponse
+forall x.
+PutLifecycleEventHookExecutionStatusResponse
+-&gt; Rep PutLifecycleEventHookExecutionStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutLifecycleEventHookExecutionStatusResponse x
+-&gt; PutLifecycleEventHookExecutionStatusResponse
+$cfrom :: forall x.
+PutLifecycleEventHookExecutionStatusResponse
+-&gt; Rep PutLifecycleEventHookExecutionStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'PutLifecycleEventHookExecutionStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'lifecycleEventHookExecutionId', 'putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId' - The execution ID of the lifecycle event hook. A hook is specified in the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @hooks@ section of the deployment\'s AppSpec file.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'putLifecycleEventHookExecutionStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">newPutLifecycleEventHookExecutionStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newPutLifecycleEventHookExecutionStatusResponse"><span class="annot"><span class="annottext">newPutLifecycleEventHookExecutionStatusResponse :: Int -&gt; PutLifecycleEventHookExecutionStatusResponse
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#newPutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-var hs-var">newPutLifecycleEventHookExecutionStatusResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679318869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse' :: Maybe Text -&gt; Int -&gt; PutLifecycleEventHookExecutionStatusResponse
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecycleEventHookExecutionStatusResponse' :: Int
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AhttpStatus%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The execution ID of the lifecycle event hook. A hook is specified in the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @hooks@ section of the deployment\'s AppSpec file.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId"><span class="hs-identifier hs-type">putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId"><span class="annot"><span class="annottext">putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLifecycleEventHookExecutionStatusResponse
+-&gt; f PutLifecycleEventHookExecutionStatusResponse
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId"><span class="hs-identifier hs-var hs-var">putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleEventHookExecutionStatusResponse -&gt; Maybe Text)
+-&gt; (PutLifecycleEventHookExecutionStatusResponse
+    -&gt; Maybe Text -&gt; PutLifecycleEventHookExecutionStatusResponse)
+-&gt; Lens
+     PutLifecycleEventHookExecutionStatusResponse
+     PutLifecycleEventHookExecutionStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318868"><span class="annot"><span class="annottext">Maybe Text
+lifecycleEventHookExecutionId :: Maybe Text
+$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatusResponse' :: PutLifecycleEventHookExecutionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679318868"><span class="hs-identifier hs-var hs-var">lifecycleEventHookExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318868"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318867"><span class="annot"><span class="annottext">s :: PutLifecycleEventHookExecutionStatusResponse
+</span><a href="#local-6989586621679318867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318866"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse
+</span><a href="#local-6989586621679318867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleEventHookExecutionId:PutLifecycleEventHookExecutionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AlifecycleEventHookExecutionId%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">lifecycleEventHookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_httpStatus"><span class="hs-identifier hs-type">putLifecycleEventHookExecutionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="putLifecycleEventHookExecutionStatusResponse_httpStatus"><span class="annot"><span class="annottext">putLifecycleEventHookExecutionStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutLifecycleEventHookExecutionStatusResponse
+-&gt; f PutLifecycleEventHookExecutionStatusResponse
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#putLifecycleEventHookExecutionStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putLifecycleEventHookExecutionStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLifecycleEventHookExecutionStatusResponse -&gt; Int)
+-&gt; (PutLifecycleEventHookExecutionStatusResponse
+    -&gt; Int -&gt; PutLifecycleEventHookExecutionStatusResponse)
+-&gt; Lens
+     PutLifecycleEventHookExecutionStatusResponse
+     PutLifecycleEventHookExecutionStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318865"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutLifecycleEventHookExecutionStatusResponse' :: PutLifecycleEventHookExecutionStatusResponse -&gt; Int
+</span><a href="#local-6989586621679318865"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318865"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318864"><span class="annot"><span class="annottext">s :: PutLifecycleEventHookExecutionStatusResponse
+</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecycleEventHookExecutionStatusResponse
+</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecycleEventHookExecutionStatusResponse' :: Int
+</span><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#%24sel%3AhttpStatus%3APutLifecycleEventHookExecutionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679318861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus.html#PutLifecycleEventHookExecutionStatusResponse"><span class="hs-identifier hs-type">PutLifecycleEventHookExecutionStatusResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

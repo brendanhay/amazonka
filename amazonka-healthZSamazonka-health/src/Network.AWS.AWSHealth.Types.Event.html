@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AWSHealth.Types.Event</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AWSHealth.Types.Event</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html"><span class="hs-identifier">Network.AWS.AWSHealth.Types.EventScopeCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventStatusCode.html"><span class="hs-identifier">Network.AWS.AWSHealth.Types.EventStatusCode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html"><span class="hs-identifier">Network.AWS.AWSHealth.Types.EventTypeCategory</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Summary information about an AWS Health event.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- AWS Health events can be public or account-specific:</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   /Public events/ might be service events that are not specific to an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     AWS account. For example, if there is an issue with an AWS Region,</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     AWS Health provides information about the event, even if you don\'t</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     use services or resources in that Region.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   /Account-specific/ events are specific to either your AWS account or</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     an account in your organization. For example, if there\'s an issue</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     with Amazon Elastic Compute Cloud in a Region that you use, AWS</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     Health provides information about the event and the affected</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     resources in the account.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- You can determine if an event is public or account-specific by using the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- @eventScopeCode@ parameter. For more information, see</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode eventScopeCode&gt;.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679187557"><span id="local-6989586621679187558"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The category of the event. Possible values are @issue@,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @scheduledChange@, and @accountNotification@.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AeventTypeCategory%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe EventTypeCategory
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCategory%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventTypeCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory"><span class="hs-identifier hs-type">EventTypeCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | This parameter specifies if the AWS Health event is a public AWS service</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- event or an account-specific event.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @PUBLIC@, then the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     @affectedAccounts@ value is always empty.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     @affectedAccounts@ value lists the affected AWS accounts in your</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     organization. For example, if an event affects a service such as</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     Amazon Elastic Compute Cloud and you have AWS accounts that use that</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     service, those account IDs appear in the response.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     you specified in the request is invalid or doesn\'t exist.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AeventScopeCode%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe EventScopeCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventScopeCode%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventScopeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode"><span class="hs-identifier hs-type">EventScopeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The date and time that the event began.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstartTime%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstartTime%3AEvent%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aarn%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aarn%3AEvent%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The AWS service that is affected by the event. For example, @EC2@,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @RDS@.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aservice%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aservice%3AEvent%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The date and time that the event ended.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AendTime%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AendTime%3AEvent%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The AWS Availability Zone of the event. For example, us-east-1a.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AavailabilityZone%3AEvent%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The most recent status of the event. Possible values are @open@,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @closed@, and @upcoming@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AstatusCode%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe EventStatusCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstatusCode%3AEvent%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventStatusCode.html#EventStatusCode"><span class="hs-identifier hs-type">EventStatusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event type. The format is</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @AWS_SERVICE_DESCRIPTION @; for example,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AeventTypeCode%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCode%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventTypeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The AWS Region name of the event.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aregion%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aregion%3AEvent%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The most recent date and time that the event was updated.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AlastUpdatedTime%3AEvent%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187541"><span id="local-6989586621679187543"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+(Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Event -&gt; Event -&gt; Bool
+$c/= :: Event -&gt; Event -&gt; Bool
+== :: Event -&gt; Event -&gt; Bool
+$c== :: Event -&gt; Event -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187532"><span id="local-6989586621679187534"><span id="local-6989586621679187536"><span id="local-6989586621679187538"><span class="annot"><span class="annottext">ReadPrec [Event]
+ReadPrec Event
+Int -&gt; ReadS Event
+ReadS [Event]
+(Int -&gt; ReadS Event)
+-&gt; ReadS [Event]
+-&gt; ReadPrec Event
+-&gt; ReadPrec [Event]
+-&gt; Read Event
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Event]
+$creadListPrec :: ReadPrec [Event]
+readPrec :: ReadPrec Event
+$creadPrec :: ReadPrec Event
+readList :: ReadS [Event]
+$creadList :: ReadS [Event]
+readsPrec :: Int -&gt; ReadS Event
+$creadsPrec :: Int -&gt; ReadS Event
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187525"><span id="local-6989586621679187527"><span id="local-6989586621679187529"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+[Event] -&gt; ShowS
+Event -&gt; String
+(Int -&gt; Event -&gt; ShowS)
+-&gt; (Event -&gt; String) -&gt; ([Event] -&gt; ShowS) -&gt; Show Event
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Event] -&gt; ShowS
+$cshowList :: [Event] -&gt; ShowS
+show :: Event -&gt; String
+$cshow :: Event -&gt; String
+showsPrec :: Int -&gt; Event -&gt; ShowS
+$cshowsPrec :: Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Event -&gt; Rep Event x)
+-&gt; (forall x. Rep Event x -&gt; Event) -&gt; Generic Event
+forall x. Rep Event x -&gt; Event
+forall x. Event -&gt; Rep Event x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Event x -&gt; Event
+$cfrom :: forall x. Event -&gt; Rep Event x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'Event' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'eventTypeCategory', 'event_eventTypeCategory' - The category of the event. Possible values are @issue@,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @scheduledChange@, and @accountNotification@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'eventScopeCode', 'event_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- event or an account-specific event.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @PUBLIC@, then the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     @affectedAccounts@ value is always empty.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     @affectedAccounts@ value lists the affected AWS accounts in your</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     organization. For example, if an event affects a service such as</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     Amazon Elastic Compute Cloud and you have AWS accounts that use that</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     service, those account IDs appear in the response.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     you specified in the request is invalid or doesn\'t exist.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'startTime', 'event_startTime' - The date and time that the event began.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'service', 'event_service' - The AWS service that is affected by the event. For example, @EC2@,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @RDS@.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'endTime', 'event_endTime' - The date and time that the event ended.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'availabilityZone', 'event_availabilityZone' - The AWS Availability Zone of the event. For example, us-east-1a.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'statusCode', 'event_statusCode' - The most recent status of the event. Possible values are @open@,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @closed@, and @upcoming@.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @AWS_SERVICE_DESCRIPTION @; for example,</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'region', 'event_region' - The AWS Region name of the event.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#newEvent"><span class="hs-identifier hs-type">newEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span>
+</span><span id="line-154"></span><span id="newEvent"><span class="annot"><span class="annottext">newEvent :: Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#newEvent"><span class="hs-identifier hs-var hs-var">newEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">Event' :: Maybe EventTypeCategory
+-&gt; Maybe EventScopeCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe EventStatusCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventTypeCategory:Event' :: Maybe EventTypeCategory
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCategory%3AEvent%27"><span class="hs-identifier hs-var">eventTypeCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeCategory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventScopeCode:Event' :: Maybe EventScopeCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventScopeCode%3AEvent%27"><span class="hs-identifier hs-var">eventScopeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventScopeCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstartTime%3AEvent%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aarn%3AEvent%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:service:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aservice%3AEvent%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AendTime%3AEvent%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AavailabilityZone%3AEvent%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCode:Event' :: Maybe EventStatusCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstatusCode%3AEvent%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventStatusCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTypeCode:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCode%3AEvent%27"><span class="hs-identifier hs-var">eventTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aregion%3AEvent%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AlastUpdatedTime%3AEvent%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The category of the event. Possible values are @issue@,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- @scheduledChange@, and @accountNotification@.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventTypeCategory"><span class="hs-identifier hs-type">event_eventTypeCategory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory"><span class="hs-identifier hs-type">EventTypeCategory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="event_eventTypeCategory"><span class="annot"><span class="annottext">event_eventTypeCategory :: (Maybe EventTypeCategory -&gt; f (Maybe EventTypeCategory))
+-&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventTypeCategory"><span class="hs-identifier hs-var hs-var">event_eventTypeCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe EventTypeCategory)
+-&gt; (Event -&gt; Maybe EventTypeCategory -&gt; Event)
+-&gt; Lens
+     Event Event (Maybe EventTypeCategory) (Maybe EventTypeCategory)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187516"><span class="annot"><span class="annottext">Maybe EventTypeCategory
+eventTypeCategory :: Maybe EventTypeCategory
+$sel:eventTypeCategory:Event' :: Event -&gt; Maybe EventTypeCategory
+</span><a href="#local-6989586621679187516"><span class="hs-identifier hs-var hs-var">eventTypeCategory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeCategory
+</span><a href="#local-6989586621679187516"><span class="hs-identifier hs-var">eventTypeCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187515"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187514"><span class="annot"><span class="annottext">Maybe EventTypeCategory
+</span><a href="#local-6989586621679187514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeCategory:Event' :: Maybe EventTypeCategory
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCategory%3AEvent%27"><span class="hs-identifier hs-var">eventTypeCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeCategory
+</span><a href="#local-6989586621679187514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | This parameter specifies if the AWS Health event is a public AWS service</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- event or an account-specific event.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @PUBLIC@, then the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     @affectedAccounts@ value is always empty.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     @affectedAccounts@ value lists the affected AWS accounts in your</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     organization. For example, if an event affects a service such as</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     Amazon Elastic Compute Cloud and you have AWS accounts that use that</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     service, those account IDs appear in the response.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     you specified in the request is invalid or doesn\'t exist.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventScopeCode"><span class="hs-identifier hs-type">event_eventScopeCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode"><span class="hs-identifier hs-type">EventScopeCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="event_eventScopeCode"><span class="annot"><span class="annottext">event_eventScopeCode :: (Maybe EventScopeCode -&gt; f (Maybe EventScopeCode))
+-&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventScopeCode"><span class="hs-identifier hs-var hs-var">event_eventScopeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe EventScopeCode)
+-&gt; (Event -&gt; Maybe EventScopeCode -&gt; Event)
+-&gt; Lens Event Event (Maybe EventScopeCode) (Maybe EventScopeCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187512"><span class="annot"><span class="annottext">Maybe EventScopeCode
+eventScopeCode :: Maybe EventScopeCode
+$sel:eventScopeCode:Event' :: Event -&gt; Maybe EventScopeCode
+</span><a href="#local-6989586621679187512"><span class="hs-identifier hs-var hs-var">eventScopeCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventScopeCode
+</span><a href="#local-6989586621679187512"><span class="hs-identifier hs-var">eventScopeCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187511"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187510"><span class="annot"><span class="annottext">Maybe EventScopeCode
+</span><a href="#local-6989586621679187510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventScopeCode:Event' :: Maybe EventScopeCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventScopeCode%3AEvent%27"><span class="hs-identifier hs-var">eventScopeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventScopeCode
+</span><a href="#local-6989586621679187510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The date and time that the event began.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_startTime"><span class="hs-identifier hs-type">event_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="event_startTime"><span class="annot"><span class="annottext">event_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_startTime"><span class="hs-identifier hs-var hs-var">event_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe POSIX)
+-&gt; (Event -&gt; Maybe POSIX -&gt; Event)
+-&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187508"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:Event' :: Event -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187508"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187508"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187507"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187506"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstartTime%3AEvent%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Event
+-&gt; f Event
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_arn"><span class="hs-identifier hs-type">event_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="event_arn"><span class="annot"><span class="annottext">event_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_arn"><span class="hs-identifier hs-var hs-var">event_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187501"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679187501"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187501"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187500"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aarn%3AEvent%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The AWS service that is affected by the event. For example, @EC2@,</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @RDS@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_service"><span class="hs-identifier hs-type">event_service</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="event_service"><span class="annot"><span class="annottext">event_service :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_service"><span class="hs-identifier hs-var hs-var">event_service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187497"><span class="annot"><span class="annottext">Maybe Text
+service :: Maybe Text
+$sel:service:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679187497"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187497"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187496"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aservice%3AEvent%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The date and time that the event ended.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_endTime"><span class="hs-identifier hs-type">event_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="event_endTime"><span class="annot"><span class="annottext">event_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_endTime"><span class="hs-identifier hs-var hs-var">event_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe POSIX)
+-&gt; (Event -&gt; Maybe POSIX -&gt; Event)
+-&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187493"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:Event' :: Event -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187493"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187493"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187492"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187491"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AendTime%3AEvent%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Event
+-&gt; f Event
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The AWS Availability Zone of the event. For example, us-east-1a.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_availabilityZone"><span class="hs-identifier hs-type">event_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="event_availabilityZone"><span class="annot"><span class="annottext">event_availabilityZone :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_availabilityZone"><span class="hs-identifier hs-var hs-var">event_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187489"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679187489"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187489"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187488"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AavailabilityZone%3AEvent%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The most recent status of the event. Possible values are @open@,</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @closed@, and @upcoming@.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_statusCode"><span class="hs-identifier hs-type">event_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventStatusCode.html#EventStatusCode"><span class="hs-identifier hs-type">EventStatusCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="event_statusCode"><span class="annot"><span class="annottext">event_statusCode :: (Maybe EventStatusCode -&gt; f (Maybe EventStatusCode))
+-&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_statusCode"><span class="hs-identifier hs-var hs-var">event_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe EventStatusCode)
+-&gt; (Event -&gt; Maybe EventStatusCode -&gt; Event)
+-&gt; Lens Event Event (Maybe EventStatusCode) (Maybe EventStatusCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187485"><span class="annot"><span class="annottext">Maybe EventStatusCode
+statusCode :: Maybe EventStatusCode
+$sel:statusCode:Event' :: Event -&gt; Maybe EventStatusCode
+</span><a href="#local-6989586621679187485"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventStatusCode
+</span><a href="#local-6989586621679187485"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187484"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187483"><span class="annot"><span class="annottext">Maybe EventStatusCode
+</span><a href="#local-6989586621679187483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:Event' :: Maybe EventStatusCode
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AstatusCode%3AEvent%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventStatusCode
+</span><a href="#local-6989586621679187483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The unique identifier for the event type. The format is</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- @AWS_SERVICE_DESCRIPTION @; for example,</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventTypeCode"><span class="hs-identifier hs-type">event_eventTypeCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="event_eventTypeCode"><span class="annot"><span class="annottext">event_eventTypeCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_eventTypeCode"><span class="hs-identifier hs-var hs-var">event_eventTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187481"><span class="annot"><span class="annottext">Maybe Text
+eventTypeCode :: Maybe Text
+$sel:eventTypeCode:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679187481"><span class="hs-identifier hs-var hs-var">eventTypeCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187481"><span class="hs-identifier hs-var">eventTypeCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187480"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeCode:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AeventTypeCode%3AEvent%27"><span class="hs-identifier hs-var">eventTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The AWS Region name of the event.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_region"><span class="hs-identifier hs-type">event_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="event_region"><span class="annot"><span class="annottext">event_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_region"><span class="hs-identifier hs-var hs-var">event_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187477"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679187477"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187477"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187476"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:Event' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3Aregion%3AEvent%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The most recent date and time that the event was updated.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#event_lastUpdatedTime"><span class="hs-identifier hs-type">event_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="event_lastUpdatedTime"><span class="annot"><span class="annottext">event_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#event_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">event_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe POSIX)
+-&gt; (Event -&gt; Maybe POSIX -&gt; Event)
+-&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187473"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:Event' :: Event -&gt; Maybe POSIX
+</span><a href="#local-6989586621679187473"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187473"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187472"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679187472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187471"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679187472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:Event' :: Maybe POSIX
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#%24sel%3AlastUpdatedTime%3AEvent%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679187471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Event
+-&gt; f Event
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679187466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Event) -&gt; Value -&gt; Parser Event
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Event&quot;</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventTypeCategory
+-&gt; Maybe EventScopeCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe EventStatusCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Event
+</span><a href="Network.AWS.AWSHealth.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventTypeCategory
+ -&gt; Maybe EventScopeCode
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe EventStatusCode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Event)
+-&gt; Parser (Maybe EventTypeCategory)
+-&gt; Parser
+     (Maybe EventScopeCode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventTypeCategory)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeCategory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventScopeCode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe EventScopeCode)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventScopeCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventScopeCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;service&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EventStatusCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EventStatusCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Event)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EventStatusCode
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventStatusCode
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Event)
+-&gt; Parser (Maybe EventStatusCode)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventStatusCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Event)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Event)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Event)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Event
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187457"><span id="local-6989586621679187459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-259"></span></pre></body></html>

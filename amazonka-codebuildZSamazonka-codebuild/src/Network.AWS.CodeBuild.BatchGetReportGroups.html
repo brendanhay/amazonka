@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeBuild.BatchGetReportGroups</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns an array of report groups.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeBuild.BatchGetReportGroups</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier">BatchGetReportGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroups"><span class="hs-identifier">newBatchGetReportGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroups_reportGroupArns"><span class="hs-identifier">batchGetReportGroups_reportGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier">BatchGetReportGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroupsResponse"><span class="hs-identifier">newBatchGetReportGroupsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroupsNotFound"><span class="hs-identifier">batchGetReportGroupsResponse_reportGroupsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroups"><span class="hs-identifier">batchGetReportGroupsResponse_reportGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_httpStatus"><span class="hs-identifier">batchGetReportGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.html"><span class="hs-identifier">Network.AWS.CodeBuild.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchGetReportGroups' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679390559"><span id="local-6989586621679390560"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetReportGroups"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-var">BatchGetReportGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetReportGroups%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups%27"><span class="hs-identifier hs-var">BatchGetReportGroups'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of report group ARNs that identify the report groups to return.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AreportGroupArns%3ABatchGetReportGroups%27"><span class="annot"><span class="annottext">BatchGetReportGroups -&gt; NonEmpty Text
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupArns%3ABatchGetReportGroups%27"><span class="hs-identifier hs-var hs-var">reportGroupArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390553"><span id="local-6989586621679390555"><span class="annot"><span class="annottext">BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool
+(BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool)
+-&gt; (BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool)
+-&gt; Eq BatchGetReportGroups
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool
+$c/= :: BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool
+== :: BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool
+$c== :: BatchGetReportGroups -&gt; BatchGetReportGroups -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390544"><span id="local-6989586621679390546"><span id="local-6989586621679390548"><span id="local-6989586621679390550"><span class="annot"><span class="annottext">ReadPrec [BatchGetReportGroups]
+ReadPrec BatchGetReportGroups
+Int -&gt; ReadS BatchGetReportGroups
+ReadS [BatchGetReportGroups]
+(Int -&gt; ReadS BatchGetReportGroups)
+-&gt; ReadS [BatchGetReportGroups]
+-&gt; ReadPrec BatchGetReportGroups
+-&gt; ReadPrec [BatchGetReportGroups]
+-&gt; Read BatchGetReportGroups
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetReportGroups]
+$creadListPrec :: ReadPrec [BatchGetReportGroups]
+readPrec :: ReadPrec BatchGetReportGroups
+$creadPrec :: ReadPrec BatchGetReportGroups
+readList :: ReadS [BatchGetReportGroups]
+$creadList :: ReadS [BatchGetReportGroups]
+readsPrec :: Int -&gt; ReadS BatchGetReportGroups
+$creadsPrec :: Int -&gt; ReadS BatchGetReportGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390537"><span id="local-6989586621679390539"><span id="local-6989586621679390541"><span class="annot"><span class="annottext">Int -&gt; BatchGetReportGroups -&gt; ShowS
+[BatchGetReportGroups] -&gt; ShowS
+BatchGetReportGroups -&gt; String
+(Int -&gt; BatchGetReportGroups -&gt; ShowS)
+-&gt; (BatchGetReportGroups -&gt; String)
+-&gt; ([BatchGetReportGroups] -&gt; ShowS)
+-&gt; Show BatchGetReportGroups
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetReportGroups] -&gt; ShowS
+$cshowList :: [BatchGetReportGroups] -&gt; ShowS
+show :: BatchGetReportGroups -&gt; String
+$cshow :: BatchGetReportGroups -&gt; String
+showsPrec :: Int -&gt; BatchGetReportGroups -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetReportGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetReportGroups -&gt; Rep BatchGetReportGroups x)
+-&gt; (forall x. Rep BatchGetReportGroups x -&gt; BatchGetReportGroups)
+-&gt; Generic BatchGetReportGroups
+forall x. Rep BatchGetReportGroups x -&gt; BatchGetReportGroups
+forall x. BatchGetReportGroups -&gt; Rep BatchGetReportGroups x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetReportGroups x -&gt; BatchGetReportGroups
+$cfrom :: forall x. BatchGetReportGroups -&gt; Rep BatchGetReportGroups x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'BatchGetReportGroups' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'reportGroupArns', 'batchGetReportGroups_reportGroupArns' - An array of report group ARNs that identify the report groups to return.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroups"><span class="hs-identifier hs-type">newBatchGetReportGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'reportGroupArns'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span>
+</span><span id="line-70"></span><span id="newBatchGetReportGroups"><span class="annot"><span class="annottext">newBatchGetReportGroups :: NonEmpty Text -&gt; BatchGetReportGroups
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroups"><span class="hs-identifier hs-var hs-var">newBatchGetReportGroups</span></a></span></span><span> </span><span id="local-6989586621679390532"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">pReportGroupArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BatchGetReportGroups' :: NonEmpty Text -&gt; BatchGetReportGroups
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups%27"><span class="hs-identifier hs-type">BatchGetReportGroups'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportGroupArns:BatchGetReportGroups' :: NonEmpty Text
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupArns%3ABatchGetReportGroups%27"><span class="hs-identifier hs-var">reportGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">pReportGroupArns_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array of report group ARNs that identify the report groups to return.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroups_reportGroupArns"><span class="hs-identifier hs-type">batchGetReportGroups_reportGroupArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="batchGetReportGroups_reportGroupArns"><span class="annot"><span class="annottext">batchGetReportGroups_reportGroupArns :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchGetReportGroups -&gt; f BatchGetReportGroups
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroups_reportGroupArns"><span class="hs-identifier hs-var hs-var">batchGetReportGroups_reportGroupArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetReportGroups -&gt; NonEmpty Text)
+-&gt; (BatchGetReportGroups -&gt; NonEmpty Text -&gt; BatchGetReportGroups)
+-&gt; Lens
+     BatchGetReportGroups
+     BatchGetReportGroups
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups%27"><span class="hs-identifier hs-type">BatchGetReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390527"><span class="annot"><span class="annottext">NonEmpty Text
+reportGroupArns :: NonEmpty Text
+$sel:reportGroupArns:BatchGetReportGroups' :: BatchGetReportGroups -&gt; NonEmpty Text
+</span><a href="#local-6989586621679390527"><span class="hs-identifier hs-var hs-var">reportGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390527"><span class="hs-identifier hs-var">reportGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390526"><span class="annot"><span class="annottext">s :: BatchGetReportGroups
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups%27"><span class="hs-identifier hs-type">BatchGetReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390525"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetReportGroups
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroupArns:BatchGetReportGroups' :: NonEmpty Text
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupArns%3ABatchGetReportGroups%27"><span class="hs-identifier hs-var">reportGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; BatchGetReportGroups -&gt; f BatchGetReportGroups)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; BatchGetReportGroups
+-&gt; f BatchGetReportGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679390520"><span class="annot"><span class="annottext">request :: BatchGetReportGroups -&gt; Request BatchGetReportGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetReportGroups -&gt; Request BatchGetReportGroups
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679390516"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchGetReportGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchGetReportGroups)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchGetReportGroups))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchGetReportGroups
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchGetReportGroups)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390513"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390512"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390512"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390511"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty ReportGroup)
+-&gt; Int
+-&gt; BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">BatchGetReportGroupsResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe (NonEmpty ReportGroup)
+ -&gt; Int
+ -&gt; BatchGetReportGroupsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either
+     String
+     (Maybe (NonEmpty ReportGroup)
+      -&gt; Int -&gt; BatchGetReportGroupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportGroupsNotFound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ReportGroup)
+   -&gt; Int -&gt; BatchGetReportGroupsResponse)
+-&gt; Either String (Maybe (NonEmpty ReportGroup))
+-&gt; Either String (Int -&gt; BatchGetReportGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ReportGroup))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportGroups&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetReportGroupsResponse)
+-&gt; Either String Int -&gt; Either String BatchGetReportGroupsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390513"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390503"><span id="local-6989586621679390505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679390496"><span class="annot"><span class="annottext">toHeaders :: BatchGetReportGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetReportGroups -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeBuild_20161006.BatchGetReportGroups&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390486"><span id="local-6989586621679390488"><span id="local-6989586621679390490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679390484"><span class="annot"><span class="annottext">toJSON :: BatchGetReportGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups%27"><span class="hs-identifier hs-type">BatchGetReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390482"><span class="annot"><span class="annottext">NonEmpty Text
+reportGroupArns :: NonEmpty Text
+$sel:reportGroupArns:BatchGetReportGroups' :: BatchGetReportGroups -&gt; NonEmpty Text
+</span><a href="#local-6989586621679390482"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportGroupArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679390482"><span class="hs-identifier hs-var">reportGroupArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679390476"><span class="annot"><span class="annottext">toPath :: BatchGetReportGroups -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetReportGroups -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroups"><span class="hs-identifier hs-type">BatchGetReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679390472"><span class="annot"><span class="annottext">toQuery :: BatchGetReportGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetReportGroups -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newBatchGetReportGroupsResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679390469"><span id="local-6989586621679390470"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetReportGroupsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-var">BatchGetReportGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetReportGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">BatchGetReportGroupsResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of ARNs passed to @BatchGetReportGroups@ that are not</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- associated with a @ReportGroup@.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AreportGroupsNotFound%3ABatchGetReportGroupsResponse%27"><span class="annot"><span class="annottext">BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupsNotFound%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var hs-var">reportGroupsNotFound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The array of report groups returned by @BatchGetReportGroups@.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AreportGroups%3ABatchGetReportGroupsResponse%27"><span class="annot"><span class="annottext">BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty ReportGroup)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroups%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var hs-var">reportGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroup.html#ReportGroup"><span class="hs-identifier hs-type">ReportGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetReportGroupsResponse%27"><span class="annot"><span class="annottext">BatchGetReportGroupsResponse -&gt; Int
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AhttpStatus%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390462"><span id="local-6989586621679390464"><span class="annot"><span class="annottext">BatchGetReportGroupsResponse
+-&gt; BatchGetReportGroupsResponse -&gt; Bool
+(BatchGetReportGroupsResponse
+ -&gt; BatchGetReportGroupsResponse -&gt; Bool)
+-&gt; (BatchGetReportGroupsResponse
+    -&gt; BatchGetReportGroupsResponse -&gt; Bool)
+-&gt; Eq BatchGetReportGroupsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetReportGroupsResponse
+-&gt; BatchGetReportGroupsResponse -&gt; Bool
+$c/= :: BatchGetReportGroupsResponse
+-&gt; BatchGetReportGroupsResponse -&gt; Bool
+== :: BatchGetReportGroupsResponse
+-&gt; BatchGetReportGroupsResponse -&gt; Bool
+$c== :: BatchGetReportGroupsResponse
+-&gt; BatchGetReportGroupsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390454"><span id="local-6989586621679390456"><span id="local-6989586621679390458"><span id="local-6989586621679390460"><span class="annot"><span class="annottext">ReadPrec [BatchGetReportGroupsResponse]
+ReadPrec BatchGetReportGroupsResponse
+Int -&gt; ReadS BatchGetReportGroupsResponse
+ReadS [BatchGetReportGroupsResponse]
+(Int -&gt; ReadS BatchGetReportGroupsResponse)
+-&gt; ReadS [BatchGetReportGroupsResponse]
+-&gt; ReadPrec BatchGetReportGroupsResponse
+-&gt; ReadPrec [BatchGetReportGroupsResponse]
+-&gt; Read BatchGetReportGroupsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetReportGroupsResponse]
+$creadListPrec :: ReadPrec [BatchGetReportGroupsResponse]
+readPrec :: ReadPrec BatchGetReportGroupsResponse
+$creadPrec :: ReadPrec BatchGetReportGroupsResponse
+readList :: ReadS [BatchGetReportGroupsResponse]
+$creadList :: ReadS [BatchGetReportGroupsResponse]
+readsPrec :: Int -&gt; ReadS BatchGetReportGroupsResponse
+$creadsPrec :: Int -&gt; ReadS BatchGetReportGroupsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390448"><span id="local-6989586621679390450"><span id="local-6989586621679390452"><span class="annot"><span class="annottext">Int -&gt; BatchGetReportGroupsResponse -&gt; ShowS
+[BatchGetReportGroupsResponse] -&gt; ShowS
+BatchGetReportGroupsResponse -&gt; String
+(Int -&gt; BatchGetReportGroupsResponse -&gt; ShowS)
+-&gt; (BatchGetReportGroupsResponse -&gt; String)
+-&gt; ([BatchGetReportGroupsResponse] -&gt; ShowS)
+-&gt; Show BatchGetReportGroupsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetReportGroupsResponse] -&gt; ShowS
+$cshowList :: [BatchGetReportGroupsResponse] -&gt; ShowS
+show :: BatchGetReportGroupsResponse -&gt; String
+$cshow :: BatchGetReportGroupsResponse -&gt; String
+showsPrec :: Int -&gt; BatchGetReportGroupsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetReportGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchGetReportGroupsResponse -&gt; Rep BatchGetReportGroupsResponse x)
+-&gt; (forall x.
+    Rep BatchGetReportGroupsResponse x -&gt; BatchGetReportGroupsResponse)
+-&gt; Generic BatchGetReportGroupsResponse
+forall x.
+Rep BatchGetReportGroupsResponse x -&gt; BatchGetReportGroupsResponse
+forall x.
+BatchGetReportGroupsResponse -&gt; Rep BatchGetReportGroupsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchGetReportGroupsResponse x -&gt; BatchGetReportGroupsResponse
+$cfrom :: forall x.
+BatchGetReportGroupsResponse -&gt; Rep BatchGetReportGroupsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'BatchGetReportGroupsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'reportGroupsNotFound', 'batchGetReportGroupsResponse_reportGroupsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- associated with a @ReportGroup@.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'reportGroups', 'batchGetReportGroupsResponse_reportGroups' - The array of report groups returned by @BatchGetReportGroups@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'batchGetReportGroupsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroupsResponse"><span class="hs-identifier hs-type">newBatchGetReportGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newBatchGetReportGroupsResponse"><span class="annot"><span class="annottext">newBatchGetReportGroupsResponse :: Int -&gt; BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#newBatchGetReportGroupsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetReportGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679390445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">BatchGetReportGroupsResponse' :: Maybe (NonEmpty Text)
+-&gt; Maybe (NonEmpty ReportGroup)
+-&gt; Int
+-&gt; BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportGroupsNotFound:BatchGetReportGroupsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupsNotFound%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">reportGroupsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportGroups:BatchGetReportGroupsResponse' :: Maybe (NonEmpty ReportGroup)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroups%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">reportGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReportGroup)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetReportGroupsResponse' :: Int
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AhttpStatus%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | An array of ARNs passed to @BatchGetReportGroups@ that are not</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- associated with a @ReportGroup@.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroupsNotFound"><span class="hs-identifier hs-type">batchGetReportGroupsResponse_reportGroupsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="batchGetReportGroupsResponse_reportGroupsNotFound"><span class="annot"><span class="annottext">batchGetReportGroupsResponse_reportGroupsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchGetReportGroupsResponse -&gt; f BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroupsNotFound"><span class="hs-identifier hs-var hs-var">batchGetReportGroupsResponse_reportGroupsNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty Text))
+-&gt; (BatchGetReportGroupsResponse
+    -&gt; Maybe (NonEmpty Text) -&gt; BatchGetReportGroupsResponse)
+-&gt; Lens
+     BatchGetReportGroupsResponse
+     BatchGetReportGroupsResponse
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390444"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+reportGroupsNotFound :: Maybe (NonEmpty Text)
+$sel:reportGroupsNotFound:BatchGetReportGroupsResponse' :: BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679390444"><span class="hs-identifier hs-var hs-var">reportGroupsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679390444"><span class="hs-identifier hs-var">reportGroupsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390443"><span class="annot"><span class="annottext">s :: BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390442"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679390442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroupsNotFound:BatchGetReportGroupsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroupsNotFound%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">reportGroupsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679390442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; BatchGetReportGroupsResponse -&gt; f BatchGetReportGroupsResponse)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchGetReportGroupsResponse
+-&gt; f BatchGetReportGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The array of report groups returned by @BatchGetReportGroups@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroups"><span class="hs-identifier hs-type">batchGetReportGroupsResponse_reportGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroup.html#ReportGroup"><span class="hs-identifier hs-type">ReportGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="batchGetReportGroupsResponse_reportGroups"><span class="annot"><span class="annottext">batchGetReportGroupsResponse_reportGroups :: (Maybe (NonEmpty ReportGroup) -&gt; f (Maybe (NonEmpty ReportGroup)))
+-&gt; BatchGetReportGroupsResponse -&gt; f BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_reportGroups"><span class="hs-identifier hs-var hs-var">batchGetReportGroupsResponse_reportGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty ReportGroup))
+-&gt; (BatchGetReportGroupsResponse
+    -&gt; Maybe (NonEmpty ReportGroup) -&gt; BatchGetReportGroupsResponse)
+-&gt; Lens
+     BatchGetReportGroupsResponse
+     BatchGetReportGroupsResponse
+     (Maybe (NonEmpty ReportGroup))
+     (Maybe (NonEmpty ReportGroup))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390440"><span class="annot"><span class="annottext">Maybe (NonEmpty ReportGroup)
+reportGroups :: Maybe (NonEmpty ReportGroup)
+$sel:reportGroups:BatchGetReportGroupsResponse' :: BatchGetReportGroupsResponse -&gt; Maybe (NonEmpty ReportGroup)
+</span><a href="#local-6989586621679390440"><span class="hs-identifier hs-var hs-var">reportGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReportGroup)
+</span><a href="#local-6989586621679390440"><span class="hs-identifier hs-var">reportGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390439"><span class="annot"><span class="annottext">s :: BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390438"><span class="annot"><span class="annottext">Maybe (NonEmpty ReportGroup)
+</span><a href="#local-6989586621679390438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroups:BatchGetReportGroupsResponse' :: Maybe (NonEmpty ReportGroup)
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AreportGroups%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">reportGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReportGroup)
+</span><a href="#local-6989586621679390438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ReportGroup) -&gt; f (Maybe (NonEmpty ReportGroup)))
+ -&gt; BatchGetReportGroupsResponse -&gt; f BatchGetReportGroupsResponse)
+-&gt; ((Maybe (NonEmpty ReportGroup)
+     -&gt; f (Maybe (NonEmpty ReportGroup)))
+    -&gt; Maybe (NonEmpty ReportGroup)
+    -&gt; f (Maybe (NonEmpty ReportGroup)))
+-&gt; (Maybe (NonEmpty ReportGroup)
+    -&gt; f (Maybe (NonEmpty ReportGroup)))
+-&gt; BatchGetReportGroupsResponse
+-&gt; f BatchGetReportGroupsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+-&gt; Iso
+     (Maybe (NonEmpty ReportGroup))
+     (Maybe (NonEmpty ReportGroup))
+     (Maybe (NonEmpty ReportGroup))
+     (Maybe (NonEmpty ReportGroup))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+  (NonEmpty ReportGroup)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetReportGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="batchGetReportGroupsResponse_httpStatus"><span class="annot"><span class="annottext">batchGetReportGroupsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchGetReportGroupsResponse -&gt; f BatchGetReportGroupsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#batchGetReportGroupsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetReportGroupsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetReportGroupsResponse -&gt; Int)
+-&gt; (BatchGetReportGroupsResponse
+    -&gt; Int -&gt; BatchGetReportGroupsResponse)
+-&gt; Lens
+     BatchGetReportGroupsResponse BatchGetReportGroupsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390437"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchGetReportGroupsResponse' :: BatchGetReportGroupsResponse -&gt; Int
+</span><a href="#local-6989586621679390437"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390437"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390436"><span class="annot"><span class="annottext">s :: BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390435"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetReportGroupsResponse
+</span><a href="#local-6989586621679390436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetReportGroupsResponse' :: Int
+</span><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#%24sel%3AhttpStatus%3ABatchGetReportGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetReportGroups.html#BatchGetReportGroupsResponse"><span class="hs-identifier hs-type">BatchGetReportGroupsResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

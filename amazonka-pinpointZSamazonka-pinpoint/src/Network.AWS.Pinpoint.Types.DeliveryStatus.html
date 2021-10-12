@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Pinpoint.Types.DeliveryStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Pinpoint.Types.DeliveryStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier">DeliveryStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_DUPLICATE"><span class="hs-identifier">DeliveryStatus_DUPLICATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_OPT_OUT"><span class="hs-identifier">DeliveryStatus_OPT_OUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_PERMANENT_FAILURE"><span class="hs-identifier">DeliveryStatus_PERMANENT_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_SUCCESSFUL"><span class="hs-identifier">DeliveryStatus_SUCCESSFUL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_TEMPORARY_FAILURE"><span class="hs-identifier">DeliveryStatus_TEMPORARY_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_THROTTLED"><span class="hs-identifier">DeliveryStatus_THROTTLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_UNKNOWN_FAILURE"><span class="hs-identifier">DeliveryStatus_UNKNOWN_FAILURE</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679595060"><span id="local-6989586621679595061"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryStatus"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-var">DeliveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStatus%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-var">DeliveryStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliveryStatus"><span class="annot"><span class="annottext">DeliveryStatus -&gt; Text
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#fromDeliveryStatus"><span class="hs-identifier hs-var hs-var">fromDeliveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595052"><span id="local-6989586621679595054"><span id="local-6989586621679595056"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; ShowS
+[DeliveryStatus] -&gt; ShowS
+DeliveryStatus -&gt; String
+(Int -&gt; DeliveryStatus -&gt; ShowS)
+-&gt; (DeliveryStatus -&gt; String)
+-&gt; ([DeliveryStatus] -&gt; ShowS)
+-&gt; Show DeliveryStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeliveryStatus] -&gt; ShowS
+$cshowList :: [DeliveryStatus] -&gt; ShowS
+show :: DeliveryStatus -&gt; String
+$cshow :: DeliveryStatus -&gt; String
+showsPrec :: Int -&gt; DeliveryStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeliveryStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679595043"><span id="local-6989586621679595045"><span id="local-6989586621679595047"><span id="local-6989586621679595049"><span class="annot"><span class="annottext">ReadPrec [DeliveryStatus]
+ReadPrec DeliveryStatus
+Int -&gt; ReadS DeliveryStatus
+ReadS [DeliveryStatus]
+(Int -&gt; ReadS DeliveryStatus)
+-&gt; ReadS [DeliveryStatus]
+-&gt; ReadPrec DeliveryStatus
+-&gt; ReadPrec [DeliveryStatus]
+-&gt; Read DeliveryStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeliveryStatus]
+$creadListPrec :: ReadPrec [DeliveryStatus]
+readPrec :: ReadPrec DeliveryStatus
+$creadPrec :: ReadPrec DeliveryStatus
+readList :: ReadS [DeliveryStatus]
+$creadList :: ReadS [DeliveryStatus]
+readsPrec :: Int -&gt; ReadS DeliveryStatus
+$creadsPrec :: Int -&gt; ReadS DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679595038"><span id="local-6989586621679595040"><span class="annot"><span class="annottext">DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+(DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool) -&gt; Eq DeliveryStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c/= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+== :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c== :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595022"><span id="local-6989586621679595024"><span id="local-6989586621679595026"><span id="local-6989586621679595028"><span id="local-6989586621679595030"><span id="local-6989586621679595032"><span id="local-6989586621679595034"><span class="annot"><span class="annottext">Eq DeliveryStatus
+Eq DeliveryStatus
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Ordering)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus)
+-&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus)
+-&gt; Ord DeliveryStatus
+DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+DeliveryStatus -&gt; DeliveryStatus -&gt; Ordering
+DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus
+$cmin :: DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus
+max :: DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus
+$cmax :: DeliveryStatus -&gt; DeliveryStatus -&gt; DeliveryStatus
+&gt;= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c&gt;= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+&gt; :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c&gt; :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+&lt;= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c&lt;= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+&lt; :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+$c&lt; :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+compare :: DeliveryStatus -&gt; DeliveryStatus -&gt; Ordering
+$ccompare :: DeliveryStatus -&gt; DeliveryStatus -&gt; Ordering
+$cp1Ord :: Eq DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeliveryStatus -&gt; Rep DeliveryStatus x)
+-&gt; (forall x. Rep DeliveryStatus x -&gt; DeliveryStatus)
+-&gt; Generic DeliveryStatus
+forall x. Rep DeliveryStatus x -&gt; DeliveryStatus
+forall x. DeliveryStatus -&gt; Rep DeliveryStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeliveryStatus x -&gt; DeliveryStatus
+$cfrom :: forall x. DeliveryStatus -&gt; Rep DeliveryStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595014"><span id="local-6989586621679595016"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; Int
+DeliveryStatus -&gt; Int
+(Int -&gt; DeliveryStatus -&gt; Int)
+-&gt; (DeliveryStatus -&gt; Int) -&gt; Hashable DeliveryStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeliveryStatus -&gt; Int
+$chash :: DeliveryStatus -&gt; Int
+hashWithSalt :: Int -&gt; DeliveryStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DeliveryStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595011"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ()
+(DeliveryStatus -&gt; ()) -&gt; NFData DeliveryStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeliveryStatus -&gt; ()
+$crnf :: DeliveryStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595008"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryStatus
+(Text -&gt; Either String DeliveryStatus) -&gt; FromText DeliveryStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeliveryStatus
+$cfromText :: Text -&gt; Either String DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595005"><span class="annot"><span class="annottext">DeliveryStatus -&gt; Text
+(DeliveryStatus -&gt; Text) -&gt; ToText DeliveryStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeliveryStatus -&gt; Text
+$ctoText :: DeliveryStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595002"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteString
+(DeliveryStatus -&gt; ByteString) -&gt; ToByteString DeliveryStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeliveryStatus -&gt; ByteString
+$ctoBS :: DeliveryStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679594999"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteStringBuilder
+(DeliveryStatus -&gt; ByteStringBuilder) -&gt; ToLog DeliveryStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeliveryStatus -&gt; ByteStringBuilder
+$cbuild :: DeliveryStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679594996"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryStatus -&gt; [Header]
+(HeaderName -&gt; DeliveryStatus -&gt; [Header])
+-&gt; ToHeader DeliveryStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeliveryStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeliveryStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679594993"><span class="annot"><span class="annottext">DeliveryStatus -&gt; QueryString
+(DeliveryStatus -&gt; QueryString) -&gt; ToQuery DeliveryStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeliveryStatus -&gt; QueryString
+$ctoQuery :: DeliveryStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679594988"><span id="local-6989586621679594990"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryStatus]
+Value -&gt; Parser DeliveryStatus
+(Value -&gt; Parser DeliveryStatus)
+-&gt; (Value -&gt; Parser [DeliveryStatus]) -&gt; FromJSON DeliveryStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeliveryStatus]
+$cparseJSONList :: Value -&gt; Parser [DeliveryStatus]
+parseJSON :: Value -&gt; Parser DeliveryStatus
+$cparseJSON :: Value -&gt; Parser DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679594983"><span id="local-6989586621679594985"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryStatus]
+FromJSONKeyFunction DeliveryStatus
+FromJSONKeyFunction DeliveryStatus
+-&gt; FromJSONKeyFunction [DeliveryStatus]
+-&gt; FromJSONKey DeliveryStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeliveryStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeliveryStatus]
+fromJSONKey :: FromJSONKeyFunction DeliveryStatus
+$cfromJSONKey :: FromJSONKeyFunction DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679594974"><span id="local-6989586621679594976"><span id="local-6989586621679594978"><span id="local-6989586621679594980"><span class="annot"><span class="annottext">[DeliveryStatus] -&gt; Encoding
+[DeliveryStatus] -&gt; Value
+DeliveryStatus -&gt; Encoding
+DeliveryStatus -&gt; Value
+(DeliveryStatus -&gt; Value)
+-&gt; (DeliveryStatus -&gt; Encoding)
+-&gt; ([DeliveryStatus] -&gt; Value)
+-&gt; ([DeliveryStatus] -&gt; Encoding)
+-&gt; ToJSON DeliveryStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeliveryStatus] -&gt; Encoding
+$ctoEncodingList :: [DeliveryStatus] -&gt; Encoding
+toJSONList :: [DeliveryStatus] -&gt; Value
+$ctoJSONList :: [DeliveryStatus] -&gt; Value
+toEncoding :: DeliveryStatus -&gt; Encoding
+$ctoEncoding :: DeliveryStatus -&gt; Encoding
+toJSON :: DeliveryStatus -&gt; Value
+$ctoJSON :: DeliveryStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679594969"><span id="local-6989586621679594971"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryStatus]
+ToJSONKeyFunction DeliveryStatus
+ToJSONKeyFunction DeliveryStatus
+-&gt; ToJSONKeyFunction [DeliveryStatus] -&gt; ToJSONKey DeliveryStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeliveryStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeliveryStatus]
+toJSONKey :: ToJSONKeyFunction DeliveryStatus
+$ctoJSONKey :: ToJSONKeyFunction DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679594966"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryStatus
+([Node] -&gt; Either String DeliveryStatus) -&gt; FromXML DeliveryStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeliveryStatus
+$cparseXML :: [Node] -&gt; Either String DeliveryStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679594963"><span class="annot"><span class="annottext">DeliveryStatus -&gt; XML
+(DeliveryStatus -&gt; XML) -&gt; ToXML DeliveryStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeliveryStatus -&gt; XML
+$ctoXML :: DeliveryStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_DUPLICATE"><span class="hs-identifier hs-type">DeliveryStatus_DUPLICATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_DUPLICATE"><span id="%24mDeliveryStatus_DUPLICATE"><span id="DeliveryStatus_DUPLICATE"><span class="annot"><span class="annottext">$bDeliveryStatus_DUPLICATE :: DeliveryStatus
+$mDeliveryStatus_DUPLICATE :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_DUPLICATE"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_DUPLICATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DUPLICATE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_OPT_OUT"><span class="hs-identifier hs-type">DeliveryStatus_OPT_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_OPT_OUT"><span id="%24mDeliveryStatus_OPT_OUT"><span id="DeliveryStatus_OPT_OUT"><span class="annot"><span class="annottext">$bDeliveryStatus_OPT_OUT :: DeliveryStatus
+$mDeliveryStatus_OPT_OUT :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_OPT_OUT"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_OPT_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPT_OUT&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_PERMANENT_FAILURE"><span class="hs-identifier hs-type">DeliveryStatus_PERMANENT_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_PERMANENT_FAILURE"><span id="%24mDeliveryStatus_PERMANENT_FAILURE"><span id="DeliveryStatus_PERMANENT_FAILURE"><span class="annot"><span class="annottext">$bDeliveryStatus_PERMANENT_FAILURE :: DeliveryStatus
+$mDeliveryStatus_PERMANENT_FAILURE :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_PERMANENT_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_PERMANENT_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERMANENT_FAILURE&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_SUCCESSFUL"><span class="hs-identifier hs-type">DeliveryStatus_SUCCESSFUL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_SUCCESSFUL"><span id="%24mDeliveryStatus_SUCCESSFUL"><span id="DeliveryStatus_SUCCESSFUL"><span class="annot"><span class="annottext">$bDeliveryStatus_SUCCESSFUL :: DeliveryStatus
+$mDeliveryStatus_SUCCESSFUL :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_SUCCESSFUL"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_SUCCESSFUL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCESSFUL&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_TEMPORARY_FAILURE"><span class="hs-identifier hs-type">DeliveryStatus_TEMPORARY_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_TEMPORARY_FAILURE"><span id="%24mDeliveryStatus_TEMPORARY_FAILURE"><span id="DeliveryStatus_TEMPORARY_FAILURE"><span class="annot"><span class="annottext">$bDeliveryStatus_TEMPORARY_FAILURE :: DeliveryStatus
+$mDeliveryStatus_TEMPORARY_FAILURE :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_TEMPORARY_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_TEMPORARY_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TEMPORARY_FAILURE&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_THROTTLED"><span class="hs-identifier hs-type">DeliveryStatus_THROTTLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_THROTTLED"><span id="%24mDeliveryStatus_THROTTLED"><span id="DeliveryStatus_THROTTLED"><span class="annot"><span class="annottext">$bDeliveryStatus_THROTTLED :: DeliveryStatus
+$mDeliveryStatus_THROTTLED :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_THROTTLED"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_THROTTLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;THROTTLED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_UNKNOWN_FAILURE"><span class="hs-identifier hs-type">DeliveryStatus_UNKNOWN_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-type">DeliveryStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliveryStatus_UNKNOWN_FAILURE"><span id="%24mDeliveryStatus_UNKNOWN_FAILURE"><span id="DeliveryStatus_UNKNOWN_FAILURE"><span class="annot"><span class="annottext">$bDeliveryStatus_UNKNOWN_FAILURE :: DeliveryStatus
+$mDeliveryStatus_UNKNOWN_FAILURE :: forall r. DeliveryStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#%24bDeliveryStatus_UNKNOWN_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DeliveryStatus_UNKNOWN_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-type">DeliveryStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN_FAILURE&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_DUPLICATE"><span class="hs-pragma hs-type">DeliveryStatus_DUPLICATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_OPT_OUT"><span class="hs-pragma hs-type">DeliveryStatus_OPT_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_PERMANENT_FAILURE"><span class="hs-pragma hs-type">DeliveryStatus_PERMANENT_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_SUCCESSFUL"><span class="hs-pragma hs-type">DeliveryStatus_SUCCESSFUL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_TEMPORARY_FAILURE"><span class="hs-pragma hs-type">DeliveryStatus_TEMPORARY_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_THROTTLED"><span class="hs-pragma hs-type">DeliveryStatus_THROTTLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus_UNKNOWN_FAILURE"><span class="hs-pragma hs-type">DeliveryStatus_UNKNOWN_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-pragma hs-type">DeliveryStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

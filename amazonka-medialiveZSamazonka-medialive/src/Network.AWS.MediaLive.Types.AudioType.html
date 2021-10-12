@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.AudioType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.AudioType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier">AudioType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_CLEAN_EFFECTS"><span class="hs-identifier">AudioType_CLEAN_EFFECTS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_HEARING_IMPAIRED"><span class="hs-identifier">AudioType_HEARING_IMPAIRED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_UNDEFINED"><span class="hs-identifier">AudioType_UNDEFINED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_VISUAL_IMPAIRED_COMMENTARY"><span class="hs-identifier">AudioType_VISUAL_IMPAIRED_COMMENTARY</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Audio Type</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679860483"><span id="local-6989586621679860484"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioType"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier hs-var">AudioType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-identifier hs-var">AudioType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioType"><span class="annot"><span class="annottext">AudioType -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.AudioType.html#fromAudioType"><span class="hs-identifier hs-var hs-var">fromAudioType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679860475"><span id="local-6989586621679860477"><span id="local-6989586621679860479"><span class="annot"><span class="annottext">Int -&gt; AudioType -&gt; ShowS
+[AudioType] -&gt; ShowS
+AudioType -&gt; String
+(Int -&gt; AudioType -&gt; ShowS)
+-&gt; (AudioType -&gt; String)
+-&gt; ([AudioType] -&gt; ShowS)
+-&gt; Show AudioType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioType] -&gt; ShowS
+$cshowList :: [AudioType] -&gt; ShowS
+show :: AudioType -&gt; String
+$cshow :: AudioType -&gt; String
+showsPrec :: Int -&gt; AudioType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679860466"><span id="local-6989586621679860468"><span id="local-6989586621679860470"><span id="local-6989586621679860472"><span class="annot"><span class="annottext">ReadPrec [AudioType]
+ReadPrec AudioType
+Int -&gt; ReadS AudioType
+ReadS [AudioType]
+(Int -&gt; ReadS AudioType)
+-&gt; ReadS [AudioType]
+-&gt; ReadPrec AudioType
+-&gt; ReadPrec [AudioType]
+-&gt; Read AudioType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioType]
+$creadListPrec :: ReadPrec [AudioType]
+readPrec :: ReadPrec AudioType
+$creadPrec :: ReadPrec AudioType
+readList :: ReadS [AudioType]
+$creadList :: ReadS [AudioType]
+readsPrec :: Int -&gt; ReadS AudioType
+$creadsPrec :: Int -&gt; ReadS AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679860461"><span id="local-6989586621679860463"><span class="annot"><span class="annottext">AudioType -&gt; AudioType -&gt; Bool
+(AudioType -&gt; AudioType -&gt; Bool)
+-&gt; (AudioType -&gt; AudioType -&gt; Bool) -&gt; Eq AudioType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioType -&gt; AudioType -&gt; Bool
+$c/= :: AudioType -&gt; AudioType -&gt; Bool
+== :: AudioType -&gt; AudioType -&gt; Bool
+$c== :: AudioType -&gt; AudioType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679860445"><span id="local-6989586621679860447"><span id="local-6989586621679860449"><span id="local-6989586621679860451"><span id="local-6989586621679860453"><span id="local-6989586621679860455"><span id="local-6989586621679860457"><span class="annot"><span class="annottext">Eq AudioType
+Eq AudioType
+-&gt; (AudioType -&gt; AudioType -&gt; Ordering)
+-&gt; (AudioType -&gt; AudioType -&gt; Bool)
+-&gt; (AudioType -&gt; AudioType -&gt; Bool)
+-&gt; (AudioType -&gt; AudioType -&gt; Bool)
+-&gt; (AudioType -&gt; AudioType -&gt; Bool)
+-&gt; (AudioType -&gt; AudioType -&gt; AudioType)
+-&gt; (AudioType -&gt; AudioType -&gt; AudioType)
+-&gt; Ord AudioType
+AudioType -&gt; AudioType -&gt; Bool
+AudioType -&gt; AudioType -&gt; Ordering
+AudioType -&gt; AudioType -&gt; AudioType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AudioType -&gt; AudioType -&gt; AudioType
+$cmin :: AudioType -&gt; AudioType -&gt; AudioType
+max :: AudioType -&gt; AudioType -&gt; AudioType
+$cmax :: AudioType -&gt; AudioType -&gt; AudioType
+&gt;= :: AudioType -&gt; AudioType -&gt; Bool
+$c&gt;= :: AudioType -&gt; AudioType -&gt; Bool
+&gt; :: AudioType -&gt; AudioType -&gt; Bool
+$c&gt; :: AudioType -&gt; AudioType -&gt; Bool
+&lt;= :: AudioType -&gt; AudioType -&gt; Bool
+$c&lt;= :: AudioType -&gt; AudioType -&gt; Bool
+&lt; :: AudioType -&gt; AudioType -&gt; Bool
+$c&lt; :: AudioType -&gt; AudioType -&gt; Bool
+compare :: AudioType -&gt; AudioType -&gt; Ordering
+$ccompare :: AudioType -&gt; AudioType -&gt; Ordering
+$cp1Ord :: Eq AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AudioType -&gt; Rep AudioType x)
+-&gt; (forall x. Rep AudioType x -&gt; AudioType) -&gt; Generic AudioType
+forall x. Rep AudioType x -&gt; AudioType
+forall x. AudioType -&gt; Rep AudioType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AudioType x -&gt; AudioType
+$cfrom :: forall x. AudioType -&gt; Rep AudioType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679860437"><span id="local-6989586621679860439"><span class="annot"><span class="annottext">Int -&gt; AudioType -&gt; Int
+AudioType -&gt; Int
+(Int -&gt; AudioType -&gt; Int)
+-&gt; (AudioType -&gt; Int) -&gt; Hashable AudioType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AudioType -&gt; Int
+$chash :: AudioType -&gt; Int
+hashWithSalt :: Int -&gt; AudioType -&gt; Int
+$chashWithSalt :: Int -&gt; AudioType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679860434"><span class="annot"><span class="annottext">AudioType -&gt; ()
+(AudioType -&gt; ()) -&gt; NFData AudioType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AudioType -&gt; ()
+$crnf :: AudioType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679860431"><span class="annot"><span class="annottext">Text -&gt; Either String AudioType
+(Text -&gt; Either String AudioType) -&gt; FromText AudioType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AudioType
+$cfromText :: Text -&gt; Either String AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679860428"><span class="annot"><span class="annottext">AudioType -&gt; Text
+(AudioType -&gt; Text) -&gt; ToText AudioType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AudioType -&gt; Text
+$ctoText :: AudioType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679860425"><span class="annot"><span class="annottext">AudioType -&gt; ByteString
+(AudioType -&gt; ByteString) -&gt; ToByteString AudioType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AudioType -&gt; ByteString
+$ctoBS :: AudioType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679860422"><span class="annot"><span class="annottext">AudioType -&gt; ByteStringBuilder
+(AudioType -&gt; ByteStringBuilder) -&gt; ToLog AudioType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AudioType -&gt; ByteStringBuilder
+$cbuild :: AudioType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679860419"><span class="annot"><span class="annottext">HeaderName -&gt; AudioType -&gt; [Header]
+(HeaderName -&gt; AudioType -&gt; [Header]) -&gt; ToHeader AudioType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AudioType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AudioType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679860416"><span class="annot"><span class="annottext">AudioType -&gt; QueryString
+(AudioType -&gt; QueryString) -&gt; ToQuery AudioType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AudioType -&gt; QueryString
+$ctoQuery :: AudioType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679860411"><span id="local-6989586621679860413"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioType]
+Value -&gt; Parser AudioType
+(Value -&gt; Parser AudioType)
+-&gt; (Value -&gt; Parser [AudioType]) -&gt; FromJSON AudioType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AudioType]
+$cparseJSONList :: Value -&gt; Parser [AudioType]
+parseJSON :: Value -&gt; Parser AudioType
+$cparseJSON :: Value -&gt; Parser AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679860406"><span id="local-6989586621679860408"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioType]
+FromJSONKeyFunction AudioType
+FromJSONKeyFunction AudioType
+-&gt; FromJSONKeyFunction [AudioType] -&gt; FromJSONKey AudioType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AudioType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AudioType]
+fromJSONKey :: FromJSONKeyFunction AudioType
+$cfromJSONKey :: FromJSONKeyFunction AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679860397"><span id="local-6989586621679860399"><span id="local-6989586621679860401"><span id="local-6989586621679860403"><span class="annot"><span class="annottext">[AudioType] -&gt; Encoding
+[AudioType] -&gt; Value
+AudioType -&gt; Encoding
+AudioType -&gt; Value
+(AudioType -&gt; Value)
+-&gt; (AudioType -&gt; Encoding)
+-&gt; ([AudioType] -&gt; Value)
+-&gt; ([AudioType] -&gt; Encoding)
+-&gt; ToJSON AudioType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AudioType] -&gt; Encoding
+$ctoEncodingList :: [AudioType] -&gt; Encoding
+toJSONList :: [AudioType] -&gt; Value
+$ctoJSONList :: [AudioType] -&gt; Value
+toEncoding :: AudioType -&gt; Encoding
+$ctoEncoding :: AudioType -&gt; Encoding
+toJSON :: AudioType -&gt; Value
+$ctoJSON :: AudioType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679860392"><span id="local-6989586621679860394"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioType]
+ToJSONKeyFunction AudioType
+ToJSONKeyFunction AudioType
+-&gt; ToJSONKeyFunction [AudioType] -&gt; ToJSONKey AudioType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AudioType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AudioType]
+toJSONKey :: ToJSONKeyFunction AudioType
+$ctoJSONKey :: ToJSONKeyFunction AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679860389"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioType
+([Node] -&gt; Either String AudioType) -&gt; FromXML AudioType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AudioType
+$cparseXML :: [Node] -&gt; Either String AudioType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679860386"><span class="annot"><span class="annottext">AudioType -&gt; XML
+(AudioType -&gt; XML) -&gt; ToXML AudioType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AudioType -&gt; XML
+$ctoXML :: AudioType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_CLEAN_EFFECTS"><span class="hs-identifier hs-type">AudioType_CLEAN_EFFECTS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier hs-type">AudioType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioType_CLEAN_EFFECTS"><span id="%24mAudioType_CLEAN_EFFECTS"><span id="AudioType_CLEAN_EFFECTS"><span class="annot"><span class="annottext">$bAudioType_CLEAN_EFFECTS :: AudioType
+$mAudioType_CLEAN_EFFECTS :: forall r. AudioType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioType.html#%24bAudioType_CLEAN_EFFECTS"><span class="hs-identifier hs-var hs-var hs-var">AudioType_CLEAN_EFFECTS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-identifier hs-type">AudioType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLEAN_EFFECTS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_HEARING_IMPAIRED"><span class="hs-identifier hs-type">AudioType_HEARING_IMPAIRED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier hs-type">AudioType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioType_HEARING_IMPAIRED"><span id="%24mAudioType_HEARING_IMPAIRED"><span id="AudioType_HEARING_IMPAIRED"><span class="annot"><span class="annottext">$bAudioType_HEARING_IMPAIRED :: AudioType
+$mAudioType_HEARING_IMPAIRED :: forall r. AudioType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioType.html#%24bAudioType_HEARING_IMPAIRED"><span class="hs-identifier hs-var hs-var hs-var">AudioType_HEARING_IMPAIRED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-identifier hs-type">AudioType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEARING_IMPAIRED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_UNDEFINED"><span class="hs-identifier hs-type">AudioType_UNDEFINED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier hs-type">AudioType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioType_UNDEFINED"><span id="%24mAudioType_UNDEFINED"><span id="AudioType_UNDEFINED"><span class="annot"><span class="annottext">$bAudioType_UNDEFINED :: AudioType
+$mAudioType_UNDEFINED :: forall r. AudioType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioType.html#%24bAudioType_UNDEFINED"><span class="hs-identifier hs-var hs-var hs-var">AudioType_UNDEFINED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-identifier hs-type">AudioType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNDEFINED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_VISUAL_IMPAIRED_COMMENTARY"><span class="hs-identifier hs-type">AudioType_VISUAL_IMPAIRED_COMMENTARY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType"><span class="hs-identifier hs-type">AudioType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioType_VISUAL_IMPAIRED_COMMENTARY"><span id="%24mAudioType_VISUAL_IMPAIRED_COMMENTARY"><span id="AudioType_VISUAL_IMPAIRED_COMMENTARY"><span class="annot"><span class="annottext">$bAudioType_VISUAL_IMPAIRED_COMMENTARY :: AudioType
+$mAudioType_VISUAL_IMPAIRED_COMMENTARY :: forall r. AudioType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.AudioType.html#%24bAudioType_VISUAL_IMPAIRED_COMMENTARY"><span class="hs-identifier hs-var hs-var hs-var">AudioType_VISUAL_IMPAIRED_COMMENTARY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-identifier hs-type">AudioType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VISUAL_IMPAIRED_COMMENTARY&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_CLEAN_EFFECTS"><span class="hs-pragma hs-type">AudioType_CLEAN_EFFECTS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_HEARING_IMPAIRED"><span class="hs-pragma hs-type">AudioType_HEARING_IMPAIRED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_UNDEFINED"><span class="hs-pragma hs-type">AudioType_UNDEFINED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType_VISUAL_IMPAIRED_COMMENTARY"><span class="hs-pragma hs-type">AudioType_VISUAL_IMPAIRED_COMMENTARY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioType.html#AudioType%27"><span class="hs-pragma hs-type">AudioType'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization"><span class="hs-identifier">Mpeg2TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier">Mpeg2TemporalAdaptiveQuantization_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier">Mpeg2TemporalAdaptiveQuantization_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Keep the default value, Enabled (ENABLED), to adjust quantization within</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- each frame based on temporal variation of content complexity. When you</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- enable this feature, the encoder uses fewer bits on areas of the frame</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- that aren\'t moving and uses more bits on complex objects with sharp</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- edges that move a lot. For example, this feature improves the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- readability of text tickers on newscasts and scoreboards on sports</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- matches. Enabling this feature will almost always improve your video</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- quality. Note, though, that this feature doesn\'t take into account</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- where the viewer\'s attention is likely to be. If viewers are likely to</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- be focusing their attention on a part of the screen that doesn\'t have</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- moving objects with sharp edges, such as sports athletes\' faces, you</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- might choose to disable this feature. Related setting: When you enable</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- temporal quantization, adjust the strength of the filter with the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- setting Adaptive quantization (adaptiveQuantization).</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679988989"><span id="local-6989586621679988990"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2TemporalAdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization"><span class="hs-identifier hs-var">Mpeg2TemporalAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2TemporalAdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-var">Mpeg2TemporalAdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2TemporalAdaptiveQuantization"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#fromMpeg2TemporalAdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromMpeg2TemporalAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988981"><span id="local-6989586621679988983"><span id="local-6989586621679988985"><span class="annot"><span class="annottext">Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; ShowS
+[Mpeg2TemporalAdaptiveQuantization] -&gt; ShowS
+Mpeg2TemporalAdaptiveQuantization -&gt; String
+(Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; ShowS)
+-&gt; (Mpeg2TemporalAdaptiveQuantization -&gt; String)
+-&gt; ([Mpeg2TemporalAdaptiveQuantization] -&gt; ShowS)
+-&gt; Show Mpeg2TemporalAdaptiveQuantization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; ShowS
+$cshowList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; ShowS
+show :: Mpeg2TemporalAdaptiveQuantization -&gt; String
+$cshow :: Mpeg2TemporalAdaptiveQuantization -&gt; String
+showsPrec :: Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679988972"><span id="local-6989586621679988974"><span id="local-6989586621679988976"><span id="local-6989586621679988978"><span class="annot"><span class="annottext">ReadPrec [Mpeg2TemporalAdaptiveQuantization]
+ReadPrec Mpeg2TemporalAdaptiveQuantization
+Int -&gt; ReadS Mpeg2TemporalAdaptiveQuantization
+ReadS [Mpeg2TemporalAdaptiveQuantization]
+(Int -&gt; ReadS Mpeg2TemporalAdaptiveQuantization)
+-&gt; ReadS [Mpeg2TemporalAdaptiveQuantization]
+-&gt; ReadPrec Mpeg2TemporalAdaptiveQuantization
+-&gt; ReadPrec [Mpeg2TemporalAdaptiveQuantization]
+-&gt; Read Mpeg2TemporalAdaptiveQuantization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mpeg2TemporalAdaptiveQuantization]
+$creadListPrec :: ReadPrec [Mpeg2TemporalAdaptiveQuantization]
+readPrec :: ReadPrec Mpeg2TemporalAdaptiveQuantization
+$creadPrec :: ReadPrec Mpeg2TemporalAdaptiveQuantization
+readList :: ReadS [Mpeg2TemporalAdaptiveQuantization]
+$creadList :: ReadS [Mpeg2TemporalAdaptiveQuantization]
+readsPrec :: Int -&gt; ReadS Mpeg2TemporalAdaptiveQuantization
+$creadsPrec :: Int -&gt; ReadS Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679988967"><span id="local-6989586621679988969"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+(Mpeg2TemporalAdaptiveQuantization
+ -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; Eq Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c/= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+== :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c== :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679988951"><span id="local-6989586621679988953"><span id="local-6989586621679988955"><span id="local-6989586621679988957"><span id="local-6989586621679988959"><span id="local-6989586621679988961"><span id="local-6989586621679988963"><span class="annot"><span class="annottext">Eq Mpeg2TemporalAdaptiveQuantization
+Eq Mpeg2TemporalAdaptiveQuantization
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Ordering)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization)
+-&gt; (Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization
+    -&gt; Mpeg2TemporalAdaptiveQuantization)
+-&gt; Ord Mpeg2TemporalAdaptiveQuantization
+Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Ordering
+Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+$cmin :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+max :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+$cmax :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization
+&gt;= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c&gt;= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+&gt; :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c&gt; :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+&lt;= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c&lt;= :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+&lt; :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+$c&lt; :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Bool
+compare :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Ordering
+$ccompare :: Mpeg2TemporalAdaptiveQuantization
+-&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Ordering
+$cp1Ord :: Eq Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ Mpeg2TemporalAdaptiveQuantization
+ -&gt; Rep Mpeg2TemporalAdaptiveQuantization x)
+-&gt; (forall x.
+    Rep Mpeg2TemporalAdaptiveQuantization x
+    -&gt; Mpeg2TemporalAdaptiveQuantization)
+-&gt; Generic Mpeg2TemporalAdaptiveQuantization
+forall x.
+Rep Mpeg2TemporalAdaptiveQuantization x
+-&gt; Mpeg2TemporalAdaptiveQuantization
+forall x.
+Mpeg2TemporalAdaptiveQuantization
+-&gt; Rep Mpeg2TemporalAdaptiveQuantization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep Mpeg2TemporalAdaptiveQuantization x
+-&gt; Mpeg2TemporalAdaptiveQuantization
+$cfrom :: forall x.
+Mpeg2TemporalAdaptiveQuantization
+-&gt; Rep Mpeg2TemporalAdaptiveQuantization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988943"><span id="local-6989586621679988945"><span class="annot"><span class="annottext">Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Int
+Mpeg2TemporalAdaptiveQuantization -&gt; Int
+(Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Int)
+-&gt; (Mpeg2TemporalAdaptiveQuantization -&gt; Int)
+-&gt; Hashable Mpeg2TemporalAdaptiveQuantization
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mpeg2TemporalAdaptiveQuantization -&gt; Int
+$chash :: Mpeg2TemporalAdaptiveQuantization -&gt; Int
+hashWithSalt :: Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Int
+$chashWithSalt :: Int -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679988940"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; ()
+(Mpeg2TemporalAdaptiveQuantization -&gt; ())
+-&gt; NFData Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mpeg2TemporalAdaptiveQuantization -&gt; ()
+$crnf :: Mpeg2TemporalAdaptiveQuantization -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679988937"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+(Text -&gt; Either String Mpeg2TemporalAdaptiveQuantization)
+-&gt; FromText Mpeg2TemporalAdaptiveQuantization
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+$cfromText :: Text -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679988934"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; Text
+(Mpeg2TemporalAdaptiveQuantization -&gt; Text)
+-&gt; ToText Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mpeg2TemporalAdaptiveQuantization -&gt; Text
+$ctoText :: Mpeg2TemporalAdaptiveQuantization -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679988931"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; ByteString
+(Mpeg2TemporalAdaptiveQuantization -&gt; ByteString)
+-&gt; ToByteString Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mpeg2TemporalAdaptiveQuantization -&gt; ByteString
+$ctoBS :: Mpeg2TemporalAdaptiveQuantization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679988928"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+(Mpeg2TemporalAdaptiveQuantization -&gt; ByteStringBuilder)
+-&gt; ToLog Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mpeg2TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+$cbuild :: Mpeg2TemporalAdaptiveQuantization -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679988925"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; [Header]
+(HeaderName -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; [Header])
+-&gt; ToHeader Mpeg2TemporalAdaptiveQuantization
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mpeg2TemporalAdaptiveQuantization -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679988922"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; QueryString
+(Mpeg2TemporalAdaptiveQuantization -&gt; QueryString)
+-&gt; ToQuery Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mpeg2TemporalAdaptiveQuantization -&gt; QueryString
+$ctoQuery :: Mpeg2TemporalAdaptiveQuantization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679988917"><span id="local-6989586621679988919"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2TemporalAdaptiveQuantization]
+Value -&gt; Parser Mpeg2TemporalAdaptiveQuantization
+(Value -&gt; Parser Mpeg2TemporalAdaptiveQuantization)
+-&gt; (Value -&gt; Parser [Mpeg2TemporalAdaptiveQuantization])
+-&gt; FromJSON Mpeg2TemporalAdaptiveQuantization
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mpeg2TemporalAdaptiveQuantization]
+$cparseJSONList :: Value -&gt; Parser [Mpeg2TemporalAdaptiveQuantization]
+parseJSON :: Value -&gt; Parser Mpeg2TemporalAdaptiveQuantization
+$cparseJSON :: Value -&gt; Parser Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679988912"><span id="local-6989586621679988914"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+FromJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+FromJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+-&gt; FromJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+-&gt; FromJSONKey Mpeg2TemporalAdaptiveQuantization
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+fromJSONKey :: FromJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+$cfromJSONKey :: FromJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679988903"><span id="local-6989586621679988905"><span id="local-6989586621679988907"><span id="local-6989586621679988909"><span class="annot"><span class="annottext">[Mpeg2TemporalAdaptiveQuantization] -&gt; Encoding
+[Mpeg2TemporalAdaptiveQuantization] -&gt; Value
+Mpeg2TemporalAdaptiveQuantization -&gt; Encoding
+Mpeg2TemporalAdaptiveQuantization -&gt; Value
+(Mpeg2TemporalAdaptiveQuantization -&gt; Value)
+-&gt; (Mpeg2TemporalAdaptiveQuantization -&gt; Encoding)
+-&gt; ([Mpeg2TemporalAdaptiveQuantization] -&gt; Value)
+-&gt; ([Mpeg2TemporalAdaptiveQuantization] -&gt; Encoding)
+-&gt; ToJSON Mpeg2TemporalAdaptiveQuantization
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; Encoding
+$ctoEncodingList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; Encoding
+toJSONList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; Value
+$ctoJSONList :: [Mpeg2TemporalAdaptiveQuantization] -&gt; Value
+toEncoding :: Mpeg2TemporalAdaptiveQuantization -&gt; Encoding
+$ctoEncoding :: Mpeg2TemporalAdaptiveQuantization -&gt; Encoding
+toJSON :: Mpeg2TemporalAdaptiveQuantization -&gt; Value
+$ctoJSON :: Mpeg2TemporalAdaptiveQuantization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679988898"><span id="local-6989586621679988900"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+ToJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+ToJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+-&gt; ToJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+-&gt; ToJSONKey Mpeg2TemporalAdaptiveQuantization
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2TemporalAdaptiveQuantization]
+toJSONKey :: ToJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+$ctoJSONKey :: ToJSONKeyFunction Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679988895"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+([Node] -&gt; Either String Mpeg2TemporalAdaptiveQuantization)
+-&gt; FromXML Mpeg2TemporalAdaptiveQuantization
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+$cparseXML :: [Node] -&gt; Either String Mpeg2TemporalAdaptiveQuantization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679988892"><span class="annot"><span class="annottext">Mpeg2TemporalAdaptiveQuantization -&gt; XML
+(Mpeg2TemporalAdaptiveQuantization -&gt; XML)
+-&gt; ToXML Mpeg2TemporalAdaptiveQuantization
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mpeg2TemporalAdaptiveQuantization -&gt; XML
+$ctoXML :: Mpeg2TemporalAdaptiveQuantization -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2TemporalAdaptiveQuantization_DISABLED"><span id="%24mMpeg2TemporalAdaptiveQuantization_DISABLED"><span id="Mpeg2TemporalAdaptiveQuantization_DISABLED"><span class="annot"><span class="annottext">$bMpeg2TemporalAdaptiveQuantization_DISABLED :: Mpeg2TemporalAdaptiveQuantization
+$mMpeg2TemporalAdaptiveQuantization_DISABLED :: forall r.
+Mpeg2TemporalAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#%24bMpeg2TemporalAdaptiveQuantization_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2TemporalAdaptiveQuantization_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpeg2TemporalAdaptiveQuantization_ENABLED"><span id="%24mMpeg2TemporalAdaptiveQuantization_ENABLED"><span id="Mpeg2TemporalAdaptiveQuantization_ENABLED"><span class="annot"><span class="annottext">$bMpeg2TemporalAdaptiveQuantization_ENABLED :: Mpeg2TemporalAdaptiveQuantization
+$mMpeg2TemporalAdaptiveQuantization_ENABLED :: forall r.
+Mpeg2TemporalAdaptiveQuantization
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#%24bMpeg2TemporalAdaptiveQuantization_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">Mpeg2TemporalAdaptiveQuantization_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization%27"><span class="hs-identifier hs-type">Mpeg2TemporalAdaptiveQuantization'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_DISABLED"><span class="hs-pragma hs-type">Mpeg2TemporalAdaptiveQuantization_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization_ENABLED"><span class="hs-pragma hs-type">Mpeg2TemporalAdaptiveQuantization_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization.html#Mpeg2TemporalAdaptiveQuantization%27"><span class="hs-pragma hs-type">Mpeg2TemporalAdaptiveQuantization'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

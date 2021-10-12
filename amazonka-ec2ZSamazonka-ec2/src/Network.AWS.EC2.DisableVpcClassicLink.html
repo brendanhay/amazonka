@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.DisableVpcClassicLink</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- that has EC2-Classic instances linked to it.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.DisableVpcClassicLink</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLink"><span class="hs-identifier">newDisableVpcClassicLink</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_dryRun"><span class="hs-identifier">disableVpcClassicLink_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_vpcId"><span class="hs-identifier">disableVpcClassicLink_vpcId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier">DisableVpcClassicLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLinkResponse"><span class="hs-identifier">newDisableVpcClassicLinkResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_return"><span class="hs-identifier">disableVpcClassicLinkResponse_return</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_httpStatus"><span class="hs-identifier">disableVpcClassicLinkResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDisableVpcClassicLink' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621681200751"><span id="local-6989586621681200752"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableVpcClassicLink"><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-var">DisableVpcClassicLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableVpcClassicLink%27"><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-var">DisableVpcClassicLink'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdryRun%3ADisableVpcClassicLink%27"><span class="annot"><span class="annottext">DisableVpcClassicLink -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AdryRun%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AvpcId%3ADisableVpcClassicLink%27"><span class="annot"><span class="annottext">DisableVpcClassicLink -&gt; Text
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AvpcId%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681200744"><span id="local-6989586621681200746"><span class="annot"><span class="annottext">DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool
+(DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool)
+-&gt; (DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool)
+-&gt; Eq DisableVpcClassicLink
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool
+$c/= :: DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool
+== :: DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool
+$c== :: DisableVpcClassicLink -&gt; DisableVpcClassicLink -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681200735"><span id="local-6989586621681200737"><span id="local-6989586621681200739"><span id="local-6989586621681200741"><span class="annot"><span class="annottext">ReadPrec [DisableVpcClassicLink]
+ReadPrec DisableVpcClassicLink
+Int -&gt; ReadS DisableVpcClassicLink
+ReadS [DisableVpcClassicLink]
+(Int -&gt; ReadS DisableVpcClassicLink)
+-&gt; ReadS [DisableVpcClassicLink]
+-&gt; ReadPrec DisableVpcClassicLink
+-&gt; ReadPrec [DisableVpcClassicLink]
+-&gt; Read DisableVpcClassicLink
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableVpcClassicLink]
+$creadListPrec :: ReadPrec [DisableVpcClassicLink]
+readPrec :: ReadPrec DisableVpcClassicLink
+$creadPrec :: ReadPrec DisableVpcClassicLink
+readList :: ReadS [DisableVpcClassicLink]
+$creadList :: ReadS [DisableVpcClassicLink]
+readsPrec :: Int -&gt; ReadS DisableVpcClassicLink
+$creadsPrec :: Int -&gt; ReadS DisableVpcClassicLink
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681200728"><span id="local-6989586621681200730"><span id="local-6989586621681200732"><span class="annot"><span class="annottext">Int -&gt; DisableVpcClassicLink -&gt; ShowS
+[DisableVpcClassicLink] -&gt; ShowS
+DisableVpcClassicLink -&gt; String
+(Int -&gt; DisableVpcClassicLink -&gt; ShowS)
+-&gt; (DisableVpcClassicLink -&gt; String)
+-&gt; ([DisableVpcClassicLink] -&gt; ShowS)
+-&gt; Show DisableVpcClassicLink
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableVpcClassicLink] -&gt; ShowS
+$cshowList :: [DisableVpcClassicLink] -&gt; ShowS
+show :: DisableVpcClassicLink -&gt; String
+$cshow :: DisableVpcClassicLink -&gt; String
+showsPrec :: Int -&gt; DisableVpcClassicLink -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableVpcClassicLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisableVpcClassicLink -&gt; Rep DisableVpcClassicLink x)
+-&gt; (forall x. Rep DisableVpcClassicLink x -&gt; DisableVpcClassicLink)
+-&gt; Generic DisableVpcClassicLink
+forall x. Rep DisableVpcClassicLink x -&gt; DisableVpcClassicLink
+forall x. DisableVpcClassicLink -&gt; Rep DisableVpcClassicLink x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisableVpcClassicLink x -&gt; DisableVpcClassicLink
+$cfrom :: forall x. DisableVpcClassicLink -&gt; Rep DisableVpcClassicLink x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DisableVpcClassicLink' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dryRun', 'disableVpcClassicLink_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'vpcId', 'disableVpcClassicLink_vpcId' - The ID of the VPC.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLink"><span class="hs-identifier hs-type">newDisableVpcClassicLink</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'vpcId'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span>
+</span><span id="line-81"></span><span id="newDisableVpcClassicLink"><span class="annot"><span class="annottext">newDisableVpcClassicLink :: Text -&gt; DisableVpcClassicLink
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLink"><span class="hs-identifier hs-var hs-var">newDisableVpcClassicLink</span></a></span></span><span> </span><span id="local-6989586621681200723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200723"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DisableVpcClassicLink' :: Maybe Bool -&gt; Text -&gt; DisableVpcClassicLink
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DisableVpcClassicLink' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AdryRun%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:DisableVpcClassicLink' :: Text
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AvpcId%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200723"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_dryRun"><span class="hs-identifier hs-type">disableVpcClassicLink_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="disableVpcClassicLink_dryRun"><span class="annot"><span class="annottext">disableVpcClassicLink_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DisableVpcClassicLink -&gt; f DisableVpcClassicLink
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_dryRun"><span class="hs-identifier hs-var hs-var">disableVpcClassicLink_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableVpcClassicLink -&gt; Maybe Bool)
+-&gt; (DisableVpcClassicLink -&gt; Maybe Bool -&gt; DisableVpcClassicLink)
+-&gt; Lens
+     DisableVpcClassicLink
+     DisableVpcClassicLink
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681200720"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DisableVpcClassicLink' :: DisableVpcClassicLink -&gt; Maybe Bool
+</span><a href="#local-6989586621681200720"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200720"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681200719"><span class="annot"><span class="annottext">s :: DisableVpcClassicLink
+</span><a href="#local-6989586621681200719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681200718"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableVpcClassicLink
+</span><a href="#local-6989586621681200719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DisableVpcClassicLink' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AdryRun%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_vpcId"><span class="hs-identifier hs-type">disableVpcClassicLink_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="disableVpcClassicLink_vpcId"><span class="annot"><span class="annottext">disableVpcClassicLink_vpcId :: (Text -&gt; f Text)
+-&gt; DisableVpcClassicLink -&gt; f DisableVpcClassicLink
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLink_vpcId"><span class="hs-identifier hs-var hs-var">disableVpcClassicLink_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableVpcClassicLink -&gt; Text)
+-&gt; (DisableVpcClassicLink -&gt; Text -&gt; DisableVpcClassicLink)
+-&gt; Lens DisableVpcClassicLink DisableVpcClassicLink Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681200717"><span class="annot"><span class="annottext">Text
+vpcId :: Text
+$sel:vpcId:DisableVpcClassicLink' :: DisableVpcClassicLink -&gt; Text
+</span><a href="#local-6989586621681200717"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200717"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681200716"><span class="annot"><span class="annottext">s :: DisableVpcClassicLink
+</span><a href="#local-6989586621681200716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681200715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableVpcClassicLink
+</span><a href="#local-6989586621681200716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DisableVpcClassicLink' :: Text
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AvpcId%3ADisableVpcClassicLink%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621681200711"><span class="annot"><span class="annottext">request :: DisableVpcClassicLink -&gt; Request DisableVpcClassicLink
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableVpcClassicLink -&gt; Request DisableVpcClassicLink
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621681200707"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisableVpcClassicLink
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableVpcClassicLink)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DisableVpcClassicLink))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisableVpcClassicLink
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisableVpcClassicLink)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681200704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200704"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681200703"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681200703"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681200702"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681200702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; DisableVpcClassicLinkResponse
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">DisableVpcClassicLinkResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; DisableVpcClassicLinkResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; DisableVpcClassicLinkResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681200702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;return&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisableVpcClassicLinkResponse)
+-&gt; Either String Int -&gt; Either String DisableVpcClassicLinkResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200704"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681200694"><span id="local-6989586621681200696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681200691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681200687"><span class="annot"><span class="annottext">toHeaders :: DisableVpcClassicLink -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisableVpcClassicLink -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681200682"><span class="annot"><span class="annottext">toPath :: DisableVpcClassicLink -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableVpcClassicLink -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink"><span class="hs-identifier hs-type">DisableVpcClassicLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681200678"><span class="annot"><span class="annottext">toQuery :: DisableVpcClassicLink -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLink%27"><span class="hs-identifier hs-type">DisableVpcClassicLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681200675"><span id="local-6989586621681200676"><span class="annot"><span class="annottext">Maybe Bool
+Text
+vpcId :: Text
+dryRun :: Maybe Bool
+$sel:vpcId:DisableVpcClassicLink' :: DisableVpcClassicLink -&gt; Text
+$sel:dryRun:DisableVpcClassicLink' :: DisableVpcClassicLink -&gt; Maybe Bool
+</span><a href="#local-6989586621681200675"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DisableVpcClassicLink&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200676"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681200675"><span class="hs-identifier hs-var">vpcId</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDisableVpcClassicLinkResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621681200672"><span id="local-6989586621681200673"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableVpcClassicLinkResponse"><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-var">DisableVpcClassicLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableVpcClassicLinkResponse%27"><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">DisableVpcClassicLinkResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, it returns an error.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Areturn%27%3ADisableVpcClassicLinkResponse%27"><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3Areturn%27%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var hs-var">return'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableVpcClassicLinkResponse%27"><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse -&gt; Int
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AhttpStatus%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681200666"><span id="local-6989586621681200668"><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse
+-&gt; DisableVpcClassicLinkResponse -&gt; Bool
+(DisableVpcClassicLinkResponse
+ -&gt; DisableVpcClassicLinkResponse -&gt; Bool)
+-&gt; (DisableVpcClassicLinkResponse
+    -&gt; DisableVpcClassicLinkResponse -&gt; Bool)
+-&gt; Eq DisableVpcClassicLinkResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisableVpcClassicLinkResponse
+-&gt; DisableVpcClassicLinkResponse -&gt; Bool
+$c/= :: DisableVpcClassicLinkResponse
+-&gt; DisableVpcClassicLinkResponse -&gt; Bool
+== :: DisableVpcClassicLinkResponse
+-&gt; DisableVpcClassicLinkResponse -&gt; Bool
+$c== :: DisableVpcClassicLinkResponse
+-&gt; DisableVpcClassicLinkResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681200658"><span id="local-6989586621681200660"><span id="local-6989586621681200662"><span id="local-6989586621681200664"><span class="annot"><span class="annottext">ReadPrec [DisableVpcClassicLinkResponse]
+ReadPrec DisableVpcClassicLinkResponse
+Int -&gt; ReadS DisableVpcClassicLinkResponse
+ReadS [DisableVpcClassicLinkResponse]
+(Int -&gt; ReadS DisableVpcClassicLinkResponse)
+-&gt; ReadS [DisableVpcClassicLinkResponse]
+-&gt; ReadPrec DisableVpcClassicLinkResponse
+-&gt; ReadPrec [DisableVpcClassicLinkResponse]
+-&gt; Read DisableVpcClassicLinkResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisableVpcClassicLinkResponse]
+$creadListPrec :: ReadPrec [DisableVpcClassicLinkResponse]
+readPrec :: ReadPrec DisableVpcClassicLinkResponse
+$creadPrec :: ReadPrec DisableVpcClassicLinkResponse
+readList :: ReadS [DisableVpcClassicLinkResponse]
+$creadList :: ReadS [DisableVpcClassicLinkResponse]
+readsPrec :: Int -&gt; ReadS DisableVpcClassicLinkResponse
+$creadsPrec :: Int -&gt; ReadS DisableVpcClassicLinkResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681200652"><span id="local-6989586621681200654"><span id="local-6989586621681200656"><span class="annot"><span class="annottext">Int -&gt; DisableVpcClassicLinkResponse -&gt; ShowS
+[DisableVpcClassicLinkResponse] -&gt; ShowS
+DisableVpcClassicLinkResponse -&gt; String
+(Int -&gt; DisableVpcClassicLinkResponse -&gt; ShowS)
+-&gt; (DisableVpcClassicLinkResponse -&gt; String)
+-&gt; ([DisableVpcClassicLinkResponse] -&gt; ShowS)
+-&gt; Show DisableVpcClassicLinkResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisableVpcClassicLinkResponse] -&gt; ShowS
+$cshowList :: [DisableVpcClassicLinkResponse] -&gt; ShowS
+show :: DisableVpcClassicLinkResponse -&gt; String
+$cshow :: DisableVpcClassicLinkResponse -&gt; String
+showsPrec :: Int -&gt; DisableVpcClassicLinkResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisableVpcClassicLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisableVpcClassicLinkResponse
+ -&gt; Rep DisableVpcClassicLinkResponse x)
+-&gt; (forall x.
+    Rep DisableVpcClassicLinkResponse x
+    -&gt; DisableVpcClassicLinkResponse)
+-&gt; Generic DisableVpcClassicLinkResponse
+forall x.
+Rep DisableVpcClassicLinkResponse x
+-&gt; DisableVpcClassicLinkResponse
+forall x.
+DisableVpcClassicLinkResponse
+-&gt; Rep DisableVpcClassicLinkResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisableVpcClassicLinkResponse x
+-&gt; DisableVpcClassicLinkResponse
+$cfrom :: forall x.
+DisableVpcClassicLinkResponse
+-&gt; Rep DisableVpcClassicLinkResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DisableVpcClassicLinkResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'return'', 'disableVpcClassicLinkResponse_return' - Returns @true@ if the request succeeds; otherwise, it returns an error.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'disableVpcClassicLinkResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">newDisableVpcClassicLinkResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newDisableVpcClassicLinkResponse"><span class="annot"><span class="annottext">newDisableVpcClassicLinkResponse :: Int -&gt; DisableVpcClassicLinkResponse
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#newDisableVpcClassicLinkResponse"><span class="hs-identifier hs-var hs-var">newDisableVpcClassicLinkResponse</span></a></span></span><span> </span><span id="local-6989586621681200649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse' :: Maybe Bool -&gt; Int -&gt; DisableVpcClassicLinkResponse
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:return':DisableVpcClassicLinkResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3Areturn%27%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">return'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableVpcClassicLinkResponse' :: Int
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AhttpStatus%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, it returns an error.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_return"><span class="hs-identifier hs-type">disableVpcClassicLinkResponse_return</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="disableVpcClassicLinkResponse_return"><span class="annot"><span class="annottext">disableVpcClassicLinkResponse_return :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DisableVpcClassicLinkResponse -&gt; f DisableVpcClassicLinkResponse
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_return"><span class="hs-identifier hs-var hs-var">disableVpcClassicLinkResponse_return</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableVpcClassicLinkResponse -&gt; Maybe Bool)
+-&gt; (DisableVpcClassicLinkResponse
+    -&gt; Maybe Bool -&gt; DisableVpcClassicLinkResponse)
+-&gt; Lens
+     DisableVpcClassicLinkResponse
+     DisableVpcClassicLinkResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681200648"><span class="annot"><span class="annottext">Maybe Bool
+return' :: Maybe Bool
+$sel:return':DisableVpcClassicLinkResponse' :: DisableVpcClassicLinkResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681200648"><span class="hs-identifier hs-var hs-var">return'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200648"><span class="hs-identifier hs-var">return'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681200647"><span class="annot"><span class="annottext">s :: DisableVpcClassicLinkResponse
+</span><a href="#local-6989586621681200647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681200646"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse
+</span><a href="#local-6989586621681200647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:return':DisableVpcClassicLinkResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3Areturn%27%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">return'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681200646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_httpStatus"><span class="hs-identifier hs-type">disableVpcClassicLinkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="disableVpcClassicLinkResponse_httpStatus"><span class="annot"><span class="annottext">disableVpcClassicLinkResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisableVpcClassicLinkResponse -&gt; f DisableVpcClassicLinkResponse
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#disableVpcClassicLinkResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disableVpcClassicLinkResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisableVpcClassicLinkResponse -&gt; Int)
+-&gt; (DisableVpcClassicLinkResponse
+    -&gt; Int -&gt; DisableVpcClassicLinkResponse)
+-&gt; Lens
+     DisableVpcClassicLinkResponse DisableVpcClassicLinkResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681200645"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisableVpcClassicLinkResponse' :: DisableVpcClassicLinkResponse -&gt; Int
+</span><a href="#local-6989586621681200645"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200645"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681200644"><span class="annot"><span class="annottext">s :: DisableVpcClassicLinkResponse
+</span><a href="#local-6989586621681200644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681200643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableVpcClassicLinkResponse
+</span><a href="#local-6989586621681200644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableVpcClassicLinkResponse' :: Int
+</span><a href="Network.AWS.EC2.DisableVpcClassicLink.html#%24sel%3AhttpStatus%3ADisableVpcClassicLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681200643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681200641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisableVpcClassicLink.html#DisableVpcClassicLinkResponse"><span class="hs-identifier hs-type">DisableVpcClassicLinkResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

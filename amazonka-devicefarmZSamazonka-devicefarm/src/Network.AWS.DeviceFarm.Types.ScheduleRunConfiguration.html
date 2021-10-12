@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.BillingMethod.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.BillingMethod</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.CustomerArtifactPaths.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.CustomerArtifactPaths</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Location.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.Location</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types.Radios</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Represents the settings for a run. Includes things like location, radio</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- states, auxiliary apps, and network profiles.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newScheduleRunConfiguration' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679368036"><span id="local-6989586621679368037"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleRunConfiguration"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-var">ScheduleRunConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleRunConfiguration%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-var">ScheduleRunConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of upload ARNs for app packages to be installed with your app.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AauxiliaryApps%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AauxiliaryApps%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">auxiliaryApps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about the locale that is used for the run.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Alocale%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocale%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about the radio states for the run.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aradios%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe Radios
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Aradios%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">radios</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies the billing method for a test run: @metered@ or @unmetered@.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If the parameter is not specified, the default value is @metered@.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- If you have purchased unmetered device slots, you must set this</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- parameter to @unmetered@ to make use of them. Otherwise, your run counts</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- against your metered time.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AbillingMethod%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe BillingMethod
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AbillingMethod%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">billingMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier hs-type">BillingMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Input @CustomerArtifactPaths@ object for the scheduled run</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcustomerArtifactPaths%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe CustomerArtifactPaths
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AcustomerArtifactPaths%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">customerArtifactPaths</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.CustomerArtifactPaths.html#CustomerArtifactPaths"><span class="hs-identifier hs-type">CustomerArtifactPaths</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | An array of ARNs for your VPC endpoint configurations.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AvpceConfigurationArns%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AvpceConfigurationArns%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">vpceConfigurationArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Reserved for internal use.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AnetworkProfileArn%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AnetworkProfileArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ARN of the extra data for the run. The extra data is a .zip file</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- that AWS Device Farm extracts to external data for Android or the app\'s</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- sandbox for iOS.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AextraDataPackageArn%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AextraDataPackageArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">extraDataPackageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Information about the location that is used for the run.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Alocation%3AScheduleRunConfiguration%27"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; Maybe Location
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocation%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368022"><span id="local-6989586621679368024"><span class="annot"><span class="annottext">ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool
+(ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool)
+-&gt; (ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool)
+-&gt; Eq ScheduleRunConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool
+$c/= :: ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool
+== :: ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool
+$c== :: ScheduleRunConfiguration -&gt; ScheduleRunConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368013"><span id="local-6989586621679368015"><span id="local-6989586621679368017"><span id="local-6989586621679368019"><span class="annot"><span class="annottext">ReadPrec [ScheduleRunConfiguration]
+ReadPrec ScheduleRunConfiguration
+Int -&gt; ReadS ScheduleRunConfiguration
+ReadS [ScheduleRunConfiguration]
+(Int -&gt; ReadS ScheduleRunConfiguration)
+-&gt; ReadS [ScheduleRunConfiguration]
+-&gt; ReadPrec ScheduleRunConfiguration
+-&gt; ReadPrec [ScheduleRunConfiguration]
+-&gt; Read ScheduleRunConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleRunConfiguration]
+$creadListPrec :: ReadPrec [ScheduleRunConfiguration]
+readPrec :: ReadPrec ScheduleRunConfiguration
+$creadPrec :: ReadPrec ScheduleRunConfiguration
+readList :: ReadS [ScheduleRunConfiguration]
+$creadList :: ReadS [ScheduleRunConfiguration]
+readsPrec :: Int -&gt; ReadS ScheduleRunConfiguration
+$creadsPrec :: Int -&gt; ReadS ScheduleRunConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368006"><span id="local-6989586621679368008"><span id="local-6989586621679368010"><span class="annot"><span class="annottext">Int -&gt; ScheduleRunConfiguration -&gt; ShowS
+[ScheduleRunConfiguration] -&gt; ShowS
+ScheduleRunConfiguration -&gt; String
+(Int -&gt; ScheduleRunConfiguration -&gt; ShowS)
+-&gt; (ScheduleRunConfiguration -&gt; String)
+-&gt; ([ScheduleRunConfiguration] -&gt; ShowS)
+-&gt; Show ScheduleRunConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleRunConfiguration] -&gt; ShowS
+$cshowList :: [ScheduleRunConfiguration] -&gt; ShowS
+show :: ScheduleRunConfiguration -&gt; String
+$cshow :: ScheduleRunConfiguration -&gt; String
+showsPrec :: Int -&gt; ScheduleRunConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleRunConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ScheduleRunConfiguration -&gt; Rep ScheduleRunConfiguration x)
+-&gt; (forall x.
+    Rep ScheduleRunConfiguration x -&gt; ScheduleRunConfiguration)
+-&gt; Generic ScheduleRunConfiguration
+forall x.
+Rep ScheduleRunConfiguration x -&gt; ScheduleRunConfiguration
+forall x.
+ScheduleRunConfiguration -&gt; Rep ScheduleRunConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ScheduleRunConfiguration x -&gt; ScheduleRunConfiguration
+$cfrom :: forall x.
+ScheduleRunConfiguration -&gt; Rep ScheduleRunConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ScheduleRunConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'auxiliaryApps', 'scheduleRunConfiguration_auxiliaryApps' - A list of upload ARNs for app packages to be installed with your app.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'locale', 'scheduleRunConfiguration_locale' - Information about the locale that is used for the run.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'radios', 'scheduleRunConfiguration_radios' - Information about the radio states for the run.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'billingMethod', 'scheduleRunConfiguration_billingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- If the parameter is not specified, the default value is @metered@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If you have purchased unmetered device slots, you must set this</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- parameter to @unmetered@ to make use of them. Otherwise, your run counts</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- against your metered time.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'customerArtifactPaths', 'scheduleRunConfiguration_customerArtifactPaths' - Input @CustomerArtifactPaths@ object for the scheduled run</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'vpceConfigurationArns', 'scheduleRunConfiguration_vpceConfigurationArns' - An array of ARNs for your VPC endpoint configurations.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'networkProfileArn', 'scheduleRunConfiguration_networkProfileArn' - Reserved for internal use.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'extraDataPackageArn', 'scheduleRunConfiguration_extraDataPackageArn' - The ARN of the extra data for the run. The extra data is a .zip file</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- that AWS Device Farm extracts to external data for Android or the app\'s</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- sandbox for iOS.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'location', 'scheduleRunConfiguration_location' - Information about the location that is used for the run.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#newScheduleRunConfiguration"><span class="hs-identifier hs-type">newScheduleRunConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span>
+</span><span id="line-99"></span><span id="newScheduleRunConfiguration"><span class="annot"><span class="annottext">newScheduleRunConfiguration :: ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#newScheduleRunConfiguration"><span class="hs-identifier hs-var hs-var">newScheduleRunConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">ScheduleRunConfiguration' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Radios
+-&gt; Maybe BillingMethod
+-&gt; Maybe CustomerArtifactPaths
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Location
+-&gt; ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:auxiliaryApps:ScheduleRunConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AauxiliaryApps%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">auxiliaryApps</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:locale:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocale%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:radios:ScheduleRunConfiguration' :: Maybe Radios
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Aradios%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">radios</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Radios
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingMethod:ScheduleRunConfiguration' :: Maybe BillingMethod
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AbillingMethod%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">billingMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerArtifactPaths:ScheduleRunConfiguration' :: Maybe CustomerArtifactPaths
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AcustomerArtifactPaths%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">customerArtifactPaths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpceConfigurationArns:ScheduleRunConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AvpceConfigurationArns%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">vpceConfigurationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkProfileArn:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AnetworkProfileArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:extraDataPackageArn:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AextraDataPackageArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">extraDataPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ScheduleRunConfiguration' :: Maybe Location
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocation%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A list of upload ARNs for app packages to be installed with your app.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_auxiliaryApps"><span class="hs-identifier hs-type">scheduleRunConfiguration_auxiliaryApps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="scheduleRunConfiguration_auxiliaryApps"><span class="annot"><span class="annottext">scheduleRunConfiguration_auxiliaryApps :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_auxiliaryApps"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_auxiliaryApps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe [Text])
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe [Text] -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367997"><span class="annot"><span class="annottext">Maybe [Text]
+auxiliaryApps :: Maybe [Text]
+$sel:auxiliaryApps:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367997"><span class="hs-identifier hs-var hs-var">auxiliaryApps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367997"><span class="hs-identifier hs-var">auxiliaryApps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367996"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367995"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auxiliaryApps:ScheduleRunConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AauxiliaryApps%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">auxiliaryApps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ScheduleRunConfiguration
+-&gt; f ScheduleRunConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Information about the locale that is used for the run.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_locale"><span class="hs-identifier hs-type">scheduleRunConfiguration_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="scheduleRunConfiguration_locale"><span class="annot"><span class="annottext">scheduleRunConfiguration_locale :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_locale"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe Text)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe Text -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367990"><span class="annot"><span class="annottext">Maybe Text
+locale :: Maybe Text
+$sel:locale:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679367990"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367990"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367989"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocale%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Information about the radio states for the run.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_radios"><span class="hs-identifier hs-type">scheduleRunConfiguration_radios</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Radios.html#Radios"><span class="hs-identifier hs-type">Radios</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="scheduleRunConfiguration_radios"><span class="annot"><span class="annottext">scheduleRunConfiguration_radios :: (Maybe Radios -&gt; f (Maybe Radios))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_radios"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_radios</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe Radios)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe Radios -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe Radios)
+     (Maybe Radios)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367986"><span class="annot"><span class="annottext">Maybe Radios
+radios :: Maybe Radios
+$sel:radios:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Radios
+</span><a href="#local-6989586621679367986"><span class="hs-identifier hs-var hs-var">radios</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Radios
+</span><a href="#local-6989586621679367986"><span class="hs-identifier hs-var">radios</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367985"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367984"><span class="annot"><span class="annottext">Maybe Radios
+</span><a href="#local-6989586621679367984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:radios:ScheduleRunConfiguration' :: Maybe Radios
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Aradios%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">radios</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Radios
+</span><a href="#local-6989586621679367984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Specifies the billing method for a test run: @metered@ or @unmetered@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- If the parameter is not specified, the default value is @metered@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- If you have purchased unmetered device slots, you must set this</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- parameter to @unmetered@ to make use of them. Otherwise, your run counts</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- against your metered time.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_billingMethod"><span class="hs-identifier hs-type">scheduleRunConfiguration_billingMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.BillingMethod.html#BillingMethod"><span class="hs-identifier hs-type">BillingMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="scheduleRunConfiguration_billingMethod"><span class="annot"><span class="annottext">scheduleRunConfiguration_billingMethod :: (Maybe BillingMethod -&gt; f (Maybe BillingMethod))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_billingMethod"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_billingMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe BillingMethod)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe BillingMethod -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe BillingMethod)
+     (Maybe BillingMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367982"><span class="annot"><span class="annottext">Maybe BillingMethod
+billingMethod :: Maybe BillingMethod
+$sel:billingMethod:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe BillingMethod
+</span><a href="#local-6989586621679367982"><span class="hs-identifier hs-var hs-var">billingMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMethod
+</span><a href="#local-6989586621679367982"><span class="hs-identifier hs-var">billingMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367981"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367980"><span class="annot"><span class="annottext">Maybe BillingMethod
+</span><a href="#local-6989586621679367980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMethod:ScheduleRunConfiguration' :: Maybe BillingMethod
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AbillingMethod%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">billingMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMethod
+</span><a href="#local-6989586621679367980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Input @CustomerArtifactPaths@ object for the scheduled run</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_customerArtifactPaths"><span class="hs-identifier hs-type">scheduleRunConfiguration_customerArtifactPaths</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.CustomerArtifactPaths.html#CustomerArtifactPaths"><span class="hs-identifier hs-type">CustomerArtifactPaths</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="scheduleRunConfiguration_customerArtifactPaths"><span class="annot"><span class="annottext">scheduleRunConfiguration_customerArtifactPaths :: (Maybe CustomerArtifactPaths -&gt; f (Maybe CustomerArtifactPaths))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_customerArtifactPaths"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_customerArtifactPaths</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe CustomerArtifactPaths)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe CustomerArtifactPaths -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe CustomerArtifactPaths)
+     (Maybe CustomerArtifactPaths)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367978"><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+customerArtifactPaths :: Maybe CustomerArtifactPaths
+$sel:customerArtifactPaths:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe CustomerArtifactPaths
+</span><a href="#local-6989586621679367978"><span class="hs-identifier hs-var hs-var">customerArtifactPaths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+</span><a href="#local-6989586621679367978"><span class="hs-identifier hs-var">customerArtifactPaths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367977"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367976"><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+</span><a href="#local-6989586621679367976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerArtifactPaths:ScheduleRunConfiguration' :: Maybe CustomerArtifactPaths
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AcustomerArtifactPaths%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">customerArtifactPaths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+</span><a href="#local-6989586621679367976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | An array of ARNs for your VPC endpoint configurations.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_vpceConfigurationArns"><span class="hs-identifier hs-type">scheduleRunConfiguration_vpceConfigurationArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="scheduleRunConfiguration_vpceConfigurationArns"><span class="annot"><span class="annottext">scheduleRunConfiguration_vpceConfigurationArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_vpceConfigurationArns"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_vpceConfigurationArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe [Text])
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe [Text] -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367974"><span class="annot"><span class="annottext">Maybe [Text]
+vpceConfigurationArns :: Maybe [Text]
+$sel:vpceConfigurationArns:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367974"><span class="hs-identifier hs-var hs-var">vpceConfigurationArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367974"><span class="hs-identifier hs-var">vpceConfigurationArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367973"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367972"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpceConfigurationArns:ScheduleRunConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AvpceConfigurationArns%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">vpceConfigurationArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ScheduleRunConfiguration
+-&gt; f ScheduleRunConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Reserved for internal use.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_networkProfileArn"><span class="hs-identifier hs-type">scheduleRunConfiguration_networkProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="scheduleRunConfiguration_networkProfileArn"><span class="annot"><span class="annottext">scheduleRunConfiguration_networkProfileArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_networkProfileArn"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe Text)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe Text -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367970"><span class="annot"><span class="annottext">Maybe Text
+networkProfileArn :: Maybe Text
+$sel:networkProfileArn:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679367970"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367970"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367969"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AnetworkProfileArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ARN of the extra data for the run. The extra data is a .zip file</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- that AWS Device Farm extracts to external data for Android or the app\'s</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- sandbox for iOS.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_extraDataPackageArn"><span class="hs-identifier hs-type">scheduleRunConfiguration_extraDataPackageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="scheduleRunConfiguration_extraDataPackageArn"><span class="annot"><span class="annottext">scheduleRunConfiguration_extraDataPackageArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_extraDataPackageArn"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_extraDataPackageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe Text)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe Text -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367966"><span class="annot"><span class="annottext">Maybe Text
+extraDataPackageArn :: Maybe Text
+$sel:extraDataPackageArn:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679367966"><span class="hs-identifier hs-var hs-var">extraDataPackageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367966"><span class="hs-identifier hs-var">extraDataPackageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367965"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extraDataPackageArn:ScheduleRunConfiguration' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3AextraDataPackageArn%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">extraDataPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Information about the location that is used for the run.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_location"><span class="hs-identifier hs-type">scheduleRunConfiguration_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="scheduleRunConfiguration_location"><span class="annot"><span class="annottext">scheduleRunConfiguration_location :: (Maybe Location -&gt; f (Maybe Location))
+-&gt; ScheduleRunConfiguration -&gt; f ScheduleRunConfiguration
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#scheduleRunConfiguration_location"><span class="hs-identifier hs-var hs-var">scheduleRunConfiguration_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleRunConfiguration -&gt; Maybe Location)
+-&gt; (ScheduleRunConfiguration
+    -&gt; Maybe Location -&gt; ScheduleRunConfiguration)
+-&gt; Lens
+     ScheduleRunConfiguration
+     ScheduleRunConfiguration
+     (Maybe Location)
+     (Maybe Location)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367962"><span class="annot"><span class="annottext">Maybe Location
+location :: Maybe Location
+$sel:location:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Location
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367961"><span class="annot"><span class="annottext">s :: ScheduleRunConfiguration
+</span><a href="#local-6989586621679367961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367960"><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679367960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleRunConfiguration
+</span><a href="#local-6989586621679367961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ScheduleRunConfiguration' :: Maybe Location
+</span><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#%24sel%3Alocation%3AScheduleRunConfiguration%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679367960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367956"><span id="local-6989586621679367958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367945"><span id="local-6989586621679367947"><span id="local-6989586621679367949"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration"><span class="hs-identifier hs-type">ScheduleRunConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">toJSON :: ScheduleRunConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration.html#ScheduleRunConfiguration%27"><span class="hs-identifier hs-type">ScheduleRunConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367933"><span id="local-6989586621679367934"><span id="local-6989586621679367935"><span id="local-6989586621679367936"><span id="local-6989586621679367937"><span id="local-6989586621679367938"><span id="local-6989586621679367939"><span id="local-6989586621679367940"><span id="local-6989586621679367941"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Maybe BillingMethod
+Maybe CustomerArtifactPaths
+Maybe Location
+Maybe Radios
+location :: Maybe Location
+extraDataPackageArn :: Maybe Text
+networkProfileArn :: Maybe Text
+vpceConfigurationArns :: Maybe [Text]
+customerArtifactPaths :: Maybe CustomerArtifactPaths
+billingMethod :: Maybe BillingMethod
+radios :: Maybe Radios
+locale :: Maybe Text
+auxiliaryApps :: Maybe [Text]
+$sel:location:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Location
+$sel:extraDataPackageArn:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+$sel:networkProfileArn:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+$sel:vpceConfigurationArns:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe [Text]
+$sel:customerArtifactPaths:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe CustomerArtifactPaths
+$sel:billingMethod:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe BillingMethod
+$sel:radios:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Radios
+$sel:locale:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe Text
+$sel:auxiliaryApps:ScheduleRunConfiguration' :: ScheduleRunConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367933"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;auxiliaryApps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">auxiliaryApps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367940"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;radios&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Radios -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Radios -&gt; Pair) -&gt; Maybe Radios -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Radios
+</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var">radios</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;billingMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BillingMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BillingMethod -&gt; Pair) -&gt; Maybe BillingMethod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BillingMethod
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">billingMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerArtifactPaths&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomerArtifactPaths -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(CustomerArtifactPaths -&gt; Pair)
+-&gt; Maybe CustomerArtifactPaths -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomerArtifactPaths
+</span><a href="#local-6989586621679367937"><span class="hs-identifier hs-var">customerArtifactPaths</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpceConfigurationArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367936"><span class="hs-identifier hs-var">vpceConfigurationArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367935"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;extraDataPackageArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367934"><span class="hs-identifier hs-var">extraDataPackageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Location -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Location -&gt; Pair) -&gt; Maybe Location -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Location
+</span><a href="#local-6989586621679367933"><span class="hs-identifier hs-var">location</span></a></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span></pre></body></html>

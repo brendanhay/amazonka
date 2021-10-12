@@ -1,0 +1,971 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Batch.Types.JobDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Batch.Types.JobDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html"><span class="hs-identifier">Network.AWS.Batch.Types.ContainerProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html"><span class="hs-identifier">Network.AWS.Batch.Types.JobTimeout</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeProperties.html"><span class="hs-identifier">Network.AWS.Batch.Types.NodeProperties</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.PlatformCapability.html"><span class="hs-identifier">Network.AWS.Batch.Types.PlatformCapability</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.RetryStrategy.html"><span class="hs-identifier">Network.AWS.Batch.Types.RetryStrategy</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | An object representing an Batch job definition.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJobDefinition' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679266089"><span id="local-6989586621679266090"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobDefinition"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-var">JobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobDefinition%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-var">JobDefinition'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job definition.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Astatus%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The platform capabilities required by the job definition. If no value is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- specified, it defaults to @EC2@. Jobs run on Fargate resources specify</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @FARGATE@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AplatformCapabilities%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe [PlatformCapability]
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AplatformCapabilities%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">platformCapabilities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.PlatformCapability.html#PlatformCapability"><span class="hs-identifier hs-type">PlatformCapability</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The timeout configuration for jobs that are submitted with this job</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- definition. You can specify a timeout duration after which Batch</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- terminates your jobs if they haven\'t finished.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atimeout%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe JobTimeout
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atimeout%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An object with various properties specific to multi-node parallel jobs.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- If the job runs on Fargate resources, then you must not specify</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @nodeProperties@; use @containerProperties@ instead.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnodeProperties%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe NodeProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AnodeProperties%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">nodeProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeProperties.html#NodeProperties"><span class="hs-identifier hs-type">NodeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The tags applied to the job definition.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atags%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atags%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | An object with various properties specific to container-based jobs.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcontainerProperties%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe ContainerProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AcontainerProperties%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">containerProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The retry strategy to use for failed jobs that are submitted with this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- job definition.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AretryStrategy%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe RetryStrategy
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AretryStrategy%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">retryStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.RetryStrategy.html#RetryStrategy"><span class="hs-identifier hs-type">RetryStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Default parameters or parameter substitution placeholders that are set</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the job definition. Parameters are specified as a key-value pair</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- mapping. Parameters in a @SubmitJob@ request override any corresponding</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- parameter defaults from the job definition. For more information about</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specifying parameters, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters&gt;</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aparameters%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Aparameters%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Specifies whether to propagate the tags from the job or job definition</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to the corresponding Amazon ECS task. If no value is specified, the tags</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- aren\'t propagated. Tags can only be propagated to the tasks during task</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- creation. For tags with the same name, job tags are given priority over</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- job definitions tags. If the total number of combined tags from the job</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- and job definition is over 50, the job is moved to the @FAILED@ state.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3ApropagateTags%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Maybe Bool
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3ApropagateTags%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the job definition.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AjobDefinitionName%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionName%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the job definition.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AjobDefinitionArn%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionArn%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The revision of the job definition.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Arevision%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Int
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Arevision%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The type of job definition. If the job is run on Fargate resources, then</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @multinode@ isn\'t supported. For more information about multi-node</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- parallel jobs, see</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition&gt;</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atype%27%3AJobDefinition%27"><span class="annot"><span class="annottext">JobDefinition -&gt; Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atype%27%3AJobDefinition%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266071"><span id="local-6989586621679266073"><span class="annot"><span class="annottext">JobDefinition -&gt; JobDefinition -&gt; Bool
+(JobDefinition -&gt; JobDefinition -&gt; Bool)
+-&gt; (JobDefinition -&gt; JobDefinition -&gt; Bool) -&gt; Eq JobDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobDefinition -&gt; JobDefinition -&gt; Bool
+$c/= :: JobDefinition -&gt; JobDefinition -&gt; Bool
+== :: JobDefinition -&gt; JobDefinition -&gt; Bool
+$c== :: JobDefinition -&gt; JobDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266062"><span id="local-6989586621679266064"><span id="local-6989586621679266066"><span id="local-6989586621679266068"><span class="annot"><span class="annottext">ReadPrec [JobDefinition]
+ReadPrec JobDefinition
+Int -&gt; ReadS JobDefinition
+ReadS [JobDefinition]
+(Int -&gt; ReadS JobDefinition)
+-&gt; ReadS [JobDefinition]
+-&gt; ReadPrec JobDefinition
+-&gt; ReadPrec [JobDefinition]
+-&gt; Read JobDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobDefinition]
+$creadListPrec :: ReadPrec [JobDefinition]
+readPrec :: ReadPrec JobDefinition
+$creadPrec :: ReadPrec JobDefinition
+readList :: ReadS [JobDefinition]
+$creadList :: ReadS [JobDefinition]
+readsPrec :: Int -&gt; ReadS JobDefinition
+$creadsPrec :: Int -&gt; ReadS JobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266055"><span id="local-6989586621679266057"><span id="local-6989586621679266059"><span class="annot"><span class="annottext">Int -&gt; JobDefinition -&gt; ShowS
+[JobDefinition] -&gt; ShowS
+JobDefinition -&gt; String
+(Int -&gt; JobDefinition -&gt; ShowS)
+-&gt; (JobDefinition -&gt; String)
+-&gt; ([JobDefinition] -&gt; ShowS)
+-&gt; Show JobDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobDefinition] -&gt; ShowS
+$cshowList :: [JobDefinition] -&gt; ShowS
+show :: JobDefinition -&gt; String
+$cshow :: JobDefinition -&gt; String
+showsPrec :: Int -&gt; JobDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobDefinition -&gt; Rep JobDefinition x)
+-&gt; (forall x. Rep JobDefinition x -&gt; JobDefinition)
+-&gt; Generic JobDefinition
+forall x. Rep JobDefinition x -&gt; JobDefinition
+forall x. JobDefinition -&gt; Rep JobDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobDefinition x -&gt; JobDefinition
+$cfrom :: forall x. JobDefinition -&gt; Rep JobDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'JobDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'status', 'jobDefinition_status' - The status of the job definition.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'platformCapabilities', 'jobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- specified, it defaults to @EC2@. Jobs run on Fargate resources specify</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @FARGATE@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'timeout', 'jobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- definition. You can specify a timeout duration after which Batch</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- terminates your jobs if they haven\'t finished.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'nodeProperties', 'jobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If the job runs on Fargate resources, then you must not specify</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @nodeProperties@; use @containerProperties@ instead.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'tags', 'jobDefinition_tags' - The tags applied to the job definition.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'containerProperties', 'jobDefinition_containerProperties' - An object with various properties specific to container-based jobs.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'retryStrategy', 'jobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- job definition.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'parameters', 'jobDefinition_parameters' - Default parameters or parameter substitution placeholders that are set</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- in the job definition. Parameters are specified as a key-value pair</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- mapping. Parameters in a @SubmitJob@ request override any corresponding</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- parameter defaults from the job definition. For more information about</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- specifying parameters, see</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters&gt;</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'propagateTags', 'jobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- to the corresponding Amazon ECS task. If no value is specified, the tags</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- aren\'t propagated. Tags can only be propagated to the tasks during task</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- creation. For tags with the same name, job tags are given priority over</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- job definitions tags. If the total number of combined tags from the job</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- and job definition is over 50, the job is moved to the @FAILED@ state.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'jobDefinitionName', 'jobDefinition_jobDefinitionName' - The name of the job definition.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'jobDefinitionArn', 'jobDefinition_jobDefinitionArn' - The Amazon Resource Name (ARN) for the job definition.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'revision', 'jobDefinition_revision' - The revision of the job definition.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'type'', 'jobDefinition_type' - The type of job definition. If the job is run on Fargate resources, then</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @multinode@ isn\'t supported. For more information about multi-node</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- parallel jobs, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#newJobDefinition"><span class="hs-identifier hs-type">newJobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'jobDefinitionName'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'jobDefinitionArn'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'revision'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span>
+</span><span id="line-153"></span><span id="newJobDefinition"><span class="annot"><span class="annottext">newJobDefinition :: Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#newJobDefinition"><span class="hs-identifier hs-var hs-var">newJobDefinition</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679266049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266049"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679266048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266048"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679266047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266047"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679266046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266046"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">JobDefinition' :: Maybe Text
+-&gt; Maybe [PlatformCapability]
+-&gt; Maybe JobTimeout
+-&gt; Maybe NodeProperties
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ContainerProperties
+-&gt; Maybe RetryStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; Int
+-&gt; Text
+-&gt; JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:JobDefinition' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Astatus%3AJobDefinition%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:platformCapabilities:JobDefinition' :: Maybe [PlatformCapability]
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AplatformCapabilities%3AJobDefinition%27"><span class="hs-identifier hs-var">platformCapabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeout:JobDefinition' :: Maybe JobTimeout
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atimeout%3AJobDefinition%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:nodeProperties:JobDefinition' :: Maybe NodeProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AnodeProperties%3AJobDefinition%27"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:JobDefinition' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atags%3AJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:containerProperties:JobDefinition' :: Maybe ContainerProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AcontainerProperties%3AJobDefinition%27"><span class="hs-identifier hs-var">containerProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:retryStrategy:JobDefinition' :: Maybe RetryStrategy
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AretryStrategy%3AJobDefinition%27"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:parameters:JobDefinition' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Aparameters%3AJobDefinition%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:propagateTags:JobDefinition' :: Maybe Bool
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3ApropagateTags%3AJobDefinition%27"><span class="hs-identifier hs-var">propagateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionName:JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionName%3AJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266049"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionArn%3AJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266048"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:revision:JobDefinition' :: Int
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Arevision%3AJobDefinition%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266047"><span class="hs-identifier hs-var">pRevision_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atype%27%3AJobDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266046"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The status of the job definition.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_status"><span class="hs-identifier hs-type">jobDefinition_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="jobDefinition_status"><span class="annot"><span class="annottext">jobDefinition_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_status"><span class="hs-identifier hs-var hs-var">jobDefinition_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe Text)
+-&gt; (JobDefinition -&gt; Maybe Text -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266042"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:JobDefinition' :: JobDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679266042"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266042"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266041"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobDefinition' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Astatus%3AJobDefinition%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The platform capabilities required by the job definition. If no value is</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- specified, it defaults to @EC2@. Jobs run on Fargate resources specify</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @FARGATE@.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_platformCapabilities"><span class="hs-identifier hs-type">jobDefinition_platformCapabilities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.PlatformCapability.html#PlatformCapability"><span class="hs-identifier hs-type">PlatformCapability</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="jobDefinition_platformCapabilities"><span class="annot"><span class="annottext">jobDefinition_platformCapabilities :: (Maybe [PlatformCapability] -&gt; f (Maybe [PlatformCapability]))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_platformCapabilities"><span class="hs-identifier hs-var hs-var">jobDefinition_platformCapabilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe [PlatformCapability])
+-&gt; (JobDefinition -&gt; Maybe [PlatformCapability] -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe [PlatformCapability])
+     (Maybe [PlatformCapability])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266038"><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+platformCapabilities :: Maybe [PlatformCapability]
+$sel:platformCapabilities:JobDefinition' :: JobDefinition -&gt; Maybe [PlatformCapability]
+</span><a href="#local-6989586621679266038"><span class="hs-identifier hs-var hs-var">platformCapabilities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+</span><a href="#local-6989586621679266038"><span class="hs-identifier hs-var">platformCapabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266037"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266036"><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+</span><a href="#local-6989586621679266036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformCapabilities:JobDefinition' :: Maybe [PlatformCapability]
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AplatformCapabilities%3AJobDefinition%27"><span class="hs-identifier hs-var">platformCapabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+</span><a href="#local-6989586621679266036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformCapability] -&gt; f (Maybe [PlatformCapability]))
+ -&gt; JobDefinition -&gt; f JobDefinition)
+-&gt; ((Maybe [PlatformCapability] -&gt; f (Maybe [PlatformCapability]))
+    -&gt; Maybe [PlatformCapability] -&gt; f (Maybe [PlatformCapability]))
+-&gt; (Maybe [PlatformCapability] -&gt; f (Maybe [PlatformCapability]))
+-&gt; JobDefinition
+-&gt; f JobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlatformCapability]
+  [PlatformCapability]
+  [PlatformCapability]
+  [PlatformCapability]
+-&gt; Iso
+     (Maybe [PlatformCapability])
+     (Maybe [PlatformCapability])
+     (Maybe [PlatformCapability])
+     (Maybe [PlatformCapability])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlatformCapability]
+  [PlatformCapability]
+  [PlatformCapability]
+  [PlatformCapability]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The timeout configuration for jobs that are submitted with this job</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- definition. You can specify a timeout duration after which Batch</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- terminates your jobs if they haven\'t finished.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_timeout"><span class="hs-identifier hs-type">jobDefinition_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobTimeout.html#JobTimeout"><span class="hs-identifier hs-type">JobTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="jobDefinition_timeout"><span class="annot"><span class="annottext">jobDefinition_timeout :: (Maybe JobTimeout -&gt; f (Maybe JobTimeout))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_timeout"><span class="hs-identifier hs-var hs-var">jobDefinition_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe JobTimeout)
+-&gt; (JobDefinition -&gt; Maybe JobTimeout -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition JobDefinition (Maybe JobTimeout) (Maybe JobTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266031"><span class="annot"><span class="annottext">Maybe JobTimeout
+timeout :: Maybe JobTimeout
+$sel:timeout:JobDefinition' :: JobDefinition -&gt; Maybe JobTimeout
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobTimeout
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266030"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266029"><span class="annot"><span class="annottext">Maybe JobTimeout
+</span><a href="#local-6989586621679266029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:JobDefinition' :: Maybe JobTimeout
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atimeout%3AJobDefinition%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTimeout
+</span><a href="#local-6989586621679266029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | An object with various properties specific to multi-node parallel jobs.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- If the job runs on Fargate resources, then you must not specify</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @nodeProperties@; use @containerProperties@ instead.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_nodeProperties"><span class="hs-identifier hs-type">jobDefinition_nodeProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeProperties.html#NodeProperties"><span class="hs-identifier hs-type">NodeProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="jobDefinition_nodeProperties"><span class="annot"><span class="annottext">jobDefinition_nodeProperties :: (Maybe NodeProperties -&gt; f (Maybe NodeProperties))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_nodeProperties"><span class="hs-identifier hs-var hs-var">jobDefinition_nodeProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe NodeProperties)
+-&gt; (JobDefinition -&gt; Maybe NodeProperties -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe NodeProperties)
+     (Maybe NodeProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266027"><span class="annot"><span class="annottext">Maybe NodeProperties
+nodeProperties :: Maybe NodeProperties
+$sel:nodeProperties:JobDefinition' :: JobDefinition -&gt; Maybe NodeProperties
+</span><a href="#local-6989586621679266027"><span class="hs-identifier hs-var hs-var">nodeProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeProperties
+</span><a href="#local-6989586621679266027"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266026"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266025"><span class="annot"><span class="annottext">Maybe NodeProperties
+</span><a href="#local-6989586621679266025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeProperties:JobDefinition' :: Maybe NodeProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AnodeProperties%3AJobDefinition%27"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeProperties
+</span><a href="#local-6989586621679266025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The tags applied to the job definition.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_tags"><span class="hs-identifier hs-type">jobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="jobDefinition_tags"><span class="annot"><span class="annottext">jobDefinition_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_tags"><span class="hs-identifier hs-var hs-var">jobDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe (HashMap Text Text))
+-&gt; (JobDefinition -&gt; Maybe (HashMap Text Text) -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266023"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:JobDefinition' :: JobDefinition -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266023"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266023"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266022"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266021"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:JobDefinition' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atags%3AJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; JobDefinition -&gt; f JobDefinition)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; JobDefinition
+-&gt; f JobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | An object with various properties specific to container-based jobs.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_containerProperties"><span class="hs-identifier hs-type">jobDefinition_containerProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="jobDefinition_containerProperties"><span class="annot"><span class="annottext">jobDefinition_containerProperties :: (Maybe ContainerProperties -&gt; f (Maybe ContainerProperties))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_containerProperties"><span class="hs-identifier hs-var hs-var">jobDefinition_containerProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe ContainerProperties)
+-&gt; (JobDefinition -&gt; Maybe ContainerProperties -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe ContainerProperties)
+     (Maybe ContainerProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266019"><span class="annot"><span class="annottext">Maybe ContainerProperties
+containerProperties :: Maybe ContainerProperties
+$sel:containerProperties:JobDefinition' :: JobDefinition -&gt; Maybe ContainerProperties
+</span><a href="#local-6989586621679266019"><span class="hs-identifier hs-var hs-var">containerProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><a href="#local-6989586621679266019"><span class="hs-identifier hs-var">containerProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266018"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266017"><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><a href="#local-6989586621679266017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerProperties:JobDefinition' :: Maybe ContainerProperties
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AcontainerProperties%3AJobDefinition%27"><span class="hs-identifier hs-var">containerProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><a href="#local-6989586621679266017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The retry strategy to use for failed jobs that are submitted with this</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- job definition.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_retryStrategy"><span class="hs-identifier hs-type">jobDefinition_retryStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.RetryStrategy.html#RetryStrategy"><span class="hs-identifier hs-type">RetryStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="jobDefinition_retryStrategy"><span class="annot"><span class="annottext">jobDefinition_retryStrategy :: (Maybe RetryStrategy -&gt; f (Maybe RetryStrategy))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_retryStrategy"><span class="hs-identifier hs-var hs-var">jobDefinition_retryStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe RetryStrategy)
+-&gt; (JobDefinition -&gt; Maybe RetryStrategy -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe RetryStrategy)
+     (Maybe RetryStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266015"><span class="annot"><span class="annottext">Maybe RetryStrategy
+retryStrategy :: Maybe RetryStrategy
+$sel:retryStrategy:JobDefinition' :: JobDefinition -&gt; Maybe RetryStrategy
+</span><a href="#local-6989586621679266015"><span class="hs-identifier hs-var hs-var">retryStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryStrategy
+</span><a href="#local-6989586621679266015"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266014"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266013"><span class="annot"><span class="annottext">Maybe RetryStrategy
+</span><a href="#local-6989586621679266013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryStrategy:JobDefinition' :: Maybe RetryStrategy
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AretryStrategy%3AJobDefinition%27"><span class="hs-identifier hs-var">retryStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryStrategy
+</span><a href="#local-6989586621679266013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Default parameters or parameter substitution placeholders that are set</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- in the job definition. Parameters are specified as a key-value pair</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- mapping. Parameters in a @SubmitJob@ request override any corresponding</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- parameter defaults from the job definition. For more information about</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- specifying parameters, see</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters&gt;</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_parameters"><span class="hs-identifier hs-type">jobDefinition_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="jobDefinition_parameters"><span class="annot"><span class="annottext">jobDefinition_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_parameters"><span class="hs-identifier hs-var hs-var">jobDefinition_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe (HashMap Text Text))
+-&gt; (JobDefinition -&gt; Maybe (HashMap Text Text) -&gt; JobDefinition)
+-&gt; Lens
+     JobDefinition
+     JobDefinition
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266011"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+parameters :: Maybe (HashMap Text Text)
+$sel:parameters:JobDefinition' :: JobDefinition -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266011"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266011"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266010"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266009"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:JobDefinition' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Aparameters%3AJobDefinition%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; JobDefinition -&gt; f JobDefinition)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; JobDefinition
+-&gt; f JobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Specifies whether to propagate the tags from the job or job definition</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- to the corresponding Amazon ECS task. If no value is specified, the tags</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- aren\'t propagated. Tags can only be propagated to the tasks during task</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- creation. For tags with the same name, job tags are given priority over</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- job definitions tags. If the total number of combined tags from the job</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- and job definition is over 50, the job is moved to the @FAILED@ state.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_propagateTags"><span class="hs-identifier hs-type">jobDefinition_propagateTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="jobDefinition_propagateTags"><span class="annot"><span class="annottext">jobDefinition_propagateTags :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_propagateTags"><span class="hs-identifier hs-var hs-var">jobDefinition_propagateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Maybe Bool)
+-&gt; (JobDefinition -&gt; Maybe Bool -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266007"><span class="annot"><span class="annottext">Maybe Bool
+propagateTags :: Maybe Bool
+$sel:propagateTags:JobDefinition' :: JobDefinition -&gt; Maybe Bool
+</span><a href="#local-6989586621679266007"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679266007"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266006"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266005"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679266005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:JobDefinition' :: Maybe Bool
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3ApropagateTags%3AJobDefinition%27"><span class="hs-identifier hs-var">propagateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679266005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The name of the job definition.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionName"><span class="hs-identifier hs-type">jobDefinition_jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-231"></span><span id="jobDefinition_jobDefinitionName"><span class="annot"><span class="annottext">jobDefinition_jobDefinitionName :: (Text -&gt; f Text) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionName"><span class="hs-identifier hs-var hs-var">jobDefinition_jobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Text)
+-&gt; (JobDefinition -&gt; Text -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266003"><span class="annot"><span class="annottext">Text
+jobDefinitionName :: Text
+$sel:jobDefinitionName:JobDefinition' :: JobDefinition -&gt; Text
+</span><a href="#local-6989586621679266003"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266003"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266002"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679266002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679266002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionName%3AJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the job definition.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionArn"><span class="hs-identifier hs-type">jobDefinition_jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-235"></span><span id="jobDefinition_jobDefinitionArn"><span class="annot"><span class="annottext">jobDefinition_jobDefinitionArn :: (Text -&gt; f Text) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_jobDefinitionArn"><span class="hs-identifier hs-var hs-var">jobDefinition_jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Text)
+-&gt; (JobDefinition -&gt; Text -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265999"><span class="annot"><span class="annottext">Text
+jobDefinitionArn :: Text
+$sel:jobDefinitionArn:JobDefinition' :: JobDefinition -&gt; Text
+</span><a href="#local-6989586621679265999"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265999"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265998"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679265998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679265998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3AjobDefinitionArn%3AJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The revision of the job definition.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_revision"><span class="hs-identifier hs-type">jobDefinition_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-239"></span><span id="jobDefinition_revision"><span class="annot"><span class="annottext">jobDefinition_revision :: (Int -&gt; f Int) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_revision"><span class="hs-identifier hs-var hs-var">jobDefinition_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Int)
+-&gt; (JobDefinition -&gt; Int -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265995"><span class="annot"><span class="annottext">Int
+revision :: Int
+$sel:revision:JobDefinition' :: JobDefinition -&gt; Int
+</span><a href="#local-6989586621679265995"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265995"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265994"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679265994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679265994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:JobDefinition' :: Int
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Arevision%3AJobDefinition%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The type of job definition. If the job is run on Fargate resources, then</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @multinode@ isn\'t supported. For more information about multi-node</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- parallel jobs, see</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition&gt;</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_type"><span class="hs-identifier hs-type">jobDefinition_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-247"></span><span id="jobDefinition_type"><span class="annot"><span class="annottext">jobDefinition_type :: (Text -&gt; f Text) -&gt; JobDefinition -&gt; f JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#jobDefinition_type"><span class="hs-identifier hs-var hs-var">jobDefinition_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobDefinition -&gt; Text)
+-&gt; (JobDefinition -&gt; Text -&gt; JobDefinition)
+-&gt; Lens JobDefinition JobDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265991"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':JobDefinition' :: JobDefinition -&gt; Text
+</span><a href="#local-6989586621679265991"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265991"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265990"><span class="annot"><span class="annottext">s :: JobDefinition
+</span><a href="#local-6989586621679265990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-type">JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265989"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDefinition
+</span><a href="#local-6989586621679265990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JobDefinition' :: Text
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#%24sel%3Atype%27%3AJobDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265986"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679265984"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JobDefinition)
+-&gt; Value
+-&gt; Parser JobDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobDefinition&quot;</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [PlatformCapability]
+-&gt; Maybe JobTimeout
+-&gt; Maybe NodeProperties
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ContainerProperties
+-&gt; Maybe RetryStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; Int
+-&gt; Text
+-&gt; JobDefinition
+</span><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition%27"><span class="hs-identifier hs-var">JobDefinition'</span></a></span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [PlatformCapability]
+ -&gt; Maybe JobTimeout
+ -&gt; Maybe NodeProperties
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe ContainerProperties
+ -&gt; Maybe RetryStrategy
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Bool
+ -&gt; Text
+ -&gt; Text
+ -&gt; Int
+ -&gt; Text
+ -&gt; JobDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [PlatformCapability]
+      -&gt; Maybe JobTimeout
+      -&gt; Maybe NodeProperties
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ContainerProperties
+      -&gt; Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PlatformCapability]
+   -&gt; Maybe JobTimeout
+   -&gt; Maybe NodeProperties
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ContainerProperties
+   -&gt; Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe [PlatformCapability])
+-&gt; Parser
+     (Maybe JobTimeout
+      -&gt; Maybe NodeProperties
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ContainerProperties
+      -&gt; Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlatformCapability]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platformCapabilities&quot;</span></span><span>
+</span><span id="line-257"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PlatformCapability]))
+-&gt; Maybe [PlatformCapability]
+-&gt; Parser (Maybe [PlatformCapability])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformCapability]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-258"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobTimeout
+   -&gt; Maybe NodeProperties
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ContainerProperties
+   -&gt; Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe JobTimeout)
+-&gt; Parser
+     (Maybe NodeProperties
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe ContainerProperties
+      -&gt; Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NodeProperties
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ContainerProperties
+   -&gt; Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe NodeProperties)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe ContainerProperties
+      -&gt; Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NodeProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nodeProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe ContainerProperties
+   -&gt; Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe ContainerProperties
+      -&gt; Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContainerProperties
+   -&gt; Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe ContainerProperties)
+-&gt; Parser
+     (Maybe RetryStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RetryStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; JobDefinition)
+-&gt; Parser (Maybe RetryStrategy)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;retryStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Bool -&gt; Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;propagateTags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Int -&gt; Text -&gt; JobDefinition)
+-&gt; Parser Text -&gt; Parser (Int -&gt; Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; Text -&gt; JobDefinition)
+-&gt; Parser Int -&gt; Parser (Text -&gt; JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; JobDefinition)
+-&gt; Parser Text -&gt; Parser JobDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265973"><span id="local-6989586621679265975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinition.html#JobDefinition"><span class="hs-identifier hs-type">JobDefinition</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

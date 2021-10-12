@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.ReservedInstanceReservationValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.ReservedInstanceReservationValue</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html"><span class="hs-identifier">Network.AWS.EC2.Types.ReservationValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The total value of the Convertible Reserved Instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReservedInstanceReservationValue' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681109094"><span id="local-6989586621681109095"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedInstanceReservationValue"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-var">ReservedInstanceReservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstanceReservationValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">ReservedInstanceReservationValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total value of the Convertible Reserved Instance that you are</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- exchanging.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AreservationValue%3AReservedInstanceReservationValue%27"><span class="annot"><span class="annottext">ReservedInstanceReservationValue -&gt; Maybe ReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservationValue%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var hs-var">reservationValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the Convertible Reserved Instance that you are exchanging.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreservedInstanceId%3AReservedInstanceReservationValue%27"><span class="annot"><span class="annottext">ReservedInstanceReservationValue -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservedInstanceId%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var hs-var">reservedInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681109087"><span id="local-6989586621681109089"><span class="annot"><span class="annottext">ReservedInstanceReservationValue
+-&gt; ReservedInstanceReservationValue -&gt; Bool
+(ReservedInstanceReservationValue
+ -&gt; ReservedInstanceReservationValue -&gt; Bool)
+-&gt; (ReservedInstanceReservationValue
+    -&gt; ReservedInstanceReservationValue -&gt; Bool)
+-&gt; Eq ReservedInstanceReservationValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservedInstanceReservationValue
+-&gt; ReservedInstanceReservationValue -&gt; Bool
+$c/= :: ReservedInstanceReservationValue
+-&gt; ReservedInstanceReservationValue -&gt; Bool
+== :: ReservedInstanceReservationValue
+-&gt; ReservedInstanceReservationValue -&gt; Bool
+$c== :: ReservedInstanceReservationValue
+-&gt; ReservedInstanceReservationValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681109078"><span id="local-6989586621681109080"><span id="local-6989586621681109082"><span id="local-6989586621681109084"><span class="annot"><span class="annottext">ReadPrec [ReservedInstanceReservationValue]
+ReadPrec ReservedInstanceReservationValue
+Int -&gt; ReadS ReservedInstanceReservationValue
+ReadS [ReservedInstanceReservationValue]
+(Int -&gt; ReadS ReservedInstanceReservationValue)
+-&gt; ReadS [ReservedInstanceReservationValue]
+-&gt; ReadPrec ReservedInstanceReservationValue
+-&gt; ReadPrec [ReservedInstanceReservationValue]
+-&gt; Read ReservedInstanceReservationValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservedInstanceReservationValue]
+$creadListPrec :: ReadPrec [ReservedInstanceReservationValue]
+readPrec :: ReadPrec ReservedInstanceReservationValue
+$creadPrec :: ReadPrec ReservedInstanceReservationValue
+readList :: ReadS [ReservedInstanceReservationValue]
+$creadList :: ReadS [ReservedInstanceReservationValue]
+readsPrec :: Int -&gt; ReadS ReservedInstanceReservationValue
+$creadsPrec :: Int -&gt; ReadS ReservedInstanceReservationValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681109071"><span id="local-6989586621681109073"><span id="local-6989586621681109075"><span class="annot"><span class="annottext">Int -&gt; ReservedInstanceReservationValue -&gt; ShowS
+[ReservedInstanceReservationValue] -&gt; ShowS
+ReservedInstanceReservationValue -&gt; String
+(Int -&gt; ReservedInstanceReservationValue -&gt; ShowS)
+-&gt; (ReservedInstanceReservationValue -&gt; String)
+-&gt; ([ReservedInstanceReservationValue] -&gt; ShowS)
+-&gt; Show ReservedInstanceReservationValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservedInstanceReservationValue] -&gt; ShowS
+$cshowList :: [ReservedInstanceReservationValue] -&gt; ShowS
+show :: ReservedInstanceReservationValue -&gt; String
+$cshow :: ReservedInstanceReservationValue -&gt; String
+showsPrec :: Int -&gt; ReservedInstanceReservationValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservedInstanceReservationValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReservedInstanceReservationValue
+ -&gt; Rep ReservedInstanceReservationValue x)
+-&gt; (forall x.
+    Rep ReservedInstanceReservationValue x
+    -&gt; ReservedInstanceReservationValue)
+-&gt; Generic ReservedInstanceReservationValue
+forall x.
+Rep ReservedInstanceReservationValue x
+-&gt; ReservedInstanceReservationValue
+forall x.
+ReservedInstanceReservationValue
+-&gt; Rep ReservedInstanceReservationValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReservedInstanceReservationValue x
+-&gt; ReservedInstanceReservationValue
+$cfrom :: forall x.
+ReservedInstanceReservationValue
+-&gt; Rep ReservedInstanceReservationValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ReservedInstanceReservationValue' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'reservationValue', 'reservedInstanceReservationValue_reservationValue' - The total value of the Convertible Reserved Instance that you are</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- exchanging.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'reservedInstanceId', 'reservedInstanceReservationValue_reservedInstanceId' - The ID of the Convertible Reserved Instance that you are exchanging.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#newReservedInstanceReservationValue"><span class="hs-identifier hs-type">newReservedInstanceReservationValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span>
+</span><span id="line-54"></span><span id="newReservedInstanceReservationValue"><span class="annot"><span class="annottext">newReservedInstanceReservationValue :: ReservedInstanceReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#newReservedInstanceReservationValue"><span class="hs-identifier hs-var hs-var">newReservedInstanceReservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ReservedInstanceReservationValue' :: Maybe ReservationValue
+-&gt; Maybe Text -&gt; ReservedInstanceReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-type">ReservedInstanceReservationValue'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservationValue:ReservedInstanceReservationValue' :: Maybe ReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservationValue%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">reservationValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReservationValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedInstanceId:ReservedInstanceReservationValue' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservedInstanceId%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">reservedInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The total value of the Convertible Reserved Instance that you are</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- exchanging.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#reservedInstanceReservationValue_reservationValue"><span class="hs-identifier hs-type">reservedInstanceReservationValue_reservationValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="reservedInstanceReservationValue_reservationValue"><span class="annot"><span class="annottext">reservedInstanceReservationValue_reservationValue :: (Maybe ReservationValue -&gt; f (Maybe ReservationValue))
+-&gt; ReservedInstanceReservationValue
+-&gt; f ReservedInstanceReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#reservedInstanceReservationValue_reservationValue"><span class="hs-identifier hs-var hs-var">reservedInstanceReservationValue_reservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstanceReservationValue -&gt; Maybe ReservationValue)
+-&gt; (ReservedInstanceReservationValue
+    -&gt; Maybe ReservationValue -&gt; ReservedInstanceReservationValue)
+-&gt; Lens
+     ReservedInstanceReservationValue
+     ReservedInstanceReservationValue
+     (Maybe ReservationValue)
+     (Maybe ReservationValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-type">ReservedInstanceReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681109062"><span class="annot"><span class="annottext">Maybe ReservationValue
+reservationValue :: Maybe ReservationValue
+$sel:reservationValue:ReservedInstanceReservationValue' :: ReservedInstanceReservationValue -&gt; Maybe ReservationValue
+</span><a href="#local-6989586621681109062"><span class="hs-identifier hs-var hs-var">reservationValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681109062"><span class="hs-identifier hs-var">reservationValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681109061"><span class="annot"><span class="annottext">s :: ReservedInstanceReservationValue
+</span><a href="#local-6989586621681109061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-type">ReservedInstanceReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681109060"><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681109060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstanceReservationValue
+</span><a href="#local-6989586621681109061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationValue:ReservedInstanceReservationValue' :: Maybe ReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservationValue%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">reservationValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationValue
+</span><a href="#local-6989586621681109060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The ID of the Convertible Reserved Instance that you are exchanging.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#reservedInstanceReservationValue_reservedInstanceId"><span class="hs-identifier hs-type">reservedInstanceReservationValue_reservedInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="reservedInstanceReservationValue_reservedInstanceId"><span class="annot"><span class="annottext">reservedInstanceReservationValue_reservedInstanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedInstanceReservationValue
+-&gt; f ReservedInstanceReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#reservedInstanceReservationValue_reservedInstanceId"><span class="hs-identifier hs-var hs-var">reservedInstanceReservationValue_reservedInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedInstanceReservationValue -&gt; Maybe Text)
+-&gt; (ReservedInstanceReservationValue
+    -&gt; Maybe Text -&gt; ReservedInstanceReservationValue)
+-&gt; Lens
+     ReservedInstanceReservationValue
+     ReservedInstanceReservationValue
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-type">ReservedInstanceReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681109058"><span class="annot"><span class="annottext">Maybe Text
+reservedInstanceId :: Maybe Text
+$sel:reservedInstanceId:ReservedInstanceReservationValue' :: ReservedInstanceReservationValue -&gt; Maybe Text
+</span><a href="#local-6989586621681109058"><span class="hs-identifier hs-var hs-var">reservedInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109058"><span class="hs-identifier hs-var">reservedInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681109057"><span class="annot"><span class="annottext">s :: ReservedInstanceReservationValue
+</span><a href="#local-6989586621681109057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-type">ReservedInstanceReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681109056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedInstanceReservationValue
+</span><a href="#local-6989586621681109057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceId:ReservedInstanceReservationValue' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#%24sel%3AreservedInstanceId%3AReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">reservedInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681109056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681109053"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservedInstanceReservationValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681109051"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe ReservationValue
+-&gt; Maybe Text -&gt; ReservedInstanceReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue%27"><span class="hs-identifier hs-var">ReservedInstanceReservationValue'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ReservationValue
+ -&gt; Maybe Text -&gt; ReservedInstanceReservationValue)
+-&gt; Either String (Maybe ReservationValue)
+-&gt; Either String (Maybe Text -&gt; ReservedInstanceReservationValue)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservationValue)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservationValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ReservedInstanceReservationValue)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ReservedInstanceReservationValue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681109051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservedInstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681109045"><span id="local-6989586621681109047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621681109042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceReservationValue.html#ReservedInstanceReservationValue"><span class="hs-identifier hs-type">ReservedInstanceReservationValue</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>

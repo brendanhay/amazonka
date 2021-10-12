@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WorkDocs.Types.LocaleType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkDocs.Types.LocaleType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier">LocaleType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_De"><span class="hs-identifier">LocaleType_De</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Default"><span class="hs-identifier">LocaleType_Default</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_En"><span class="hs-identifier">LocaleType_En</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Es"><span class="hs-identifier">LocaleType_Es</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Fr"><span class="hs-identifier">LocaleType_Fr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ja"><span class="hs-identifier">LocaleType_Ja</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ko"><span class="hs-identifier">LocaleType_Ko</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Pt_BR"><span class="hs-identifier">LocaleType_Pt_BR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ru"><span class="hs-identifier">LocaleType_Ru</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_CN"><span class="hs-identifier">LocaleType_Zh_CN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_TW"><span class="hs-identifier">LocaleType_Zh_TW</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679261121"><span id="local-6989586621679261122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocaleType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-var">LocaleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocaleType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-var">LocaleType'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLocaleType"><span class="annot"><span class="annottext">LocaleType -&gt; Text
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#fromLocaleType"><span class="hs-identifier hs-var hs-var">fromLocaleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261113"><span id="local-6989586621679261115"><span id="local-6989586621679261117"><span class="annot"><span class="annottext">Int -&gt; LocaleType -&gt; ShowS
+[LocaleType] -&gt; ShowS
+LocaleType -&gt; String
+(Int -&gt; LocaleType -&gt; ShowS)
+-&gt; (LocaleType -&gt; String)
+-&gt; ([LocaleType] -&gt; ShowS)
+-&gt; Show LocaleType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LocaleType] -&gt; ShowS
+$cshowList :: [LocaleType] -&gt; ShowS
+show :: LocaleType -&gt; String
+$cshow :: LocaleType -&gt; String
+showsPrec :: Int -&gt; LocaleType -&gt; ShowS
+$cshowsPrec :: Int -&gt; LocaleType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679261104"><span id="local-6989586621679261106"><span id="local-6989586621679261108"><span id="local-6989586621679261110"><span class="annot"><span class="annottext">ReadPrec [LocaleType]
+ReadPrec LocaleType
+Int -&gt; ReadS LocaleType
+ReadS [LocaleType]
+(Int -&gt; ReadS LocaleType)
+-&gt; ReadS [LocaleType]
+-&gt; ReadPrec LocaleType
+-&gt; ReadPrec [LocaleType]
+-&gt; Read LocaleType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LocaleType]
+$creadListPrec :: ReadPrec [LocaleType]
+readPrec :: ReadPrec LocaleType
+$creadPrec :: ReadPrec LocaleType
+readList :: ReadS [LocaleType]
+$creadList :: ReadS [LocaleType]
+readsPrec :: Int -&gt; ReadS LocaleType
+$creadsPrec :: Int -&gt; ReadS LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679261099"><span id="local-6989586621679261101"><span class="annot"><span class="annottext">LocaleType -&gt; LocaleType -&gt; Bool
+(LocaleType -&gt; LocaleType -&gt; Bool)
+-&gt; (LocaleType -&gt; LocaleType -&gt; Bool) -&gt; Eq LocaleType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LocaleType -&gt; LocaleType -&gt; Bool
+$c/= :: LocaleType -&gt; LocaleType -&gt; Bool
+== :: LocaleType -&gt; LocaleType -&gt; Bool
+$c== :: LocaleType -&gt; LocaleType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679261083"><span id="local-6989586621679261085"><span id="local-6989586621679261087"><span id="local-6989586621679261089"><span id="local-6989586621679261091"><span id="local-6989586621679261093"><span id="local-6989586621679261095"><span class="annot"><span class="annottext">Eq LocaleType
+Eq LocaleType
+-&gt; (LocaleType -&gt; LocaleType -&gt; Ordering)
+-&gt; (LocaleType -&gt; LocaleType -&gt; Bool)
+-&gt; (LocaleType -&gt; LocaleType -&gt; Bool)
+-&gt; (LocaleType -&gt; LocaleType -&gt; Bool)
+-&gt; (LocaleType -&gt; LocaleType -&gt; Bool)
+-&gt; (LocaleType -&gt; LocaleType -&gt; LocaleType)
+-&gt; (LocaleType -&gt; LocaleType -&gt; LocaleType)
+-&gt; Ord LocaleType
+LocaleType -&gt; LocaleType -&gt; Bool
+LocaleType -&gt; LocaleType -&gt; Ordering
+LocaleType -&gt; LocaleType -&gt; LocaleType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LocaleType -&gt; LocaleType -&gt; LocaleType
+$cmin :: LocaleType -&gt; LocaleType -&gt; LocaleType
+max :: LocaleType -&gt; LocaleType -&gt; LocaleType
+$cmax :: LocaleType -&gt; LocaleType -&gt; LocaleType
+&gt;= :: LocaleType -&gt; LocaleType -&gt; Bool
+$c&gt;= :: LocaleType -&gt; LocaleType -&gt; Bool
+&gt; :: LocaleType -&gt; LocaleType -&gt; Bool
+$c&gt; :: LocaleType -&gt; LocaleType -&gt; Bool
+&lt;= :: LocaleType -&gt; LocaleType -&gt; Bool
+$c&lt;= :: LocaleType -&gt; LocaleType -&gt; Bool
+&lt; :: LocaleType -&gt; LocaleType -&gt; Bool
+$c&lt; :: LocaleType -&gt; LocaleType -&gt; Bool
+compare :: LocaleType -&gt; LocaleType -&gt; Ordering
+$ccompare :: LocaleType -&gt; LocaleType -&gt; Ordering
+$cp1Ord :: Eq LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LocaleType -&gt; Rep LocaleType x)
+-&gt; (forall x. Rep LocaleType x -&gt; LocaleType) -&gt; Generic LocaleType
+forall x. Rep LocaleType x -&gt; LocaleType
+forall x. LocaleType -&gt; Rep LocaleType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LocaleType x -&gt; LocaleType
+$cfrom :: forall x. LocaleType -&gt; Rep LocaleType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261075"><span id="local-6989586621679261077"><span class="annot"><span class="annottext">Int -&gt; LocaleType -&gt; Int
+LocaleType -&gt; Int
+(Int -&gt; LocaleType -&gt; Int)
+-&gt; (LocaleType -&gt; Int) -&gt; Hashable LocaleType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LocaleType -&gt; Int
+$chash :: LocaleType -&gt; Int
+hashWithSalt :: Int -&gt; LocaleType -&gt; Int
+$chashWithSalt :: Int -&gt; LocaleType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679261072"><span class="annot"><span class="annottext">LocaleType -&gt; ()
+(LocaleType -&gt; ()) -&gt; NFData LocaleType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LocaleType -&gt; ()
+$crnf :: LocaleType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679261069"><span class="annot"><span class="annottext">Text -&gt; Either String LocaleType
+(Text -&gt; Either String LocaleType) -&gt; FromText LocaleType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LocaleType
+$cfromText :: Text -&gt; Either String LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679261066"><span class="annot"><span class="annottext">LocaleType -&gt; Text
+(LocaleType -&gt; Text) -&gt; ToText LocaleType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LocaleType -&gt; Text
+$ctoText :: LocaleType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679261063"><span class="annot"><span class="annottext">LocaleType -&gt; ByteString
+(LocaleType -&gt; ByteString) -&gt; ToByteString LocaleType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LocaleType -&gt; ByteString
+$ctoBS :: LocaleType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679261060"><span class="annot"><span class="annottext">LocaleType -&gt; ByteStringBuilder
+(LocaleType -&gt; ByteStringBuilder) -&gt; ToLog LocaleType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LocaleType -&gt; ByteStringBuilder
+$cbuild :: LocaleType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679261057"><span class="annot"><span class="annottext">HeaderName -&gt; LocaleType -&gt; [Header]
+(HeaderName -&gt; LocaleType -&gt; [Header]) -&gt; ToHeader LocaleType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LocaleType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LocaleType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679261054"><span class="annot"><span class="annottext">LocaleType -&gt; QueryString
+(LocaleType -&gt; QueryString) -&gt; ToQuery LocaleType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LocaleType -&gt; QueryString
+$ctoQuery :: LocaleType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679261049"><span id="local-6989586621679261051"><span class="annot"><span class="annottext">Value -&gt; Parser [LocaleType]
+Value -&gt; Parser LocaleType
+(Value -&gt; Parser LocaleType)
+-&gt; (Value -&gt; Parser [LocaleType]) -&gt; FromJSON LocaleType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LocaleType]
+$cparseJSONList :: Value -&gt; Parser [LocaleType]
+parseJSON :: Value -&gt; Parser LocaleType
+$cparseJSON :: Value -&gt; Parser LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679261044"><span id="local-6989586621679261046"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocaleType]
+FromJSONKeyFunction LocaleType
+FromJSONKeyFunction LocaleType
+-&gt; FromJSONKeyFunction [LocaleType] -&gt; FromJSONKey LocaleType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LocaleType]
+$cfromJSONKeyList :: FromJSONKeyFunction [LocaleType]
+fromJSONKey :: FromJSONKeyFunction LocaleType
+$cfromJSONKey :: FromJSONKeyFunction LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679261035"><span id="local-6989586621679261037"><span id="local-6989586621679261039"><span id="local-6989586621679261041"><span class="annot"><span class="annottext">[LocaleType] -&gt; Encoding
+[LocaleType] -&gt; Value
+LocaleType -&gt; Encoding
+LocaleType -&gt; Value
+(LocaleType -&gt; Value)
+-&gt; (LocaleType -&gt; Encoding)
+-&gt; ([LocaleType] -&gt; Value)
+-&gt; ([LocaleType] -&gt; Encoding)
+-&gt; ToJSON LocaleType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LocaleType] -&gt; Encoding
+$ctoEncodingList :: [LocaleType] -&gt; Encoding
+toJSONList :: [LocaleType] -&gt; Value
+$ctoJSONList :: [LocaleType] -&gt; Value
+toEncoding :: LocaleType -&gt; Encoding
+$ctoEncoding :: LocaleType -&gt; Encoding
+toJSON :: LocaleType -&gt; Value
+$ctoJSON :: LocaleType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679261030"><span id="local-6989586621679261032"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocaleType]
+ToJSONKeyFunction LocaleType
+ToJSONKeyFunction LocaleType
+-&gt; ToJSONKeyFunction [LocaleType] -&gt; ToJSONKey LocaleType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LocaleType]
+$ctoJSONKeyList :: ToJSONKeyFunction [LocaleType]
+toJSONKey :: ToJSONKeyFunction LocaleType
+$ctoJSONKey :: ToJSONKeyFunction LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679261027"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocaleType
+([Node] -&gt; Either String LocaleType) -&gt; FromXML LocaleType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LocaleType
+$cparseXML :: [Node] -&gt; Either String LocaleType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679261024"><span class="annot"><span class="annottext">LocaleType -&gt; XML
+(LocaleType -&gt; XML) -&gt; ToXML LocaleType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LocaleType -&gt; XML
+$ctoXML :: LocaleType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_De"><span class="hs-identifier hs-type">LocaleType_De</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_De"><span id="%24mLocaleType_De"><span id="LocaleType_De"><span class="annot"><span class="annottext">$bLocaleType_De :: LocaleType
+$mLocaleType_De :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_De"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_De</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;de&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Default"><span class="hs-identifier hs-type">LocaleType_Default</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Default"><span id="%24mLocaleType_Default"><span id="LocaleType_Default"><span class="annot"><span class="annottext">$bLocaleType_Default :: LocaleType
+$mLocaleType_Default :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Default"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Default</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;default&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_En"><span class="hs-identifier hs-type">LocaleType_En</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_En"><span id="%24mLocaleType_En"><span id="LocaleType_En"><span class="annot"><span class="annottext">$bLocaleType_En :: LocaleType
+$mLocaleType_En :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_En"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_En</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;en&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Es"><span class="hs-identifier hs-type">LocaleType_Es</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Es"><span id="%24mLocaleType_Es"><span id="LocaleType_Es"><span class="annot"><span class="annottext">$bLocaleType_Es :: LocaleType
+$mLocaleType_Es :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Es"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Es</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;es&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Fr"><span class="hs-identifier hs-type">LocaleType_Fr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Fr"><span id="%24mLocaleType_Fr"><span id="LocaleType_Fr"><span class="annot"><span class="annottext">$bLocaleType_Fr :: LocaleType
+$mLocaleType_Fr :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Fr"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Fr</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;fr&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ja"><span class="hs-identifier hs-type">LocaleType_Ja</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Ja"><span id="%24mLocaleType_Ja"><span id="LocaleType_Ja"><span class="annot"><span class="annottext">$bLocaleType_Ja :: LocaleType
+$mLocaleType_Ja :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Ja"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Ja</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ja&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ko"><span class="hs-identifier hs-type">LocaleType_Ko</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Ko"><span id="%24mLocaleType_Ko"><span id="LocaleType_Ko"><span class="annot"><span class="annottext">$bLocaleType_Ko :: LocaleType
+$mLocaleType_Ko :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Ko"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Ko</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ko&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Pt_BR"><span class="hs-identifier hs-type">LocaleType_Pt_BR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Pt_BR"><span id="%24mLocaleType_Pt_BR"><span id="LocaleType_Pt_BR"><span class="annot"><span class="annottext">$bLocaleType_Pt_BR :: LocaleType
+$mLocaleType_Pt_BR :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Pt_BR"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Pt_BR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pt_BR&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ru"><span class="hs-identifier hs-type">LocaleType_Ru</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Ru"><span id="%24mLocaleType_Ru"><span id="LocaleType_Ru"><span class="annot"><span class="annottext">$bLocaleType_Ru :: LocaleType
+$mLocaleType_Ru :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Ru"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Ru</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ru&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_CN"><span class="hs-identifier hs-type">LocaleType_Zh_CN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Zh_CN"><span id="%24mLocaleType_Zh_CN"><span id="LocaleType_Zh_CN"><span class="annot"><span class="annottext">$bLocaleType_Zh_CN :: LocaleType
+$mLocaleType_Zh_CN :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Zh_CN"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Zh_CN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;zh_CN&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_TW"><span class="hs-identifier hs-type">LocaleType_Zh_TW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType"><span class="hs-identifier hs-type">LocaleType</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLocaleType_Zh_TW"><span id="%24mLocaleType_Zh_TW"><span id="LocaleType_Zh_TW"><span class="annot"><span class="annottext">$bLocaleType_Zh_TW :: LocaleType
+$mLocaleType_Zh_TW :: forall r. LocaleType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WorkDocs.Types.LocaleType.html#%24bLocaleType_Zh_TW"><span class="hs-identifier hs-var hs-var hs-var">LocaleType_Zh_TW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-identifier hs-type">LocaleType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;zh_TW&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_De"><span class="hs-pragma hs-type">LocaleType_De</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Default"><span class="hs-pragma hs-type">LocaleType_Default</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_En"><span class="hs-pragma hs-type">LocaleType_En</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Es"><span class="hs-pragma hs-type">LocaleType_Es</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Fr"><span class="hs-pragma hs-type">LocaleType_Fr</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ja"><span class="hs-pragma hs-type">LocaleType_Ja</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ko"><span class="hs-pragma hs-type">LocaleType_Ko</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Pt_BR"><span class="hs-pragma hs-type">LocaleType_Pt_BR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Ru"><span class="hs-pragma hs-type">LocaleType_Ru</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_CN"><span class="hs-pragma hs-type">LocaleType_Zh_CN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType_Zh_TW"><span class="hs-pragma hs-type">LocaleType_Zh_TW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.LocaleType.html#LocaleType%27"><span class="hs-pragma hs-type">LocaleType'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

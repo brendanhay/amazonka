@@ -1,0 +1,1004 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Redshift.DescribeHsmConfigurations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the specified Amazon Redshift HSM</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration. If no configuration ID is specified, returns information</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- about all the HSM configurations owned by your Amazon Web Services</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- If you specify both tag keys and tag values in the same request, Amazon</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Redshift returns all HSM connections that match any combination of the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- specified keys and values. For example, if you have @owner@ and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @environment@ for tag keys, and @admin@ and @test@ for tag values, all</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- HSM connections that have any combination of those values are returned.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If both tag keys and values are omitted from the request, HSM</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- connections are returned regardless of whether they have tag keys or</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- values associated with them.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Redshift.DescribeHsmConfigurations</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurations"><span class="hs-identifier">newDescribeHsmConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagKeys"><span class="hs-identifier">describeHsmConfigurations_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_hsmConfigurationIdentifier"><span class="hs-identifier">describeHsmConfigurations_hsmConfigurationIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagValues"><span class="hs-identifier">describeHsmConfigurations_tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_maxRecords"><span class="hs-identifier">describeHsmConfigurations_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_marker"><span class="hs-identifier">describeHsmConfigurations_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier">DescribeHsmConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurationsResponse"><span class="hs-identifier">newDescribeHsmConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_hsmConfigurations"><span class="hs-identifier">describeHsmConfigurationsResponse_hsmConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_marker"><span class="hs-identifier">describeHsmConfigurationsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_httpStatus"><span class="hs-identifier">describeHsmConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.html"><span class="hs-identifier">Network.AWS.Redshift.Types</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newDescribeHsmConfigurations' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679515535"><span id="local-6989586621679515536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHsmConfigurations"><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-var">DescribeHsmConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHsmConfigurations%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-var">DescribeHsmConfigurations'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching HSM</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- configurations that are associated with the specified key or keys. For</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- example, suppose that you have HSM configurations that are tagged with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- keys called @owner@ and @environment@. If you specify both of these tag</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- keys in the request, Amazon Redshift returns a response with the HSM</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- configurations that have either or both of these tag keys associated</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- with them.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeHsmConfigurations%27"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagKeys%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The identifier of a specific Amazon Redshift HSM configuration to be</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- described. If no identifier is specified, information is returned for</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- all HSM configurations owned by your Amazon Web Services account.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AhsmConfigurationIdentifier%3ADescribeHsmConfigurations%27"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurationIdentifier%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching HSM</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- configurations that are associated with the specified tag value or</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- values. For example, suppose that you have HSM configurations that are</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the HSM configurations that have either or both of these tag values</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeHsmConfigurations%27"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagValues%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeHsmConfigurations%27"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AmaxRecords%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeHsmConfigurations</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeHsmConfigurations%27"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515525"><span id="local-6989586621679515527"><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool
+(DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool)
+-&gt; (DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool)
+-&gt; Eq DescribeHsmConfigurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool
+$c/= :: DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool
+== :: DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool
+$c== :: DescribeHsmConfigurations -&gt; DescribeHsmConfigurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515516"><span id="local-6989586621679515518"><span id="local-6989586621679515520"><span id="local-6989586621679515522"><span class="annot"><span class="annottext">ReadPrec [DescribeHsmConfigurations]
+ReadPrec DescribeHsmConfigurations
+Int -&gt; ReadS DescribeHsmConfigurations
+ReadS [DescribeHsmConfigurations]
+(Int -&gt; ReadS DescribeHsmConfigurations)
+-&gt; ReadS [DescribeHsmConfigurations]
+-&gt; ReadPrec DescribeHsmConfigurations
+-&gt; ReadPrec [DescribeHsmConfigurations]
+-&gt; Read DescribeHsmConfigurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeHsmConfigurations]
+$creadListPrec :: ReadPrec [DescribeHsmConfigurations]
+readPrec :: ReadPrec DescribeHsmConfigurations
+$creadPrec :: ReadPrec DescribeHsmConfigurations
+readList :: ReadS [DescribeHsmConfigurations]
+$creadList :: ReadS [DescribeHsmConfigurations]
+readsPrec :: Int -&gt; ReadS DescribeHsmConfigurations
+$creadsPrec :: Int -&gt; ReadS DescribeHsmConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515509"><span id="local-6989586621679515511"><span id="local-6989586621679515513"><span class="annot"><span class="annottext">Int -&gt; DescribeHsmConfigurations -&gt; ShowS
+[DescribeHsmConfigurations] -&gt; ShowS
+DescribeHsmConfigurations -&gt; String
+(Int -&gt; DescribeHsmConfigurations -&gt; ShowS)
+-&gt; (DescribeHsmConfigurations -&gt; String)
+-&gt; ([DescribeHsmConfigurations] -&gt; ShowS)
+-&gt; Show DescribeHsmConfigurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeHsmConfigurations] -&gt; ShowS
+$cshowList :: [DescribeHsmConfigurations] -&gt; ShowS
+show :: DescribeHsmConfigurations -&gt; String
+$cshow :: DescribeHsmConfigurations -&gt; String
+showsPrec :: Int -&gt; DescribeHsmConfigurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeHsmConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeHsmConfigurations -&gt; Rep DescribeHsmConfigurations x)
+-&gt; (forall x.
+    Rep DescribeHsmConfigurations x -&gt; DescribeHsmConfigurations)
+-&gt; Generic DescribeHsmConfigurations
+forall x.
+Rep DescribeHsmConfigurations x -&gt; DescribeHsmConfigurations
+forall x.
+DescribeHsmConfigurations -&gt; Rep DescribeHsmConfigurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeHsmConfigurations x -&gt; DescribeHsmConfigurations
+$cfrom :: forall x.
+DescribeHsmConfigurations -&gt; Rep DescribeHsmConfigurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'DescribeHsmConfigurations' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'tagKeys', 'describeHsmConfigurations_tagKeys' - A tag key or keys for which you want to return all matching HSM</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- configurations that are associated with the specified key or keys. For</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- example, suppose that you have HSM configurations that are tagged with</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- keys called @owner@ and @environment@. If you specify both of these tag</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- keys in the request, Amazon Redshift returns a response with the HSM</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- configurations that have either or both of these tag keys associated</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- with them.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'hsmConfigurationIdentifier', 'describeHsmConfigurations_hsmConfigurationIdentifier' - The identifier of a specific Amazon Redshift HSM configuration to be</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- described. If no identifier is specified, information is returned for</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- all HSM configurations owned by your Amazon Web Services account.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'tagValues', 'describeHsmConfigurations_tagValues' - A tag value or values for which you want to return all matching HSM</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- configurations that are associated with the specified tag value or</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- values. For example, suppose that you have HSM configurations that are</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the HSM configurations that have either or both of these tag values</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'maxRecords', 'describeHsmConfigurations_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'marker', 'describeHsmConfigurations_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- of response records. When the results of a DescribeHsmConfigurations</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurations"><span class="hs-identifier hs-type">newDescribeHsmConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span>
+</span><span id="line-159"></span><span id="newDescribeHsmConfigurations"><span class="annot"><span class="annottext">newDescribeHsmConfigurations :: DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurations"><span class="hs-identifier hs-var hs-var">newDescribeHsmConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeHsmConfigurations' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeHsmConfigurations' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagKeys%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:DescribeHsmConfigurations' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurationIdentifier%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeHsmConfigurations' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagValues%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeHsmConfigurations' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AmaxRecords%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeHsmConfigurations' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching HSM</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- configurations that are associated with the specified key or keys. For</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- example, suppose that you have HSM configurations that are tagged with</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- keys called @owner@ and @environment@. If you specify both of these tag</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- keys in the request, Amazon Redshift returns a response with the HSM</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- configurations that have either or both of these tag keys associated</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- with them.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagKeys"><span class="hs-identifier hs-type">describeHsmConfigurations_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeHsmConfigurations_tagKeys"><span class="annot"><span class="annottext">describeHsmConfigurations_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagKeys"><span class="hs-identifier hs-var hs-var">describeHsmConfigurations_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe [Text])
+-&gt; (DescribeHsmConfigurations
+    -&gt; Maybe [Text] -&gt; DescribeHsmConfigurations)
+-&gt; Lens
+     DescribeHsmConfigurations
+     DescribeHsmConfigurations
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515503"><span class="annot"><span class="annottext">Maybe [Text]
+tagKeys :: Maybe [Text]
+$sel:tagKeys:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe [Text]
+</span><a href="#local-6989586621679515503"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515503"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515502"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurations
+</span><a href="#local-6989586621679515502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515501"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeHsmConfigurations' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagKeys%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeHsmConfigurations
+-&gt; f DescribeHsmConfigurations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The identifier of a specific Amazon Redshift HSM configuration to be</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- described. If no identifier is specified, information is returned for</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- all HSM configurations owned by your Amazon Web Services account.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_hsmConfigurationIdentifier"><span class="hs-identifier hs-type">describeHsmConfigurations_hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="describeHsmConfigurations_hsmConfigurationIdentifier"><span class="annot"><span class="annottext">describeHsmConfigurations_hsmConfigurationIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_hsmConfigurationIdentifier"><span class="hs-identifier hs-var hs-var">describeHsmConfigurations_hsmConfigurationIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe Text)
+-&gt; (DescribeHsmConfigurations
+    -&gt; Maybe Text -&gt; DescribeHsmConfigurations)
+-&gt; Lens
+     DescribeHsmConfigurations
+     DescribeHsmConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515497"><span class="annot"><span class="annottext">Maybe Text
+hsmConfigurationIdentifier :: Maybe Text
+$sel:hsmConfigurationIdentifier:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679515497"><span class="hs-identifier hs-var hs-var">hsmConfigurationIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515497"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515496"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurations
+</span><a href="#local-6989586621679515496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmConfigurationIdentifier:DescribeHsmConfigurations' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurationIdentifier%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching HSM</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- configurations that are associated with the specified tag value or</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- values. For example, suppose that you have HSM configurations that are</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- the HSM configurations that have either or both of these tag values</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagValues"><span class="hs-identifier hs-type">describeHsmConfigurations_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="describeHsmConfigurations_tagValues"><span class="annot"><span class="annottext">describeHsmConfigurations_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_tagValues"><span class="hs-identifier hs-var hs-var">describeHsmConfigurations_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe [Text])
+-&gt; (DescribeHsmConfigurations
+    -&gt; Maybe [Text] -&gt; DescribeHsmConfigurations)
+-&gt; Lens
+     DescribeHsmConfigurations
+     DescribeHsmConfigurations
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515494"><span class="annot"><span class="annottext">Maybe [Text]
+tagValues :: Maybe [Text]
+$sel:tagValues:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe [Text]
+</span><a href="#local-6989586621679515494"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515494"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515493"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurations
+</span><a href="#local-6989586621679515493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515492"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeHsmConfigurations' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AtagValues%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeHsmConfigurations
+-&gt; f DescribeHsmConfigurations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_maxRecords"><span class="hs-identifier hs-type">describeHsmConfigurations_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeHsmConfigurations_maxRecords"><span class="annot"><span class="annottext">describeHsmConfigurations_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_maxRecords"><span class="hs-identifier hs-var hs-var">describeHsmConfigurations_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe Int)
+-&gt; (DescribeHsmConfigurations
+    -&gt; Maybe Int -&gt; DescribeHsmConfigurations)
+-&gt; Lens
+     DescribeHsmConfigurations
+     DescribeHsmConfigurations
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515491"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Int
+</span><a href="#local-6989586621679515491"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515491"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515490"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurations
+</span><a href="#local-6989586621679515490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515489"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeHsmConfigurations' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AmaxRecords%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- of response records. When the results of a DescribeHsmConfigurations</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_marker"><span class="hs-identifier hs-type">describeHsmConfigurations_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="describeHsmConfigurations_marker"><span class="annot"><span class="annottext">describeHsmConfigurations_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeHsmConfigurations -&gt; f DescribeHsmConfigurations
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_marker"><span class="hs-identifier hs-var hs-var">describeHsmConfigurations_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe Text)
+-&gt; (DescribeHsmConfigurations
+    -&gt; Maybe Text -&gt; DescribeHsmConfigurations)
+-&gt; Lens
+     DescribeHsmConfigurations
+     DescribeHsmConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515488"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679515488"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515488"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515487"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurations
+</span><a href="#local-6989586621679515487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeHsmConfigurations' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurations%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679515482"><span class="annot"><span class="annottext">page :: DescribeHsmConfigurations
+-&gt; AWSResponse DescribeHsmConfigurations
+-&gt; Maybe DescribeHsmConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679515480"><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515480"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679515479"><span class="annot"><span class="annottext">AWSResponse DescribeHsmConfigurations
+</span><a href="#local-6989586621679515479"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-219"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHsmConfigurations
+DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515479"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+-&gt; Getting (First Text) DescribeHsmConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; Const (First Text) DescribeHsmConfigurationsResponse
+Lens' DescribeHsmConfigurationsResponse (Maybe Text)
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_marker"><span class="hs-identifier hs-var">describeHsmConfigurationsResponse_marker</span></a></span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeHsmConfigurationsResponse
+ -&gt; Const (First Text) DescribeHsmConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeHsmConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-222"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeHsmConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [HsmConfiguration] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-225"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHsmConfigurations
+DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515479"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+-&gt; Getting
+     (First [HsmConfiguration])
+     DescribeHsmConfigurationsResponse
+     [HsmConfiguration]
+-&gt; Maybe [HsmConfiguration]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [HsmConfiguration]
+ -&gt; Const (First [HsmConfiguration]) (Maybe [HsmConfiguration]))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; Const
+     (First [HsmConfiguration]) DescribeHsmConfigurationsResponse
+Lens' DescribeHsmConfigurationsResponse (Maybe [HsmConfiguration])
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_hsmConfigurations"><span class="hs-identifier hs-var">describeHsmConfigurationsResponse_hsmConfigurations</span></a></span><span>
+</span><span id="line-227"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [HsmConfiguration]
+  -&gt; Const (First [HsmConfiguration]) (Maybe [HsmConfiguration]))
+ -&gt; DescribeHsmConfigurationsResponse
+ -&gt; Const
+      (First [HsmConfiguration]) DescribeHsmConfigurationsResponse)
+-&gt; (([HsmConfiguration]
+     -&gt; Const (First [HsmConfiguration]) [HsmConfiguration])
+    -&gt; Maybe [HsmConfiguration]
+    -&gt; Const (First [HsmConfiguration]) (Maybe [HsmConfiguration]))
+-&gt; Getting
+     (First [HsmConfiguration])
+     DescribeHsmConfigurationsResponse
+     [HsmConfiguration]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([HsmConfiguration]
+ -&gt; Const (First [HsmConfiguration]) [HsmConfiguration])
+-&gt; Maybe [HsmConfiguration]
+-&gt; Const (First [HsmConfiguration]) (Maybe [HsmConfiguration])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-228"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeHsmConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">DescribeHsmConfigurations -&gt; Maybe DescribeHsmConfigurations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurations -&gt; Maybe DescribeHsmConfigurations)
+-&gt; DescribeHsmConfigurations -&gt; Maybe DescribeHsmConfigurations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+</span><a href="#local-6989586621679515480"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">DescribeHsmConfigurations
+-&gt; (DescribeHsmConfigurations -&gt; DescribeHsmConfigurations)
+-&gt; DescribeHsmConfigurations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeHsmConfigurations -&gt; Identity DescribeHsmConfigurations
+Lens
+  DescribeHsmConfigurations
+  DescribeHsmConfigurations
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurations_marker"><span class="hs-identifier hs-var">describeHsmConfigurations_marker</span></a></span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeHsmConfigurations -&gt; Identity DescribeHsmConfigurations)
+-&gt; Maybe Text
+-&gt; DescribeHsmConfigurations
+-&gt; DescribeHsmConfigurations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHsmConfigurations
+DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515479"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+-&gt; Getting (First Text) DescribeHsmConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; Const (First Text) DescribeHsmConfigurationsResponse
+Lens' DescribeHsmConfigurationsResponse (Maybe Text)
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_marker"><span class="hs-identifier hs-var">describeHsmConfigurationsResponse_marker</span></a></span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeHsmConfigurationsResponse
+ -&gt; Const (First Text) DescribeHsmConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeHsmConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-240"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679515470"><span class="annot"><span class="annottext">request :: DescribeHsmConfigurations -&gt; Request DescribeHsmConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeHsmConfigurations -&gt; Request DescribeHsmConfigurations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679515466"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeHsmConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeHsmConfigurations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeHsmConfigurations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeHsmConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeHsmConfigurations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeHsmConfigurationsResult&quot;</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679515463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515463"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679515462"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679515462"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679515461"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679515461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeHsmConfigurationsResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HsmConfiguration]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Either String (Maybe [HsmConfiguration])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeHsmConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679515461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HsmConfigurations&quot;</span></span><span>
+</span><span id="line-249"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-250"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [HsmConfiguration]))
+-&gt; Either String (Maybe [HsmConfiguration])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [HsmConfiguration])
+-&gt; [Node] -&gt; Either String (Maybe [HsmConfiguration])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [HsmConfiguration]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HsmConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeHsmConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679515461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeHsmConfigurationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515463"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515450"><span id="local-6989586621679515452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span></span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679515443"><span class="annot"><span class="annottext">toHeaders :: DescribeHsmConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeHsmConfigurations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679515438"><span class="annot"><span class="annottext">toPath :: DescribeHsmConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeHsmConfigurations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations"><span class="hs-identifier hs-type">DescribeHsmConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679515434"><span class="annot"><span class="annottext">toQuery :: DescribeHsmConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurations%27"><span class="hs-identifier hs-type">DescribeHsmConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515428"><span id="local-6989586621679515429"><span id="local-6989586621679515430"><span id="local-6989586621679515431"><span id="local-6989586621679515432"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe Text
+marker :: Maybe Text
+maxRecords :: Maybe Int
+tagValues :: Maybe [Text]
+hsmConfigurationIdentifier :: Maybe Text
+tagKeys :: Maybe [Text]
+$sel:marker:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Text
+$sel:maxRecords:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Int
+$sel:tagValues:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe [Text]
+$sel:hsmConfigurationIdentifier:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe Text
+$sel:tagKeys:DescribeHsmConfigurations' :: DescribeHsmConfigurations -&gt; Maybe [Text]
+</span><a href="#local-6989586621679515428"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeHsmConfigurations&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515432"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HsmConfigurationIdentifier&quot;</span></span><span>
+</span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515431"><span class="hs-identifier hs-var">hsmConfigurationIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679515430"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515429"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515428"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- /See:/ 'newDescribeHsmConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-288"></span><span id="local-6989586621679515424"><span id="local-6989586621679515425"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHsmConfigurationsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-var">DescribeHsmConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHsmConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeHsmConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @HsmConfiguration@ objects.</span><span>
+</span><span id="line-290"></span><span>    </span><span id="%24sel%3AhsmConfigurations%3ADescribeHsmConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse -&gt; Maybe [HsmConfiguration]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurations%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">hsmConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.HsmConfiguration.html#HsmConfiguration"><span class="hs-identifier hs-type">HsmConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-297"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeHsmConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-299"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeHsmConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse -&gt; Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhttpStatus%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-301"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515417"><span id="local-6989586621679515419"><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+-&gt; DescribeHsmConfigurationsResponse -&gt; Bool
+(DescribeHsmConfigurationsResponse
+ -&gt; DescribeHsmConfigurationsResponse -&gt; Bool)
+-&gt; (DescribeHsmConfigurationsResponse
+    -&gt; DescribeHsmConfigurationsResponse -&gt; Bool)
+-&gt; Eq DescribeHsmConfigurationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeHsmConfigurationsResponse
+-&gt; DescribeHsmConfigurationsResponse -&gt; Bool
+$c/= :: DescribeHsmConfigurationsResponse
+-&gt; DescribeHsmConfigurationsResponse -&gt; Bool
+== :: DescribeHsmConfigurationsResponse
+-&gt; DescribeHsmConfigurationsResponse -&gt; Bool
+$c== :: DescribeHsmConfigurationsResponse
+-&gt; DescribeHsmConfigurationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515409"><span id="local-6989586621679515411"><span id="local-6989586621679515413"><span id="local-6989586621679515415"><span class="annot"><span class="annottext">ReadPrec [DescribeHsmConfigurationsResponse]
+ReadPrec DescribeHsmConfigurationsResponse
+Int -&gt; ReadS DescribeHsmConfigurationsResponse
+ReadS [DescribeHsmConfigurationsResponse]
+(Int -&gt; ReadS DescribeHsmConfigurationsResponse)
+-&gt; ReadS [DescribeHsmConfigurationsResponse]
+-&gt; ReadPrec DescribeHsmConfigurationsResponse
+-&gt; ReadPrec [DescribeHsmConfigurationsResponse]
+-&gt; Read DescribeHsmConfigurationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeHsmConfigurationsResponse]
+$creadListPrec :: ReadPrec [DescribeHsmConfigurationsResponse]
+readPrec :: ReadPrec DescribeHsmConfigurationsResponse
+$creadPrec :: ReadPrec DescribeHsmConfigurationsResponse
+readList :: ReadS [DescribeHsmConfigurationsResponse]
+$creadList :: ReadS [DescribeHsmConfigurationsResponse]
+readsPrec :: Int -&gt; ReadS DescribeHsmConfigurationsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeHsmConfigurationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515403"><span id="local-6989586621679515405"><span id="local-6989586621679515407"><span class="annot"><span class="annottext">Int -&gt; DescribeHsmConfigurationsResponse -&gt; ShowS
+[DescribeHsmConfigurationsResponse] -&gt; ShowS
+DescribeHsmConfigurationsResponse -&gt; String
+(Int -&gt; DescribeHsmConfigurationsResponse -&gt; ShowS)
+-&gt; (DescribeHsmConfigurationsResponse -&gt; String)
+-&gt; ([DescribeHsmConfigurationsResponse] -&gt; ShowS)
+-&gt; Show DescribeHsmConfigurationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeHsmConfigurationsResponse] -&gt; ShowS
+$cshowList :: [DescribeHsmConfigurationsResponse] -&gt; ShowS
+show :: DescribeHsmConfigurationsResponse -&gt; String
+$cshow :: DescribeHsmConfigurationsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeHsmConfigurationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeHsmConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeHsmConfigurationsResponse
+ -&gt; Rep DescribeHsmConfigurationsResponse x)
+-&gt; (forall x.
+    Rep DescribeHsmConfigurationsResponse x
+    -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Generic DescribeHsmConfigurationsResponse
+forall x.
+Rep DescribeHsmConfigurationsResponse x
+-&gt; DescribeHsmConfigurationsResponse
+forall x.
+DescribeHsmConfigurationsResponse
+-&gt; Rep DescribeHsmConfigurationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeHsmConfigurationsResponse x
+-&gt; DescribeHsmConfigurationsResponse
+$cfrom :: forall x.
+DescribeHsmConfigurationsResponse
+-&gt; Rep DescribeHsmConfigurationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- Create a value of 'DescribeHsmConfigurationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- 'hsmConfigurations', 'describeHsmConfigurationsResponse_hsmConfigurations' - A list of @HsmConfiguration@ objects.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- 'marker', 'describeHsmConfigurationsResponse_marker' - A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'httpStatus', 'describeHsmConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">newDescribeHsmConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span>
+</span><span id="line-325"></span><span id="newDescribeHsmConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeHsmConfigurationsResponse :: Int -&gt; DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#newDescribeHsmConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeHsmConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679515400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse' :: Maybe [HsmConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hsmConfigurations:DescribeHsmConfigurationsResponse' :: Maybe [HsmConfiguration]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurations%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">hsmConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeHsmConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHsmConfigurationsResponse' :: Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhttpStatus%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | A list of @HsmConfiguration@ objects.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_hsmConfigurations"><span class="hs-identifier hs-type">describeHsmConfigurationsResponse_hsmConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.HsmConfiguration.html#HsmConfiguration"><span class="hs-identifier hs-type">HsmConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="describeHsmConfigurationsResponse_hsmConfigurations"><span class="annot"><span class="annottext">describeHsmConfigurationsResponse_hsmConfigurations :: (Maybe [HsmConfiguration] -&gt; f (Maybe [HsmConfiguration]))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; f DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_hsmConfigurations"><span class="hs-identifier hs-var hs-var">describeHsmConfigurationsResponse_hsmConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurationsResponse -&gt; Maybe [HsmConfiguration])
+-&gt; (DescribeHsmConfigurationsResponse
+    -&gt; Maybe [HsmConfiguration] -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Lens'
+     DescribeHsmConfigurationsResponse (Maybe [HsmConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515399"><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+hsmConfigurations :: Maybe [HsmConfiguration]
+$sel:hsmConfigurations:DescribeHsmConfigurationsResponse' :: DescribeHsmConfigurationsResponse -&gt; Maybe [HsmConfiguration]
+</span><a href="#local-6989586621679515399"><span class="hs-identifier hs-var hs-var">hsmConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+</span><a href="#local-6989586621679515399"><span class="hs-identifier hs-var">hsmConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515398"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515397"><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+</span><a href="#local-6989586621679515397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmConfigurations:DescribeHsmConfigurationsResponse' :: Maybe [HsmConfiguration]
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhsmConfigurations%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">hsmConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HsmConfiguration]
+</span><a href="#local-6989586621679515397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HsmConfiguration] -&gt; f (Maybe [HsmConfiguration]))
+ -&gt; DescribeHsmConfigurationsResponse
+ -&gt; f DescribeHsmConfigurationsResponse)
+-&gt; ((Maybe [HsmConfiguration] -&gt; f (Maybe [HsmConfiguration]))
+    -&gt; Maybe [HsmConfiguration] -&gt; f (Maybe [HsmConfiguration]))
+-&gt; (Maybe [HsmConfiguration] -&gt; f (Maybe [HsmConfiguration]))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; f DescribeHsmConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HsmConfiguration]
+  [HsmConfiguration]
+  [HsmConfiguration]
+  [HsmConfiguration]
+-&gt; Iso
+     (Maybe [HsmConfiguration])
+     (Maybe [HsmConfiguration])
+     (Maybe [HsmConfiguration])
+     (Maybe [HsmConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HsmConfiguration]
+  [HsmConfiguration]
+  [HsmConfiguration]
+  [HsmConfiguration]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_marker"><span class="hs-identifier hs-type">describeHsmConfigurationsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="describeHsmConfigurationsResponse_marker"><span class="annot"><span class="annottext">describeHsmConfigurationsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; f DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_marker"><span class="hs-identifier hs-var hs-var">describeHsmConfigurationsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurationsResponse -&gt; Maybe Text)
+-&gt; (DescribeHsmConfigurationsResponse
+    -&gt; Maybe Text -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Lens' DescribeHsmConfigurationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515396"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeHsmConfigurationsResponse' :: DescribeHsmConfigurationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679515396"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515396"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515395"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeHsmConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3Amarker%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">describeHsmConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-348"></span><span id="describeHsmConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">describeHsmConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeHsmConfigurationsResponse
+-&gt; f DescribeHsmConfigurationsResponse
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#describeHsmConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeHsmConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeHsmConfigurationsResponse -&gt; Int)
+-&gt; (DescribeHsmConfigurationsResponse
+    -&gt; Int -&gt; DescribeHsmConfigurationsResponse)
+-&gt; Lens
+     DescribeHsmConfigurationsResponse
+     DescribeHsmConfigurationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515393"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeHsmConfigurationsResponse' :: DescribeHsmConfigurationsResponse -&gt; Int
+</span><a href="#local-6989586621679515393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515392"><span class="annot"><span class="annottext">s :: DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHsmConfigurationsResponse
+</span><a href="#local-6989586621679515392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHsmConfigurationsResponse' :: Int
+</span><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#%24sel%3AhttpStatus%3ADescribeHsmConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-351"></span><span>  </span><span id="local-6989586621679515389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeHsmConfigurations.html#DescribeHsmConfigurationsResponse"><span class="hs-identifier hs-type">DescribeHsmConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-353"></span></pre></body></html>

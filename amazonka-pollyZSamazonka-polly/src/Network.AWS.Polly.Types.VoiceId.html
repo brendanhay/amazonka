@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Polly.Types.VoiceId</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Polly.Types.VoiceId</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier">VoiceId</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aditi"><span class="hs-identifier">VoiceId_Aditi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Amy"><span class="hs-identifier">VoiceId_Amy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aria"><span class="hs-identifier">VoiceId_Aria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Astrid"><span class="hs-identifier">VoiceId_Astrid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ayanda"><span class="hs-identifier">VoiceId_Ayanda</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Bianca"><span class="hs-identifier">VoiceId_Bianca</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Brian"><span class="hs-identifier">VoiceId_Brian</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Camila"><span class="hs-identifier">VoiceId_Camila</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carla"><span class="hs-identifier">VoiceId_Carla</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carmen"><span class="hs-identifier">VoiceId_Carmen</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Celine"><span class="hs-identifier">VoiceId_Celine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Chantal"><span class="hs-identifier">VoiceId_Chantal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Conchita"><span class="hs-identifier">VoiceId_Conchita</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Cristiano"><span class="hs-identifier">VoiceId_Cristiano</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Dora"><span class="hs-identifier">VoiceId_Dora</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Emma"><span class="hs-identifier">VoiceId_Emma</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Enrique"><span class="hs-identifier">VoiceId_Enrique</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ewa"><span class="hs-identifier">VoiceId_Ewa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Filiz"><span class="hs-identifier">VoiceId_Filiz</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gabrielle"><span class="hs-identifier">VoiceId_Gabrielle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Geraint"><span class="hs-identifier">VoiceId_Geraint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Giorgio"><span class="hs-identifier">VoiceId_Giorgio</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gwyneth"><span class="hs-identifier">VoiceId_Gwyneth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Hans"><span class="hs-identifier">VoiceId_Hans</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ines"><span class="hs-identifier">VoiceId_Ines</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ivy"><span class="hs-identifier">VoiceId_Ivy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jacek"><span class="hs-identifier">VoiceId_Jacek</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jan"><span class="hs-identifier">VoiceId_Jan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joanna"><span class="hs-identifier">VoiceId_Joanna</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joey"><span class="hs-identifier">VoiceId_Joey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Justin"><span class="hs-identifier">VoiceId_Justin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Karl"><span class="hs-identifier">VoiceId_Karl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kendra"><span class="hs-identifier">VoiceId_Kendra</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kevin"><span class="hs-identifier">VoiceId_Kevin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kimberly"><span class="hs-identifier">VoiceId_Kimberly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lea"><span class="hs-identifier">VoiceId_Lea</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Liv"><span class="hs-identifier">VoiceId_Liv</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lotte"><span class="hs-identifier">VoiceId_Lotte</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lucia"><span class="hs-identifier">VoiceId_Lucia</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lupe"><span class="hs-identifier">VoiceId_Lupe</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mads"><span class="hs-identifier">VoiceId_Mads</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maja"><span class="hs-identifier">VoiceId_Maja</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Marlene"><span class="hs-identifier">VoiceId_Marlene</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mathieu"><span class="hs-identifier">VoiceId_Mathieu</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Matthew"><span class="hs-identifier">VoiceId_Matthew</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maxim"><span class="hs-identifier">VoiceId_Maxim</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mia"><span class="hs-identifier">VoiceId_Mia</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Miguel"><span class="hs-identifier">VoiceId_Miguel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mizuki"><span class="hs-identifier">VoiceId_Mizuki</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Naja"><span class="hs-identifier">VoiceId_Naja</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Nicole"><span class="hs-identifier">VoiceId_Nicole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Olivia"><span class="hs-identifier">VoiceId_Olivia</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Penelope"><span class="hs-identifier">VoiceId_Penelope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Raveena"><span class="hs-identifier">VoiceId_Raveena</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ricardo"><span class="hs-identifier">VoiceId_Ricardo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ruben"><span class="hs-identifier">VoiceId_Ruben</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Russell"><span class="hs-identifier">VoiceId_Russell</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Salli"><span class="hs-identifier">VoiceId_Salli</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Seoyeon"><span class="hs-identifier">VoiceId_Seoyeon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Takumi"><span class="hs-identifier">VoiceId_Takumi</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Tatyana"><span class="hs-identifier">VoiceId_Tatyana</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vicki"><span class="hs-identifier">VoiceId_Vicki</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vitoria"><span class="hs-identifier">VoiceId_Vitoria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zeina"><span class="hs-identifier">VoiceId_Zeina</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zhiyu"><span class="hs-identifier">VoiceId_Zhiyu</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span id="local-6989586621679172313"><span id="local-6989586621679172314"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VoiceId"><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-var">VoiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VoiceId%27"><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-var">VoiceId'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromVoiceId"><span class="annot"><span class="annottext">VoiceId -&gt; Text
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#fromVoiceId"><span class="hs-identifier hs-var hs-var">fromVoiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172305"><span id="local-6989586621679172307"><span id="local-6989586621679172309"><span class="annot"><span class="annottext">Int -&gt; VoiceId -&gt; ShowS
+[VoiceId] -&gt; ShowS
+VoiceId -&gt; String
+(Int -&gt; VoiceId -&gt; ShowS)
+-&gt; (VoiceId -&gt; String) -&gt; ([VoiceId] -&gt; ShowS) -&gt; Show VoiceId
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VoiceId] -&gt; ShowS
+$cshowList :: [VoiceId] -&gt; ShowS
+show :: VoiceId -&gt; String
+$cshow :: VoiceId -&gt; String
+showsPrec :: Int -&gt; VoiceId -&gt; ShowS
+$cshowsPrec :: Int -&gt; VoiceId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span id="local-6989586621679172296"><span id="local-6989586621679172298"><span id="local-6989586621679172300"><span id="local-6989586621679172302"><span class="annot"><span class="annottext">ReadPrec [VoiceId]
+ReadPrec VoiceId
+Int -&gt; ReadS VoiceId
+ReadS [VoiceId]
+(Int -&gt; ReadS VoiceId)
+-&gt; ReadS [VoiceId]
+-&gt; ReadPrec VoiceId
+-&gt; ReadPrec [VoiceId]
+-&gt; Read VoiceId
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VoiceId]
+$creadListPrec :: ReadPrec [VoiceId]
+readPrec :: ReadPrec VoiceId
+$creadPrec :: ReadPrec VoiceId
+readList :: ReadS [VoiceId]
+$creadList :: ReadS [VoiceId]
+readsPrec :: Int -&gt; ReadS VoiceId
+$creadsPrec :: Int -&gt; ReadS VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span id="local-6989586621679172291"><span id="local-6989586621679172293"><span class="annot"><span class="annottext">VoiceId -&gt; VoiceId -&gt; Bool
+(VoiceId -&gt; VoiceId -&gt; Bool)
+-&gt; (VoiceId -&gt; VoiceId -&gt; Bool) -&gt; Eq VoiceId
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VoiceId -&gt; VoiceId -&gt; Bool
+$c/= :: VoiceId -&gt; VoiceId -&gt; Bool
+== :: VoiceId -&gt; VoiceId -&gt; Bool
+$c== :: VoiceId -&gt; VoiceId -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span id="local-6989586621679172275"><span id="local-6989586621679172277"><span id="local-6989586621679172279"><span id="local-6989586621679172281"><span id="local-6989586621679172283"><span id="local-6989586621679172285"><span id="local-6989586621679172287"><span class="annot"><span class="annottext">Eq VoiceId
+Eq VoiceId
+-&gt; (VoiceId -&gt; VoiceId -&gt; Ordering)
+-&gt; (VoiceId -&gt; VoiceId -&gt; Bool)
+-&gt; (VoiceId -&gt; VoiceId -&gt; Bool)
+-&gt; (VoiceId -&gt; VoiceId -&gt; Bool)
+-&gt; (VoiceId -&gt; VoiceId -&gt; Bool)
+-&gt; (VoiceId -&gt; VoiceId -&gt; VoiceId)
+-&gt; (VoiceId -&gt; VoiceId -&gt; VoiceId)
+-&gt; Ord VoiceId
+VoiceId -&gt; VoiceId -&gt; Bool
+VoiceId -&gt; VoiceId -&gt; Ordering
+VoiceId -&gt; VoiceId -&gt; VoiceId
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VoiceId -&gt; VoiceId -&gt; VoiceId
+$cmin :: VoiceId -&gt; VoiceId -&gt; VoiceId
+max :: VoiceId -&gt; VoiceId -&gt; VoiceId
+$cmax :: VoiceId -&gt; VoiceId -&gt; VoiceId
+&gt;= :: VoiceId -&gt; VoiceId -&gt; Bool
+$c&gt;= :: VoiceId -&gt; VoiceId -&gt; Bool
+&gt; :: VoiceId -&gt; VoiceId -&gt; Bool
+$c&gt; :: VoiceId -&gt; VoiceId -&gt; Bool
+&lt;= :: VoiceId -&gt; VoiceId -&gt; Bool
+$c&lt;= :: VoiceId -&gt; VoiceId -&gt; Bool
+&lt; :: VoiceId -&gt; VoiceId -&gt; Bool
+$c&lt; :: VoiceId -&gt; VoiceId -&gt; Bool
+compare :: VoiceId -&gt; VoiceId -&gt; Ordering
+$ccompare :: VoiceId -&gt; VoiceId -&gt; Ordering
+$cp1Ord :: Eq VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">(forall x. VoiceId -&gt; Rep VoiceId x)
+-&gt; (forall x. Rep VoiceId x -&gt; VoiceId) -&gt; Generic VoiceId
+forall x. Rep VoiceId x -&gt; VoiceId
+forall x. VoiceId -&gt; Rep VoiceId x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VoiceId x -&gt; VoiceId
+$cfrom :: forall x. VoiceId -&gt; Rep VoiceId x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679172267"><span id="local-6989586621679172269"><span class="annot"><span class="annottext">Int -&gt; VoiceId -&gt; Int
+VoiceId -&gt; Int
+(Int -&gt; VoiceId -&gt; Int) -&gt; (VoiceId -&gt; Int) -&gt; Hashable VoiceId
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VoiceId -&gt; Int
+$chash :: VoiceId -&gt; Int
+hashWithSalt :: Int -&gt; VoiceId -&gt; Int
+$chashWithSalt :: Int -&gt; VoiceId -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span id="local-6989586621679172264"><span class="annot"><span class="annottext">VoiceId -&gt; ()
+(VoiceId -&gt; ()) -&gt; NFData VoiceId
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VoiceId -&gt; ()
+$crnf :: VoiceId -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span id="local-6989586621679172261"><span class="annot"><span class="annottext">Text -&gt; Either String VoiceId
+(Text -&gt; Either String VoiceId) -&gt; FromText VoiceId
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VoiceId
+$cfromText :: Text -&gt; Either String VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span id="local-6989586621679172258"><span class="annot"><span class="annottext">VoiceId -&gt; Text
+(VoiceId -&gt; Text) -&gt; ToText VoiceId
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VoiceId -&gt; Text
+$ctoText :: VoiceId -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span id="local-6989586621679172255"><span class="annot"><span class="annottext">VoiceId -&gt; ByteString
+(VoiceId -&gt; ByteString) -&gt; ToByteString VoiceId
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VoiceId -&gt; ByteString
+$ctoBS :: VoiceId -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span id="local-6989586621679172252"><span class="annot"><span class="annottext">VoiceId -&gt; ByteStringBuilder
+(VoiceId -&gt; ByteStringBuilder) -&gt; ToLog VoiceId
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VoiceId -&gt; ByteStringBuilder
+$cbuild :: VoiceId -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span id="local-6989586621679172249"><span class="annot"><span class="annottext">HeaderName -&gt; VoiceId -&gt; [Header]
+(HeaderName -&gt; VoiceId -&gt; [Header]) -&gt; ToHeader VoiceId
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VoiceId -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VoiceId -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span id="local-6989586621679172246"><span class="annot"><span class="annottext">VoiceId -&gt; QueryString
+(VoiceId -&gt; QueryString) -&gt; ToQuery VoiceId
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VoiceId -&gt; QueryString
+$ctoQuery :: VoiceId -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span id="local-6989586621679172241"><span id="local-6989586621679172243"><span class="annot"><span class="annottext">Value -&gt; Parser [VoiceId]
+Value -&gt; Parser VoiceId
+(Value -&gt; Parser VoiceId)
+-&gt; (Value -&gt; Parser [VoiceId]) -&gt; FromJSON VoiceId
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VoiceId]
+$cparseJSONList :: Value -&gt; Parser [VoiceId]
+parseJSON :: Value -&gt; Parser VoiceId
+$cparseJSON :: Value -&gt; Parser VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span id="local-6989586621679172236"><span id="local-6989586621679172238"><span class="annot"><span class="annottext">FromJSONKeyFunction [VoiceId]
+FromJSONKeyFunction VoiceId
+FromJSONKeyFunction VoiceId
+-&gt; FromJSONKeyFunction [VoiceId] -&gt; FromJSONKey VoiceId
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VoiceId]
+$cfromJSONKeyList :: FromJSONKeyFunction [VoiceId]
+fromJSONKey :: FromJSONKeyFunction VoiceId
+$cfromJSONKey :: FromJSONKeyFunction VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span id="local-6989586621679172227"><span id="local-6989586621679172229"><span id="local-6989586621679172231"><span id="local-6989586621679172233"><span class="annot"><span class="annottext">[VoiceId] -&gt; Encoding
+[VoiceId] -&gt; Value
+VoiceId -&gt; Encoding
+VoiceId -&gt; Value
+(VoiceId -&gt; Value)
+-&gt; (VoiceId -&gt; Encoding)
+-&gt; ([VoiceId] -&gt; Value)
+-&gt; ([VoiceId] -&gt; Encoding)
+-&gt; ToJSON VoiceId
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VoiceId] -&gt; Encoding
+$ctoEncodingList :: [VoiceId] -&gt; Encoding
+toJSONList :: [VoiceId] -&gt; Value
+$ctoJSONList :: [VoiceId] -&gt; Value
+toEncoding :: VoiceId -&gt; Encoding
+$ctoEncoding :: VoiceId -&gt; Encoding
+toJSON :: VoiceId -&gt; Value
+$ctoJSON :: VoiceId -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span id="local-6989586621679172222"><span id="local-6989586621679172224"><span class="annot"><span class="annottext">ToJSONKeyFunction [VoiceId]
+ToJSONKeyFunction VoiceId
+ToJSONKeyFunction VoiceId
+-&gt; ToJSONKeyFunction [VoiceId] -&gt; ToJSONKey VoiceId
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VoiceId]
+$ctoJSONKeyList :: ToJSONKeyFunction [VoiceId]
+toJSONKey :: ToJSONKeyFunction VoiceId
+$ctoJSONKey :: ToJSONKeyFunction VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span id="local-6989586621679172219"><span class="annot"><span class="annottext">[Node] -&gt; Either String VoiceId
+([Node] -&gt; Either String VoiceId) -&gt; FromXML VoiceId
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VoiceId
+$cparseXML :: [Node] -&gt; Either String VoiceId
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span id="local-6989586621679172216"><span class="annot"><span class="annottext">VoiceId -&gt; XML
+(VoiceId -&gt; XML) -&gt; ToXML VoiceId
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VoiceId -&gt; XML
+$ctoXML :: VoiceId -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aditi"><span class="hs-identifier hs-type">VoiceId_Aditi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Aditi"><span id="%24mVoiceId_Aditi"><span id="VoiceId_Aditi"><span class="annot"><span class="annottext">$bVoiceId_Aditi :: VoiceId
+$mVoiceId_Aditi :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Aditi"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Aditi</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Aditi&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Amy"><span class="hs-identifier hs-type">VoiceId_Amy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Amy"><span id="%24mVoiceId_Amy"><span id="VoiceId_Amy"><span class="annot"><span class="annottext">$bVoiceId_Amy :: VoiceId
+$mVoiceId_Amy :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Amy"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Amy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Amy&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aria"><span class="hs-identifier hs-type">VoiceId_Aria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Aria"><span id="%24mVoiceId_Aria"><span id="VoiceId_Aria"><span class="annot"><span class="annottext">$bVoiceId_Aria :: VoiceId
+$mVoiceId_Aria :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Aria"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Aria</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Aria&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Astrid"><span class="hs-identifier hs-type">VoiceId_Astrid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Astrid"><span id="%24mVoiceId_Astrid"><span id="VoiceId_Astrid"><span class="annot"><span class="annottext">$bVoiceId_Astrid :: VoiceId
+$mVoiceId_Astrid :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Astrid"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Astrid</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Astrid&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ayanda"><span class="hs-identifier hs-type">VoiceId_Ayanda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ayanda"><span id="%24mVoiceId_Ayanda"><span id="VoiceId_Ayanda"><span class="annot"><span class="annottext">$bVoiceId_Ayanda :: VoiceId
+$mVoiceId_Ayanda :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ayanda"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ayanda</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ayanda&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Bianca"><span class="hs-identifier hs-type">VoiceId_Bianca</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Bianca"><span id="%24mVoiceId_Bianca"><span id="VoiceId_Bianca"><span class="annot"><span class="annottext">$bVoiceId_Bianca :: VoiceId
+$mVoiceId_Bianca :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Bianca"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Bianca</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Bianca&quot;</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Brian"><span class="hs-identifier hs-type">VoiceId_Brian</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Brian"><span id="%24mVoiceId_Brian"><span id="VoiceId_Brian"><span class="annot"><span class="annottext">$bVoiceId_Brian :: VoiceId
+$mVoiceId_Brian :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Brian"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Brian</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Brian&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Camila"><span class="hs-identifier hs-type">VoiceId_Camila</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Camila"><span id="%24mVoiceId_Camila"><span id="VoiceId_Camila"><span class="annot"><span class="annottext">$bVoiceId_Camila :: VoiceId
+$mVoiceId_Camila :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Camila"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Camila</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Camila&quot;</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carla"><span class="hs-identifier hs-type">VoiceId_Carla</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Carla"><span id="%24mVoiceId_Carla"><span id="VoiceId_Carla"><span class="annot"><span class="annottext">$bVoiceId_Carla :: VoiceId
+$mVoiceId_Carla :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Carla"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Carla</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Carla&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carmen"><span class="hs-identifier hs-type">VoiceId_Carmen</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Carmen"><span id="%24mVoiceId_Carmen"><span id="VoiceId_Carmen"><span class="annot"><span class="annottext">$bVoiceId_Carmen :: VoiceId
+$mVoiceId_Carmen :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Carmen"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Carmen</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Carmen&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Celine"><span class="hs-identifier hs-type">VoiceId_Celine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Celine"><span id="%24mVoiceId_Celine"><span id="VoiceId_Celine"><span class="annot"><span class="annottext">$bVoiceId_Celine :: VoiceId
+$mVoiceId_Celine :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Celine"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Celine</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Celine&quot;</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Chantal"><span class="hs-identifier hs-type">VoiceId_Chantal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Chantal"><span id="%24mVoiceId_Chantal"><span id="VoiceId_Chantal"><span class="annot"><span class="annottext">$bVoiceId_Chantal :: VoiceId
+$mVoiceId_Chantal :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Chantal"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Chantal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Chantal&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Conchita"><span class="hs-identifier hs-type">VoiceId_Conchita</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Conchita"><span id="%24mVoiceId_Conchita"><span id="VoiceId_Conchita"><span class="annot"><span class="annottext">$bVoiceId_Conchita :: VoiceId
+$mVoiceId_Conchita :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Conchita"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Conchita</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Conchita&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Cristiano"><span class="hs-identifier hs-type">VoiceId_Cristiano</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Cristiano"><span id="%24mVoiceId_Cristiano"><span id="VoiceId_Cristiano"><span class="annot"><span class="annottext">$bVoiceId_Cristiano :: VoiceId
+$mVoiceId_Cristiano :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Cristiano"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Cristiano</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Cristiano&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Dora"><span class="hs-identifier hs-type">VoiceId_Dora</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Dora"><span id="%24mVoiceId_Dora"><span id="VoiceId_Dora"><span class="annot"><span class="annottext">$bVoiceId_Dora :: VoiceId
+$mVoiceId_Dora :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Dora"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Dora</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Dora&quot;</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Emma"><span class="hs-identifier hs-type">VoiceId_Emma</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Emma"><span id="%24mVoiceId_Emma"><span id="VoiceId_Emma"><span class="annot"><span class="annottext">$bVoiceId_Emma :: VoiceId
+$mVoiceId_Emma :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Emma"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Emma</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Emma&quot;</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Enrique"><span class="hs-identifier hs-type">VoiceId_Enrique</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Enrique"><span id="%24mVoiceId_Enrique"><span id="VoiceId_Enrique"><span class="annot"><span class="annottext">$bVoiceId_Enrique :: VoiceId
+$mVoiceId_Enrique :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Enrique"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Enrique</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enrique&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ewa"><span class="hs-identifier hs-type">VoiceId_Ewa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ewa"><span id="%24mVoiceId_Ewa"><span id="VoiceId_Ewa"><span class="annot"><span class="annottext">$bVoiceId_Ewa :: VoiceId
+$mVoiceId_Ewa :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ewa"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ewa</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ewa&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Filiz"><span class="hs-identifier hs-type">VoiceId_Filiz</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Filiz"><span id="%24mVoiceId_Filiz"><span id="VoiceId_Filiz"><span class="annot"><span class="annottext">$bVoiceId_Filiz :: VoiceId
+$mVoiceId_Filiz :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Filiz"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Filiz</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Filiz&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gabrielle"><span class="hs-identifier hs-type">VoiceId_Gabrielle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Gabrielle"><span id="%24mVoiceId_Gabrielle"><span id="VoiceId_Gabrielle"><span class="annot"><span class="annottext">$bVoiceId_Gabrielle :: VoiceId
+$mVoiceId_Gabrielle :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Gabrielle"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Gabrielle</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Gabrielle&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Geraint"><span class="hs-identifier hs-type">VoiceId_Geraint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Geraint"><span id="%24mVoiceId_Geraint"><span id="VoiceId_Geraint"><span class="annot"><span class="annottext">$bVoiceId_Geraint :: VoiceId
+$mVoiceId_Geraint :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Geraint"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Geraint</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Geraint&quot;</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Giorgio"><span class="hs-identifier hs-type">VoiceId_Giorgio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Giorgio"><span id="%24mVoiceId_Giorgio"><span id="VoiceId_Giorgio"><span class="annot"><span class="annottext">$bVoiceId_Giorgio :: VoiceId
+$mVoiceId_Giorgio :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Giorgio"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Giorgio</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Giorgio&quot;</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gwyneth"><span class="hs-identifier hs-type">VoiceId_Gwyneth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Gwyneth"><span id="%24mVoiceId_Gwyneth"><span id="VoiceId_Gwyneth"><span class="annot"><span class="annottext">$bVoiceId_Gwyneth :: VoiceId
+$mVoiceId_Gwyneth :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Gwyneth"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Gwyneth</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Gwyneth&quot;</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Hans"><span class="hs-identifier hs-type">VoiceId_Hans</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Hans"><span id="%24mVoiceId_Hans"><span id="VoiceId_Hans"><span class="annot"><span class="annottext">$bVoiceId_Hans :: VoiceId
+$mVoiceId_Hans :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Hans"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Hans</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Hans&quot;</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ines"><span class="hs-identifier hs-type">VoiceId_Ines</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ines"><span id="%24mVoiceId_Ines"><span id="VoiceId_Ines"><span class="annot"><span class="annottext">$bVoiceId_Ines :: VoiceId
+$mVoiceId_Ines :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ines"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ines</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ines&quot;</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ivy"><span class="hs-identifier hs-type">VoiceId_Ivy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ivy"><span id="%24mVoiceId_Ivy"><span id="VoiceId_Ivy"><span class="annot"><span class="annottext">$bVoiceId_Ivy :: VoiceId
+$mVoiceId_Ivy :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ivy"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ivy</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ivy&quot;</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jacek"><span class="hs-identifier hs-type">VoiceId_Jacek</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Jacek"><span id="%24mVoiceId_Jacek"><span id="VoiceId_Jacek"><span class="annot"><span class="annottext">$bVoiceId_Jacek :: VoiceId
+$mVoiceId_Jacek :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Jacek"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Jacek</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Jacek&quot;</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jan"><span class="hs-identifier hs-type">VoiceId_Jan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Jan"><span id="%24mVoiceId_Jan"><span id="VoiceId_Jan"><span class="annot"><span class="annottext">$bVoiceId_Jan :: VoiceId
+$mVoiceId_Jan :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Jan"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Jan</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Jan&quot;</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joanna"><span class="hs-identifier hs-type">VoiceId_Joanna</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Joanna"><span id="%24mVoiceId_Joanna"><span id="VoiceId_Joanna"><span class="annot"><span class="annottext">$bVoiceId_Joanna :: VoiceId
+$mVoiceId_Joanna :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Joanna"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Joanna</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Joanna&quot;</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joey"><span class="hs-identifier hs-type">VoiceId_Joey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Joey"><span id="%24mVoiceId_Joey"><span id="VoiceId_Joey"><span class="annot"><span class="annottext">$bVoiceId_Joey :: VoiceId
+$mVoiceId_Joey :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Joey"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Joey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Joey&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Justin"><span class="hs-identifier hs-type">VoiceId_Justin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Justin"><span id="%24mVoiceId_Justin"><span id="VoiceId_Justin"><span class="annot"><span class="annottext">$bVoiceId_Justin :: VoiceId
+$mVoiceId_Justin :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Justin"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Justin</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Justin&quot;</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Karl"><span class="hs-identifier hs-type">VoiceId_Karl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Karl"><span id="%24mVoiceId_Karl"><span id="VoiceId_Karl"><span class="annot"><span class="annottext">$bVoiceId_Karl :: VoiceId
+$mVoiceId_Karl :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Karl"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Karl</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Karl&quot;</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kendra"><span class="hs-identifier hs-type">VoiceId_Kendra</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Kendra"><span id="%24mVoiceId_Kendra"><span id="VoiceId_Kendra"><span class="annot"><span class="annottext">$bVoiceId_Kendra :: VoiceId
+$mVoiceId_Kendra :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Kendra"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Kendra</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Kendra&quot;</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kevin"><span class="hs-identifier hs-type">VoiceId_Kevin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Kevin"><span id="%24mVoiceId_Kevin"><span id="VoiceId_Kevin"><span class="annot"><span class="annottext">$bVoiceId_Kevin :: VoiceId
+$mVoiceId_Kevin :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Kevin"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Kevin</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Kevin&quot;</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kimberly"><span class="hs-identifier hs-type">VoiceId_Kimberly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Kimberly"><span id="%24mVoiceId_Kimberly"><span id="VoiceId_Kimberly"><span class="annot"><span class="annottext">$bVoiceId_Kimberly :: VoiceId
+$mVoiceId_Kimberly :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Kimberly"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Kimberly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Kimberly&quot;</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lea"><span class="hs-identifier hs-type">VoiceId_Lea</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Lea"><span id="%24mVoiceId_Lea"><span id="VoiceId_Lea"><span class="annot"><span class="annottext">$bVoiceId_Lea :: VoiceId
+$mVoiceId_Lea :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Lea"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Lea</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Lea&quot;</span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Liv"><span class="hs-identifier hs-type">VoiceId_Liv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Liv"><span id="%24mVoiceId_Liv"><span id="VoiceId_Liv"><span class="annot"><span class="annottext">$bVoiceId_Liv :: VoiceId
+$mVoiceId_Liv :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Liv"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Liv</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Liv&quot;</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lotte"><span class="hs-identifier hs-type">VoiceId_Lotte</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Lotte"><span id="%24mVoiceId_Lotte"><span id="VoiceId_Lotte"><span class="annot"><span class="annottext">$bVoiceId_Lotte :: VoiceId
+$mVoiceId_Lotte :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Lotte"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Lotte</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Lotte&quot;</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lucia"><span class="hs-identifier hs-type">VoiceId_Lucia</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Lucia"><span id="%24mVoiceId_Lucia"><span id="VoiceId_Lucia"><span class="annot"><span class="annottext">$bVoiceId_Lucia :: VoiceId
+$mVoiceId_Lucia :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Lucia"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Lucia</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Lucia&quot;</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lupe"><span class="hs-identifier hs-type">VoiceId_Lupe</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Lupe"><span id="%24mVoiceId_Lupe"><span id="VoiceId_Lupe"><span class="annot"><span class="annottext">$bVoiceId_Lupe :: VoiceId
+$mVoiceId_Lupe :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Lupe"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Lupe</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Lupe&quot;</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mads"><span class="hs-identifier hs-type">VoiceId_Mads</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Mads"><span id="%24mVoiceId_Mads"><span id="VoiceId_Mads"><span class="annot"><span class="annottext">$bVoiceId_Mads :: VoiceId
+$mVoiceId_Mads :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Mads"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Mads</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Mads&quot;</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maja"><span class="hs-identifier hs-type">VoiceId_Maja</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Maja"><span id="%24mVoiceId_Maja"><span id="VoiceId_Maja"><span class="annot"><span class="annottext">$bVoiceId_Maja :: VoiceId
+$mVoiceId_Maja :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Maja"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Maja</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Maja&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Marlene"><span class="hs-identifier hs-type">VoiceId_Marlene</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Marlene"><span id="%24mVoiceId_Marlene"><span id="VoiceId_Marlene"><span class="annot"><span class="annottext">$bVoiceId_Marlene :: VoiceId
+$mVoiceId_Marlene :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Marlene"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Marlene</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Marlene&quot;</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mathieu"><span class="hs-identifier hs-type">VoiceId_Mathieu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Mathieu"><span id="%24mVoiceId_Mathieu"><span id="VoiceId_Mathieu"><span class="annot"><span class="annottext">$bVoiceId_Mathieu :: VoiceId
+$mVoiceId_Mathieu :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Mathieu"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Mathieu</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Mathieu&quot;</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Matthew"><span class="hs-identifier hs-type">VoiceId_Matthew</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Matthew"><span id="%24mVoiceId_Matthew"><span id="VoiceId_Matthew"><span class="annot"><span class="annottext">$bVoiceId_Matthew :: VoiceId
+$mVoiceId_Matthew :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Matthew"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Matthew</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Matthew&quot;</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maxim"><span class="hs-identifier hs-type">VoiceId_Maxim</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Maxim"><span id="%24mVoiceId_Maxim"><span id="VoiceId_Maxim"><span class="annot"><span class="annottext">$bVoiceId_Maxim :: VoiceId
+$mVoiceId_Maxim :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Maxim"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Maxim</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Maxim&quot;</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mia"><span class="hs-identifier hs-type">VoiceId_Mia</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Mia"><span id="%24mVoiceId_Mia"><span id="VoiceId_Mia"><span class="annot"><span class="annottext">$bVoiceId_Mia :: VoiceId
+$mVoiceId_Mia :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Mia"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Mia</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Mia&quot;</span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Miguel"><span class="hs-identifier hs-type">VoiceId_Miguel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Miguel"><span id="%24mVoiceId_Miguel"><span id="VoiceId_Miguel"><span class="annot"><span class="annottext">$bVoiceId_Miguel :: VoiceId
+$mVoiceId_Miguel :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Miguel"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Miguel</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Miguel&quot;</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mizuki"><span class="hs-identifier hs-type">VoiceId_Mizuki</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Mizuki"><span id="%24mVoiceId_Mizuki"><span id="VoiceId_Mizuki"><span class="annot"><span class="annottext">$bVoiceId_Mizuki :: VoiceId
+$mVoiceId_Mizuki :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Mizuki"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Mizuki</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Mizuki&quot;</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Naja"><span class="hs-identifier hs-type">VoiceId_Naja</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Naja"><span id="%24mVoiceId_Naja"><span id="VoiceId_Naja"><span class="annot"><span class="annottext">$bVoiceId_Naja :: VoiceId
+$mVoiceId_Naja :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Naja"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Naja</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Naja&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Nicole"><span class="hs-identifier hs-type">VoiceId_Nicole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Nicole"><span id="%24mVoiceId_Nicole"><span id="VoiceId_Nicole"><span class="annot"><span class="annottext">$bVoiceId_Nicole :: VoiceId
+$mVoiceId_Nicole :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Nicole"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Nicole</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Nicole&quot;</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Olivia"><span class="hs-identifier hs-type">VoiceId_Olivia</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Olivia"><span id="%24mVoiceId_Olivia"><span id="VoiceId_Olivia"><span class="annot"><span class="annottext">$bVoiceId_Olivia :: VoiceId
+$mVoiceId_Olivia :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Olivia"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Olivia</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Olivia&quot;</span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Penelope"><span class="hs-identifier hs-type">VoiceId_Penelope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Penelope"><span id="%24mVoiceId_Penelope"><span id="VoiceId_Penelope"><span class="annot"><span class="annottext">$bVoiceId_Penelope :: VoiceId
+$mVoiceId_Penelope :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Penelope"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Penelope</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Penelope&quot;</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Raveena"><span class="hs-identifier hs-type">VoiceId_Raveena</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Raveena"><span id="%24mVoiceId_Raveena"><span id="VoiceId_Raveena"><span class="annot"><span class="annottext">$bVoiceId_Raveena :: VoiceId
+$mVoiceId_Raveena :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Raveena"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Raveena</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Raveena&quot;</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ricardo"><span class="hs-identifier hs-type">VoiceId_Ricardo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ricardo"><span id="%24mVoiceId_Ricardo"><span id="VoiceId_Ricardo"><span class="annot"><span class="annottext">$bVoiceId_Ricardo :: VoiceId
+$mVoiceId_Ricardo :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ricardo"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ricardo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ricardo&quot;</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ruben"><span class="hs-identifier hs-type">VoiceId_Ruben</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Ruben"><span id="%24mVoiceId_Ruben"><span id="VoiceId_Ruben"><span class="annot"><span class="annottext">$bVoiceId_Ruben :: VoiceId
+$mVoiceId_Ruben :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Ruben"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Ruben</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ruben&quot;</span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Russell"><span class="hs-identifier hs-type">VoiceId_Russell</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Russell"><span id="%24mVoiceId_Russell"><span id="VoiceId_Russell"><span class="annot"><span class="annottext">$bVoiceId_Russell :: VoiceId
+$mVoiceId_Russell :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Russell"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Russell</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Russell&quot;</span></span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Salli"><span class="hs-identifier hs-type">VoiceId_Salli</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Salli"><span id="%24mVoiceId_Salli"><span id="VoiceId_Salli"><span class="annot"><span class="annottext">$bVoiceId_Salli :: VoiceId
+$mVoiceId_Salli :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Salli"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Salli</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Salli&quot;</span></span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Seoyeon"><span class="hs-identifier hs-type">VoiceId_Seoyeon</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Seoyeon"><span id="%24mVoiceId_Seoyeon"><span id="VoiceId_Seoyeon"><span class="annot"><span class="annottext">$bVoiceId_Seoyeon :: VoiceId
+$mVoiceId_Seoyeon :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Seoyeon"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Seoyeon</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Seoyeon&quot;</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Takumi"><span class="hs-identifier hs-type">VoiceId_Takumi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Takumi"><span id="%24mVoiceId_Takumi"><span id="VoiceId_Takumi"><span class="annot"><span class="annottext">$bVoiceId_Takumi :: VoiceId
+$mVoiceId_Takumi :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Takumi"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Takumi</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Takumi&quot;</span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Tatyana"><span class="hs-identifier hs-type">VoiceId_Tatyana</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Tatyana"><span id="%24mVoiceId_Tatyana"><span id="VoiceId_Tatyana"><span class="annot"><span class="annottext">$bVoiceId_Tatyana :: VoiceId
+$mVoiceId_Tatyana :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Tatyana"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Tatyana</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Tatyana&quot;</span></span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vicki"><span class="hs-identifier hs-type">VoiceId_Vicki</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Vicki"><span id="%24mVoiceId_Vicki"><span id="VoiceId_Vicki"><span class="annot"><span class="annottext">$bVoiceId_Vicki :: VoiceId
+$mVoiceId_Vicki :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Vicki"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Vicki</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Vicki&quot;</span></span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vitoria"><span class="hs-identifier hs-type">VoiceId_Vitoria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Vitoria"><span id="%24mVoiceId_Vitoria"><span id="VoiceId_Vitoria"><span class="annot"><span class="annottext">$bVoiceId_Vitoria :: VoiceId
+$mVoiceId_Vitoria :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Vitoria"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Vitoria</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Vitoria&quot;</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zeina"><span class="hs-identifier hs-type">VoiceId_Zeina</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Zeina"><span id="%24mVoiceId_Zeina"><span id="VoiceId_Zeina"><span class="annot"><span class="annottext">$bVoiceId_Zeina :: VoiceId
+$mVoiceId_Zeina :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Zeina"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Zeina</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Zeina&quot;</span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zhiyu"><span class="hs-identifier hs-type">VoiceId_Zhiyu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVoiceId_Zhiyu"><span id="%24mVoiceId_Zhiyu"><span id="VoiceId_Zhiyu"><span class="annot"><span class="annottext">$bVoiceId_Zhiyu :: VoiceId
+$mVoiceId_Zhiyu :: forall r. VoiceId -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Polly.Types.VoiceId.html#%24bVoiceId_Zhiyu"><span class="hs-identifier hs-var hs-var hs-var">VoiceId_Zhiyu</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-identifier hs-type">VoiceId'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Zhiyu&quot;</span></span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-316"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aditi"><span class="hs-pragma hs-type">VoiceId_Aditi</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-317"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Amy"><span class="hs-pragma hs-type">VoiceId_Amy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-318"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Aria"><span class="hs-pragma hs-type">VoiceId_Aria</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Astrid"><span class="hs-pragma hs-type">VoiceId_Astrid</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ayanda"><span class="hs-pragma hs-type">VoiceId_Ayanda</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Bianca"><span class="hs-pragma hs-type">VoiceId_Bianca</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Brian"><span class="hs-pragma hs-type">VoiceId_Brian</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Camila"><span class="hs-pragma hs-type">VoiceId_Camila</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carla"><span class="hs-pragma hs-type">VoiceId_Carla</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-325"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Carmen"><span class="hs-pragma hs-type">VoiceId_Carmen</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-326"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Celine"><span class="hs-pragma hs-type">VoiceId_Celine</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Chantal"><span class="hs-pragma hs-type">VoiceId_Chantal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-328"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Conchita"><span class="hs-pragma hs-type">VoiceId_Conchita</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-329"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Cristiano"><span class="hs-pragma hs-type">VoiceId_Cristiano</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-330"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Dora"><span class="hs-pragma hs-type">VoiceId_Dora</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-331"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Emma"><span class="hs-pragma hs-type">VoiceId_Emma</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-332"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Enrique"><span class="hs-pragma hs-type">VoiceId_Enrique</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-333"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ewa"><span class="hs-pragma hs-type">VoiceId_Ewa</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-334"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Filiz"><span class="hs-pragma hs-type">VoiceId_Filiz</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gabrielle"><span class="hs-pragma hs-type">VoiceId_Gabrielle</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-336"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Geraint"><span class="hs-pragma hs-type">VoiceId_Geraint</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Giorgio"><span class="hs-pragma hs-type">VoiceId_Giorgio</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-338"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Gwyneth"><span class="hs-pragma hs-type">VoiceId_Gwyneth</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-339"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Hans"><span class="hs-pragma hs-type">VoiceId_Hans</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-340"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ines"><span class="hs-pragma hs-type">VoiceId_Ines</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-341"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ivy"><span class="hs-pragma hs-type">VoiceId_Ivy</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-342"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jacek"><span class="hs-pragma hs-type">VoiceId_Jacek</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-343"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Jan"><span class="hs-pragma hs-type">VoiceId_Jan</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-344"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joanna"><span class="hs-pragma hs-type">VoiceId_Joanna</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-345"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Joey"><span class="hs-pragma hs-type">VoiceId_Joey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-346"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Justin"><span class="hs-pragma hs-type">VoiceId_Justin</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-347"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Karl"><span class="hs-pragma hs-type">VoiceId_Karl</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-348"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kendra"><span class="hs-pragma hs-type">VoiceId_Kendra</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kevin"><span class="hs-pragma hs-type">VoiceId_Kevin</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Kimberly"><span class="hs-pragma hs-type">VoiceId_Kimberly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-351"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lea"><span class="hs-pragma hs-type">VoiceId_Lea</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-352"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Liv"><span class="hs-pragma hs-type">VoiceId_Liv</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lotte"><span class="hs-pragma hs-type">VoiceId_Lotte</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-354"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lucia"><span class="hs-pragma hs-type">VoiceId_Lucia</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-355"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Lupe"><span class="hs-pragma hs-type">VoiceId_Lupe</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mads"><span class="hs-pragma hs-type">VoiceId_Mads</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-357"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maja"><span class="hs-pragma hs-type">VoiceId_Maja</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-358"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Marlene"><span class="hs-pragma hs-type">VoiceId_Marlene</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-359"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mathieu"><span class="hs-pragma hs-type">VoiceId_Mathieu</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-360"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Matthew"><span class="hs-pragma hs-type">VoiceId_Matthew</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-361"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Maxim"><span class="hs-pragma hs-type">VoiceId_Maxim</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-362"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mia"><span class="hs-pragma hs-type">VoiceId_Mia</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-363"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Miguel"><span class="hs-pragma hs-type">VoiceId_Miguel</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-364"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Mizuki"><span class="hs-pragma hs-type">VoiceId_Mizuki</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-365"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Naja"><span class="hs-pragma hs-type">VoiceId_Naja</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-366"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Nicole"><span class="hs-pragma hs-type">VoiceId_Nicole</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-367"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Olivia"><span class="hs-pragma hs-type">VoiceId_Olivia</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-368"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Penelope"><span class="hs-pragma hs-type">VoiceId_Penelope</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-369"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Raveena"><span class="hs-pragma hs-type">VoiceId_Raveena</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-370"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ricardo"><span class="hs-pragma hs-type">VoiceId_Ricardo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-371"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Ruben"><span class="hs-pragma hs-type">VoiceId_Ruben</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-372"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Russell"><span class="hs-pragma hs-type">VoiceId_Russell</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-373"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Salli"><span class="hs-pragma hs-type">VoiceId_Salli</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-374"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Seoyeon"><span class="hs-pragma hs-type">VoiceId_Seoyeon</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-375"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Takumi"><span class="hs-pragma hs-type">VoiceId_Takumi</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-376"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Tatyana"><span class="hs-pragma hs-type">VoiceId_Tatyana</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-377"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vicki"><span class="hs-pragma hs-type">VoiceId_Vicki</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-378"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Vitoria"><span class="hs-pragma hs-type">VoiceId_Vitoria</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-379"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zeina"><span class="hs-pragma hs-type">VoiceId_Zeina</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-380"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId_Zhiyu"><span class="hs-pragma hs-type">VoiceId_Zhiyu</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-381"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId%27"><span class="hs-pragma hs-type">VoiceId'</span></a></span><span>
+</span><span id="line-382"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-383"></span></pre></body></html>

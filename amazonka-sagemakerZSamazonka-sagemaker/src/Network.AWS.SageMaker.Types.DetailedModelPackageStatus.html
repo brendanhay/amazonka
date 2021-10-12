@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.DetailedModelPackageStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.DetailedModelPackageStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier">DetailedModelPackageStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Completed"><span class="hs-identifier">DetailedModelPackageStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Failed"><span class="hs-identifier">DetailedModelPackageStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_InProgress"><span class="hs-identifier">DetailedModelPackageStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_NotStarted"><span class="hs-identifier">DetailedModelPackageStatus_NotStarted</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680300103"><span id="local-6989586621680300104"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetailedModelPackageStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier hs-var">DetailedModelPackageStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetailedModelPackageStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-identifier hs-var">DetailedModelPackageStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetailedModelPackageStatus"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#fromDetailedModelPackageStatus"><span class="hs-identifier hs-var hs-var">fromDetailedModelPackageStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680300095"><span id="local-6989586621680300097"><span id="local-6989586621680300099"><span class="annot"><span class="annottext">Int -&gt; DetailedModelPackageStatus -&gt; ShowS
+[DetailedModelPackageStatus] -&gt; ShowS
+DetailedModelPackageStatus -&gt; String
+(Int -&gt; DetailedModelPackageStatus -&gt; ShowS)
+-&gt; (DetailedModelPackageStatus -&gt; String)
+-&gt; ([DetailedModelPackageStatus] -&gt; ShowS)
+-&gt; Show DetailedModelPackageStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetailedModelPackageStatus] -&gt; ShowS
+$cshowList :: [DetailedModelPackageStatus] -&gt; ShowS
+show :: DetailedModelPackageStatus -&gt; String
+$cshow :: DetailedModelPackageStatus -&gt; String
+showsPrec :: Int -&gt; DetailedModelPackageStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetailedModelPackageStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680300086"><span id="local-6989586621680300088"><span id="local-6989586621680300090"><span id="local-6989586621680300092"><span class="annot"><span class="annottext">ReadPrec [DetailedModelPackageStatus]
+ReadPrec DetailedModelPackageStatus
+Int -&gt; ReadS DetailedModelPackageStatus
+ReadS [DetailedModelPackageStatus]
+(Int -&gt; ReadS DetailedModelPackageStatus)
+-&gt; ReadS [DetailedModelPackageStatus]
+-&gt; ReadPrec DetailedModelPackageStatus
+-&gt; ReadPrec [DetailedModelPackageStatus]
+-&gt; Read DetailedModelPackageStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetailedModelPackageStatus]
+$creadListPrec :: ReadPrec [DetailedModelPackageStatus]
+readPrec :: ReadPrec DetailedModelPackageStatus
+$creadPrec :: ReadPrec DetailedModelPackageStatus
+readList :: ReadS [DetailedModelPackageStatus]
+$creadList :: ReadS [DetailedModelPackageStatus]
+readsPrec :: Int -&gt; ReadS DetailedModelPackageStatus
+$creadsPrec :: Int -&gt; ReadS DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680300081"><span id="local-6989586621680300083"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+(DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; Eq DetailedModelPackageStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c/= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+== :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c== :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680300065"><span id="local-6989586621680300067"><span id="local-6989586621680300069"><span id="local-6989586621680300071"><span id="local-6989586621680300073"><span id="local-6989586621680300075"><span id="local-6989586621680300077"><span class="annot"><span class="annottext">Eq DetailedModelPackageStatus
+Eq DetailedModelPackageStatus
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Ordering)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; Bool)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus)
+-&gt; (DetailedModelPackageStatus
+    -&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus)
+-&gt; Ord DetailedModelPackageStatus
+DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; Ordering
+DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus
+$cmin :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus
+max :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus
+$cmax :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; DetailedModelPackageStatus
+&gt;= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c&gt;= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+&gt; :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c&gt; :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+&lt;= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c&lt;= :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+&lt; :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+$c&lt; :: DetailedModelPackageStatus -&gt; DetailedModelPackageStatus -&gt; Bool
+compare :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; Ordering
+$ccompare :: DetailedModelPackageStatus
+-&gt; DetailedModelPackageStatus -&gt; Ordering
+$cp1Ord :: Eq DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DetailedModelPackageStatus -&gt; Rep DetailedModelPackageStatus x)
+-&gt; (forall x.
+    Rep DetailedModelPackageStatus x -&gt; DetailedModelPackageStatus)
+-&gt; Generic DetailedModelPackageStatus
+forall x.
+Rep DetailedModelPackageStatus x -&gt; DetailedModelPackageStatus
+forall x.
+DetailedModelPackageStatus -&gt; Rep DetailedModelPackageStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DetailedModelPackageStatus x -&gt; DetailedModelPackageStatus
+$cfrom :: forall x.
+DetailedModelPackageStatus -&gt; Rep DetailedModelPackageStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680300057"><span id="local-6989586621680300059"><span class="annot"><span class="annottext">Int -&gt; DetailedModelPackageStatus -&gt; Int
+DetailedModelPackageStatus -&gt; Int
+(Int -&gt; DetailedModelPackageStatus -&gt; Int)
+-&gt; (DetailedModelPackageStatus -&gt; Int)
+-&gt; Hashable DetailedModelPackageStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DetailedModelPackageStatus -&gt; Int
+$chash :: DetailedModelPackageStatus -&gt; Int
+hashWithSalt :: Int -&gt; DetailedModelPackageStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DetailedModelPackageStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680300054"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; ()
+(DetailedModelPackageStatus -&gt; ())
+-&gt; NFData DetailedModelPackageStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DetailedModelPackageStatus -&gt; ()
+$crnf :: DetailedModelPackageStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680300051"><span class="annot"><span class="annottext">Text -&gt; Either String DetailedModelPackageStatus
+(Text -&gt; Either String DetailedModelPackageStatus)
+-&gt; FromText DetailedModelPackageStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DetailedModelPackageStatus
+$cfromText :: Text -&gt; Either String DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680300048"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; Text
+(DetailedModelPackageStatus -&gt; Text)
+-&gt; ToText DetailedModelPackageStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DetailedModelPackageStatus -&gt; Text
+$ctoText :: DetailedModelPackageStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680300045"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; ByteString
+(DetailedModelPackageStatus -&gt; ByteString)
+-&gt; ToByteString DetailedModelPackageStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DetailedModelPackageStatus -&gt; ByteString
+$ctoBS :: DetailedModelPackageStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680300042"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; ByteStringBuilder
+(DetailedModelPackageStatus -&gt; ByteStringBuilder)
+-&gt; ToLog DetailedModelPackageStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DetailedModelPackageStatus -&gt; ByteStringBuilder
+$cbuild :: DetailedModelPackageStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680300039"><span class="annot"><span class="annottext">HeaderName -&gt; DetailedModelPackageStatus -&gt; [Header]
+(HeaderName -&gt; DetailedModelPackageStatus -&gt; [Header])
+-&gt; ToHeader DetailedModelPackageStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DetailedModelPackageStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DetailedModelPackageStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680300036"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; QueryString
+(DetailedModelPackageStatus -&gt; QueryString)
+-&gt; ToQuery DetailedModelPackageStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DetailedModelPackageStatus -&gt; QueryString
+$ctoQuery :: DetailedModelPackageStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680300031"><span id="local-6989586621680300033"><span class="annot"><span class="annottext">Value -&gt; Parser [DetailedModelPackageStatus]
+Value -&gt; Parser DetailedModelPackageStatus
+(Value -&gt; Parser DetailedModelPackageStatus)
+-&gt; (Value -&gt; Parser [DetailedModelPackageStatus])
+-&gt; FromJSON DetailedModelPackageStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DetailedModelPackageStatus]
+$cparseJSONList :: Value -&gt; Parser [DetailedModelPackageStatus]
+parseJSON :: Value -&gt; Parser DetailedModelPackageStatus
+$cparseJSON :: Value -&gt; Parser DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680300026"><span id="local-6989586621680300028"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetailedModelPackageStatus]
+FromJSONKeyFunction DetailedModelPackageStatus
+FromJSONKeyFunction DetailedModelPackageStatus
+-&gt; FromJSONKeyFunction [DetailedModelPackageStatus]
+-&gt; FromJSONKey DetailedModelPackageStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DetailedModelPackageStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DetailedModelPackageStatus]
+fromJSONKey :: FromJSONKeyFunction DetailedModelPackageStatus
+$cfromJSONKey :: FromJSONKeyFunction DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680300017"><span id="local-6989586621680300019"><span id="local-6989586621680300021"><span id="local-6989586621680300023"><span class="annot"><span class="annottext">[DetailedModelPackageStatus] -&gt; Encoding
+[DetailedModelPackageStatus] -&gt; Value
+DetailedModelPackageStatus -&gt; Encoding
+DetailedModelPackageStatus -&gt; Value
+(DetailedModelPackageStatus -&gt; Value)
+-&gt; (DetailedModelPackageStatus -&gt; Encoding)
+-&gt; ([DetailedModelPackageStatus] -&gt; Value)
+-&gt; ([DetailedModelPackageStatus] -&gt; Encoding)
+-&gt; ToJSON DetailedModelPackageStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DetailedModelPackageStatus] -&gt; Encoding
+$ctoEncodingList :: [DetailedModelPackageStatus] -&gt; Encoding
+toJSONList :: [DetailedModelPackageStatus] -&gt; Value
+$ctoJSONList :: [DetailedModelPackageStatus] -&gt; Value
+toEncoding :: DetailedModelPackageStatus -&gt; Encoding
+$ctoEncoding :: DetailedModelPackageStatus -&gt; Encoding
+toJSON :: DetailedModelPackageStatus -&gt; Value
+$ctoJSON :: DetailedModelPackageStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680300012"><span id="local-6989586621680300014"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetailedModelPackageStatus]
+ToJSONKeyFunction DetailedModelPackageStatus
+ToJSONKeyFunction DetailedModelPackageStatus
+-&gt; ToJSONKeyFunction [DetailedModelPackageStatus]
+-&gt; ToJSONKey DetailedModelPackageStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DetailedModelPackageStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DetailedModelPackageStatus]
+toJSONKey :: ToJSONKeyFunction DetailedModelPackageStatus
+$ctoJSONKey :: ToJSONKeyFunction DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680300009"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetailedModelPackageStatus
+([Node] -&gt; Either String DetailedModelPackageStatus)
+-&gt; FromXML DetailedModelPackageStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DetailedModelPackageStatus
+$cparseXML :: [Node] -&gt; Either String DetailedModelPackageStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680300006"><span class="annot"><span class="annottext">DetailedModelPackageStatus -&gt; XML
+(DetailedModelPackageStatus -&gt; XML)
+-&gt; ToXML DetailedModelPackageStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DetailedModelPackageStatus -&gt; XML
+$ctoXML :: DetailedModelPackageStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Completed"><span class="hs-identifier hs-type">DetailedModelPackageStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier hs-type">DetailedModelPackageStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetailedModelPackageStatus_Completed"><span id="%24mDetailedModelPackageStatus_Completed"><span id="DetailedModelPackageStatus_Completed"><span class="annot"><span class="annottext">$bDetailedModelPackageStatus_Completed :: DetailedModelPackageStatus
+$mDetailedModelPackageStatus_Completed :: forall r.
+DetailedModelPackageStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#%24bDetailedModelPackageStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">DetailedModelPackageStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-identifier hs-type">DetailedModelPackageStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Failed"><span class="hs-identifier hs-type">DetailedModelPackageStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier hs-type">DetailedModelPackageStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetailedModelPackageStatus_Failed"><span id="%24mDetailedModelPackageStatus_Failed"><span id="DetailedModelPackageStatus_Failed"><span class="annot"><span class="annottext">$bDetailedModelPackageStatus_Failed :: DetailedModelPackageStatus
+$mDetailedModelPackageStatus_Failed :: forall r.
+DetailedModelPackageStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#%24bDetailedModelPackageStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">DetailedModelPackageStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-identifier hs-type">DetailedModelPackageStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_InProgress"><span class="hs-identifier hs-type">DetailedModelPackageStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier hs-type">DetailedModelPackageStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetailedModelPackageStatus_InProgress"><span id="%24mDetailedModelPackageStatus_InProgress"><span id="DetailedModelPackageStatus_InProgress"><span class="annot"><span class="annottext">$bDetailedModelPackageStatus_InProgress :: DetailedModelPackageStatus
+$mDetailedModelPackageStatus_InProgress :: forall r.
+DetailedModelPackageStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#%24bDetailedModelPackageStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">DetailedModelPackageStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-identifier hs-type">DetailedModelPackageStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_NotStarted"><span class="hs-identifier hs-type">DetailedModelPackageStatus_NotStarted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus"><span class="hs-identifier hs-type">DetailedModelPackageStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetailedModelPackageStatus_NotStarted"><span id="%24mDetailedModelPackageStatus_NotStarted"><span id="DetailedModelPackageStatus_NotStarted"><span class="annot"><span class="annottext">$bDetailedModelPackageStatus_NotStarted :: DetailedModelPackageStatus
+$mDetailedModelPackageStatus_NotStarted :: forall r.
+DetailedModelPackageStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#%24bDetailedModelPackageStatus_NotStarted"><span class="hs-identifier hs-var hs-var hs-var">DetailedModelPackageStatus_NotStarted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-identifier hs-type">DetailedModelPackageStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NotStarted&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Completed"><span class="hs-pragma hs-type">DetailedModelPackageStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_Failed"><span class="hs-pragma hs-type">DetailedModelPackageStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_InProgress"><span class="hs-pragma hs-type">DetailedModelPackageStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus_NotStarted"><span class="hs-pragma hs-type">DetailedModelPackageStatus_NotStarted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DetailedModelPackageStatus.html#DetailedModelPackageStatus%27"><span class="hs-pragma hs-type">DetailedModelPackageStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.DeleteProject</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Delete the specified project.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.DeleteProject</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier">DeleteProject</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProject"><span class="hs-identifier">newDeleteProject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#deleteProject_projectName"><span class="hs-identifier">deleteProject_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier">DeleteProjectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProjectResponse"><span class="hs-identifier">newDeleteProjectResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteProject' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621680404677"><span id="local-6989586621680404678"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProject"><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-var">DeleteProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProject%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-var">DeleteProject'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project to delete.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprojectName%3ADeleteProject%27"><span class="annot"><span class="annottext">DeleteProject -&gt; Text
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#%24sel%3AprojectName%3ADeleteProject%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680404671"><span id="local-6989586621680404673"><span class="annot"><span class="annottext">DeleteProject -&gt; DeleteProject -&gt; Bool
+(DeleteProject -&gt; DeleteProject -&gt; Bool)
+-&gt; (DeleteProject -&gt; DeleteProject -&gt; Bool) -&gt; Eq DeleteProject
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteProject -&gt; DeleteProject -&gt; Bool
+$c/= :: DeleteProject -&gt; DeleteProject -&gt; Bool
+== :: DeleteProject -&gt; DeleteProject -&gt; Bool
+$c== :: DeleteProject -&gt; DeleteProject -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404662"><span id="local-6989586621680404664"><span id="local-6989586621680404666"><span id="local-6989586621680404668"><span class="annot"><span class="annottext">ReadPrec [DeleteProject]
+ReadPrec DeleteProject
+Int -&gt; ReadS DeleteProject
+ReadS [DeleteProject]
+(Int -&gt; ReadS DeleteProject)
+-&gt; ReadS [DeleteProject]
+-&gt; ReadPrec DeleteProject
+-&gt; ReadPrec [DeleteProject]
+-&gt; Read DeleteProject
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteProject]
+$creadListPrec :: ReadPrec [DeleteProject]
+readPrec :: ReadPrec DeleteProject
+$creadPrec :: ReadPrec DeleteProject
+readList :: ReadS [DeleteProject]
+$creadList :: ReadS [DeleteProject]
+readsPrec :: Int -&gt; ReadS DeleteProject
+$creadsPrec :: Int -&gt; ReadS DeleteProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404655"><span id="local-6989586621680404657"><span id="local-6989586621680404659"><span class="annot"><span class="annottext">Int -&gt; DeleteProject -&gt; ShowS
+[DeleteProject] -&gt; ShowS
+DeleteProject -&gt; String
+(Int -&gt; DeleteProject -&gt; ShowS)
+-&gt; (DeleteProject -&gt; String)
+-&gt; ([DeleteProject] -&gt; ShowS)
+-&gt; Show DeleteProject
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteProject] -&gt; ShowS
+$cshowList :: [DeleteProject] -&gt; ShowS
+show :: DeleteProject -&gt; String
+$cshow :: DeleteProject -&gt; String
+showsPrec :: Int -&gt; DeleteProject -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteProject -&gt; Rep DeleteProject x)
+-&gt; (forall x. Rep DeleteProject x -&gt; DeleteProject)
+-&gt; Generic DeleteProject
+forall x. Rep DeleteProject x -&gt; DeleteProject
+forall x. DeleteProject -&gt; Rep DeleteProject x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteProject x -&gt; DeleteProject
+$cfrom :: forall x. DeleteProject -&gt; Rep DeleteProject x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DeleteProject' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'projectName', 'deleteProject_projectName' - The name of the project to delete.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProject"><span class="hs-identifier hs-type">newDeleteProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span>
+</span><span id="line-65"></span><span id="newDeleteProject"><span class="annot"><span class="annottext">newDeleteProject :: Text -&gt; DeleteProject
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProject"><span class="hs-identifier hs-var hs-var">newDeleteProject</span></a></span></span><span> </span><span id="local-6989586621680404650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404650"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteProject' :: Text -&gt; DeleteProject
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:DeleteProject' :: Text
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#%24sel%3AprojectName%3ADeleteProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404650"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The name of the project to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#deleteProject_projectName"><span class="hs-identifier hs-type">deleteProject_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span id="deleteProject_projectName"><span class="annot"><span class="annottext">deleteProject_projectName :: (Text -&gt; f Text) -&gt; DeleteProject -&gt; f DeleteProject
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#deleteProject_projectName"><span class="hs-identifier hs-var hs-var">deleteProject_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteProject -&gt; Text)
+-&gt; (DeleteProject -&gt; Text -&gt; DeleteProject)
+-&gt; Lens DeleteProject DeleteProject Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404647"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:DeleteProject' :: DeleteProject -&gt; Text
+</span><a href="#local-6989586621680404647"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404647"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404646"><span class="annot"><span class="annottext">s :: DeleteProject
+</span><a href="#local-6989586621680404646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProject
+</span><a href="#local-6989586621680404646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:DeleteProject' :: Text
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#%24sel%3AprojectName%3ADeleteProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-74"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680404641"><span class="annot"><span class="annottext">request :: DeleteProject -&gt; Request DeleteProject
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteProject -&gt; Request DeleteProject
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680404637"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteProject)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteProject
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteProject
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteProject)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteProject
+DeleteProjectResponse
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404630"><span id="local-6989586621680404632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680404623"><span class="annot"><span class="annottext">toHeaders :: DeleteProject -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteProject -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.DeleteProject&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-93"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404613"><span id="local-6989586621680404615"><span id="local-6989586621680404617"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680404611"><span class="annot"><span class="annottext">toJSON :: DeleteProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404609"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:DeleteProject' :: DeleteProject -&gt; Text
+</span><a href="#local-6989586621680404609"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404609"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680404603"><span class="annot"><span class="annottext">toPath :: DeleteProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteProject -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680404599"><span class="annot"><span class="annottext">toQuery :: DeleteProject -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteProject -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteProjectResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621680404596"><span id="local-6989586621680404597"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-var">DeleteProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680404592"><span id="local-6989586621680404594"><span class="annot"><span class="annottext">DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+(DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool)
+-&gt; (DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool)
+-&gt; Eq DeleteProjectResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+$c/= :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+== :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+$c== :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404584"><span id="local-6989586621680404586"><span id="local-6989586621680404588"><span id="local-6989586621680404590"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectResponse]
+ReadPrec DeleteProjectResponse
+Int -&gt; ReadS DeleteProjectResponse
+ReadS [DeleteProjectResponse]
+(Int -&gt; ReadS DeleteProjectResponse)
+-&gt; ReadS [DeleteProjectResponse]
+-&gt; ReadPrec DeleteProjectResponse
+-&gt; ReadPrec [DeleteProjectResponse]
+-&gt; Read DeleteProjectResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteProjectResponse]
+$creadListPrec :: ReadPrec [DeleteProjectResponse]
+readPrec :: ReadPrec DeleteProjectResponse
+$creadPrec :: ReadPrec DeleteProjectResponse
+readList :: ReadS [DeleteProjectResponse]
+$creadList :: ReadS [DeleteProjectResponse]
+readsPrec :: Int -&gt; ReadS DeleteProjectResponse
+$creadsPrec :: Int -&gt; ReadS DeleteProjectResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404578"><span id="local-6989586621680404580"><span id="local-6989586621680404582"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectResponse -&gt; ShowS
+[DeleteProjectResponse] -&gt; ShowS
+DeleteProjectResponse -&gt; String
+(Int -&gt; DeleteProjectResponse -&gt; ShowS)
+-&gt; (DeleteProjectResponse -&gt; String)
+-&gt; ([DeleteProjectResponse] -&gt; ShowS)
+-&gt; Show DeleteProjectResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteProjectResponse] -&gt; ShowS
+$cshowList :: [DeleteProjectResponse] -&gt; ShowS
+show :: DeleteProjectResponse -&gt; String
+$cshow :: DeleteProjectResponse -&gt; String
+showsPrec :: Int -&gt; DeleteProjectResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteProjectResponse -&gt; Rep DeleteProjectResponse x)
+-&gt; (forall x. Rep DeleteProjectResponse x -&gt; DeleteProjectResponse)
+-&gt; Generic DeleteProjectResponse
+forall x. Rep DeleteProjectResponse x -&gt; DeleteProjectResponse
+forall x. DeleteProjectResponse -&gt; Rep DeleteProjectResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteProjectResponse x -&gt; DeleteProjectResponse
+$cfrom :: forall x. DeleteProjectResponse -&gt; Rep DeleteProjectResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Create a value of 'DeleteProjectResponse' with all optional fields omitted.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProjectResponse"><span class="hs-identifier hs-type">newDeleteProjectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span>
+</span><span id="line-122"></span><span id="newDeleteProjectResponse"><span class="annot"><span class="annottext">newDeleteProjectResponse :: DeleteProjectResponse
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#newDeleteProjectResponse"><span class="hs-identifier hs-var hs-var">newDeleteProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteProjectResponse
+</span><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span></span><span>
+</span><span id="line-125"></span></pre></body></html>

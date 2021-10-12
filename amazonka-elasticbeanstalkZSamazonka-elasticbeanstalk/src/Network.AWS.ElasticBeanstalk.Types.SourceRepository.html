@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.Types.SourceRepository</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types.SourceRepository</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier">SourceRepository</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_CodeCommit"><span class="hs-identifier">SourceRepository_CodeCommit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_S3"><span class="hs-identifier">SourceRepository_S3</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679306726"><span id="local-6989586621679306727"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceRepository"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier hs-var">SourceRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceRepository%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-identifier hs-var">SourceRepository'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceRepository"><span class="annot"><span class="annottext">SourceRepository -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#fromSourceRepository"><span class="hs-identifier hs-var hs-var">fromSourceRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306718"><span id="local-6989586621679306720"><span id="local-6989586621679306722"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; ShowS
+[SourceRepository] -&gt; ShowS
+SourceRepository -&gt; String
+(Int -&gt; SourceRepository -&gt; ShowS)
+-&gt; (SourceRepository -&gt; String)
+-&gt; ([SourceRepository] -&gt; ShowS)
+-&gt; Show SourceRepository
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceRepository] -&gt; ShowS
+$cshowList :: [SourceRepository] -&gt; ShowS
+show :: SourceRepository -&gt; String
+$cshow :: SourceRepository -&gt; String
+showsPrec :: Int -&gt; SourceRepository -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306709"><span id="local-6989586621679306711"><span id="local-6989586621679306713"><span id="local-6989586621679306715"><span class="annot"><span class="annottext">ReadPrec [SourceRepository]
+ReadPrec SourceRepository
+Int -&gt; ReadS SourceRepository
+ReadS [SourceRepository]
+(Int -&gt; ReadS SourceRepository)
+-&gt; ReadS [SourceRepository]
+-&gt; ReadPrec SourceRepository
+-&gt; ReadPrec [SourceRepository]
+-&gt; Read SourceRepository
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceRepository]
+$creadListPrec :: ReadPrec [SourceRepository]
+readPrec :: ReadPrec SourceRepository
+$creadPrec :: ReadPrec SourceRepository
+readList :: ReadS [SourceRepository]
+$creadList :: ReadS [SourceRepository]
+readsPrec :: Int -&gt; ReadS SourceRepository
+$creadsPrec :: Int -&gt; ReadS SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306704"><span id="local-6989586621679306706"><span class="annot"><span class="annottext">SourceRepository -&gt; SourceRepository -&gt; Bool
+(SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; Eq SourceRepository
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c/= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+== :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c== :: SourceRepository -&gt; SourceRepository -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306688"><span id="local-6989586621679306690"><span id="local-6989586621679306692"><span id="local-6989586621679306694"><span id="local-6989586621679306696"><span id="local-6989586621679306698"><span id="local-6989586621679306700"><span class="annot"><span class="annottext">Eq SourceRepository
+Eq SourceRepository
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Ordering)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; SourceRepository)
+-&gt; (SourceRepository -&gt; SourceRepository -&gt; SourceRepository)
+-&gt; Ord SourceRepository
+SourceRepository -&gt; SourceRepository -&gt; Bool
+SourceRepository -&gt; SourceRepository -&gt; Ordering
+SourceRepository -&gt; SourceRepository -&gt; SourceRepository
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SourceRepository -&gt; SourceRepository -&gt; SourceRepository
+$cmin :: SourceRepository -&gt; SourceRepository -&gt; SourceRepository
+max :: SourceRepository -&gt; SourceRepository -&gt; SourceRepository
+$cmax :: SourceRepository -&gt; SourceRepository -&gt; SourceRepository
+&gt;= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c&gt;= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+&gt; :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c&gt; :: SourceRepository -&gt; SourceRepository -&gt; Bool
+&lt;= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c&lt;= :: SourceRepository -&gt; SourceRepository -&gt; Bool
+&lt; :: SourceRepository -&gt; SourceRepository -&gt; Bool
+$c&lt; :: SourceRepository -&gt; SourceRepository -&gt; Bool
+compare :: SourceRepository -&gt; SourceRepository -&gt; Ordering
+$ccompare :: SourceRepository -&gt; SourceRepository -&gt; Ordering
+$cp1Ord :: Eq SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SourceRepository -&gt; Rep SourceRepository x)
+-&gt; (forall x. Rep SourceRepository x -&gt; SourceRepository)
+-&gt; Generic SourceRepository
+forall x. Rep SourceRepository x -&gt; SourceRepository
+forall x. SourceRepository -&gt; Rep SourceRepository x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceRepository x -&gt; SourceRepository
+$cfrom :: forall x. SourceRepository -&gt; Rep SourceRepository x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306680"><span id="local-6989586621679306682"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; Int
+SourceRepository -&gt; Int
+(Int -&gt; SourceRepository -&gt; Int)
+-&gt; (SourceRepository -&gt; Int) -&gt; Hashable SourceRepository
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SourceRepository -&gt; Int
+$chash :: SourceRepository -&gt; Int
+hashWithSalt :: Int -&gt; SourceRepository -&gt; Int
+$chashWithSalt :: Int -&gt; SourceRepository -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306677"><span class="annot"><span class="annottext">SourceRepository -&gt; ()
+(SourceRepository -&gt; ()) -&gt; NFData SourceRepository
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SourceRepository -&gt; ()
+$crnf :: SourceRepository -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306674"><span class="annot"><span class="annottext">Text -&gt; Either String SourceRepository
+(Text -&gt; Either String SourceRepository)
+-&gt; FromText SourceRepository
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SourceRepository
+$cfromText :: Text -&gt; Either String SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306671"><span class="annot"><span class="annottext">SourceRepository -&gt; Text
+(SourceRepository -&gt; Text) -&gt; ToText SourceRepository
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SourceRepository -&gt; Text
+$ctoText :: SourceRepository -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306668"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteString
+(SourceRepository -&gt; ByteString) -&gt; ToByteString SourceRepository
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SourceRepository -&gt; ByteString
+$ctoBS :: SourceRepository -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306665"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteStringBuilder
+(SourceRepository -&gt; ByteStringBuilder) -&gt; ToLog SourceRepository
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SourceRepository -&gt; ByteStringBuilder
+$cbuild :: SourceRepository -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306662"><span class="annot"><span class="annottext">HeaderName -&gt; SourceRepository -&gt; [Header]
+(HeaderName -&gt; SourceRepository -&gt; [Header])
+-&gt; ToHeader SourceRepository
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SourceRepository -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SourceRepository -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306659"><span class="annot"><span class="annottext">SourceRepository -&gt; QueryString
+(SourceRepository -&gt; QueryString) -&gt; ToQuery SourceRepository
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SourceRepository -&gt; QueryString
+$ctoQuery :: SourceRepository -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306654"><span id="local-6989586621679306656"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceRepository]
+Value -&gt; Parser SourceRepository
+(Value -&gt; Parser SourceRepository)
+-&gt; (Value -&gt; Parser [SourceRepository])
+-&gt; FromJSON SourceRepository
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SourceRepository]
+$cparseJSONList :: Value -&gt; Parser [SourceRepository]
+parseJSON :: Value -&gt; Parser SourceRepository
+$cparseJSON :: Value -&gt; Parser SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306649"><span id="local-6989586621679306651"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceRepository]
+FromJSONKeyFunction SourceRepository
+FromJSONKeyFunction SourceRepository
+-&gt; FromJSONKeyFunction [SourceRepository]
+-&gt; FromJSONKey SourceRepository
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SourceRepository]
+$cfromJSONKeyList :: FromJSONKeyFunction [SourceRepository]
+fromJSONKey :: FromJSONKeyFunction SourceRepository
+$cfromJSONKey :: FromJSONKeyFunction SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306640"><span id="local-6989586621679306642"><span id="local-6989586621679306644"><span id="local-6989586621679306646"><span class="annot"><span class="annottext">[SourceRepository] -&gt; Encoding
+[SourceRepository] -&gt; Value
+SourceRepository -&gt; Encoding
+SourceRepository -&gt; Value
+(SourceRepository -&gt; Value)
+-&gt; (SourceRepository -&gt; Encoding)
+-&gt; ([SourceRepository] -&gt; Value)
+-&gt; ([SourceRepository] -&gt; Encoding)
+-&gt; ToJSON SourceRepository
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SourceRepository] -&gt; Encoding
+$ctoEncodingList :: [SourceRepository] -&gt; Encoding
+toJSONList :: [SourceRepository] -&gt; Value
+$ctoJSONList :: [SourceRepository] -&gt; Value
+toEncoding :: SourceRepository -&gt; Encoding
+$ctoEncoding :: SourceRepository -&gt; Encoding
+toJSON :: SourceRepository -&gt; Value
+$ctoJSON :: SourceRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306635"><span id="local-6989586621679306637"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceRepository]
+ToJSONKeyFunction SourceRepository
+ToJSONKeyFunction SourceRepository
+-&gt; ToJSONKeyFunction [SourceRepository]
+-&gt; ToJSONKey SourceRepository
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SourceRepository]
+$ctoJSONKeyList :: ToJSONKeyFunction [SourceRepository]
+toJSONKey :: ToJSONKeyFunction SourceRepository
+$ctoJSONKey :: ToJSONKeyFunction SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306632"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceRepository
+([Node] -&gt; Either String SourceRepository)
+-&gt; FromXML SourceRepository
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SourceRepository
+$cparseXML :: [Node] -&gt; Either String SourceRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306629"><span class="annot"><span class="annottext">SourceRepository -&gt; XML
+(SourceRepository -&gt; XML) -&gt; ToXML SourceRepository
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SourceRepository -&gt; XML
+$ctoXML :: SourceRepository -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_CodeCommit"><span class="hs-identifier hs-type">SourceRepository_CodeCommit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier hs-type">SourceRepository</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceRepository_CodeCommit"><span id="%24mSourceRepository_CodeCommit"><span id="SourceRepository_CodeCommit"><span class="annot"><span class="annottext">$bSourceRepository_CodeCommit :: SourceRepository
+$mSourceRepository_CodeCommit :: forall r. SourceRepository -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#%24bSourceRepository_CodeCommit"><span class="hs-identifier hs-var hs-var hs-var">SourceRepository_CodeCommit</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-identifier hs-type">SourceRepository'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CodeCommit&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_S3"><span class="hs-identifier hs-type">SourceRepository_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier hs-type">SourceRepository</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceRepository_S3"><span id="%24mSourceRepository_S3"><span id="SourceRepository_S3"><span class="annot"><span class="annottext">$bSourceRepository_S3 :: SourceRepository
+$mSourceRepository_S3 :: forall r. SourceRepository -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#%24bSourceRepository_S3"><span class="hs-identifier hs-var hs-var hs-var">SourceRepository_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-identifier hs-type">SourceRepository'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_CodeCommit"><span class="hs-pragma hs-type">SourceRepository_CodeCommit</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository_S3"><span class="hs-pragma hs-type">SourceRepository_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-pragma hs-type">SourceRepository'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

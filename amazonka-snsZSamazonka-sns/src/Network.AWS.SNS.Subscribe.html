@@ -1,0 +1,894 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SNS.Subscribe</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- HTTP\/S or email, or if the endpoint and the topic are not in the same</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- account, the endpoint owner must run the @ConfirmSubscription@ action to</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- confirm the subscription.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- You call the @ConfirmSubscription@ action with the token from the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- subscription response. Confirmation tokens are valid for three days.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This action is throttled at 100 transactions per second (TPS).</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SNS.Subscribe</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier">Subscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#newSubscribe"><span class="hs-identifier">newSubscribe</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_attributes"><span class="hs-identifier">subscribe_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_returnSubscriptionArn"><span class="hs-identifier">subscribe_returnSubscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_endpoint"><span class="hs-identifier">subscribe_endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_topicArn"><span class="hs-identifier">subscribe_topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_protocol"><span class="hs-identifier">subscribe_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier">SubscribeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#newSubscribeResponse"><span class="hs-identifier">newSubscribeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_subscriptionArn"><span class="hs-identifier">subscribeResponse_subscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_httpStatus"><span class="hs-identifier">subscribeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.html"><span class="hs-identifier">Network.AWS.SNS.Types</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Input for Subscribe action.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newSubscribe' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679193127"><span id="local-6989586621679193128"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscribe"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-var">Subscribe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscribe%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-var">Subscribe'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of attributes with their corresponding values.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The following lists the names, descriptions, and values of the special</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- request parameters that the @Subscribe@ action uses:</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The policy that defines how Amazon SNS retries</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     failed deliveries to HTTP\/S endpoints.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The simple JSON object that lets your subscriber</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     receive only a subset of messages, rather than receiving every</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     message published to the topic.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; When set to @true@, enables raw message</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     need for the endpoints to process JSON formatting, which is</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     otherwise created for Amazon SNS metadata.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     see</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Aattributes%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aattributes%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Sets whether the response from the @Subscribe@ request includes the</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- subscription ARN, even if the subscription is not yet confirmed.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- If you set this parameter to @true@, the response includes the ARN in</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- all cases, even if the subscription is not yet confirmed. In addition to</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- the ARN for confirmed subscriptions, the response also includes the</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- @pending subscription@ ARN value for subscriptions that aren\'t yet</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- confirmed. A subscription becomes confirmed when the subscriber calls</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- the @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- The default value is @false@.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AreturnSubscriptionArn%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Maybe Bool
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AreturnSubscriptionArn%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">returnSubscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The endpoint that you want to receive notifications. Endpoints vary by</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- protocol:</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- -   For the @http@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     with @http:\/\/@.</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   For the @https@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--     with @https:\/\/@.</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- -   For the @email@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   For the @email-json@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   For the @sms@ protocol, the endpoint is a phone number of an</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     SMS-enabled device.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     queue.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- -   For the @application@ protocol, the endpoint is the EndpointArn of a</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     mobile app and device.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3Aendpoint%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aendpoint%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The ARN of the topic you want to subscribe to.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AtopicArn%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AtopicArn%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The protocol that you want to use. Supported protocols include:</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- -   @http@ &#8211; delivery of JSON-encoded message via HTTP POST</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- -   @https@ &#8211; delivery of JSON-encoded message via HTTPS POST</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @email@ &#8211; delivery of message via SMTP</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- -   @email-json@ &#8211; delivery of JSON-encoded message via SMTP</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- -   @sms@ &#8211; delivery of message via SMS</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- -   @sqs@ &#8211; delivery of JSON-encoded message to an Amazon SQS queue</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- -   @application@ &#8211; delivery of JSON-encoded message to an EndpointArn</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--     for a mobile app and device</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- -   @lambda@ &#8211; delivery of JSON-encoded message to an Lambda function</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   @firehose@ &#8211; delivery of JSON-encoded message to an Amazon Kinesis</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     Data Firehose delivery stream.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Aprotocol%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193117"><span id="local-6989586621679193119"><span class="annot"><span class="annottext">Subscribe -&gt; Subscribe -&gt; Bool
+(Subscribe -&gt; Subscribe -&gt; Bool)
+-&gt; (Subscribe -&gt; Subscribe -&gt; Bool) -&gt; Eq Subscribe
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Subscribe -&gt; Subscribe -&gt; Bool
+$c/= :: Subscribe -&gt; Subscribe -&gt; Bool
+== :: Subscribe -&gt; Subscribe -&gt; Bool
+$c== :: Subscribe -&gt; Subscribe -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193108"><span id="local-6989586621679193110"><span id="local-6989586621679193112"><span id="local-6989586621679193114"><span class="annot"><span class="annottext">ReadPrec [Subscribe]
+ReadPrec Subscribe
+Int -&gt; ReadS Subscribe
+ReadS [Subscribe]
+(Int -&gt; ReadS Subscribe)
+-&gt; ReadS [Subscribe]
+-&gt; ReadPrec Subscribe
+-&gt; ReadPrec [Subscribe]
+-&gt; Read Subscribe
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Subscribe]
+$creadListPrec :: ReadPrec [Subscribe]
+readPrec :: ReadPrec Subscribe
+$creadPrec :: ReadPrec Subscribe
+readList :: ReadS [Subscribe]
+$creadList :: ReadS [Subscribe]
+readsPrec :: Int -&gt; ReadS Subscribe
+$creadsPrec :: Int -&gt; ReadS Subscribe
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193101"><span id="local-6989586621679193103"><span id="local-6989586621679193105"><span class="annot"><span class="annottext">Int -&gt; Subscribe -&gt; ShowS
+[Subscribe] -&gt; ShowS
+Subscribe -&gt; String
+(Int -&gt; Subscribe -&gt; ShowS)
+-&gt; (Subscribe -&gt; String)
+-&gt; ([Subscribe] -&gt; ShowS)
+-&gt; Show Subscribe
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Subscribe] -&gt; ShowS
+$cshowList :: [Subscribe] -&gt; ShowS
+show :: Subscribe -&gt; String
+$cshow :: Subscribe -&gt; String
+showsPrec :: Int -&gt; Subscribe -&gt; ShowS
+$cshowsPrec :: Int -&gt; Subscribe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Subscribe -&gt; Rep Subscribe x)
+-&gt; (forall x. Rep Subscribe x -&gt; Subscribe) -&gt; Generic Subscribe
+forall x. Rep Subscribe x -&gt; Subscribe
+forall x. Subscribe -&gt; Rep Subscribe x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Subscribe x -&gt; Subscribe
+$cfrom :: forall x. Subscribe -&gt; Rep Subscribe x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'Subscribe' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'attributes', 'subscribe_attributes' - A map of attributes with their corresponding values.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The following lists the names, descriptions, and values of the special</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- request parameters that the @Subscribe@ action uses:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The policy that defines how Amazon SNS retries</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     failed deliveries to HTTP\/S endpoints.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The simple JSON object that lets your subscriber</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     receive only a subset of messages, rather than receiving every</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     message published to the topic.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; When set to @true@, enables raw message</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     need for the endpoints to process JSON formatting, which is</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     otherwise created for Amazon SNS metadata.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'returnSubscriptionArn', 'subscribe_returnSubscriptionArn' - Sets whether the response from the @Subscribe@ request includes the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- subscription ARN, even if the subscription is not yet confirmed.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- If you set this parameter to @true@, the response includes the ARN in</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- all cases, even if the subscription is not yet confirmed. In addition to</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- the ARN for confirmed subscriptions, the response also includes the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @pending subscription@ ARN value for subscriptions that aren\'t yet</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- confirmed. A subscription becomes confirmed when the subscriber calls</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The default value is @false@.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'endpoint', 'subscribe_endpoint' - The endpoint that you want to receive notifications. Endpoints vary by</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- protocol:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   For the @http@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     with @http:\/\/@.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   For the @https@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     with @https:\/\/@.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   For the @email@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   For the @email-json@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   For the @sms@ protocol, the endpoint is a phone number of an</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     SMS-enabled device.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     queue.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   For the @application@ protocol, the endpoint is the EndpointArn of a</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     mobile app and device.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'topicArn', 'subscribe_topicArn' - The ARN of the topic you want to subscribe to.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'protocol', 'subscribe_protocol' - The protocol that you want to use. Supported protocols include:</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- -   @http@ &#8211; delivery of JSON-encoded message via HTTP POST</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   @https@ &#8211; delivery of JSON-encoded message via HTTPS POST</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- -   @email@ &#8211; delivery of message via SMTP</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   @email-json@ &#8211; delivery of JSON-encoded message via SMTP</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   @sms@ &#8211; delivery of message via SMS</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- -   @sqs@ &#8211; delivery of JSON-encoded message to an Amazon SQS queue</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   @application@ &#8211; delivery of JSON-encoded message to an EndpointArn</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     for a mobile app and device</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   @lambda@ &#8211; delivery of JSON-encoded message to an Lambda function</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   @firehose@ &#8211; delivery of JSON-encoded message to an Amazon Kinesis</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--     Data Firehose delivery stream.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#newSubscribe"><span class="hs-identifier hs-type">newSubscribe</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-comment">-- | 'topicArn'</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-comment">-- | 'protocol'</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span>
+</span><span id="line-289"></span><span id="newSubscribe"><span class="annot"><span class="annottext">newSubscribe :: Text -&gt; Text -&gt; Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribe"><span class="hs-identifier hs-var hs-var">newSubscribe</span></a></span></span><span> </span><span id="local-6989586621679193096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193096"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679193095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193095"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">Subscribe' :: Maybe (HashMap Text Text)
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:Subscribe' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aattributes%3ASubscribe%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnSubscriptionArn:Subscribe' :: Maybe Bool
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AreturnSubscriptionArn%3ASubscribe%27"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:Subscribe' :: Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aendpoint%3ASubscribe%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:Subscribe' :: Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AtopicArn%3ASubscribe%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193096"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Subscribe' :: Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193095"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | A map of attributes with their corresponding values.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- The following lists the names, descriptions, and values of the special</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- request parameters that the @Subscribe@ action uses:</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The policy that defines how Amazon SNS retries</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     failed deliveries to HTTP\/S endpoints.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The simple JSON object that lets your subscriber</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     receive only a subset of messages, rather than receiving every</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     message published to the topic.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; When set to @true@, enables raw message</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     need for the endpoints to process JSON formatting, which is</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     otherwise created for Amazon SNS metadata.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_attributes"><span class="hs-identifier hs-type">subscribe_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span id="subscribe_attributes"><span class="annot"><span class="annottext">subscribe_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Subscribe -&gt; f Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribe_attributes"><span class="hs-identifier hs-var hs-var">subscribe_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Subscribe -&gt; Maybe (HashMap Text Text))
+-&gt; (Subscribe -&gt; Maybe (HashMap Text Text) -&gt; Subscribe)
+-&gt; Lens
+     Subscribe
+     Subscribe
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193092"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:Subscribe' :: Subscribe -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193092"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193092"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193091"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193090"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Subscribe' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aattributes%3ASubscribe%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Subscribe -&gt; f Subscribe)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Subscribe
+-&gt; f Subscribe
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | Sets whether the response from the @Subscribe@ request includes the</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- subscription ARN, even if the subscription is not yet confirmed.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- If you set this parameter to @true@, the response includes the ARN in</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- all cases, even if the subscription is not yet confirmed. In addition to</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- the ARN for confirmed subscriptions, the response also includes the</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- @pending subscription@ ARN value for subscriptions that aren\'t yet</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- confirmed. A subscription becomes confirmed when the subscriber calls</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- the @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- The default value is @false@.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_returnSubscriptionArn"><span class="hs-identifier hs-type">subscribe_returnSubscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="subscribe_returnSubscriptionArn"><span class="annot"><span class="annottext">subscribe_returnSubscriptionArn :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Subscribe -&gt; f Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribe_returnSubscriptionArn"><span class="hs-identifier hs-var hs-var">subscribe_returnSubscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Subscribe -&gt; Maybe Bool)
+-&gt; (Subscribe -&gt; Maybe Bool -&gt; Subscribe)
+-&gt; Lens Subscribe Subscribe (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193086"><span class="annot"><span class="annottext">Maybe Bool
+returnSubscriptionArn :: Maybe Bool
+$sel:returnSubscriptionArn:Subscribe' :: Subscribe -&gt; Maybe Bool
+</span><a href="#local-6989586621679193086"><span class="hs-identifier hs-var hs-var">returnSubscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193086"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193085"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193084"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnSubscriptionArn:Subscribe' :: Maybe Bool
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AreturnSubscriptionArn%3ASubscribe%27"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | The endpoint that you want to receive notifications. Endpoints vary by</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- protocol:</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   For the @http@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     with @http:\/\/@.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   For the @https@ protocol, the (public) endpoint is a URL beginning</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     with @https:\/\/@.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- -   For the @email@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- -   For the @email-json@ protocol, the endpoint is an email address.</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   For the @sms@ protocol, the endpoint is a phone number of an</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     SMS-enabled device.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--     queue.</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- -   For the @application@ protocol, the endpoint is the EndpointArn of a</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     mobile app and device.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--     function.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--     Kinesis Data Firehose delivery stream.</span><span>
+</span><span id="line-381"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_endpoint"><span class="hs-identifier hs-type">subscribe_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span id="subscribe_endpoint"><span class="annot"><span class="annottext">subscribe_endpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Subscribe -&gt; f Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribe_endpoint"><span class="hs-identifier hs-var hs-var">subscribe_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Subscribe -&gt; Maybe Text)
+-&gt; (Subscribe -&gt; Maybe Text -&gt; Subscribe)
+-&gt; Lens Subscribe Subscribe (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193083"><span class="annot"><span class="annottext">Maybe Text
+endpoint :: Maybe Text
+$sel:endpoint:Subscribe' :: Subscribe -&gt; Maybe Text
+</span><a href="#local-6989586621679193083"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193083"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193082"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Subscribe' :: Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aendpoint%3ASubscribe%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | The ARN of the topic you want to subscribe to.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_topicArn"><span class="hs-identifier hs-type">subscribe_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-386"></span><span id="subscribe_topicArn"><span class="annot"><span class="annottext">subscribe_topicArn :: (Text -&gt; f Text) -&gt; Subscribe -&gt; f Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribe_topicArn"><span class="hs-identifier hs-var hs-var">subscribe_topicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Subscribe -&gt; Text)
+-&gt; (Subscribe -&gt; Text -&gt; Subscribe)
+-&gt; Lens Subscribe Subscribe Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193080"><span class="annot"><span class="annottext">Text
+topicArn :: Text
+$sel:topicArn:Subscribe' :: Subscribe -&gt; Text
+</span><a href="#local-6989586621679193080"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193080"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193079"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Subscribe' :: Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AtopicArn%3ASubscribe%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- | The protocol that you want to use. Supported protocols include:</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- -   @http@ &#8211; delivery of JSON-encoded message via HTTP POST</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   @https@ &#8211; delivery of JSON-encoded message via HTTPS POST</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   @email@ &#8211; delivery of message via SMTP</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   @email-json@ &#8211; delivery of JSON-encoded message via SMTP</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- -   @sms@ &#8211; delivery of message via SMS</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- -   @sqs@ &#8211; delivery of JSON-encoded message to an Amazon SQS queue</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   @application@ &#8211; delivery of JSON-encoded message to an EndpointArn</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--     for a mobile app and device</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- -   @lambda@ &#8211; delivery of JSON-encoded message to an Lambda function</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- -   @firehose@ &#8211; delivery of JSON-encoded message to an Amazon Kinesis</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     Data Firehose delivery stream.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_protocol"><span class="hs-identifier hs-type">subscribe_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-410"></span><span id="subscribe_protocol"><span class="annot"><span class="annottext">subscribe_protocol :: (Text -&gt; f Text) -&gt; Subscribe -&gt; f Subscribe
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribe_protocol"><span class="hs-identifier hs-var hs-var">subscribe_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Subscribe -&gt; Text)
+-&gt; (Subscribe -&gt; Text -&gt; Subscribe)
+-&gt; Lens Subscribe Subscribe Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193077"><span class="annot"><span class="annottext">Text
+protocol :: Text
+$sel:protocol:Subscribe' :: Subscribe -&gt; Text
+</span><a href="#local-6989586621679193077"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193077"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193076"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Subscribe' :: Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-413"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span>
+</span><span id="line-414"></span><span>  </span><span id="local-6989586621679193071"><span class="annot"><span class="annottext">request :: Subscribe -&gt; Request Subscribe
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Subscribe -&gt; Request Subscribe
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-415"></span><span>  </span><span id="local-6989586621679193067"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy Subscribe
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse Subscribe)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse Subscribe))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy Subscribe
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse Subscribe)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscribeResult&quot;</span></span><span>
+</span><span id="line-418"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193064"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679193063"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679193063"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679193062"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679193062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-419"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; SubscribeResponse
+</span><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-var">SubscribeResponse'</span></a></span><span>
+</span><span id="line-420"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; SubscribeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; SubscribeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679193062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SubscribeResponse)
+-&gt; Either String Int -&gt; Either String SubscribeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193064"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-422"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193054"><span id="local-6989586621679193056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span></span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span><span>
+</span><span id="line-427"></span><span>
+</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-429"></span><span>  </span><span id="local-6989586621679193047"><span class="annot"><span class="annottext">toHeaders :: Subscribe -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Subscribe -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-430"></span><span>
+</span><span id="line-431"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-432"></span><span>  </span><span id="local-6989586621679193042"><span class="annot"><span class="annottext">toPath :: Subscribe -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Subscribe -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-435"></span><span>  </span><span id="local-6989586621679193038"><span class="annot"><span class="annottext">toQuery :: Subscribe -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193032"><span id="local-6989586621679193033"><span id="local-6989586621679193034"><span id="local-6989586621679193035"><span id="local-6989586621679193036"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+protocol :: Text
+topicArn :: Text
+endpoint :: Maybe Text
+returnSubscriptionArn :: Maybe Bool
+attributes :: Maybe (HashMap Text Text)
+$sel:protocol:Subscribe' :: Subscribe -&gt; Text
+$sel:topicArn:Subscribe' :: Subscribe -&gt; Text
+$sel:endpoint:Subscribe' :: Subscribe -&gt; Maybe Text
+$sel:returnSubscriptionArn:Subscribe' :: Subscribe -&gt; Maybe Bool
+$sel:attributes:Subscribe' :: Subscribe -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193032"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-437"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-438"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Subscribe&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-440"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span>
+</span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-443"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; ByteString -&gt; ByteString -&gt; HashMap Text Text -&gt; QueryString
+forall k v.
+(ToQuery k, ToQuery v) =&gt;
+ByteString
+-&gt; ByteString -&gt; ByteString -&gt; HashMap k v -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryMap</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;value&quot;</span></span><span>
+</span><span id="line-444"></span><span>                </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; QueryString)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193036"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><span id="line-445"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-446"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReturnSubscriptionArn&quot;</span></span><span>
+</span><span id="line-447"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193035"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-448"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193034"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-449"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193033"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-450"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193032"><span class="hs-identifier hs-var">protocol</span></a></span><span>
+</span><span id="line-451"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-452"></span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- | Response for Subscribe action.</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- /See:/ 'newSubscribeResponse' smart constructor.</span><span>
+</span><span id="line-456"></span><span id="local-6989586621679193028"><span id="local-6989586621679193029"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeResponse"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-var">SubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeResponse%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-var">SubscribeResponse'</span></a></span></span><span>
+</span><span id="line-457"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the subscription if it is confirmed, or the string \&quot;pending</span><span>
+</span><span id="line-458"></span><span>    </span><span class="hs-comment">-- confirmation\&quot; if the subscription requires confirmation. However, if</span><span>
+</span><span id="line-459"></span><span>    </span><span class="hs-comment">-- the API request parameter @ReturnSubscriptionArn@ is true, then the</span><span>
+</span><span id="line-460"></span><span>    </span><span class="hs-comment">-- value is always the subscription ARN, even if the subscription requires</span><span>
+</span><span id="line-461"></span><span>    </span><span class="hs-comment">-- confirmation.</span><span>
+</span><span id="line-462"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3ASubscribeResponse%27"><span class="annot"><span class="annottext">SubscribeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AsubscriptionArn%3ASubscribeResponse%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-464"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="annot"><span class="annottext">SubscribeResponse -&gt; Int
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-465"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-466"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193022"><span id="local-6989586621679193024"><span class="annot"><span class="annottext">SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+(SubscribeResponse -&gt; SubscribeResponse -&gt; Bool)
+-&gt; (SubscribeResponse -&gt; SubscribeResponse -&gt; Bool)
+-&gt; Eq SubscribeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+$c/= :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+== :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+$c== :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193014"><span id="local-6989586621679193016"><span id="local-6989586621679193018"><span id="local-6989586621679193020"><span class="annot"><span class="annottext">ReadPrec [SubscribeResponse]
+ReadPrec SubscribeResponse
+Int -&gt; ReadS SubscribeResponse
+ReadS [SubscribeResponse]
+(Int -&gt; ReadS SubscribeResponse)
+-&gt; ReadS [SubscribeResponse]
+-&gt; ReadPrec SubscribeResponse
+-&gt; ReadPrec [SubscribeResponse]
+-&gt; Read SubscribeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubscribeResponse]
+$creadListPrec :: ReadPrec [SubscribeResponse]
+readPrec :: ReadPrec SubscribeResponse
+$creadPrec :: ReadPrec SubscribeResponse
+readList :: ReadS [SubscribeResponse]
+$creadList :: ReadS [SubscribeResponse]
+readsPrec :: Int -&gt; ReadS SubscribeResponse
+$creadsPrec :: Int -&gt; ReadS SubscribeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193008"><span id="local-6989586621679193010"><span id="local-6989586621679193012"><span class="annot"><span class="annottext">Int -&gt; SubscribeResponse -&gt; ShowS
+[SubscribeResponse] -&gt; ShowS
+SubscribeResponse -&gt; String
+(Int -&gt; SubscribeResponse -&gt; ShowS)
+-&gt; (SubscribeResponse -&gt; String)
+-&gt; ([SubscribeResponse] -&gt; ShowS)
+-&gt; Show SubscribeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubscribeResponse] -&gt; ShowS
+$cshowList :: [SubscribeResponse] -&gt; ShowS
+show :: SubscribeResponse -&gt; String
+$cshow :: SubscribeResponse -&gt; String
+showsPrec :: Int -&gt; SubscribeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubscribeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SubscribeResponse -&gt; Rep SubscribeResponse x)
+-&gt; (forall x. Rep SubscribeResponse x -&gt; SubscribeResponse)
+-&gt; Generic SubscribeResponse
+forall x. Rep SubscribeResponse x -&gt; SubscribeResponse
+forall x. SubscribeResponse -&gt; Rep SubscribeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubscribeResponse x -&gt; SubscribeResponse
+$cfrom :: forall x. SubscribeResponse -&gt; Rep SubscribeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- Create a value of 'SubscribeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-470"></span><span class="hs-comment">--</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--</span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- 'subscriptionArn', 'subscribeResponse_subscriptionArn' - The ARN of the subscription if it is confirmed, or the string \&quot;pending</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- confirmation\&quot; if the subscription requires confirmation. However, if</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- the API request parameter @ReturnSubscriptionArn@ is true, then the</span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- value is always the subscription ARN, even if the subscription requires</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- confirmation.</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- 'httpStatus', 'subscribeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-483"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#newSubscribeResponse"><span class="hs-identifier hs-type">newSubscribeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-484"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-485"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-486"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span>
+</span><span id="line-487"></span><span id="newSubscribeResponse"><span class="annot"><span class="annottext">newSubscribeResponse :: Int -&gt; SubscribeResponse
+</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribeResponse"><span class="hs-identifier hs-var hs-var">newSubscribeResponse</span></a></span></span><span> </span><span id="local-6989586621679193005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-488"></span><span>  </span><span class="annot"><span class="annottext">SubscribeResponse' :: Maybe Text -&gt; Int -&gt; SubscribeResponse
+</span><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span>
+</span><span id="line-489"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionArn:SubscribeResponse' :: Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AsubscriptionArn%3ASubscribeResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-490"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeResponse' :: Int
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193005"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-492"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-493"></span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- | The ARN of the subscription if it is confirmed, or the string \&quot;pending</span><span>
+</span><span id="line-495"></span><span class="hs-comment">-- confirmation\&quot; if the subscription requires confirmation. However, if</span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- the API request parameter @ReturnSubscriptionArn@ is true, then the</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- value is always the subscription ARN, even if the subscription requires</span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- confirmation.</span><span>
+</span><span id="line-499"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_subscriptionArn"><span class="hs-identifier hs-type">subscribeResponse_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-500"></span><span id="subscribeResponse_subscriptionArn"><span class="annot"><span class="annottext">subscribeResponse_subscriptionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubscribeResponse -&gt; f SubscribeResponse
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_subscriptionArn"><span class="hs-identifier hs-var hs-var">subscribeResponse_subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeResponse -&gt; Maybe Text)
+-&gt; (SubscribeResponse -&gt; Maybe Text -&gt; SubscribeResponse)
+-&gt; Lens
+     SubscribeResponse SubscribeResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193004"><span class="annot"><span class="annottext">Maybe Text
+subscriptionArn :: Maybe Text
+$sel:subscriptionArn:SubscribeResponse' :: SubscribeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679193004"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193004"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193003"><span class="annot"><span class="annottext">s :: SubscribeResponse
+</span><a href="#local-6989586621679193003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
+</span><a href="#local-6989586621679193003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:SubscribeResponse' :: Maybe Text
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AsubscriptionArn%3ASubscribeResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-501"></span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-503"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_httpStatus"><span class="hs-identifier hs-type">subscribeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-504"></span><span id="subscribeResponse_httpStatus"><span class="annot"><span class="annottext">subscribeResponse_httpStatus :: (Int -&gt; f Int) -&gt; SubscribeResponse -&gt; f SubscribeResponse
+</span><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">subscribeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubscribeResponse -&gt; Int)
+-&gt; (SubscribeResponse -&gt; Int -&gt; SubscribeResponse)
+-&gt; Lens SubscribeResponse SubscribeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193001"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SubscribeResponse' :: SubscribeResponse -&gt; Int
+</span><a href="#local-6989586621679193001"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193001"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193000"><span class="annot"><span class="annottext">s :: SubscribeResponse
+</span><a href="#local-6989586621679193000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679192999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
+</span><a href="#local-6989586621679193000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeResponse' :: Int
+</span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679192999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-505"></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span></span><span>
+</span><span id="line-507"></span></pre></body></html>

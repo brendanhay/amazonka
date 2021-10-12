@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.RedshiftResultFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.RedshiftResultFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat"><span class="hs-identifier">RedshiftResultFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_CSV"><span class="hs-identifier">RedshiftResultFormat_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_PARQUET"><span class="hs-identifier">RedshiftResultFormat_PARQUET</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The data storage format for Redshift query results.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680335104"><span id="local-6989586621680335105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedshiftResultFormat"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat"><span class="hs-identifier hs-var">RedshiftResultFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedshiftResultFormat%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat%27"><span class="hs-identifier hs-var">RedshiftResultFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedshiftResultFormat"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#fromRedshiftResultFormat"><span class="hs-identifier hs-var hs-var">fromRedshiftResultFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680335096"><span id="local-6989586621680335098"><span id="local-6989586621680335100"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultFormat -&gt; ShowS
+[RedshiftResultFormat] -&gt; ShowS
+RedshiftResultFormat -&gt; String
+(Int -&gt; RedshiftResultFormat -&gt; ShowS)
+-&gt; (RedshiftResultFormat -&gt; String)
+-&gt; ([RedshiftResultFormat] -&gt; ShowS)
+-&gt; Show RedshiftResultFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RedshiftResultFormat] -&gt; ShowS
+$cshowList :: [RedshiftResultFormat] -&gt; ShowS
+show :: RedshiftResultFormat -&gt; String
+$cshow :: RedshiftResultFormat -&gt; String
+showsPrec :: Int -&gt; RedshiftResultFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; RedshiftResultFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680335087"><span id="local-6989586621680335089"><span id="local-6989586621680335091"><span id="local-6989586621680335093"><span class="annot"><span class="annottext">ReadPrec [RedshiftResultFormat]
+ReadPrec RedshiftResultFormat
+Int -&gt; ReadS RedshiftResultFormat
+ReadS [RedshiftResultFormat]
+(Int -&gt; ReadS RedshiftResultFormat)
+-&gt; ReadS [RedshiftResultFormat]
+-&gt; ReadPrec RedshiftResultFormat
+-&gt; ReadPrec [RedshiftResultFormat]
+-&gt; Read RedshiftResultFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RedshiftResultFormat]
+$creadListPrec :: ReadPrec [RedshiftResultFormat]
+readPrec :: ReadPrec RedshiftResultFormat
+$creadPrec :: ReadPrec RedshiftResultFormat
+readList :: ReadS [RedshiftResultFormat]
+$creadList :: ReadS [RedshiftResultFormat]
+readsPrec :: Int -&gt; ReadS RedshiftResultFormat
+$creadsPrec :: Int -&gt; ReadS RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680335082"><span id="local-6989586621680335084"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+(RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; Eq RedshiftResultFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c/= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+== :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c== :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680335066"><span id="local-6989586621680335068"><span id="local-6989586621680335070"><span id="local-6989586621680335072"><span id="local-6989586621680335074"><span id="local-6989586621680335076"><span id="local-6989586621680335078"><span class="annot"><span class="annottext">Eq RedshiftResultFormat
+Eq RedshiftResultFormat
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Ordering)
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; (RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool)
+-&gt; (RedshiftResultFormat
+    -&gt; RedshiftResultFormat -&gt; RedshiftResultFormat)
+-&gt; (RedshiftResultFormat
+    -&gt; RedshiftResultFormat -&gt; RedshiftResultFormat)
+-&gt; Ord RedshiftResultFormat
+RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Ordering
+RedshiftResultFormat
+-&gt; RedshiftResultFormat -&gt; RedshiftResultFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RedshiftResultFormat
+-&gt; RedshiftResultFormat -&gt; RedshiftResultFormat
+$cmin :: RedshiftResultFormat
+-&gt; RedshiftResultFormat -&gt; RedshiftResultFormat
+max :: RedshiftResultFormat
+-&gt; RedshiftResultFormat -&gt; RedshiftResultFormat
+$cmax :: RedshiftResultFormat
+-&gt; RedshiftResultFormat -&gt; RedshiftResultFormat
+&gt;= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c&gt;= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+&gt; :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c&gt; :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+&lt;= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c&lt;= :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+&lt; :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+$c&lt; :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Bool
+compare :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Ordering
+$ccompare :: RedshiftResultFormat -&gt; RedshiftResultFormat -&gt; Ordering
+$cp1Ord :: Eq RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RedshiftResultFormat -&gt; Rep RedshiftResultFormat x)
+-&gt; (forall x. Rep RedshiftResultFormat x -&gt; RedshiftResultFormat)
+-&gt; Generic RedshiftResultFormat
+forall x. Rep RedshiftResultFormat x -&gt; RedshiftResultFormat
+forall x. RedshiftResultFormat -&gt; Rep RedshiftResultFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RedshiftResultFormat x -&gt; RedshiftResultFormat
+$cfrom :: forall x. RedshiftResultFormat -&gt; Rep RedshiftResultFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680335058"><span id="local-6989586621680335060"><span class="annot"><span class="annottext">Int -&gt; RedshiftResultFormat -&gt; Int
+RedshiftResultFormat -&gt; Int
+(Int -&gt; RedshiftResultFormat -&gt; Int)
+-&gt; (RedshiftResultFormat -&gt; Int) -&gt; Hashable RedshiftResultFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RedshiftResultFormat -&gt; Int
+$chash :: RedshiftResultFormat -&gt; Int
+hashWithSalt :: Int -&gt; RedshiftResultFormat -&gt; Int
+$chashWithSalt :: Int -&gt; RedshiftResultFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680335055"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; ()
+(RedshiftResultFormat -&gt; ()) -&gt; NFData RedshiftResultFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RedshiftResultFormat -&gt; ()
+$crnf :: RedshiftResultFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680335052"><span class="annot"><span class="annottext">Text -&gt; Either String RedshiftResultFormat
+(Text -&gt; Either String RedshiftResultFormat)
+-&gt; FromText RedshiftResultFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RedshiftResultFormat
+$cfromText :: Text -&gt; Either String RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680335049"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; Text
+(RedshiftResultFormat -&gt; Text) -&gt; ToText RedshiftResultFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RedshiftResultFormat -&gt; Text
+$ctoText :: RedshiftResultFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680335046"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; ByteString
+(RedshiftResultFormat -&gt; ByteString)
+-&gt; ToByteString RedshiftResultFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RedshiftResultFormat -&gt; ByteString
+$ctoBS :: RedshiftResultFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680335043"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; ByteStringBuilder
+(RedshiftResultFormat -&gt; ByteStringBuilder)
+-&gt; ToLog RedshiftResultFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RedshiftResultFormat -&gt; ByteStringBuilder
+$cbuild :: RedshiftResultFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680335040"><span class="annot"><span class="annottext">HeaderName -&gt; RedshiftResultFormat -&gt; [Header]
+(HeaderName -&gt; RedshiftResultFormat -&gt; [Header])
+-&gt; ToHeader RedshiftResultFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RedshiftResultFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RedshiftResultFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680335037"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; QueryString
+(RedshiftResultFormat -&gt; QueryString)
+-&gt; ToQuery RedshiftResultFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RedshiftResultFormat -&gt; QueryString
+$ctoQuery :: RedshiftResultFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680335032"><span id="local-6989586621680335034"><span class="annot"><span class="annottext">Value -&gt; Parser [RedshiftResultFormat]
+Value -&gt; Parser RedshiftResultFormat
+(Value -&gt; Parser RedshiftResultFormat)
+-&gt; (Value -&gt; Parser [RedshiftResultFormat])
+-&gt; FromJSON RedshiftResultFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RedshiftResultFormat]
+$cparseJSONList :: Value -&gt; Parser [RedshiftResultFormat]
+parseJSON :: Value -&gt; Parser RedshiftResultFormat
+$cparseJSON :: Value -&gt; Parser RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680335027"><span id="local-6989586621680335029"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedshiftResultFormat]
+FromJSONKeyFunction RedshiftResultFormat
+FromJSONKeyFunction RedshiftResultFormat
+-&gt; FromJSONKeyFunction [RedshiftResultFormat]
+-&gt; FromJSONKey RedshiftResultFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RedshiftResultFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [RedshiftResultFormat]
+fromJSONKey :: FromJSONKeyFunction RedshiftResultFormat
+$cfromJSONKey :: FromJSONKeyFunction RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680335018"><span id="local-6989586621680335020"><span id="local-6989586621680335022"><span id="local-6989586621680335024"><span class="annot"><span class="annottext">[RedshiftResultFormat] -&gt; Encoding
+[RedshiftResultFormat] -&gt; Value
+RedshiftResultFormat -&gt; Encoding
+RedshiftResultFormat -&gt; Value
+(RedshiftResultFormat -&gt; Value)
+-&gt; (RedshiftResultFormat -&gt; Encoding)
+-&gt; ([RedshiftResultFormat] -&gt; Value)
+-&gt; ([RedshiftResultFormat] -&gt; Encoding)
+-&gt; ToJSON RedshiftResultFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RedshiftResultFormat] -&gt; Encoding
+$ctoEncodingList :: [RedshiftResultFormat] -&gt; Encoding
+toJSONList :: [RedshiftResultFormat] -&gt; Value
+$ctoJSONList :: [RedshiftResultFormat] -&gt; Value
+toEncoding :: RedshiftResultFormat -&gt; Encoding
+$ctoEncoding :: RedshiftResultFormat -&gt; Encoding
+toJSON :: RedshiftResultFormat -&gt; Value
+$ctoJSON :: RedshiftResultFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680335013"><span id="local-6989586621680335015"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedshiftResultFormat]
+ToJSONKeyFunction RedshiftResultFormat
+ToJSONKeyFunction RedshiftResultFormat
+-&gt; ToJSONKeyFunction [RedshiftResultFormat]
+-&gt; ToJSONKey RedshiftResultFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RedshiftResultFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [RedshiftResultFormat]
+toJSONKey :: ToJSONKeyFunction RedshiftResultFormat
+$ctoJSONKey :: ToJSONKeyFunction RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680335010"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedshiftResultFormat
+([Node] -&gt; Either String RedshiftResultFormat)
+-&gt; FromXML RedshiftResultFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RedshiftResultFormat
+$cparseXML :: [Node] -&gt; Either String RedshiftResultFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680335007"><span class="annot"><span class="annottext">RedshiftResultFormat -&gt; XML
+(RedshiftResultFormat -&gt; XML) -&gt; ToXML RedshiftResultFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RedshiftResultFormat -&gt; XML
+$ctoXML :: RedshiftResultFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_CSV"><span class="hs-identifier hs-type">RedshiftResultFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat"><span class="hs-identifier hs-type">RedshiftResultFormat</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRedshiftResultFormat_CSV"><span id="%24mRedshiftResultFormat_CSV"><span id="RedshiftResultFormat_CSV"><span class="annot"><span class="annottext">$bRedshiftResultFormat_CSV :: RedshiftResultFormat
+$mRedshiftResultFormat_CSV :: forall r. RedshiftResultFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#%24bRedshiftResultFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">RedshiftResultFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat%27"><span class="hs-identifier hs-type">RedshiftResultFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_PARQUET"><span class="hs-identifier hs-type">RedshiftResultFormat_PARQUET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat"><span class="hs-identifier hs-type">RedshiftResultFormat</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRedshiftResultFormat_PARQUET"><span id="%24mRedshiftResultFormat_PARQUET"><span id="RedshiftResultFormat_PARQUET"><span class="annot"><span class="annottext">$bRedshiftResultFormat_PARQUET :: RedshiftResultFormat
+$mRedshiftResultFormat_PARQUET :: forall r. RedshiftResultFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#%24bRedshiftResultFormat_PARQUET"><span class="hs-identifier hs-var hs-var hs-var">RedshiftResultFormat_PARQUET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat%27"><span class="hs-identifier hs-type">RedshiftResultFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARQUET&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_CSV"><span class="hs-pragma hs-type">RedshiftResultFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat_PARQUET"><span class="hs-pragma hs-type">RedshiftResultFormat_PARQUET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RedshiftResultFormat.html#RedshiftResultFormat%27"><span class="hs-pragma hs-type">RedshiftResultFormat'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

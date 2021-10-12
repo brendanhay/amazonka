@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.Types.LabelDetectionSortBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.Types.LabelDetectionSortBy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy"><span class="hs-identifier">LabelDetectionSortBy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_NAME"><span class="hs-identifier">LabelDetectionSortBy_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_TIMESTAMP"><span class="hs-identifier">LabelDetectionSortBy_TIMESTAMP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679325393"><span id="local-6989586621679325394"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LabelDetectionSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy"><span class="hs-identifier hs-var">LabelDetectionSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelDetectionSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy%27"><span class="hs-identifier hs-var">LabelDetectionSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLabelDetectionSortBy"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; Text
+</span><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#fromLabelDetectionSortBy"><span class="hs-identifier hs-var hs-var">fromLabelDetectionSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325385"><span id="local-6989586621679325387"><span id="local-6989586621679325389"><span class="annot"><span class="annottext">Int -&gt; LabelDetectionSortBy -&gt; ShowS
+[LabelDetectionSortBy] -&gt; ShowS
+LabelDetectionSortBy -&gt; String
+(Int -&gt; LabelDetectionSortBy -&gt; ShowS)
+-&gt; (LabelDetectionSortBy -&gt; String)
+-&gt; ([LabelDetectionSortBy] -&gt; ShowS)
+-&gt; Show LabelDetectionSortBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LabelDetectionSortBy] -&gt; ShowS
+$cshowList :: [LabelDetectionSortBy] -&gt; ShowS
+show :: LabelDetectionSortBy -&gt; String
+$cshow :: LabelDetectionSortBy -&gt; String
+showsPrec :: Int -&gt; LabelDetectionSortBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; LabelDetectionSortBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679325376"><span id="local-6989586621679325378"><span id="local-6989586621679325380"><span id="local-6989586621679325382"><span class="annot"><span class="annottext">ReadPrec [LabelDetectionSortBy]
+ReadPrec LabelDetectionSortBy
+Int -&gt; ReadS LabelDetectionSortBy
+ReadS [LabelDetectionSortBy]
+(Int -&gt; ReadS LabelDetectionSortBy)
+-&gt; ReadS [LabelDetectionSortBy]
+-&gt; ReadPrec LabelDetectionSortBy
+-&gt; ReadPrec [LabelDetectionSortBy]
+-&gt; Read LabelDetectionSortBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LabelDetectionSortBy]
+$creadListPrec :: ReadPrec [LabelDetectionSortBy]
+readPrec :: ReadPrec LabelDetectionSortBy
+$creadPrec :: ReadPrec LabelDetectionSortBy
+readList :: ReadS [LabelDetectionSortBy]
+$creadList :: ReadS [LabelDetectionSortBy]
+readsPrec :: Int -&gt; ReadS LabelDetectionSortBy
+$creadsPrec :: Int -&gt; ReadS LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679325371"><span id="local-6989586621679325373"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+(LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; Eq LabelDetectionSortBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c/= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+== :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c== :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679325355"><span id="local-6989586621679325357"><span id="local-6989586621679325359"><span id="local-6989586621679325361"><span id="local-6989586621679325363"><span id="local-6989586621679325365"><span id="local-6989586621679325367"><span class="annot"><span class="annottext">Eq LabelDetectionSortBy
+Eq LabelDetectionSortBy
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Ordering)
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; (LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool)
+-&gt; (LabelDetectionSortBy
+    -&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy)
+-&gt; (LabelDetectionSortBy
+    -&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy)
+-&gt; Ord LabelDetectionSortBy
+LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Ordering
+LabelDetectionSortBy
+-&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LabelDetectionSortBy
+-&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy
+$cmin :: LabelDetectionSortBy
+-&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy
+max :: LabelDetectionSortBy
+-&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy
+$cmax :: LabelDetectionSortBy
+-&gt; LabelDetectionSortBy -&gt; LabelDetectionSortBy
+&gt;= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c&gt;= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+&gt; :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c&gt; :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+&lt;= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c&lt;= :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+&lt; :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+$c&lt; :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Bool
+compare :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Ordering
+$ccompare :: LabelDetectionSortBy -&gt; LabelDetectionSortBy -&gt; Ordering
+$cp1Ord :: Eq LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LabelDetectionSortBy -&gt; Rep LabelDetectionSortBy x)
+-&gt; (forall x. Rep LabelDetectionSortBy x -&gt; LabelDetectionSortBy)
+-&gt; Generic LabelDetectionSortBy
+forall x. Rep LabelDetectionSortBy x -&gt; LabelDetectionSortBy
+forall x. LabelDetectionSortBy -&gt; Rep LabelDetectionSortBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LabelDetectionSortBy x -&gt; LabelDetectionSortBy
+$cfrom :: forall x. LabelDetectionSortBy -&gt; Rep LabelDetectionSortBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325347"><span id="local-6989586621679325349"><span class="annot"><span class="annottext">Int -&gt; LabelDetectionSortBy -&gt; Int
+LabelDetectionSortBy -&gt; Int
+(Int -&gt; LabelDetectionSortBy -&gt; Int)
+-&gt; (LabelDetectionSortBy -&gt; Int) -&gt; Hashable LabelDetectionSortBy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LabelDetectionSortBy -&gt; Int
+$chash :: LabelDetectionSortBy -&gt; Int
+hashWithSalt :: Int -&gt; LabelDetectionSortBy -&gt; Int
+$chashWithSalt :: Int -&gt; LabelDetectionSortBy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679325344"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; ()
+(LabelDetectionSortBy -&gt; ()) -&gt; NFData LabelDetectionSortBy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LabelDetectionSortBy -&gt; ()
+$crnf :: LabelDetectionSortBy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325341"><span class="annot"><span class="annottext">Text -&gt; Either String LabelDetectionSortBy
+(Text -&gt; Either String LabelDetectionSortBy)
+-&gt; FromText LabelDetectionSortBy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LabelDetectionSortBy
+$cfromText :: Text -&gt; Either String LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325338"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; Text
+(LabelDetectionSortBy -&gt; Text) -&gt; ToText LabelDetectionSortBy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LabelDetectionSortBy -&gt; Text
+$ctoText :: LabelDetectionSortBy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325335"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; ByteString
+(LabelDetectionSortBy -&gt; ByteString)
+-&gt; ToByteString LabelDetectionSortBy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LabelDetectionSortBy -&gt; ByteString
+$ctoBS :: LabelDetectionSortBy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325332"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; ByteStringBuilder
+(LabelDetectionSortBy -&gt; ByteStringBuilder)
+-&gt; ToLog LabelDetectionSortBy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LabelDetectionSortBy -&gt; ByteStringBuilder
+$cbuild :: LabelDetectionSortBy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325329"><span class="annot"><span class="annottext">HeaderName -&gt; LabelDetectionSortBy -&gt; [Header]
+(HeaderName -&gt; LabelDetectionSortBy -&gt; [Header])
+-&gt; ToHeader LabelDetectionSortBy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LabelDetectionSortBy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LabelDetectionSortBy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325326"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; QueryString
+(LabelDetectionSortBy -&gt; QueryString)
+-&gt; ToQuery LabelDetectionSortBy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LabelDetectionSortBy -&gt; QueryString
+$ctoQuery :: LabelDetectionSortBy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325321"><span id="local-6989586621679325323"><span class="annot"><span class="annottext">Value -&gt; Parser [LabelDetectionSortBy]
+Value -&gt; Parser LabelDetectionSortBy
+(Value -&gt; Parser LabelDetectionSortBy)
+-&gt; (Value -&gt; Parser [LabelDetectionSortBy])
+-&gt; FromJSON LabelDetectionSortBy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LabelDetectionSortBy]
+$cparseJSONList :: Value -&gt; Parser [LabelDetectionSortBy]
+parseJSON :: Value -&gt; Parser LabelDetectionSortBy
+$cparseJSON :: Value -&gt; Parser LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325316"><span id="local-6989586621679325318"><span class="annot"><span class="annottext">FromJSONKeyFunction [LabelDetectionSortBy]
+FromJSONKeyFunction LabelDetectionSortBy
+FromJSONKeyFunction LabelDetectionSortBy
+-&gt; FromJSONKeyFunction [LabelDetectionSortBy]
+-&gt; FromJSONKey LabelDetectionSortBy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LabelDetectionSortBy]
+$cfromJSONKeyList :: FromJSONKeyFunction [LabelDetectionSortBy]
+fromJSONKey :: FromJSONKeyFunction LabelDetectionSortBy
+$cfromJSONKey :: FromJSONKeyFunction LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325307"><span id="local-6989586621679325309"><span id="local-6989586621679325311"><span id="local-6989586621679325313"><span class="annot"><span class="annottext">[LabelDetectionSortBy] -&gt; Encoding
+[LabelDetectionSortBy] -&gt; Value
+LabelDetectionSortBy -&gt; Encoding
+LabelDetectionSortBy -&gt; Value
+(LabelDetectionSortBy -&gt; Value)
+-&gt; (LabelDetectionSortBy -&gt; Encoding)
+-&gt; ([LabelDetectionSortBy] -&gt; Value)
+-&gt; ([LabelDetectionSortBy] -&gt; Encoding)
+-&gt; ToJSON LabelDetectionSortBy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LabelDetectionSortBy] -&gt; Encoding
+$ctoEncodingList :: [LabelDetectionSortBy] -&gt; Encoding
+toJSONList :: [LabelDetectionSortBy] -&gt; Value
+$ctoJSONList :: [LabelDetectionSortBy] -&gt; Value
+toEncoding :: LabelDetectionSortBy -&gt; Encoding
+$ctoEncoding :: LabelDetectionSortBy -&gt; Encoding
+toJSON :: LabelDetectionSortBy -&gt; Value
+$ctoJSON :: LabelDetectionSortBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325302"><span id="local-6989586621679325304"><span class="annot"><span class="annottext">ToJSONKeyFunction [LabelDetectionSortBy]
+ToJSONKeyFunction LabelDetectionSortBy
+ToJSONKeyFunction LabelDetectionSortBy
+-&gt; ToJSONKeyFunction [LabelDetectionSortBy]
+-&gt; ToJSONKey LabelDetectionSortBy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LabelDetectionSortBy]
+$ctoJSONKeyList :: ToJSONKeyFunction [LabelDetectionSortBy]
+toJSONKey :: ToJSONKeyFunction LabelDetectionSortBy
+$ctoJSONKey :: ToJSONKeyFunction LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325299"><span class="annot"><span class="annottext">[Node] -&gt; Either String LabelDetectionSortBy
+([Node] -&gt; Either String LabelDetectionSortBy)
+-&gt; FromXML LabelDetectionSortBy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LabelDetectionSortBy
+$cparseXML :: [Node] -&gt; Either String LabelDetectionSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325296"><span class="annot"><span class="annottext">LabelDetectionSortBy -&gt; XML
+(LabelDetectionSortBy -&gt; XML) -&gt; ToXML LabelDetectionSortBy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LabelDetectionSortBy -&gt; XML
+$ctoXML :: LabelDetectionSortBy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_NAME"><span class="hs-identifier hs-type">LabelDetectionSortBy_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy"><span class="hs-identifier hs-type">LabelDetectionSortBy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLabelDetectionSortBy_NAME"><span id="%24mLabelDetectionSortBy_NAME"><span id="LabelDetectionSortBy_NAME"><span class="annot"><span class="annottext">$bLabelDetectionSortBy_NAME :: LabelDetectionSortBy
+$mLabelDetectionSortBy_NAME :: forall r. LabelDetectionSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#%24bLabelDetectionSortBy_NAME"><span class="hs-identifier hs-var hs-var hs-var">LabelDetectionSortBy_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy%27"><span class="hs-identifier hs-type">LabelDetectionSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_TIMESTAMP"><span class="hs-identifier hs-type">LabelDetectionSortBy_TIMESTAMP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy"><span class="hs-identifier hs-type">LabelDetectionSortBy</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLabelDetectionSortBy_TIMESTAMP"><span id="%24mLabelDetectionSortBy_TIMESTAMP"><span id="LabelDetectionSortBy_TIMESTAMP"><span class="annot"><span class="annottext">$bLabelDetectionSortBy_TIMESTAMP :: LabelDetectionSortBy
+$mLabelDetectionSortBy_TIMESTAMP :: forall r. LabelDetectionSortBy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#%24bLabelDetectionSortBy_TIMESTAMP"><span class="hs-identifier hs-var hs-var hs-var">LabelDetectionSortBy_TIMESTAMP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy%27"><span class="hs-identifier hs-type">LabelDetectionSortBy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMESTAMP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_NAME"><span class="hs-pragma hs-type">LabelDetectionSortBy_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy_TIMESTAMP"><span class="hs-pragma hs-type">LabelDetectionSortBy_TIMESTAMP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetectionSortBy.html#LabelDetectionSortBy%27"><span class="hs-pragma hs-type">LabelDetectionSortBy'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

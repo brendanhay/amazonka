@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.TransactWriteItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.TransactWriteItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.ConditionCheck</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Delete.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.Delete</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Put.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.Put</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Update.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.Update</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A list of requests that can perform update, put, delete, or check</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- operations on multiple items in one or more tables atomically.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTransactWriteItem' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679383146"><span id="local-6989586621679383147"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactWriteItem"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-var">TransactWriteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactWriteItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-var">TransactWriteItem'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A request to perform a @PutItem@ operation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aput%3ATransactWriteItem%27"><span class="annot"><span class="annottext">TransactWriteItem -&gt; Maybe Put
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aput%3ATransactWriteItem%27"><span class="hs-identifier hs-var hs-var">put</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Put.html#Put"><span class="hs-identifier hs-type">Put</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A request to perform a check item operation.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AconditionCheck%3ATransactWriteItem%27"><span class="annot"><span class="annottext">TransactWriteItem -&gt; Maybe ConditionCheck
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3AconditionCheck%3ATransactWriteItem%27"><span class="hs-identifier hs-var hs-var">conditionCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A request to perform an @UpdateItem@ operation.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aupdate%3ATransactWriteItem%27"><span class="annot"><span class="annottext">TransactWriteItem -&gt; Maybe Update
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aupdate%3ATransactWriteItem%27"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A request to perform a @DeleteItem@ operation.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adelete%27%3ATransactWriteItem%27"><span class="annot"><span class="annottext">TransactWriteItem -&gt; Maybe Delete
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Adelete%27%3ATransactWriteItem%27"><span class="hs-identifier hs-var hs-var">delete'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383137"><span id="local-6989586621679383139"><span class="annot"><span class="annottext">TransactWriteItem -&gt; TransactWriteItem -&gt; Bool
+(TransactWriteItem -&gt; TransactWriteItem -&gt; Bool)
+-&gt; (TransactWriteItem -&gt; TransactWriteItem -&gt; Bool)
+-&gt; Eq TransactWriteItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransactWriteItem -&gt; TransactWriteItem -&gt; Bool
+$c/= :: TransactWriteItem -&gt; TransactWriteItem -&gt; Bool
+== :: TransactWriteItem -&gt; TransactWriteItem -&gt; Bool
+$c== :: TransactWriteItem -&gt; TransactWriteItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383128"><span id="local-6989586621679383130"><span id="local-6989586621679383132"><span id="local-6989586621679383134"><span class="annot"><span class="annottext">ReadPrec [TransactWriteItem]
+ReadPrec TransactWriteItem
+Int -&gt; ReadS TransactWriteItem
+ReadS [TransactWriteItem]
+(Int -&gt; ReadS TransactWriteItem)
+-&gt; ReadS [TransactWriteItem]
+-&gt; ReadPrec TransactWriteItem
+-&gt; ReadPrec [TransactWriteItem]
+-&gt; Read TransactWriteItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransactWriteItem]
+$creadListPrec :: ReadPrec [TransactWriteItem]
+readPrec :: ReadPrec TransactWriteItem
+$creadPrec :: ReadPrec TransactWriteItem
+readList :: ReadS [TransactWriteItem]
+$creadList :: ReadS [TransactWriteItem]
+readsPrec :: Int -&gt; ReadS TransactWriteItem
+$creadsPrec :: Int -&gt; ReadS TransactWriteItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383121"><span id="local-6989586621679383123"><span id="local-6989586621679383125"><span class="annot"><span class="annottext">Int -&gt; TransactWriteItem -&gt; ShowS
+[TransactWriteItem] -&gt; ShowS
+TransactWriteItem -&gt; String
+(Int -&gt; TransactWriteItem -&gt; ShowS)
+-&gt; (TransactWriteItem -&gt; String)
+-&gt; ([TransactWriteItem] -&gt; ShowS)
+-&gt; Show TransactWriteItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransactWriteItem] -&gt; ShowS
+$cshowList :: [TransactWriteItem] -&gt; ShowS
+show :: TransactWriteItem -&gt; String
+$cshow :: TransactWriteItem -&gt; String
+showsPrec :: Int -&gt; TransactWriteItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransactWriteItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TransactWriteItem -&gt; Rep TransactWriteItem x)
+-&gt; (forall x. Rep TransactWriteItem x -&gt; TransactWriteItem)
+-&gt; Generic TransactWriteItem
+forall x. Rep TransactWriteItem x -&gt; TransactWriteItem
+forall x. TransactWriteItem -&gt; Rep TransactWriteItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransactWriteItem x -&gt; TransactWriteItem
+$cfrom :: forall x. TransactWriteItem -&gt; Rep TransactWriteItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'TransactWriteItem' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'put', 'transactWriteItem_put' - A request to perform a @PutItem@ operation.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'conditionCheck', 'transactWriteItem_conditionCheck' - A request to perform a check item operation.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'update', 'transactWriteItem_update' - A request to perform an @UpdateItem@ operation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'delete'', 'transactWriteItem_delete' - A request to perform a @DeleteItem@ operation.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#newTransactWriteItem"><span class="hs-identifier hs-type">newTransactWriteItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span>
+</span><span id="line-63"></span><span id="newTransactWriteItem"><span class="annot"><span class="annottext">newTransactWriteItem :: TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#newTransactWriteItem"><span class="hs-identifier hs-var hs-var">newTransactWriteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">TransactWriteItem' :: Maybe Put
+-&gt; Maybe ConditionCheck
+-&gt; Maybe Update
+-&gt; Maybe Delete
+-&gt; TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:put:TransactWriteItem' :: Maybe Put
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aput%3ATransactWriteItem%27"><span class="hs-identifier hs-var">put</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Put
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditionCheck:TransactWriteItem' :: Maybe ConditionCheck
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3AconditionCheck%3ATransactWriteItem%27"><span class="hs-identifier hs-var">conditionCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionCheck
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:update:TransactWriteItem' :: Maybe Update
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aupdate%3ATransactWriteItem%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:delete':TransactWriteItem' :: Maybe Delete
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Adelete%27%3ATransactWriteItem%27"><span class="hs-identifier hs-var">delete'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Delete
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | A request to perform a @PutItem@ operation.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_put"><span class="hs-identifier hs-type">transactWriteItem_put</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Put.html#Put"><span class="hs-identifier hs-type">Put</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="transactWriteItem_put"><span class="annot"><span class="annottext">transactWriteItem_put :: (Maybe Put -&gt; f (Maybe Put))
+-&gt; TransactWriteItem -&gt; f TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_put"><span class="hs-identifier hs-var hs-var">transactWriteItem_put</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransactWriteItem -&gt; Maybe Put)
+-&gt; (TransactWriteItem -&gt; Maybe Put -&gt; TransactWriteItem)
+-&gt; Lens TransactWriteItem TransactWriteItem (Maybe Put) (Maybe Put)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383112"><span class="annot"><span class="annottext">Maybe Put
+put :: Maybe Put
+$sel:put:TransactWriteItem' :: TransactWriteItem -&gt; Maybe Put
+</span><a href="#local-6989586621679383112"><span class="hs-identifier hs-var hs-var">put</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Put
+</span><a href="#local-6989586621679383112"><span class="hs-identifier hs-var">put</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383111"><span class="annot"><span class="annottext">s :: TransactWriteItem
+</span><a href="#local-6989586621679383111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383110"><span class="annot"><span class="annottext">Maybe Put
+</span><a href="#local-6989586621679383110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactWriteItem
+</span><a href="#local-6989586621679383111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:put:TransactWriteItem' :: Maybe Put
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aput%3ATransactWriteItem%27"><span class="hs-identifier hs-var">put</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Put
+</span><a href="#local-6989586621679383110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A request to perform a check item operation.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_conditionCheck"><span class="hs-identifier hs-type">transactWriteItem_conditionCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ConditionCheck.html#ConditionCheck"><span class="hs-identifier hs-type">ConditionCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="transactWriteItem_conditionCheck"><span class="annot"><span class="annottext">transactWriteItem_conditionCheck :: (Maybe ConditionCheck -&gt; f (Maybe ConditionCheck))
+-&gt; TransactWriteItem -&gt; f TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_conditionCheck"><span class="hs-identifier hs-var hs-var">transactWriteItem_conditionCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransactWriteItem -&gt; Maybe ConditionCheck)
+-&gt; (TransactWriteItem -&gt; Maybe ConditionCheck -&gt; TransactWriteItem)
+-&gt; Lens
+     TransactWriteItem
+     TransactWriteItem
+     (Maybe ConditionCheck)
+     (Maybe ConditionCheck)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383108"><span class="annot"><span class="annottext">Maybe ConditionCheck
+conditionCheck :: Maybe ConditionCheck
+$sel:conditionCheck:TransactWriteItem' :: TransactWriteItem -&gt; Maybe ConditionCheck
+</span><a href="#local-6989586621679383108"><span class="hs-identifier hs-var hs-var">conditionCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionCheck
+</span><a href="#local-6989586621679383108"><span class="hs-identifier hs-var">conditionCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383107"><span class="annot"><span class="annottext">s :: TransactWriteItem
+</span><a href="#local-6989586621679383107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383106"><span class="annot"><span class="annottext">Maybe ConditionCheck
+</span><a href="#local-6989586621679383106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactWriteItem
+</span><a href="#local-6989586621679383107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionCheck:TransactWriteItem' :: Maybe ConditionCheck
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3AconditionCheck%3ATransactWriteItem%27"><span class="hs-identifier hs-var">conditionCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionCheck
+</span><a href="#local-6989586621679383106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A request to perform an @UpdateItem@ operation.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_update"><span class="hs-identifier hs-type">transactWriteItem_update</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="transactWriteItem_update"><span class="annot"><span class="annottext">transactWriteItem_update :: (Maybe Update -&gt; f (Maybe Update))
+-&gt; TransactWriteItem -&gt; f TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_update"><span class="hs-identifier hs-var hs-var">transactWriteItem_update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransactWriteItem -&gt; Maybe Update)
+-&gt; (TransactWriteItem -&gt; Maybe Update -&gt; TransactWriteItem)
+-&gt; Lens
+     TransactWriteItem TransactWriteItem (Maybe Update) (Maybe Update)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383104"><span class="annot"><span class="annottext">Maybe Update
+update :: Maybe Update
+$sel:update:TransactWriteItem' :: TransactWriteItem -&gt; Maybe Update
+</span><a href="#local-6989586621679383104"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679383104"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383103"><span class="annot"><span class="annottext">s :: TransactWriteItem
+</span><a href="#local-6989586621679383103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383102"><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679383102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactWriteItem
+</span><a href="#local-6989586621679383103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:TransactWriteItem' :: Maybe Update
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Aupdate%3ATransactWriteItem%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679383102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | A request to perform a @DeleteItem@ operation.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_delete"><span class="hs-identifier hs-type">transactWriteItem_delete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="transactWriteItem_delete"><span class="annot"><span class="annottext">transactWriteItem_delete :: (Maybe Delete -&gt; f (Maybe Delete))
+-&gt; TransactWriteItem -&gt; f TransactWriteItem
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#transactWriteItem_delete"><span class="hs-identifier hs-var hs-var">transactWriteItem_delete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransactWriteItem -&gt; Maybe Delete)
+-&gt; (TransactWriteItem -&gt; Maybe Delete -&gt; TransactWriteItem)
+-&gt; Lens
+     TransactWriteItem TransactWriteItem (Maybe Delete) (Maybe Delete)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383100"><span class="annot"><span class="annottext">Maybe Delete
+delete' :: Maybe Delete
+$sel:delete':TransactWriteItem' :: TransactWriteItem -&gt; Maybe Delete
+</span><a href="#local-6989586621679383100"><span class="hs-identifier hs-var hs-var">delete'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Delete
+</span><a href="#local-6989586621679383100"><span class="hs-identifier hs-var">delete'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383099"><span class="annot"><span class="annottext">s :: TransactWriteItem
+</span><a href="#local-6989586621679383099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383098"><span class="annot"><span class="annottext">Maybe Delete
+</span><a href="#local-6989586621679383098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactWriteItem
+</span><a href="#local-6989586621679383099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delete':TransactWriteItem' :: Maybe Delete
+</span><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#%24sel%3Adelete%27%3ATransactWriteItem%27"><span class="hs-identifier hs-var">delete'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Delete
+</span><a href="#local-6989586621679383098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383094"><span id="local-6989586621679383096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383083"><span id="local-6989586621679383085"><span id="local-6989586621679383087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem"><span class="hs-identifier hs-type">TransactWriteItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679383081"><span class="annot"><span class="annottext">toJSON :: TransactWriteItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactWriteItem.html#TransactWriteItem%27"><span class="hs-identifier hs-type">TransactWriteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383076"><span id="local-6989586621679383077"><span id="local-6989586621679383078"><span id="local-6989586621679383079"><span class="annot"><span class="annottext">Maybe Put
+Maybe Delete
+Maybe ConditionCheck
+Maybe Update
+delete' :: Maybe Delete
+update :: Maybe Update
+conditionCheck :: Maybe ConditionCheck
+put :: Maybe Put
+$sel:delete':TransactWriteItem' :: TransactWriteItem -&gt; Maybe Delete
+$sel:update:TransactWriteItem' :: TransactWriteItem -&gt; Maybe Update
+$sel:conditionCheck:TransactWriteItem' :: TransactWriteItem -&gt; Maybe ConditionCheck
+$sel:put:TransactWriteItem' :: TransactWriteItem -&gt; Maybe Put
+</span><a href="#local-6989586621679383076"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Put&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Put -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Put -&gt; Pair) -&gt; Maybe Put -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Put
+</span><a href="#local-6989586621679383079"><span class="hs-identifier hs-var">put</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConditionCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionCheck -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(ConditionCheck -&gt; Pair) -&gt; Maybe ConditionCheck -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionCheck
+</span><a href="#local-6989586621679383078"><span class="hs-identifier hs-var">conditionCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Update&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Update -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Pair) -&gt; Maybe Update -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679383077"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Delete&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Delete -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Delete -&gt; Pair) -&gt; Maybe Delete -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Delete
+</span><a href="#local-6989586621679383076"><span class="hs-identifier hs-var">delete'</span></a></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span></pre></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Vc3Class</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vc3Class</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier">Vc3Class</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_145_8BIT"><span class="hs-identifier">Vc3Class_CLASS_145_8BIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_10BIT"><span class="hs-identifier">Vc3Class_CLASS_220_10BIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_8BIT"><span class="hs-identifier">Vc3Class_CLASS_220_8BIT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Specify the VC3 class to choose the quality characteristics for this</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- output. VC3 class, together with the settings Framerate</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- (framerateNumerator and framerateDenominator) and Resolution (height and</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- width), determine your output bitrate. For example, say that your video</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- and Class 220 (CLASS_220) gives you and output with a bitrate of</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- approximately 220 Mbps. VC3 class also specifies the color bit depth of</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- your output.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621680005123"><span id="local-6989586621680005124"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vc3Class"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-var">Vc3Class</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Class%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-var">Vc3Class'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVc3Class"><span class="annot"><span class="annottext">Vc3Class -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#fromVc3Class"><span class="hs-identifier hs-var hs-var">fromVc3Class</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005115"><span id="local-6989586621680005117"><span id="local-6989586621680005119"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; ShowS
+[Vc3Class] -&gt; ShowS
+Vc3Class -&gt; String
+(Int -&gt; Vc3Class -&gt; ShowS)
+-&gt; (Vc3Class -&gt; String) -&gt; ([Vc3Class] -&gt; ShowS) -&gt; Show Vc3Class
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vc3Class] -&gt; ShowS
+$cshowList :: [Vc3Class] -&gt; ShowS
+show :: Vc3Class -&gt; String
+$cshow :: Vc3Class -&gt; String
+showsPrec :: Int -&gt; Vc3Class -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vc3Class -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680005106"><span id="local-6989586621680005108"><span id="local-6989586621680005110"><span id="local-6989586621680005112"><span class="annot"><span class="annottext">ReadPrec [Vc3Class]
+ReadPrec Vc3Class
+Int -&gt; ReadS Vc3Class
+ReadS [Vc3Class]
+(Int -&gt; ReadS Vc3Class)
+-&gt; ReadS [Vc3Class]
+-&gt; ReadPrec Vc3Class
+-&gt; ReadPrec [Vc3Class]
+-&gt; Read Vc3Class
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vc3Class]
+$creadListPrec :: ReadPrec [Vc3Class]
+readPrec :: ReadPrec Vc3Class
+$creadPrec :: ReadPrec Vc3Class
+readList :: ReadS [Vc3Class]
+$creadList :: ReadS [Vc3Class]
+readsPrec :: Int -&gt; ReadS Vc3Class
+$creadsPrec :: Int -&gt; ReadS Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680005101"><span id="local-6989586621680005103"><span class="annot"><span class="annottext">Vc3Class -&gt; Vc3Class -&gt; Bool
+(Vc3Class -&gt; Vc3Class -&gt; Bool)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool) -&gt; Eq Vc3Class
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c/= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+== :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c== :: Vc3Class -&gt; Vc3Class -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005085"><span id="local-6989586621680005087"><span id="local-6989586621680005089"><span id="local-6989586621680005091"><span id="local-6989586621680005093"><span id="local-6989586621680005095"><span id="local-6989586621680005097"><span class="annot"><span class="annottext">Eq Vc3Class
+Eq Vc3Class
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Ordering)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Bool)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Vc3Class)
+-&gt; (Vc3Class -&gt; Vc3Class -&gt; Vc3Class)
+-&gt; Ord Vc3Class
+Vc3Class -&gt; Vc3Class -&gt; Bool
+Vc3Class -&gt; Vc3Class -&gt; Ordering
+Vc3Class -&gt; Vc3Class -&gt; Vc3Class
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Vc3Class -&gt; Vc3Class -&gt; Vc3Class
+$cmin :: Vc3Class -&gt; Vc3Class -&gt; Vc3Class
+max :: Vc3Class -&gt; Vc3Class -&gt; Vc3Class
+$cmax :: Vc3Class -&gt; Vc3Class -&gt; Vc3Class
+&gt;= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c&gt;= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+&gt; :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c&gt; :: Vc3Class -&gt; Vc3Class -&gt; Bool
+&lt;= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c&lt;= :: Vc3Class -&gt; Vc3Class -&gt; Bool
+&lt; :: Vc3Class -&gt; Vc3Class -&gt; Bool
+$c&lt; :: Vc3Class -&gt; Vc3Class -&gt; Bool
+compare :: Vc3Class -&gt; Vc3Class -&gt; Ordering
+$ccompare :: Vc3Class -&gt; Vc3Class -&gt; Ordering
+$cp1Ord :: Eq Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Vc3Class -&gt; Rep Vc3Class x)
+-&gt; (forall x. Rep Vc3Class x -&gt; Vc3Class) -&gt; Generic Vc3Class
+forall x. Rep Vc3Class x -&gt; Vc3Class
+forall x. Vc3Class -&gt; Rep Vc3Class x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vc3Class x -&gt; Vc3Class
+$cfrom :: forall x. Vc3Class -&gt; Rep Vc3Class x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005077"><span id="local-6989586621680005079"><span class="annot"><span class="annottext">Int -&gt; Vc3Class -&gt; Int
+Vc3Class -&gt; Int
+(Int -&gt; Vc3Class -&gt; Int) -&gt; (Vc3Class -&gt; Int) -&gt; Hashable Vc3Class
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Vc3Class -&gt; Int
+$chash :: Vc3Class -&gt; Int
+hashWithSalt :: Int -&gt; Vc3Class -&gt; Int
+$chashWithSalt :: Int -&gt; Vc3Class -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005074"><span class="annot"><span class="annottext">Vc3Class -&gt; ()
+(Vc3Class -&gt; ()) -&gt; NFData Vc3Class
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Vc3Class -&gt; ()
+$crnf :: Vc3Class -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005071"><span class="annot"><span class="annottext">Text -&gt; Either String Vc3Class
+(Text -&gt; Either String Vc3Class) -&gt; FromText Vc3Class
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Vc3Class
+$cfromText :: Text -&gt; Either String Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005068"><span class="annot"><span class="annottext">Vc3Class -&gt; Text
+(Vc3Class -&gt; Text) -&gt; ToText Vc3Class
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Vc3Class -&gt; Text
+$ctoText :: Vc3Class -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005065"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteString
+(Vc3Class -&gt; ByteString) -&gt; ToByteString Vc3Class
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Vc3Class -&gt; ByteString
+$ctoBS :: Vc3Class -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005062"><span class="annot"><span class="annottext">Vc3Class -&gt; ByteStringBuilder
+(Vc3Class -&gt; ByteStringBuilder) -&gt; ToLog Vc3Class
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Vc3Class -&gt; ByteStringBuilder
+$cbuild :: Vc3Class -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005059"><span class="annot"><span class="annottext">HeaderName -&gt; Vc3Class -&gt; [Header]
+(HeaderName -&gt; Vc3Class -&gt; [Header]) -&gt; ToHeader Vc3Class
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Vc3Class -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Vc3Class -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005056"><span class="annot"><span class="annottext">Vc3Class -&gt; QueryString
+(Vc3Class -&gt; QueryString) -&gt; ToQuery Vc3Class
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Vc3Class -&gt; QueryString
+$ctoQuery :: Vc3Class -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005051"><span id="local-6989586621680005053"><span class="annot"><span class="annottext">Value -&gt; Parser [Vc3Class]
+Value -&gt; Parser Vc3Class
+(Value -&gt; Parser Vc3Class)
+-&gt; (Value -&gt; Parser [Vc3Class]) -&gt; FromJSON Vc3Class
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Vc3Class]
+$cparseJSONList :: Value -&gt; Parser [Vc3Class]
+parseJSON :: Value -&gt; Parser Vc3Class
+$cparseJSON :: Value -&gt; Parser Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680005046"><span id="local-6989586621680005048"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vc3Class]
+FromJSONKeyFunction Vc3Class
+FromJSONKeyFunction Vc3Class
+-&gt; FromJSONKeyFunction [Vc3Class] -&gt; FromJSONKey Vc3Class
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Vc3Class]
+$cfromJSONKeyList :: FromJSONKeyFunction [Vc3Class]
+fromJSONKey :: FromJSONKeyFunction Vc3Class
+$cfromJSONKey :: FromJSONKeyFunction Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680005037"><span id="local-6989586621680005039"><span id="local-6989586621680005041"><span id="local-6989586621680005043"><span class="annot"><span class="annottext">[Vc3Class] -&gt; Encoding
+[Vc3Class] -&gt; Value
+Vc3Class -&gt; Encoding
+Vc3Class -&gt; Value
+(Vc3Class -&gt; Value)
+-&gt; (Vc3Class -&gt; Encoding)
+-&gt; ([Vc3Class] -&gt; Value)
+-&gt; ([Vc3Class] -&gt; Encoding)
+-&gt; ToJSON Vc3Class
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Vc3Class] -&gt; Encoding
+$ctoEncodingList :: [Vc3Class] -&gt; Encoding
+toJSONList :: [Vc3Class] -&gt; Value
+$ctoJSONList :: [Vc3Class] -&gt; Value
+toEncoding :: Vc3Class -&gt; Encoding
+$ctoEncoding :: Vc3Class -&gt; Encoding
+toJSON :: Vc3Class -&gt; Value
+$ctoJSON :: Vc3Class -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680005032"><span id="local-6989586621680005034"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vc3Class]
+ToJSONKeyFunction Vc3Class
+ToJSONKeyFunction Vc3Class
+-&gt; ToJSONKeyFunction [Vc3Class] -&gt; ToJSONKey Vc3Class
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Vc3Class]
+$ctoJSONKeyList :: ToJSONKeyFunction [Vc3Class]
+toJSONKey :: ToJSONKeyFunction Vc3Class
+$ctoJSONKey :: ToJSONKeyFunction Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680005029"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vc3Class
+([Node] -&gt; Either String Vc3Class) -&gt; FromXML Vc3Class
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Vc3Class
+$cparseXML :: [Node] -&gt; Either String Vc3Class
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680005026"><span class="annot"><span class="annottext">Vc3Class -&gt; XML
+(Vc3Class -&gt; XML) -&gt; ToXML Vc3Class
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Vc3Class -&gt; XML
+$ctoXML :: Vc3Class -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_145_8BIT"><span class="hs-identifier hs-type">Vc3Class_CLASS_145_8BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-type">Vc3Class</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3Class_CLASS_145_8BIT"><span id="%24mVc3Class_CLASS_145_8BIT"><span id="Vc3Class_CLASS_145_8BIT"><span class="annot"><span class="annottext">$bVc3Class_CLASS_145_8BIT :: Vc3Class
+$mVc3Class_CLASS_145_8BIT :: forall r. Vc3Class -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#%24bVc3Class_CLASS_145_8BIT"><span class="hs-identifier hs-var hs-var hs-var">Vc3Class_CLASS_145_8BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-type">Vc3Class'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLASS_145_8BIT&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_10BIT"><span class="hs-identifier hs-type">Vc3Class_CLASS_220_10BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-type">Vc3Class</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3Class_CLASS_220_10BIT"><span id="%24mVc3Class_CLASS_220_10BIT"><span id="Vc3Class_CLASS_220_10BIT"><span class="annot"><span class="annottext">$bVc3Class_CLASS_220_10BIT :: Vc3Class
+$mVc3Class_CLASS_220_10BIT :: forall r. Vc3Class -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#%24bVc3Class_CLASS_220_10BIT"><span class="hs-identifier hs-var hs-var hs-var">Vc3Class_CLASS_220_10BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-type">Vc3Class'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLASS_220_10BIT&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_8BIT"><span class="hs-identifier hs-type">Vc3Class_CLASS_220_8BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class"><span class="hs-identifier hs-type">Vc3Class</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVc3Class_CLASS_220_8BIT"><span id="%24mVc3Class_CLASS_220_8BIT"><span id="Vc3Class_CLASS_220_8BIT"><span class="annot"><span class="annottext">$bVc3Class_CLASS_220_8BIT :: Vc3Class
+$mVc3Class_CLASS_220_8BIT :: forall r. Vc3Class -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#%24bVc3Class_CLASS_220_8BIT"><span class="hs-identifier hs-var hs-var hs-var">Vc3Class_CLASS_220_8BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-identifier hs-type">Vc3Class'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLASS_220_8BIT&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_145_8BIT"><span class="hs-pragma hs-type">Vc3Class_CLASS_145_8BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_10BIT"><span class="hs-pragma hs-type">Vc3Class_CLASS_220_10BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class_CLASS_220_8BIT"><span class="hs-pragma hs-type">Vc3Class_CLASS_220_8BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Class.html#Vc3Class%27"><span class="hs-pragma hs-type">Vc3Class'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

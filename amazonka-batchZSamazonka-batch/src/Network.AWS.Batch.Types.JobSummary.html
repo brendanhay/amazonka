@@ -1,0 +1,765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Batch.Types.JobSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Batch.Types.JobSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesSummary.html"><span class="hs-identifier">Network.AWS.Batch.Types.ArrayPropertiesSummary</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html"><span class="hs-identifier">Network.AWS.Batch.Types.ContainerSummary</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobStatus.html"><span class="hs-identifier">Network.AWS.Batch.Types.JobStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertiesSummary.html"><span class="hs-identifier">Network.AWS.Batch.Types.NodePropertiesSummary</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An object representing summary details of a job.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJobSummary' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679263248"><span id="local-6989586621679263249"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobSummary"><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-var">JobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobSummary%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-var">JobSummary'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object representing the details of the container that\'s associated</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- with the job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acontainer%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe ContainerSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Acontainer%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the job was started (when the job</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- transitioned from the @STARTING@ state to the @RUNNING@ state).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstartedAt%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstartedAt%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current status for the job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astatus%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Astatus%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The array properties of the job, if it is an array job.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AarrayProperties%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe ArrayPropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AarrayProperties%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">arrayProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesSummary.html#ArrayPropertiesSummary"><span class="hs-identifier hs-type">ArrayPropertiesSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the job was created. For non-array jobs and</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- parent array jobs, this is when the job entered the @SUBMITTED@ state</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (at the time SubmitJob was called). For array child jobs, this is when</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the child job was spawned by its parent and entered the @PENDING@ state.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcreatedAt%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AjobArn%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobArn%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AjobDefinition%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobDefinition%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the job was stopped (when the job</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- transitioned from the @RUNNING@ state to a terminal state, such as</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @SUCCEEDED@ or @FAILED@).</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AstoppedAt%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstoppedAt%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">stoppedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The node properties for a single node in a job summary list.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- This isn\'t applicable to jobs that are running on Fargate resources.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnodeProperties%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe NodePropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AnodeProperties%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">nodeProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertiesSummary.html#NodePropertiesSummary"><span class="hs-identifier hs-type">NodePropertiesSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- current status of the job.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstatusReason%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstatusReason%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the job.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AjobId%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the job.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AjobName%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobName%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263231"><span id="local-6989586621679263233"><span class="annot"><span class="annottext">JobSummary -&gt; JobSummary -&gt; Bool
+(JobSummary -&gt; JobSummary -&gt; Bool)
+-&gt; (JobSummary -&gt; JobSummary -&gt; Bool) -&gt; Eq JobSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobSummary -&gt; JobSummary -&gt; Bool
+$c/= :: JobSummary -&gt; JobSummary -&gt; Bool
+== :: JobSummary -&gt; JobSummary -&gt; Bool
+$c== :: JobSummary -&gt; JobSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263222"><span id="local-6989586621679263224"><span id="local-6989586621679263226"><span id="local-6989586621679263228"><span class="annot"><span class="annottext">ReadPrec [JobSummary]
+ReadPrec JobSummary
+Int -&gt; ReadS JobSummary
+ReadS [JobSummary]
+(Int -&gt; ReadS JobSummary)
+-&gt; ReadS [JobSummary]
+-&gt; ReadPrec JobSummary
+-&gt; ReadPrec [JobSummary]
+-&gt; Read JobSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobSummary]
+$creadListPrec :: ReadPrec [JobSummary]
+readPrec :: ReadPrec JobSummary
+$creadPrec :: ReadPrec JobSummary
+readList :: ReadS [JobSummary]
+$creadList :: ReadS [JobSummary]
+readsPrec :: Int -&gt; ReadS JobSummary
+$creadsPrec :: Int -&gt; ReadS JobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263215"><span id="local-6989586621679263217"><span id="local-6989586621679263219"><span class="annot"><span class="annottext">Int -&gt; JobSummary -&gt; ShowS
+[JobSummary] -&gt; ShowS
+JobSummary -&gt; String
+(Int -&gt; JobSummary -&gt; ShowS)
+-&gt; (JobSummary -&gt; String)
+-&gt; ([JobSummary] -&gt; ShowS)
+-&gt; Show JobSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobSummary] -&gt; ShowS
+$cshowList :: [JobSummary] -&gt; ShowS
+show :: JobSummary -&gt; String
+$cshow :: JobSummary -&gt; String
+showsPrec :: Int -&gt; JobSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobSummary -&gt; Rep JobSummary x)
+-&gt; (forall x. Rep JobSummary x -&gt; JobSummary) -&gt; Generic JobSummary
+forall x. Rep JobSummary x -&gt; JobSummary
+forall x. JobSummary -&gt; Rep JobSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobSummary x -&gt; JobSummary
+$cfrom :: forall x. JobSummary -&gt; Rep JobSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'JobSummary' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'container', 'jobSummary_container' - An object representing the details of the container that\'s associated</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- with the job.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'startedAt', 'jobSummary_startedAt' - The Unix timestamp for when the job was started (when the job</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- transitioned from the @STARTING@ state to the @RUNNING@ state).</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'status', 'jobSummary_status' - The current status for the job.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'arrayProperties', 'jobSummary_arrayProperties' - The array properties of the job, if it is an array job.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'createdAt', 'jobSummary_createdAt' - The Unix timestamp for when the job was created. For non-array jobs and</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- parent array jobs, this is when the job entered the @SUBMITTED@ state</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- (at the time SubmitJob was called). For array child jobs, this is when</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the child job was spawned by its parent and entered the @PENDING@ state.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'jobArn', 'jobSummary_jobArn' - The Amazon Resource Name (ARN) of the job.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'jobDefinition', 'jobSummary_jobDefinition' - The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'stoppedAt', 'jobSummary_stoppedAt' - The Unix timestamp for when the job was stopped (when the job</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- transitioned from the @RUNNING@ state to a terminal state, such as</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @SUCCEEDED@ or @FAILED@).</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'nodeProperties', 'jobSummary_nodeProperties' - The node properties for a single node in a job summary list.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- This isn\'t applicable to jobs that are running on Fargate resources.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'statusReason', 'jobSummary_statusReason' - A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- current status of the job.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'jobId', 'jobSummary_jobId' - The ID of the job.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'jobName', 'jobSummary_jobName' - The name of the job.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#newJobSummary"><span class="hs-identifier hs-type">newJobSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'jobName'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span>
+</span><span id="line-118"></span><span id="newJobSummary"><span class="annot"><span class="annottext">newJobSummary :: Text -&gt; Text -&gt; JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#newJobSummary"><span class="hs-identifier hs-var hs-var">newJobSummary</span></a></span></span><span> </span><span id="local-6989586621679263209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263209"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679263208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263208"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">JobSummary' :: Maybe ContainerSummary
+-&gt; Maybe Integer
+-&gt; Maybe JobStatus
+-&gt; Maybe ArrayPropertiesSummary
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe NodePropertiesSummary
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:container:JobSummary' :: Maybe ContainerSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Acontainer%3AJobSummary%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstartedAt%3AJobSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:JobSummary' :: Maybe JobStatus
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Astatus%3AJobSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:arrayProperties:JobSummary' :: Maybe ArrayPropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AarrayProperties%3AJobSummary%27"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayPropertiesSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobArn:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobArn%3AJobSummary%27"><span class="hs-identifier hs-var">jobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobDefinition:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobDefinition%3AJobSummary%27"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:stoppedAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstoppedAt%3AJobSummary%27"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeProperties:JobSummary' :: Maybe NodePropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AnodeProperties%3AJobSummary%27"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodePropertiesSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstatusReason%3AJobSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:JobSummary' :: Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263209"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:JobSummary' :: Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobName%3AJobSummary%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263208"><span class="hs-identifier hs-var">pJobName_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | An object representing the details of the container that\'s associated</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- with the job.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_container"><span class="hs-identifier hs-type">jobSummary_container</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="jobSummary_container"><span class="annot"><span class="annottext">jobSummary_container :: (Maybe ContainerSummary -&gt; f (Maybe ContainerSummary))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_container"><span class="hs-identifier hs-var hs-var">jobSummary_container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe ContainerSummary)
+-&gt; (JobSummary -&gt; Maybe ContainerSummary -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe ContainerSummary)
+     (Maybe ContainerSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263204"><span class="annot"><span class="annottext">Maybe ContainerSummary
+container :: Maybe ContainerSummary
+$sel:container:JobSummary' :: JobSummary -&gt; Maybe ContainerSummary
+</span><a href="#local-6989586621679263204"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSummary
+</span><a href="#local-6989586621679263204"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263203"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263202"><span class="annot"><span class="annottext">Maybe ContainerSummary
+</span><a href="#local-6989586621679263202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:JobSummary' :: Maybe ContainerSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Acontainer%3AJobSummary%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSummary
+</span><a href="#local-6989586621679263202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Unix timestamp for when the job was started (when the job</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- transitioned from the @STARTING@ state to the @RUNNING@ state).</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_startedAt"><span class="hs-identifier hs-type">jobSummary_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="jobSummary_startedAt"><span class="annot"><span class="annottext">jobSummary_startedAt :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_startedAt"><span class="hs-identifier hs-var hs-var">jobSummary_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Integer)
+-&gt; (JobSummary -&gt; Maybe Integer -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263200"><span class="annot"><span class="annottext">Maybe Integer
+startedAt :: Maybe Integer
+$sel:startedAt:JobSummary' :: JobSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679263200"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263200"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263199"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263198"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstartedAt%3AJobSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The current status for the job.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_status"><span class="hs-identifier hs-type">jobSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="jobSummary_status"><span class="annot"><span class="annottext">jobSummary_status :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_status"><span class="hs-identifier hs-var hs-var">jobSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe JobStatus)
+-&gt; (JobSummary -&gt; Maybe JobStatus -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe JobStatus) (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263196"><span class="annot"><span class="annottext">Maybe JobStatus
+status :: Maybe JobStatus
+$sel:status:JobSummary' :: JobSummary -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679263196"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679263196"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263195"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263194"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679263194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobSummary' :: Maybe JobStatus
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3Astatus%3AJobSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679263194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The array properties of the job, if it is an array job.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_arrayProperties"><span class="hs-identifier hs-type">jobSummary_arrayProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesSummary.html#ArrayPropertiesSummary"><span class="hs-identifier hs-type">ArrayPropertiesSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="jobSummary_arrayProperties"><span class="annot"><span class="annottext">jobSummary_arrayProperties :: (Maybe ArrayPropertiesSummary -&gt; f (Maybe ArrayPropertiesSummary))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_arrayProperties"><span class="hs-identifier hs-var hs-var">jobSummary_arrayProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe ArrayPropertiesSummary)
+-&gt; (JobSummary -&gt; Maybe ArrayPropertiesSummary -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe ArrayPropertiesSummary)
+     (Maybe ArrayPropertiesSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263192"><span class="annot"><span class="annottext">Maybe ArrayPropertiesSummary
+arrayProperties :: Maybe ArrayPropertiesSummary
+$sel:arrayProperties:JobSummary' :: JobSummary -&gt; Maybe ArrayPropertiesSummary
+</span><a href="#local-6989586621679263192"><span class="hs-identifier hs-var hs-var">arrayProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayPropertiesSummary
+</span><a href="#local-6989586621679263192"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263191"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263190"><span class="annot"><span class="annottext">Maybe ArrayPropertiesSummary
+</span><a href="#local-6989586621679263190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arrayProperties:JobSummary' :: Maybe ArrayPropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AarrayProperties%3AJobSummary%27"><span class="hs-identifier hs-var">arrayProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayPropertiesSummary
+</span><a href="#local-6989586621679263190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The Unix timestamp for when the job was created. For non-array jobs and</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- parent array jobs, this is when the job entered the @SUBMITTED@ state</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- (at the time SubmitJob was called). For array child jobs, this is when</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the child job was spawned by its parent and entered the @PENDING@ state.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_createdAt"><span class="hs-identifier hs-type">jobSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="jobSummary_createdAt"><span class="annot"><span class="annottext">jobSummary_createdAt :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_createdAt"><span class="hs-identifier hs-var hs-var">jobSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Integer)
+-&gt; (JobSummary -&gt; Maybe Integer -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263188"><span class="annot"><span class="annottext">Maybe Integer
+createdAt :: Maybe Integer
+$sel:createdAt:JobSummary' :: JobSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679263188"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263188"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263187"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263186"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobArn"><span class="hs-identifier hs-type">jobSummary_jobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="jobSummary_jobArn"><span class="annot"><span class="annottext">jobSummary_jobArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobArn"><span class="hs-identifier hs-var hs-var">jobSummary_jobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Text)
+-&gt; (JobSummary -&gt; Maybe Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263184"><span class="annot"><span class="annottext">Maybe Text
+jobArn :: Maybe Text
+$sel:jobArn:JobSummary' :: JobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679263184"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263184"><span class="hs-identifier hs-var">jobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263183"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobArn:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobArn%3AJobSummary%27"><span class="hs-identifier hs-var">jobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job definition.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobDefinition"><span class="hs-identifier hs-type">jobSummary_jobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="jobSummary_jobDefinition"><span class="annot"><span class="annottext">jobSummary_jobDefinition :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobDefinition"><span class="hs-identifier hs-var hs-var">jobSummary_jobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Text)
+-&gt; (JobSummary -&gt; Maybe Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263180"><span class="annot"><span class="annottext">Maybe Text
+jobDefinition :: Maybe Text
+$sel:jobDefinition:JobSummary' :: JobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679263180"><span class="hs-identifier hs-var hs-var">jobDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263180"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263179"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinition:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobDefinition%3AJobSummary%27"><span class="hs-identifier hs-var">jobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The Unix timestamp for when the job was stopped (when the job</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- transitioned from the @RUNNING@ state to a terminal state, such as</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @SUCCEEDED@ or @FAILED@).</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_stoppedAt"><span class="hs-identifier hs-type">jobSummary_stoppedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="jobSummary_stoppedAt"><span class="annot"><span class="annottext">jobSummary_stoppedAt :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_stoppedAt"><span class="hs-identifier hs-var hs-var">jobSummary_stoppedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Integer)
+-&gt; (JobSummary -&gt; Maybe Integer -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263176"><span class="annot"><span class="annottext">Maybe Integer
+stoppedAt :: Maybe Integer
+$sel:stoppedAt:JobSummary' :: JobSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679263176"><span class="hs-identifier hs-var hs-var">stoppedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263176"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263175"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263174"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppedAt:JobSummary' :: Maybe Integer
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstoppedAt%3AJobSummary%27"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The node properties for a single node in a job summary list.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- This isn\'t applicable to jobs that are running on Fargate resources.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_nodeProperties"><span class="hs-identifier hs-type">jobSummary_nodeProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertiesSummary.html#NodePropertiesSummary"><span class="hs-identifier hs-type">NodePropertiesSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="jobSummary_nodeProperties"><span class="annot"><span class="annottext">jobSummary_nodeProperties :: (Maybe NodePropertiesSummary -&gt; f (Maybe NodePropertiesSummary))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_nodeProperties"><span class="hs-identifier hs-var hs-var">jobSummary_nodeProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe NodePropertiesSummary)
+-&gt; (JobSummary -&gt; Maybe NodePropertiesSummary -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe NodePropertiesSummary)
+     (Maybe NodePropertiesSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263172"><span class="annot"><span class="annottext">Maybe NodePropertiesSummary
+nodeProperties :: Maybe NodePropertiesSummary
+$sel:nodeProperties:JobSummary' :: JobSummary -&gt; Maybe NodePropertiesSummary
+</span><a href="#local-6989586621679263172"><span class="hs-identifier hs-var hs-var">nodeProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodePropertiesSummary
+</span><a href="#local-6989586621679263172"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263171"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263170"><span class="annot"><span class="annottext">Maybe NodePropertiesSummary
+</span><a href="#local-6989586621679263170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeProperties:JobSummary' :: Maybe NodePropertiesSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AnodeProperties%3AJobSummary%27"><span class="hs-identifier hs-var">nodeProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodePropertiesSummary
+</span><a href="#local-6989586621679263170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- current status of the job.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_statusReason"><span class="hs-identifier hs-type">jobSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="jobSummary_statusReason"><span class="annot"><span class="annottext">jobSummary_statusReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_statusReason"><span class="hs-identifier hs-var hs-var">jobSummary_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Text)
+-&gt; (JobSummary -&gt; Maybe Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263168"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:JobSummary' :: JobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679263168"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263168"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263167"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AstatusReason%3AJobSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The ID of the job.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobId"><span class="hs-identifier hs-type">jobSummary_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-186"></span><span id="jobSummary_jobId"><span class="annot"><span class="annottext">jobSummary_jobId :: (Text -&gt; f Text) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobId"><span class="hs-identifier hs-var hs-var">jobSummary_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Text)
+-&gt; (JobSummary -&gt; Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263164"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:JobSummary' :: JobSummary -&gt; Text
+</span><a href="#local-6989586621679263164"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263164"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263163"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobSummary' :: Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The name of the job.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobName"><span class="hs-identifier hs-type">jobSummary_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="jobSummary_jobName"><span class="annot"><span class="annottext">jobSummary_jobName :: (Text -&gt; f Text) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#jobSummary_jobName"><span class="hs-identifier hs-var hs-var">jobSummary_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Text)
+-&gt; (JobSummary -&gt; Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263160"><span class="annot"><span class="annottext">Text
+jobName :: Text
+$sel:jobName:JobSummary' :: JobSummary -&gt; Text
+</span><a href="#local-6989586621679263160"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263160"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263159"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679263159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679263159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:JobSummary' :: Text
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#%24sel%3AjobName%3AJobSummary%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679263158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263155"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679263153"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JobSummary) -&gt; Value -&gt; Parser JobSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobSummary&quot;</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263150"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerSummary
+-&gt; Maybe Integer
+-&gt; Maybe JobStatus
+-&gt; Maybe ArrayPropertiesSummary
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe NodePropertiesSummary
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; JobSummary
+</span><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-var">JobSummary'</span></a></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerSummary
+ -&gt; Maybe Integer
+ -&gt; Maybe JobStatus
+ -&gt; Maybe ArrayPropertiesSummary
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe NodePropertiesSummary
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; JobSummary)
+-&gt; Parser (Maybe ContainerSummary)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe JobStatus
+      -&gt; Maybe ArrayPropertiesSummary
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;container&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe JobStatus
+   -&gt; Maybe ArrayPropertiesSummary
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe JobStatus
+      -&gt; Maybe ArrayPropertiesSummary
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobStatus
+   -&gt; Maybe ArrayPropertiesSummary
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe JobStatus)
+-&gt; Parser
+     (Maybe ArrayPropertiesSummary
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArrayPropertiesSummary
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe ArrayPropertiesSummary)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArrayPropertiesSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arrayProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe NodePropertiesSummary
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobDefinition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe NodePropertiesSummary
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe NodePropertiesSummary
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stoppedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NodePropertiesSummary
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; JobSummary)
+-&gt; Parser (Maybe NodePropertiesSummary)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NodePropertiesSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nodeProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; JobSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; JobSummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; JobSummary) -&gt; Parser Text -&gt; Parser JobSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263143"><span id="local-6989586621679263145"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Textract.Types.SelectionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Textract.Types.SelectionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus"><span class="hs-identifier">SelectionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_NOT_SELECTED"><span class="hs-identifier">SelectionStatus_NOT_SELECTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_SELECTED"><span class="hs-identifier">SelectionStatus_SELECTED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679177599"><span id="local-6989586621679177600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SelectionStatus"><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus"><span class="hs-identifier hs-var">SelectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectionStatus%27"><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus%27"><span class="hs-identifier hs-var">SelectionStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSelectionStatus"><span class="annot"><span class="annottext">SelectionStatus -&gt; Text
+</span><a href="Network.AWS.Textract.Types.SelectionStatus.html#fromSelectionStatus"><span class="hs-identifier hs-var hs-var">fromSelectionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177591"><span id="local-6989586621679177593"><span id="local-6989586621679177595"><span class="annot"><span class="annottext">Int -&gt; SelectionStatus -&gt; ShowS
+[SelectionStatus] -&gt; ShowS
+SelectionStatus -&gt; String
+(Int -&gt; SelectionStatus -&gt; ShowS)
+-&gt; (SelectionStatus -&gt; String)
+-&gt; ([SelectionStatus] -&gt; ShowS)
+-&gt; Show SelectionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SelectionStatus] -&gt; ShowS
+$cshowList :: [SelectionStatus] -&gt; ShowS
+show :: SelectionStatus -&gt; String
+$cshow :: SelectionStatus -&gt; String
+showsPrec :: Int -&gt; SelectionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SelectionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679177582"><span id="local-6989586621679177584"><span id="local-6989586621679177586"><span id="local-6989586621679177588"><span class="annot"><span class="annottext">ReadPrec [SelectionStatus]
+ReadPrec SelectionStatus
+Int -&gt; ReadS SelectionStatus
+ReadS [SelectionStatus]
+(Int -&gt; ReadS SelectionStatus)
+-&gt; ReadS [SelectionStatus]
+-&gt; ReadPrec SelectionStatus
+-&gt; ReadPrec [SelectionStatus]
+-&gt; Read SelectionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SelectionStatus]
+$creadListPrec :: ReadPrec [SelectionStatus]
+readPrec :: ReadPrec SelectionStatus
+$creadPrec :: ReadPrec SelectionStatus
+readList :: ReadS [SelectionStatus]
+$creadList :: ReadS [SelectionStatus]
+readsPrec :: Int -&gt; ReadS SelectionStatus
+$creadsPrec :: Int -&gt; ReadS SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679177577"><span id="local-6989586621679177579"><span class="annot"><span class="annottext">SelectionStatus -&gt; SelectionStatus -&gt; Bool
+(SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; Eq SelectionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c/= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+== :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c== :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679177561"><span id="local-6989586621679177563"><span id="local-6989586621679177565"><span id="local-6989586621679177567"><span id="local-6989586621679177569"><span id="local-6989586621679177571"><span id="local-6989586621679177573"><span class="annot"><span class="annottext">Eq SelectionStatus
+Eq SelectionStatus
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Ordering)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; Bool)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus)
+-&gt; (SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus)
+-&gt; Ord SelectionStatus
+SelectionStatus -&gt; SelectionStatus -&gt; Bool
+SelectionStatus -&gt; SelectionStatus -&gt; Ordering
+SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus
+$cmin :: SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus
+max :: SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus
+$cmax :: SelectionStatus -&gt; SelectionStatus -&gt; SelectionStatus
+&gt;= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c&gt;= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+&gt; :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c&gt; :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+&lt;= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c&lt;= :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+&lt; :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+$c&lt; :: SelectionStatus -&gt; SelectionStatus -&gt; Bool
+compare :: SelectionStatus -&gt; SelectionStatus -&gt; Ordering
+$ccompare :: SelectionStatus -&gt; SelectionStatus -&gt; Ordering
+$cp1Ord :: Eq SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SelectionStatus -&gt; Rep SelectionStatus x)
+-&gt; (forall x. Rep SelectionStatus x -&gt; SelectionStatus)
+-&gt; Generic SelectionStatus
+forall x. Rep SelectionStatus x -&gt; SelectionStatus
+forall x. SelectionStatus -&gt; Rep SelectionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SelectionStatus x -&gt; SelectionStatus
+$cfrom :: forall x. SelectionStatus -&gt; Rep SelectionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177553"><span id="local-6989586621679177555"><span class="annot"><span class="annottext">Int -&gt; SelectionStatus -&gt; Int
+SelectionStatus -&gt; Int
+(Int -&gt; SelectionStatus -&gt; Int)
+-&gt; (SelectionStatus -&gt; Int) -&gt; Hashable SelectionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SelectionStatus -&gt; Int
+$chash :: SelectionStatus -&gt; Int
+hashWithSalt :: Int -&gt; SelectionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SelectionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679177550"><span class="annot"><span class="annottext">SelectionStatus -&gt; ()
+(SelectionStatus -&gt; ()) -&gt; NFData SelectionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SelectionStatus -&gt; ()
+$crnf :: SelectionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177547"><span class="annot"><span class="annottext">Text -&gt; Either String SelectionStatus
+(Text -&gt; Either String SelectionStatus) -&gt; FromText SelectionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SelectionStatus
+$cfromText :: Text -&gt; Either String SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679177544"><span class="annot"><span class="annottext">SelectionStatus -&gt; Text
+(SelectionStatus -&gt; Text) -&gt; ToText SelectionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SelectionStatus -&gt; Text
+$ctoText :: SelectionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679177541"><span class="annot"><span class="annottext">SelectionStatus -&gt; ByteString
+(SelectionStatus -&gt; ByteString) -&gt; ToByteString SelectionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SelectionStatus -&gt; ByteString
+$ctoBS :: SelectionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679177538"><span class="annot"><span class="annottext">SelectionStatus -&gt; ByteStringBuilder
+(SelectionStatus -&gt; ByteStringBuilder) -&gt; ToLog SelectionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SelectionStatus -&gt; ByteStringBuilder
+$cbuild :: SelectionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679177535"><span class="annot"><span class="annottext">HeaderName -&gt; SelectionStatus -&gt; [Header]
+(HeaderName -&gt; SelectionStatus -&gt; [Header])
+-&gt; ToHeader SelectionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SelectionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SelectionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177532"><span class="annot"><span class="annottext">SelectionStatus -&gt; QueryString
+(SelectionStatus -&gt; QueryString) -&gt; ToQuery SelectionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SelectionStatus -&gt; QueryString
+$ctoQuery :: SelectionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177527"><span id="local-6989586621679177529"><span class="annot"><span class="annottext">Value -&gt; Parser [SelectionStatus]
+Value -&gt; Parser SelectionStatus
+(Value -&gt; Parser SelectionStatus)
+-&gt; (Value -&gt; Parser [SelectionStatus]) -&gt; FromJSON SelectionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SelectionStatus]
+$cparseJSONList :: Value -&gt; Parser [SelectionStatus]
+parseJSON :: Value -&gt; Parser SelectionStatus
+$cparseJSON :: Value -&gt; Parser SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177522"><span id="local-6989586621679177524"><span class="annot"><span class="annottext">FromJSONKeyFunction [SelectionStatus]
+FromJSONKeyFunction SelectionStatus
+FromJSONKeyFunction SelectionStatus
+-&gt; FromJSONKeyFunction [SelectionStatus]
+-&gt; FromJSONKey SelectionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SelectionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SelectionStatus]
+fromJSONKey :: FromJSONKeyFunction SelectionStatus
+$cfromJSONKey :: FromJSONKeyFunction SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177513"><span id="local-6989586621679177515"><span id="local-6989586621679177517"><span id="local-6989586621679177519"><span class="annot"><span class="annottext">[SelectionStatus] -&gt; Encoding
+[SelectionStatus] -&gt; Value
+SelectionStatus -&gt; Encoding
+SelectionStatus -&gt; Value
+(SelectionStatus -&gt; Value)
+-&gt; (SelectionStatus -&gt; Encoding)
+-&gt; ([SelectionStatus] -&gt; Value)
+-&gt; ([SelectionStatus] -&gt; Encoding)
+-&gt; ToJSON SelectionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SelectionStatus] -&gt; Encoding
+$ctoEncodingList :: [SelectionStatus] -&gt; Encoding
+toJSONList :: [SelectionStatus] -&gt; Value
+$ctoJSONList :: [SelectionStatus] -&gt; Value
+toEncoding :: SelectionStatus -&gt; Encoding
+$ctoEncoding :: SelectionStatus -&gt; Encoding
+toJSON :: SelectionStatus -&gt; Value
+$ctoJSON :: SelectionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177508"><span id="local-6989586621679177510"><span class="annot"><span class="annottext">ToJSONKeyFunction [SelectionStatus]
+ToJSONKeyFunction SelectionStatus
+ToJSONKeyFunction SelectionStatus
+-&gt; ToJSONKeyFunction [SelectionStatus] -&gt; ToJSONKey SelectionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SelectionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SelectionStatus]
+toJSONKey :: ToJSONKeyFunction SelectionStatus
+$ctoJSONKey :: ToJSONKeyFunction SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177505"><span class="annot"><span class="annottext">[Node] -&gt; Either String SelectionStatus
+([Node] -&gt; Either String SelectionStatus)
+-&gt; FromXML SelectionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SelectionStatus
+$cparseXML :: [Node] -&gt; Either String SelectionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177502"><span class="annot"><span class="annottext">SelectionStatus -&gt; XML
+(SelectionStatus -&gt; XML) -&gt; ToXML SelectionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SelectionStatus -&gt; XML
+$ctoXML :: SelectionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_NOT_SELECTED"><span class="hs-identifier hs-type">SelectionStatus_NOT_SELECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus"><span class="hs-identifier hs-type">SelectionStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSelectionStatus_NOT_SELECTED"><span id="%24mSelectionStatus_NOT_SELECTED"><span id="SelectionStatus_NOT_SELECTED"><span class="annot"><span class="annottext">$bSelectionStatus_NOT_SELECTED :: SelectionStatus
+$mSelectionStatus_NOT_SELECTED :: forall r. SelectionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Textract.Types.SelectionStatus.html#%24bSelectionStatus_NOT_SELECTED"><span class="hs-identifier hs-var hs-var hs-var">SelectionStatus_NOT_SELECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus%27"><span class="hs-identifier hs-type">SelectionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_SELECTED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_SELECTED"><span class="hs-identifier hs-type">SelectionStatus_SELECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus"><span class="hs-identifier hs-type">SelectionStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSelectionStatus_SELECTED"><span id="%24mSelectionStatus_SELECTED"><span id="SelectionStatus_SELECTED"><span class="annot"><span class="annottext">$bSelectionStatus_SELECTED :: SelectionStatus
+$mSelectionStatus_SELECTED :: forall r. SelectionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Textract.Types.SelectionStatus.html#%24bSelectionStatus_SELECTED"><span class="hs-identifier hs-var hs-var hs-var">SelectionStatus_SELECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus%27"><span class="hs-identifier hs-type">SelectionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SELECTED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_NOT_SELECTED"><span class="hs-pragma hs-type">SelectionStatus_NOT_SELECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus_SELECTED"><span class="hs-pragma hs-type">SelectionStatus_SELECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.SelectionStatus.html#SelectionStatus%27"><span class="hs-pragma hs-type">SelectionStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

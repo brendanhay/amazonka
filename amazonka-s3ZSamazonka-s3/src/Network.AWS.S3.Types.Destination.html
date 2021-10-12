@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.Destination</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.Destination</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html"><span class="hs-identifier">Network.AWS.S3.Types.AccessControlTranslation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.S3.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Metrics.html"><span class="hs-identifier">Network.AWS.S3.Types.Metrics</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html"><span class="hs-identifier">Network.AWS.S3.Types.ReplicationTime</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html"><span class="hs-identifier">Network.AWS.S3.Types.StorageClass</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specifies information about where to publish analysis or configuration</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- results for an Amazon S3 bucket and S3 Replication Time Control (S3</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- RTC).</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newDestination' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679553915"><span id="local-6989586621679553916"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A container that provides information about encryption. If</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @SourceSelectionCriteria@ is specified, you must specify this element.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AencryptionConfiguration%3ADestination%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A container specifying S3 Replication Time Control (S3 RTC), including</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- whether S3 RTC is enabled and the time when all objects and operations</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- on objects must be replicated. Must be specified together with a</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @Metrics@ block.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AreplicationTime%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe ReplicationTime
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AreplicationTime%3ADestination%27"><span class="hs-identifier hs-var hs-var">replicationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Specify this only in a cross-account scenario (where source and</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- destination bucket owners are not the same), and you want to change</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- replica ownership to the Amazon Web Services account that owns the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- destination bucket. If this is not specified in the replication</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- configuration, the replicas are owned by same Amazon Web Services</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- account that owns the source object.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AaccessControlTranslation%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe AccessControlTranslation
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AaccessControlTranslation%3ADestination%27"><span class="hs-identifier hs-var hs-var">accessControlTranslation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The storage class to use when replicating objects, such as S3 Standard</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- or reduced redundancy. By default, Amazon S3 uses the storage class of</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the source object to create the object replica.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For valid values, see the @StorageClass@ element of the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication&gt;</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- action in the /Amazon S3 API Reference/.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AstorageClass%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AstorageClass%3ADestination%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html#StorageClass"><span class="hs-identifier hs-type">StorageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A container specifying replication metrics-related settings enabling</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- replication metrics and events.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Ametrics%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe Metrics
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Ametrics%3ADestination%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Destination bucket owner account ID. In a cross-account scenario, if you</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- direct Amazon S3 to change replica ownership to the Amazon Web Services</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- account that owns the destination bucket by specifying the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @AccessControlTranslation@ property, this is the account ID of the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- destination bucket owner. For more information, see</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner&gt;</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aaccount%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Aaccount%3ADestination%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- store the results.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Abucket%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; BucketName
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Abucket%3ADestination%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553903"><span id="local-6989586621679553905"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
+(Destination -&gt; Destination -&gt; Bool)
+-&gt; (Destination -&gt; Destination -&gt; Bool) -&gt; Eq Destination
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Destination -&gt; Destination -&gt; Bool
+$c/= :: Destination -&gt; Destination -&gt; Bool
+== :: Destination -&gt; Destination -&gt; Bool
+$c== :: Destination -&gt; Destination -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553894"><span id="local-6989586621679553896"><span id="local-6989586621679553898"><span id="local-6989586621679553900"><span class="annot"><span class="annottext">ReadPrec [Destination]
+ReadPrec Destination
+Int -&gt; ReadS Destination
+ReadS [Destination]
+(Int -&gt; ReadS Destination)
+-&gt; ReadS [Destination]
+-&gt; ReadPrec Destination
+-&gt; ReadPrec [Destination]
+-&gt; Read Destination
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Destination]
+$creadListPrec :: ReadPrec [Destination]
+readPrec :: ReadPrec Destination
+$creadPrec :: ReadPrec Destination
+readList :: ReadS [Destination]
+$creadList :: ReadS [Destination]
+readsPrec :: Int -&gt; ReadS Destination
+$creadsPrec :: Int -&gt; ReadS Destination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553887"><span id="local-6989586621679553889"><span id="local-6989586621679553891"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
+[Destination] -&gt; ShowS
+Destination -&gt; String
+(Int -&gt; Destination -&gt; ShowS)
+-&gt; (Destination -&gt; String)
+-&gt; ([Destination] -&gt; ShowS)
+-&gt; Show Destination
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Destination] -&gt; ShowS
+$cshowList :: [Destination] -&gt; ShowS
+show :: Destination -&gt; String
+$cshow :: Destination -&gt; String
+showsPrec :: Int -&gt; Destination -&gt; ShowS
+$cshowsPrec :: Int -&gt; Destination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Destination -&gt; Rep Destination x)
+-&gt; (forall x. Rep Destination x -&gt; Destination)
+-&gt; Generic Destination
+forall x. Rep Destination x -&gt; Destination
+forall x. Destination -&gt; Rep Destination x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Destination x -&gt; Destination
+$cfrom :: forall x. Destination -&gt; Rep Destination x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'Destination' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'encryptionConfiguration', 'destination_encryptionConfiguration' - A container that provides information about encryption. If</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @SourceSelectionCriteria@ is specified, you must specify this element.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'replicationTime', 'destination_replicationTime' - A container specifying S3 Replication Time Control (S3 RTC), including</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- whether S3 RTC is enabled and the time when all objects and operations</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- on objects must be replicated. Must be specified together with a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @Metrics@ block.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'accessControlTranslation', 'destination_accessControlTranslation' - Specify this only in a cross-account scenario (where source and</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- destination bucket owners are not the same), and you want to change</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- replica ownership to the Amazon Web Services account that owns the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- destination bucket. If this is not specified in the replication</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- configuration, the replicas are owned by same Amazon Web Services</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- account that owns the source object.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'storageClass', 'destination_storageClass' - The storage class to use when replicating objects, such as S3 Standard</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- or reduced redundancy. By default, Amazon S3 uses the storage class of</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the source object to create the object replica.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- For valid values, see the @StorageClass@ element of the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication&gt;</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- action in the /Amazon S3 API Reference/.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'metrics', 'destination_metrics' - A container specifying replication metrics-related settings enabling</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- replication metrics and events.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'account', 'destination_account' - Destination bucket owner account ID. In a cross-account scenario, if you</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- direct Amazon S3 to change replica ownership to the Amazon Web Services</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- account that owns the destination bucket by specifying the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @AccessControlTranslation@ property, this is the account ID of the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- destination bucket owner. For more information, see</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner&gt;</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'bucket', 'destination_bucket' - The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- store the results.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#newDestination"><span class="hs-identifier hs-type">newDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
+</span><span id="line-126"></span><span id="newDestination"><span class="annot"><span class="annottext">newDestination :: BucketName -&gt; Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#newDestination"><span class="hs-identifier hs-var hs-var">newDestination</span></a></span></span><span> </span><span id="local-6989586621679553881"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553881"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">Destination' :: Maybe EncryptionConfiguration
+-&gt; Maybe ReplicationTime
+-&gt; Maybe AccessControlTranslation
+-&gt; Maybe StorageClass
+-&gt; Maybe Metrics
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Destination' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AencryptionConfiguration%3ADestination%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTime:Destination' :: Maybe ReplicationTime
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AreplicationTime%3ADestination%27"><span class="hs-identifier hs-var">replicationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTime
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessControlTranslation:Destination' :: Maybe AccessControlTranslation
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AaccessControlTranslation%3ADestination%27"><span class="hs-identifier hs-var">accessControlTranslation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageClass:Destination' :: Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AstorageClass%3ADestination%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:metrics:Destination' :: Maybe Metrics
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Ametrics%3ADestination%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:Destination' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Aaccount%3ADestination%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:Destination' :: BucketName
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Abucket%3ADestination%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553881"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | A container that provides information about encryption. If</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @SourceSelectionCriteria@ is specified, you must specify this element.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_encryptionConfiguration"><span class="hs-identifier hs-type">destination_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="destination_encryptionConfiguration"><span class="annot"><span class="annottext">destination_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">destination_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe EncryptionConfiguration)
+-&gt; (Destination -&gt; Maybe EncryptionConfiguration -&gt; Destination)
+-&gt; Lens
+     Destination
+     Destination
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553877"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:Destination' :: Destination -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553877"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553877"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553876"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553875"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Destination' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AencryptionConfiguration%3ADestination%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A container specifying S3 Replication Time Control (S3 RTC), including</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- whether S3 RTC is enabled and the time when all objects and operations</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- on objects must be replicated. Must be specified together with a</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @Metrics@ block.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_replicationTime"><span class="hs-identifier hs-type">destination_replicationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationTime.html#ReplicationTime"><span class="hs-identifier hs-type">ReplicationTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="destination_replicationTime"><span class="annot"><span class="annottext">destination_replicationTime :: (Maybe ReplicationTime -&gt; f (Maybe ReplicationTime))
+-&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_replicationTime"><span class="hs-identifier hs-var hs-var">destination_replicationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe ReplicationTime)
+-&gt; (Destination -&gt; Maybe ReplicationTime -&gt; Destination)
+-&gt; Lens
+     Destination
+     Destination
+     (Maybe ReplicationTime)
+     (Maybe ReplicationTime)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553873"><span class="annot"><span class="annottext">Maybe ReplicationTime
+replicationTime :: Maybe ReplicationTime
+$sel:replicationTime:Destination' :: Destination -&gt; Maybe ReplicationTime
+</span><a href="#local-6989586621679553873"><span class="hs-identifier hs-var hs-var">replicationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTime
+</span><a href="#local-6989586621679553873"><span class="hs-identifier hs-var">replicationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553872"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553871"><span class="annot"><span class="annottext">Maybe ReplicationTime
+</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTime:Destination' :: Maybe ReplicationTime
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AreplicationTime%3ADestination%27"><span class="hs-identifier hs-var">replicationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTime
+</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Specify this only in a cross-account scenario (where source and</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- destination bucket owners are not the same), and you want to change</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- replica ownership to the Amazon Web Services account that owns the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- destination bucket. If this is not specified in the replication</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- configuration, the replicas are owned by same Amazon Web Services</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- account that owns the source object.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_accessControlTranslation"><span class="hs-identifier hs-type">destination_accessControlTranslation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlTranslation.html#AccessControlTranslation"><span class="hs-identifier hs-type">AccessControlTranslation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="destination_accessControlTranslation"><span class="annot"><span class="annottext">destination_accessControlTranslation :: (Maybe AccessControlTranslation
+ -&gt; f (Maybe AccessControlTranslation))
+-&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_accessControlTranslation"><span class="hs-identifier hs-var hs-var">destination_accessControlTranslation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe AccessControlTranslation)
+-&gt; (Destination -&gt; Maybe AccessControlTranslation -&gt; Destination)
+-&gt; Lens
+     Destination
+     Destination
+     (Maybe AccessControlTranslation)
+     (Maybe AccessControlTranslation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553869"><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+accessControlTranslation :: Maybe AccessControlTranslation
+$sel:accessControlTranslation:Destination' :: Destination -&gt; Maybe AccessControlTranslation
+</span><a href="#local-6989586621679553869"><span class="hs-identifier hs-var hs-var">accessControlTranslation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+</span><a href="#local-6989586621679553869"><span class="hs-identifier hs-var">accessControlTranslation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553868"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553867"><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+</span><a href="#local-6989586621679553867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessControlTranslation:Destination' :: Maybe AccessControlTranslation
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AaccessControlTranslation%3ADestination%27"><span class="hs-identifier hs-var">accessControlTranslation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+</span><a href="#local-6989586621679553867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The storage class to use when replicating objects, such as S3 Standard</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- or reduced redundancy. By default, Amazon S3 uses the storage class of</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the source object to create the object replica.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- For valid values, see the @StorageClass@ element of the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication&gt;</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- action in the /Amazon S3 API Reference/.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_storageClass"><span class="hs-identifier hs-type">destination_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClass.html#StorageClass"><span class="hs-identifier hs-type">StorageClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="destination_storageClass"><span class="annot"><span class="annottext">destination_storageClass :: (Maybe StorageClass -&gt; f (Maybe StorageClass))
+-&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_storageClass"><span class="hs-identifier hs-var hs-var">destination_storageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe StorageClass)
+-&gt; (Destination -&gt; Maybe StorageClass -&gt; Destination)
+-&gt; Lens
+     Destination Destination (Maybe StorageClass) (Maybe StorageClass)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553865"><span class="annot"><span class="annottext">Maybe StorageClass
+storageClass :: Maybe StorageClass
+$sel:storageClass:Destination' :: Destination -&gt; Maybe StorageClass
+</span><a href="#local-6989586621679553865"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553865"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553864"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553863"><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Destination' :: Maybe StorageClass
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3AstorageClass%3ADestination%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A container specifying replication metrics-related settings enabling</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- replication metrics and events.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_metrics"><span class="hs-identifier hs-type">destination_metrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Metrics.html#Metrics"><span class="hs-identifier hs-type">Metrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="destination_metrics"><span class="annot"><span class="annottext">destination_metrics :: (Maybe Metrics -&gt; f (Maybe Metrics))
+-&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_metrics"><span class="hs-identifier hs-var hs-var">destination_metrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe Metrics)
+-&gt; (Destination -&gt; Maybe Metrics -&gt; Destination)
+-&gt; Lens Destination Destination (Maybe Metrics) (Maybe Metrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553861"><span class="annot"><span class="annottext">Maybe Metrics
+metrics :: Maybe Metrics
+$sel:metrics:Destination' :: Destination -&gt; Maybe Metrics
+</span><a href="#local-6989586621679553861"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679553861"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553860"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553859"><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679553859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:Destination' :: Maybe Metrics
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Ametrics%3ADestination%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679553859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Destination bucket owner account ID. In a cross-account scenario, if you</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- direct Amazon S3 to change replica ownership to the Amazon Web Services</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- account that owns the destination bucket by specifying the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- @AccessControlTranslation@ property, this is the account ID of the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- destination bucket owner. For more information, see</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_account"><span class="hs-identifier hs-type">destination_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="destination_account"><span class="annot"><span class="annottext">destination_account :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_account"><span class="hs-identifier hs-var hs-var">destination_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe Text)
+-&gt; (Destination -&gt; Maybe Text -&gt; Destination)
+-&gt; Lens Destination Destination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553857"><span class="annot"><span class="annottext">Maybe Text
+account :: Maybe Text
+$sel:account:Destination' :: Destination -&gt; Maybe Text
+</span><a href="#local-6989586621679553857"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553857"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553856"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:Destination' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Aaccount%3ADestination%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- store the results.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#destination_bucket"><span class="hs-identifier hs-type">destination_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-187"></span><span id="destination_bucket"><span class="annot"><span class="annottext">destination_bucket :: (BucketName -&gt; f BucketName) -&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#destination_bucket"><span class="hs-identifier hs-var hs-var">destination_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; BucketName)
+-&gt; (Destination -&gt; BucketName -&gt; Destination)
+-&gt; Lens Destination Destination BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553853"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:Destination' :: Destination -&gt; BucketName
+</span><a href="#local-6989586621679553853"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553853"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553852"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679553852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553851"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679553852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:Destination' :: BucketName
+</span><a href="Network.AWS.S3.Types.Destination.html#%24sel%3Abucket%3ADestination%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679553848"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Destination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553846"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+-&gt; Maybe ReplicationTime
+-&gt; Maybe AccessControlTranslation
+-&gt; Maybe StorageClass
+-&gt; Maybe Metrics
+-&gt; Maybe Text
+-&gt; BucketName
+-&gt; Destination
+</span><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">(Maybe EncryptionConfiguration
+ -&gt; Maybe ReplicationTime
+ -&gt; Maybe AccessControlTranslation
+ -&gt; Maybe StorageClass
+ -&gt; Maybe Metrics
+ -&gt; Maybe Text
+ -&gt; BucketName
+ -&gt; Destination)
+-&gt; Either String (Maybe EncryptionConfiguration)
+-&gt; Either
+     String
+     (Maybe ReplicationTime
+      -&gt; Maybe AccessControlTranslation
+      -&gt; Maybe StorageClass
+      -&gt; Maybe Metrics
+      -&gt; Maybe Text
+      -&gt; BucketName
+      -&gt; Destination)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EncryptionConfiguration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReplicationTime
+   -&gt; Maybe AccessControlTranslation
+   -&gt; Maybe StorageClass
+   -&gt; Maybe Metrics
+   -&gt; Maybe Text
+   -&gt; BucketName
+   -&gt; Destination)
+-&gt; Either String (Maybe ReplicationTime)
+-&gt; Either
+     String
+     (Maybe AccessControlTranslation
+      -&gt; Maybe StorageClass
+      -&gt; Maybe Metrics
+      -&gt; Maybe Text
+      -&gt; BucketName
+      -&gt; Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationTime)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AccessControlTranslation
+   -&gt; Maybe StorageClass
+   -&gt; Maybe Metrics
+   -&gt; Maybe Text
+   -&gt; BucketName
+   -&gt; Destination)
+-&gt; Either String (Maybe AccessControlTranslation)
+-&gt; Either
+     String
+     (Maybe StorageClass
+      -&gt; Maybe Metrics -&gt; Maybe Text -&gt; BucketName -&gt; Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AccessControlTranslation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessControlTranslation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StorageClass
+   -&gt; Maybe Metrics -&gt; Maybe Text -&gt; BucketName -&gt; Destination)
+-&gt; Either String (Maybe StorageClass)
+-&gt; Either
+     String (Maybe Metrics -&gt; Maybe Text -&gt; BucketName -&gt; Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StorageClass)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Metrics -&gt; Maybe Text -&gt; BucketName -&gt; Destination)
+-&gt; Either String (Maybe Metrics)
+-&gt; Either String (Maybe Text -&gt; BucketName -&gt; Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Metrics)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; BucketName -&gt; Destination)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (BucketName -&gt; Destination)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">Either String (BucketName -&gt; Destination)
+-&gt; Either String BucketName -&gt; Either String Destination
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BucketName
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553839"><span id="local-6989586621679553841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679553832"><span class="annot"><span class="annottext">toXML :: Destination -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553824"><span id="local-6989586621679553825"><span id="local-6989586621679553826"><span id="local-6989586621679553827"><span id="local-6989586621679553828"><span id="local-6989586621679553829"><span id="local-6989586621679553830"><span class="annot"><span class="annottext">Maybe Text
+Maybe EncryptionConfiguration
+Maybe AccessControlTranslation
+Maybe ReplicationTime
+Maybe Metrics
+Maybe StorageClass
+BucketName
+bucket :: BucketName
+account :: Maybe Text
+metrics :: Maybe Metrics
+storageClass :: Maybe StorageClass
+accessControlTranslation :: Maybe AccessControlTranslation
+replicationTime :: Maybe ReplicationTime
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:bucket:Destination' :: Destination -&gt; BucketName
+$sel:account:Destination' :: Destination -&gt; Maybe Text
+$sel:metrics:Destination' :: Destination -&gt; Maybe Metrics
+$sel:storageClass:Destination' :: Destination -&gt; Maybe StorageClass
+$sel:accessControlTranslation:Destination' :: Destination -&gt; Maybe AccessControlTranslation
+$sel:replicationTime:Destination' :: Destination -&gt; Maybe ReplicationTime
+$sel:encryptionConfiguration:Destination' :: Destination -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe EncryptionConfiguration -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679553830"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ReplicationTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ReplicationTime -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTime
+</span><a href="#local-6989586621679553829"><span class="hs-identifier hs-var">replicationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;AccessControlTranslation&quot;</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe AccessControlTranslation -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlTranslation
+</span><a href="#local-6989586621679553828"><span class="hs-identifier hs-var">accessControlTranslation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe StorageClass -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe StorageClass
+</span><a href="#local-6989586621679553827"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Metrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Metrics -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Metrics
+</span><a href="#local-6989586621679553826"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Account&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679553825"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; BucketName -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679553824"><span class="hs-identifier hs-var">bucket</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span></pre></body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Rekognition.Types.AgeRange</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Rekognition.Types.AgeRange</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Structure containing the estimated age range, in years, for a face.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Amazon Rekognition estimates an age range for faces detected in the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- input image. Estimated age ranges can overlap. A face of a 5-year-old</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- might have an estimated range of 4-6, while the face of a 6-year-old</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- might have an estimated range of 4-8.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAgeRange' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679321273"><span id="local-6989586621679321274"></span></span><span class="hs-keyword">data</span><span> </span><span id="AgeRange"><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-var">AgeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgeRange%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-var">AgeRange'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The highest estimated age.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ahigh%3AAgeRange%27"><span class="annot"><span class="annottext">AgeRange -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Ahigh%3AAgeRange%27"><span class="hs-identifier hs-var hs-var">high</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The lowest estimated age.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Alow%3AAgeRange%27"><span class="annot"><span class="annottext">AgeRange -&gt; Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Alow%3AAgeRange%27"><span class="hs-identifier hs-var hs-var">low</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321266"><span id="local-6989586621679321268"><span class="annot"><span class="annottext">AgeRange -&gt; AgeRange -&gt; Bool
+(AgeRange -&gt; AgeRange -&gt; Bool)
+-&gt; (AgeRange -&gt; AgeRange -&gt; Bool) -&gt; Eq AgeRange
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AgeRange -&gt; AgeRange -&gt; Bool
+$c/= :: AgeRange -&gt; AgeRange -&gt; Bool
+== :: AgeRange -&gt; AgeRange -&gt; Bool
+$c== :: AgeRange -&gt; AgeRange -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321257"><span id="local-6989586621679321259"><span id="local-6989586621679321261"><span id="local-6989586621679321263"><span class="annot"><span class="annottext">ReadPrec [AgeRange]
+ReadPrec AgeRange
+Int -&gt; ReadS AgeRange
+ReadS [AgeRange]
+(Int -&gt; ReadS AgeRange)
+-&gt; ReadS [AgeRange]
+-&gt; ReadPrec AgeRange
+-&gt; ReadPrec [AgeRange]
+-&gt; Read AgeRange
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AgeRange]
+$creadListPrec :: ReadPrec [AgeRange]
+readPrec :: ReadPrec AgeRange
+$creadPrec :: ReadPrec AgeRange
+readList :: ReadS [AgeRange]
+$creadList :: ReadS [AgeRange]
+readsPrec :: Int -&gt; ReadS AgeRange
+$creadsPrec :: Int -&gt; ReadS AgeRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321250"><span id="local-6989586621679321252"><span id="local-6989586621679321254"><span class="annot"><span class="annottext">Int -&gt; AgeRange -&gt; ShowS
+[AgeRange] -&gt; ShowS
+AgeRange -&gt; String
+(Int -&gt; AgeRange -&gt; ShowS)
+-&gt; (AgeRange -&gt; String) -&gt; ([AgeRange] -&gt; ShowS) -&gt; Show AgeRange
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AgeRange] -&gt; ShowS
+$cshowList :: [AgeRange] -&gt; ShowS
+show :: AgeRange -&gt; String
+$cshow :: AgeRange -&gt; String
+showsPrec :: Int -&gt; AgeRange -&gt; ShowS
+$cshowsPrec :: Int -&gt; AgeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AgeRange -&gt; Rep AgeRange x)
+-&gt; (forall x. Rep AgeRange x -&gt; AgeRange) -&gt; Generic AgeRange
+forall x. Rep AgeRange x -&gt; AgeRange
+forall x. AgeRange -&gt; Rep AgeRange x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AgeRange x -&gt; AgeRange
+$cfrom :: forall x. AgeRange -&gt; Rep AgeRange x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'AgeRange' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'high', 'ageRange_high' - The highest estimated age.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'low', 'ageRange_low' - The lowest estimated age.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#newAgeRange"><span class="hs-identifier hs-type">newAgeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span><span>
+</span><span id="line-55"></span><span id="newAgeRange"><span class="annot"><span class="annottext">newAgeRange :: AgeRange
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#newAgeRange"><span class="hs-identifier hs-var hs-var">newAgeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AgeRange' :: Maybe Natural -&gt; Maybe Natural -&gt; AgeRange
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-type">AgeRange'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:high:AgeRange' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Ahigh%3AAgeRange%27"><span class="hs-identifier hs-var">high</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:low:AgeRange' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Alow%3AAgeRange%27"><span class="hs-identifier hs-var">low</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The highest estimated age.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#ageRange_high"><span class="hs-identifier hs-type">ageRange_high</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="ageRange_high"><span class="annot"><span class="annottext">ageRange_high :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; AgeRange -&gt; f AgeRange
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#ageRange_high"><span class="hs-identifier hs-var hs-var">ageRange_high</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AgeRange -&gt; Maybe Natural)
+-&gt; (AgeRange -&gt; Maybe Natural -&gt; AgeRange)
+-&gt; Lens AgeRange AgeRange (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-type">AgeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321241"><span class="annot"><span class="annottext">Maybe Natural
+high :: Maybe Natural
+$sel:high:AgeRange' :: AgeRange -&gt; Maybe Natural
+</span><a href="#local-6989586621679321241"><span class="hs-identifier hs-var hs-var">high</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321241"><span class="hs-identifier hs-var">high</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321240"><span class="annot"><span class="annottext">s :: AgeRange
+</span><a href="#local-6989586621679321240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-type">AgeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321239"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgeRange
+</span><a href="#local-6989586621679321240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:high:AgeRange' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Ahigh%3AAgeRange%27"><span class="hs-identifier hs-var">high</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The lowest estimated age.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#ageRange_low"><span class="hs-identifier hs-type">ageRange_low</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="ageRange_low"><span class="annot"><span class="annottext">ageRange_low :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; AgeRange -&gt; f AgeRange
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#ageRange_low"><span class="hs-identifier hs-var hs-var">ageRange_low</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AgeRange -&gt; Maybe Natural)
+-&gt; (AgeRange -&gt; Maybe Natural -&gt; AgeRange)
+-&gt; Lens AgeRange AgeRange (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-type">AgeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321237"><span class="annot"><span class="annottext">Maybe Natural
+low :: Maybe Natural
+$sel:low:AgeRange' :: AgeRange -&gt; Maybe Natural
+</span><a href="#local-6989586621679321237"><span class="hs-identifier hs-var hs-var">low</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321237"><span class="hs-identifier hs-var">low</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321236"><span class="annot"><span class="annottext">s :: AgeRange
+</span><a href="#local-6989586621679321236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-type">AgeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321235"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgeRange
+</span><a href="#local-6989586621679321236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:low:AgeRange' :: Maybe Natural
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#%24sel%3Alow%3AAgeRange%27"><span class="hs-identifier hs-var">low</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679321235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321232"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679321230"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AgeRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser AgeRange) -&gt; Value -&gt; Parser AgeRange
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AgeRange&quot;</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; AgeRange
+</span><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange%27"><span class="hs-identifier hs-var">AgeRange'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; AgeRange)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; AgeRange)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;High&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; AgeRange)
+-&gt; Parser (Maybe Natural) -&gt; Parser AgeRange
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Low&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321221"><span id="local-6989586621679321223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.AgeRange.html#AgeRange"><span class="hs-identifier hs-type">AgeRange</span></a></span></span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudSearch.BuildSuggesters</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Indexes the search suggestions. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the /Amazon CloudSearch Developer Guide/.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudSearch.BuildSuggesters</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier">BuildSuggesters</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggesters"><span class="hs-identifier">newBuildSuggesters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggesters_domainName"><span class="hs-identifier">buildSuggesters_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier">BuildSuggestersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggestersResponse"><span class="hs-identifier">newBuildSuggestersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_fieldNames"><span class="hs-identifier">buildSuggestersResponse_fieldNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_httpStatus"><span class="hs-identifier">buildSuggestersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.html"><span class="hs-identifier">Network.AWS.CloudSearch.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Container for the parameters to the @BuildSuggester@ operation.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Specifies the name of the domain you want to update.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newBuildSuggesters' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679215923"><span id="local-6989586621679215924"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildSuggesters"><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-var">BuildSuggesters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildSuggesters%27"><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters%27"><span class="hs-identifier hs-var">BuildSuggesters'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainName%3ABuildSuggesters%27"><span class="annot"><span class="annottext">BuildSuggesters -&gt; Text
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AdomainName%3ABuildSuggesters%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215917"><span id="local-6989586621679215919"><span class="annot"><span class="annottext">BuildSuggesters -&gt; BuildSuggesters -&gt; Bool
+(BuildSuggesters -&gt; BuildSuggesters -&gt; Bool)
+-&gt; (BuildSuggesters -&gt; BuildSuggesters -&gt; Bool)
+-&gt; Eq BuildSuggesters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BuildSuggesters -&gt; BuildSuggesters -&gt; Bool
+$c/= :: BuildSuggesters -&gt; BuildSuggesters -&gt; Bool
+== :: BuildSuggesters -&gt; BuildSuggesters -&gt; Bool
+$c== :: BuildSuggesters -&gt; BuildSuggesters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215908"><span id="local-6989586621679215910"><span id="local-6989586621679215912"><span id="local-6989586621679215914"><span class="annot"><span class="annottext">ReadPrec [BuildSuggesters]
+ReadPrec BuildSuggesters
+Int -&gt; ReadS BuildSuggesters
+ReadS [BuildSuggesters]
+(Int -&gt; ReadS BuildSuggesters)
+-&gt; ReadS [BuildSuggesters]
+-&gt; ReadPrec BuildSuggesters
+-&gt; ReadPrec [BuildSuggesters]
+-&gt; Read BuildSuggesters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BuildSuggesters]
+$creadListPrec :: ReadPrec [BuildSuggesters]
+readPrec :: ReadPrec BuildSuggesters
+$creadPrec :: ReadPrec BuildSuggesters
+readList :: ReadS [BuildSuggesters]
+$creadList :: ReadS [BuildSuggesters]
+readsPrec :: Int -&gt; ReadS BuildSuggesters
+$creadsPrec :: Int -&gt; ReadS BuildSuggesters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215901"><span id="local-6989586621679215903"><span id="local-6989586621679215905"><span class="annot"><span class="annottext">Int -&gt; BuildSuggesters -&gt; ShowS
+[BuildSuggesters] -&gt; ShowS
+BuildSuggesters -&gt; String
+(Int -&gt; BuildSuggesters -&gt; ShowS)
+-&gt; (BuildSuggesters -&gt; String)
+-&gt; ([BuildSuggesters] -&gt; ShowS)
+-&gt; Show BuildSuggesters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BuildSuggesters] -&gt; ShowS
+$cshowList :: [BuildSuggesters] -&gt; ShowS
+show :: BuildSuggesters -&gt; String
+$cshow :: BuildSuggesters -&gt; String
+showsPrec :: Int -&gt; BuildSuggesters -&gt; ShowS
+$cshowsPrec :: Int -&gt; BuildSuggesters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BuildSuggesters -&gt; Rep BuildSuggesters x)
+-&gt; (forall x. Rep BuildSuggesters x -&gt; BuildSuggesters)
+-&gt; Generic BuildSuggesters
+forall x. Rep BuildSuggesters x -&gt; BuildSuggesters
+forall x. BuildSuggesters -&gt; Rep BuildSuggesters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BuildSuggesters x -&gt; BuildSuggesters
+$cfrom :: forall x. BuildSuggesters -&gt; Rep BuildSuggesters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'BuildSuggesters' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'domainName', 'buildSuggesters_domainName' - Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggesters"><span class="hs-identifier hs-type">newBuildSuggesters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span>
+</span><span id="line-73"></span><span id="newBuildSuggesters"><span class="annot"><span class="annottext">newBuildSuggesters :: Text -&gt; BuildSuggesters
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggesters"><span class="hs-identifier hs-var hs-var">newBuildSuggesters</span></a></span></span><span> </span><span id="local-6989586621679215896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215896"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">BuildSuggesters' :: Text -&gt; BuildSuggesters
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters%27"><span class="hs-identifier hs-type">BuildSuggesters'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BuildSuggesters' :: Text
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AdomainName%3ABuildSuggesters%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215896"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggesters_domainName"><span class="hs-identifier hs-type">buildSuggesters_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="buildSuggesters_domainName"><span class="annot"><span class="annottext">buildSuggesters_domainName :: (Text -&gt; f Text) -&gt; BuildSuggesters -&gt; f BuildSuggesters
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggesters_domainName"><span class="hs-identifier hs-var hs-var">buildSuggesters_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSuggesters -&gt; Text)
+-&gt; (BuildSuggesters -&gt; Text -&gt; BuildSuggesters)
+-&gt; Lens BuildSuggesters BuildSuggesters Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters%27"><span class="hs-identifier hs-type">BuildSuggesters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215893"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:BuildSuggesters' :: BuildSuggesters -&gt; Text
+</span><a href="#local-6989586621679215893"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215893"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215892"><span class="annot"><span class="annottext">s :: BuildSuggesters
+</span><a href="#local-6989586621679215892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters%27"><span class="hs-identifier hs-type">BuildSuggesters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSuggesters
+</span><a href="#local-6989586621679215892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BuildSuggesters' :: Text
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AdomainName%3ABuildSuggesters%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679215887"><span class="annot"><span class="annottext">request :: BuildSuggesters -&gt; Request BuildSuggesters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BuildSuggesters -&gt; Request BuildSuggesters
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679215883"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BuildSuggesters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BuildSuggesters)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse BuildSuggesters))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BuildSuggesters
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BuildSuggesters)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BuildSuggestersResult&quot;</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215880"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215879"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215879"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215878"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679215878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; BuildSuggestersResponse
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-var">BuildSuggestersResponse'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; BuildSuggestersResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; BuildSuggestersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679215878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FieldNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BuildSuggestersResponse)
+-&gt; Either String Int -&gt; Either String BuildSuggestersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215880"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215867"><span id="local-6989586621679215869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679215860"><span class="annot"><span class="annottext">toHeaders :: BuildSuggesters -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BuildSuggesters -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679215855"><span class="annot"><span class="annottext">toPath :: BuildSuggesters -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BuildSuggesters -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters"><span class="hs-identifier hs-type">BuildSuggesters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679215851"><span class="annot"><span class="annottext">toQuery :: BuildSuggesters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggesters%27"><span class="hs-identifier hs-type">BuildSuggesters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215849"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:BuildSuggesters' :: BuildSuggesters -&gt; Text
+</span><a href="#local-6989586621679215849"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BuildSuggesters&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2013-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215849"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The result of a @BuildSuggester@ request. Contains a list of the fields</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- used for suggestions.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newBuildSuggestersResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679215846"><span id="local-6989586621679215847"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildSuggestersResponse"><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-var">BuildSuggestersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildSuggestersResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-var">BuildSuggestersResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AfieldNames%3ABuildSuggestersResponse%27"><span class="annot"><span class="annottext">BuildSuggestersResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AfieldNames%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var hs-var">fieldNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABuildSuggestersResponse%27"><span class="annot"><span class="annottext">BuildSuggestersResponse -&gt; Int
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AhttpStatus%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215840"><span id="local-6989586621679215842"><span class="annot"><span class="annottext">BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool
+(BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool)
+-&gt; (BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool)
+-&gt; Eq BuildSuggestersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool
+$c/= :: BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool
+== :: BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool
+$c== :: BuildSuggestersResponse -&gt; BuildSuggestersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215832"><span id="local-6989586621679215834"><span id="local-6989586621679215836"><span id="local-6989586621679215838"><span class="annot"><span class="annottext">ReadPrec [BuildSuggestersResponse]
+ReadPrec BuildSuggestersResponse
+Int -&gt; ReadS BuildSuggestersResponse
+ReadS [BuildSuggestersResponse]
+(Int -&gt; ReadS BuildSuggestersResponse)
+-&gt; ReadS [BuildSuggestersResponse]
+-&gt; ReadPrec BuildSuggestersResponse
+-&gt; ReadPrec [BuildSuggestersResponse]
+-&gt; Read BuildSuggestersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BuildSuggestersResponse]
+$creadListPrec :: ReadPrec [BuildSuggestersResponse]
+readPrec :: ReadPrec BuildSuggestersResponse
+$creadPrec :: ReadPrec BuildSuggestersResponse
+readList :: ReadS [BuildSuggestersResponse]
+$creadList :: ReadS [BuildSuggestersResponse]
+readsPrec :: Int -&gt; ReadS BuildSuggestersResponse
+$creadsPrec :: Int -&gt; ReadS BuildSuggestersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215826"><span id="local-6989586621679215828"><span id="local-6989586621679215830"><span class="annot"><span class="annottext">Int -&gt; BuildSuggestersResponse -&gt; ShowS
+[BuildSuggestersResponse] -&gt; ShowS
+BuildSuggestersResponse -&gt; String
+(Int -&gt; BuildSuggestersResponse -&gt; ShowS)
+-&gt; (BuildSuggestersResponse -&gt; String)
+-&gt; ([BuildSuggestersResponse] -&gt; ShowS)
+-&gt; Show BuildSuggestersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BuildSuggestersResponse] -&gt; ShowS
+$cshowList :: [BuildSuggestersResponse] -&gt; ShowS
+show :: BuildSuggestersResponse -&gt; String
+$cshow :: BuildSuggestersResponse -&gt; String
+showsPrec :: Int -&gt; BuildSuggestersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BuildSuggestersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BuildSuggestersResponse -&gt; Rep BuildSuggestersResponse x)
+-&gt; (forall x.
+    Rep BuildSuggestersResponse x -&gt; BuildSuggestersResponse)
+-&gt; Generic BuildSuggestersResponse
+forall x. Rep BuildSuggestersResponse x -&gt; BuildSuggestersResponse
+forall x. BuildSuggestersResponse -&gt; Rep BuildSuggestersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BuildSuggestersResponse x -&gt; BuildSuggestersResponse
+$cfrom :: forall x. BuildSuggestersResponse -&gt; Rep BuildSuggestersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'BuildSuggestersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'fieldNames', 'buildSuggestersResponse_fieldNames' - Undocumented member.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'buildSuggestersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggestersResponse"><span class="hs-identifier hs-type">newBuildSuggestersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newBuildSuggestersResponse"><span class="annot"><span class="annottext">newBuildSuggestersResponse :: Int -&gt; BuildSuggestersResponse
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#newBuildSuggestersResponse"><span class="hs-identifier hs-var hs-var">newBuildSuggestersResponse</span></a></span></span><span> </span><span id="local-6989586621679215823"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215823"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">BuildSuggestersResponse' :: Maybe [Text] -&gt; Int -&gt; BuildSuggestersResponse
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-type">BuildSuggestersResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fieldNames:BuildSuggestersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AfieldNames%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var">fieldNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BuildSuggestersResponse' :: Int
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AhttpStatus%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215823"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_fieldNames"><span class="hs-identifier hs-type">buildSuggestersResponse_fieldNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="buildSuggestersResponse_fieldNames"><span class="annot"><span class="annottext">buildSuggestersResponse_fieldNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BuildSuggestersResponse -&gt; f BuildSuggestersResponse
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_fieldNames"><span class="hs-identifier hs-var hs-var">buildSuggestersResponse_fieldNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSuggestersResponse -&gt; Maybe [Text])
+-&gt; (BuildSuggestersResponse
+    -&gt; Maybe [Text] -&gt; BuildSuggestersResponse)
+-&gt; Lens
+     BuildSuggestersResponse
+     BuildSuggestersResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-type">BuildSuggestersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215822"><span class="annot"><span class="annottext">Maybe [Text]
+fieldNames :: Maybe [Text]
+$sel:fieldNames:BuildSuggestersResponse' :: BuildSuggestersResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679215822"><span class="hs-identifier hs-var hs-var">fieldNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679215822"><span class="hs-identifier hs-var">fieldNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215821"><span class="annot"><span class="annottext">s :: BuildSuggestersResponse
+</span><a href="#local-6989586621679215821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-type">BuildSuggestersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215820"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679215820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSuggestersResponse
+</span><a href="#local-6989586621679215821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldNames:BuildSuggestersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AfieldNames%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var">fieldNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679215820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; BuildSuggestersResponse -&gt; f BuildSuggestersResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BuildSuggestersResponse
+-&gt; f BuildSuggestersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_httpStatus"><span class="hs-identifier hs-type">buildSuggestersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="buildSuggestersResponse_httpStatus"><span class="annot"><span class="annottext">buildSuggestersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BuildSuggestersResponse -&gt; f BuildSuggestersResponse
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#buildSuggestersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">buildSuggestersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSuggestersResponse -&gt; Int)
+-&gt; (BuildSuggestersResponse -&gt; Int -&gt; BuildSuggestersResponse)
+-&gt; Lens BuildSuggestersResponse BuildSuggestersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-type">BuildSuggestersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215816"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BuildSuggestersResponse' :: BuildSuggestersResponse -&gt; Int
+</span><a href="#local-6989586621679215816"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215816"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215815"><span class="annot"><span class="annottext">s :: BuildSuggestersResponse
+</span><a href="#local-6989586621679215815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse%27"><span class="hs-identifier hs-type">BuildSuggestersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSuggestersResponse
+</span><a href="#local-6989586621679215815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BuildSuggestersResponse' :: Int
+</span><a href="Network.AWS.CloudSearch.BuildSuggesters.html#%24sel%3AhttpStatus%3ABuildSuggestersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.BuildSuggesters.html#BuildSuggestersResponse"><span class="hs-identifier hs-type">BuildSuggestersResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

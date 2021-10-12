@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WAFRegional.CreateByteMatchSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Creates a @ByteMatchSet@. You then use UpdateByteMatchSet to identify</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the part of a web request that you want AWS WAF to inspect, such as the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- values of the @User-Agent@ header or the query string. For example, you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- can create a @ByteMatchSet@ that matches any requests with @User-Agent@</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- headers that contain the string @BadBot@. You can then configure AWS WAF</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- to reject those requests.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- To create and configure a @ByteMatchSet@, perform the following steps:</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- 1.  Use GetChangeToken to get the change token that you provide in the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     @ChangeToken@ parameter of a @CreateByteMatchSet@ request.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 2.  Submit a @CreateByteMatchSet@ request.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 3.  Use @GetChangeToken@ to get the change token that you provide in the</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     @ChangeToken@ parameter of an @UpdateByteMatchSet@ request.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 4.  Submit an UpdateByteMatchSet request to specify the part of the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     request that you want AWS WAF to inspect (for example, the header or</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     the URI) and the value that you want AWS WAF to watch for.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- For more information about how to use the AWS WAF API to allow or block</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- HTTP requests, see the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WAFRegional.CreateByteMatchSet</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier">CreateByteMatchSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSet"><span class="hs-identifier">newCreateByteMatchSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_name"><span class="hs-identifier">createByteMatchSet_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_changeToken"><span class="hs-identifier">createByteMatchSet_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier">CreateByteMatchSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSetResponse"><span class="hs-identifier">newCreateByteMatchSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_byteMatchSet"><span class="hs-identifier">createByteMatchSetResponse_byteMatchSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_changeToken"><span class="hs-identifier">createByteMatchSetResponse_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_httpStatus"><span class="hs-identifier">createByteMatchSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateByteMatchSet' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679327511"><span id="local-6989586621679327512"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateByteMatchSet"><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-var">CreateByteMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateByteMatchSet%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-var">CreateByteMatchSet'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description of the ByteMatchSet. You can\'t change</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @Name@ after you create a @ByteMatchSet@.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aname%3ACreateByteMatchSet%27"><span class="annot"><span class="annottext">CreateByteMatchSet -&gt; Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3Aname%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateByteMatchSet%27"><span class="annot"><span class="annottext">CreateByteMatchSet -&gt; Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327504"><span id="local-6989586621679327506"><span class="annot"><span class="annottext">CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool
+(CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool)
+-&gt; (CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool)
+-&gt; Eq CreateByteMatchSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool
+$c/= :: CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool
+== :: CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool
+$c== :: CreateByteMatchSet -&gt; CreateByteMatchSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327495"><span id="local-6989586621679327497"><span id="local-6989586621679327499"><span id="local-6989586621679327501"><span class="annot"><span class="annottext">ReadPrec [CreateByteMatchSet]
+ReadPrec CreateByteMatchSet
+Int -&gt; ReadS CreateByteMatchSet
+ReadS [CreateByteMatchSet]
+(Int -&gt; ReadS CreateByteMatchSet)
+-&gt; ReadS [CreateByteMatchSet]
+-&gt; ReadPrec CreateByteMatchSet
+-&gt; ReadPrec [CreateByteMatchSet]
+-&gt; Read CreateByteMatchSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateByteMatchSet]
+$creadListPrec :: ReadPrec [CreateByteMatchSet]
+readPrec :: ReadPrec CreateByteMatchSet
+$creadPrec :: ReadPrec CreateByteMatchSet
+readList :: ReadS [CreateByteMatchSet]
+$creadList :: ReadS [CreateByteMatchSet]
+readsPrec :: Int -&gt; ReadS CreateByteMatchSet
+$creadsPrec :: Int -&gt; ReadS CreateByteMatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327488"><span id="local-6989586621679327490"><span id="local-6989586621679327492"><span class="annot"><span class="annottext">Int -&gt; CreateByteMatchSet -&gt; ShowS
+[CreateByteMatchSet] -&gt; ShowS
+CreateByteMatchSet -&gt; String
+(Int -&gt; CreateByteMatchSet -&gt; ShowS)
+-&gt; (CreateByteMatchSet -&gt; String)
+-&gt; ([CreateByteMatchSet] -&gt; ShowS)
+-&gt; Show CreateByteMatchSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateByteMatchSet] -&gt; ShowS
+$cshowList :: [CreateByteMatchSet] -&gt; ShowS
+show :: CreateByteMatchSet -&gt; String
+$cshow :: CreateByteMatchSet -&gt; String
+showsPrec :: Int -&gt; CreateByteMatchSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateByteMatchSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateByteMatchSet -&gt; Rep CreateByteMatchSet x)
+-&gt; (forall x. Rep CreateByteMatchSet x -&gt; CreateByteMatchSet)
+-&gt; Generic CreateByteMatchSet
+forall x. Rep CreateByteMatchSet x -&gt; CreateByteMatchSet
+forall x. CreateByteMatchSet -&gt; Rep CreateByteMatchSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateByteMatchSet x -&gt; CreateByteMatchSet
+$cfrom :: forall x. CreateByteMatchSet -&gt; Rep CreateByteMatchSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'CreateByteMatchSet' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'name', 'createByteMatchSet_name' - A friendly name or description of the ByteMatchSet. You can\'t change</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @Name@ after you create a @ByteMatchSet@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'changeToken', 'createByteMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSet"><span class="hs-identifier hs-type">newCreateByteMatchSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'changeToken'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span>
+</span><span id="line-111"></span><span id="newCreateByteMatchSet"><span class="annot"><span class="annottext">newCreateByteMatchSet :: Text -&gt; Text -&gt; CreateByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSet"><span class="hs-identifier hs-var hs-var">newCreateByteMatchSet</span></a></span></span><span> </span><span id="local-6989586621679327483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327483"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679327482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327482"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">CreateByteMatchSet' :: Text -&gt; Text -&gt; CreateByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateByteMatchSet' :: Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3Aname%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327483"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:CreateByteMatchSet' :: Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327482"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A friendly name or description of the ByteMatchSet. You can\'t change</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @Name@ after you create a @ByteMatchSet@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_name"><span class="hs-identifier hs-type">createByteMatchSet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="createByteMatchSet_name"><span class="annot"><span class="annottext">createByteMatchSet_name :: (Text -&gt; f Text) -&gt; CreateByteMatchSet -&gt; f CreateByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_name"><span class="hs-identifier hs-var hs-var">createByteMatchSet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateByteMatchSet -&gt; Text)
+-&gt; (CreateByteMatchSet -&gt; Text -&gt; CreateByteMatchSet)
+-&gt; Lens CreateByteMatchSet CreateByteMatchSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327479"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateByteMatchSet' :: CreateByteMatchSet -&gt; Text
+</span><a href="#local-6989586621679327479"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327479"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327478"><span class="annot"><span class="annottext">s :: CreateByteMatchSet
+</span><a href="#local-6989586621679327478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateByteMatchSet
+</span><a href="#local-6989586621679327478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateByteMatchSet' :: Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3Aname%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_changeToken"><span class="hs-identifier hs-type">createByteMatchSet_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="createByteMatchSet_changeToken"><span class="annot"><span class="annottext">createByteMatchSet_changeToken :: (Text -&gt; f Text) -&gt; CreateByteMatchSet -&gt; f CreateByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSet_changeToken"><span class="hs-identifier hs-var hs-var">createByteMatchSet_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateByteMatchSet -&gt; Text)
+-&gt; (CreateByteMatchSet -&gt; Text -&gt; CreateByteMatchSet)
+-&gt; Lens CreateByteMatchSet CreateByteMatchSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327476"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+$sel:changeToken:CreateByteMatchSet' :: CreateByteMatchSet -&gt; Text
+</span><a href="#local-6989586621679327476"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327476"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327475"><span class="annot"><span class="annottext">s :: CreateByteMatchSet
+</span><a href="#local-6989586621679327475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateByteMatchSet
+</span><a href="#local-6989586621679327475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateByteMatchSet' :: Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679327470"><span class="annot"><span class="annottext">request :: CreateByteMatchSet -&gt; Request CreateByteMatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateByteMatchSet -&gt; Request CreateByteMatchSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679327466"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateByteMatchSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateByteMatchSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateByteMatchSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateByteMatchSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateByteMatchSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327463"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679327462"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679327462"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679327461"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
+-&gt; Maybe Text -&gt; Int -&gt; CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">CreateByteMatchSetResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ByteMatchSet
+ -&gt; Maybe Text -&gt; Int -&gt; CreateByteMatchSetResponse)
+-&gt; Either String (Maybe ByteMatchSet)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateByteMatchSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ByteMatchSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ByteMatchSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateByteMatchSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateByteMatchSetResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateByteMatchSetResponse)
+-&gt; Either String Int -&gt; Either String CreateByteMatchSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327463"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327453"><span id="local-6989586621679327455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679327446"><span class="annot"><span class="annottext">toHeaders :: CreateByteMatchSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateByteMatchSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_Regional_20161128.CreateByteMatchSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327436"><span id="local-6989586621679327438"><span id="local-6989586621679327440"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679327434"><span class="annot"><span class="annottext">toJSON :: CreateByteMatchSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet%27"><span class="hs-identifier hs-type">CreateByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327431"><span id="local-6989586621679327432"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+name :: Text
+$sel:changeToken:CreateByteMatchSet' :: CreateByteMatchSet -&gt; Text
+$sel:name:CreateByteMatchSet' :: CreateByteMatchSet -&gt; Text
+</span><a href="#local-6989586621679327431"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327432"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327431"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679327425"><span class="annot"><span class="annottext">toPath :: CreateByteMatchSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateByteMatchSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSet"><span class="hs-identifier hs-type">CreateByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679327421"><span class="annot"><span class="annottext">toQuery :: CreateByteMatchSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateByteMatchSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newCreateByteMatchSetResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679327418"><span id="local-6989586621679327419"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateByteMatchSetResponse"><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-var">CreateByteMatchSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateByteMatchSetResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">CreateByteMatchSetResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A ByteMatchSet that contains no @ByteMatchTuple@ objects.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AbyteMatchSet%3ACreateByteMatchSetResponse%27"><span class="annot"><span class="annottext">CreateByteMatchSetResponse -&gt; Maybe ByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AbyteMatchSet%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var hs-var">byteMatchSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ByteMatchSet.html#ByteMatchSet"><span class="hs-identifier hs-type">ByteMatchSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateByteMatchSetResponse%27"><span class="annot"><span class="annottext">CreateByteMatchSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateByteMatchSetResponse%27"><span class="annot"><span class="annottext">CreateByteMatchSetResponse -&gt; Int
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AhttpStatus%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327411"><span id="local-6989586621679327413"><span class="annot"><span class="annottext">CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool
+(CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool)
+-&gt; (CreateByteMatchSetResponse
+    -&gt; CreateByteMatchSetResponse -&gt; Bool)
+-&gt; Eq CreateByteMatchSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool
+$c/= :: CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool
+== :: CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool
+$c== :: CreateByteMatchSetResponse -&gt; CreateByteMatchSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327403"><span id="local-6989586621679327405"><span id="local-6989586621679327407"><span id="local-6989586621679327409"><span class="annot"><span class="annottext">ReadPrec [CreateByteMatchSetResponse]
+ReadPrec CreateByteMatchSetResponse
+Int -&gt; ReadS CreateByteMatchSetResponse
+ReadS [CreateByteMatchSetResponse]
+(Int -&gt; ReadS CreateByteMatchSetResponse)
+-&gt; ReadS [CreateByteMatchSetResponse]
+-&gt; ReadPrec CreateByteMatchSetResponse
+-&gt; ReadPrec [CreateByteMatchSetResponse]
+-&gt; Read CreateByteMatchSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateByteMatchSetResponse]
+$creadListPrec :: ReadPrec [CreateByteMatchSetResponse]
+readPrec :: ReadPrec CreateByteMatchSetResponse
+$creadPrec :: ReadPrec CreateByteMatchSetResponse
+readList :: ReadS [CreateByteMatchSetResponse]
+$creadList :: ReadS [CreateByteMatchSetResponse]
+readsPrec :: Int -&gt; ReadS CreateByteMatchSetResponse
+$creadsPrec :: Int -&gt; ReadS CreateByteMatchSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327397"><span id="local-6989586621679327399"><span id="local-6989586621679327401"><span class="annot"><span class="annottext">Int -&gt; CreateByteMatchSetResponse -&gt; ShowS
+[CreateByteMatchSetResponse] -&gt; ShowS
+CreateByteMatchSetResponse -&gt; String
+(Int -&gt; CreateByteMatchSetResponse -&gt; ShowS)
+-&gt; (CreateByteMatchSetResponse -&gt; String)
+-&gt; ([CreateByteMatchSetResponse] -&gt; ShowS)
+-&gt; Show CreateByteMatchSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateByteMatchSetResponse] -&gt; ShowS
+$cshowList :: [CreateByteMatchSetResponse] -&gt; ShowS
+show :: CreateByteMatchSetResponse -&gt; String
+$cshow :: CreateByteMatchSetResponse -&gt; String
+showsPrec :: Int -&gt; CreateByteMatchSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateByteMatchSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateByteMatchSetResponse -&gt; Rep CreateByteMatchSetResponse x)
+-&gt; (forall x.
+    Rep CreateByteMatchSetResponse x -&gt; CreateByteMatchSetResponse)
+-&gt; Generic CreateByteMatchSetResponse
+forall x.
+Rep CreateByteMatchSetResponse x -&gt; CreateByteMatchSetResponse
+forall x.
+CreateByteMatchSetResponse -&gt; Rep CreateByteMatchSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateByteMatchSetResponse x -&gt; CreateByteMatchSetResponse
+$cfrom :: forall x.
+CreateByteMatchSetResponse -&gt; Rep CreateByteMatchSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'CreateByteMatchSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'byteMatchSet', 'createByteMatchSetResponse_byteMatchSet' - A ByteMatchSet that contains no @ByteMatchTuple@ objects.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'changeToken', 'createByteMatchSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateByteMatchSet@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'createByteMatchSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSetResponse"><span class="hs-identifier hs-type">newCreateByteMatchSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newCreateByteMatchSetResponse"><span class="annot"><span class="annottext">newCreateByteMatchSetResponse :: Int -&gt; CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#newCreateByteMatchSetResponse"><span class="hs-identifier hs-var hs-var">newCreateByteMatchSetResponse</span></a></span></span><span> </span><span id="local-6989586621679327394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">CreateByteMatchSetResponse' :: Maybe ByteMatchSet
+-&gt; Maybe Text -&gt; Int -&gt; CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:byteMatchSet:CreateByteMatchSetResponse' :: Maybe ByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AbyteMatchSet%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:CreateByteMatchSetResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateByteMatchSetResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AhttpStatus%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | A ByteMatchSet that contains no @ByteMatchTuple@ objects.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_byteMatchSet"><span class="hs-identifier hs-type">createByteMatchSetResponse_byteMatchSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ByteMatchSet.html#ByteMatchSet"><span class="hs-identifier hs-type">ByteMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="createByteMatchSetResponse_byteMatchSet"><span class="annot"><span class="annottext">createByteMatchSetResponse_byteMatchSet :: (Maybe ByteMatchSet -&gt; f (Maybe ByteMatchSet))
+-&gt; CreateByteMatchSetResponse -&gt; f CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_byteMatchSet"><span class="hs-identifier hs-var hs-var">createByteMatchSetResponse_byteMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateByteMatchSetResponse -&gt; Maybe ByteMatchSet)
+-&gt; (CreateByteMatchSetResponse
+    -&gt; Maybe ByteMatchSet -&gt; CreateByteMatchSetResponse)
+-&gt; Lens
+     CreateByteMatchSetResponse
+     CreateByteMatchSetResponse
+     (Maybe ByteMatchSet)
+     (Maybe ByteMatchSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327393"><span class="annot"><span class="annottext">Maybe ByteMatchSet
+byteMatchSet :: Maybe ByteMatchSet
+$sel:byteMatchSet:CreateByteMatchSetResponse' :: CreateByteMatchSetResponse -&gt; Maybe ByteMatchSet
+</span><a href="#local-6989586621679327393"><span class="hs-identifier hs-var hs-var">byteMatchSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><a href="#local-6989586621679327393"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327392"><span class="annot"><span class="annottext">s :: CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327391"><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><a href="#local-6989586621679327391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSet:CreateByteMatchSetResponse' :: Maybe ByteMatchSet
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AbyteMatchSet%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><a href="#local-6989586621679327391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_changeToken"><span class="hs-identifier hs-type">createByteMatchSetResponse_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="createByteMatchSetResponse_changeToken"><span class="annot"><span class="annottext">createByteMatchSetResponse_changeToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateByteMatchSetResponse -&gt; f CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_changeToken"><span class="hs-identifier hs-var hs-var">createByteMatchSetResponse_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateByteMatchSetResponse -&gt; Maybe Text)
+-&gt; (CreateByteMatchSetResponse
+    -&gt; Maybe Text -&gt; CreateByteMatchSetResponse)
+-&gt; Lens
+     CreateByteMatchSetResponse
+     CreateByteMatchSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327390"><span class="annot"><span class="annottext">Maybe Text
+changeToken :: Maybe Text
+$sel:changeToken:CreateByteMatchSetResponse' :: CreateByteMatchSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679327390"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327390"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327389"><span class="annot"><span class="annottext">s :: CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateByteMatchSetResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AchangeToken%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_httpStatus"><span class="hs-identifier hs-type">createByteMatchSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="createByteMatchSetResponse_httpStatus"><span class="annot"><span class="annottext">createByteMatchSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateByteMatchSetResponse -&gt; f CreateByteMatchSetResponse
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#createByteMatchSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createByteMatchSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateByteMatchSetResponse -&gt; Int)
+-&gt; (CreateByteMatchSetResponse
+    -&gt; Int -&gt; CreateByteMatchSetResponse)
+-&gt; Lens
+     CreateByteMatchSetResponse CreateByteMatchSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327387"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateByteMatchSetResponse' :: CreateByteMatchSetResponse -&gt; Int
+</span><a href="#local-6989586621679327387"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327387"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327386"><span class="annot"><span class="annottext">s :: CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse%27"><span class="hs-identifier hs-type">CreateByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateByteMatchSetResponse
+</span><a href="#local-6989586621679327386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateByteMatchSetResponse' :: Int
+</span><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#%24sel%3AhttpStatus%3ACreateByteMatchSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateByteMatchSet.html#CreateByteMatchSetResponse"><span class="hs-identifier hs-type">CreateByteMatchSetResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

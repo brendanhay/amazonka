@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.FileHeaderInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.FileHeaderInfo</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier">FileHeaderInfo</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_IGNORE"><span class="hs-identifier">FileHeaderInfo_IGNORE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_NONE"><span class="hs-identifier">FileHeaderInfo_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_USE"><span class="hs-identifier">FileHeaderInfo_USE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679541040"><span id="local-6989586621679541041"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileHeaderInfo"><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-var">FileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileHeaderInfo%27"><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo%27"><span class="hs-identifier hs-var">FileHeaderInfo'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileHeaderInfo"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; Text
+</span><a href="Network.AWS.S3.Types.FileHeaderInfo.html#fromFileHeaderInfo"><span class="hs-identifier hs-var hs-var">fromFileHeaderInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679541032"><span id="local-6989586621679541034"><span id="local-6989586621679541036"><span class="annot"><span class="annottext">Int -&gt; FileHeaderInfo -&gt; ShowS
+[FileHeaderInfo] -&gt; ShowS
+FileHeaderInfo -&gt; String
+(Int -&gt; FileHeaderInfo -&gt; ShowS)
+-&gt; (FileHeaderInfo -&gt; String)
+-&gt; ([FileHeaderInfo] -&gt; ShowS)
+-&gt; Show FileHeaderInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FileHeaderInfo] -&gt; ShowS
+$cshowList :: [FileHeaderInfo] -&gt; ShowS
+show :: FileHeaderInfo -&gt; String
+$cshow :: FileHeaderInfo -&gt; String
+showsPrec :: Int -&gt; FileHeaderInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; FileHeaderInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679541023"><span id="local-6989586621679541025"><span id="local-6989586621679541027"><span id="local-6989586621679541029"><span class="annot"><span class="annottext">ReadPrec [FileHeaderInfo]
+ReadPrec FileHeaderInfo
+Int -&gt; ReadS FileHeaderInfo
+ReadS [FileHeaderInfo]
+(Int -&gt; ReadS FileHeaderInfo)
+-&gt; ReadS [FileHeaderInfo]
+-&gt; ReadPrec FileHeaderInfo
+-&gt; ReadPrec [FileHeaderInfo]
+-&gt; Read FileHeaderInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FileHeaderInfo]
+$creadListPrec :: ReadPrec [FileHeaderInfo]
+readPrec :: ReadPrec FileHeaderInfo
+$creadPrec :: ReadPrec FileHeaderInfo
+readList :: ReadS [FileHeaderInfo]
+$creadList :: ReadS [FileHeaderInfo]
+readsPrec :: Int -&gt; ReadS FileHeaderInfo
+$creadsPrec :: Int -&gt; ReadS FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679541018"><span id="local-6989586621679541020"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+(FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool) -&gt; Eq FileHeaderInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c/= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+== :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c== :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679541002"><span id="local-6989586621679541004"><span id="local-6989586621679541006"><span id="local-6989586621679541008"><span id="local-6989586621679541010"><span id="local-6989586621679541012"><span id="local-6989586621679541014"><span class="annot"><span class="annottext">Eq FileHeaderInfo
+Eq FileHeaderInfo
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Ordering)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo)
+-&gt; (FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo)
+-&gt; Ord FileHeaderInfo
+FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+FileHeaderInfo -&gt; FileHeaderInfo -&gt; Ordering
+FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo
+$cmin :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo
+max :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo
+$cmax :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; FileHeaderInfo
+&gt;= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c&gt;= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+&gt; :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c&gt; :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+&lt;= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c&lt;= :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+&lt; :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+$c&lt; :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Bool
+compare :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Ordering
+$ccompare :: FileHeaderInfo -&gt; FileHeaderInfo -&gt; Ordering
+$cp1Ord :: Eq FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FileHeaderInfo -&gt; Rep FileHeaderInfo x)
+-&gt; (forall x. Rep FileHeaderInfo x -&gt; FileHeaderInfo)
+-&gt; Generic FileHeaderInfo
+forall x. Rep FileHeaderInfo x -&gt; FileHeaderInfo
+forall x. FileHeaderInfo -&gt; Rep FileHeaderInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FileHeaderInfo x -&gt; FileHeaderInfo
+$cfrom :: forall x. FileHeaderInfo -&gt; Rep FileHeaderInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540994"><span id="local-6989586621679540996"><span class="annot"><span class="annottext">Int -&gt; FileHeaderInfo -&gt; Int
+FileHeaderInfo -&gt; Int
+(Int -&gt; FileHeaderInfo -&gt; Int)
+-&gt; (FileHeaderInfo -&gt; Int) -&gt; Hashable FileHeaderInfo
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FileHeaderInfo -&gt; Int
+$chash :: FileHeaderInfo -&gt; Int
+hashWithSalt :: Int -&gt; FileHeaderInfo -&gt; Int
+$chashWithSalt :: Int -&gt; FileHeaderInfo -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679540991"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; ()
+(FileHeaderInfo -&gt; ()) -&gt; NFData FileHeaderInfo
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FileHeaderInfo -&gt; ()
+$crnf :: FileHeaderInfo -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679540988"><span class="annot"><span class="annottext">Text -&gt; Either String FileHeaderInfo
+(Text -&gt; Either String FileHeaderInfo) -&gt; FromText FileHeaderInfo
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FileHeaderInfo
+$cfromText :: Text -&gt; Either String FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679540985"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; Text
+(FileHeaderInfo -&gt; Text) -&gt; ToText FileHeaderInfo
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FileHeaderInfo -&gt; Text
+$ctoText :: FileHeaderInfo -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679540982"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; ByteString
+(FileHeaderInfo -&gt; ByteString) -&gt; ToByteString FileHeaderInfo
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FileHeaderInfo -&gt; ByteString
+$ctoBS :: FileHeaderInfo -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679540979"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; ByteStringBuilder
+(FileHeaderInfo -&gt; ByteStringBuilder) -&gt; ToLog FileHeaderInfo
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FileHeaderInfo -&gt; ByteStringBuilder
+$cbuild :: FileHeaderInfo -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679540976"><span class="annot"><span class="annottext">HeaderName -&gt; FileHeaderInfo -&gt; [Header]
+(HeaderName -&gt; FileHeaderInfo -&gt; [Header])
+-&gt; ToHeader FileHeaderInfo
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FileHeaderInfo -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FileHeaderInfo -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679540973"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; QueryString
+(FileHeaderInfo -&gt; QueryString) -&gt; ToQuery FileHeaderInfo
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FileHeaderInfo -&gt; QueryString
+$ctoQuery :: FileHeaderInfo -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679540968"><span id="local-6989586621679540970"><span class="annot"><span class="annottext">Value -&gt; Parser [FileHeaderInfo]
+Value -&gt; Parser FileHeaderInfo
+(Value -&gt; Parser FileHeaderInfo)
+-&gt; (Value -&gt; Parser [FileHeaderInfo]) -&gt; FromJSON FileHeaderInfo
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FileHeaderInfo]
+$cparseJSONList :: Value -&gt; Parser [FileHeaderInfo]
+parseJSON :: Value -&gt; Parser FileHeaderInfo
+$cparseJSON :: Value -&gt; Parser FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679540963"><span id="local-6989586621679540965"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileHeaderInfo]
+FromJSONKeyFunction FileHeaderInfo
+FromJSONKeyFunction FileHeaderInfo
+-&gt; FromJSONKeyFunction [FileHeaderInfo]
+-&gt; FromJSONKey FileHeaderInfo
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FileHeaderInfo]
+$cfromJSONKeyList :: FromJSONKeyFunction [FileHeaderInfo]
+fromJSONKey :: FromJSONKeyFunction FileHeaderInfo
+$cfromJSONKey :: FromJSONKeyFunction FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540954"><span id="local-6989586621679540956"><span id="local-6989586621679540958"><span id="local-6989586621679540960"><span class="annot"><span class="annottext">[FileHeaderInfo] -&gt; Encoding
+[FileHeaderInfo] -&gt; Value
+FileHeaderInfo -&gt; Encoding
+FileHeaderInfo -&gt; Value
+(FileHeaderInfo -&gt; Value)
+-&gt; (FileHeaderInfo -&gt; Encoding)
+-&gt; ([FileHeaderInfo] -&gt; Value)
+-&gt; ([FileHeaderInfo] -&gt; Encoding)
+-&gt; ToJSON FileHeaderInfo
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FileHeaderInfo] -&gt; Encoding
+$ctoEncodingList :: [FileHeaderInfo] -&gt; Encoding
+toJSONList :: [FileHeaderInfo] -&gt; Value
+$ctoJSONList :: [FileHeaderInfo] -&gt; Value
+toEncoding :: FileHeaderInfo -&gt; Encoding
+$ctoEncoding :: FileHeaderInfo -&gt; Encoding
+toJSON :: FileHeaderInfo -&gt; Value
+$ctoJSON :: FileHeaderInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540949"><span id="local-6989586621679540951"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileHeaderInfo]
+ToJSONKeyFunction FileHeaderInfo
+ToJSONKeyFunction FileHeaderInfo
+-&gt; ToJSONKeyFunction [FileHeaderInfo] -&gt; ToJSONKey FileHeaderInfo
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FileHeaderInfo]
+$ctoJSONKeyList :: ToJSONKeyFunction [FileHeaderInfo]
+toJSONKey :: ToJSONKeyFunction FileHeaderInfo
+$ctoJSONKey :: ToJSONKeyFunction FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540946"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileHeaderInfo
+([Node] -&gt; Either String FileHeaderInfo) -&gt; FromXML FileHeaderInfo
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FileHeaderInfo
+$cparseXML :: [Node] -&gt; Either String FileHeaderInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679540943"><span class="annot"><span class="annottext">FileHeaderInfo -&gt; XML
+(FileHeaderInfo -&gt; XML) -&gt; ToXML FileHeaderInfo
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FileHeaderInfo -&gt; XML
+$ctoXML :: FileHeaderInfo -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_IGNORE"><span class="hs-identifier hs-type">FileHeaderInfo_IGNORE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileHeaderInfo_IGNORE"><span id="%24mFileHeaderInfo_IGNORE"><span id="FileHeaderInfo_IGNORE"><span class="annot"><span class="annottext">$bFileHeaderInfo_IGNORE :: FileHeaderInfo
+$mFileHeaderInfo_IGNORE :: forall r. FileHeaderInfo -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.FileHeaderInfo.html#%24bFileHeaderInfo_IGNORE"><span class="hs-identifier hs-var hs-var hs-var">FileHeaderInfo_IGNORE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo%27"><span class="hs-identifier hs-type">FileHeaderInfo'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IGNORE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_NONE"><span class="hs-identifier hs-type">FileHeaderInfo_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileHeaderInfo_NONE"><span id="%24mFileHeaderInfo_NONE"><span id="FileHeaderInfo_NONE"><span class="annot"><span class="annottext">$bFileHeaderInfo_NONE :: FileHeaderInfo
+$mFileHeaderInfo_NONE :: forall r. FileHeaderInfo -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.FileHeaderInfo.html#%24bFileHeaderInfo_NONE"><span class="hs-identifier hs-var hs-var hs-var">FileHeaderInfo_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo%27"><span class="hs-identifier hs-type">FileHeaderInfo'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_USE"><span class="hs-identifier hs-type">FileHeaderInfo_USE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo"><span class="hs-identifier hs-type">FileHeaderInfo</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFileHeaderInfo_USE"><span id="%24mFileHeaderInfo_USE"><span id="FileHeaderInfo_USE"><span class="annot"><span class="annottext">$bFileHeaderInfo_USE :: FileHeaderInfo
+$mFileHeaderInfo_USE :: forall r. FileHeaderInfo -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.FileHeaderInfo.html#%24bFileHeaderInfo_USE"><span class="hs-identifier hs-var hs-var hs-var">FileHeaderInfo_USE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo%27"><span class="hs-identifier hs-type">FileHeaderInfo'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_IGNORE"><span class="hs-pragma hs-type">FileHeaderInfo_IGNORE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_NONE"><span class="hs-pragma hs-type">FileHeaderInfo_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo_USE"><span class="hs-pragma hs-type">FileHeaderInfo_USE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.FileHeaderInfo.html#FileHeaderInfo%27"><span class="hs-pragma hs-type">FileHeaderInfo'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

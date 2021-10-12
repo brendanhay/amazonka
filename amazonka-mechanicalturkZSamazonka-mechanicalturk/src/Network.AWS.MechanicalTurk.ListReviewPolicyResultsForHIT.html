@@ -1,0 +1,1063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The @ListReviewPolicyResultsForHIT@ operation retrieves the computed</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- results and the actions taken in the course of executing your Review</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Policies for a given HIT. For information about how to specify Review</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Policies when you call CreateHIT, see Review Policies. The</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- ListReviewPolicyResultsForHIT operation can return results for both</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Assignment-level and HIT-level review results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHIT"><span class="hs-identifier">newListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_nextToken"><span class="hs-identifier">listReviewPolicyResultsForHIT_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_maxResults"><span class="hs-identifier">listReviewPolicyResultsForHIT_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveResults"><span class="hs-identifier">listReviewPolicyResultsForHIT_retrieveResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveActions"><span class="hs-identifier">listReviewPolicyResultsForHIT_retrieveActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_policyLevels"><span class="hs-identifier">listReviewPolicyResultsForHIT_policyLevels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_hITId"><span class="hs-identifier">listReviewPolicyResultsForHIT_hITId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHITResponse"><span class="hs-identifier">newListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_nextToken"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITId"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_hITId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewPolicy"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_hITReviewPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewReport"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_assignmentReviewReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewReport"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_hITReviewReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewPolicy"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_assignmentReviewPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_httpStatus"><span class="hs-identifier">listReviewPolicyResultsForHITResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.html"><span class="hs-identifier">Network.AWS.MechanicalTurk.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newListReviewPolicyResultsForHIT' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679249145"><span id="local-6989586621679249146"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewPolicyResultsForHIT"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-var">ListReviewPolicyResultsForHIT</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewPolicyResultsForHIT%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">ListReviewPolicyResultsForHIT'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Maybe Natural
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AmaxResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Specify if the operation should retrieve a list of the results computed</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- by the Review Policies.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AretrieveResults%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">retrieveResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specify if the operation should retrieve a list of the actions taken</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- executing the Review Policies and their outcomes.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AretrieveActions%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveActions%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">retrieveActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The Policy Level(s) to retrieve review results for - HIT or Assignment.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- If omitted, the default behavior is to retrieve all data for both policy</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- levels. For a list of all the described policies, see Review Policies.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3ApolicyLevels%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Maybe [ReviewPolicyLevel]
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3ApolicyLevels%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">policyLevels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel"><span class="hs-identifier hs-type">ReviewPolicyLevel</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the HIT to retrieve review results for.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AhITId%3AListReviewPolicyResultsForHIT%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT -&gt; Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249134"><span id="local-6989586621679249136"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+-&gt; ListReviewPolicyResultsForHIT -&gt; Bool
+(ListReviewPolicyResultsForHIT
+ -&gt; ListReviewPolicyResultsForHIT -&gt; Bool)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; ListReviewPolicyResultsForHIT -&gt; Bool)
+-&gt; Eq ListReviewPolicyResultsForHIT
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReviewPolicyResultsForHIT
+-&gt; ListReviewPolicyResultsForHIT -&gt; Bool
+$c/= :: ListReviewPolicyResultsForHIT
+-&gt; ListReviewPolicyResultsForHIT -&gt; Bool
+== :: ListReviewPolicyResultsForHIT
+-&gt; ListReviewPolicyResultsForHIT -&gt; Bool
+$c== :: ListReviewPolicyResultsForHIT
+-&gt; ListReviewPolicyResultsForHIT -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249125"><span id="local-6989586621679249127"><span id="local-6989586621679249129"><span id="local-6989586621679249131"><span class="annot"><span class="annottext">ReadPrec [ListReviewPolicyResultsForHIT]
+ReadPrec ListReviewPolicyResultsForHIT
+Int -&gt; ReadS ListReviewPolicyResultsForHIT
+ReadS [ListReviewPolicyResultsForHIT]
+(Int -&gt; ReadS ListReviewPolicyResultsForHIT)
+-&gt; ReadS [ListReviewPolicyResultsForHIT]
+-&gt; ReadPrec ListReviewPolicyResultsForHIT
+-&gt; ReadPrec [ListReviewPolicyResultsForHIT]
+-&gt; Read ListReviewPolicyResultsForHIT
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReviewPolicyResultsForHIT]
+$creadListPrec :: ReadPrec [ListReviewPolicyResultsForHIT]
+readPrec :: ReadPrec ListReviewPolicyResultsForHIT
+$creadPrec :: ReadPrec ListReviewPolicyResultsForHIT
+readList :: ReadS [ListReviewPolicyResultsForHIT]
+$creadList :: ReadS [ListReviewPolicyResultsForHIT]
+readsPrec :: Int -&gt; ReadS ListReviewPolicyResultsForHIT
+$creadsPrec :: Int -&gt; ReadS ListReviewPolicyResultsForHIT
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249118"><span id="local-6989586621679249120"><span id="local-6989586621679249122"><span class="annot"><span class="annottext">Int -&gt; ListReviewPolicyResultsForHIT -&gt; ShowS
+[ListReviewPolicyResultsForHIT] -&gt; ShowS
+ListReviewPolicyResultsForHIT -&gt; String
+(Int -&gt; ListReviewPolicyResultsForHIT -&gt; ShowS)
+-&gt; (ListReviewPolicyResultsForHIT -&gt; String)
+-&gt; ([ListReviewPolicyResultsForHIT] -&gt; ShowS)
+-&gt; Show ListReviewPolicyResultsForHIT
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReviewPolicyResultsForHIT] -&gt; ShowS
+$cshowList :: [ListReviewPolicyResultsForHIT] -&gt; ShowS
+show :: ListReviewPolicyResultsForHIT -&gt; String
+$cshow :: ListReviewPolicyResultsForHIT -&gt; String
+showsPrec :: Int -&gt; ListReviewPolicyResultsForHIT -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReviewPolicyResultsForHIT -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListReviewPolicyResultsForHIT
+ -&gt; Rep ListReviewPolicyResultsForHIT x)
+-&gt; (forall x.
+    Rep ListReviewPolicyResultsForHIT x
+    -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Generic ListReviewPolicyResultsForHIT
+forall x.
+Rep ListReviewPolicyResultsForHIT x
+-&gt; ListReviewPolicyResultsForHIT
+forall x.
+ListReviewPolicyResultsForHIT
+-&gt; Rep ListReviewPolicyResultsForHIT x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListReviewPolicyResultsForHIT x
+-&gt; ListReviewPolicyResultsForHIT
+$cfrom :: forall x.
+ListReviewPolicyResultsForHIT
+-&gt; Rep ListReviewPolicyResultsForHIT x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'ListReviewPolicyResultsForHIT' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'nextToken', 'listReviewPolicyResultsForHIT_nextToken' - Pagination token</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'maxResults', 'listReviewPolicyResultsForHIT_maxResults' - Limit the number of results returned.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'retrieveResults', 'listReviewPolicyResultsForHIT_retrieveResults' - Specify if the operation should retrieve a list of the results computed</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- by the Review Policies.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'retrieveActions', 'listReviewPolicyResultsForHIT_retrieveActions' - Specify if the operation should retrieve a list of the actions taken</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- executing the Review Policies and their outcomes.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'policyLevels', 'listReviewPolicyResultsForHIT_policyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If omitted, the default behavior is to retrieve all data for both policy</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- levels. For a list of all the described policies, see Review Policies.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'hITId', 'listReviewPolicyResultsForHIT_hITId' - The unique identifier of the HIT to retrieve review results for.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">newListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'hITId'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span>
+</span><span id="line-112"></span><span id="newListReviewPolicyResultsForHIT"><span class="annot"><span class="annottext">newListReviewPolicyResultsForHIT :: Text -&gt; ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHIT"><span class="hs-identifier hs-var hs-var">newListReviewPolicyResultsForHIT</span></a></span></span><span> </span><span id="local-6989586621679249113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249113"><span class="hs-identifier hs-var">pHITId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [ReviewPolicyLevel]
+-&gt; Text
+-&gt; ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewPolicyResultsForHIT' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewPolicyResultsForHIT' :: Maybe Natural
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AmaxResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:retrieveResults:ListReviewPolicyResultsForHIT' :: Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">retrieveResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:retrieveActions:ListReviewPolicyResultsForHIT' :: Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveActions%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">retrieveActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyLevels:ListReviewPolicyResultsForHIT' :: Maybe [ReviewPolicyLevel]
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3ApolicyLevels%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">policyLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITId:ListReviewPolicyResultsForHIT' :: Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249113"><span class="hs-identifier hs-var">pHITId_</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Pagination token</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_nextToken"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listReviewPolicyResultsForHIT_nextToken"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_nextToken"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Maybe Text)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Maybe Text -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249110"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Text
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249109"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewPolicyResultsForHIT' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_maxResults"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listReviewPolicyResultsForHIT_maxResults"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_maxResults"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Maybe Natural)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Maybe Natural -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249107"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Natural
+</span><a href="#local-6989586621679249107"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249107"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249106"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249105"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewPolicyResultsForHIT' :: Maybe Natural
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AmaxResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Specify if the operation should retrieve a list of the results computed</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- by the Review Policies.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveResults"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_retrieveResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="listReviewPolicyResultsForHIT_retrieveResults"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_retrieveResults :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveResults"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_retrieveResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Maybe Bool)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Maybe Bool -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249104"><span class="annot"><span class="annottext">Maybe Bool
+retrieveResults :: Maybe Bool
+$sel:retrieveResults:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var hs-var">retrieveResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">retrieveResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249103"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249102"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retrieveResults:ListReviewPolicyResultsForHIT' :: Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveResults%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">retrieveResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Specify if the operation should retrieve a list of the actions taken</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- executing the Review Policies and their outcomes.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveActions"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_retrieveActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="listReviewPolicyResultsForHIT_retrieveActions"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_retrieveActions :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_retrieveActions"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_retrieveActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Maybe Bool)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Maybe Bool -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249101"><span class="annot"><span class="annottext">Maybe Bool
+retrieveActions :: Maybe Bool
+$sel:retrieveActions:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var hs-var">retrieveActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">retrieveActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249100"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249099"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retrieveActions:ListReviewPolicyResultsForHIT' :: Maybe Bool
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AretrieveActions%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">retrieveActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The Policy Level(s) to retrieve review results for - HIT or Assignment.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If omitted, the default behavior is to retrieve all data for both policy</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- levels. For a list of all the described policies, see Review Policies.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_policyLevels"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_policyLevels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel"><span class="hs-identifier hs-type">ReviewPolicyLevel</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listReviewPolicyResultsForHIT_policyLevels"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_policyLevels :: (Maybe [ReviewPolicyLevel] -&gt; f (Maybe [ReviewPolicyLevel]))
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_policyLevels"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_policyLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Maybe [ReviewPolicyLevel])
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Maybe [ReviewPolicyLevel] -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     (Maybe [ReviewPolicyLevel])
+     (Maybe [ReviewPolicyLevel])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249098"><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+policyLevels :: Maybe [ReviewPolicyLevel]
+$sel:policyLevels:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe [ReviewPolicyLevel]
+</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var hs-var">policyLevels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var">policyLevels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249097"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249096"><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+</span><a href="#local-6989586621679249096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyLevels:ListReviewPolicyResultsForHIT' :: Maybe [ReviewPolicyLevel]
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3ApolicyLevels%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">policyLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+</span><a href="#local-6989586621679249096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReviewPolicyLevel] -&gt; f (Maybe [ReviewPolicyLevel]))
+ -&gt; ListReviewPolicyResultsForHIT
+ -&gt; f ListReviewPolicyResultsForHIT)
+-&gt; ((Maybe [ReviewPolicyLevel] -&gt; f (Maybe [ReviewPolicyLevel]))
+    -&gt; Maybe [ReviewPolicyLevel] -&gt; f (Maybe [ReviewPolicyLevel]))
+-&gt; (Maybe [ReviewPolicyLevel] -&gt; f (Maybe [ReviewPolicyLevel]))
+-&gt; ListReviewPolicyResultsForHIT
+-&gt; f ListReviewPolicyResultsForHIT
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+-&gt; Iso
+     (Maybe [ReviewPolicyLevel])
+     (Maybe [ReviewPolicyLevel])
+     (Maybe [ReviewPolicyLevel])
+     (Maybe [ReviewPolicyLevel])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+  [ReviewPolicyLevel]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The unique identifier of the HIT to retrieve review results for.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_hITId"><span class="hs-identifier hs-type">listReviewPolicyResultsForHIT_hITId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="listReviewPolicyResultsForHIT_hITId"><span class="annot"><span class="annottext">listReviewPolicyResultsForHIT_hITId :: (Text -&gt; f Text)
+-&gt; ListReviewPolicyResultsForHIT -&gt; f ListReviewPolicyResultsForHIT
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHIT_hITId"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHIT_hITId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHIT -&gt; Text)
+-&gt; (ListReviewPolicyResultsForHIT
+    -&gt; Text -&gt; ListReviewPolicyResultsForHIT)
+-&gt; Lens
+     ListReviewPolicyResultsForHIT
+     ListReviewPolicyResultsForHIT
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249092"><span class="annot"><span class="annottext">Text
+hITId :: Text
+$sel:hITId:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Text
+</span><a href="#local-6989586621679249092"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249092"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249091"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249090"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHIT
+</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:ListReviewPolicyResultsForHIT' :: Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679249086"><span class="annot"><span class="annottext">request :: ListReviewPolicyResultsForHIT
+-&gt; Request ListReviewPolicyResultsForHIT
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListReviewPolicyResultsForHIT
+-&gt; Request ListReviewPolicyResultsForHIT
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679249082"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListReviewPolicyResultsForHIT
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListReviewPolicyResultsForHIT)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListReviewPolicyResultsForHIT))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListReviewPolicyResultsForHIT
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListReviewPolicyResultsForHIT)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReviewPolicy
+-&gt; Maybe ReviewReport
+-&gt; Maybe ReviewReport
+-&gt; Maybe ReviewPolicy
+-&gt; Int
+-&gt; ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">ListReviewPolicyResultsForHITResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ReviewPolicy
+ -&gt; Maybe ReviewReport
+ -&gt; Maybe ReviewReport
+ -&gt; Maybe ReviewPolicy
+ -&gt; Int
+ -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ReviewPolicy
+      -&gt; Maybe ReviewReport
+      -&gt; Maybe ReviewReport
+      -&gt; Maybe ReviewPolicy
+      -&gt; Int
+      -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ReviewPolicy
+   -&gt; Maybe ReviewReport
+   -&gt; Maybe ReviewReport
+   -&gt; Maybe ReviewPolicy
+   -&gt; Int
+   -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ReviewPolicy
+      -&gt; Maybe ReviewReport
+      -&gt; Maybe ReviewReport
+      -&gt; Maybe ReviewPolicy
+      -&gt; Int
+      -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReviewPolicy
+   -&gt; Maybe ReviewReport
+   -&gt; Maybe ReviewReport
+   -&gt; Maybe ReviewPolicy
+   -&gt; Int
+   -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe ReviewPolicy)
+-&gt; Either
+     String
+     (Maybe ReviewReport
+      -&gt; Maybe ReviewReport
+      -&gt; Maybe ReviewPolicy
+      -&gt; Int
+      -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReviewPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITReviewPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReviewReport
+   -&gt; Maybe ReviewReport
+   -&gt; Maybe ReviewPolicy
+   -&gt; Int
+   -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe ReviewReport)
+-&gt; Either
+     String
+     (Maybe ReviewReport
+      -&gt; Maybe ReviewPolicy
+      -&gt; Int
+      -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReviewReport)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssignmentReviewReport&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReviewReport
+   -&gt; Maybe ReviewPolicy
+   -&gt; Int
+   -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe ReviewReport)
+-&gt; Either
+     String
+     (Maybe ReviewPolicy
+      -&gt; Int -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReviewReport)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITReviewReport&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ReviewPolicy
+   -&gt; Int -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String (Maybe ReviewPolicy)
+-&gt; Either String (Int -&gt; ListReviewPolicyResultsForHITResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReviewPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssignmentReviewPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Either String Int
+-&gt; Either String ListReviewPolicyResultsForHITResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679249069"><span id="local-6989586621679249071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679249062"><span class="annot"><span class="annottext">toHeaders :: ListReviewPolicyResultsForHIT -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReviewPolicyResultsForHIT -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249052"><span id="local-6989586621679249054"><span id="local-6989586621679249056"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679249050"><span class="annot"><span class="annottext">toJSON :: ListReviewPolicyResultsForHIT -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249043"><span id="local-6989586621679249044"><span id="local-6989586621679249045"><span id="local-6989586621679249046"><span id="local-6989586621679249047"><span id="local-6989586621679249048"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [ReviewPolicyLevel]
+Maybe Text
+Text
+hITId :: Text
+policyLevels :: Maybe [ReviewPolicyLevel]
+retrieveActions :: Maybe Bool
+retrieveResults :: Maybe Bool
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:hITId:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Text
+$sel:policyLevels:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe [ReviewPolicyLevel]
+$sel:retrieveActions:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+$sel:retrieveResults:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Bool
+$sel:maxResults:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Natural
+$sel:nextToken:ListReviewPolicyResultsForHIT' :: ListReviewPolicyResultsForHIT -&gt; Maybe Text
+</span><a href="#local-6989586621679249043"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249048"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249047"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetrieveResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249046"><span class="hs-identifier hs-var">retrieveResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetrieveActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249045"><span class="hs-identifier hs-var">retrieveActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyLevels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReviewPolicyLevel] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ReviewPolicyLevel] -&gt; Pair)
+-&gt; Maybe [ReviewPolicyLevel] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReviewPolicyLevel]
+</span><a href="#local-6989586621679249044"><span class="hs-identifier hs-var">policyLevels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HITId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249043"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679249037"><span class="annot"><span class="annottext">toPath :: ListReviewPolicyResultsForHIT -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReviewPolicyResultsForHIT -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHIT"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHIT</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679249033"><span class="annot"><span class="annottext">toQuery :: ListReviewPolicyResultsForHIT -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListReviewPolicyResultsForHIT -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newListReviewPolicyResultsForHITResponse' smart constructor.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679249030"><span id="local-6989586621679249031"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewPolicyResultsForHITResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-var">ListReviewPolicyResultsForHITResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewPolicyResultsForHITResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">ListReviewPolicyResultsForHITResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The HITId of the HIT for which results have been returned.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AhITId%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The name of the HIT-level Review Policy. This contains only the</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhITReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">hITReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | Contains both ReviewResult and ReviewAction elements for an Assignment.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AassignmentReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">assignmentReviewReport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | Contains both ReviewResult and ReviewAction elements for a particular</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- HIT.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3AhITReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">hITReviewReport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- | The name of the Assignment-level Review Policy. This contains only the</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AassignmentReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">assignmentReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListReviewPolicyResultsForHITResponse%27"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse -&gt; Int
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhttpStatus%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249019"><span id="local-6989586621679249021"><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+-&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool
+(ListReviewPolicyResultsForHITResponse
+ -&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool)
+-&gt; Eq ListReviewPolicyResultsForHITResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReviewPolicyResultsForHITResponse
+-&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool
+$c/= :: ListReviewPolicyResultsForHITResponse
+-&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool
+== :: ListReviewPolicyResultsForHITResponse
+-&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool
+$c== :: ListReviewPolicyResultsForHITResponse
+-&gt; ListReviewPolicyResultsForHITResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249011"><span id="local-6989586621679249013"><span id="local-6989586621679249015"><span id="local-6989586621679249017"><span class="annot"><span class="annottext">ReadPrec [ListReviewPolicyResultsForHITResponse]
+ReadPrec ListReviewPolicyResultsForHITResponse
+Int -&gt; ReadS ListReviewPolicyResultsForHITResponse
+ReadS [ListReviewPolicyResultsForHITResponse]
+(Int -&gt; ReadS ListReviewPolicyResultsForHITResponse)
+-&gt; ReadS [ListReviewPolicyResultsForHITResponse]
+-&gt; ReadPrec ListReviewPolicyResultsForHITResponse
+-&gt; ReadPrec [ListReviewPolicyResultsForHITResponse]
+-&gt; Read ListReviewPolicyResultsForHITResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReviewPolicyResultsForHITResponse]
+$creadListPrec :: ReadPrec [ListReviewPolicyResultsForHITResponse]
+readPrec :: ReadPrec ListReviewPolicyResultsForHITResponse
+$creadPrec :: ReadPrec ListReviewPolicyResultsForHITResponse
+readList :: ReadS [ListReviewPolicyResultsForHITResponse]
+$creadList :: ReadS [ListReviewPolicyResultsForHITResponse]
+readsPrec :: Int -&gt; ReadS ListReviewPolicyResultsForHITResponse
+$creadsPrec :: Int -&gt; ReadS ListReviewPolicyResultsForHITResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249005"><span id="local-6989586621679249007"><span id="local-6989586621679249009"><span class="annot"><span class="annottext">Int -&gt; ListReviewPolicyResultsForHITResponse -&gt; ShowS
+[ListReviewPolicyResultsForHITResponse] -&gt; ShowS
+ListReviewPolicyResultsForHITResponse -&gt; String
+(Int -&gt; ListReviewPolicyResultsForHITResponse -&gt; ShowS)
+-&gt; (ListReviewPolicyResultsForHITResponse -&gt; String)
+-&gt; ([ListReviewPolicyResultsForHITResponse] -&gt; ShowS)
+-&gt; Show ListReviewPolicyResultsForHITResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReviewPolicyResultsForHITResponse] -&gt; ShowS
+$cshowList :: [ListReviewPolicyResultsForHITResponse] -&gt; ShowS
+show :: ListReviewPolicyResultsForHITResponse -&gt; String
+$cshow :: ListReviewPolicyResultsForHITResponse -&gt; String
+showsPrec :: Int -&gt; ListReviewPolicyResultsForHITResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReviewPolicyResultsForHITResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListReviewPolicyResultsForHITResponse
+ -&gt; Rep ListReviewPolicyResultsForHITResponse x)
+-&gt; (forall x.
+    Rep ListReviewPolicyResultsForHITResponse x
+    -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Generic ListReviewPolicyResultsForHITResponse
+forall x.
+Rep ListReviewPolicyResultsForHITResponse x
+-&gt; ListReviewPolicyResultsForHITResponse
+forall x.
+ListReviewPolicyResultsForHITResponse
+-&gt; Rep ListReviewPolicyResultsForHITResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListReviewPolicyResultsForHITResponse x
+-&gt; ListReviewPolicyResultsForHITResponse
+$cfrom :: forall x.
+ListReviewPolicyResultsForHITResponse
+-&gt; Rep ListReviewPolicyResultsForHITResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Create a value of 'ListReviewPolicyResultsForHITResponse' with all optional fields omitted.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'nextToken', 'listReviewPolicyResultsForHITResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'hITId', 'listReviewPolicyResultsForHITResponse_hITId' - The HITId of the HIT for which results have been returned.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'hITReviewPolicy', 'listReviewPolicyResultsForHITResponse_hITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'assignmentReviewReport', 'listReviewPolicyResultsForHITResponse_assignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'hITReviewReport', 'listReviewPolicyResultsForHITResponse_hITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- HIT.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'assignmentReviewPolicy', 'listReviewPolicyResultsForHITResponse_assignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'httpStatus', 'listReviewPolicyResultsForHITResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">newListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span>
+</span><span id="line-263"></span><span id="newListReviewPolicyResultsForHITResponse"><span class="annot"><span class="annottext">newListReviewPolicyResultsForHITResponse :: Int -&gt; ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#newListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-var hs-var">newListReviewPolicyResultsForHITResponse</span></a></span></span><span> </span><span id="local-6989586621679249002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReviewPolicy
+-&gt; Maybe ReviewReport
+-&gt; Maybe ReviewReport
+-&gt; Maybe ReviewPolicy
+-&gt; Int
+-&gt; ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewPolicyResultsForHITResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITId:ListReviewPolicyResultsForHITResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITReviewPolicy:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITReviewPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:assignmentReviewReport:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">assignmentReviewReport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReviewReport
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITReviewReport:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITReviewReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewReport
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:assignmentReviewPolicy:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">assignmentReviewPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReviewPolicyResultsForHITResponse' :: Int
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhttpStatus%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_nextToken"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="listReviewPolicyResultsForHITResponse_nextToken"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_nextToken"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe Text)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe Text -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249001"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249001"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249001"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249000"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679249000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679249000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewPolicyResultsForHITResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AnextToken%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The HITId of the HIT for which results have been returned.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITId"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_hITId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="listReviewPolicyResultsForHITResponse_hITId"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_hITId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITId"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_hITId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe Text)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe Text -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248998"><span class="annot"><span class="annottext">Maybe Text
+hITId :: Maybe Text
+$sel:hITId:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679248998"><span class="hs-identifier hs-var hs-var">hITId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248998"><span class="hs-identifier hs-var">hITId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248997"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITId:ListReviewPolicyResultsForHITResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITId%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The name of the HIT-level Review Policy. This contains only the</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewPolicy"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_hITReviewPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="listReviewPolicyResultsForHITResponse_hITReviewPolicy"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_hITReviewPolicy :: (Maybe ReviewPolicy -&gt; f (Maybe ReviewPolicy))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewPolicy"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_hITReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe ReviewPolicy -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe ReviewPolicy)
+     (Maybe ReviewPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248995"><span class="annot"><span class="annottext">Maybe ReviewPolicy
+hITReviewPolicy :: Maybe ReviewPolicy
+$sel:hITReviewPolicy:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy
+</span><a href="#local-6989586621679248995"><span class="hs-identifier hs-var hs-var">hITReviewPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248995"><span class="hs-identifier hs-var">hITReviewPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248994"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248993"><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITReviewPolicy:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITReviewPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Contains both ReviewResult and ReviewAction elements for an Assignment.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewReport"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_assignmentReviewReport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="listReviewPolicyResultsForHITResponse_assignmentReviewReport"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_assignmentReviewReport :: (Maybe ReviewReport -&gt; f (Maybe ReviewReport))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewReport"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_assignmentReviewReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe ReviewReport -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe ReviewReport)
+     (Maybe ReviewReport)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248992"><span class="annot"><span class="annottext">Maybe ReviewReport
+assignmentReviewReport :: Maybe ReviewReport
+$sel:assignmentReviewReport:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport
+</span><a href="#local-6989586621679248992"><span class="hs-identifier hs-var hs-var">assignmentReviewReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248992"><span class="hs-identifier hs-var">assignmentReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248991"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248990"><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentReviewReport:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">assignmentReviewReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | Contains both ReviewResult and ReviewAction elements for a particular</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- HIT.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewReport"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_hITReviewReport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewReport.html#ReviewReport"><span class="hs-identifier hs-type">ReviewReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="listReviewPolicyResultsForHITResponse_hITReviewReport"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_hITReviewReport :: (Maybe ReviewReport -&gt; f (Maybe ReviewReport))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_hITReviewReport"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_hITReviewReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe ReviewReport -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe ReviewReport)
+     (Maybe ReviewReport)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248989"><span class="annot"><span class="annottext">Maybe ReviewReport
+hITReviewReport :: Maybe ReviewReport
+$sel:hITReviewReport:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewReport
+</span><a href="#local-6989586621679248989"><span class="hs-identifier hs-var hs-var">hITReviewReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248989"><span class="hs-identifier hs-var">hITReviewReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248988"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248987"><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITReviewReport:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewReport
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhITReviewReport%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">hITReviewReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewReport
+</span><a href="#local-6989586621679248987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The name of the Assignment-level Review Policy. This contains only the</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- PolicyName element.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewPolicy"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_assignmentReviewPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="listReviewPolicyResultsForHITResponse_assignmentReviewPolicy"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_assignmentReviewPolicy :: (Maybe ReviewPolicy -&gt; f (Maybe ReviewPolicy))
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_assignmentReviewPolicy"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_assignmentReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Maybe ReviewPolicy -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     (Maybe ReviewPolicy)
+     (Maybe ReviewPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248986"><span class="annot"><span class="annottext">Maybe ReviewPolicy
+assignmentReviewPolicy :: Maybe ReviewPolicy
+$sel:assignmentReviewPolicy:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Maybe ReviewPolicy
+</span><a href="#local-6989586621679248986"><span class="hs-identifier hs-var hs-var">assignmentReviewPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248986"><span class="hs-identifier hs-var">assignmentReviewPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248985"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248984"><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentReviewPolicy:ListReviewPolicyResultsForHITResponse' :: Maybe ReviewPolicy
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AassignmentReviewPolicy%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">assignmentReviewPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewPolicy
+</span><a href="#local-6989586621679248984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_httpStatus"><span class="hs-identifier hs-type">listReviewPolicyResultsForHITResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span id="listReviewPolicyResultsForHITResponse_httpStatus"><span class="annot"><span class="annottext">listReviewPolicyResultsForHITResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListReviewPolicyResultsForHITResponse
+-&gt; f ListReviewPolicyResultsForHITResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#listReviewPolicyResultsForHITResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listReviewPolicyResultsForHITResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewPolicyResultsForHITResponse -&gt; Int)
+-&gt; (ListReviewPolicyResultsForHITResponse
+    -&gt; Int -&gt; ListReviewPolicyResultsForHITResponse)
+-&gt; Lens
+     ListReviewPolicyResultsForHITResponse
+     ListReviewPolicyResultsForHITResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248983"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListReviewPolicyResultsForHITResponse' :: ListReviewPolicyResultsForHITResponse -&gt; Int
+</span><a href="#local-6989586621679248983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248982"><span class="annot"><span class="annottext">s :: ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewPolicyResultsForHITResponse
+</span><a href="#local-6989586621679248982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReviewPolicyResultsForHITResponse' :: Int
+</span><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#%24sel%3AhttpStatus%3AListReviewPolicyResultsForHITResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679248979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT.html#ListReviewPolicyResultsForHITResponse"><span class="hs-identifier hs-type">ListReviewPolicyResultsForHITResponse</span></a></span></span><span>
+</span><span id="line-311"></span></pre></body></html>
